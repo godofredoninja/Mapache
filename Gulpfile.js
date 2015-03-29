@@ -33,14 +33,14 @@ gulp.task('css', function() {
 });
 
 // Inyecta las librerias que instalemos vía Bower
-gulp.task('bower', function () {
+gulp.task('bower-inject', function () {
   gulp.src('layout.hbs')
     .pipe(wiredep({
       optional: 'configuration',
       goes: 'here',
-      ignorePath: '..'
+      // ignorePath: ''
     }))
-    .pipe(gulp.dest('layout.hbs'));
+    .pipe(gulp.dest('./'));
 });
 
 
@@ -52,7 +52,7 @@ gulp.task('inject', function() {
   .pipe(inject(sources, {
     read: true,
   }))
-  .pipe(gulp.dest('layout.hbs'));
+  .pipe(gulp.dest('./'));
 });
 
 
@@ -66,6 +66,6 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['inject', 'watch']);
-gulp.task('bower', ['bower']);
+gulp.task('bower', ['bower-inject']);
 
 

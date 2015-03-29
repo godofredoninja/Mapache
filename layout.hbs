@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{meta_title}}</title>
+
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- inject:css -->
+  <!-- endinject -->
+
+  {{! Ghost outputs important style and meta data with this tag }}
+  {{ghost_head}}
+</head>
+<body>
+
+  <div class="Landing">
+    {{!-- Add Header --}}
+    {{> "header"}}
+    {{!-- Add Content Body --}}
+    {{{body}}}
+    {{!-- Add footer --}}
+    {{> "footer"}}
+  </div>
+
+  {{! Ghost outputs important scripts and data with this tag }}
+  {{ghost_foot}}
+
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- inject:js -->
+  <!-- endinject -->
+</body>
+</html>
