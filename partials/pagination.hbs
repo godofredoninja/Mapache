@@ -1,0 +1,13 @@
+{{!-- Pagination --}}
+<div class="pagination col s12">
+  {{!-- Newer page --}}
+  <div class="pagination-newer">
+    <a href="{{page_url prev}}" class="btn-floating btn-large {{#if prev}}waves-effect waves-light red {{else}}disabled{{/if}}"><i class="mdi-navigation-chevron-left"></i></a>
+  </div>
+  {{!-- Counter pages --}}
+  <div class="pagination-number">{{page}} / {{pages}}</div>
+  {{!-- Older page --}}
+  <div class="pagination-older">
+    <a href="{{page_url next}}" class="btn-floating btn-large {{#if next}}waves-effect waves-light red {{else}}disabled{{/if}}"><i class="mdi-navigation-chevron-right"></i></a>
+  </div>
+</div>

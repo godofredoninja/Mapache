@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>{{meta_title}}</title>
 
   <!-- bower:css -->
+  <link rel="stylesheet" href="assets/lib/materialize/bin/materialize.css" />
   <!-- endbower -->
   <!-- inject:css -->
+  <link rel="stylesheet" href="/assets/css/main.css">
   <!-- endinject -->
 
   {{! Ghost outputs important style and meta data with this tag }}
@@ -17,7 +20,13 @@
     {{!-- Add Header --}}
     {{> "header"}}
     {{!-- Add Content Body --}}
-    {{{body}}}
+    <main>
+      <div class="u-wrap">
+        <section class="row">
+          {{{body}}}
+        </section>
+      </div>
+    </main>
     {{!-- Add footer --}}
     {{> "footer"}}
   </div>
@@ -26,6 +35,8 @@
   {{ghost_foot}}
 
   <!-- bower:js -->
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/materialize/bin/materialize.js"></script>
   <!-- endbower -->
   <!-- inject:js -->
   <!-- endinject -->

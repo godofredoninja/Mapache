@@ -56,12 +56,14 @@ gulp.task('inject', function() {
 });
 
 
+
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
 gulp.task('watch', function() {
   gulp.watch(['./stylus/**/*.styl'], ['css', 'inject']);
   gulp.watch(['./assets/scripts/**/*.js', './Gulpfile.js'], ['jshint', 'inject']);
 });
+
 
 
 

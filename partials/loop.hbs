@@ -1,0 +1,26 @@
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+
+<div class="col s12 m4">
+  <article class="Ps-inner z-depth-1 white">
+   {{#if image}}
+      <a href="{{url}}" class="Ps-img waves-effect waves-block waves-light" style="background-image:url({{image}})"></a>
+    {{/if}}
+    <header class="Ps-header">
+      <h2 class="Ps-title">
+        <a class="Ps-link" href="{{url}}">{{title}}</a>
+      </h2>
+    </header>
+    <footer class="Ps-footer">
+      <div class="Ps-tag left">
+        <time class="Ps-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format='YYYY-MM-DD'}}</time>
+      </div>
+
+    </footer>
+  </article>
+</div>
+
+{{/foreach}}
+
+{{! Previous/next page links - displayed on every page }}
+{{pagination}}
