@@ -1,23 +1,51 @@
-{{!-- Header Page --}}
-<header class="Header white z-depth-1 navbar-fixed">
-  <div class="u-wrap">
-    <div class="Header-wrap">
-      <div class="col s9">
-        {{!-- Add Logo --}}
-        <a class="Logo Inline col s4" href="{{@blog.url}}">
-          {{#if @blog.logo}}
-          <img  class="brand-logoImg" src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}} <span>{{@blog.title}}</span>
-          {{/if}}
-        </a>
-        {{!-- Menu --}}
-        {{!-- <a class="right" href="#Menu">Menu</a> --}}
-        {{!-- Form --}}
-        <div class="Header-form Inline col s8">
-          <form>
-              <input id="Search" placeholder="Buscar" type="text"/>
-          </form>
+{{!-- Navigation Page --}}
+<nav class="Menu white">
+  <div class="nav-wrapper">
+    <div class="u-wrap">
+      {{!-- Add Logo --}}
+      <a class="Logo brand-logo" href="{{@blog.url}}">
+        {{#if @blog.logo}}
+        <img  class="Logo-img" src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}} <span>{{@blog.title}}</span>
+        {{/if}}
+      </a>
+
+      <a href="#" class="Menu-openSearch"><i class="mdi-action-search"></i></a>
+
+      {{!-- Menu --}}
+      {{#if @blog.navigation}}
+      <ul class="right hide-on-med-and-down">{{navigation}}</ul>
+      {{!-- Menu Mobile --}}
+      <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+      <ul class="side-nav" id="menu-mobile">
+        <div class="Menu-profile {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}" >
+          <div class="Menu-mobileContent">
+            <div class="Menu-logoMobile">
+            {{#if @blog.logo}}
+              <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+            {{/if}}
+            </div>
+            <h2 class="Menu-logoTitle">{{@blog.title}}</h2>
+            <p class="Menu-pageDes" >{{@blog.description}}</p>
+          </div>
         </div>
+        {{navigation}}
+      </ul>
+      {{/if}}
+
+      {{!-- Form --}}
+      <div class="Menu-form close right">
+        <form>
+          <div class="input-field">
+            <input id="Search" type="search" placeholder="Buscar" required>
+          </div>
+          <div id="Search-results"></div>
+        </form>
+        <span class="Menu-closeSearch"> <i class="mdi-navigation-close"></i> </span>
       </div>
+
     </div>
   </div>
-</header>
+</nav>
+
+

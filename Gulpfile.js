@@ -38,7 +38,6 @@ gulp.task('bower-inject', function () {
     .pipe(wiredep({
       optional: 'configuration',
       goes: 'here',
-      // ignorePath: ''
     }))
     .pipe(gulp.dest('./'));
 });

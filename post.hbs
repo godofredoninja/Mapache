@@ -1,0 +1,81 @@
+{{!-- Add Layout --}}
+{{!< layout}}
+{{#post}}
+
+<div class="Post col s12 m8">
+  <article class="card">
+    <div class="card-content clear">
+    <header class="Post-header clear">
+      {{!-- Title Post --}}
+      <h1 class="Post-title">{{title}}</h1>
+      {{!-- Post Share --}}
+      <aside class="Share center">
+        <a class="Share-items btn waves-effect waves-light icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"> <span class="Share-hidden">Twittear</span> </a>
+        <a class="Share-items btn waves-effect waves-light icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"> <span class="Share-hidden">Compartir</span> </a>
+        <a class="Share-items btn waves-effect waves-light icon-google" href="https://plus.google.com/share?url={{url absolute="true"}}"onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"> <span class="Share-hidden">+ 1</span> </a>
+        <a class="Share-items btn waves-effect waves-light icon-whatsapp" href="whatsapp://send" data-text="{{title}}" data-href=""><span class="Share-hidden">Compartir</span></a>
+      </aside>
+      {{!-- Add Cover Img Post --}}
+      {{#if image}}
+      <figure class="Post-imgContent">
+        <img src="{{image}}" alt="{{title}}" class="Post-img"/>
+      </figure>
+      {{/if}}
+    </header>
+     <section class="Post-content">
+       {{content}}
+     </section>
+
+     </div>
+
+  </article>
+
+  {{!-- Post Share --}}
+  <aside class="Share center">
+    <h5 class="Share-title">Si te ha gustado éste h5ost, por favor, compártelo para que otros puedan leerlo. Eso me Ayudara y Motivara a tener Actualizado el Blog.</h5>
+
+    <a class="Share-items btn waves-effect waves-light icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"> <span class="Share-hidden">Twittear</span> </a>
+    <a class="Share-items btn waves-effect waves-light icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"> <span class="Share-hidden">Compartir</span> </a>
+    <a class="Share-items btn waves-effect waves-light icon-google" href="https://plus.google.com/share?url={{url absolute="true"}}"onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"> <span class="Share-hidden">+ 1</span> </a>
+    <a class="Share-items btn waves-effect waves-light icon-whatsapp" href="whatsapp://send" data-text="{{title}}" data-href=""><span class="Share-hidden">Compartir</span></a>
+  </aside>
+
+  {{!-- Add Auhor --}}
+  {{#author}}
+  <div class="row">
+    <div class="AuthorPost card">
+      <div class="card-content clear">
+        <div class="col s12 m2">
+          <a href="{{url}}" class="AuthorPost-img" {{#if image}}style="background-image:url('{{image}}')"{{/if }} ></a>
+        </div>
+
+        <div class="col s12 m10">
+          {{!-- Add Name Author --}}
+          <a class="AuthorPost-name" href="{{url}}">{{name}}</a>
+          {{!-- biography of the author --}}
+          {{#if bio}}<p>{{bio}}</p>{{/if}}
+          <p>Leer más <a href="{{url}}"><strong>artículos</strong></a> de mi</p>
+          {{!-- Tag Meta Author --}}
+          <div class="col s12 AuthorPost-meta">
+            {{#if location}}<span class="AuthorPost-location"> <i class="mdi-maps-place"></i> {{location}}</span>{{/if}}
+            {{#if website}} <span><a class="AuthorPost-web" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span> {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/author}}
+
+  {{!-- Add Comments --}}
+  <div class="card">
+    <div class="card-content">
+      <h3 class="Comments-title">¿Y tú qué opinas? Deja un comentario...</h3>
+      <div class="Comments-all">
+        <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{/post}}

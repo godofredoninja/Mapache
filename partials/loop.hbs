@@ -11,9 +11,27 @@
         <a class="Ps-link" href="{{url}}">{{title}}</a>
       </h2>
     </header>
+    {{#if image}}{{else}}
+      <div class="Ps-excerpt clear">
+        <p>{{excerpt words="26"}}</p>
+        <a class="read-more" href="{{url}}">Read More</a></p>
+      </div>
+    {{/if}}
     <footer class="Ps-footer">
       <div class="Ps-tag left">
-        <time class="Ps-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format='YYYY-MM-DD'}}</time>
+        {{!-- date post --}}
+        <time class="Ps-date" datetime="{{date format='YYYY-MM-DD'}}">
+          <i class="mdi-device-access-time"></i>
+          <span class="Ps-datetime">{{date published_at timeago="true"}}</span>
+        </time>
+      </div>
+      <div class="Ps-share right">
+        <span class="Ps-btn mdi-social-share"></span>
+        <ul class="Ps-shareC">
+          <li class="Ps-shareI"><a href="#" class="Ps-ShareL btn-floating waves-effect waves-light icon-facebook"></a></li>
+          <li class="Ps-shareI"><a href="#" class="Ps-ShareL btn-floating waves-effect waves-light icon-twitter"></a></li>
+          <li class="Ps-shareI"><a href="#" class="Ps-ShareL btn-floating waves-effect waves-light icon-google"></a></li>
+        </ul>
       </div>
 
     </footer>
