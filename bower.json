@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "description": "Desarrollo de mi Blog Ghost",
   "dependencies": {
-    "materialize": "~0.96.0"
+    "materialize": "~0.96.1"
   }
 }

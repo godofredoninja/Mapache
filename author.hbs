@@ -1,0 +1,32 @@
+{{!-- Add Layout --}}
+{{!< layout}}
+
+{{#author}}
+<div class="row">
+  <section class="Author center col s12 clear{{#if cover}} cover" style="background-image: url({{cover}}){{/if}}">
+    <div class="Author-wrap">
+      <span class="Author-line"></span>
+      {{!-- Avatar author --}}
+      <figure class="Author-profile">
+        <img class="Author-avatar u-avatar" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
+      </figure>
+      {{!-- add Info Author --}}
+      <article class="Author-info">
+        <h1 class="Author-name" >{{name}}</h1>
+        <p class="Author-about" itemprop="description">{{bio}}</p>
+        {{!-- Meta Author location website --}}
+        <div class="Author-meta">
+          {{#if location}}<span class="Author-location"><i class="mdi-communication-location-on"></i>  {{location}}</span>{{/if}}
+          {{#if website}}<span><a class="Author-website" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span>{{/if}}
+          <span class="Author-post"><i class="mdi-av-equalizer"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+{{/author}}
+
+
+{{!-- Add Loop --}}
+{{> "loop"}}

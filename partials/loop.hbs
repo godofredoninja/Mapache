@@ -1,7 +1,11 @@
+<main>
+  <div class="u-wrap">
+    <section class="row">
+
 {{! This is the post loop - each post will be output using this markup }}
 {{#foreach posts}}
 
-<div class="col s12 m4">
+<div class="Ps col s12 m4">
   <article class="Ps-inner z-depth-1 white">
    {{#if image}}
       <a href="{{url}}" class="Ps-img waves-effect waves-block waves-light" style="background-image:url({{image}})"></a>
@@ -11,12 +15,14 @@
         <a class="Ps-link" href="{{url}}">{{title}}</a>
       </h2>
     </header>
+
     {{#if image}}{{else}}
       <div class="Ps-excerpt clear">
         <p>{{excerpt words="26"}}</p>
         <a class="read-more" href="{{url}}">Read More</a></p>
       </div>
     {{/if}}
+
     <footer class="Ps-footer">
       <div class="Ps-tag left">
         {{!-- date post --}}
@@ -33,8 +39,8 @@
           <li class="Ps-shareI"><a href="#" class="Ps-ShareL btn-floating waves-effect waves-light icon-google"></a></li>
         </ul>
       </div>
-
     </footer>
+
   </article>
 </div>
 
@@ -42,3 +48,8 @@
 
 {{! Previous/next page links - displayed on every page }}
 {{pagination}}
+
+
+    </section>
+  </div>
+</main>

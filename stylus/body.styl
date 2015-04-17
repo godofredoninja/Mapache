@@ -1,16 +1,76 @@
 main
   margin-top 20px
 
+
+// Author page
+.Author
+  margin-bottom 3em
+  padding-top 2em !important
+  padding-bottom 2em !important
+  position relative
+  overflow hidden
+
+
+  &.cover
+    background-position center
+    background-size cover
+    color #fff
+    text-shadow 0 1px 1px rgba(114,114,114,0.9)
+
+    .Author-line
+      display none
+    .Author-avatar
+      box-shadow none
+
+    .Author-name
+    .Author-meta span
+    .Author-website
+      color #fff
+  &-wrap
+    position relative
+
+  &-profile
+    height 120px
+    margin 0 auto
+    position relative
+    width 120px
+    z-index 10
+
+  &-info
+    margin 0 auto
+    max-width 620px
+    padding 5px 0
+  &-name
+    font-size 1.8em
+    margin 10px auto 0 auto
+  &-about
+    margin 5px 0
+  &-meta
+    margin 15px auto 0 auto
+    span
+      color #9a9a9a
+      font-weight 500
+      margin 0 5px
+  &-website
+    color #9a9a9a
+    &:hover
+      color #1378ae
+
+  &-line
+    background #DDDBDB
+    border 0
+    display block
+    height 1px
+    margin 0
+    position absolute
+    top 60px
+    width 100%
+
+
 // Autor post main
 .AuthorPost
   font-size 16px
   &-img
-    background-position top center
-    background-size cover
-    border 5px solid #fff
-    border-radius 50%
-    border-radius 50%
-    box-shadow 1px 5px 1px rgba(204, 204, 204, 0.8)
     display block
     height 100px
     margin 0 auto
@@ -30,6 +90,11 @@ main
     font-weight bold
     i
       vertical-align middle
+  &-top
+    padding-bottom 10px
+    color $color-date
+    a
+      font-weight 500
 
 
 // Footer
@@ -63,58 +128,38 @@ main
 
 // Menu Navigation
 .Menu
+  background #3a5795 !important
   overflow visible
-  &-profile
-    text-align center
-    background-position top center
-    background-size cover
-  &-mobileContent
-    padding 16px
-    background rgba(0, 0, 0, 0.3)
-  &-logoTitle
-    font-size 20px
-    margin 0 auto
-  &-pageDes
-    font-size 15px
-    line-height 18px
-    margin 0 auto
-  &-logoMobile
-    max-width 200px
-    line-height 0
-    margin 0 auto
 
-  .nav-wrapper
-    padding 0 0.75rem
   .side-nav a
     height 44px
     line-height 44px
   i
     font-size 30px !important
-    color #6d6d6d !important
 
+  &-openDesktop
+    display none
+
+  &-desktop
+    display none
 
   // result rearch
   &-resultForm
     padding 10px 15px
     line-height 1
-    color #777
+    color #6d6d6d
     display block
-    border 1px solid #aaa
-    border-top transparent
-    border-bottom transparent
-    font-weight 500
     &:hover
-      background-color #f1f1f1
-      color #333
-    &:first-child
-      border-top solid 1px #d6d6d6
+      background-color rgba(0, 0, 0, 0.1)
+    // &:first-child
+    //   border-top solid 1px #d6d6d6
     &:last-child
-      border-bottom solid 1px #aaa
+      // border-bottom solid 1px #aaa
       padding-bottom 20px
+
   &-openSearch
   &-closeSearch
-    background #fff
-    color #6d6d6d
+    background #3a5795
     cursor pointer
     display inline-block
     line-height 1
@@ -132,13 +177,12 @@ main
     top 0
 
     form
-      background #fff
-      margin-right 40px
+      background #3a5795
+      margin-right 50px
     input
-      white-space nowrap
-      color #6d6d6d
+      margin 0
       &:focus
-        border-bottom none !important
+        // border-bottom none !important
         box-shadow none !important
     &.close
       opacity 0
@@ -150,10 +194,11 @@ main
   display none
   height 64px
   margin 0 auto
-  max-width 180px
   overflow hidden
   text-align center
+  font-weight bold
   &-img
+    max-width 180px
     margin-top 10px
 
 // Post Loop
@@ -162,6 +207,9 @@ main
     margin-bottom 30px
     padding-bottom 50px
     position relative
+    &:hover
+      .Ps-link
+        color #f04f53
   &-img
     background-position top center
     background-size cover
@@ -179,11 +227,12 @@ main
   &-link
     color $color-title
     display block
+    font-weight 500
     padding 12px 15px 8px 15px
   &-footer
     border-top 1px solid #edecec
     bottom 0
-    color #6d6d6d
+    color $color-date
     left 0
     position absolute
     right 0
@@ -201,6 +250,7 @@ main
         opacity 1
         transform translateX(0)
         visibility visible
+  // share social
   &-shareC
     opacity 0
     position absolute
@@ -232,21 +282,24 @@ main
     line-height 45px
     padding 0 20px
 
+// Post Page
 .Post
   &-imgContent
     line-height 0
     margin 0 auto
-    padding 0
+    padding 0 0 1.5em 0
   &-title
     font-size 2em
     line-height 35px
     margin-top 0
     margin-bottom 10px
-
+  &-main
+    padding 1em
+    border-radius 0 0 2px 2px
   &-content
     font-size 16px
     p img
-      text-align center
+      display block
       margin 0 auto
     a
       border-bottom .08em solid rgba(0,0,0,0.1)
@@ -278,7 +331,7 @@ main
     h4
     h5
     h6
-      margin 1.8em auto
+      margin 1.5em auto .5em auto
       &:before
         color $color-before-title
         content '#'
@@ -293,7 +346,7 @@ main
       margin-right auto
 
 
-// Share
+// Share Post
 .Share
   padding 1.5em 0
   &-hidden
@@ -309,8 +362,85 @@ main
   .whatsapp
     padding-left 0
     padding-right 0
+  .icon-linkedin2
+    display none
   &-title
     font-size 1.3em
     font-weight 500
     padding 1em 0
 
+
+// Sidebar
+.Sidebar
+  width 100% !important
+  &-items
+    margin-bottom 1.5em
+    padding 0 0 1em 0
+    width 100% !important
+  &-content
+    border-radius 0 0 2px 2px
+    padding 0 0.75rem
+  &-title
+    font-size 20px
+    font-weight 500
+    margin 0 auto
+    padding 8px 0
+    &.icon-twitter
+      color #fff
+      margin-left -0.75rem
+      margin-right -0.75rem
+      text-align center
+      &:before
+        margin-right 5px
+
+
+// Page Tag
+.Tag
+  margin-bottom 3em
+  padding-top 2em !important
+  padding-bottom 2em !important
+  position relative
+  min-height 250px
+  &.cover
+    background-size cover
+    background-position center
+    text-shadow 0 1px 1px rgba(114,114,114,0.9)
+    .Tag-title
+    .Tag-description
+      color #fff
+
+  &-wrap
+    right 0
+    left 0
+    position absolute
+    top 50%
+    transform translate(0,-50%)
+    padding 0 0.75rem
+    max-width 620px
+    margin 0 auto
+  &-title
+    font-size 1.8em
+    margin 10px auto 20px auto
+    text-transform uppercase
+  &-description
+    margin 5px 0
+
+// Error 404
+.Error
+  height 400px
+  &-wrap
+    left 50%
+    margin 0 auto
+    position absolute
+    top 50%
+    transform translate(-50%, -50%)
+    width 100%
+  img
+    width 200px
+    margin 0 0 15px auto
+  &-text
+    font-size 3em
+    line-height 1
+    font-weight 600
+  p
+    margin 0
