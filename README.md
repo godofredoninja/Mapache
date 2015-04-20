@@ -5,24 +5,6 @@ Hola,  he creado este tema de Ghost para poder ver cómo funciona. Está disponi
 
 ## USO
 
-### Install global
-```
-$ npm install -g stylus
-$ npm install -g gulp
-$ npm install -g bower
-```
-
-### Install Local
-```
-$ npm install
-$ bower install
-```
-### Development mode
-```
-$ gulp bower
-$ gulp
-```
-
 #### Editar los enlaces sociales de la parte inferior de la página
 
 Abrir y editar `parttials/footer.hbs`

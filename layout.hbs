@@ -6,18 +6,13 @@
   <meta name="description" content="{{meta_description}}" />
   {{!-- icon  --}}
   <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
-  <!-- bower:css -->
-  <link rel="stylesheet" href="/assets/lib/materialize/bin/materialize.css" />
-  <!-- endbower -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <!-- endinject -->
-
+  {{!-- Add Css --}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/materialize.min.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
   {{! Ghost outputs important style and meta data with this tag }}
   {{ghost_head}}
 </head>
 <body>
-
   <div class="Landing">
     {{!-- Add Header --}}
     {{> "header"}}
@@ -26,22 +21,11 @@
     {{!-- Add footer --}}
     {{> "footer"}}
   </div>
-
   {{! Ghost outputs important scripts and data with this tag }}
   {{ghost_foot}}
-
-  <!-- bower:js -->
-  <script src="/assets/lib/jquery/dist/jquery.js"></script>
-  <script src="/assets/lib/materialize/bin/materialize.js"></script>
-  <!-- endbower -->
-
-  <!-- inject:js -->
-  <script src="/assets/scripts/jquery.fitvids.js"></script>
-  <script src="/assets/scripts/jquery.ghostHunter.min.js"></script>
-  <script src="/assets/scripts/main.js"></script>
-  <script src="/assets/scripts/prism.js"></script>
-  <script src="/assets/scripts/whatsapp-button.js"></script>
-  <!-- endinject -->
+  {{!-- add Scripts --}}
+  <script type="text/javascript" src="{{asset "js/materialize.min.js"}}"></script>
+  <script type="text/javascript" src="{{asset "js/main.min.js"}}"></script>
 
   {{!-- facebook Scripts --}}
   <div id="fb-root"></div>
