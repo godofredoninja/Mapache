@@ -4,9 +4,6 @@ main
 
 // Author page
 .Author
-  margin-bottom 3em
-  padding-top 2em !important
-  padding-bottom 2em !important
   position relative
   overflow hidden
 
@@ -28,6 +25,7 @@ main
       color #fff
   &-wrap
     position relative
+    width 100%
 
   &-profile
     height 120px
@@ -37,9 +35,9 @@ main
     z-index 10
 
   &-info
-    margin 0 auto
-    max-width 620px
     padding 5px 0
+    max-width 620px
+    margin 0 auto
   &-name
     font-size 1.8em
     margin 10px auto 0 auto
@@ -118,6 +116,7 @@ main
     list-style none
     margin-left 2px
     vertical-align top
+    text-align center
     a
       color #fff
       margin 0
@@ -292,7 +291,7 @@ main
     font-size 2em
     line-height 35px
     margin-top 0
-    margin-bottom 10px
+    margin-bottom 20px
   &-main
     padding 1em
     border-radius 0 0 2px 2px
@@ -396,9 +395,6 @@ main
 
 // Page Tag
 .Tag
-  margin-bottom 3em
-  padding-top 2em !important
-  padding-bottom 2em !important
   position relative
   min-height 250px
   &.cover
@@ -408,16 +404,10 @@ main
     .Tag-title
     .Tag-description
       color #fff
-
-  &-wrap
-    right 0
-    left 0
-    position absolute
-    top 50%
-    transform translate(0,-50%)
-    padding 0 0.75rem
+  &-info
     max-width 620px
     margin 0 auto
+
   &-title
     font-size 1.8em
     margin 10px auto 20px auto
@@ -444,3 +434,22 @@ main
     font-weight 600
   p
     margin 0
+
+
+// Follow Me
+.Follow
+  display none
+  background-color #f5f5f5
+  span
+    float left
+    position relative
+    &.fb
+      margin 15px 11px 0 0
+    &.tw
+      height 20px
+      margin-top 15px
+    &.yt
+      margin-top 13px
+    &.texto
+      line-height 50px
+      margin 0 45px
