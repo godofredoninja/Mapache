@@ -23,19 +23,19 @@ $ gulp bower
 $ gulp
 ```
 
-## Editar los enlaces sociales de la parte inferior de la página
+### Editar los enlaces sociales de la parte inferior de la página
 
 Abrir y editar `parttials/footer.hbs`
 
-## Editar el botón me gusta de Facebook, twitter Follow y YouTube, de la página del post
+### Editar el botón me gusta de Facebook, twitter Follow y YouTube, de la página del post
 
 Abrir y editar el contenido de la línea 15 de `post.hbs`
 
-## Editar la columna derecha del post (SIdebar)
+### Editar la columna derecha del post (SIdebar)
 Abrir y editar `partials/sidebar.hbs`
 
 
-## Créditos
+### Créditos
 Godofredo blog usa  varias de estas librerías
 
 - [Materialize](materializecss.com)

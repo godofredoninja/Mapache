@@ -63,10 +63,23 @@ gulp.task('watch', function() {
   gulp.watch(['./assets/scripts/**/*.js', './Gulpfile.js'], ['jshint', 'inject']);
 });
 
-
+// js lib.min.js
+gulp.task('libmin', function () {
+    var url = [
+        './assets/scripts/jquery.fitvids.js',
+        './assets/scripts/jquery.ghostHunter.min.js',
+        './assets/scripts/prism.js',
+        './assets/scripts/whatsapp-button.js',
+        './assets/scripts/main.js'
+    ]
+    gulp.src(url)
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./assets/js/'))
+});
 
 
 gulp.task('default', ['inject', 'watch']);
 gulp.task('bower', ['bower-inject']);
 
-
+gulp.task('pro', ['libmin']);
