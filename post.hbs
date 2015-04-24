@@ -6,7 +6,7 @@
     <section class="row">
       <div class="Post col s12 m8">
         {{!-- Post Content --}}
-        <article class="Post-main z-depth-1 white clear">
+        <article class="Post-main row z-depth-1 white clear">
           <header class="Post-header clear">
             <div class="AuthorPost-top">Por {{#author}}<a href="{{url}}">{{name}}</a>{{/author}} publicado <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
             {{!-- Title Post --}}
@@ -30,7 +30,7 @@
            </section>
         </article>
         {{!-- Post Share --}}
-        <aside class="Share center">
+        <aside class="row Share clear center">
           <h5 class="Share-title">Si te ha gustado éste Articulo, por favor, compártelo para que otros puedan leerlo. Eso me Ayudara y Motivara a tener Actualizado el Blog.</h5>
           <a class="Share-items btn waves-effect waves-light icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"> <span class="Share-hidden">Twittear</span> </a>
           <a class="Share-items btn waves-effect waves-light icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"> <span class="Share-hidden">Compartir</span> </a>
