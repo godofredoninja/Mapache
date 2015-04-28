@@ -89,6 +89,55 @@
           color $color-date
           padding 0 0 0 24px
 
+    // Menu social
+    &-social
+      height 64px
+      position absolute
+      right 0
+      text-align center
+      top 0
+      width 150px
+      cursor pointer
+      display block
+      &:hover
+        background-color rgba(0, 0, 0, 0.1)
+        .Menu-social-panel
+          opacity 1
+          pointer-events auto
+      &-i
+        background transparent !important
+        font-size 1.5em
+        margin 0 5px
+      &-panel
+        position absolute
+        right 0
+        text-align left
+        width 310px
+        top 64px
+        opacity 0
+        transition-duration .3s
+        pointer-events none
+
+        a
+          color #444
+          height 55px
+          text-transform uppercase
+          &:hover
+            background-color rgba(0, 0, 0, 0.05)
+
+        i
+          border-radius 2px
+          color #fff
+          display inline-block !important
+          font-size 1.2em !important
+          height 30px !important
+          line-height 0px !important
+          margin-right 5px
+          padding 5px
+          text-align center
+          vertical-align middle
+          width 30px
+
 
   // Logo
   .Logo

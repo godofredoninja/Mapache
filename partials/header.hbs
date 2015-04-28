@@ -7,25 +7,21 @@
         <a class="Logo brand-logo" href="{{@blog.url}}">{{#if @blog.logo}}<img  class="Logo-img" src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}{{@blog.title}}{{/if}}</a>
         {{!-- Open menu Search --}}
         <a href="#" class="Menu-openSearch"><i class="mdi-action-search"></i></a>
-
         {{!-- Menu --}}
         {{#if @blog.navigation}}
           {{!-- Open menu desktop --}}
           <a class="Menu-openDesktop" href="#" data-activates="Menuopen"><i class="mdi-navigation-menu"></i></a>
-
+          {{!-- Menu Desktop --}}
           <div id="Menuopen" class="Menu-desktop hide-on-med-and-down clear white z-depth-1">
             <ul>{{navigation}}</ul>
           </div>
-
           {{!-- Menu Mobile --}}
           <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
           <ul class="side-nav" id="menu-mobile">
             {{navigation}}
           </ul>
         {{/if}}
-
-        {{!-- Form --}}
+        {{!-- Form Search Menu --}}
         <div class="Menu-form close">
           <form>
             <div class="input-field">
@@ -36,7 +32,23 @@
           </form>
           <span class="Menu-closeSearch"> <i class="mdi-navigation-close"></i> </span>
         </div>
-
+        {{!-- Social Content Menu --}}
+        <div class="Menu-social">
+          <span class="Menu-social-i icon-facebook"></span>
+          <span class="Menu-social-i icon-twitter"></span>
+          <span class="Menu-social-i icon-youtube"></span>
+          {{!-- social Panel --}}
+          <div class="Menu-social-panel z-depth-1 white">
+            <div class="row">
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-facebook"></i> Facebook</a>
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-twitter"></i> twitter</a>
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-github"></i> github</a>
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-google"></i> google</a>
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-youtube"></i> youtube</a>
+              <a href="#" class="col s6 valign-wrapper" target="_bank"><i class="icon-linkedin2"></i> linkedin</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
