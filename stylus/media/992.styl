@@ -14,29 +14,29 @@
   // Menu
   .Menu
     &-form
-      display inline-block !important
-      margin-left 20px
+      display block !important
       opacity 1 !important
-      position relative
-      vertical-align top
-      width 60%
+      width auto
+      top 0
+      right 150px
+      left 230px
 
       form
         background transparent
+        margin-right 0
         input
-          background #fff
-          border-radius 2px
+          // border-radius 2px
           box-sizing border-box
-          height 35px
-          line-height 35px !important
-          padding-left 10px !important
-          margin-top 1rem
+          // height 35px
+          // line-height 35px !important
+          // padding-left 10px !important
+          // margin-top 1rem
           width 100% !important
-          &:focus
-            border none !important
-            color #333
-        label
-          display none
+          // &:focus
+          //   border none !important
+          //   color #333
+        // label
+        //   display none
         #Search-results
           border-radius 2px
           position relative
@@ -48,13 +48,11 @@
 
     &-openDesktop
       display block
-      left 5px
-      position absolute
-      top 0
+      left 0.75rem
+      position relative
 
     .brand-logo
-      position relative
-      margin-left 50px
+      margin-left 60px
 
     &-desktop
       border-radius 2px
@@ -91,14 +89,13 @@
 
     // Menu social
     &-social
-      height 64px
-      position absolute
-      right 0
-      text-align center
-      top 0
-      width 150px
       cursor pointer
       display block
+      height 64px
+      position relative
+      right 0.75rem
+      text-align center
+      width 150px
       &:hover
         background-color rgba(0, 0, 0, 0.1)
         .Menu-social-panel
@@ -140,9 +137,9 @@
 
 
   // Logo
-  .Logo
-    left auto !important
-    transform none !important
+  // .Logo
+  //   left auto !important
+  //   transform none !important
 
 
   // Post
