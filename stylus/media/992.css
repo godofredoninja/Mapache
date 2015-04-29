@@ -1,0 +1,200 @@
+@media screen and (min-width: 992px) {
+  .Author {
+    height: 550px;
+  }
+  .Footer-social {
+    text-align: right;
+  }
+  .Footer-copy {
+    text-align: left;
+  }
+  .Menu-form {
+    display: block !important;
+    opacity: 1 !important;
+    width: auto;
+    top: 0;
+    right: 170px;
+    left: 230px;
+  }
+  .Menu-form form {
+    background: transparent;
+    margin-right: 0;
+  }
+  .Menu-form form input {
+    box-sizing: border-box;
+    width: 100% !important;
+  }
+  .Menu-form form #Search-results {
+    border-radius: 2px;
+    position: relative;
+    top: 10px;
+  }
+  .Menu-closeSearch,
+  .Menu-openSearch {
+    display: none;
+  }
+  .Menu-openDesktop {
+    display: block;
+    left: 0.75rem;
+    position: relative;
+  }
+  .Menu .brand-logo {
+    margin-left: 60px;
+  }
+  .Menu-desktop {
+    border-radius: 2px;
+    display: none;
+    left: 0;
+    opacity: 0;
+    padding: 24px 0;
+    position: absolute;
+    top: 60px !important;
+    width: 300px;
+    width: 496px;
+    z-index: 99;
+  }
+  .Menu-desktop:before {
+    content: "\e896";
+    font-family: "Material-Design-Icons";
+    font-size: 70px;
+    left: -15px;
+    line-height: 0;
+    position: absolute;
+    top: -1px;
+  }
+  .Menu-desktop ul {
+    overflow-y: auto;
+    max-height: 475px;
+    overflow-x: hidden;
+  }
+  .Menu-desktop li {
+    display: block;
+    line-height: 40px;
+    width: 100%;
+  }
+  .Menu-desktop li a {
+    color: $color-date;
+    padding: 0 0 0 24px;
+  }
+  .Menu-social {
+    cursor: pointer;
+    display: block;
+    height: 64px;
+    position: relative;
+    right: 0.75rem;
+    text-align: center;
+    width: 160px;
+  }
+  .Menu-social:hover {
+    background-color: rgba(0,0,0,0.1);
+  }
+  .Menu-social-i {
+    background: transparent !important;
+    font-size: 1.5em;
+    margin: 0 5px;
+  }
+  .Menu-social-panel {
+    position: absolute;
+    right: 0;
+    text-align: left;
+    width: 310px;
+    top: 64px;
+    opacity: 1;
+    transition-duration: 0.3s;
+  }
+  .Menu-social-panel a {
+    color: #444;
+    height: 55px;
+    text-transform: uppercase;
+  }
+  .Menu-social-panel a:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+  .Menu-social-panel a i {
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block !important;
+    font-size: 1.2em !important;
+    height: 30px !important;
+    line-height: 0px !important;
+    margin-right: 5px;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+  }
+  .Menu-social-form {
+    color: #444;
+  }
+  .Menu-social-form input {
+    background-color: #f0f0f0;
+    margin: 0;
+    color: #666;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .Menu-social-form p {
+    line-height: 1;
+  }
+  .Menu-social-form .search-send {
+    padding: 0;
+    width: 50px;
+    height: 3rem;
+    border-radius: 0;
+    background: #3a5795;
+    line-height: 45px;
+  }
+  .Menu-social-form .search-send:before {
+    content: "\e6e3";
+    font-size: 30px;
+    font-family: "Material-Design-Icons";
+  }
+  .Post {
+    width: 66.66667% !important;
+  }
+  .Post-main {
+    padding: 2em 2em 3em 2em;
+  }
+  .Post-content h2,
+  .Post-content h3,
+  .Post-content h4,
+  .Post-content h5,
+  .Post-content h6 {
+    font-size: 2em;
+  }
+  .Ps {
+    width: 33.33333% !important;
+  }
+  .Ps-header {
+    height: 75px;
+  }
+  .Ps-title {
+    height: 100%;
+    font-size: 20px;
+  }
+  .Ps-link {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+  }
+  .Share .whatsapp {
+    display: none;
+  }
+  .Share .icon-linkedin2 {
+    display: inline-block;
+  }
+  .Sidebar {
+    padding: 0 !important;
+    width: 33.33333% !important;
+  }
+  .Sidebar-items {
+    width: 100% !important;
+  }
+  .Tag.cover {
+    height: 550px;
+  }
+  .Error {
+    height: 700px;
+  }
+}
