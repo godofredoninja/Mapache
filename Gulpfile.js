@@ -34,7 +34,7 @@ gulp.task('css', function() {
 
 // Inyecta las librerias que instalemos vía Bower
 gulp.task('bower-inject', function () {
-  gulp.src('layout.hbs')
+  gulp.src('default.hbs')
     .pipe(wiredep({
       optional: 'configuration',
       goes: 'here',
@@ -47,7 +47,7 @@ gulp.task('bower-inject', function () {
 // para inyectarlos en el index.html
 gulp.task('inject', function() {
   var sources = gulp.src(['./assets/scripts/**/*.js','./assets/css/**/*.css']);
-  return gulp.src('layout.hbs')
+  return gulp.src('default.hbs')
   .pipe(inject(sources, {
     read: true,
   }))
@@ -83,3 +83,4 @@ gulp.task('default', ['inject', 'watch']);
 gulp.task('bower', ['bower-inject']);
 
 gulp.task('pro', ['libmin']);
+
