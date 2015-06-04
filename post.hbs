@@ -6,26 +6,27 @@
     <section class="row">
       <div class="Post col s12 m8">
         {{!-- Post Content --}}
-        <article class="Post-main row z-depth-1 white clear">
+        <article class="Post-main row clear">
           <header class="Post-header clear">
-            <div class="AuthorPost-top">Por {{#author}}<a href="{{url}}">{{name}}</a>{{/author}} publicado <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
-            {{!-- Title Post --}}
-            <h1 class="Post-title">{{title}}</h1>
-            {{!-- Follow --}}
-            <aside class=" Follow clear">
-              <span class="texto">¡Sígueme!</span>
-              <span class="fb"><div class="fb-like" data-href="https://www.facebook.com/godofredo.ninja" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
-              <span class="tw"><a href="https://twitter.com/GodoFredoNinja" class="twitter-follow-button" data-show-count="true" data-lang="es" data-show-screen-name="false" data-dnt="true">Seguir a @GodoFredoNinja</a></span>
-              <span class="yt"><div class="g-ytsubscribe" data-channelid="UCvG7YDFE69L6XCyfyUOlq4A" data-layout="default" data-count="undefined"></div></span>
-            </aside>
             {{!-- Add Cover Img Post --}}
-            {{#if image}}
-            <figure class="Post-imgContent">
-              <img src="{{image}}" alt="{{title}}" class="Post-img"/>
-            </figure>
-            {{/if}}
+            {{#if image}}<img src="{{image}}" alt="{{title}}" class="Post-img"/>{{/if}}
+            <div class="Post-headerCont u-border">
+              {{!-- Tags --}}
+              <div class="Post-tags">{{tags}}</div>
+              {{!-- Title Post --}}
+              <h1 class="Post-title">{{title}}</h1>
+              {{!-- Autor Tags --}}
+              <div class="AuthorPost-top">Por {{#author}}<a href="{{url}}">{{name}}</a>{{/author}} publicado <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+            </div>
           </header>
-           <section class="Post-content">
+          {{!-- Follow --}}
+          <aside class=" Follow clear">
+            <span class="texto">¡Sígueme!</span>
+            <span class="fb"><div class="fb-like" data-href="https://www.facebook.com/godofredo.ninja" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
+            <span class="tw"><a href="https://twitter.com/GodoFredoNinja" class="twitter-follow-button" data-show-count="true" data-lang="es" data-show-screen-name="false" data-dnt="true">Seguir a @GodoFredoNinja</a></span>
+            <span class="yt"><div class="g-ytsubscribe" data-channelid="UCvG7YDFE69L6XCyfyUOlq4A" data-layout="default" data-count="undefined"></div></span>
+          </aside>
+          <section class="Post-content white u-border">
              {{content}}
            </section>
         </article>

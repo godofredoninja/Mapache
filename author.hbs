@@ -2,26 +2,28 @@
 {{!< default}}
 {{#author}}
 <div class="row">
-  <section class="Author center col s12 valign-wrapper clear{{#if cover}} z-depth-1 cover" style="background-image: url({{cover}}){{/if}}">
-    <div class="Author-wrap valign">
-      <span class="Author-line"></span>
-      {{!-- Avatar author --}}
-      <figure class="Author-profile">
-        <img class="Author-avatar u-avatar" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
-      </figure>
-      {{!-- add Info Author --}}
-      <article class="Author-info">
-        <h1 class="Author-name" >{{name}}</h1>
-        <p class="Author-about" itemprop="description">{{bio}}</p>
+  <article class="Header col s12">
+    <div class="u-wrap">
+      <div class="{{#if cover}}u-cover" style="background-image: url({{cover}}){{/if}}">
+        {{!-- Avatar author --}}
+        <figure class="Header-profile">
+          <img class="Header-avatar" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
+        </figure>
+      </div>
+      <header class="Header-info u-border clear">
+        {{!-- Tag Name --}}
+        <h1 class="Header-title">{{name}}</h1>
+        {{!-- Tag Description --}}
+        <p class="Header-description " itemprop="description">{{bio}}</p>
         {{!-- Meta Author location website --}}
-        <div class="Author-meta">
-          {{#if location}}<span class="Author-location"><i class="mdi-communication-location-on"></i>  {{location}}</span>{{/if}}
-          {{#if website}}<span><a class="Author-website" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span>{{/if}}
-          <span class="Author-post"><i class="mdi-av-equalizer"></i> {{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}}</span>
+        <div class="Header-meta">
+          {{#if location}}<span class="Header-location"><i class="mdi-communication-location-on"></i>  {{location}}</span>{{/if}}
+          {{#if website}}<span><a class="Header-website" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span>{{/if}}
+          <span class="Header-post"><i class="mdi-av-equalizer"></i> {{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}}</span>
         </div>
-      </article>
+      </header>
     </div>
-  </section>
+  </article>
 </div>
 {{/author}}
 {{!-- Add Loop --}}

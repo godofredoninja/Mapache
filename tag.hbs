@@ -1,13 +1,16 @@
 {{!-- Add Layout --}}
 {{!< default}}
 <div class="row">
-  <article class="Tag center col s12 valign-wrapper clear {{#if tag.image}}cover" style="background-image: url({{tag.image}}){{/if}}">
-    <header class="valign Tag-info">
-      {{!-- Tag Name --}}
-      <h1 class="Tag-title"><i class="mdi-action-label"></i> {{tag.name}}</h1>
-      {{!-- Tag Description --}}
-      <p class="Tag-description">{{#if tag.description}}{{tag.description}}{{else}}Una Colección de {{pagination.total}} Artículos{{/if}}</p>
-    </header>
+  <article class="Header col s12">
+    <div class="u-wrap">
+      <div class="{{#if tag.image}}u-cover" style="background-image: url({{tag.image}}){{/if}}"> </div>
+      <header class="u-border Header-info clear">
+        {{!-- Tag Name --}}
+        <h1 class="Header-title">{{tag.name}}</h1>
+        {{!-- Tag Description --}}
+        <p class="Header-description">{{#if tag.description}}{{tag.description}}{{else}}Una Colección de {{pagination.total}} Artículos{{/if}}</p>
+      </header>
+    </div>
   </article>
 </div>
 {{!-- Add Loop --}}

@@ -3,14 +3,14 @@
 @import 'icon'
 
 a
-  color $link-blue
+  color $color-blue
 
 body
-  background-color #e9eaed
+  background-color #eee
   line-height 1.7
   text-rendering optimizeLegibility
   // color #4e5665
-  color $color-body-text
+  color #3e3e3e
 
 img
   max-width 100%
@@ -25,7 +25,7 @@ h6
   font-weight bold
   font-size 1.5em
   line-height 1.3
-  color $color-title
+  color #3c4656
 
 ul li code
 ol li code
@@ -54,19 +54,17 @@ hr
 
 ol
   list-style-type none
-  margin 0
-  margin-left 1em
-  padding 1em 0
+  margin  1em 0 0 0
   counter-reset li-counter
 
   li
     position relative
-    margin-bottom 20px
+    margin-bottom 10px
     padding-left 0.5em
-    border-left 2px solid #CCCCCC
+    border-left 2px solid #e7e6e6
 
     &:before
-      color $color-ol-num
+      color $color-blue
       content counter(li-counter)
       counter-increment li-counter
       font-family "Roboto", sans-serif !important
@@ -89,6 +87,7 @@ ol
 
 // media
 @import 'media/601'
+@import 'media/720'
 @import 'media/992'
 
 // keyframes
