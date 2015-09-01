@@ -1,4 +1,21 @@
 {
-  "name": "GodoFredoNinja-Blog",
-  "version": "0.0.1",
+  "name": "Mapache-GodoFredo",
+  "version": "1.0.0",
+  "description": "Mapache theme ghost by GodoFredoNinja",
+  "bugs": {
+    "url": "",
+    "email": "hello@godofredo.ninja"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "GodoFredo",
+    "email": "hello@godofredo.ninja",
+    "url": "https://godofredo.ninja"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godofredoninja/Mapache"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
