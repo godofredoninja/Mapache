@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+java+php+python+ruby */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+handlebars+jade+java+php+python+ruby+stylus+swift */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -9,7 +9,6 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: Consolas, Monaco, 'Andale Mono', monospace;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -28,16 +27,17 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	border-radius: 0.3em;
-}
+// pre[class*="language-"] {
+// 	padding: 1em;
+// 	margin: 30px 0;
+// 	overflow: auto;
+// 	border-radius: 0.3em;
+// }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #272822;
+	// background: #272822;
+	background: $pre-bg-color;
 }
 
 /* Inline code */
@@ -118,4 +118,3 @@ pre[class*="language-"] {
 .token.entity {
 	cursor: help;
 }
-

@@ -1,24 +1,9 @@
 {{!-- Footer Page --}}
-<footer class="Footer">
-  <div class="Footer-wrap">
-    <div class="u-wrap">
-      <div class="row">
-        <div class="col s12 m7">
-          <div class="Footer-copy">Copyright &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> All rights reserved. Desing by <a href="https://godofredo.ninja/godofredo">GodoFredoNinja</a> </div>
-        </div>
-        <div class="col s12 m5">
-          <ul class="Footer-social">
-            {{!-- Link Social Media --}}
-            <li class="Footer-socialItem"><a href="https://www.facebook.com/godofredo.ninja" target="_blank" class="btn-floating waves-effect waves-light icon-facebook"></a></li>
-            <li class="Footer-socialItem"><a href="https://twitter.com/GodoFredoNinja" target="_blank" class="btn-floating waves-effect waves-light icon-twitter"></a></li>
-            <li class="Footer-socialItem"><a href="https://www.google.com/+GodofredoNinja" target="_blank" class="btn-floating waves-effect waves-light icon-google"></a></li>
-            <li class="Footer-socialItem"><a href="https://github.com/godofredoninja" target="_blank" class="btn-floating waves-effect waves-light icon-github"></a></li>
-            <li class="Footer-socialItem"><a href="https://www.youtube.com/GodofredoNinja" target="_blank" class="btn-floating waves-effect waves-light icon-youtube"></a></li>
-            <li class="Footer-socialItem"><a href="https://www.linkedin.com/in/godofredoninja" target="_blank" class="btn-floating waves-effect waves-light icon-linkedin"></a></li>
-            {{!-- <li class="Footer-socialItem"><a href="#" target="_blank" class="btn-floating waves-effect waves-light icon-dribbble"></a></li> --}}
-          </ul>
-        </div>
-      </div>
+<footer class="godo-footer">
+  <div class="full-site-width">
+    <div class="godo-footer-copyright clear center">
+        <p class="copy">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> All rights reserved.</p>
+        <p class="by"><a href="http://godofredo.ninja/godofredo"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-right"></i> with <i class="fa fa-heart"></i> by GodoFredo</a></p>
     </div>
   </div>
 </footer>

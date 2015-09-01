@@ -6,55 +6,45 @@
   <meta name="description" content="{{meta_description}}" />
   {{!-- icon  --}}
   <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,700,500italic,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic' rel='stylesheet' type='text/css'>
+  <!-- build:css ./assets/css/style.min.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/assets/lib/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="/assets/lib/normalize.css/normalize.css" />
   <!-- endbower -->
+  <link rel="stylesheet" href="/assets/lib/Font-Awesome/css/font-awesome.min.css" />
   <!-- inject:css -->
   <link rel="stylesheet" href="/assets/css/main.css">
   <!-- endinject -->
+  <!-- endbuild -->
 
   {{! Ghost outputs important style and meta data with this tag }}
   {{ghost_head}}
 </head>
 <body>
 
-  <div class="Landing">
-    {{!-- Add Header --}}
-    {{> "header"}}
-    {{!-- Add Content Body --}}
-    {{{body}}}
-    {{!-- Add footer --}}
-    {{> "footer"}}
+  <div class="landing">
+  {{!-- Add Header --}}
+  {{> "header"}}
+  {{!-- Add Content Body --}}
+  {{{body}}}
+  {{!-- Add footer --}}
+  {{> "footer"}}
   </div>
+
 
   {{! Ghost outputs important scripts and data with this tag }}
   {{ghost_foot}}
-
+  <!-- build:js ./assets/js/vendor.min.js -->
   <!-- bower:js -->
-  <script src="/assets/lib/jquery/dist/jquery.js"></script>
-  <script src="/assets/lib/materialize/bin/materialize.js"></script>
   <!-- endbower -->
-
+  <!-- endbuild -->
+  <!-- build:js ./assets/js/app.min.js -->
   <!-- inject:js -->
-  <script src="/assets/scripts/jquery.fitvids.js"></script>
-  <script src="/assets/scripts/jquery.ghostHunter.min.js"></script>
-  <script src="/assets/scripts/main.js"></script>
-  <script src="/assets/scripts/prism.js"></script>
-  <script src="/assets/scripts/whatsapp-button.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/prism.js"></script>
   <!-- endinject -->
-
-  {{!-- facebook Scripts --}}
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  {{!-- Google Script --}}
-  <script src="https://apis.google.com/js/platform.js"></script>
-  {{!-- Twitter Script --}}
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <!-- endbuild -->
 </body>
 </html>

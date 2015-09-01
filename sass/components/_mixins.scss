@@ -1,0 +1,166 @@
+// Animation
+
+@mixin animation($args) {
+  -webkit-animation: $args;
+  -moz-animation: $args;
+  -ms-animation: $args;
+  -o-animation: $args;
+  animation: $args;
+}
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -ms-animation-duration: $duration;
+  -o-animation-duration: $duration;
+}
+@mixin animation-iteration-count($count) {
+  -webkit-animation-iteration-count: $count;
+  -moz-animation-iteration-count: $count;
+  -ms-animation-iteration-count: $count;
+  -o-animation-iteration-count: $count;
+  animation-iteration-count: $count;
+}
+@mixin animation-fill-mode($mode) {
+  -webkit-animation-fill-mode: $mode;
+  -moz-animation-fill-mode: $mode;
+  -ms-animation-fill-mode: $mode;
+  -o-animation-fill-mode: $mode;
+  animation-fill-mode: $mode;
+}
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -ms-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+@mixin animation-timing-function($function) {
+  -webkit-animation-timing-function: $function;
+  -moz-animation-timing-function: $function;
+  -ms-animation-timing-function: $function;
+  -o-animation-timing-function: $function;
+  animation-timing-function: $function;
+}
+
+
+// Background Size
+
+@mixin background-size($args) {
+  -webkit-background-size: $args;
+  background-size: $args;
+}
+
+// Box Sizing
+
+@mixin box-sizing($args) {
+  -webkit-box-sizing: $args;
+  -moz-box-sizing: $args;
+  box-sizing: $args;
+}
+
+// Transforms
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+// Transitions
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -o-transition: $args;
+  -ms-transition: $args;
+  transition: $args;
+}
+@mixin transition-duration($duration:200ms) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  -ms-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+
+
+// Flexbox
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+  @mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -webkit-flex:  $values;
+    -ms-flex:  $values;
+    flex:  $values;
+  }
+  @mixin order($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+  }
+  @mixin align($align) {
+    -webkit-flex-align: $align;
+    -ms-flex-align: $align;
+    -webkit-align-items: $align;
+    align-items: $align;
+  }
+  @mixin justify-content($val) {
+    -webkit-justify-content: $val;
+    justify-content: $val;
+  }
+
+
+// Style Placeholders
+
+@mixin placeholders($val) {
+  ::-webkit-input-placeholder {color: ($val);}
+  :-moz-placeholder {color: ($val);}
+  ::-moz-placeholder {color: ($val);}
+  :-ms-input-placeholder {color: ($val);}
+}
+
+// Gradients
+
+@mixin linear-gradient-top($default,$color1,$stop1,$color2,$stop2) {
+  background-color: $default;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop($stop1, $color1), color-stop($stop2, $color2));
+  background-image: -webkit-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background-image: -moz-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background-image: -ms-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background-image: -o-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background-image: linear-gradient(to bottom, $color1 $stop1, $color2 $stop2);
+}
+@mixin linear-gradient-left3($default,$color1,$stop1,$color2,$stop2,$color3,$stop3,$color4,$stop4) {
+  background-color: $default;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop($stop1, $color1), color-stop($stop2, $color2), color-stop($stop3, $color3), color-stop($stop4, $color4));
+  background-image: -webkit-linear-gradient(left, $color1 $stop1, $color2 $stop2, $color3 $stop3, $color4 $stop4);
+  background-image: -moz-linear-gradient(left, $color1 $stop1, $color2 $stop2, $color3 $stop3, $color4 $stop4);
+  background-image: -ms-linear-gradient(left, $color1 $stop1, $color2 $stop2, $color3 $stop3, $color4 $stop4);
+  background-image: -o-linear-gradient(left, $color1 $stop1, $color2 $stop2, $color3 $stop3, $color4 $stop4);
+  background-image: linear-gradient(to right, $color1 $stop1, $color2 $stop2, $color3 $stop3, $color4 $stop4);
+}
+
+// keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

@@ -1,0 +1,17 @@
+// footer
+.godo-footer{
+  background: $footer-bg-color;
+  color: #fff;
+  a{
+    color: #fff;
+    opacity: .90;
+  }
+  &-copyright{
+    padding: 0 16px;
+    color: $footer-color;
+    @media #{$small-and-up}{
+      .copy{float: left;}
+      .by{float: right;}
+    }
+  }
+}

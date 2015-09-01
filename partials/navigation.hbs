@@ -1,41 +1,9 @@
 {{!-- Menu Navigatio List  --}}
-  <li class="Menu-item">
-    <a href="/godofredo">
-      <span><i class="u-green mdi-social-person"></i> </span>
-      <span class="display-name">Sobre Mi</span>
-    </a>
-  </li>
-  <li class="Menu-item">
-    <a href="/servicios">
-      <span><i class="u-coral mdi-image-palette"></i></span>
-      <span class="display-name">Servicios</span>
-    </a>
-  </li>
-  <li class="Menu-item">
-    <a href="/procesos">
-      <span><i class="u-orange mdi-image-filter-hdr"></i></span>
-      <span class="display-name">Procesos</span>
-    </a>
-  </li>
-  <li class="Menu-item">
-    <a href="/portafolio">
-      <span><i class="u-blue mdi-action-wallet-travel"></i></span>
-      <span class="display-name">Portafolio</span>
-    </a>
-  </li>
-  <li class="Menu-item">
-    <a href="/contacto">
-      <span><i class="mdi-communication-message"></i></span>
-      <span class="display-name">Contacto</span>
-    </a>
-  </li>
-  <li class="Menu-item divider" style="margin-top:10px;"></li>
-  <li class="Menu-item u-coral bb">Contenido del Blog</li>
-{{#foreach navigation}}
-  <li class="Menu-item">
-    <a class="{{#if current}}active{{/if}}" href="{{url absolute="true"}}">
-      <span><i class="mdi-image-grain"></i></span>
-      <span class="display-name">{{label}}</span>
-    </a>
-  </li>
-{{/foreach}}
+<a class="nav-open left btn btn-flat" href="#"><i class="fa fa-bars"></i></a>
+<div class="godo-menu">
+  <ul>
+    {{#foreach navigation}}
+    <li><a class="{{#if current}}active{{/if}}" href="{{url absolute="true"}}"><i class="fa fa-circle"></i>{{label}}</a></li>
+    {{/foreach}}
+  </ul>
+</div>

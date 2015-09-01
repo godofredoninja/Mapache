@@ -1,69 +1,41 @@
 {{!-- Navigation Page --}}
 <div class="navbar-fixed">
-  <nav class="Menu white">
-    <div class="nav-wrapper">
-        {{!-- Add Logo --}}
-        <a class="Logo brand-logo" href="{{@blog.url}}">{{#if @blog.logo}}<img  class="Logo-img" src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}{{@blog.title}}{{/if}}</a>
-        {{!-- Open menu Search --}}
-        <a href="#" class="Menu-openSearch"><i class="mdi-action-search"></i></a>
-        {{!-- Menu --}}
-        {{#if @blog.navigation}}
-          {{!-- Open menu desktop --}}
-          <a class="Menu-openDesktop left" href="#" data-activates="Menuopen"><i class="mdi-navigation-menu"></i></a>
-          {{!-- Menu Desktop --}}
-          <div id="Menuopen" class="Menu-desktop hide-on-med-and-down clear white">
-            <div class="Menu-desktopCont clear">
-              <ul class="clear">{{navigation}}</ul>
-            </div>
-          </div>
-          {{!-- Menu Mobile --}}
-          <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-          <ul class="side-nav" id="menu-mobile">
-            {{navigation}}
-          </ul>
-        {{/if}}
-        {{!-- Form Search Menu --}}
-        <div class="Menu-form close">
-          <form class="clear">
-            <div class="input-field">
-              <input id="Search" type="search" placeholder="Buscar" class="left" required>
-              <button class="left"><i class="mdi-action-search"></i></button>
-            </div>
-            <div class="white z-depth-1" id="Search-results"></div>
-          </form>
-          <span class="Menu-closeSearch"> <i class="mdi-navigation-close"></i> </span>
+  <nav class="godo-nav">
+    <div class="full-site-width">
+      {{!-- Add Navigation --}}
+      {{#if @blog.navigation}}{{navigation}}{{/if}}
+      {{!-- Add Logo --}}
+      <a class="logo left" href="{{@blog.url}}">{{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}</a>
+      {{!-- Add Form Search Menu --}}
+      <form class="godo-search">
+        <i class="fa fa-search show-on-medium-screen"></i>
+        <input class="godo-search-field" type="search" placeholder="Buscar" autocomplete="off">
+        <div class="godo-search-result" id="godo-search-result"></div>
+      </form>
+      {{!-- btn search --}}
+      <a href="#" class="nav-search-open right btn btn-flat"><i class="fa fa-search"></i></a>
+
+      {{!-- Social navigation --}}
+      <div class="nav-social right show-on-medium-screen">
+        <div class="btn btn-flat" style="height:45px">
+          <span><i class="fa fa-facebook"></i></span>
+          <span><i class="fa fa-twitter"></i></span>
+          <span><i class="fa fa-youtube-play"></i></span>
         </div>
-        {{!-- Social Content Menu --}}
-        <div class="Menu-social right">
-          <span class="Menu-social-i color-facebook icon-facebook"></span>
-          <span class="Menu-social-i color-twitter icon-twitter"></span>
-          <span class="Menu-social-i color-youtube icon-youtube"></span>
-          {{!-- social Panel --}}
-          <div class="Menu-social-panel u-border white">
-            <div class="row">
-              <a href="https://www.facebook.com/godofredo.ninja" class="col s6 valign-wrapper" target="_blank"><i class="icon-facebook"></i>Facebook</a>
-              <a href="https://twitter.com/GodoFredoNinja" class="col s6 valign-wrapper" target="_blank"><i class="icon-twitter"></i>twitter</a>
-              <a href="https://github.com/godofredoninja" class="col s6 valign-wrapper" target="_blank"><i class="icon-github"></i>github</a>
-              <a href="https://www.google.com/+GodofredoNinja" class="col s6 valign-wrapper" target="_blank"><i class="icon-google"></i>google +</a>
-              <a href="https://www.youtube.com/GodofredoNinja" class="col s6 valign-wrapper" target="_blank"><i class="icon-youtube"></i>youtube</a>
-              <a href="https://www.linkedin.com/in/godofredoninja" class="col s6 valign-wrapper" target="_blank"><i class="icon-linkedin"></i>linkedin</a>
-              <a href="https://instagram.com/godofredoninja" class="col s6 valign-wrapper" target="_blank"><i class="icon-instagram"></i>Instagram</a>
-              <a href="https://play.spotify.com/user/godofredoninja" class="col s6 valign-wrapper" target="_blank"><i class="icon-spotify"></i>Spotify</a>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-              {{!-- Form Mailchimp --}}
-              <form action="//ninja.us10.list-manage.com/subscribe/post?u=5c52d5a541f6ab2e8d6020e82&amp;id=f5f6d462c4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"  target="_blank"  class="col s12 Menu-social-form">
-                <p>Suscríbete a nuestro boletín diario:</p>
-                <div class="valign-wrapper">
-                  <input id="mce-EMAIL" name="EMAIL" type="email" placeholder="Introduce tu correo electrónico" class="left" required>
-                  <button class="btn waves-effect waves-light search-send right" type="submit" name="action"></button>
-                </div>
-              </form>
-            </div>
-          </div>
+        {{!-- social Panel --}}
+        <div class="nav-socialPanel">
+          <a href="https://www.facebook.com/godofredo.ninja" target="_blank"><span class="btn btn-flat bg-facebook"><i class="fa fa-facebook"></i></span>Facebook</a>
+          <a href="https://twitter.com/GodoFredoNinja" target="_blank"><span class="btn btn-flat bg-twitter"><i class="fa fa-twitter"></i></span>twitter</a>
+          <a href="https://github.com/godofredoninja" target="_blank"><span class="btn btn-flat bg-github"><i class="fa fa-github"></i></span>github</a>
+          <a href="https://www.youtube.com/GodofredoNinja" target="_blank"><span class="btn btn-flat bg-youtube"><i class="fa fa-youtube-play"></i></span>youtube</a>
+          <a href="https://www.linkedin.com/in/godofredoninja" target="_blank"><span class="btn btn-flat bg-linkedin"><i class="fa fa-linkedin"></i></span>linkedin</a>
+          <a href="http://codepen.io/GodoFredoNinja/" target="_blank"><span class="btn btn-flat bg-codepen"><i class="fa fa-codepen"></i></span>codepen</a>
+          <a href="https://instagram.com/godofredoninja" target="_blank"><span class="btn btn-flat bg-instagram"><i class="fa fa-instagram"></i></span>Instagram</a>
+          <a href="https://player.spotify.com/user/godofredoninja/playlist/5MmgsB6AqIrYJ04A9yqJ55" target="_blank"><span class="btn btn-flat bg-spotify"><i class="fa fa-spotify"></i></span>Spotify</a>
+          <!-- <a href="https://dribbble.com/godofredoninja" target="_blank"><span class="btn btn-flat bg-dribbble"><i class="fa fa-dribbble"></i></span>dribbble</a> -->
+          <!-- <a href="https://www.behance.net/godofredoninja" target="_blank"><span class="btn btn-flat bg-behance"><i class="fa fa-behance"></i></span>behance</a> -->
         </div>
+      </div>
     </div>
   </nav>
-
 </div>

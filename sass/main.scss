@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+// Mixins
+@import "components/mixins";
+// extents
+@import "components/extents";
+
+// @import "components/color";
+
+// Variables;
+@import "components/variables";
+
+// components
+@import "components/global";
+// @import "components/grid";
+@import "components/navbar";
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+@import "components/post";
+@import "components/prism";
+@import "components/animated";

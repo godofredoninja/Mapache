@@ -1,0 +1,151 @@
+.post{
+  line-height: 1.7;
+  @extend .card;
+
+  img{
+    display: block;
+  }
+
+}
+
+// post header
+.post-header{
+  margin-bottom: 30px;
+  .post-title{
+    margin: 0;
+  }
+  .post-img{
+    margin: 0 auto 0 auto;
+  }
+  .byline{
+    font-size: .9em;
+    padding-bottom: 0;
+    padding-top: .9em;
+  }
+}
+
+// post content
+.post-main{
+  a{
+    border-bottom: .08em solid rgba(0,0,0,0.1);
+    padding-bottom: .2em;
+    font-weight: 500;
+    &:hover{
+      border-bottom: .08em solid $color-link;
+    }
+  }
+
+  p{
+    word-wrap: break-word;
+  }
+
+  ul{
+    padding-left: 2.5em;
+    margin-bottom: 1em;
+    li{
+      position: relative;
+      margin: 8px 0;
+      &:before{
+        top: 8px;
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 10px;
+        left: -1em;
+        background-color: #089E00;
+        border-radius: 50%;
+      }
+    }
+  }
+
+
+}
+
+
+// author
+.post-author{
+  margin-top: 1.5em;
+  text-align: center;
+  @extend .card;
+
+  .avatar{
+    border-radius: 50%;
+    height: 150px;
+    margin:0 auto 16px auto;
+    width: 150px;
+    display: block;
+    overflow: hidden;
+    img{
+      margin: 0
+    }
+  }
+
+  .author-name{
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .meta span{
+    margin: 0 .5em;
+  }
+
+
+}
+
+// comments
+.comments{
+  margin-top: 1.5em;
+  overflow: hidden;
+  @extend .card;
+}
+
+// follow
+.follow{
+  background: $color-bg-page;
+  height: 50px;
+  span{
+    float: left;
+  }
+  .texto{
+    line-height: 50px;
+    margin: 0 10px;
+    @media #{$medium-and-up}{
+      margin: 0 45px;
+    }
+  }
+  .fb{
+    margin: 15px 11px 0 0;
+  }
+  .tw{
+    height: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+  .yt{
+    margin-top: 13px;
+  }
+}
+
+
+// Media query
+@media #{$small-and-up}{
+  .post{
+    padding: 2em;
+    font-size: 17px;
+  }
+
+  .post-title{
+    line-height: 1.2;
+    font-weight: bold;
+  }
+
+  .post-author{
+    text-align: left;
+    margin-top: 2em;
+    padding: 1.5em 2em;
+    .avatar{
+      float: left;
+      margin: 1em 1em 1em 0;
+    }
+  }
+}

@@ -1,53 +1,45 @@
-<main>
-  <div class="u-wrap">
-    <section class="row">
-      {{! This is the post loop - each post will be output using this markup }}
-      {{#foreach posts}}
-      <div class="Ps col s12 m4">
-        {{!-- Post Loop Content --}}
-        <article class="Ps-inner u-border white">
-          {{!-- Add img Cover --}}
-          {{#if image}}
-            <a href="{{url}}" class="Ps-img" style="background-image:url({{image}})"></a>
-          {{/if}}
-          {{!-- Loop Header Title --}}
-          <header class="Ps-header">
-            <h2 class="Ps-title">
-              <a class="Ps-link" href="{{url}}">{{title}}</a>
-            </h2>
-          </header>
-          {{!-- Add if there is no image --}}
-          {{#if image}}{{else}}
-            <div class="Ps-excerpt clear">
-              <p>{{excerpt words="26"}}</p>
-              <a class="read-more" href="{{url}}">Read More</a></p>
-            </div>
-          {{/if}}
-          {{!-- Fotter Post Loop --}}
-          <footer class="Ps-footer">
-            <div class="Ps-tag left">
-              {{!-- Post Date --}}
-              <time class="Ps-date" datetime="{{date format='YYYY-MM-DD'}}">
-                <i class="mdi-device-access-time"></i>
-                <span class="Ps-datetime">{{date published_at timeago="true"}}</span>
-              </time>
-            </div>
-            {{!-- Share Post Loop --}}
-            <aside class="Ps-share right">
-              <span class="Ps-btn mdi-social-share"></span>
-              <ul class="Ps-shareC">
-                <li class="Ps-shareI"><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="Ps-ShareL btn-floating waves-effect waves-light icon-facebook"></a></li>
-                <li class="Ps-shareI"><a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="Ps-ShareL btn-floating waves-effect waves-light icon-twitter"></a></li>
-                <li class="Ps-shareI"><a href="https://plus.google.com/share?url={{url absolute="true"}}"onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" class="Ps-ShareL btn-floating waves-effect waves-light icon-google"></a></li>
-              </ul>
-            </aside>
-          </footer>
+<main class="main bg-home">
 
+  <section class="full-site-width">
+    <div class="main-wrap main-wrap-home">
+      {{#foreach posts}}
+      <div class="ps">
+        {{!-- Post Loop Content --}}
+        <article class="ps-inner">
+          {{!-- Tags --}}
+          {{#if tags}}<div class="ps-tags show-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn btn-flat" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}}
+          {{!-- post content --}}
+          <div class="ps-content">
+            {{!-- Add img Cover --}}
+            {{#if image}}<span><a href="{{url}}" class="ps-thumb"><img src="{{image}}" alt="{{title}}"/></a></span>{{/if}}
+            {{!-- post Title --}}
+            <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a>
+            {{!-- post author & datetime--}}
+            <div class="byline">
+              <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+              by {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
+            </div>
+            {{!-- Post excerpt --}}
+            <p class="ps-excerpt show-on-small-screen">{{excerpt characters="260"}}... <a class="read-more" href="{{url}}">Read More</a></p>
+            {{!-- Share Post --}}
+            <aside class="share show-on-small-screen">
+              <a class="btn btn-flat ps-comment" href="{{url absolute="true"}}#comments"><i class="fa fa-comments"></i><span class="ps-comment-count fb-comments-count" data-href="{{url absolute="true"}}"></span></a>
+              <a class="btn btn-flat bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i></a>
+              <a class="btn btn-flat bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
+              <a class="btn btn-flat bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i></a>
+            </aside>
+
+          </div>
         </article>
       </div>
       {{/foreach}}
-      {{! Previous/next page links - displayed on every page }}
+      {{! -- Add Pagination -- }}
       {{pagination}}
-    </section>
-  </div>
+    </div>
+
+    {{!-- Add Sidebar --}}
+    {{> "sidebar"}}
+
+  </section>
+
 </main>

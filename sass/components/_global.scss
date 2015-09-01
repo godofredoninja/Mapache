@@ -1,0 +1,520 @@
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+a{
+  color: $color-link;
+  outline: 0;
+  text-decoration: none;
+}
+
+body{
+  color: $color-text;
+  background: $color-bg-page;
+  font: 400 16px/24px Roboto,sans-serif;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4{
+ letter-spacing: -.01em;
+ font: 500 24px/32px Roboto, sans-serif;
+}
+
+h2{
+  margin: 40px 0 20px;
+}
+
+@media #{$small-and-up}{
+  h1 {font-size: $h1-fontsize;}
+  h2 {font-size: $h2-fontsize;}
+  h3 {font-size: $h3-fontsize;}
+  h4 {font-size: $h4-fontsize;}
+}
+
+blockquote{
+  position: relative;
+  font-style: italic;
+  line-height: 1.4;
+  padding-left:4em;
+  margin: 40px auto;
+  width: 90%;
+  color: #555;
+  min-height: 70px;
+  &:before{
+    color: #ccc;
+    content: '\f10d';
+    font-size: 3em !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+img{
+  width: auto;
+  max-width: 100%;
+}
+
+p{
+  margin: 16px 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+hr{
+  border: none;
+  border-bottom: 1px dashed #b7b7b7;
+  margin: 2em auto;
+  padding: 0;
+}
+
+ol{
+  margin-bottom: 30px;
+  padding-left: 2.5em;
+  counter-reset: li-counter;
+  li{
+    position: relative;
+    padding-left: 0.5em;
+    &:before{
+      color: #ccc;
+      content: counter(li-counter);
+      counter-increment: li-counter;
+      font-weight: bold !important;
+      left: -1em;
+      line-height: 1;
+      position: absolute;
+      text-align: right;
+      top: 2px;
+      font-size: 1.3em;
+    }
+  }
+}
+
+pre,
+code{
+  font-size: 16px;
+  font-family: 'Roboto Mono', Consolas, Monaco, Andale Mono, monospace;
+}
+
+pre code,
+table {
+  background-color: transparent;
+}
+
+pre{
+  background-color: $pre-bg-color;
+	border-radius: 0.3em;
+  color: #fff;
+	margin: 30px 0;
+	overflow: auto;
+  padding: 1em;
+  code{
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+}
+
+kbd,
+samp,
+code {
+  color: $code-color;
+  background-color: $code-bg-color;
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: pre-wrap;
+}
+
+// clear
+.clear{
+  &:before,
+  &:after{
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+// Positioning align
+.valign-wrapper {
+  @include flexbox();
+  @include align(center);
+}
+// Teax aling center
+.center{
+  text-align: center;
+}
+// float Left
+.left{
+  float: left !important;
+}
+// float right
+.right{
+  float: right !important;
+}
+
+//  Card
+.card{
+  border: 0;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(43,59,93,0.29);
+  margin-bottom: 20px;
+  padding: 1em;
+}
+
+// full site
+.full-site-width{
+  margin: 0 auto;
+  max-width: 1280px;
+  position: relative;
+  @extend .clear;
+}
+
+// Show medio screen page
+.show-on-medium-screen{
+  display: none !important;
+    @media #{$medium-and-up} {
+      display: block !important;
+  }
+}
+
+// Show medio screen page
+.show-on-small-screen{
+  display: none !important;
+    @media #{$small-and-up} {
+      display: block !important;
+  }
+}
+
+.landing{
+  overflow: hidden;
+}
+
+
+// Post loop
+
+.ps{
+  border-bottom: 1px solid #e8e8e8;
+  min-height: 90px;
+  position: relative;
+  padding-right: 16px;
+
+  // tags
+  .ps-tags{
+    left: 0;
+    position: absolute;
+    top: 5.5em;
+    width: 7em;
+    a{
+      background: #E3E6E3;
+      color: #3e433e;
+      display: block;
+      margin: 0 0 .5em;
+      text-transform: capitalize;
+      &:hover{
+        background-color: $color-link;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+        color: rgba(255,255,255,0.87);
+        opacity: 1;
+      }
+    }
+  }
+
+  //  post img
+  .ps-thumb{
+    display: block;
+    float: right;
+    margin: 0 0 .5em 1em;
+    max-width: 6.5em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .read-more{
+    font-weight: 500;
+    &:hover{
+      color: $color-text;
+    }
+  }
+
+  .ps-excerpt{
+    margin-top: 0;
+  }
+
+  // post title
+  .ps-title{
+    position: relative;
+    h2{
+      margin: 0;
+      color: $color-text;
+      font: 500 24px/32px Roboto,sans-serif;
+    }
+  }
+
+  .ps-inner{
+    padding-top: .5em;
+    position: relative;
+  }
+
+
+  // Mediaquery 600
+  @media #{$small-and-up}{
+    .ps-inner{
+      padding-top: 0;
+    }
+
+    // time de page home
+    .timestamp{
+      background: #E3E6E3;
+      border-radius: 2px 0 0 2px;
+      color: #3e433e;
+      display: block;
+      left: 0;
+      font-style: italic;
+      font-size: .80em;
+      height: 36px;
+      line-height: 36px;
+      padding: 0 .67em;
+      position: absolute;
+      text-align: center;
+      top: 2.2em;
+      width: 8.5em;
+      &:after{
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        margin: 0;
+        pointer-events: none;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        border-left: 11px solid #E3E6E3;
+      }
+    }
+
+    .byline{
+      font-size: 1em;
+    }
+
+    .ps-thumb{
+      max-width: 13em;
+    }
+
+    // title before circle
+    .ps-title{
+      &:before{
+        background: #fff;
+        border-radius: 50%;
+        border: 3px solid #d2d3d2;
+        content: "";
+        display: block;
+        height: 20px;
+        left: -28px;
+        top: 3px;
+        position: absolute;
+        width: 20px;
+      }
+    }
+
+    .ps-content{
+      padding: 2em 0 1em 1em;
+      margin-left: 8.5em;
+      border-left: 3px solid #E3E6E3;
+    }
+
+  }
+
+}
+
+
+// Pagination
+
+.pagination{
+  padding-top: 3em;
+  padding-bottom: 2em;
+  span{
+    margin: 0 1em;
+    font-size: 1.2em;
+  }
+}
+
+
+.bg-home{
+  @include linear-gradient-left3($color-bg-page, #fff, 0, #fff, 50%, $color-bg-page, 50% , $color-bg-page , 100% );
+}
+
+.main{
+  position: relative;
+  .main-home{
+    background: #fff;
+    @extend .clear;
+  }
+}
+
+.main-wrap-home{
+  background: #fff;
+  padding-top: 0 !important;
+}
+
+.main-wrap{
+  @media #{$medium-and-up}{
+    width: calc(100% - #{$sidebar-right + 32px});
+    float: left;
+    padding: 16px 0 16px 16px;
+  }
+}
+
+//  sidebar
+
+.sidebar{
+  padding: 0 16px;
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  @media #{$medium-and-up}{
+    float: right;
+    width: $sidebar-right + 32px;
+
+  }
+}
+
+
+
+
+// time
+.byline{
+  color: #6d6d6d;
+  font-size: .80em;
+  font-style: italic;
+  padding: .3em 0;
+  a{
+    font-weight: 500;
+    &:hover{
+      color: $color-text;
+    }
+  }
+}
+
+// Share social links
+
+.share{
+
+
+  a{
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 0;
+
+    span{
+      display: none;
+      @media #{$small-and-up}{
+        display: inline;
+      }
+    }
+
+    &:hover{
+      box-shadow: none;
+    }
+
+    &.ps-comment{
+      background: #989898;
+
+      .ps-comment-count{
+        font-weight: normal;
+        margin-left: 10px;
+      }
+    }
+  }
+
+}
+
+
+// Video Responsive Youtube & Vimeo
+
+.video{
+  margin: 0 auto 30px auto;
+  max-width: 100%;
+  .video-content {
+    height: 0;
+    padding: 25px 0 56.25% 0;
+    position: relative;
+    iframe {
+      height: 100%!important;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%!important;
+    }
+  }
+}
+
+// error 404 page
+
+.error-content{
+  max-width: 400px;
+  margin: 0 auto 0 auto;
+  font-weight: bold;
+  color: #445A64;
+  img{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .error-text{
+    font-size: 2em;
+  }
+}
+
+// Color icon sociacles
+
+.bg-facebook{background-color: $color-facebook !important }
+.bg-twitter{background-color: $color-twitter !important }
+.bg-google-plus{background-color: $color-google-plus !important }
+.bg-instagram{background-color: $color-instagram !important }
+.bg-youtube{background-color: $color-youtube !important }
+.bg-github{background-color: $color-github !important }
+.bg-linkedin{background-color: $color-linkedin !important }
+.bg-spotify{background-color: $color-spotify !important }
+.bg-codepen{background-color: $color-codepen !important}
+.bg-behance{background-color: $color-behance !important}
+.bg-dribbble{background-color: $color-dribbble !important}
+
+// Post Twitter facebook card embed Css Center
+
+.fb-post,
+.twitter-tweet{
+  display: block !important;
+  margin: 0 auto 40px auto !important;
+  text-align: center;
+}
+
+
+// ADS
+
+.Ads{
+  position: relative;
+  margin: 10px -32px;
+  text-align: center;
+
+  .Ads-content{
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

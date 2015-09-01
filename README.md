@@ -1,13 +1,23 @@
-# GodoFredo - Blog - Ghost
-### Un tema libre para Ghost
+# Mapache for Ghost by GodoFredo
+---
+> Minimalist Material Desing and Elegant theme for Ghost.
 
-Hola,  he creado este tema de Ghost para poder ver cómo funciona. Está disponible de forma Gratuita para que lo puedas usar en tu sitio. Está totalmente prohibido su uso comercial. SI Usted tiene alguna sugerencia para poder mejorar el tema,  me puede enviar un Tweet a [@GodoFredoNinja](https://twitter.com/GodoFredoNinja)
+### Free theme for Ghost
 
-## USO
+Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](https://twitter.com/GodoFredoNinja)
+
+![](https://farm1.staticflickr.com/735/20419920384_388ae3e13b_b.jpg)
+
+
+## Demo
+---
+You can see a demo in my [blog](https://godofredo.ninja/blog).
+
+## USE
+---
 
 ### Install global
 ```
-$ npm install -g stylus
 $ npm install -g gulp
 $ npm install -g bower
 ```
@@ -19,26 +29,35 @@ $ bower install
 ```
 ### Development mode
 ```
-$ gulp bower
 $ gulp
 ```
 
-#### Editar los enlaces sociales de la parte inferior de la página
+### Production mode
 
-Abrir y editar `parttials/footer.hbs`
+new folder is created `dist`
 
-#### Editar el botón me gusta de Facebook, twitter Follow y YouTube, de la página del post
-
-Abrir y editar el contenido de la línea 15 de `post.hbs`
-
-#### Editar la columna derecha del post (SIdebar)
-Abrir y editar `partials/sidebar.hbs`
+```
+$ gulp production
+$ gulp csscompress
+```
 
 
-#### Créditos
-Godofredo blog usa  varias de estas librerías
+#### Edit the right column (Sidebar)
+---
+`partials/sidebar.hbs`
 
-- [Materialize](https://materializecss.com)
-- [Fitvidsjs](http://fitvidsjs.com/)
+#### Edit link social media menu
+---
+`partials/header.hbs`
+```
+{{!-- social Panel --}}
+```
+![](https://farm6.staticflickr.com/5763/20422068373_ef92b9173e_b.jpg)
+
+#### Credits
+---
+
+- [Font Awesome](http://fontawesome.io/)
+- [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
-- [Prismjs](http://prismjs.com/) 
+- [Prismjs](http://prismjs.com/)

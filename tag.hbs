@@ -1,17 +1,12 @@
 {{!-- Add Layout --}}
 {{!< default}}
-<div class="row">
-  <article class="Header col s12">
-    <div class="u-wrap">
-      <div class="{{#if tag.image}}u-cover" style="background-image: url({{tag.image}}){{/if}}"> </div>
-      <header class="u-border Header-info clear">
-        {{!-- Tag Name --}}
-        <h1 class="Header-title">{{tag.name}}</h1>
-        {{!-- Tag Description --}}
-        <p class="Header-description">{{#if tag.description}}{{tag.description}}{{else}}Una Colección de {{pagination.total}} Artículos{{/if}}</p>
-      </header>
-    </div>
+<header class="godo-header {{#if tag.image}}cover" style="background-image: url({{tag.image}}){{else}}no-cover{{/if}}">
+  <article class="godo-header-wrap">
+    {{!-- Blog name --}}
+    <h1 class="godo-header-title">{{tag.name}}</h1>
+    {{!-- Blog description --}}
+    <p class="godo-header-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
   </article>
-</div>
+</header>
 {{!-- Add Loop --}}
 {{> "loop"}}

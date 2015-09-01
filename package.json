@@ -1,15 +1,36 @@
 {
-  "name": "GodoFredoNinja-Blog",
-  "version": "0.0.1",
+  "name": "Mapache-GodoFredo",
+  "version": "1.0.2",
+  "description": "Mapache theme ghost by GodoFredoNinja",
+  "bugs": {
+    "url": "",
+    "email": "hello@godofredo.ninja"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "GodoFredo",
+    "email": "hello@godofredo.ninja",
+    "url": "https://godofredo.ninja"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godofredoninja/Mapache"
+  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp-concat": "^2.5.2",
+    "gulp": "^3.8.11",
     "gulp-connect": "^2.2.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.3.0",
     "gulp-inject": "^1.2.0",
-    "gulp-jshint": "^1.9.4",
-    "gulp-stylus": "^2.0.1",
-    "gulp-uglify": "^1.1.0",
-    "jshint-stylish": "^1.0.1",
-    "nib": "^1.1.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "gulp-sass": "^2.0.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.1.2",
+    "imagemin-pngcrush": "^4.1.0",
+    "jshint-stylish": "^1.0.2",
     "wiredep": "^2.2.2"
   }
 }
