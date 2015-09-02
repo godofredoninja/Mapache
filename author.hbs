@@ -1,28 +1,22 @@
 {{!-- Add Layout --}}
-{{!< layout}}
+{{!< default}}
 {{#author}}
-<div class="row">
-  <section class="Author center col s12 valign-wrapper clear{{#if cover}} z-depth-1 cover" style="background-image: url({{cover}}){{/if}}">
-    <div class="Author-wrap valign">
-      <span class="Author-line"></span>
-      {{!-- Avatar author --}}
-      <figure class="Author-profile">
-        <img class="Author-avatar u-avatar" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
-      </figure>
-      {{!-- add Info Author --}}
-      <article class="Author-info">
-        <h1 class="Author-name" >{{name}}</h1>
-        <p class="Author-about" itemprop="description">{{bio}}</p>
-        {{!-- Meta Author location website --}}
-        <div class="Author-meta">
-          {{#if location}}<span class="Author-location"><i class="mdi-communication-location-on"></i>  {{location}}</span>{{/if}}
-          {{#if website}}<span><a class="Author-website" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span>{{/if}}
-          <span class="Author-post"><i class="mdi-av-equalizer"></i> {{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}}</span>
-        </div>
-      </article>
+<header class="godo-header {{#if cover}}cover" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
+  <article class="godo-header-wrap">
+    {{!-- Avatar author --}}
+    <img  class="godo-header-avatar animated bounceInDown" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
+    {{!-- Author name --}}
+    <h1 class="godo-header-title animated bounceIn">{{name}}</h1>
+    {{!-- Author description --}}
+    <p class="godo-header-description" itemprop="description">{{bio}}</p>
+    {{!-- Author location website --}}
+    <div class="godo-header-meta">
+      {{#if location}}<span class="location"><i class="fa fa-map-marker"></i> {{location}}</span>{{/if}}
+      {{#if website}}<span><a class="website btn" href="{{website}}"><i class="fa fa-link"></i> WebSite</a></span>{{/if}}
+      <span>{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="fa fa-rss"></i></span>
     </div>
-  </section>
-</div>
+  </article>
+</header>
 {{/author}}
 {{!-- Add Loop --}}
 {{> "loop"}}

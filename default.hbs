@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}" />
+  {{!-- icon  --}}
+  <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,700,500italic,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{asset "css/style.min.css"}}">
+
+  {{! Ghost outputs important style and meta data with this tag }}
+  {{ghost_head}}
+</head>
+<body>
+
+  <div class="landing">
+  {{!-- Add Header --}}
+  {{> "header"}}
+  {{!-- Add Content Body --}}
+  {{{body}}}
+  {{!-- Add footer --}}
+  {{> "footer"}}
+  </div>
+
+
+  {{! Ghost outputs important scripts and data with this tag }}
+  {{ghost_foot}}
+
+  <script src="{{asset "js/app.min.js"}}"></script>
+</body>
+</html>

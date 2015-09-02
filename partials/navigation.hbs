@@ -1,6 +1,9 @@
 {{!-- Menu Navigatio List  --}}
-{{#foreach navigation}}
-  <li class="Menu-item {{#if current}}active{{/if}}">
-    <a href="{{url absolute="true"}}">{{label}}</a>
-  </li>
-{{/foreach}}
+<a class="nav-open left btn btn-flat" href="#"><i class="fa fa-bars"></i></a>
+<div class="godo-menu">
+  <ul>
+    {{#foreach navigation}}
+    <li><a class="{{#if current}}active{{/if}}" href="{{url absolute="true"}}"><i class="fa fa-circle"></i>{{label}}</a></li>
+    {{/foreach}}
+  </ul>
+</div>

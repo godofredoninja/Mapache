@@ -1,9 +1,0 @@
-/node_modules
-/assets/lib
-/npm-debug.log
-/stylus
-/assets/scripts
-Gulpfile.js
-bower.js
-.bowerrc
-.jhshintrc

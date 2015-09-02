@@ -1,44 +1,41 @@
 {{!-- Navigation Page --}}
 <div class="navbar-fixed">
-  <nav class="Menu">
-    <div class="nav-wrapper">
-      <div class="u-wrap">
-        {{!-- Add Logo --}}
-        <a class="Logo brand-logo" href="{{@blog.url}}">{{#if @blog.logo}}<img  class="Logo-img" src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}{{@blog.title}}{{/if}}</a>
-        {{!-- Open menu Search --}}
-        <a href="#" class="Menu-openSearch"><i class="mdi-action-search"></i></a>
+  <nav class="godo-nav">
+    <div class="full-site-width">
+      {{!-- Add Navigation --}}
+      {{#if @blog.navigation}}{{navigation}}{{/if}}
+      {{!-- Add Logo --}}
+      <a class="logo left" href="{{@blog.url}}">{{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}</a>
+      {{!-- Add Form Search Menu --}}
+      <form class="godo-search">
+        <i class="fa fa-search show-on-medium-screen"></i>
+        <input class="godo-search-field" type="search" placeholder="Search" autocomplete="off">
+        <div class="godo-search-result" id="godo-search-result"></div>
+      </form>
+      {{!-- btn search --}}
+      <a href="#" class="nav-search-open right btn btn-flat"><i class="fa fa-search"></i></a>
 
-        {{!-- Menu --}}
-        {{#if @blog.navigation}}
-          {{!-- Open menu desktop --}}
-          <a class="Menu-openDesktop" href="#" data-activates="Menuopen"><i class="mdi-navigation-menu"></i></a>
-
-          <div id="Menuopen" class="Menu-desktop hide-on-med-and-down clear white z-depth-1">
-            <ul>{{navigation}}</ul>
-          </div>
-
-          {{!-- Menu Mobile --}}
-          <a href="#" data-activates="menu-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
-          <ul class="side-nav" id="menu-mobile">
-            {{navigation}}
-          </ul>
-        {{/if}}
-
-        {{!-- Form --}}
-        <div class="Menu-form close">
-          <form>
-            <div class="input-field">
-              <input id="Search" type="search" placeholder="Buscar" required>
-              <label for="search"><i class="mdi-action-search"></i></label>
-            </div>
-            <div class="white z-depth-1" id="Search-results"></div>
-          </form>
-          <span class="Menu-closeSearch"> <i class="mdi-navigation-close"></i> </span>
+      {{!-- Social navigation --}}
+      <div class="nav-social right show-on-medium-screen">
+        <div class="btn btn-flat" style="height:45px">
+          <span><i class="fa fa-facebook"></i></span>
+          <span><i class="fa fa-twitter"></i></span>
+          <span><i class="fa fa-youtube-play"></i></span>
         </div>
-
+        {{!-- social Panel --}}
+        <div class="nav-socialPanel">
+          <a href="#" target="_blank"><span class="btn btn-flat bg-facebook"><i class="fa fa-facebook"></i></span>Facebook</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-twitter"><i class="fa fa-twitter"></i></span>twitter</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-github"><i class="fa fa-github"></i></span>github</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-youtube"><i class="fa fa-youtube-play"></i></span>youtube</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-linkedin"><i class="fa fa-linkedin"></i></span>linkedin</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-codepen"><i class="fa fa-codepen"></i></span>codepen</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-instagram"><i class="fa fa-instagram"></i></span>Instagram</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-spotify"><i class="fa fa-spotify"></i></span>Spotify</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-dribbble"><i class="fa fa-dribbble"></i></span>dribbble</a>
+          <a href="#" target="_blank"><span class="btn btn-flat bg-behance"><i class="fa fa-behance"></i></span>behance</a>
+        </div>
       </div>
     </div>
   </nav>
-
 </div>

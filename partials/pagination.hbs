@@ -1,13 +1,9 @@
 {{!-- Pagination --}}
-<div class="pagination col s12">
+<div class="pagination center">
   {{!-- Newer page --}}
-  <div class="pagination-newer">
-    <a href="{{page_url prev}}" class="btn-floating btn-large {{#if prev}}waves-effect waves-light red {{else}}disabled{{/if}}"><i class="mdi-navigation-chevron-left"></i></a>
-  </div>
+  <a href="{{page_url prev}}" class="btn btn-circle {{#if prev}}active{{else}}disabled{{/if}}"><i class="fa fa-arrow-left"></i></a>
   {{!-- Counter pages --}}
-  <div class="pagination-number">{{page}} / {{pages}}</div>
+  <span class="pagination-number">{{page}} / {{pages}}</span>
   {{!-- Older page --}}
-  <div class="pagination-older">
-    <a href="{{page_url next}}" class="btn-floating btn-large {{#if next}}waves-effect waves-light red {{else}}disabled{{/if}}"><i class="mdi-navigation-chevron-right"></i></a>
-  </div>
+  <a href="{{page_url next}}" class="btn btn-circle {{#if next}}active{{else}}disabled{{/if}}"><i class="fa fa-arrow-right"></i></a>
 </div>

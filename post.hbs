@@ -1,85 +1,68 @@
 {{!-- Add Layout --}}
-{{!< layout}}
+{{!< default}}
 {{#post}}
-<main>
-  <div class="u-wrap">
-    <section class="row">
-      <div class="Post col s12 m8">
-        {{!-- Post Content --}}
-        <article class="Post-main z-depth-1 white clear">
-          <header class="Post-header clear">
-            <div class="AuthorPost-top">Por {{#author}}<a href="{{url}}">{{name}}</a>{{/author}} publicado <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
-            {{!-- Title Post --}}
-            <h1 class="Post-title">{{title}}</h1>
-            {{!-- Follow --}}
-            <aside class=" Follow clear">
-              <span class="texto">¡Sígueme!</span>
-              <span class="fb"><div class="fb-like" data-href="https://www.facebook.com/godofredo.ninja" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
-              <span class="tw"><a href="https://twitter.com/GodoFredoNinja" class="twitter-follow-button" data-show-count="true" data-lang="es" data-show-screen-name="false" data-dnt="true">Seguir a @GodoFredoNinja</a></span>
-              <span class="yt"><div class="g-ytsubscribe" data-channelid="UCvG7YDFE69L6XCyfyUOlq4A" data-layout="default" data-count="undefined"></div></span>
-            </aside>
-            {{!-- Add Cover Img Post --}}
-            {{#if image}}
-            <figure class="Post-imgContent">
-              <img src="{{image}}" alt="{{title}}" class="Post-img"/>
-            </figure>
-            {{/if}}
-          </header>
-           <section class="Post-content">
-             {{content}}
-           </section>
-        </article>
-        {{!-- Post Share --}}
-        <aside class="Share center">
-          <h5 class="Share-title">Si te ha gustado éste Articulo, por favor, compártelo para que otros puedan leerlo. Eso me Ayudara y Motivara a tener Actualizado el Blog.</h5>
-          <a class="Share-items btn waves-effect waves-light icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"> <span class="Share-hidden">Twittear</span> </a>
-          <a class="Share-items btn waves-effect waves-light icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"> <span class="Share-hidden">Compartir</span> </a>
-          <a class="Share-items btn waves-effect waves-light icon-google" href="https://plus.google.com/share?url={{url absolute="true"}}"onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"> <span class="Share-hidden">Google +</span></a>
-          <a class="Share-items btn waves-effect waves-light icon-linkedin2"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><span class="Share-hidden">Compartir</span></a>
-          <span class="Share-items whatsapp"><a class="wa_btn wa_btn_l" href="whatsapp://send" data-text="{{title}}" data-href=""></a></span>
+<main class="full-site-width">
+  <div class="main-wrap">
+    {{!-- Post Content --}}
+    <article class="post">
+      <header class="post-header clear">
+        {{!-- Title Post --}}
+        <h1 class="post-title">{{title}}</h1>
+        {{!-- Autor Tags --}}
+        <div class="byline">Published <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>  by {{#author}}<a href="{{url}}">{{name}}</a>{{/author}}</div>
+        {{!-- Follow --}}
+        <aside class="follow show-on-small-screen">
+          <span class="texto">Share</span>
+          <span class="fb"><div class="fb-share-button" data-href="{{url absolute="true"}}" data-layout="button_count"></div></span>
+          <span class="tw"><a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a></span>
         </aside>
-        {{!-- Add Auhor --}}
-        {{#author}}
-        <div class="row">
-          <div class="AuthorPost card">
-            <div class="card-content clear">
-              <div class="col s12 m3">
-                <a href="{{url}}" class="AuthorPost-img" >
-                  <img class="u-avatar" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
-                </a>
-              </div>
-              <div class="col s12 m9">
-                {{!-- Add Name Author --}}
-                <a class="AuthorPost-name" href="{{url}}">{{name}}</a>
-                {{!-- biography of the author --}}
-                {{#if bio}}<p>{{bio}}</p>{{/if}}
-                <p>Leer más <a href="{{url}}"><strong>Artículos</strong></a></p>
-                {{!-- Tag Meta Author --}}
-                <div class="col s12 AuthorPost-meta">
-                  {{#if location}}<span class="AuthorPost-location"> <i class="mdi-maps-place"></i> {{location}}</span>{{/if}}
-                  {{#if website}} <span><a class="AuthorPost-web" href="{{website}}"><i class="mdi-social-public"></i> WebSite</a></span> {{/if}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/author}}
-        {{!-- Add Comments --}}
-        <div class="card">
-          <div class="card-content">
-            <h3 class="Comments-title">¿Y tú qué opinas? Deja un comentario...</h3>
-            <div class="Comments-all">
-              <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
-            </div>
-          </div>
-        </div>
+        {{!-- Add Cover Img Post --}}
+        {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
+      </header>
+      {{!-- content post --}}
+      <section class="post-main clear">
+         {{content}}
+         {{!-- Tags --}}
+         {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
+       </section>
+      {{!-- Post Share --}}
+      <aside class="share">
+        <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> <span>Share</span></a>
+        <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> <span>Tweet</span></a>
+        <a class="btn bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i> <span>Share</span></a>
+      </aside>
+    </article>
 
+    {{!-- Add Auhor --}}
+    {{#author}}
+    <div class="post-author">
+      {{!-- Add Auhor --}}
+      <a href="{{url}}" class="avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
+
+      <div class="author-content">
+        {{!-- Add Name Author --}}
+        <a class="author-name" href="{{url}}">{{name}}</a>
+        {{!-- biography of the author --}}
+        {{#if bio}}<p>{{bio}}</p>{{/if}}
+        <p class="meta">
+          {{#if location}}<span><i class="fa fa-map-marker"></i> {{location}}</span>{{/if}}
+          {{#if website}} <span><a href="{{website}}"><i class="fa fa-globe"></i> WebSite</a></span> {{/if}}
+        </p>
       </div>
-      {{!-- Add Sidebar --}}
-      <div class="Sidebar col s12 m4">
-        {{> "sidebar"}}
+    </div>
+    {{/author}}
+
+    {{!-- Add Comments --}}
+    <div id="comments"class="comments">
+      <div class="card-content">
+        <div class="Comments-all">
+          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
+        </div>
       </div>
-    </section>
+    </div>
+
   </div>
+  {{!-- Add Sidebar --}}
+  {{> "sidebar"}}
 </main>
 {{/post}}
