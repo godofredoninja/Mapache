@@ -34,6 +34,11 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./assets/css'))
     .pipe(connect.reload());
+  gulp.src('./sass/themes/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(gulp.dest('./assets/css/themes'))
+    .pipe(connect.reload());
 });
 
 // Busca errores en el JS y nos los muestra por pantalla
@@ -47,7 +52,7 @@ gulp.task('jshint', function() {
 // Busca en las carpetas de estilos y javascript los archivos que hayamos creado
 // para inyectarlos en el default.hbs
 gulp.task('inject', function() {
-  var sources = gulp.src(['./assets/js/**/*.js','./assets/css/**/*.css']);
+  var sources = gulp.src(['./assets/js/**/*.js','./assets/css/*.css']);
   return gulp.src('default.hbs', {cwd: './'})
   .pipe(inject(sources, {
     read: false,
@@ -107,8 +112,12 @@ gulp.task('copy', function() {
   gulp.src('./assets/lib/fontawesome/fonts/**')
   .pipe(gulp.dest('./dist/assets/fonts'));
 
-  gulp.src(['./README.md', './package.json'])
+  gulp.src('./assets/css/themes/**')
+  .pipe(gulp.dest('./dist/assets/css/themes'));
+
+  gulp.src(['./README.md', './package.json', './.gitignore'])
   .pipe(gulp.dest('./dist'));
+
 });
 
 // Reduce el peso de las imagenes para produccion
@@ -135,8 +144,8 @@ gulp.task('images', function() {
 gulp.task('rename-assets', function(){
   gulp.src(['./dist/default.hbs'])
   .pipe(replace('./assets/css/style.min.css', '{{asset "css/style.min.css"}}'))
-  .pipe(replace('./assets/js/vendor.min.js', '{{asset "vendor.min.js"}}'))
-  .pipe(replace('./assets/js/app.min.js', '{{asset "app.min.js"}}'))
+  .pipe(replace('./assets/js/vendor.min.js', '{{asset "js/vendor.min.js"}}'))
+  .pipe(replace('./assets/js/app.min.js', '{{asset "js/app.min.js"}}'))
   .pipe(gulp.dest('./dist/'));
 });
 

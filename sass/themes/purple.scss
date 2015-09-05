@@ -1,0 +1,41 @@
+@charset "UTF-8";
+// // Mixins
+@import "../components/mixins";
+
+$color-theme: #9c27b0;
+$color-theme-dark   : darken($color-theme, 15%);
+
+a{
+  color: $color-theme;
+}
+// menu nav
+.godo-nav{
+  background:  $color-theme;
+
+}
+.godo-menu ul a:hover i,
+.godo-menu ul a.active i,
+.godo-menu ul a:hover,
+.godo-menu ul a.active{
+  color: $color-theme;
+}
+
+// header
+.godo-header.no-cover{
+  @include linear-gradient-top($color-theme, $color-theme-dark, 0, $color-theme, 100%);
+}
+
+// post
+.ps .ps-tags a:hover{
+  background-color: $color-theme;
+}
+.post-main a:hover{
+  border-bottom: 0.08em solid  $color-theme;
+}
+
+.btn{
+  background: complement($color-theme);
+  &.link{
+    background: $color-theme !important;
+  }
+}
