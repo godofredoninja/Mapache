@@ -22,7 +22,7 @@ You can see a demo in my [blog](https://godofredo.ninja/blog).
 #### Edit link social media menu
 
 `partials/header.hbs`
-```
+```html
 {{!-- social Panel --}}
 ```
 ![](https://farm6.staticflickr.com/5763/20422068373_ef92b9173e_b.jpg)
@@ -32,7 +32,7 @@ You can see a demo in my [blog](https://godofredo.ninja/blog).
 ![](https://farm6.staticflickr.com/5761/20965840408_40e7cc54db_b.jpg)
 
 
-```
+```html
 <!-- Theme indigo -->
 <link rel="stylesheet" href="/assets/css/themes/indigo.css" />
 <!-- Theme dark blue -->
