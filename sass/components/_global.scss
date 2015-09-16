@@ -62,6 +62,8 @@ img{
 
 p{
   margin: 16px 0;
+  padding: 0;
+  word-wrap: break-word;
 }
 
 ol,
@@ -211,6 +213,9 @@ code {
   min-height: 90px;
   position: relative;
   padding-right: 16px;
+  padding-left: 16px;
+
+  @media #{$medium-and-up}{padding-left: 0;}
 
   // tags
   .ps-tags{
@@ -292,6 +297,7 @@ code {
       text-align: center;
       top: 2.2em;
       width: 8.5em;
+      white-space: nowrap;
       &:after{
         content: " ";
         height: 0;
@@ -433,6 +439,7 @@ code {
 
     &.ps-comment{
       background: #989898;
+      padding: 0 14px;
 
       .ps-comment-count{
         font-weight: normal;

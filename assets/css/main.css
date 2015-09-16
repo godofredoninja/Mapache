@@ -61,7 +61,9 @@ img {
   max-width: 100%; }
 
 p {
-  margin: 16px 0; }
+  margin: 16px 0;
+  padding: 0;
+  word-wrap: break-word; }
 
 ol,
 ul {
@@ -187,7 +189,11 @@ code {
   border-bottom: 1px solid #e8e8e8;
   min-height: 90px;
   position: relative;
-  padding-right: 16px; }
+  padding-right: 16px;
+  padding-left: 16px; }
+  @media only screen and (min-width: 900px) {
+    .ps {
+      padding-left: 0; } }
   .ps .ps-tags {
     left: 0;
     position: absolute;
@@ -243,7 +249,8 @@ code {
       position: absolute;
       text-align: center;
       top: 2.2em;
-      width: 8.5em; }
+      width: 8.5em;
+      white-space: nowrap; }
       .ps .timestamp:after {
         content: " ";
         height: 0;
@@ -339,7 +346,8 @@ code {
   .share a:hover {
     box-shadow: none; }
   .share a.ps-comment {
-    background: #989898; }
+    background: #989898;
+    padding: 0 14px; }
     .share a.ps-comment .ps-comment-count {
       font-weight: normal;
       margin-left: 10px; }
@@ -664,7 +672,7 @@ code {
     background-image: -o-linear-gradient(top, #0143A3 0, #0273D4 100%);
     background-image: linear-gradient(to bottom, #0143A3 0, #0273D4 100%); }
     .godo-header.no-cover .godo-header-wrap {
-      opacity: .87; }
+      color: rgba(255, 255, 255, 0.87); }
   .godo-header.cover {
     background-position: center;
     -webkit-background-size: cover;
@@ -797,9 +805,18 @@ code {
     background: transparent; }
 
 .post {
-  line-height: 1.7; }
+  font: 400 17px/25px Roboto, sans-serif; }
   .post img {
     display: block; }
+  .post h2 {
+    border-bottom: 1px solid #ebebeb;
+    font: 500 26px/34px Roboto, sans-serif;
+    letter-spacing: -.01em;
+    margin: 40px 0 20px;
+    padding-bottom: 3px; }
+  .post h3 {
+    font: 500 20px/32px Roboto, sans-serif;
+    margin: 32px 0 16px; }
 
 .post-header {
   margin-bottom: 30px; }
@@ -818,9 +835,6 @@ code {
   font-weight: 500; }
   .post-main a:hover {
     border-bottom: 0.08em solid #106cc8; }
-
-.post-main p {
-  word-wrap: break-word; }
 
 .post-main ul {
   padding-left: 2.5em;
@@ -882,8 +896,7 @@ code {
 
 @media only screen and (min-width: 600px) {
   .post {
-    padding: 2em;
-    font-size: 17px; }
+    padding: 2em; }
   .post-title {
     line-height: 1.2;
     font-weight: bold; }

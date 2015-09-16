@@ -15,7 +15,7 @@
     @include linear-gradient-top($bg-header-color, $bg-header-top-color, 0, $bg-header-buttom-color, 100%);
 
     .godo-header-wrap{
-      opacity: .87;
+      color: rgba(255, 255, 255, 0.87);
     }
   }
 

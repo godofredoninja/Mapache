@@ -1,9 +1,21 @@
 .post{
-  line-height: 1.7;
+  font: 400 17px/25px Roboto, sans-serif;
   @extend .card;
 
   img{
     display: block;
+  }
+
+  h2{
+    border-bottom: 1px solid #ebebeb;
+    font: 500 26px/34px Roboto,sans-serif;
+    letter-spacing: -.01em;
+    margin: 40px 0 20px;
+    padding-bottom: 3px;
+  }
+  h3{
+    font: 500 20px/32px Roboto,sans-serif;
+    margin: 32px 0 16px;
   }
 
 }
@@ -33,10 +45,6 @@
     &:hover{
       border-bottom: .08em solid $color-link;
     }
-  }
-
-  p{
-    word-wrap: break-word;
   }
 
   ul{
@@ -130,8 +138,7 @@
 // Media query
 @media #{$small-and-up}{
   .post{
-    padding: 2em;
-    font-size: 17px;
+    padding: 2em;    
   }
 
   .post-title{
