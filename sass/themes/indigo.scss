@@ -32,7 +32,9 @@ a{
 .post-main a:hover{
   border-bottom: 0.08em solid  $color-theme;
 }
-
+.sidebar .title{
+  background-color: $color-theme
+}
 .btn{
   background: #FF4081;
   &.link{

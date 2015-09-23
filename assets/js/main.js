@@ -98,20 +98,28 @@
   resizeHeight();
   function resizeHeight() {
     $('.error').each(function() {
-      $(this).height($(window).height() - $('.footer').height() - $nav_height);
+      $(this).height($(window).height() - ($('.godo-footer').height() + $nav_height));
     });
   }
   $(window).resize(resizeHeight);
 
 
+  // Plugins
+
+  // lazy load img
+  var myLazyLoad = new LazyLoad();
+
+
   // sidebar hidden aside
-  var sidebar_hidden = $(".sidebar .hidden").offset().top;
-  $(window).scroll(function(){
-    if($(window).scrollTop() >= (sidebar_hidden - $nav_height - 16)){
-      $('.sidebar .hidden').css({'position':'fixed','top':$nav_height + 16, 'width':'300'});
-    }else{
-      $('.sidebar .hidden').removeAttr('style');
-    }
-  });
+  if ($(".sidebar .hidden").length) {
+    var sidebar_hidden = $(".sidebar .hidden").offset().top;
+    $(window).scroll(function(){
+      if($(window).scrollTop() >= (sidebar_hidden - $nav_height - 16)){
+        $('.sidebar .hidden').css({'position':'fixed','top':$nav_height + 16, 'width':'300'});
+      }else{
+        $('.sidebar .hidden').removeAttr('style');
+      }
+    });
+  }
 
 })(); // end of jQuery name space

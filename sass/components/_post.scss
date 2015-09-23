@@ -1,69 +1,41 @@
 .post{
-  font: 400 17px/25px Roboto, sans-serif;
+  padding:  0;
   @extend .card;
 
   img{
     display: block;
   }
 
+  h1{
+    color: #757575;
+  }
   h2{
     border-bottom: 1px solid #ebebeb;
-    font: 500 26px/34px Roboto,sans-serif;
-    letter-spacing: -.01em;
-    margin: 40px 0 20px;
     padding-bottom: 3px;
   }
-  h3{
-    font: 500 20px/32px Roboto,sans-serif;
-    margin: 32px 0 16px;
-  }
 
 }
 
-// post header
-.post-header{
-  margin-bottom: 30px;
-  .post-title{
-    margin: 0;
-  }
-  .post-img{
-    margin: 0 auto 0 auto;
-  }
-  .byline{
-    font-size: .9em;
-    padding-bottom: 0;
-    padding-top: .9em;
-  }
+.post-title{
+  margin-top: 0;
 }
+
 
 // post content
 .post-main{
-  a{
-    border-bottom: .08em solid rgba(0,0,0,0.1);
-    padding-bottom: .2em;
-    font-weight: 500;
-    &:hover{
-      border-bottom: .08em solid $color-link;
-    }
-  }
+  padding:  0 2em 2em 2em;
+  @extend .clear;
 
   ul{
-    padding-left: 2.5em;
+    padding-left: 40px;
     margin-bottom: 1em;
     li{
-      position: relative;
-      margin: 8px 0;
-      &:before{
-        top: 8px;
-        position: absolute;
-        content: '';
-        width: 10px;
-        height: 10px;
-        left: -1em;
-        background-color: #089E00;
-        border-radius: 50%;
-      }
+      list-style: disc outside;
     }
+  }
+  li,li p{
+    margin: 8px 0;
+    padding: 0;
   }
 
 
@@ -72,31 +44,34 @@
 
 // author
 .post-author{
-  margin-top: 1.5em;
-  text-align: center;
-  @extend .card;
+  background: rgba(176,190,197,.16);
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ECEFF1;
+  padding: 13px 2em;
+  overflow: auto;
+  position: relative;
+  @extend .clear;
 
-  .avatar{
+  .post-author-avatar{
     border-radius: 50%;
-    height: 150px;
-    margin:0 auto 16px auto;
-    width: 150px;
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
     display: block;
     overflow: hidden;
-    img{
-      margin: 0
-    }
   }
 
-  .author-name{
-    font-size: 1.5em;
-    font-weight: bold;
+  .post-author-name{
+    color: #212121;
+    letter-spacing: -.01em;
   }
-
-  .meta span{
-    margin: 0 .5em;
+  .post-author-date{
+    font-style: italic;
+    font-size: 14px;
+    color: #78909C;
+    line-height: 1;
   }
-
 
 }
 
@@ -137,22 +112,9 @@
 
 // Media query
 @media #{$small-and-up}{
-  .post{
-    padding: 2em;    
-  }
 
   .post-title{
-    line-height: 1.2;
-    font-weight: bold;
+    font-weight: 500;
   }
 
-  .post-author{
-    text-align: left;
-    margin-top: 2em;
-    padding: 1.5em 2em;
-    .avatar{
-      float: left;
-      margin: 1em 1em 1em 0;
-    }
-  }
 }

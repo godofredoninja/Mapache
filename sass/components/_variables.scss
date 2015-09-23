@@ -31,14 +31,6 @@ $small-and-up  : "only screen and (min-width : #{$small-screen})" !default;
 $medium-and-up : "only screen and (min-width : #{$medium-screen})" !default;
 $large-and-up  : "only screen and (min-width : #{$large-screen})" !default;
 
-// titles Styles
-$h1-fontsize: 2.4em !default;
-$h2-fontsize: 2em !default;
-$h3-fontsize: 1.7em !default;
-$h4-fontsize: 1.4em !default;
-
-// mobile font all size
-$fontsize-title-mobile-all : 1.5em !default;
 
 // width sidebar-right
 $sidebar-right : 300px !default;
@@ -58,7 +50,7 @@ $navbar-brand-font-size: 1.8em !default;
 $code-bg-color: #f9f2f4 !default;
 $code-color: #c7254e !default;
 $pre-bg-color: #212E35 !default;
-
+//jorge0211
 // Footer
 $footer-bg-color: #253238 !default;
 $footer-color: #A2AAAD !default;

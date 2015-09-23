@@ -5,7 +5,7 @@
       {{#foreach posts}}
       <div class="ps">
         {{!-- Post Loop Content --}}
-        <article class="ps-inner">
+        <article class="ps-inner {{#if featured}}featured{{/if}}">
           {{!-- Tags --}}
           {{#if tags}}<div class="ps-tags show-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn btn-flat" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}}
           {{!-- post content --}}
@@ -15,7 +15,7 @@
             {{!-- post Title --}}
             <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a>
             {{!-- post author & datetime--}}
-            <div class="byline">
+            <div class="ps-byline">
               <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
               by {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
             </div>

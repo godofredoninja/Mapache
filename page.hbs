@@ -1,0 +1,20 @@
+{{!-- Add Layout --}}
+{{!< default}}
+{{#post}}
+<main class="full-site-width">
+	<div class="main-wrap page-wrap">
+		{{!-- Post Content --}}
+		<article class="post page-post">
+			{{!-- content post --}}
+			<section class="post-main clear">
+				{{!-- Title Post --}}
+				<h1 class="post-title">{{title}}</h1>
+				{{!-- Add Cover Img Post --}}
+				{{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
+				{{!-- Add post content --}}
+				{{content}}
+			 </section>
+		</article>
+	</div>
+</main>
+{{/post}}
