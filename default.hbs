@@ -6,15 +6,13 @@
   <meta name="description" content="{{meta_description}}" />
   {{!-- icon  --}}
   <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
-  <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,700,500italic,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,300italic,700,500italic,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{asset "css/style.min.css"}}">
-
   {{! Ghost outputs important style and meta data with this tag }}
   {{ghost_head}}
 </head>
 <body>
-
   <div class="landing">
   {{!-- Add Header --}}
   {{> "header"}}
@@ -23,12 +21,19 @@
   {{!-- Add footer --}}
   {{> "footer"}}
   </div>
-
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   {{! Ghost outputs important scripts and data with this tag }}
   {{ghost_foot}}
-
   <script src="{{asset "js/vendor.min.js"}}"></script>
   <script src="{{asset "js/app.min.js"}}"></script>
+  <!-- facebook Script -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
