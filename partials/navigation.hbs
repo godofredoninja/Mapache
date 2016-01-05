@@ -1,9 +1,11 @@
-{{!-- Menu Navigatio List  --}}
-<a class="nav-open left btn btn-flat" href="#"><i class="fa fa-bars"></i></a>
-<div class="godo-menu">
-  <ul>
-    {{#foreach navigation}}
-    <li><a class="{{#if current}}active{{/if}}" href="{{url absolute="true"}}"><i class="fa fa-circle"></i>{{label}}</a></li>
-    {{/foreach}}
-  </ul>
-</div>
+<nav id="menu" class="menu">
+  {{!-- Godo Menu Header --}}
+  <div class="menu-header u-align-center">
+    <a href="#" id="menu-close" class="menu-close icon-arrow_back"></a>
+    <div class="menu-pagename">{{@blog.title}}</div>
+  </div>
+  {{!-- List items menu --}}
+  <div class="menu-list">
+    {{#foreach navigation}}<a href="{{url absolute="true"}}" class="menu-link {{#if current}}active{{/if}}"><div class="menu-text">{{label}}</div></a>{{/foreach}}
+  </div>
+</nav>

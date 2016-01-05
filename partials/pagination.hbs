@@ -1,9 +1,9 @@
 {{!-- Pagination --}}
-<div class="pagination center">
+<div class="pagination">
   {{!-- Newer page --}}
-  <a href="{{page_url prev}}" class="btn btn-circle {{#if prev}}active{{else}}disabled{{/if}}"><i class="fa fa-arrow-left"></i></a>
+  {{#if prev}}<a href="{{page_url prev}}" class="btn btn-circle active icon-arrow_left"></a>{{else}}<a class="btn btn-circle disabled icon-arrow_left"></a>{{/if}}
   {{!-- Counter pages --}}
   <span class="pagination-number">{{page}} / {{pages}}</span>
   {{!-- Older page --}}
-  <a href="{{page_url next}}" class="btn btn-circle {{#if next}}active{{else}}disabled{{/if}}"><i class="fa fa-arrow-right"></i></a>
+  {{#if next}}<a href="{{page_url next}}" class="btn btn-circle active icon-arrow_right"></a>{{else}}<a class="btn btn-circle disabled icon-arrow_right"></a>{{/if}}
 </div>

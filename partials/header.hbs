@@ -1,43 +1,50 @@
 {{!-- Navigation Page --}}
-<div class="navbar-fixed">
-  <nav class="godo-nav">
-    <div class="full-site-width">
-      {{!-- Add Navigation --}}
-      {{#if @blog.navigation}}{{navigation}}{{/if}}
-      {{!-- Add Logo --}}
-      <a class="logo left" href="{{@blog.url}}">{{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}</a>
-      {{!-- Add Form Search Menu --}}
-      <form class="godo-search">
-        <i class="fa fa-search show-on-medium-screen"></i>
-        <input class="godo-search-field" type="search" placeholder="Search" autocomplete="off">
-        <div class="godo-search-result" id="godo-search-result"></div>
-      </form>
-      {{!-- btn search --}}
-      <a href="#" class="nav-search-open right btn btn-flat"><i class="fa fa-search"></i></a>
+<header id="header" class="header header-topbar u-align-center">
 
+  <div class="header-topbar-left">
+    {{!-- Menu open  --}}
+    <a href="#" id="menu-open" class="menu-open icon-menu"></a>
+    {{!-- Logo and Page Name --}}
+    <a class="header-logo u-align-center" href="{{@blog.url}}">{{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}</a>
+  </div>
+
+  <div class="header-topbar-center">
+    {{!-- Form Search --}}
+    <form class="search">
+      <a href="#" class="search-btn hidden-on-small-screen icon-search"></a>
+      <a href="#" id="search-close" class="search-btn show-on-small-screen icon-arrow_back"></a>
+      <input class="search-field" type="search" placeholder="Search" autocomplete="off">
+      <div id="search-result" class="autocomplete"></div>
+    </form>
+    {{!-- Open buttom search --}}
+    <a href="#" id="search-open" class="search-open show-on-small-screen icon-search"></a>
+  </div>
+
+  <div class="header-topbar-right hidden-on-small-screen">
+    <div class="header-social u-align-center">
       {{!-- Social navigation --}}
-      <div class="nav-social right show-on-medium-screen">
-        <div class="btn btn-flat" style="height:45px">
-          <span><i class="fa fa-facebook"></i></span>
-          <span><i class="fa fa-twitter"></i></span>
-          <span><i class="fa fa-youtube-play"></i></span>
-        </div>
-        {{!-- social Panel --}}
-        <div class="nav-socialPanel">
-          <a href="#" target="_blank"><span class="btn btn-flat bg-facebook"><i class="fa fa-facebook"></i></span>Facebook</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-twitter"><i class="fa fa-twitter"></i></span>twitter</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-github"><i class="fa fa-github"></i></span>github</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-youtube"><i class="fa fa-youtube-play"></i></span>youtube</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-linkedin"><i class="fa fa-linkedin"></i></span>linkedin</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-codepen"><i class="fa fa-codepen"></i></span>codepen</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-instagram"><i class="fa fa-instagram"></i></span>Instagram</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-spotify"><i class="fa fa-spotify"></i></span>Spotify</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-dribbble"><i class="fa fa-dribbble"></i></span>dribbble</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-behance"><i class="fa fa-behance"></i></span>behance</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-behance"><i class="fa fa-flickr"></i></span>flickr</a>
-          <a href="#" target="_blank"><span class="btn btn-flat bg-google-plus"><i class="fa fa-google"></i></span>google +</a>
-        </div>
+      <div class="header-social-icon"><span class="icon-facebook"></span><span class="icon-twitter"></span><span class="icon-youtube"></span></div>
+      {{!-- social Panel --}}
+      <div class="header-socialPanel">
+        <ul>
+          <li><a href="#" target="_blank"><span class="social-img c-facebook icon-fb"></span><span class="social-name">Facebook</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-twitter icon-twitter"></span><span class="social-name">Twitter</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-github icon-github"></span><span class="social-name">GitHub</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-youtube icon-youtube"></span><span class="social-name">YouTube</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-linkedin icon-in"></span><span class="social-name">Linkedin</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-codepen icon-codepen"></span><span class="social-name">Codepen</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-instagram icon-instagram"></span><span class="social-name">Instagram</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-spotify icon-spotify"></span><span class="social-name">Spotify</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-dribbble icon-dribbble"></span><span class="social-name">Dribbble</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-behance icon-behance"></span><span class="social-name">Behance</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-flickr icon-flickr"></span><span class="social-name">Flickr</span></a></li>
+          <li><a href="#" target="_blank"><span class="social-img c-google-plus icon-google-plus"></span><span class="social-name">Google +</span></a></li>
+        </ul>
       </div>
     </div>
-  </nav>
-</div>
+  </div>
+
+</header>
+
+{{!-- Menu page --}}
+{{navigation}}
