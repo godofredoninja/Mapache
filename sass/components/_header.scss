@@ -1,82 +1,349 @@
-// Header post
-.godo-header{
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: .2px;
-  min-height: 350px;
-  margin-bottom: 2em;
-  position: relative;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.33);
-  z-index: 2;
-  @extend %primary-box-shadow;
-  @extend .valign-wrapper;
+// Header Page
+.header{
+  background: $primary-color;
+  height: $header-height-mobile;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 50;
 
-  &.no-cover{
-    @include linear-gradient-top($bg-header-color, $bg-header-top-color, 0, $bg-header-buttom-color, 100%);
-
-    .godo-header-wrap{
-      color: rgba(255, 255, 255, 0.87);
-    }
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before{
+    font-size: 24px;
   }
 
-  &.cover{
-    background-position: center;
-    @include background-size(cover);
-    @include transition(background 1s);
+  &.toolbar-shadow{
+    @extend %primary-box-shadow;
+  }
 
-    &:before{
-      background: rgba(0,0,0,.3);
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
+  &-topbar:not(.toolbar-shadow) {
+    background-color: transparent!important;
+  }
+
+  &-topbar{
+    @include flex-direction(row);
+    @include flex(1 0 auto);
+
+    &-right,
+    &-left{
+      @include flexbox();
+      @include flex(1 0 auto);
+    }
+    &-left{
+      min-width: 219px;
+      padding-left: 12px;
+    }
+    &-center{
+      max-width: 1152px;
+      margin: 0 auto;
       width: 100%;
-      z-index: 0;
     }
+    &-right{
+      height: 100%;
+      min-width: 130px;
+      width: 130px;
+      @include justify-content(flex-end);
+      @include align(center);
+    }
+
   }
 
-  .godo-header-wrap{
-    margin: 0 auto;
-    max-width: 700px;
-    padding: 16px;
-    position: relative;
-    text-align: center;
-    z-index: 99;
-  }
+  // Page Name and Logo
 
-  .godo-header-avatar{
-    border-radius: 50%;
-    height: 150px;
-    margin-bottom: 16px;
-    width: 150px;
-    height: 150px;
-  }
+  &-logo{
+    padding-right: 24px;
+    padding-left: 12px;
 
-  .godo-header-title{
-    font-size: 2.5em;
-    font-weight: bold;
-    margin: 0 0 30px 0;
-    line-height: 1;
-  }
-
-  .godo-header-meta{
     span{
-      font-size: 1.2em;
-      display: block;
-      margin: 16px 0;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    img{
+      max-height: 35px;
+      position: relative;
     }
   }
+
+  .search-open{
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 6px;
+    z-index: 3;
+    line-height: 1;
+    &:hover{
+     background: rgba(158,158,158,0.2)
+    }
+  }
+
+}
+
+// Header social Panel Right
+
+.header-social{
+  height: 100%;
+  position: relative;
+
+  &-icon{
+    color: #fff;
+    line-height: 1;
+    span{
+      display: inline-block;
+      margin: 0 5px;
+      vertical-align: top;
+    }
+  }
+
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.12);
+    .header-socialPanel{
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
+
 
 
 }
-@media #{$small-and-up}{
-  .godo-header{
-    margin-bottom: 0;
-    min-height: 500px;
 
-    .godo-header-title{font-size: 3em;}
-    .godo-header-description{font-size: 1.2em;line-height: 28px;}
-    .godo-header-meta span{display: inline-block;margin: 16px 16px 0 16px;vertical-align: middle;}
+
+.header-socialPanel{
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  top: $header-height;
+  visibility: hidden;
+  width: 320px;
+  @include transition-duration(0.3s);
+
+  ul{
+    margin: 0;
+    min-height: 100px;
+    padding: 25px;
+    text-align: center;
+
+    li{
+      height: 98px;
+      display: inline-block;
+      padding: 1px;
+      vertical-align: top;
+      width: 86px;
+      a{
+        display: inline-block;
+        position: relative;
+        margin: 8px 2px;
+        color: $primary-text-color;
+        font-size: 14px;
+        &:hover{
+          border: 1px solid $divider-color;
+          border-radius: 2px;
+          margin: 7px 1px;
+        }
+      }
+    }
+  }
+
+  .social-img{
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+    line-height: 64px;
+    vertical-align: top;
+    &:before{
+      font-size: 45px;
+    }
+  }
+
+  .social-name{
+    display: block;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 84px;
+  }
+
+}
+
+
+// Search menu Navigation
+
+.search{
+  background: #fff;
+  border-radius: 2px;
+  height: 40px;
+  left: 8px;
+  max-width: 1152px;
+  opacity: 0;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  visibility: hidden;
+  z-index: 10;
+  @include transition-duration(0.3s);
+
+  a{
+    color: rgba(0,0,0,0.54);
+  }
+
+  &-field{
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    box-sizing: border-box !important;
+    height: 40px;
+    left: 0;
+    line-height: 40px;
+    -moz-box-sizing: border-box !important;
+    outline: none;
+    padding: 0 15px 0 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition-duration: 0.2s;
+    z-index: 2;
+    &:focus{
+      border: 0;
+    }
+  }
+
+  .autocomplete{
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.24),0 0 2px rgba(0,0,0,0.12);
+    display: none;
+    max-height: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+
+    a{
+      padding: 8px 15px 8px 50px;
+      display: block;
+      color: rgba(0,0,0,0.87);
+      &:hover{
+        background: rgb(238,238,238);
+      }
+    }
+
+  }
+
+  &-btn{
+    left: 16px;
+    top: 8px;
+    line-height: 1;
+    margin: -10px;
+    padding: 10px;
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+
+
+.menu-open,
+.menu-close{
+  border-radius: 50%;
+  height: 48px;
+  text-align: center;
+  transition: background .3s;
+  width: 48px;
+  line-height: 48px;
+  font-size: 24px;
+  &:hover{
+    background-color: rgba(0,0,0,0.12);
+  }
+}
+.menu-open{
+  color: #fff;
+}
+.menu-close{
+  color: $secondary-text-color;
+}
+
+
+// mediaquery
+
+@media #{$small-and-up} {
+  // header
+  .header{
+    height: $header-height;
+    &-topbar{
+      &-left{
+        min-width: 140px;
+      }
+      &-center{
+        margin: 0;
+      }
+    }
+  }
+
+  // Search form header
+  .search{
+    background-color: rgba(255,255,255,0.25);
+    box-shadow: 0 1px 1.5px rgba(0,0,0,0.06),0 1px 1px rgba(0,0,0,0.12);
+    opacity: 1;
+    left: auto;
+    position: relative;
+    right: auto;
+    top: auto;
+    visibility: visible;
+
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.40);;
+    }
+
+    &-field{
+      padding-left: 72px;
+      color: #fff;
+    }
+
+    // when you focus on
+    &.has-focus{
+      background: #fff;
+      input{
+        color: rgba(0, 0, 0, 0.87);
+      }
+      .search-btn{
+        color: rgba(0, 0, 0, 0.54);
+      }
+      @include placeholders(rgba(0, 0, 0, 0.54));
+    }
+
+    .search-btn{
+      color: #fff;
+      z-index: 1;
+    }
+
+    .autocomplete a{
+      padding-left: 72px;
+    }
+
+    @include placeholders(#fff);
+  }
+
+}
+
+
+@media #{$medium-and-up}{
+
+  .header-social-icon span{
+    margin: 0 10px;
+  }
+
+  .header-topbar-right{
+    width: 278px;
+    padding-right: 30px;
   }
 }

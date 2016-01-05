@@ -7,12 +7,11 @@
   {{!-- icon  --}}
   <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,300italic,700,500italic,400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
   <!-- build:css ./assets/css/style.min.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="/assets/lib/normalize.css/normalize.css" />
   <!-- endbower -->
-  <link rel="stylesheet" href="/assets/lib/fontawesome/css/font-awesome.min.css" />
   <!-- inject:css -->
   <link rel="stylesheet" href="/assets/css/main.css">
   <!-- endinject -->
@@ -34,9 +33,9 @@
   {{ghost_foot}}
   <!-- build:js ./assets/js/vendor.min.js -->
   <!-- bower:js -->
-  <script src="/assets/lib/lazyload/dist/lazyload.min.js"></script>
   <script src="/assets/js/lib/prism.js"></script>
   <script src="/assets/js/lib/search.js"></script>
+  <script src="/assets/lib/lazyload/dist/lazyload.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js ./assets/js/app.min.js -->
@@ -50,7 +49,7 @@
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4";
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 </body>

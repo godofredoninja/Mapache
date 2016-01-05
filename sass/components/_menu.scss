@@ -1,0 +1,80 @@
+// Menu Page
+
+.menu{
+  background: #fff;
+  bottom: 0;
+  box-shadow: 0 9px 18px 0 rgba(0,0,0,0.18);
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  z-index: 60;
+  @include transition-duration(.3s);
+  @include transform(translate3d(-100%,0,0));
+  @include transition(all .4s cubic-bezier(0.25,0.8,0.58,1));
+
+  &.open{
+    @include transform(translate3d(0%,0,0));
+  }
+
+  // menu header
+  &-header{
+    border-bottom: 1px solid $divider-color;
+    color: $secondary-text-color;
+    height: $header-height;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 0 12px;
+    @include justify-content(flex-start);
+
+    @media #{$small-and-down}{
+      height: $header-height-mobile;
+    }
+  }
+
+  // Menu pagename
+  &-pagename{
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+  }
+
+  // Menu conten list
+  &-list{
+    height: 100%;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    padding-bottom: 8px;
+    width: 100%;
+  }
+
+  // Menu all links
+  &-link{
+    color: $primary-text-color;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 50px;
+    opacity: .85;
+    overflow: hidden;
+    padding: 0 12px 0 20px;
+    -webkit-transition: background-color .3s cubic-bezier(0,0,0.2,1);
+    transition: background-color .3s cubic-bezier(0,0,0.2,1);
+    @include flexbox();
+
+    &.active,
+    &:hover{
+      background-color: #e7e7e7;
+    }
+  }
+
+  &-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    -webkit-user-select: none;
+  }
+}

@@ -1,19 +1,19 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#author}}
-<header class="godo-header {{#if cover}}cover" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
-  <article class="godo-header-wrap">
+<header class="godo-cover {{#if cover}}cover" style="background-image: url({{cover}}){{/if}}">
+  <article class="godo-cover-wrap">
     {{!-- Avatar author --}}
-    <img  class="godo-header-avatar animated bounceInDown" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
+    <img  class="godo-cover-avatar animated bounceInDown" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
     {{!-- Author name --}}
-    <h1 class="godo-header-title animated bounceIn">{{name}}</h1>
+    <h1 class="godo-cover-title animated bounceIn">{{name}}</h1>
     {{!-- Author description --}}
-    <p class="godo-header-description" itemprop="description">{{bio}}</p>
+    <p class="godo-cover-description" itemprop="description">{{bio}}</p>
     {{!-- Author location website --}}
-    <div class="godo-header-meta">
-      {{#if location}}<span class="location"><i class="fa fa-map-marker"></i> {{location}}</span>{{/if}}
-      {{#if website}}<span><a class="website btn" href="{{website}}"><i class="fa fa-link"></i> WebSite</a></span>{{/if}}
-      <span>{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="fa fa-rss"></i></span>
+    <div class="godo-cover-meta">
+      {{#if location}}<div class="location"><span class="icon-location">{{location}}</span></div>{{/if}}
+      {{#if website}}<a class="website btn" href="{{website}}"><i class="icon-link"></i> WebSite</a>{{/if}}
+      <div class="number-post">{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="icon-feed"></i></div>
     </div>
   </article>
 </header>

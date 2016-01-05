@@ -4,6 +4,12 @@
   @include box-sizing(border-box);
 }
 
+// Page state no scroll
+[godo-state~=no-scroll] {
+  height: 100%;
+  overflow: hidden;
+}
+
 a{
   color: $color-link;
   outline: 0;
@@ -11,9 +17,9 @@ a{
 }
 
 body{
-  color: $color-text;
+  color: $primary-text-color ;
   background: $color-bg-page;
-  font: 400 16px/24px Roboto,sans-serif;
+  font: 400 16px/24px $page-font;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -22,20 +28,24 @@ body{
 blockquote{
   position: relative;
   font-style: italic;
-  padding-left:4em;
+  padding-left: 75px;
   margin: 40px auto;
-  width: 90%;
-  color: #757575;
+  color: $secondary-text-color;
   min-height: 70px;
   &:before{
-    color: #ccc;
-    content: '\f10d';
-    font-size: 3em !important;
-    font: normal normal normal 14px/1 FontAwesome;
-    left: 0;
+    left: -5px;
+    opacity: 0.5;
     position: absolute;
-    top: 0;
+    top: -35px;
+    font-size: 5em;
+    content: "\e244";
+    @include font-icon();
   }
+
+  @media #{$small-and-up}{
+    width: 90%;
+  }
+
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -46,27 +56,27 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1{
-  font: 400 34px/40px Roboto,sans-serif;
+  font: 400 34px/40px $page-font;
   margin: 40px 0 20px;
 }
 h2{
-  font: 400 26px/34px Roboto,sans-serif;
+  font: 400 26px/34px $page-font;
   margin: 40px 0 20px;
 }
 h3{
-  font: 500 20px/32px Roboto,sans-serif;
+  font: 500 20px/32px $page-font;
   margin: 32px 0 16px;
 }
 h4{
-  font: 500 18px/32px Roboto,sans-serif;
+  font: 500 18px/32px $page-font;
   margin: 32px 0 16px;
 }
 h5{
-  font: 700 16px/24px Roboto,sans-serif;
+  font: 700 16px/24px $page-font;
   margin: 32px 0 16px;
 }
 h6 {
-  font: 500 16px/24px Roboto,sans-serif;
+  font: 500 16px/24px $page-font;
   margin: 32px 0 16px;
 }
 
@@ -82,7 +92,7 @@ img{
   max-width: 100%;
 }
 img:not([src]) {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 p{
@@ -104,16 +114,9 @@ ol{
   list-style: decimal outside;
 }
 
-pre code {
-  background-color: transparent;
-}
-
 pre{
   background-color: $pre-bg-color !important;
-  font: 16px/22px Roboto Mono,monospace !important;
-}
-
-pre{
+  font: 16px/22px $pre-font !important;
 	border-radius: 0.3em;
   color: #fff;
 	margin: 30px 0;
@@ -124,13 +127,14 @@ pre{
     color: inherit;
     font-size: inherit;
     padding: 0;
+    background-color: transparent;
   }
 }
 
 kbd,
 samp,
 code {
-  font: 400 100%/1 Roboto Mono,monospace !important;
+  font: 400 100%/1 $pre-font !important;
   color: $code-color;
   background-color: $code-bg-color;
   border-radius: 4px;
@@ -138,33 +142,14 @@ code {
   white-space: pre-wrap;
 }
 
-// clear
-.clear{
-  &:before,
-  &:after{
-    clear: both;
-    content: '';
-    display: table;
-  }
-}
 
-// Positioning align
-.valign-wrapper {
+// Utilidades
+.u-align-center{
   @include flexbox();
   @include align(center);
+  @include justify-content(center);
 }
-// Teax aling center
-.center{
-  text-align: center;
-}
-// float Left
-.left{
-  float: left !important;
-}
-// float right
-.right{
-  float: right !important;
-}
+
 
 //  Card
 .card{
@@ -181,51 +166,23 @@ code {
   margin: 0 auto;
   max-width: 1280px;
   position: relative;
-  @extend .clear;
 }
 
-// Show medio screen page
-.show-on-medium-screen{
-  display: none !important;
-    @media #{$medium-and-up} {
-      display: block !important;
-  }
-}
-
-// Show small screen page
+// hidden on
+.show-on-medium-screen,
 .show-on-small-screen{
-  display: none !important;
-    @media #{$small-and-up} {
-      display: block !important;
-  }
+  display: none;
 }
+
 
 .landing{
   overflow: hidden;
 }
 
-// Pagination
-.pagination{
-  padding-top: 3em;
-  padding-bottom: 2em;
-  span{
-    margin: 0 1em;
-    font-size: 1.2em;
-  }
-}
-
-
-.bg-home{
-  @include linear-gradient-left3($color-bg-page, #fff, 0, #fff, 50%, $color-bg-page, 50% , $color-bg-page , 100% );
-}
-
 .main{
   position: relative;
-  .main-home{
-    background: #fff;
-    @extend .clear;
-  }
 }
+
 
 .page-wrap{
   max-width: 1000px !important;
@@ -235,23 +192,54 @@ code {
   }
 }
 
-.main-wrap-home{
-  background: #fff;
-  padding-top: 0 !important;
+
+// overlay open menu
+.overlay{
+  background-color: rgba(50,50,50,0.5);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 59;
+  @include transition-duration(.3s);
 }
 
-.main-wrap{
-  @media #{$medium-and-up}{
-    width: calc(100% - #{$sidebar-right + 32px});
-    float: left;
-    padding: 16px 0 16px 16px;
+
+// Pagination
+.pagination{
+  padding-top: 3em;
+  padding-bottom: 2em;
+  text-align: center;
+
+  .btn{
+    background-color: $accent-color;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    font-size: 30px;
+
+    &:hover{
+      box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+      -webkit-transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
+      transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
+    }
+
   }
+
+  .pagination-number{
+    margin:  0 20px;
+    font-size: 20px;
+    color: $secondary-text-color;
+  }
+
 }
+
 
 //  sidebar
 
 .sidebar{
-  padding: 0 16px;
+  padding: 0 8px;
   position: relative;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -273,53 +261,48 @@ code {
   }
 
   @media #{$medium-and-up}{
-    float: right;
-    width: $sidebar-right + 32px;
-
+    padding: 0;
+    margin: 1em 12px;
+    @include flex(0 0 $sidebar-right);
+    @include order(2);
   }
 }
 
-
-
+// svg all icons
+.svg-icon{
+  margin: auto;
+  background-repeat: no-repeat no-repeat;
+  display: block;
+  fill: currentcolor;
+}
 
 // Share social links
 
 .share{
-
   a{
-    font-size: 16px;
-    text-transform: capitalize;
     border-radius: 0;
-
-    span{
-      display: none;
-      @media #{$small-and-up}{
-        display: inline;
-      }
-    }
-
-    &:hover{
-      box-shadow: none;
-    }
+    font-size: 20px;
 
     &.ps-comment{
       background: #989898;
       padding: 0 14px;
-
-      .ps-comment-count{
-        font-weight: normal;
-        margin-left: 10px;
+      &:before{
+        padding-right: .5em;
       }
     }
+  }
+
+  span{
+    text-transform: capitalize;
+    font-size: 16px;
   }
 
 }
 
 
 // Video Responsive Youtube & Vimeo
-
 .video{
-  margin: 0 auto 30px auto;
+  margin: 30px auto;
   max-width: 100%;
   .video-content {
     height: 0;
@@ -335,39 +318,92 @@ code {
   }
 }
 
-// error 404 page
 
-.error-content{
-  padding: 0 16px;
-  margin: 0 auto 0 auto;
-  color: #253238;
-  img{
-    max-width: 200px;
-    margin: 0 auto;
-    @media #{$medium-and-up}{
-      margin-bottom: 20px;
+// Color social media
+@each $social-name, $bgcolor in $social-colors {
+  .bg-#{$social-name} {
+      background: $bgcolor !important;
+      &:hover{
+        background: lighten( $bgcolor, 10% ) !important;
+      }
     }
-  }
-  .error-text{
-    font-size: 5em;
-    line-height: 1;
-    font-weight: bold;
+  .c-#{$social-name}{
+    color: $bgcolor;
   }
 }
 
-// Color icon sociacles
 
-.bg-facebook{background-color: $color-facebook !important }
-.bg-twitter{background-color: $color-twitter !important }
-.bg-google-plus{background-color: $color-google-plus !important }
-.bg-instagram{background-color: $color-instagram !important }
-.bg-youtube{background-color: $color-youtube !important }
-.bg-github{background-color: $color-github !important }
-.bg-linkedin{background-color: $color-linkedin !important }
-.bg-spotify{background-color: $color-spotify !important }
-.bg-codepen{background-color: $color-codepen !important}
-.bg-behance{background-color: $color-behance !important}
-.bg-dribbble{background-color: $color-dribbble !important}
+// error 404 page
+.error{
+  &-wrap{
+    padding-top: 70px;
+    text-align: center;
+    @media #{$medium-and-up}{
+      padding-top: 0
+    }
+  }
+  &-text{
+    font-size: 8em;
+    font-weight: bold;
+    line-height: 1;
+    opacity: .2;
+  }
+  p{
+    letter-spacing: .003em;
+    max-width: 500px;
+    margin: 35px auto;
+    padding: 0 50px;
+  }
+}
+
+
+// Iden small screen page
+@media #{$small-and-down}{
+
+  .hidden-on-small-screen{
+    display: none !important;
+  }
+
+  .show-on-small-screen {
+    display: inherit;
+  }
+
+}
+
+@media #{$medium-and-up}{
+
+  .show-on-medium-screen{
+    display: block;
+  }
+
+  .main{
+
+    &-post{
+      margin: 1em 12px 0 12px;
+      width: 100%;
+      @include flex(1 1 auto);
+      @include order(1);
+    }
+
+    &-wrap{
+      @include flexbox;
+      @include flex-direction(row);
+    }
+  }
+
+
+  .bg-home{
+    @include linear-gradient-left3($color-bg-page, #fff, 0, #fff, 50%, $color-bg-page, 50% , $color-bg-page , 100% );
+    .main-post{
+      background: #fff;
+    }
+  }
+
+
+}
+
+
+
 
 // Post Twitter facebook card embed Css Center
 

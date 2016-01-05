@@ -109,13 +109,13 @@ gulp.task('copy', function() {
   .pipe(useref())
   .pipe(gulp.dest('./dist/partials'));
 
-  gulp.src('./assets/lib/fontawesome/fonts/**')
+  gulp.src('./assets/fonts/**')
   .pipe(gulp.dest('./dist/assets/fonts'));
 
   gulp.src('./assets/css/themes/**')
   .pipe(gulp.dest('./dist/assets/css/themes'));
 
-  gulp.src(['./README.md', './package.json', './.gitignore'])
+  gulp.src(['./README.md', 'LICENSE','./package.json', './.gitignore'])
   .pipe(gulp.dest('./dist'));
 
 });

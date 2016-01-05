@@ -1,3 +1,16 @@
+@mixin font-icon() {
+  font-family: 'mapache-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 // Animation
 
 @mixin animation($args) {
@@ -117,8 +130,21 @@
     align-items: $align;
   }
   @mixin justify-content($val) {
+    -ms-flex-pack: $val;
+    -moz-box-pack: $val;
+    -webkit-box-pack: $val;
     -webkit-justify-content: $val;
     justify-content: $val;
+  }
+  @mixin flex-direction($direction) {
+    -webkit-flex-direction: ($direction);
+    -ms-flex-direction: ($direction);
+    flex-direction: ($direction);
+  }
+  @mixin flex-wrap($val){
+    -webkit-flex-wrap: $val;
+    -ms-flex-wrap: $val;
+    flex-wrap: $val;
   }
 
 

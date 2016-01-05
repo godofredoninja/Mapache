@@ -1,17 +1,40 @@
 // footer
-.godo-footer{
+.footer{
   background: $footer-bg-color;
   color: #fff;
   a{
     color: #fff;
     opacity: .90;
   }
-  &-copyright{
-    padding: 0 16px;
+  &-wrap{
+    padding: 10px 16px;
     color: $footer-color;
-    @media #{$small-and-up}{
-      .copy{float: left;}
-      .by{float: right;}
+    text-align: center;
+
+    .copy,
+    .by{
+      margin: 10px 0;
+      span{
+        display: inline-block;
+        line-height: 1;
+        vertical-align: middle;
+      }
+    }
+
+  }
+}
+
+@media #{$small-and-up}{
+  .footer-wrap{
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+    @include flexbox();
+
+    .by{
+      @include flexbox();
+      @include justify-content(flex-end);
+      @include flex(1 0 auto);
     }
   }
 }

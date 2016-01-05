@@ -1,29 +1,18 @@
 // Post loop
 .ps{
-  border-bottom: 1px solid #e8e8e8;
-  min-height: 90px;
+  background: #fff;
+  border-bottom: 1px solid $divider-color;
+  min-height: 100px;
   position: relative;
   padding-right: 16px;
   padding-left: 16px;
+  padding-top: 10px;
+  margin-right: 8px;
+  margin-left: 8px;
 
-  @media #{$medium-and-up}{padding-left: 0;}
-
-  .featured{
-    &:before{
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: 1.5em;
-      content: "\f004";
-      color: red;
-      display: none;
-      position: absolute;
-      right: 10px;
-      top: 40px;
-      z-index: 10;
-      @include animation-duration(1s);
-      @include animation-fill-mode(both);
-      @include animation-name(pulse);
-      @include animation-iteration-count(infinite);
-    }
+  @media #{$medium-and-up}{
+    padding-left: 0;
+    margin: 0;
   }
 
   // tags
@@ -39,10 +28,7 @@
       margin: 0 0 .5em;
       text-transform: capitalize;
       &:hover{
-        background-color: $color-link;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-        color: rgba(255,255,255,0.87);
-        opacity: 1;
       }
     }
   }
@@ -63,7 +49,7 @@
   .read-more{
     font-weight: 500;
     &:hover{
-      color: $color-text;
+      color: $primary-text-color;
     }
   }
 
@@ -76,8 +62,11 @@
     position: relative;
     h2{
       margin: 0;
-      color: $color-text;
+      color: $primary-text-color;
       font-weight: 500;
+      opacity: 0.90;
+      font-size: 20px;
+      line-height: 25px;
     }
   }
 
@@ -88,14 +77,20 @@
 
   // time
   .ps-byline{
-    color: #6d6d6d;
+    color: $secondary-text-color;
     font-size: .80em;
-    font-style: italic;
     padding: .3em 0;
+    font-weight: 700;
+
+    .timestamp{
+      font-weight: 400;
+    }
+
     a{
-      font-weight: 500;
+      font-weight: bold;
+      color: $primary-color ;
       &:hover{
-        color: $color-text;
+        color: $primary-text-color;
       }
     }
   }
@@ -106,6 +101,10 @@
 // Mediaquery 600
 @media #{$small-and-up}{
 	.ps{
+    padding-top: 0;
+    .ps-title h2{
+      font: 500 26px/34px Roboto, sans-serif;
+    }
 
 		.ps-inner{
 			padding-top: 0;
@@ -159,7 +158,7 @@
 			&:before{
 				background: #fff;
 				border-radius: 50%;
-				border: 3px solid #d2d3d2;
+				border: 3px solid $divider-color;
 				content: "";
 				display: block;
 				height: 20px;
@@ -173,7 +172,7 @@
 		.ps-content{
 			padding: 2em 0 1em 1em;
 			margin-left: 8.5em;
-			border-left: 3px solid #E3E6E3;
+			border-left: 3px solid $divider-color;
 		}
 	}
 }

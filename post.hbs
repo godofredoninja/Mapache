@@ -1,54 +1,67 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#post}}
-<main class="full-site-width">
-  <div class="main-wrap">
-    {{!-- Post Content --}}
-    <article class="post">
-
-      {{!-- Add Author date --}}
-      <div class="post-author">
-        <div class="post-author-wrap">
-          {{!-- Add Auhor --}}
+<main class="main">
+  <section class="main-wrap full-site-width" style="padding-top:64px">
+    <div class="main-post">
+      {{!-- Post Content --}}
+      <article class="post">
+        {{!-- Add Author date --}}
+        <div class="post-author">
           {{#author}}
           {{!--Author avatar --}}
           <a href="{{url}}" class="post-author-avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
-          {{!--Author name --}}
-          <a class="post-author-name" href="{{url}}">By {{name}}</a>
+          <div class="post-author-right">
+            {{!--Author name --}}
+            <a class="post-author-name" href="{{url}}">By {{name}}</a>
           {{/author}}
-          {{!-- Published time --}}
-          <div class="post-author-date">Published: <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+            {{!-- Published time --}}
+            <div class="post-author-date"><span>Published: </span><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+          </div>
         </div>
+        {{!-- content post --}}
+        <div class="post-main">
+          {{!-- Title Post --}}
+          <h1 class="post-title">{{title}}</h1>
+          {{!-- Add Cover Img Post --}}
+          {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
+          {{content}}
+          {{!-- Post Share --}}
+          <aside class="share">
+            <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="icon-facebook"></i> <span>Facebook</span></a>
+            <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="icon-twitter"></i> <span>Twitter</span></a>
+            <a class="btn bg-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="icon-linkedin"></i> <span>Linkedin</span></a>
+          </aside>
+        </div>
+      </article>
+      {{!-- Previous and next post --}}
+      <div class="prev-next-post">
+        {{#prev_post}}
+        <div class="prev-next-row">
+          <a href="{{url}}" class="prev-next-link {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" >
+            <h2 class="prev-next-title">{{title}}</h2>
+          </a>
+          <a href="{{url}}" class="prev-next-btn btn" style="left:24px"><i class="icon-arrow_left"></i> Previous Post</a>
+        </div>
+        {{/prev_post}}
+        {{#next_post}}
+        <div class="prev-next-row">
+          <a href="{{url}}" class="prev-next-link {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" >
+            <h2 class="prev-next-title">{{title}}</h2>
+          </a>
+          <a href="{{url}}" class="prev-next-btn btn" style="right:24px">Next Post <i class="icon-arrow_right"></i></a>
+        </div>
+        {{/next_post}}
       </div>
-      {{!-- content post --}}
-      <section class="post-main">
-        {{!-- Title Post --}}
-        <h1 class="post-title">{{title}}</h1>
-        {{!-- Add Cover Img Post --}}
-        {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
-        {{content}}
-        {{!-- Tags --}}
-        {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
-        {{!-- Post Share --}}
-        <aside class="share">
-          <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> <span>Facebook</span></a>
-          <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> <span>Twitter</span></a>
-          <a class="btn bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i> <span>Linkedin</span></a>
-        </aside>
-       </section>
-    </article>
-
-    {{!-- Add Comments --}}
-    <div id="comments"class="comments">
-      <div class="card-content">
-        <div class="Comments-all">
-          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
+      {{!-- Add Comments --}}
+      <div id="comments"class="comments">
+        <div class="card-content">
+          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%"  data-numposts="10"></div>          
         </div>
       </div>
     </div>
-
-  </div>
-  {{!-- Add Sidebar --}}
-  {{> "sidebar"}}
+    {{!-- Add Sidebar --}}
+    {{> "sidebar"}}
+  </section>
 </main>
 {{/post}}

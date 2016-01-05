@@ -1,4 +1,4 @@
-$color-theme: #3e50b4;
+$color-theme: #0f9d58;
 
 .header,
 .godo-cover,
@@ -11,5 +11,5 @@ $color-theme: #3e50b4;
   color: $color-theme !important;
 }
 .pagination .btn.active{
-  background: #FF4081 !important;
+  background: $color-theme !important;
 }

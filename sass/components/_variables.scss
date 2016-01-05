@@ -1,29 +1,45 @@
-// Colors
-$primary-color        : #0273D4 !default;
-$primary-color-light  : lighten($primary-color, 15%) !default;
-$primary-color-dark   : darken($primary-color, 15%) !default;
+$primary-color        : #4285f4;
+$primary-color-text   : #FFFFFF;
+$accent-color         : #db4437;
+$primary-text-color   : #212121;
+$secondary-text-color : #757575;
+$divider-color        : #DDDDDD;
 
-$color-text : #212121 !default;
 
-$color-link     : rgb(16,108,200) !default;
-$color-bg-page  : #EBEBEB !default;
+
+$color-link     : #417fec !default;
+$color-bg-page  : #EEEEEE !default;
 
 
 // social colors
-$color-facebook    : #3b5998;
-$color-twitter     : #55acee;
-$color-google-plus : #dd4b39;
-$color-instagram   : #306088;
-$color-youtube     : #e52d27;
-$color-github      : #333333;
-$color-linkedin    : #0077b5;
-$color-spotify     : #2ebd59;
-$color-codepen     : #222222;
-$color-behance     : #131418;
-$color-dribbble    : #ea4c89;
+$social-colors: (
+	facebook    : #3b5998,
+	twitter     : #55acee,
+	google-plus : #dd4b39,
+	instagram   : #306088,
+	youtube     : #e52d27,
+	github      : #333333,
+	linkedin    : #007bb6,
+	spotify     : #2ebd59,
+	codepen     : #222222,
+	behance     : #131418,
+	dribbble    : #ea4c89,
+	flickr      : #0063DC,
+);
+
+
+/*** Typography  ***/
+$page-font: 'Roboto', sans-serif;
+$pre-font: 	'Fira Mono', monospace;
+
+
+/*** header  ***/
+$header-height: 64px !default;
+$header-height-mobile: 56px !default;
+
 
 // Media Query Ranges
-$small-screen  : 600px !default;
+$small-screen  : 640px !default;
 $medium-screen : 900px !default;
 $large-screen  : 1200px !default;
 
@@ -31,31 +47,23 @@ $small-and-up  : "only screen and (min-width : #{$small-screen})" !default;
 $medium-and-up : "only screen and (min-width : #{$medium-screen})" !default;
 $large-and-up  : "only screen and (min-width : #{$large-screen})" !default;
 
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+
 
 // width sidebar-right
 $sidebar-right : 300px !default;
 
-
-// Header - no cover img
-$bg-header-color: $primary-color;
-$bg-header-top-color: #0143A3;
-$bg-header-buttom-color: $primary-color;
-
-// Navbar
-$navbar-height: 54px !default;
-$navbar-font-color: $color-text !default;
-$navbar-brand-font-size: 1.8em !default;
-
 // Pre & code color
 $code-bg-color: #f9f2f4 !default;
-$code-color: #c7254e !default;
-$pre-bg-color: #212E35 !default;
-//jorge0211
+$code-color: 		#c7254e !default;
+$pre-bg-color: 	#28323f !default;
+
+
 // Footer
 $footer-bg-color: #253238 !default;
 $footer-color: #A2AAAD !default;
 
 // buttoms
-$color-buttons: #d74838 !default;
+$color-buttons: #db4437 !default;
 $color-buttons-download: #5cb85c !default;
 $color-buttons-link: $primary-color !default;

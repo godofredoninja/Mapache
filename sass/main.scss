@@ -10,10 +10,14 @@
 // Variables;
 @import "components/variables";
 
+// icon fonts
+@import "components/icon";
+
 // components
 @import "components/global";
-@import "components/navbar";
+@import "components/menu";
 @import "components/header";
+@import "components/godo-cover";
 @import "components/psloop";
 @import "components/footer";
 @import "components/buttons";
