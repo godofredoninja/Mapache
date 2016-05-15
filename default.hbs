@@ -7,15 +7,7 @@
   {{!-- icon  --}}
   <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,300italic,700,500italic,400' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
-  <!-- build:css ./assets/css/style.min.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="/assets/lib/normalize.css/normalize.css" />
-  <!-- endbower -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <!-- endinject -->
-  <!-- endbuild -->
+  <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'> 
   {{! Ghost outputs important style and meta data with this tag }}
   {{ghost_head}}
 </head>
@@ -30,27 +22,7 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   {{! Ghost outputs important scripts and data with this tag }}
-  {{ghost_foot}}
-  <!-- build:js ./assets/js/vendor.min.js -->
-  <!-- bower:js -->
-  <script src="/assets/js/lib/prism.js"></script>
-  <script src="/assets/js/lib/search.js"></script>
-  <script src="/assets/lib/lazyload/dist/lazyload.min.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:js ./assets/js/app.min.js -->
-  <!-- inject:js -->
-  <script src="/assets/js/main.js"></script>
-  <!-- endinject -->
-  <!-- endbuild -->
-  <!-- facebook Script -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  {{ghost_foot}}  
+   <script src="{{asset "js/bundle.min.js"}}"></script>
 </body>
 </html>

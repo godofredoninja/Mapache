@@ -1,9 +1,0 @@
-{
-  "name": "GodoFredoNinja Blog",
-  "version": "0.0.1",
-  "description": "Desarrollo de mi Blog Ghost",
-  "dependencies": {
-    "lazyload": "vanilla-lazyload#~1.5.5",
-    "normalize.css": "~3.0.3"
-  }
-}

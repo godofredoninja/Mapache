@@ -43,9 +43,9 @@
     z-index: 2;
   }
 
-  .ps-content{
-    @extend .clear;
-  }
+  // .ps-content{
+  //   @extend .clear;
+  // }
   .read-more{
     font-weight: 500;
     &:hover{
