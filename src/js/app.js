@@ -7,9 +7,8 @@ import '../sass/main.scss';
 ========================================================================== */
 const $gd_header      = $('#header'),
     $gd_menu          = $('#menu-mobile'),
-    $gd_cover         = $('.godo-cover'),
-    // $gd_search_open   = $('#search-open'),
-    // $gd_search_close  = $('#search-close'),
+    $gd_cover         = $('#cover'),
+    $gd_cover_exists  = $gd_cover.find('.background'),
     $gd_search        = $('#header-search'),
     $sidebar_hidden   = $('.sidebar .fixed'),
     $gd_search_input  = $('.search-field');
@@ -53,7 +52,7 @@ $gd_search_input
 
 
 $(document).on('mouseup', mouseUp);
-$(window).on('resize', resizeHeight);
+// $(window).on('resize', resizeHeight);
 
 // Mouse up
 function mouseUp(e) {
@@ -80,7 +79,8 @@ function menuClose(e) {
 
 
 
-// Video Responsive Youtube & Vimeo
+/* Video Responsive youtube and vimeo
+========================================================================== */
 $('.post-content').each(function(){
     var selectors = [
         'iframe[src*="player.vimeo.com"]',
@@ -98,12 +98,7 @@ $('.post-content').each(function(){
 });
 
 
-function resizeHeight() {
-    // Resize error page 404
-    if ($('#error').length > 0 ) {
-        $('#error').height($(window).height() - $('#footer').height());
-    }
-}
+
 
 // Header box shadow and transparent
 if($gd_cover.length > 0) {
@@ -125,7 +120,7 @@ if($gd_cover.length > 0) {
         }
 
         if(gd_cover_wrap >= 0){
-            $('.godo-cover-wrap').css('opacity', gd_cover_wrap);
+            $('.cover-wrap').css('opacity', gd_cover_wrap);
         }
 
     });
@@ -150,7 +145,6 @@ if ($sidebar_hidden.length > 0) {
 }
 
 
-resizeHeight();
 
 // Plugins
 

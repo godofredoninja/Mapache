@@ -1,22 +1,27 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#author}}
-<header class="godo-cover {{#if cover}}cover" style="background-image: url({{cover}}){{/if}}">
-  <article class="godo-cover-wrap">
-    {{!-- Avatar author --}}
-    <img  class="godo-cover-avatar animated bounceInDown" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
-    {{!-- Author name --}}
-    <h1 class="godo-cover-title animated bounceIn">{{name}}</h1>
-    {{!-- Author description --}}
-    <p class="godo-cover-description" itemprop="description">{{bio}}</p>
-    {{!-- Author location website --}}
-    <div class="godo-cover-meta">
-      {{#if location}}<div class="location"><span class="icon-location">{{location}}</span></div>{{/if}}
-      {{#if website}}<a class="website btn" href="{{website}}"><i class="icon-link"></i> WebSite</a>{{/if}}
-      <div class="number-post">{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="icon-feed"></i></div>
-    </div>
-  </article>
-</header>
+<section id="cover" class="cover">
+    {{#if cover}}<div class="background"><span style="background-image: url({{cover}})"></span></div>{{/if}}
+    <article class="cover-wrap author">
+        <div class="info">
+            <div  class="avatar animated bounceInDown hide-before-md" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
+            <div class="name-wrap animated bounceIn">
+                <span class="title">Author</span>
+                <h1 class="name">{{name}}</h1>
+            </div>
+        </div>
+
+        <p class="description" itemprop="description">{{bio}}</p>
+        {{!-- Author location website --}}
+        <div class="author-meta hide-before-lg">
+            {{#if location}}<span class="location"><i class="i-map"></i> {{location}}</span>{{/if}}
+            {{#if website}}<span><a class="website btn" href="{{website}}"><i class="i-link"></i> WebSite</a></span>{{/if}}
+            <span class="number-post">{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="i-feed"></i></span>
+        </div>
+    </article>
+    <div class="mouse hide-before-md"><span class="scroll"></span></div>
+</section>
 {{/author}}
 {{!-- Add Loop --}}
 {{> "loop"}}
