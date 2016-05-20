@@ -1,0 +1,61 @@
+// Menu Page
+
+.menu-mobile{
+    background: #fff;
+    bottom: 0;
+    box-shadow: 0 9px 18px 0 rgba(0,0,0,0.18);
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 256px;
+    z-index: 60;
+    transition-duration: .3s;
+    transform: translate3d(-100%,0,0);
+    transition: all .4s cubic-bezier(.25,.8,.58,1);
+
+    &.open{
+        transform: translate3d(0%,0,0);
+    }
+
+
+
+    // Menu conten list
+    &-wrap{
+        height: 100%;
+        margin-bottom: 10px;
+        overflow-y: auto;
+        padding-bottom: 8px;
+        width: 100%;
+        padding-top: 1rem;
+    }
+
+    // Menu all links
+    .navigation-link {
+        color: $primary-text-color;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        height: 48px;
+        line-height: 50px;
+        opacity: .85;
+        overflow: hidden;
+        padding: 0 12px 0 20px;
+        -webkit-transition: background-color .3s cubic-bezier(0,0,0.2,1);
+        transition: background-color .3s cubic-bezier(0,0,0.2,1);
+        display: flex;
+
+        &.active,
+        &:hover{
+            background-color: #e7e7e7;
+        }
+    }
+
+    &-text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: break-all;
+        -webkit-user-select: none;
+    }
+}

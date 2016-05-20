@@ -1,0 +1,349 @@
+html {
+  box-sizing: border-box;
+  // Sets a specific default `font-size` for user with `rem` type scales.
+  font-size: $font-size-root;
+  // Changes the default tap highlight to be completely transparent in iOS.
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+
+// Page state no scroll
+[godo-state~=no-scroll] {
+  height: 100%;
+  overflow: hidden;
+}
+
+a{
+  color: $link-color;
+  outline: 0;
+  text-decoration: none;
+  // Gets rid of tap active state
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+
+body{
+  // Make the `body` use the `font-size-root`
+  color: $primary-text-color;
+  font-family: $primary-font;
+  font-size: $font-size-base;
+  line-height: $line-height;
+}
+
+
+figure{
+  margin: 0;
+}
+
+img{
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  width: auto;
+  &:not([src]) {
+    visibility: hidden;
+  }
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+i{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+hr {
+  margin: 1.8rem 0;
+  border: 0;
+  border-top: 1px solid $divider-color;
+  height: 0;
+}
+
+
+blockquote {
+    border-left: 3px solid $primary-color;
+    padding: 10px 24px;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7em;
+    margin-bottom: 20px;
+    margin: 0 0 20px;
+    quotes: none;
+}
+
+ol,ul,blockquote{
+    margin-left: 2rem;
+}
+
+strong{
+  font-weight: 500;
+}
+
+
+small, .small {
+    font-size: 85%;
+}
+
+
+
+
+ol{
+  padding-left: 40px;
+  list-style: decimal outside;
+}
+
+
+/* Code Syntax
+========================================================================== */
+kbd,samp,code{
+    font-family: $code-font !important;
+    font-size: $font-size-code;
+    color: $code-color;
+    background: $code-bg-color;
+    border-radius: 4px;
+    padding: 4px 6px;
+    white-space: pre-wrap;
+}
+
+code[class*=language-], pre[class*=language-]{
+    color: $pre-code-color;
+    line-height: 1.5;
+
+    .token.comment{ opacity: .8; }
+    &.line-numbers{
+        padding-left: 58px;
+        &:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #F0EDEE;
+            width: 40px;
+            height: 100%;
+        }
+    }
+    .line-numbers-rows {
+        border-right: none;
+        top: -3px;
+        left: -58px;
+        &>span:before{
+            padding-right: 0;
+            text-align: center;
+            opacity: .8;
+        }
+    }
+
+}
+
+
+pre{
+    background-color: $code-bg-color!important;
+    padding: 1rem;
+    overflow: hidden;
+    border-radius: 4px;
+    word-wrap: normal;
+    margin: 2.5rem 0!important;
+    font-family: $code-font !important;
+    font-size: $font-size-code;
+
+    code{
+        color: $pre-code-color;
+        text-shadow: 0 1px #fff;
+        padding: 0;
+        background: transparent;
+    }
+}
+
+
+/* Social icon color and backgrount
+========================================================================== */
+@each $social-name, $color in $social-colors {
+  .c-#{$social-name}{
+    color: $color;
+  }
+  .bg-#{$social-name}{
+    background-color: $color !important;
+  }
+}
+
+
+//  Clear both
+.clear{
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+
+// Utilidades
+.u-align-center{
+  @include flexbox();
+  @include align(center);
+  @include justify-content(center);
+}
+
+
+//  Card
+.card{
+  border: 0;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(43,59,93,0.29);
+  margin-bottom: 20px;
+  padding: 1em;
+}
+
+
+
+// hidden on
+.show-on-medium-screen,
+.show-on-small-screen{
+  display: none;
+}
+
+
+.landing{
+  overflow: hidden;
+}
+
+.main{
+  position: relative;
+}
+
+
+
+// overlay open menu
+.overlay{
+  background-color: rgba(50,50,50,0.5);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 59;
+  @include transition-duration(.3s);
+}
+
+
+
+/* sidebar
+========================================================================== */
+.sidebar{
+    position: relative;
+    color: rgba(0,0,0,.54);
+    line-height: 1.6;
+
+
+    h1,h2,h3,h4,h5,h6{margin-top: 0;}
+
+    .widget{
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .title{
+        background-color: $primary-color;
+        color: #FFFFFF;
+        padding: 10px 16px;
+        font-size: 18px;
+    }
+
+}
+
+// svg all icons
+.svg-icon{
+  margin: auto;
+  background-repeat: no-repeat no-repeat;
+  display: block;
+  fill: currentcolor;
+}
+
+/* Video Responsive
+========================================================================== */
+.video-responsive{
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  margin-bottom: 1.5rem;
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+  }
+}
+
+
+
+
+@media #{$medium-and-up}{
+
+
+
+  .bg-home{
+    @include linear-gradient-left3($color-bg-page, #fff, 0, #fff, 50%, $color-bg-page, 50% , $color-bg-page , 100% );
+    .main-post{
+      background: #fff;
+    }
+  }
+
+
+}
+
+
+
+
+// Post Twitter facebook card embed Css Center
+
+.fb-post,
+.twitter-tweet{
+  display: block !important;
+  margin: 0 auto 40px auto !important;
+  text-align: center;
+}
+
+
+// ADS
+
+.Ads{
+  position: relative;
+  margin: 10px -32px;
+  text-align: center;
+
+  .Ads-content{
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

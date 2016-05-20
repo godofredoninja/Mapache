@@ -1,0 +1,233 @@
+// Header Page
+.header{
+    background: $primary-color;
+    height: $header-height;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 50;
+    color: #fff;;
+
+
+    [class*=" i-"]:before, [class^=i-]:before{
+        font-size: 1.5rem;
+    }
+
+    &-btn{
+        justify-content: center;
+        width: 48px;
+        height: 48px !important;
+        border-radius: 50%;
+        &:hover{
+            background: rgba(0,0,0,0.12);
+        }
+    }
+
+    .menu-open{
+        margin-left:  -0.625rem;
+        margin-right: 0.5rem;
+    }
+    .search-open{
+        margin-right: -.625rem;
+    }
+
+
+    a{
+        height: $header-height;
+        display: flex;
+        align-items: center;
+        color: inherit;
+    }
+
+
+    &-wrap{
+        height: $header-height;
+        display: flex;
+        padding-left:  ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
+        position: relative;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+
+
+
+    &.toolbar-shadow{
+        @extend %primary-box-shadow;
+    }
+
+    &-topbar:not(.toolbar-shadow) {
+        background-color: transparent!important;
+    }
+
+
+
+    // Page Name and Logo
+    &-logo{
+
+        span{
+            font-size: $font-size-lg;
+            font-weight: 500;
+        }
+
+        img{
+            max-height: 35px;
+            position: relative;
+        }
+    }
+
+}
+
+/* Navigation
+========================================================================== */
+.header-navigation{
+    margin-left: 48px;
+    display: inline-block;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    vertical-align: top;
+    transition: flex .2s,margin .2s,width .2s;
+
+    &-wrap{
+        left: 0px;
+        display: flex;
+    }
+
+    .navigation-link{
+        border-bottom: 2px solid transparent;
+        font-weight: 400;
+        margin: 0;
+        padding: 0 1rem;
+        transition: color .2s;
+        font-size: $font-size-sm;
+        &:hover{
+            color: rgba(255, 255, 255, 0.80)
+        }
+
+        &.active{
+            border-bottom-color: #fff;
+            font-weight: 500;
+        }
+    }
+}
+
+
+
+/* Header search
+========================================================================== */
+.header-search{
+    background: #f7f7f7;
+    border-radius: 2px;
+    display: inline-block;
+    flex: 0 0 auto;
+    height: 36px;
+    position: relative;
+    text-align: left;
+    transition: background .2s,flex .2s;
+    vertical-align: top;
+    box-shadow: 0 1px 1.5px rgba(0,0,0,.06),0 1px 1px rgba(0,0,0,.12);
+
+    &.has-focus{
+        background: #f7f7f7;
+        max-width: 100%;
+        &:hover{background: #f7f7f7}
+
+        input{color: #212121 !important}
+        .search-icon{color:#757575; }
+    }
+
+
+    .search-icon{
+        color: #757575;
+        left: 24px;
+        position: absolute;
+        top: 6px;
+        transition: color .2s;
+    }
+}
+
+input.search-field {
+    background: 0;
+    border: 0;
+    color: #212121;
+    height: 36px;
+    padding: 8px 8px 8px 72px;
+    transition: color .2s;
+    width: 100%;
+    &:focus{
+        border: 0;
+        outline: none;
+    }
+}
+
+
+
+/* header social
+========================================================================== */
+.header-social{
+    flex: 0 0 auto;
+    display: flex;
+    a{
+        padding: 0 8px;
+        &:hover{color: rgba(255, 255, 255, 0.80)}
+        &:before{font-size: $font-size-lg !important;}
+    }
+}
+
+
+/* mediaquery medium
+========================================================================== */
+@media #{$md-and-up}{
+    .header-navigation{
+        flex: 0 0 auto;
+        margin: 0;
+        visibility: hidden;
+        width: 0;
+    }
+
+    .header-search{
+        flex: 1 0 auto;
+        margin: 6px 24px;
+    }
+
+}
+
+@media #{$md-and-down}{
+    .header.search-open-form{
+        .header-logo,
+        .header-navigation,
+        #search-open{display: none }
+        #search-close{display:inherit !important}
+
+        .header-search{
+            display: inline-block !important;
+            flex: 1 0 auto;
+        }
+    }
+}
+
+
+
+/* mediaquery large
+========================================================================== */
+@media #{$md-and-up}{
+    .header-navigation{
+        flex: 1 1 0;
+        visibility: visible;
+        margin-left: 48px;
+    }
+
+    .header-search{
+        background: rgba(255,255,255,.25);
+        max-width: 200px;
+        color: #fff;
+
+        &:hover{
+            background: rgba(255,255,255,.4);
+        }
+
+        input[placeholder], .search-icon{color: #fff;}
+
+    }
+}

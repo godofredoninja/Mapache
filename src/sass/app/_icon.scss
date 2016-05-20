@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'mapache';
+    src:
+        url('../../assets/fonts/mapache.ttf') format('truetype'),
+        url('../../assets/fonts/mapache.woff') format('woff'),
+        url('../../assets/fonts/mapache.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="i-"]:before, [class*=" i-"]:before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'mapache' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.i-github:before {
+    content: "\f09b";
+}
+.i-linkedin:before {
+    content: "\f0e1";
+}
+.i-flickr:before {
+    content: "\f16e";
+}
+.i-dribbble:before {
+    content: "\f17d";
+}
+.i-pinterest:before {
+    content: "\f231";
+}
+.i-map:before {
+    content: "\f041";
+}
+.i-twitter:before {
+    content: "\f099";
+}
+.i-facebook:before {
+    content: "\f09a";
+}
+.i-youtube:before {
+    content: "\f16a";
+}
+.i-instagram:before {
+    content: "\f16d";
+}
+.i-google:before {
+    content: "\f1a0";
+}
+.i-pocket:before {
+    content: "\f265";
+}
+.i-reddit:before {
+    content: "\f281";
+}
+.i-back:before {
+    content: "\e5c4";
+}
+.i-forward:before {
+    content: "\e5c8";
+}
+.i-chat:before {
+    content: "\e0cb";
+}
+.i-close:before {
+    content: "\e5cd";
+}
+.i-code:before {
+    content: "\e86f";
+}
+.i-favorite:before {
+    content: "\e87d";
+}
+.i-link:before {
+    content: "\e157";
+}
+.i-menu:before {
+    content: "\e5d2";
+}
+.i-feed:before {
+    content: "\e0e5";
+}
+.i-search:before {
+    content: "\e8b6";
+}
+.i-share:before {
+    content: "\e80d";
+}
+.i-spinner:before {
+    content: "\e982";
+}

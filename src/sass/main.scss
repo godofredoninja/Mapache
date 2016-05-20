@@ -1,29 +1,31 @@
+/*
+	@package godofredoninja
+*/
+
 @charset "UTF-8";
 
+ /* Normalize and icon fonts (libraries)
+========================================================================== */
 @import "~normalize.css/normalize.css";
+@import "app/icon";
+@import "app/code";
 
+ /* Mixins & Variables
+========================================================================== */
+@import "app/variables";
+@import "app/mixins";
+@import "app/utilities";
 
-// Mixins
-@import "components/mixins";
-// extents
-@import "components/extents";
-
-// @import "components/color";
-
-// Variables;
-@import "components/variables";
-
-// icon fonts
-@import "components/icon";
-
-// components
-@import "components/global";
-@import "components/menu";
-@import "components/header";
-@import "components/godo-cover";
-@import "components/psloop";
-@import "components/footer";
-@import "components/buttons";
-@import "components/post";
-@import "components/prism";
-@import "components/animated";
+ /* Structure
+========================================================================== */
+@import "app/global";
+@import "app/grid";
+@import "app/typography";
+@import "app/menu";
+@import "app/header";
+@import "app/godo-cover";
+@import "app/psloop";
+@import "app/footer";
+@import "app/buttons";
+@import "app/post";
+@import "app/animated";

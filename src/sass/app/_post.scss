@@ -1,0 +1,170 @@
+/*  Post
+========================================================================== */
+.post{
+
+    .title{
+        color: #000;
+        margin: 0 0 0.625rem;
+        font-size:  1.75rem;
+        line-height: 1.2;
+        padding: 0;
+        height: auto;
+    }
+    //  Image
+    &-image{
+        margin-bottom: 1.45rem;
+        overflow: hidden;
+    }
+    // post content
+    &-content{
+        color: rgba(35, 37, 40, 0.80);
+    }
+    // tags
+    .tags{
+            margin: 1.25rem 0;
+        .tag{
+            margin: 0 10px 10px 0;
+            text-transform: capitalize;
+        }
+    }
+    // commets
+    .comments{
+        margin: 0 0 1.5rem;
+    }
+
+}
+
+/* Meta (autor -date - 1 tag - comments count)
+========================================================================== */
+.meta{
+    margin-bottom: 1rem;
+    line-height: 1;
+
+    &-author-date{
+        font-size: $font-size-sm;
+        color: #999;
+        margin: 10px 0 5px;
+
+        a{color: inherit}
+
+        .author-name a,
+        .tag a{
+            color: #333;
+        }
+        .author-name a:hover{color: #777;}
+
+        .point{
+            margin: 0 2px;
+            display: inline-block;
+        }
+    }
+
+}
+
+
+/* Social Share
+========================================================================== */
+.social-share{
+    padding: 5px 0;
+    font-size: $font-size-sm;
+
+    .share-count{
+        text-align: center;
+        color: #000;
+        font-weight: 500;
+        margin-right: 5px;
+    }
+    .share{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px;
+        font-size: 1.125rem;
+        cursor: pointer;
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    .btn{
+        margin-right: 3px;
+        padding: 8px 10px;
+        border-radius: 0;
+        color: #fff;
+    }
+}
+
+
+/* bottom share and bottom subscribe
+========================================================================== */
+.share-subscribe{
+    p{
+        color: #7d7d7d;
+        margin-bottom: 1rem;
+        line-height: 1;
+        font-size: $font-size-sm;
+    }
+
+    .social-share{float: none !important;}
+
+    &>div{
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        &:before{
+            content: " ";
+            border-top: solid 1px #000;
+            position: absolute;
+            top: 0;
+            left: 15px;
+            width: 40px;
+            height: 1px;
+        }
+
+        h5{
+            color: #666;
+            font-size:  $font-size-sm;
+            margin: 1rem 0;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+    }
+
+    //  subscribe
+    .newsletter-form{
+        max-width: 300px;
+    }
+
+}
+
+
+/* Media Query (medium)
+========================================================================== */
+
+@media #{$md-and-up}{
+    .post{
+        .title{
+            font-size: 2.25rem;
+            margin: 0 0 1rem;
+        }
+
+        .meta-author-date{ float: left;margin-top: 12px; }
+        .social-share{ float: right; }
+
+        &-content {
+            font-size: 1.2rem;
+            p{
+                margin-bottom: 1.5rem;
+                line-height: 35px;
+            }
+        }
+    }
+}
+
+/* Media Query (large)
+========================================================================== */
+@media #{$lg-and-up}{
+    .post{
+        .meta-author-date{ float: left;margin-top: 12px; }
+        .meta-share{ float: right; }
+    }
+}

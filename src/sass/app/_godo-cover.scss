@@ -5,7 +5,7 @@
   letter-spacing: .2px;
   min-height: 350px;
   margin-bottom: 2em;
-  padding-top: $header-height-mobile;
+  // padding-top: $header-height-mobile;
   position: relative;
   text-shadow: 0 0 10px rgba(0,0,0,.33);
   z-index: 2;
@@ -64,7 +64,7 @@
     line-height: 36px;
     margin-top: 4px;
     margin: 0 10px;
-    font-weight: 500;    
+    font-weight: 500;
   }
   .website{
     background-color: rgba(0,0,0,0.12);

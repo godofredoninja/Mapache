@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>{{meta_title}}</title>
-  <meta name="description" content="{{meta_description}}" />
-  {{!-- icon  --}}
-  <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
-  <link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,300,300italic,700,500italic,400' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'> 
-  {{! Ghost outputs important style and meta data with this tag }}
-  {{ghost_head}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    {{!-- icon  --}}
+    <link rel="icon" sizes="192x192" href=" {{asset "img/icon.png"}}" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Fira+Mono' rel='stylesheet' type='text/css'>
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
 </head>
 <body>
-  <div class="landing">
-  {{!-- Add Header --}}
-  {{> "header"}}
-  {{!-- Add Content Body --}}
-  {{{body}}}
-  {{!-- Add footer --}}
-  {{> "footer"}}
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  {{! Ghost outputs important scripts and data with this tag }}
-  {{ghost_foot}}  
-   <script src="{{asset "js/bundle.min.js"}}"></script>
+    <div class="landing">
+        {{!-- Add Header --}}
+        {{> "header"}}
+        {{!-- Add Content Body --}}
+        {{{body}}}
+        {{!-- Add footer --}}
+        {{> "footer"}}
+    </div>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+    <div class="overlay hide-after-lg"></div>
+    <script src="{{asset "js/bundle.min.js"}}"></script>
 </body>
 </html>

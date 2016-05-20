@@ -1,0 +1,181 @@
+/*
+@package godofredoninja
+
+	========================================================================
+		Mapache variables styles
+	========================================================================
+*/
+
+/**
+ * Table of Contents:
+ *
+ *		1. Colors
+ */
+
+
+ /* 1. Colors
+========================================================================== */
+$primary-color        : #4285f4;
+
+
+
+$primary-color-text: 	#FFFFFF;
+$accent-color: 				#db4437;
+$primary-text-color: 	#333;
+$secondary-text-color:#757575;
+$divider-color: 			#DDDDDD;
+
+
+
+$link-color     : #417fec;
+$color-bg-page  : #EEEEEE;
+
+
+// social colors
+$social-colors: (
+	facebook    : #3b5998,
+	twitter     : #55acee,
+	google		: #dd4b39,
+	instagram   : #306088,
+	youtube     : #e52d27,
+	github      : #333333,
+	linkedin    : #007bb6,
+	spotify     : #2ebd59,
+	codepen     : #222222,
+	behance     : #131418,
+	dribbble    : #ea4c89,
+	flickr      : #0063DC,
+	reddit		: orangered,
+	pocket		: #F50057,
+	pinterest   : #bd081c
+);
+
+
+
+
+/* 2. Fonts
+========================================================================== */
+$primary-font: 	 	'Roboto', sans-serif; // font default page
+$code-font: 		'Fira Mono', monospace; // font for code and pre
+
+
+/* 3. Typography
+========================================================================== */
+
+$spacer:                   1rem;
+$line-height:              1.5;
+
+$font-size-root:           16px;
+
+$font-size-base:           1rem;
+$font-size-lg:             1.25rem; // 20px
+$font-size-sm:             .875rem; //14px
+$font-size-xs:             .75rem;
+
+$font-size-h1:             2.25rem;
+$font-size-h2:             1.875rem;
+$font-size-h3:             1.5625rem;
+$font-size-h4:             1.375rem;
+$font-size-h5:             1.125rem;
+$font-size-h6:             1rem;
+
+
+$headings-margin-bottom:   ($spacer / 2);
+$headings-font-family:     $primary-font;
+$headings-font-weight:     500;
+$headings-line-height:     1.1;
+$headings-color:           inherit;
+
+$lead-font-size:           1.25rem;
+$lead-font-weight:         300;
+
+$blockquote-font-size:     ($font-size-base * 1.25);
+
+
+/* 4. Header
+========================================================================== */
+$header-bg: $primary-color;
+$header-color: #fff;
+$header-height: 56px;
+
+
+/* 4. Footer
+========================================================================== */
+// $footer-bg-color:          $primary-color-dark;
+$footer-color-link: 			 #ffffff;
+$footer-color:      			 #aaaaaa;
+
+
+/* 4. Code Syntax
+========================================================================== */
+$code-bg-color: 	#f7f7f7;
+$font-size-code: 	0.9375rem;
+$code-color: 		#c7254e;
+$pre-code-color: #37474f;
+
+
+// Media Query Ranges
+$small-screen  : 640px;
+$medium-screen : 900px;
+$large-screen  : 1200px;
+
+$small-and-up  : "only screen and (min-width : #{$small-screen})";
+$medium-and-up : "only screen and (min-width : #{$medium-screen})";
+$large-and-up  : "only screen and (min-width : #{$large-screen})";
+
+$small-and-down: "only screen and (max-width : #{$small-screen})";
+// $medium-and-down: "only screen and (max-width : #{$medium-screen})";
+
+
+// width sidebar-right
+$sidebar-right : 300px;
+
+
+
+// Footer
+$footer-bg-color: #253238;
+$footer-color: #A2AAAD;
+
+
+/* 3. buttons
+========================================================================== */
+$btn-primary-color: $primary-color;
+$color-buttons: #db4437;
+$color-buttons-download: #5cb85c;
+$color-buttons-link: $primary-color;
+
+
+/* 5. container
+========================================================================== */
+
+$grid-gutter-width:        1.875rem; // 30px
+
+$container-sm:             576px;
+$container-md:             750px;
+$container-lg:             970px;
+$container-xl:             1200px;
+
+
+/* 10. Grid
+========================================================================== */
+$num-cols: 12;
+$gutter-width: 1.875rem;
+$element-top-margin: $gutter-width/3;
+$element-bottom-margin: ($gutter-width*2)/3;
+
+
+/* 11. Media Query Ranges
+========================================================================== */
+$sm:            640px;
+$md:            766px;
+$lg:            992px;
+$xl:            1230px;
+
+$sm-and-up:     "only screen and (min-width : #{$sm})";
+$md-and-up:     "only screen and (min-width : #{$md})";
+$lg-and-up:     "only screen and (min-width : #{$lg})";
+$xl-and-up:     "only screen and (min-width : #{$xl})";
+
+$sm-and-down:   "only screen and (max-width : #{$sm})";
+$md-and-down:   "only screen and (max-width : #{$md})";
+$lg-and-down:   "only screen and (max-width : #{$lg})";

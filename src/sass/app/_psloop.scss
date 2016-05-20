@@ -55,6 +55,8 @@
 
   .ps-excerpt{
     margin-top: 0;
+    line-height: 1.7;
+    color: #62646c;
   }
 
   // post title
@@ -63,10 +65,10 @@
     h2{
       margin: 0;
       color: $primary-text-color;
-      font-weight: 500;
+      // font-weight: 600;
       opacity: 0.90;
-      font-size: 20px;
-      line-height: 25px;
+      font-size: 1.5rem;
+      // line-height: 25px;
     }
   }
 
@@ -103,7 +105,7 @@
 	.ps{
     padding-top: 0;
     .ps-title h2{
-      font: 500 26px/34px Roboto, sans-serif;
+      // font: 500 26px/34px Roboto, sans-serif;
     }
 
 		.ps-inner{
