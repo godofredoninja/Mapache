@@ -21,9 +21,11 @@
 
 /* 1. Imports and libraris and modules
 ========================================================================== */
-import zepto from "./lib/zepto.js";
-import prism from "./lib/prism.js";
-import '../sass/main.scss';
+import zepto        from "./lib/zepto.js";
+// import $            from "jquery";
+import prism        from "./lib/prism.js";
+import GodoShare    from './app/app.share';
+import              '../sass/main.scss';
 
 
 /* 2. variables globals
@@ -45,6 +47,7 @@ var overlay = {
 ========================================================================== */
 $('#menu-open').on('click', menuOpen);
 $('#menu-close').on('click', menuClose);
+$('.share').bind('click', Share);
 $(document).on('mouseup', mouseUp);
 
 
@@ -137,6 +140,15 @@ if($gd_cover.length > 0) {
 
 }else{
     $gd_header.addClass('toolbar-shadow');
+}
+
+
+/* 8. Share social
+========================================================================== */
+function Share(e) {
+	e.preventDefault();
+	let share = new GodoShare($(this));
+	share.godoShare();
 }
 
 
