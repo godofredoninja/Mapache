@@ -3,7 +3,7 @@
 .post{
 
     .title{
-        color: #000;
+        // color: #333;
         margin: 0 0 0.625rem;
         font-size:  1.75rem;
         line-height: 1.2;
@@ -18,6 +18,15 @@
     // post content
     &-content{
         color: rgba(35, 37, 40, 0.80);
+        h2{
+            border-bottom: 1px solid #ebebeb;
+            font-weight: 300;
+            margin: 2.50rem 0 1.25rem;
+            padding-bottom: 3px;
+        }
+        h3,h4{
+            margin: 32px 0 16px;
+        }
     }
     // tags
     .tags{

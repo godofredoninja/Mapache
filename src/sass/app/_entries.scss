@@ -1,0 +1,84 @@
+.entries{
+    margin-bottom: 1.5rem;
+    padding-bottom: 0;
+    border-bottom: solid 1px #EEE;
+
+    .image{
+        margin-bottom: 10px;
+        &-link{
+            line-height: 0;
+            display: block;
+            margin: 0;
+            overflow: hidden;
+        }
+        img{
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .tag{
+        margin-bottom: 5px;
+        text-transform: capitalize;
+        font-size: $font-size-sm;
+        line-height: 1;
+        a:hover{
+            color: darken( $link-color, 10% )
+        }
+    }
+
+    .title{
+        font-size: $font-size-lg;
+        color: #000;
+        margin: 0 0 1rem;
+        padding: 0;
+        height: auto;
+        line-height: 1.3;
+        font-weight: 400;
+        &:hover{
+            color: #777;
+        }
+    }
+
+    .meta-author-date{
+        margin-top: 0;
+        margin-bottom: 1.125rem;
+    }
+
+    &-bg{
+        display: block;
+        width: 100%;
+        position: relative;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+}
+
+
+@media #{$lg-and-up}{
+
+    .entries{
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        .title{
+            font-size: 1.625rem;
+        }
+        .image{
+            margin-bottom: 0;
+        }
+        .image-link{
+            height: 180px;
+        }
+    }
+
+}
+
+@media #{$xl-and-up}{
+    .entries .image-link{height: 250px}
+}

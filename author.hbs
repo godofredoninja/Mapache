@@ -2,7 +2,7 @@
 {{!< default}}
 {{#author}}
 <section id="cover" class="cover">
-    {{#if cover}}<div class="background"><span style="background-image: url({{cover}})"></span></div>{{/if}}
+    {{#if cover}}<div class="background" style="background-image: url({{cover}})"></div>{{/if}}
     <article class="cover-wrap author">
         <div class="info">
             <div  class="avatar animated bounceInDown hide-before-md" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>

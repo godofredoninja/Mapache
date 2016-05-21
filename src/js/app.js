@@ -1,14 +1,36 @@
+/*
+@package godofredoninja
+
+	========================================================================
+		Mapache Javascript Functions
+	========================================================================
+*/
+
+/**
+ * Table of Contents:
+ *
+ *		1. Imports libraris and modules
+ *      2. variables Globals
+ *      3. Functions
+ *      4. Search header
+ *      5. Opena and close menu mobile
+ *      6. Video Responsive youtube and vimeo
+ *      7. header transparent
+ */
+
+
+/* 1. Imports and libraris and modules
+========================================================================== */
 import zepto from "./lib/zepto.js";
 import prism from "./lib/prism.js";
 import '../sass/main.scss';
 
 
-/* variables
+/* 2. variables globals
 ========================================================================== */
 const $gd_header      = $('#header'),
     $gd_menu          = $('#menu-mobile'),
     $gd_cover         = $('#cover'),
-    $gd_cover_exists  = $gd_cover.find('.background'),
     $gd_search        = $('#header-search'),
     $sidebar_hidden   = $('.sidebar .fixed'),
     $gd_search_input  = $('.search-field');
@@ -19,17 +41,18 @@ var overlay = {
 };
 
 
-/* Functions
+/* 3. Functions
 ========================================================================== */
 $('#menu-open').on('click', menuOpen);
 $('#menu-close').on('click', menuClose);
+$(document).on('mouseup', mouseUp);
 
-/* Search open and close
+
+/* 4. Search open and close
 ========================================================================== */
 $('#search-open').on('click', (e)  => {
     e.preventDefault();
     $gd_header.addClass('search-open-form');
-
 });
 
 $('#search-close').on('click', (e) => {
@@ -49,19 +72,8 @@ $gd_search_input
     });
 
 
-
-
-$(document).on('mouseup', mouseUp);
-// $(window).on('resize', resizeHeight);
-
-// Mouse up
-function mouseUp(e) {
-    if($gd_menu.hasClass('open') && $gd_menu.has(e.target).length===0){
-        menuClose(e);
-    };
-}
-
-// Menu open
+/* 5. Menu Mobile open and close
+========================================================================== */
 function menuOpen(e) {
     e.preventDefault();
     $('html').attr('godo-state','no-scroll');
@@ -69,7 +81,6 @@ function menuOpen(e) {
     $gd_menu.addClass('open');
 }
 
-// Menu Close
 function menuClose(e) {
     e.preventDefault();
     $('html').removeAttr('godo-state')
@@ -78,10 +89,9 @@ function menuClose(e) {
 }
 
 
-
-/* Video Responsive youtube and vimeo
+/* 6. Video Responsive youtube and vimeo
 ========================================================================== */
-$('.post-content').each(function(){
+$('.post-content').each( function() {
     var selectors = [
         'iframe[src*="player.vimeo.com"]',
         'iframe[src*="youtube.com"]',
@@ -91,7 +101,7 @@ $('.post-content').each(function(){
 
     var $allVideos = $(this).find(selectors.join(','));
 
-    $allVideos.each(function(){
+    $allVideos.each( function () {
         $(this).wrap('<aside class="video-responsive"></aside>');
     });
 
@@ -99,15 +109,16 @@ $('.post-content').each(function(){
 
 
 
-
-// Header box shadow and transparent
+/* 7. Header box shadow and transparent
+========================================================================== */
 if($gd_cover.length > 0) {
     $gd_header.css({'background':'transparent'});
 
-    $(window).scroll(function(){
-        var scrollTop         = $(window).scrollTop();
-        var gd_cover_height   = $gd_cover.height();
-        var gd_cover_wrap     = (gd_cover_height - scrollTop) / gd_cover_height;
+    $(window).scroll( () => {
+        let scrollTop         = $(window).scrollTop();
+        let gd_cover_height   = $gd_cover.height() - $gd_header.height();
+        let gd_cover_wrap     = ( gd_cover_height - scrollTop ) / gd_cover_height;
+        console.log(gd_cover_wrap);
 
         if (scrollTop >= gd_cover_height ) {
             $gd_header
@@ -122,7 +133,6 @@ if($gd_cover.length > 0) {
         if(gd_cover_wrap >= 0){
             $('.cover-wrap').css('opacity', gd_cover_wrap);
         }
-
     });
 
 }else{
@@ -130,19 +140,28 @@ if($gd_cover.length > 0) {
 }
 
 
-// sidebar hidden aside
-if ($sidebar_hidden.length > 0) {
-    var mela  = $sidebar_hidden.offset().top;
-    $(window).scroll(function(){
-        var scrollTop           = $(window).scrollTop();
-
-        if (scrollTop >= mela - 80) {
-            $sidebar_hidden.css({'position':'fixed','top': '80px', 'width':'300px'});
-        }else {
-            $sidebar_hidden.removeAttr('style');
-        }
-    });
+/* Mouse up
+========================================================================== */
+function mouseUp(e) {
+    if($gd_menu.hasClass('open') && $gd_menu.has(e.target).length===0){
+        menuClose(e);
+    };
 }
+
+
+// sidebar hidden aside
+// if ($sidebar_hidden.length > 0) {
+//     var mela  = $sidebar_hidden.offset().top;
+//     $(window).scroll(function(){
+//         var scrollTop           = $(window).scrollTop();
+//
+//         if (scrollTop >= mela - 80) {
+//             $sidebar_hidden.css({'position':'fixed','top': '80px', 'width':'300px'});
+//         }else {
+//             $sidebar_hidden.removeAttr('style');
+//         }
+//     });
+// }
 
 
 
