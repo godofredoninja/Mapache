@@ -25,6 +25,7 @@ import zepto        from "./lib/zepto.js";
 // import $            from "jquery";
 import prism        from "./lib/prism.js";
 import GodoShare    from './app/app.share';
+import shareCount   from './app/app.share-count';
 import              '../sass/main.scss';
 
 
@@ -35,7 +36,8 @@ const $gd_header      = $('#header'),
     $gd_cover         = $('#cover'),
     $gd_search        = $('#header-search'),
     $sidebar_hidden   = $('.sidebar .fixed'),
-    $gd_search_input  = $('.search-field');
+    $gd_search_input  = $('.search-field'),
+    $gd_share_count   = $('.share-count');
 
 var overlay = {
     opacity: 1,
@@ -151,6 +153,12 @@ function Share(e) {
 	share.godoShare();
 }
 
+/* 9. Share social count
+======================================================================== */
+if ($gd_share_count.length > 0) {
+    let share_count = new shareCount($gd_share_count);
+    share_count.godoCount();
+}
 
 /* Mouse up
 ========================================================================== */
