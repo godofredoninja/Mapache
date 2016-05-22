@@ -36,31 +36,11 @@
             {{#if tags}}<div class="tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn tag">{{name}}</a>{{/foreach}}</div>{{/if}}
 
             <div class="row main-wrap layout-wrap layout-row share-subscribe">
-                {{!-- share post --}}
-                <div class="bottom-share col s12 m5">
-                    <h5>Share this Article</h5>
-                    <div class="social-share">
-                        <span class="share btn i-facebook bg-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></span>
-                        <span class="share btn i-twitter bg-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-                        <span class="share btn i-reddit bg-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></span>
-                        <span class="share btn i-pinterest bg-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-                        <div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
-                    </div>
-                </div>
-                {{!-- subscribe --}}
-                <div id="subscribe" class="bottom-subscribe col s12 m7">
-                    <h5>Subscribe to {{@blog.title}}</h5>
-                    <p>Receive updates to our latest news, features and exclusive.</p>
-                    <form class="newsletter-form" action="" method="post">
-                        <div class="input-group">
-                            <input class="form-control newsletter-email" name="newsletter-email" size="16" type="email" placeholder="Enter your email address" required="required">
-                            <span class="input-group-btn"><button class="btn btn-primary" type="submit">Sign Up</button></span>
-                        </div>
-                    </form>
-                </div>
+                {{> widget-share}}
+                {{> widget-newsletter}}
             </div>
 
-            <div id="comments" class="comments"></div>
+            <div id="comments" class="comments" style="display:none"><div id="disqus_thread"></div></div>
 
         </article>
         {{!-- Add Sidebar --}}

@@ -16,6 +16,11 @@
  *      5. Opena and close menu mobile
  *      6. Video Responsive youtube and vimeo
  *      7. header transparent
+ *      8. Share social
+ *      9. Share count social media
+ *      10. Social Link Header
+ *      11. Disqus Comments
+ *      12. Mailchimp list
  */
 
 
@@ -31,13 +36,16 @@ import              '../sass/main.scss';
 
 /* 2. variables globals
 ========================================================================== */
-const $gd_header      = $('#header'),
-    $gd_menu          = $('#menu-mobile'),
-    $gd_cover         = $('#cover'),
-    $gd_search        = $('#header-search'),
-    $sidebar_hidden   = $('.sidebar .fixed'),
-    $gd_search_input  = $('.search-field'),
-    $gd_share_count   = $('.share-count');
+const $gd_header        = $('#header'),
+    $gd_menu            = $('#menu-mobile'),
+    $gd_cover           = $('#cover'),
+    $gd_search          = $('#header-search'),
+    $sidebar_hidden     = $('.sidebar .fixed'),
+    $gd_search_input    = $('.search-field'),
+    $gd_comments        = $('#comments'),
+    $gd_newsletter      = $('#newsletter'),
+    $gd_newsletter_form = $('#newsletter-form'),
+    $gd_share_count     = $('.share-count');
 
 var overlay = {
     opacity: 1,
@@ -45,6 +53,7 @@ var overlay = {
 };
 
 const url_regexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
 
 /* 3. Functions
 ========================================================================== */
@@ -117,31 +126,33 @@ $('.post-content').each( function() {
 
 /* 7. Header box shadow and transparent
 ========================================================================== */
-if( $gd_cover.length > 0 ) {
-    $gd_header.css({'background':'transparent'});
+function headerShadow() {
+    if( $gd_cover.length > 0 ) {
+        $gd_header.css({'background':'transparent'});
 
-    $(window).scroll( () => {
-        let scrollTop         = $(window).scrollTop();
-        let gd_cover_height   = $gd_cover.height() - $gd_header.height();
-        let gd_cover_wrap     = ( gd_cover_height - scrollTop ) / gd_cover_height;
+        $(window).scroll( () => {
+            let scrollTop         = $(window).scrollTop();
+            let gd_cover_height   = $gd_cover.height() - $gd_header.height();
+            let gd_cover_wrap     = ( gd_cover_height - scrollTop ) / gd_cover_height;
 
-        if ( scrollTop >= gd_cover_height ) {
-            $gd_header
-            .addClass('toolbar-shadow')
-            .removeAttr('style');
-        } else {
-            $gd_header
-            .removeClass('toolbar-shadow')
-            .css({'background':'transparent'});
-        }
+            if ( scrollTop >= gd_cover_height ) {
+                $gd_header
+                .addClass('toolbar-shadow')
+                .removeAttr('style');
+            } else {
+                $gd_header
+                .removeClass('toolbar-shadow')
+                .css({'background':'transparent'});
+            }
 
-        if( gd_cover_wrap >= 0 ){
-            $('.cover-wrap').css('opacity', gd_cover_wrap);
-        }
-    });
+            if( gd_cover_wrap >= 0 ){
+                $('.cover-wrap').css('opacity', gd_cover_wrap);
+            }
+        });
 
-}else{
-    $gd_header.addClass('toolbar-shadow');
+    }else{
+        $gd_header.addClass('toolbar-shadow');
+    }
 }
 
 
@@ -153,28 +164,54 @@ function Share(e) {
 	share.godoShare();
 }
 
-/* 9. Share social count
+/* 9. Share count social media
 ======================================================================== */
-if ($gd_share_count.length > 0) {
-    let share_count = new shareCount($gd_share_count);
-    share_count.godoCount();
+function shareConter() {
+    if ($gd_share_count.length > 0) {
+        let share_count = new shareCount($gd_share_count);
+        share_count.godoCount();
+    }
 }
 
 
 /* 10. Social Link Header
 ========================================================================== */
-if(typeof social_link != 'undefined'){
-    $.each( social_link, ( type, url ) => {
-        if( typeof url === 'string' && url_regexp.test(url) ){
-            let link = `<a title="${type}" href="${url}" target="_blank" class="i-${type}"></a>`;
-            $('.header-social').append(link);
-        }
-    });
+function socialLink() {
+    if(typeof social_link != 'undefined'){
+        $.each( social_link, ( type, url ) => {
+            if( typeof url === 'string' && url_regexp.test(url) ){
+                let link = `<a title="${type}" href="${url}" target="_blank" class="i-${type}"></a>`;
+                $('.header-social').append(link);
+            }
+        });
+    }
 }
 
-/* 10. Disqus Comments 
+/* 11. Disqus Comments
 ========================================================================== */
+function disqusComments() {
+    if ( $gd_comments.length > 0 ) {
+        if( typeof disqus_shortname != 'undefined' ){
+            $gd_comments.removeAttr('style');
 
+            let d = document, s = d.createElement('script');
+        	s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
+        	s.setAttribute('data-timestamp', +new Date());
+        	(d.head || d.body).appendChild(s);
+        }
+    }
+}
+
+/* 12. Mailchimp list
+========================================================================== */
+function mailchimp() {
+    if ( $gd_newsletter.length > 0 ) {
+        if( typeof mailchimp_list != 'undefined' ){
+            $gd_newsletter.removeAttr('style');
+            $gd_newsletter_form.attr( 'action', mailchimp_list );
+        }
+    }
+}
 
 
 /* Mouse up
@@ -184,6 +221,17 @@ function mouseUp(e) {
         menuClose(e);
     };
 }
+
+
+
+$(document).on('ready', () => {
+    headerShadow();
+    socialLink();
+    shareConter();
+    disqusComments();
+    mailchimp();
+});
+
 
 
 // sidebar hidden aside
