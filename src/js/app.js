@@ -44,6 +44,7 @@ var overlay = {
     visibility: 'visible'
 };
 
+const url_regexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
 /* 3. Functions
 ========================================================================== */
@@ -116,26 +117,25 @@ $('.post-content').each( function() {
 
 /* 7. Header box shadow and transparent
 ========================================================================== */
-if($gd_cover.length > 0) {
+if( $gd_cover.length > 0 ) {
     $gd_header.css({'background':'transparent'});
 
     $(window).scroll( () => {
         let scrollTop         = $(window).scrollTop();
         let gd_cover_height   = $gd_cover.height() - $gd_header.height();
         let gd_cover_wrap     = ( gd_cover_height - scrollTop ) / gd_cover_height;
-        console.log(gd_cover_wrap);
 
-        if (scrollTop >= gd_cover_height ) {
+        if ( scrollTop >= gd_cover_height ) {
             $gd_header
             .addClass('toolbar-shadow')
             .removeAttr('style');
-        }else {
+        } else {
             $gd_header
             .removeClass('toolbar-shadow')
             .css({'background':'transparent'});
         }
 
-        if(gd_cover_wrap >= 0){
+        if( gd_cover_wrap >= 0 ){
             $('.cover-wrap').css('opacity', gd_cover_wrap);
         }
     });
@@ -159,6 +159,23 @@ if ($gd_share_count.length > 0) {
     let share_count = new shareCount($gd_share_count);
     share_count.godoCount();
 }
+
+
+/* 10. Social Link Header
+========================================================================== */
+if(typeof social_link != 'undefined'){
+    $.each( social_link, ( type, url ) => {
+        if( typeof url === 'string' && url_regexp.test(url) ){
+            let link = `<a title="${type}" href="${url}" target="_blank" class="i-${type}"></a>`;
+            $('.header-social').append(link);
+        }
+    });
+}
+
+/* 10. Disqus Comments 
+========================================================================== */
+
+
 
 /* Mouse up
 ========================================================================== */
