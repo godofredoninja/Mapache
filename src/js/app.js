@@ -26,9 +26,10 @@
 
 /* 1. Imports and libraris and modules
 ========================================================================== */
-import zepto        from "./lib/zepto.js";
-// import $            from "jquery";
+// import zepto        from "./lib/zepto.js";
+// import $            from "jQuery";
 import prism        from "./lib/prism.js";
+// import search       from './lib/jquery.ghostHunter.js'
 import GodoShare    from './app/app.share';
 import shareCount   from './app/app.share-count';
 import              '../sass/main.scss';
@@ -43,10 +44,14 @@ const $gd_header        = $('#header'),
     $sidebar_hidden     = $('.sidebar .fixed'),
     $gd_search_input    = $('.search-field'),
     $gd_comments        = $('#comments'),
+    $gd_comment_count   = $('.gd-comment_count'),
+    $gd_pagination      = $('#pagination'),
     $gd_newsletter      = $('#newsletter'),
     $gd_newsletter_form = $('#newsletter-form'),
-    $gd_share_count     = $('.share-count');
+    $gd_share_count     = $('.share-count'),
+    url_blog            = window.location;
 
+var page = 2;
 var overlay = {
     opacity: 1,
     visibility: 'visible'
@@ -55,11 +60,16 @@ var overlay = {
 const url_regexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
 
+// $("#searchbox-input").ghostHunter({
+//       results   : ".devsite-suggest-results"
+// });
+
 /* 3. Functions
 ========================================================================== */
 $('#menu-open').on('click', menuOpen);
 $('#menu-close').on('click', menuClose);
 $('.share').bind('click', Share);
+$gd_pagination.on('click', pagination);
 $(document).on('mouseup', mouseUp);
 
 
@@ -190,27 +200,96 @@ function socialLink() {
 /* 11. Disqus Comments
 ========================================================================== */
 function disqusComments() {
-    if ( $gd_comments.length > 0 ) {
-        if( typeof disqus_shortname != 'undefined' ){
-            $gd_comments.removeAttr('style');
 
-            let d = document, s = d.createElement('script');
-        	s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
-        	s.setAttribute('data-timestamp', +new Date());
-        	(d.head || d.body).appendChild(s);
-        }
+    if( typeof disqus_shortname != 'undefined' ){
+        $gd_comments.removeAttr('style');
+
+        let d = document, s = d.createElement('script');
+    	s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
+    	s.setAttribute('data-timestamp', +new Date());
+    	(d.head || d.body).appendChild(s);
     }
+
 }
 
 /* 12. Mailchimp list
 ========================================================================== */
 function mailchimp() {
-    if ( $gd_newsletter.length > 0 ) {
-        if( typeof mailchimp_list != 'undefined' ){
-            $gd_newsletter.removeAttr('style');
-            $gd_newsletter_form.attr( 'action', mailchimp_list );
-        }
+    if( typeof mailchimp_list != 'undefined' ){
+        $gd_newsletter.removeAttr('style');
+        $gd_newsletter_form.attr( 'action', mailchimp_list );
     }
+}
+
+/* 13. Comments Count
+========================================================================== */
+function commentsCount() {
+    if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ){
+
+        $gd_comment_count.each( function() {
+            let url = $(this).attr('godo-url');
+
+            $.ajax({
+                type: 'GET',
+                url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+                data: { api_key: disqusPublicKey, forum : disqus_shortname, thread : 'link:' + url },
+                cache: false,
+                dataType: 'jsonp',
+                success:  ( res ) => {
+                    for ( let i in res.response ) {
+                        let countText = 'Comments';
+                        let count = res.response[i].posts;
+                        if (count == 1)
+                            countText = 'Comment';
+                        $(this).html(`${count} <span>${countText}</span>`);
+                    }
+                }
+            });
+        });
+    }
+}
+
+
+
+/* 14. scrolltop
+========================================================================== */
+$('.scrolltop').on('click', function(e) {
+	e.preventDefault();
+    $('html, body').animate({scrollTop: $($(this).attr('href')).offset().top - 70}, 500, 'linear');
+});
+
+/* 15. pagination
+========================================================================== */
+
+if ( $gd_pagination.attr('data-page') == 1 ) {
+    $gd_pagination.css({'display':'none'});
+}
+
+function pagination(e) {
+    e.preventDefault();
+    let that = $(this);
+    let pageTotal = that.data('page');
+
+    that.addClass('loading').find('.text').slideUp(320);
+    that.find('.pagination-icon').addClass('spin');
+
+    $.get( ( url_blog +'/page/'+ page ))
+        .done( (res) =>{
+            if( page <= pageTotal ){
+                let entries = $('.entry-list',res);
+
+                setTimeout( () => {
+                    $('#entry').append(entries);
+					that.removeClass('loading').find('.text').slideDown(320);
+					that.find('.pagination-icon').removeClass('spin');
+                }, 1000);
+
+                page++;
+            }
+        })
+        .fail( () => {
+            that.html('<h3>You reached the end of the line!</h3><p>No more posts to load.');
+        });
 }
 
 
@@ -228,8 +307,9 @@ $(document).on('ready', () => {
     headerShadow();
     socialLink();
     shareConter();
-    disqusComments();
-    mailchimp();
+    commentsCount();
+    if ( $gd_comments.length > 0 ) disqusComments();
+    if ( $gd_newsletter.length > 0 ) mailchimp();
 });
 
 

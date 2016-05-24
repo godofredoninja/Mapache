@@ -193,7 +193,34 @@ pre{
   }
 }
 
+//  pagination
+.pagination{
+    display: block;
+    text-align: center;
+    padding: 3rem 0;
+    color: #222;
+    opacity: .5;
+    transition: opacity 320ms ease;
 
+    &:hover{
+        opacity: 1;
+    }
+
+    span{
+        display: block;
+    }
+
+    &-icon{
+        font-size: 2.5rem;
+    }
+
+    .spin{
+        animation-name: spin;
+    	animation-duration: 800ms;
+    	animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
 
 
 // Utilidades
@@ -223,7 +250,7 @@ pre{
 }
 
 
-.landing{
+.mapache{
   overflow: hidden;
 }
 
