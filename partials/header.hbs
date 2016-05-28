@@ -18,15 +18,18 @@
                 <span class="search-icon i-search"></span>
             </div>
 
-            <div class="devsite-popout devsite-popout-closed">
-                <div class="devsite-suggest-results" style="display: none;"></div>
+            <div class="search-popout closed">
+                <div id="search-results" class="search-suggest-results" style="display:none"></div>
             </div>
         </form>
 
         <a href="#" id="search-open" class="search-open  header-btn i-search hide-after-md"></a>
         <a href="#" id="search-close" style="display:none" class="search-open  header-btn i-close hide-after-md"></a>
 
-        <div class="header-social hide-before-lg"></div>
+        <div class="header-social hide-before-lg">
+            {{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
+            {{#if @blog.facebook}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
+        </div>
 
     </div>
 

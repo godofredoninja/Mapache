@@ -23,6 +23,64 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+.i-download:before {
+    content: "\e900";
+}
+.i-cloud_download:before {
+    content: "\e2c0";
+}
+.i-star:before {
+    content: "\e838";
+}
+.i-keyboard_arrow_up:before {
+    content: "\e316";
+}
+.i-open_in_new:before {
+    content: "\e89e";
+}
+.i-warning:before {
+    content: "\e002";
+}
+.i-back:before {
+    content: "\e5c4";
+}
+.i-forward:before {
+    content: "\e5c8";
+}
+.i-chat:before {
+    content: "\e0cb";
+}
+.i-close:before {
+    content: "\e5cd";
+}
+.i-code:before {
+    content: "\e86f";
+}
+.i-favorite:before {
+    content: "\e87d";
+}
+.i-link:before {
+    content: "\e157";
+}
+.i-menu:before {
+    content: "\e5d2";
+}
+.i-feed:before {
+    content: "\e0e5";
+}
+.i-search:before {
+    content: "\e8b6";
+}
+.i-share:before {
+    content: "\e80d";
+}
+.i-check_circle:before {
+    content: "\e86c";
+}
+.i-spinner:before {
+    content: "\e984";
+}
 .i-github:before {
     content: "\f09b";
 }
@@ -62,39 +120,6 @@
 .i-reddit:before {
     content: "\f281";
 }
-.i-back:before {
-    content: "\e5c4";
-}
-.i-forward:before {
-    content: "\e5c8";
-}
-.i-chat:before {
-    content: "\e0cb";
-}
-.i-close:before {
-    content: "\e5cd";
-}
-.i-code:before {
-    content: "\e86f";
-}
-.i-favorite:before {
-    content: "\e87d";
-}
-.i-link:before {
-    content: "\e157";
-}
-.i-menu:before {
-    content: "\e5d2";
-}
-.i-feed:before {
-    content: "\e0e5";
-}
-.i-search:before {
-    content: "\e8b6";
-}
-.i-share:before {
-    content: "\e80d";
-}
-.i-spinner:before {
-    content: "\e982";
+.i-snapchat:before {
+    content: "\f2ac";
 }

@@ -28,7 +28,8 @@ $divider-color: 		#DDDDDD;
 
 
 
-$link-color     : #4184F3;
+// $link-color     : #4184F3;
+$link-color     : $primary-color;
 $color-bg-page  : #EEEEEE;
 
 
@@ -102,9 +103,9 @@ $header-height: 56px;
 
 /* 4. Footer
 ========================================================================== */
-// $footer-bg-color:          $primary-color-dark;
-$footer-color-link: 			 #ffffff;
-$footer-color:      			 #aaaaaa;
+$footer-bg-color:   #303c42;
+$footer-color-link: #ffffff;
+$footer-color:      #cfd8dc;
 
 
 /* 4. Code Syntax
@@ -113,29 +114,6 @@ $code-bg-color: 	#f7f7f7;
 $font-size-code: 	0.9375rem;
 $code-color: 		#c7254e;
 $pre-code-color: #37474f;
-
-
-// Media Query Ranges
-$small-screen  : 640px;
-$medium-screen : 900px;
-$large-screen  : 1200px;
-
-$small-and-up  : "only screen and (min-width : #{$small-screen})";
-$medium-and-up : "only screen and (min-width : #{$medium-screen})";
-$large-and-up  : "only screen and (min-width : #{$large-screen})";
-
-$small-and-down: "only screen and (max-width : #{$small-screen})";
-// $medium-and-down: "only screen and (max-width : #{$medium-screen})";
-
-
-// width sidebar-right
-$sidebar-right : 300px;
-
-
-
-// Footer
-$footer-bg-color: #253238;
-$footer-color: #A2AAAD;
 
 
 /* 3. buttons
@@ -180,3 +158,13 @@ $xl-and-up:     "only screen and (min-width : #{$xl})";
 $sm-and-down:   "only screen and (max-width : #{$sm})";
 $md-and-down:   "only screen and (max-width : #{$md})";
 $lg-and-down:   "only screen and (max-width : #{$lg})";
+
+
+/* 11. icons
+========================================================================== */
+$i-open_in_new: '\e89e';
+$i-warning: '\e002';
+$i-star: '\e838';
+$i-download: '\e900';
+$i-cloud_download: '\e2c0';
+$i-check_circle: '\e86c';

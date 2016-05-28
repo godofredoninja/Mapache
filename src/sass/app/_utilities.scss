@@ -1,41 +1,58 @@
 // box-shadow
 %primary-box-shadow {
-  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
+%font-icons{
+    font-family: 'mapache' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.full-height{
+    height: 100vh;
+}
 
 .u-unstyled{
-  padding-left: 0;
-  list-style: none;
-	margin: 0;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
 }
 
 
 // hide before
 @media #{$md-and-down}{
-	.hide-before-md{
-		display: none !important;
-	}
+    .hide-before-md{
+        display: none !important;
+    }
 }
 
 
 @media #{$lg-and-down}{
-	.hide-before-lg{
-		display: none !important;
-	}
+    .hide-before-lg{
+        display: none !important;
+    }
 }
 
 
 // hide after
 @media #{$md-and-up}{
-	.hide-after-md{
-		display: none !important;
-	}
+    .hide-after-md{
+        display: none !important;
+    }
 }
 
 // hide after
 @media #{$lg-and-up}{
-	.hide-after-lg{
-		display: none !important;
-	}
+    .hide-after-lg{
+        display: none !important;
+    }
 }

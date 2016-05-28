@@ -1,38 +1,72 @@
-
 .btn{
+    background-color: #fff;
     border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+    border: 0;
+    box-shadow: none;
+    color: $btn-primary-color;
+    cursor: pointer;
     display: inline-block;
-    color: #333;
-    background-color: #eee;
-    vertical-align: top;
-    font-family: $primary-font;
-    font-size: $font-size-sm;
-    font-weight: 500;
+    font: 500 14px/20px $primary-font;
+    height: 36px;
+    margin: 0;
+    min-width: 36px;
     outline: 0;
-    padding: 10px;
-    position: relative;
+    overflow: hidden;
+    padding: 8px;
     text-align: center;
     text-decoration: none;
+    text-overflow: ellipsis;
     text-transform: uppercase;
-    z-index: 2;
-    line-height: 1;
-    border: none;
-    min-width: 36px;
-    cursor: pointer;
+    transition: background-color .2s,box-shadow .2s;
+    vertical-align: middle;
+    white-space: nowrap;
 
+    + .btn{margin-left: 8px;}
+
+    &:focus,
     &:hover{
-        background: rgba(0,0,0,0.12);
+        background-color: lighten($btn-primary-color, 32%);
+        text-decoration: none !important;
     }
 
     &.btn-primary{
-        background: $btn-primary-color;
-        border-color: $btn-primary-color;
+        background-color: $btn-primary-color;
         color: #fff;
+        &:hover{background-color: darken($btn-primary-color, 4%);}
+    }
+    &.btn-circle{
+        border-radius: 50%;
+        height: 55px;
+        line-height: 55px;
+        padding: 0;
+        width: 55px;
+    }
+    &.btn-shadow{
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+        color: #333;
+        background-color: #eee;
+        &:hover{background-color: rgba(0,0,0,0.12);}
+    }
+    &.btn-download-cloud,
+    &.btn-download{
+        background-color: $btn-primary-color;
+        color: #fff;
+        &:hover{background-color: darken($btn-primary-color, 8%);}
+        &:after{
+            @extend %font-icons;
+            margin-left: 5px;
+            font-size: 1.1rem;
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 
-
+    &.btn-download:after{content: $i-download;}
+    &.btn-download-cloud:after{content: $i-cloud_download;}
+    &.external:after{font-size: 1rem;}
 }
+
+
 
 
 
@@ -43,10 +77,12 @@
     border-collapse: separate;
 }
 
+
+
+
 .form-control {
     width: 100%;
-    height: 34px;
-    padding: 6px 12px;
+    padding: 8px 12px;
     font-size: 14px;
     line-height: 1.42857;
     color: #555;
@@ -56,7 +92,7 @@
     border-radius: 0px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
     transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
-    display: table-cell;
+    height: 36px;
 
     &:focus {
         border-color: $btn-primary-color;
@@ -64,92 +100,3 @@
         box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($btn-primary-color,0.6);
     }
 }
-
-
-
-
-.input-group-btn {
-    width: 1%;
-    white-space: nowrap;
-    vertical-align: middle;
-    display: table-cell;
-
-    .btn{
-        border-radius: 0;
-    }
-}
-
-
-
-
-
-
-
-// .btn {
-//     border: 0 !important;
-//     // color: #fff;
-//     cursor: pointer;
-//     display: inline-block;
-//     font-weight: 600;
-//     font-size: $font-size-sm;
-//     height: 36px;
-//     letter-spacing: .5px;
-//     line-height: 36px;
-//     min-width: 36px;
-//     outline: 0;
-//     overflow: hidden;
-//     padding: 0 8px;
-//     position: relative;
-//     text-align: center;
-//     text-transform: uppercase;
-//     text-overflow: ellipsis;
-//     vertical-align: middle;
-//     white-space: nowrap;
-//     -webkit-tap-highlight-color: transparent;
-//     transition: all .3s ease-out;
-//
-//     i{
-//         display: inline-block;
-//         vertical-align: middle;
-//         font-size: $font-size-lg;
-//     }
-//
-//     &-primary{
-//         background: $btn-primary-color;
-//         border-color: $btn-primary-color;
-//         color: #fff;
-//     }
-//
-//     &.download{background: $color-buttons-download !important;}
-//     &.link{background: $color-buttons-link !important;}
-//
-//     &.download,
-//     &.link{
-//         padding-left: 20px;
-//         padding-right: 20px;
-//         i{
-//             margin-right: 5px;
-//         }
-//     }
-//
-//     &.btn-circle{
-//         border-radius: 50%;
-//         width: 55px;
-//         height: 55px;
-//         padding: 0;
-//         line-height: 55px
-//     }
-//
-//     &.disabled{
-//         background-color: rgba(0,0,0,0.12);
-//         color: rgba(0,0,0,0.26);
-//         cursor: default;
-//         box-shadow: none !important;
-//         cursor: not-allowed;
-//     }
-//
-//     &.btn-flat{
-//         box-shadow: none;
-//         background: transparent;
-//     }
-// }

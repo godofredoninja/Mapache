@@ -1,0 +1,33 @@
+{{!-- Add Layout --}}
+
+{{!< default}}
+
+
+<main class="container subscribe vertiacal-aling margin-top">
+
+    {{^if success}}
+
+    <div class="vertiacal-aling-wrap">
+        <div class="vertiacal-aling-content subscribe-content">
+            <h2 class="subscribe-title">Subscribe to {{@blog.title}}</h2>
+
+            {{subscribe_form
+                form_class="subscribe-form"
+                input_class="subscribe-input"
+                button_class="btn btn-primary btn-block"
+                placeholder="Your email address"
+                autofocus="true"
+            }}
+        </div>
+    </div>
+
+    {{else}}
+
+    <h3>Subscribed!</h3>
+    <div class="success">
+        <span>You've successfully subscribed to <strong>{{@blog.title}}</strong></span>
+        <span>with the email address <strong>{{email}}</strong>.</span>
+    </div>
+
+    {{/if}}
+</main>

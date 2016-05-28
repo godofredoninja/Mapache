@@ -92,6 +92,7 @@
     &-wrap{
         left: 0px;
         display: flex;
+        overflow: hidden;
     }
 
     .navigation-link{
@@ -127,16 +128,8 @@
     transition: background .2s,flex .2s;
     vertical-align: top;
     box-shadow: 0 1px 1.5px rgba(0,0,0,.06),0 1px 1px rgba(0,0,0,.12);
-
-    &.has-focus{
-        background: #f7f7f7;
-        max-width: 100%;
-        &:hover{background: #f7f7f7}
-
-        input{color: #212121 !important}
-        .search-icon{color:#757575; }
-    }
-
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 
     .search-icon{
         color: #757575;
@@ -161,6 +154,42 @@ input.search-field {
     }
 }
 
+.search-popout{
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24),inset 0 4px 6px -4px rgba(0,0,0,.24);
+    margin-top: 10px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    position: absolute;
+    // transition: transform .2s,visibility .2s;
+    // transform: translateY(0);
+    width: 100%;
+    z-index: -1;
+
+    &.closed{
+        // transform: translateY(-110%);
+        visibility: hidden;
+    }
+}
+
+.search-suggest-results{
+    padding: 8px 8px 8px 75px;
+
+    a{
+        color: #212121;
+        display: block;
+        margin-left: -8px;
+        outline: 0;
+        height: 36px;
+        padding: 8px;
+        transition: background .2s;
+        font-size: $font-size-sm;
+        &:hover{
+            background: #f7f7f7;
+        }
+    }
+}
+
 
 
 /* header social
@@ -180,39 +209,6 @@ input.search-field {
 ========================================================================== */
 @media #{$md-and-up}{
     .header-navigation{
-        flex: 0 0 auto;
-        margin: 0;
-        visibility: hidden;
-        width: 0;
-    }
-
-    .header-search{
-        flex: 1 0 auto;
-        margin: 6px 24px;
-    }
-
-}
-
-@media #{$md-and-down}{
-    .header.search-open-form{
-        .header-logo,
-        .header-navigation,
-        #search-open{display: none }
-        #search-close{display:inherit !important}
-
-        .header-search{
-            display: inline-block !important;
-            flex: 1 0 auto;
-        }
-    }
-}
-
-
-
-/* mediaquery large
-========================================================================== */
-@media #{$md-and-up}{
-    .header-navigation{
         flex: 1 1 0;
         visibility: visible;
         margin-left: 48px;
@@ -220,7 +216,7 @@ input.search-field {
 
     .header-search{
         background: rgba(255,255,255,.25);
-        max-width: 200px;
+        width: 200px;
         color: #fff;
 
         &:hover{
@@ -229,5 +225,41 @@ input.search-field {
 
         input[placeholder], .search-icon{color: #fff;}
 
+    }
+
+    .header.search-active{
+        .header-search{
+            background: #f7f7f7;
+            max-width: 100%;
+            flex: 1 0 auto;
+
+            &:hover{background: #f7f7f7}
+
+            input{color: #212121 !important}
+            .search-icon{color:#757575; }
+        }
+        .header-navigation{
+            flex: 0 0 auto;
+            margin: 0;
+            visibility: hidden;
+            width: 0;
+        }
+    }
+
+}
+
+
+@media #{$md-and-down}{
+    .responsive-search-open{
+        .header-logo,
+        .header-navigation,
+        #search-open{display: none }
+        #search-close{display:inherit !important}
+
+        .header-search{
+            display: inline-block !important;
+            flex: 1 1 auto;
+            margin: 0;
+        }
     }
 }

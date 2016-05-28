@@ -10,6 +10,11 @@
         padding: 0;
         height: auto;
     }
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
     //  Image
     &-image{
         margin-bottom: 1.45rem;
@@ -17,7 +22,7 @@
     }
     // post content
     &-content{
-        color: rgba(35, 37, 40, 0.80);
+        color: #424242;
         h2{
             border-bottom: 1px solid #ebebeb;
             font-weight: 300;
@@ -27,10 +32,12 @@
         h3,h4{
             margin: 32px 0 16px;
         }
+        a:focus {text-decoration: underline;}
+
     }
     // tags
     .tags{
-            margin: 1.25rem 0;
+        margin: 1.25rem 0;
         .tag{
             margin: 0 10px 10px 0;
             text-transform: capitalize;
@@ -81,6 +88,7 @@
         text-align: center;
         color: #000;
         margin-right: 5px;
+        margin-left: 5px;
     }
     .share{
         display: inline-block;
@@ -94,7 +102,6 @@
     }
 
     .btn{
-        margin-right: 3px;
         padding: 8px 10px;
         border-radius: 0;
         color: #fff;
@@ -139,7 +146,75 @@
 
     //  subscribe
     .newsletter-form{
-        max-width: 300px;
+        display: flex;
+
+        .form-group{
+            max-width: 250px;
+            width: 100%;
+        }
+
+        .btn{
+            border-radius: 0;
+        }
+    }
+
+}
+
+
+/* Related post
+========================================================================== */
+.related-posts{
+    &-list{
+        margin-bottom: 18px;
+        padding: 0;
+        border: none;
+    }
+    &-title{
+        border-bottom: solid 1px #EEE;
+        font-size: 17px;
+        font-weight: 400;
+        height: auto;
+        line-height: 17px;
+        margin: 0 0 20px;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .entries{
+        border: none;
+        padding-bottom: 0;
+        .image{margin-bottom:10px;}
+        .image-link{height: 174px;}
+        .title{
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+            line-height: 18px;
+        }
+    }
+
+    .no-image{
+        position: relative;
+
+        .related-posts-list{
+            background-color: $primary-color;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0.9375rem;
+            right: 0.9375rem;
+        }
+
+        h2{
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            &:hover{
+                color: rgba(255, 255, 255, 0.70);
+            }
+        }
     }
 
 }
@@ -159,10 +234,10 @@
         .social-share{ float: right; }
 
         &-content {
-            font-size: 1.2rem;
+            font-size: 1.125rem;
+            line-height: 32px;
             p{
                 margin-bottom: 1.5rem;
-                line-height: 35px;
             }
         }
     }
