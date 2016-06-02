@@ -27,7 +27,7 @@
         margin-left:  -0.625rem;
         margin-right: 0.5rem;
     }
-    .search-open{
+    .search-btn{
         margin-right: -.625rem;
     }
 
@@ -252,9 +252,10 @@ input.search-field {
 @media #{$md-and-down}{
     .responsive-search-open{
         .header-logo,
-        .header-navigation,
-        #search-open{display: none }
-        #search-close{display:inherit !important}
+        .header-navigation{
+            display: none 
+        }
+        
 
         .header-search{
             display: inline-block !important;

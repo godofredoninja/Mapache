@@ -1,6 +1,6 @@
 {{! -- Add Pagination -- }}
 <div class="row">
-    <a href="#" id="pagination" class="pagination col s12" data-page="{{pagination.pages}}" mapache-limit="{{pagination.limit}}" mapache-url="{{@blog.url}}">
+    <a href="#" id="pagination" class="pagination col s12" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">
         <span class="pagination-icon i-spinner"></span>
         <span class="text">Load More</span>
     </a>

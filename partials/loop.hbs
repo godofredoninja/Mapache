@@ -34,7 +34,7 @@
 		</div>
 
 		{{! -- Add Pagination -- }}
-        {{> "pagination"}}
+        {{^is "paged"}} {{> "pagination"}}  {{/is}}
 
 	</div>
 

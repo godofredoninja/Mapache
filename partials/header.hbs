@@ -1,16 +1,18 @@
 {{!-- Navigation Page --}}
 <header id="header" class="header">
     <div class="header-wrap">
-        <a href="#" id="menu-open" class="menu-open header-btn i-menu hide-after-lg"></a>
+        {{#if @blog.navigation}}<a href="#" id="menu-open" class="menu-open header-btn i-menu hide-after-lg"></a>{{/if}}
         <div class="header-logo">
             <a class="header-logo-link" href="{{@blog.url}}">
                 {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}
             </a>
         </div>
 
+        {{#if @blog.navigation}}
         <nav class="header-navigation">
             <ul class="header-navigation-wrap u-unstyled hide-before-lg">{{navigation}}</ul>
         </nav>
+        {{/if}}
 
         <form id="header-search" class="header-search hide-before-md" >
             <div id="searchbox" class="searchbox">
@@ -23,8 +25,7 @@
             </div>
         </form>
 
-        <a href="#" id="search-open" class="search-open  header-btn i-search hide-after-md"></a>
-        <a href="#" id="search-close" style="display:none" class="search-open  header-btn i-close hide-after-md"></a>
+        <a href="#" id="search-btn" class="search-btn header-btn hide-after-md i-close i-search"></a>
 
         <div class="header-social hide-before-lg">
             {{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}

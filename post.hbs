@@ -5,7 +5,7 @@
 
 <main class="container">
 	<section class="row main-wrap layout-wrap layout-row margin-top">
-		<article class="col-gd-left post">
+		<article class="col-gd-left post" id="post" mapache-post-id="{{id}}" mapache-category="{{#if tags }}{{#foreach tags}}{{id}} {{/foreach}}{{/if}}">
 
 			<h1 class="title">{{title}}</h1>
 
@@ -42,7 +42,9 @@
 
 			<div id="comments" class="comments" style="display:none"><div id="disqus_thread"></div></div>
 
-			{{> "related"}}
+
+
+			<!-- {{> "related"}} -->
 
 		</article>
 		{{!-- Add Sidebar --}}
