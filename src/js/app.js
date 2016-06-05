@@ -32,6 +32,7 @@ import search           from './lib/jquery.ghostHunter.js'
 import mapacheShare     from './app/app.share';
 import shareCount       from './app/app.share-count';
 import pagination       from './app/app.pagination';
+import mapacheRelated   from './app/app.related.post';
 
 import              '../sass/main.scss';
 
@@ -47,6 +48,7 @@ import              '../sass/main.scss';
         $gd_search          = $('#header-search'),
         $gd_search_input    = $('.search-field'),
         $gd_comments        = $('#comments'),
+        $gd_related         = $('#related'),
         $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
 
@@ -59,6 +61,15 @@ import              '../sass/main.scss';
         opacity: 1,
         visibility: 'visible'
     };
+
+    /**
+     * Post related
+     */
+    $document.on('ready', () =>{
+        let related = new mapacheRelated($gd_related);
+        related.mapacheGet();
+    });
+
 
     /**
      * Functions
