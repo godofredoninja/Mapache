@@ -113,19 +113,43 @@
         background-position: center;
         vertical-align: bottom;
     }
+
+    .tooltips{
+        position: relative;
+        overflow: visible;
+
+        &:after{
+            content: attr(mapache-data);
+            bottom: 110%;
+            left: 50%;
+            margin-left: -76px;
+            position: absolute;
+            width: 140px;
+            color: #FFFFFF;
+            background: #000000;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            visibility: visible;
+            border-radius: 6px;
+            opacity: 0;
+            visibility: hidden;
+        }
+        &:hover:after{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
     &-meta{
-        overflow: hidden;
         display: inline-block;
         margin-bottom: 2.5rem;
         margin-top: 1rem;
         text-align: center;
         padding: 0;
-        span{
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0 10px;
-        }
+        span{color: #fff;}
         a{color: inherit;background: transparent}
+        .website{background-color: #90a4ae !important;}
     }
 }
 

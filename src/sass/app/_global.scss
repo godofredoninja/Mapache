@@ -301,7 +301,7 @@ td{
     .pagination-link{
         align-items: center;
         align-content: center;
-        color: #3897f0;
+        color: $primary-color;
         display: flex;
         height: 120px;
         justify-content: center;
@@ -313,7 +313,7 @@ td{
             color: #999;
             &:before{
                 border: 2px solid #ccc;
-                border-bottom: 2px solid #3897f0;
+                border-bottom: 2px solid $primary-color;
                 animation-name: spin;
                 animation-duration: 700ms;
                 animation-iteration-count: infinite;
@@ -322,7 +322,7 @@ td{
         }
         &:before{
             border-radius: 50%;
-            border: 2px solid #3897f0;
+            border: 2px solid $primary-color;
             content: '';
             left: 0;
             position: absolute;
@@ -340,9 +340,9 @@ td{
 
 // Utilidades
 .u-align-center{
-    @include flexbox();
-    @include align(center);
-    @include justify-content(center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -386,7 +386,7 @@ td{
     top: 0;
     visibility: hidden;
     z-index: 59;
-    @include transition-duration(.3s);
+    transition-duration: .3s
 }
 
 
@@ -414,6 +414,7 @@ td{
     }
 
 }
+
 
 // svg all icons
 .svg-icon{
