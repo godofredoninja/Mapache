@@ -296,30 +296,44 @@ td{
 
 //  pagination
 .pagination{
-    display: block;
-    text-align: center;
-    padding: 3rem 0;
-    color: #222;
-    opacity: .5;
-    transition: opacity 320ms ease;
+    margin: 60px auto 40px;
+    position: relative;
+    .pagination-link{
+        align-items: center;
+        align-content: center;
+        color: #3897f0;
+        display: flex;
+        height: 120px;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        transition: opacity 320ms ease;
+        width: 120px;
+        &.loanding{
+            color: #999;
+            &:before{
+                border: 2px solid #ccc;
+                border-bottom: 2px solid #3897f0;
+                animation-name: spin;
+                animation-duration: 700ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+        }
+        &:before{
+            border-radius: 50%;
+            border: 2px solid #3897f0;
+            content: '';
+            left: 0;
+            position: absolute;
+            top: 0;
+            height: 120px;
+            width: 120px;
+        }
+        &:active{
+            opacity: .5;
+        }
 
-    &:hover{
-        opacity: 1;
-    }
-
-    span{
-        display: block;
-    }
-
-    &-icon{
-        font-size: 2.5rem;
-    }
-
-    .spin{
-        animation-name: spin;
-        animation-duration: 500ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
     }
 }
 

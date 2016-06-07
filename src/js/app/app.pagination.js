@@ -6,7 +6,7 @@ $(document).on('ready', function() {
      * If not exist pagination remove element
      */
     if ( $pagination.attr('mapache-page') == 1) {
-        $pagination.remove();
+        $('.pagination').remove();
     }
 
     $pagination.on('click', function(e) {
@@ -17,8 +17,7 @@ $(document).on('ready', function() {
             urlPage     = $('link[rel=canonical]').attr('href'),
             url         = urlPage+'/page/'+page;
 
-        that.addClass('loading').find('.text').slideUp(320);
-        that.find('.pagination-icon').addClass('spin');
+        that.addClass('loanding').html('Loading more');
 
         if( page <= pageTotal ){
 
@@ -31,15 +30,14 @@ $(document).on('ready', function() {
                 setTimeout( () => {
                     let entries = $('.entry-list',body);
                     $('#entry').append(entries);
-                    that.removeClass('loading').find('.text').slideDown(320);
-                    that.find('.pagination-icon').removeClass('spin');
+                    that.removeClass('loanding').html('Load more');
                     page++;
-                }, 800);
+                }, 1000);
 
             });
 
         }else {
-            that.html('<h3>You reached the end of the line!</h3><p>No more posts to load.');
+            $('.pagination').css('display','none');
         }
 
     });
