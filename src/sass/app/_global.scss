@@ -358,21 +358,10 @@ td{
 
 
 
-// hidden on
-.show-on-medium-screen,
-.show-on-small-screen{
-    display: none;
-}
-
 
 .mapache{
     overflow: hidden;
 }
-
-.main{
-    position: relative;
-}
-
 
 
 // overlay open menu
@@ -442,6 +431,16 @@ td{
         height: 100%;
         width: 100%;
         border: 0;
+    }
+}
+
+
+// error 404
+.error{
+    height: 85vh;
+    &-title{
+        font-size: 5rem;
+        margin-top: 0;
     }
 }
 

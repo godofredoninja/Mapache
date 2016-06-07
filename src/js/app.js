@@ -66,8 +66,10 @@ import              '../sass/main.scss';
      * Post related
      */
     $document.on('ready', () =>{
-        let related = new mapacheRelated($gd_related);
-        related.mapacheGet();
+        if ($gd_related.length > 0) {
+            let related = new mapacheRelated($gd_related);
+            related.mapacheGet();            
+        }
     });
 
 
