@@ -5,6 +5,15 @@
 
 <main class="container">
     <section class="row main-wrap layout-wrap layout-row margin-top">
+
+        {{^unless featured}}
+            {{#if image}}
+                <figure class="col s12 post-image">
+                    <img src="{{image}}" alt="{{title}}" class="img-responsive"/>
+                </figure>
+            {{/if}}
+        {{/unless}}
+
         <article class="col-gd-left post">
 
             <h1 class="title">{{title}}</h1>
@@ -29,7 +38,11 @@
                 </aside>
             </div>
 
-            {{#if image}}<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>{{/if}}
+            {{#unless featured}}
+                {{#if image}}
+                    <figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
+                {{/if}}
+            {{/unless}}
 
             <div class="post-content">{{content}}</div>
 
