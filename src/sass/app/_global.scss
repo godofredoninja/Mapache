@@ -434,9 +434,22 @@ td{
     }
 }
 
+/* Video full for tag video
+========================================================================== */
+#video{
+    .video-content{
+        display: flex;
+        padding-bottom: 1rem;
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: .8rem;
+        }
+    }
+}
 
 // error 404
-.error{
+.errorpage{
     height: 85vh;
     &-title{
         font-size: 5rem;

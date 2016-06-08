@@ -6,6 +6,16 @@
 <main class="container">
     <section class="row main-wrap layout-wrap layout-row margin-top">
 
+        {{#has tag="video"}}
+            <div id="video" class="col s12 video-wrap">
+                <aside class="video-responsive video-featured"></aside>
+                <div class="video-content hide-before-md" style="display:none">
+                    <span class="channel-name"></span>
+                    <span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+                </div>
+            </div>
+        {{/has}}
+
         {{^unless featured}}
             {{#if image}}
                 <figure class="col s12 post-image">

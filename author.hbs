@@ -16,7 +16,7 @@
         {{!-- Author location website --}}
         <div class="author-meta hide-before-lg">
             {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" class="btn btn-circle bg-facebook i-facebook" target="_blank"></a>{{/if}}
-            {{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" class="btn btn-circle bg-twitter i-twitter"></a>{{/if}}
+            {{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" class="btn btn-circle bg-twitter i-twitter" target="_blank"></a>{{/if}}
             {{#if website}}<a href="{{website}}" title="website" class="website btn btn-circle i-link" target="_blank"></a>{{/if}}
             {{#if location}}<span class="location btn btn-circle i-map tooltips" style="background-color:orangered" mapache-data="{{location}}"></span>{{/if}}
             <span class="number-post btn btn-circle tooltips" style="background-color:orange" mapache-data="{{plural ../pagination.total empty='0 Posts' singular='% Post' plural='% Posts'}}">{{plural ../pagination.total empty='0' singular='%' plural='%'}}</span>

@@ -51,6 +51,7 @@ import              '../sass/main.scss';
         $gd_related         = $('#related'),
         $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
+        $gd_video           = $('#video'),
 
         url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
@@ -68,9 +69,10 @@ import              '../sass/main.scss';
     $document.on('ready', () =>{
         if ($gd_related.length > 0) {
             let related = new mapacheRelated($gd_related);
-            related.mapacheGet();            
+            related.mapacheGet();
         }
     });
+
 
 
     /**
@@ -179,24 +181,47 @@ import              '../sass/main.scss';
     });
 
     /**
+     * Video Full for post tag video
+     */
+    function videoPost() {
+        $('.post-image').css('display', 'none');
+        let video = $('iframe[src*="youtube.com"]')[0];
+        $gd_video.find('.video-featured').prepend(video);
+
+        if( typeof youtube != 'undefined' ){
+            $gd_video.find('.video-content').removeAttr('style');
+
+            $.each( youtube, ( channelName, channelId ) => {
+                $gd_video.find('.channel-name').html(`Subscribe to ${channelName}`);
+                $('.g-ytsubscribe').attr('data-channelid', channelId)
+            });
+
+            let s = document.createElement("script");
+            s.src='https://apis.google.com/js/platform.js';
+            document.body.appendChild(s);
+        }
+    }
+
+     /**
      * Video Responsive Youtube
      */
+    function videoResponsive() {
+        $('.post-content').each( function() {
+            var selectors = [
+                'iframe[src*="player.vimeo.com"]',
+                'iframe[src*="youtube.com"]',
+                'iframe[src*="youtube-nocookie.com"]',
+                'iframe[src*="kickstarter.com"][src*="video.html"]',
+            ];
 
-    $('.post-content').each( function() {
-        var selectors = [
-            'iframe[src*="player.vimeo.com"]',
-            'iframe[src*="youtube.com"]',
-            'iframe[src*="youtube-nocookie.com"]',
-            'iframe[src*="kickstarter.com"][src*="video.html"]',
-        ];
+            var $allVideos = $(this).find(selectors.join(','));
 
-        var $allVideos = $(this).find(selectors.join(','));
+            $allVideos.each( function () {
+                $(this).wrap('<aside class="video-responsive"></aside>');
+            });
 
-        $allVideos.each( function () {
-            $(this).wrap('<aside class="video-responsive"></aside>');
         });
-
-    });
+    }
 
 
     /**
@@ -290,6 +315,8 @@ import              '../sass/main.scss';
         if( typeof social_link != 'undefined' ) socialLink(social_link);
         if( $gd_comments.length > 0 ) disqusComments();
         if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
+        if( $gd_video.length > 0 ) videoPost();
+        videoResponsive();
     });
 
 })();
