@@ -1,31 +1,35 @@
 {{!-- Sidebar right --}}
 <div id="sidebar" class="col-gd-right sidebar hide-before-lg">
 
-  {{!-- Add your content here --}}
-  <div class="widget">
-    <div class="title">Title Example</div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-    Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-  </div>
+    {{#get "posts" filter="featured:true" limit="5" as |featured|}}
+        {{> "widget-featured" widgetTitle="Featured Posts" widgetPosts=featured}}
+    {{/get}}
 
-  {{!-- Another way to add here --}}
-  <div class="widget">
-    <img src="https://41.media.tumblr.com/3966b51da2d941f0c01a907f190ebcb9/tumblr_nqx8hsjuCl1tubinno1_1280.jpg" alt="" />
-  </div>
-
-  {{!-- Another way to add here --}}
-  <div class="widget">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
-    Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-  </div>
-
-  {{!-- Add your content here - block fixed --}}
-  <div class="widget">
-    <div class="fixed hidden">
-        <img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/46.jpg" alt="" />
+    {{!-- Add your content here --}}
+    <div class="widget">
+        <div class="title-primary">Title Example</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+        Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
     </div>
-  </div>
+
+    {{!-- Another way to add here --}}
+    <div class="widget">
+        <img src="https://41.media.tumblr.com/3966b51da2d941f0c01a907f190ebcb9/tumblr_nqx8hsjuCl1tubinno1_1280.jpg" alt="" />
+    </div>
+
+    {{!-- Another way to add here --}}
+    <div class="widget">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+        Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
+    </div>
+
+    {{!-- Add your content here - block fixed --}}
+    <div class="widget">
+        <div class="fixed hidden">
+            <img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/46.jpg" alt="" />
+        </div>
+    </div>
 
 </div>

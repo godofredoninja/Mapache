@@ -51,7 +51,7 @@ import              '../sass/main.scss';
         $gd_related         = $('#related'),
         $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
-        $gd_video           = $('#video'),
+        $gd_video           = $('#video-format'),
 
         url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
