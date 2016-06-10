@@ -3,7 +3,7 @@
     border-radius: 2px;
     border: 0;
     box-shadow: none;
-    color: $btn-primary-color;
+    color: $btn-secondary-color;
     cursor: pointer;
     display: inline-block;
     font: 500 14px/20px $primary-font;
@@ -25,8 +25,11 @@
 
     &:focus,
     &:hover{
-        background-color: lighten($btn-primary-color, 32%);
+        background-color: $btn-background-color;
         text-decoration: none !important;
+    }
+    &:active{
+        background-color: $btn-active-background;
     }
 
     &.btn-primary{
@@ -47,6 +50,7 @@
         background-color: #eee;
         &:hover{background-color: rgba(0,0,0,0.12);}
     }
+
     &.btn-download-cloud,
     &.btn-download{
         background-color: $btn-primary-color;

@@ -193,7 +193,7 @@ import              '../sass/main.scss';
             $gd_video.find('.video-content').removeAttr('style');
 
             $.each( youtube, ( channelName, channelId ) => {
-                $gd_video.find('.channel-name').html(`Subscribe to ${channelName}`);
+                $gd_video.find('.channel-name').html(`Subscribe to <strong>${channelName}</strong>`);
                 $('.g-ytsubscribe').attr('data-channelid', channelId)
             });
 

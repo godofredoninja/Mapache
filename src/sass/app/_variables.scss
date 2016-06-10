@@ -1,57 +1,64 @@
 /*
 @package godofredoninja
 
-	========================================================================
-		Mapache variables styles
-	========================================================================
+========================================================================
+Mapache variables styles
+========================================================================
 */
 
 /**
- * Table of Contents:
- *
- *		1. Colors
- */
+* Table of Contents:
+*
+*		1. Colors
+*		2. Fonts
+*		3. Typography
+*		4. Header
+*		5. Footer
+*		6. Code Syntax
+*		7. buttons
+*		8. container
+*		9. Grid
+*		10. Media Query Ranges
+*		11. Icons
+*/
 
 
- /* 1. Colors
+/* 1. Colors
 ========================================================================== */
 $primary-color        : #4285f4;
 // $primary-color        : #2856b6;
 
+$primary-text-color: 	#424242;
+$secondary-text-color:	#999;
+$accent-color: 			#eee;
 
-
-$primary-color-text: 	#FFFFFF;
-$accent-color: 			#db4437;
-$primary-text-color: 	#333;
-$secondary-text-color:	#757575;
 $divider-color: 		#DDDDDD;
 
 
 
 // $link-color     : #4184F3;
-$link-color     : $primary-color;
-$color-bg-page  : #EEEEEE;
+$link-color     : #039be5;
+// $color-bg-page  : #EEEEEE;
 
 
 // social colors
 $social-colors: (
-	facebook    : #3b5998,
-	twitter     : #55acee,
-	google		: #dd4b39,
-	instagram   : #306088,
-	youtube     : #e52d27,
-	github      : #333333,
-	linkedin    : #007bb6,
-	spotify     : #2ebd59,
-	codepen     : #222222,
-	behance     : #131418,
-	dribbble    : #ea4c89,
-	flickr      : #0063DC,
-	reddit		: orangered,
-	pocket		: #F50057,
-	pinterest   : #bd081c
+    facebook    : #3b5998,
+    twitter     : #55acee,
+    google		: #dd4b39,
+    instagram   : #306088,
+    youtube     : #e52d27,
+    github      : #333333,
+    linkedin    : #007bb6,
+    spotify     : #2ebd59,
+    codepen     : #222222,
+    behance     : #131418,
+    dribbble    : #ea4c89,
+    flickr       : #0063DC,
+    reddit		: orangered,
+    pocket		: #F50057,
+    pinterest   : #bd081c
 );
-
 
 
 
@@ -88,10 +95,8 @@ $headings-font-weight:     500;
 $headings-line-height:     1.1;
 $headings-color:           inherit;
 
-$lead-font-size:           1.25rem;
-$lead-font-weight:         300;
 
-$blockquote-font-size:     ($font-size-base * 1.25);
+$blockquote-font-size:     1.125rem;
 
 
 /* 4. Header
@@ -101,30 +106,29 @@ $header-color: #fff;
 $header-height: 50px;
 
 
-/* 4. Footer
+/* 5. Footer
 ========================================================================== */
 $footer-bg-color:   #303c42;
 $footer-color-link: #ffffff;
 $footer-color:      #cfd8dc;
 
 
-/* 4. Code Syntax
+/* 6. Code Syntax
 ========================================================================== */
-$code-bg-color: 	#f7f7f7;
-$font-size-code: 	0.9375rem;
-$code-color: 		#c7254e;
-$pre-code-color: #37474f;
+$code-bg-color: 	    #f7f7f7;
+$font-size-code: 	    0.9375rem;
+$code-color: 		    #c7254e;
+$pre-code-color:        #37474f;
 
 
-/* 3. buttons
+/* 7. buttons
 ========================================================================== */
-$btn-primary-color: $primary-color;
-$color-buttons: #db4437;
-$color-buttons-download: #5cb85c;
-$color-buttons-link: $primary-color;
+$btn-primary-color:       $primary-color;
+$btn-secondary-color:     #039be5;
+$btn-background-color:    #e1f3fc;
+$btn-active-background:   #c3e7f9;
 
-
-/* 5. container
+/* 8. container
 ========================================================================== */
 
 $grid-gutter-width:        1.875rem; // 30px
@@ -135,7 +139,7 @@ $container-lg:             970px;
 $container-xl:             1200px;
 
 
-/* 10. Grid
+/* 9. Grid
 ========================================================================== */
 $num-cols: 12;
 $gutter-width: 1.875rem;
@@ -143,7 +147,7 @@ $element-top-margin: $gutter-width/3;
 $element-bottom-margin: ($gutter-width*2)/3;
 
 
-/* 11. Media Query Ranges
+/* 10. Media Query Ranges
 ========================================================================== */
 $sm:            640px;
 $md:            766px;
@@ -162,9 +166,9 @@ $lg-and-down:   "only screen and (max-width : #{$lg})";
 
 /* 11. icons
 ========================================================================== */
-$i-open_in_new: '\e89e';
-$i-warning: '\e002';
-$i-star: '\e838';
-$i-download: '\e900';
-$i-cloud_download: '\e2c0';
-$i-check_circle: '\e86c';
+$i-open_in_new:      '\e89e';
+$i-warning:          '\e002';
+$i-star:             '\e838';
+$i-download:         '\e900';
+$i-cloud_download:   '\e2c0';
+$i-check_circle:     '\e86c';

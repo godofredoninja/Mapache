@@ -8,7 +8,7 @@
     text-shadow: 0 0 10px rgba(0,0,0,.33);
     z-index: 2;
 
-    @extend .u-align-center;
+    // @extend .u-align-center;
 
     &.full-height{
         height: 100vh;
@@ -164,10 +164,6 @@
         &-description{
             font-size: $font-size-lg;
         }
-    }
-
-    .author{
-
     }
 
 

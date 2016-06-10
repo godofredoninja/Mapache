@@ -29,9 +29,9 @@
     }
     // post content
     &-content{
-        color: #424242;
+        // color: #424242;
         h2{
-            border-bottom: 1px solid #ebebeb;
+            border-bottom: 1px solid $divider-color;
             font-weight: 300;
             margin: 2.50rem 0 1.25rem;
             padding-bottom: 3px;
@@ -40,7 +40,6 @@
             margin: 32px 0 16px;
         }
         a:focus {text-decoration: underline;}
-
     }
     // tags
     .tags{
@@ -65,16 +64,16 @@
 
     &-author-date{
         font-size: $font-size-sm;
-        color: #999;
+        color: $secondary-text-color;
         margin: 10px 0 5px;
 
         a{color: inherit}
 
         .author-name a,
         .tag a{
-            color: #333;
+            color: $primary-text-color;
         }
-        .author-name a:hover{color: #777;}
+        .author-name a:hover{color: $secondary-text-color;}
 
         .point{
             margin: 0 2px;
@@ -93,7 +92,7 @@
 
     .share-count{
         text-align: center;
-        color: #000;
+        // color: #000;
         margin-right: 5px;
         margin-left: 5px;
     }
@@ -177,7 +176,7 @@
         border: none;
     }
     &-title{
-        border-bottom: solid 1px #EEE;
+        border-bottom: solid 1px $accent-color;
         font-size: 17px;
         font-weight: 400;
         height: auto;

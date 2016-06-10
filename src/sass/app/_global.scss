@@ -88,13 +88,12 @@ hr {
 
 blockquote {
     border-left: 3px solid $primary-color;
-    padding: 10px 24px;
+    padding: 0.75rem 1.5rem;
     background: #fbfbfc;
     color: #757575;
-    font-size: 17px;
-    line-height: 1.7em;
-    margin-bottom: 20px;
-    margin: 0 0 20px;
+    font-size: $blockquote-font-size;
+    line-height: 1.7;
+    margin: 0 0 1.25rem;
     quotes: none;
 }
 
@@ -110,9 +109,6 @@ strong{
 small, .small {
     font-size: 85%;
 }
-
-
-
 
 ol{
     padding-left: 40px;
@@ -132,7 +128,8 @@ kbd,samp,code{
     white-space: pre-wrap;
 }
 
-code[class*=language-], pre[class*=language-]{
+code[class*=language-],
+pre[class*=language-]{
     color: $pre-code-color;
     line-height: 1.5;
 
@@ -182,42 +179,8 @@ pre{
 }
 
 
-table{
-    border: 0;
-    border-collapse: collapse;
-    border-spacing: 0;
-    font: 14px/20px Roboto,sans-serif;
-    margin: 16px 0;
-    width: 100%;
-}
-tr{
-    background: #757575;
-    border: 0;
-    border-top: 1px solid #e0e0e0;
-}
-th{
-    font: 500 16px/24px Roboto,sans-serif;
-    height: 48px;
-    padding: 8px;
-    vertical-align: middle;
-    border: 0;
-    margin: 0;
-    text-align: left;
-    color: #fff;
-}
-td{
-    background: rgba(255,255,255,.95);
-    vertical-align: top;
-    color: #212121;
-    padding: 7px 8px 8px;
-    &:first-child{margin-top: 0;}
-    &:last-child{margin-bottom: 0;}
-    p{
-        line-height: 1.6 !important
-    }
-}
-
-
+/* .warning & .note & .success
+========================================================================== */
 .warning{
     background: #fbe9e7;
     color: #d50000;
@@ -255,6 +218,8 @@ td{
 }
 
 
+/* Vertical Aling use Flexbox
+========================================================================== */
 .vertiacal-aling{
     display: flex;
     flex-direction: column;
@@ -273,7 +238,7 @@ td{
     }
 }
 
-/* Social icon color and backgrount
+/* Social icon color and background
 ========================================================================== */
 @each $social-name, $color in $social-colors {
     .c-#{$social-name}{
@@ -294,9 +259,11 @@ td{
     }
 }
 
-//  pagination
+
+/* pagination
+========================================================================== */
 .pagination{
-    margin: 60px auto 40px;
+    margin: 3.75rem auto 2.5rem;
     position: relative;
     .pagination-link{
         align-items: center;
@@ -330,33 +297,9 @@ td{
             height: 120px;
             width: 120px;
         }
-        &:active{
-            opacity: .5;
-        }
 
     }
 }
-
-
-// Utilidades
-.u-align-center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-//  Card
-.card{
-    border: 0;
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(43,59,93,0.29);
-    margin-bottom: 20px;
-    padding: 1em;
-}
-
-
 
 
 .mapache{
@@ -396,7 +339,7 @@ td{
         &-title{
             padding-bottom: 10px;
             margin-bottom: 1rem;
-            border-bottom: solid 1px #EEE;
+            border-bottom: solid 1px $accent-color;
             text-transform: uppercase;
             font-size: 1rem;
             font-weight: 400;
@@ -405,12 +348,12 @@ td{
         &-post{
             padding-bottom: 1rem;
             margin-bottom: 1rem;
-            border-bottom: solid 1px #EEE;
-            @extend .clear;
+            border-bottom: solid 1px $accent-color;
+            display: flex;
+            flex-direction: row;
 
             &-image{
                 width: 130px;
-                float: left;
                 padding-right: 15px;
             }
             .image-link{
@@ -423,15 +366,13 @@ td{
 
             &-meta{
                 width: calc(100% - 130px);
-                float: left;
-
                 .title{
-                    font-size: 15px;
+                    font-size: 0.9375rem;
                     margin: 0;
                     line-height: 1.25;
                     font-weight: 400;
                     &:hover{
-                        color: #999;
+                        color: $secondary-text-color;
                     }
                 }
 
@@ -485,6 +426,7 @@ td{
     }
 }
 
+
 /* Video full for tag video
 ========================================================================== */
 #video-format{
@@ -499,7 +441,9 @@ td{
     }
 }
 
-// error 404
+
+/* Page error 404
+========================================================================== */
 .errorpage{
     height: 85vh;
     &-title{
@@ -510,28 +454,13 @@ td{
 
 
 
-// Post Twitter facebook card embed Css Center
 
+/* Post Twitter facebook card embed Css Center
+========================================================================== */
+iframe[src*="facebook.com"],
 .fb-post,
 .twitter-tweet{
     display: block !important;
-    margin: 0 auto 40px auto !important;
+    margin: 0 auto 1.5rem auto !important;
     text-align: center;
-}
-
-
-// ADS
-
-.Ads{
-    position: relative;
-    margin: 10px -32px;
-    text-align: center;
-
-    .Ads-content{
-        display: inline-block;
-        vertical-align: top;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
 }

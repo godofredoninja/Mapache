@@ -1,7 +1,7 @@
 .entries{
     margin-bottom: 1.5rem;
     padding-bottom: 0;
-    border-bottom: solid 1px #EEE;
+    border-bottom: solid 1px $accent-color;
 
     .image{
         margin-bottom: 10px;
@@ -10,6 +10,10 @@
             display: block;
             margin: 0;
             overflow: hidden;
+            &:hover .entries-bg{
+                transform: scale(1.03);
+                backface-visibility: hidden;
+            }
         }
         img{
             display: block;
@@ -26,14 +30,13 @@
         text-transform: capitalize;
         font-size: $font-size-sm;
         line-height: 1;
-        a:hover{
-            color: darken( $link-color, 10% )
+        a:active{
+            text-decoration: underline;
         }
     }
 
     .title{
         font-size: $font-size-lg;
-        color: rgba(0,0,0,.8);
         margin: 0 0 1rem;
         padding: 0;
         height: auto;
@@ -49,6 +52,7 @@
         margin-bottom: 1.125rem;
     }
 
+    // entries background
     &-bg{
         display: block;
         width: 100%;
@@ -56,6 +60,7 @@
         height: 100%;
         background-position: center;
         background-size: cover;
+        transition: transform 0.3s;
     }
 
 }
