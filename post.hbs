@@ -16,13 +16,13 @@
             </div>
         {{/has}}
 
-        {{^unless featured}}
+        {{#has tag="photo"}}
             {{#if image}}
                 <figure class="col s12 post-image">
                     <img src="{{image}}" alt="{{title}}" class="img-responsive"/>
                 </figure>
             {{/if}}
-        {{/unless}}
+        {{/has}}
 
         <article class="col-gd-left post">
 
@@ -48,11 +48,11 @@
                 </aside>
             </div>
 
-            {{#unless featured}}
+            {{^has tag="photo"}}
                 {{#if image}}
                     <figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
                 {{/if}}
-            {{/unless}}
+            {{/has}}
 
             <div class="post-content">{{content}}</div>
 
