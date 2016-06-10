@@ -52,6 +52,7 @@ import              '../sass/main.scss';
         $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
         $gd_video           = $('#video-format'),
+        $gd_sidebar_fixed    = $('#sidebar').find('.fixed'),
 
         url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
@@ -159,7 +160,7 @@ import              '../sass/main.scss';
 
        if( $gd_cover.length > 0 ) {
             $gd_header.css('background','transparent');
-            $window.scroll( () => { coverScroll(); });
+            $window.on('scroll', coverScroll);
         }else{
             $gd_header.addClass('toolbar-shadow');
         }
@@ -310,6 +311,20 @@ import              '../sass/main.scss';
         $('p.excerpt').insertAfter($('h1.title'));
     }
 
+    // sidebar hidden aside
+    function sidebarFixed() {
+        let mela  = $gd_sidebar_fixed.offset().top;
+        $window.on('scroll', () => {
+            let scrollTop = $window.scrollTop();
+            if ( scrollTop > mela - 78) {
+                $gd_sidebar_fixed.addClass('active');
+            }else{
+                $gd_sidebar_fixed.removeClass('active');
+            }
+        });
+    }
+
+
     $document.on('ready', () => {
         shareConter();
         if( typeof social_link != 'undefined' ) socialLink(social_link);
@@ -317,6 +332,7 @@ import              '../sass/main.scss';
         if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
         if( $gd_video.length > 0 ) videoPost();
         videoResponsive();
+        if ($gd_sidebar_fixed.length > 0) sidebarFixed();
     });
 
 })();

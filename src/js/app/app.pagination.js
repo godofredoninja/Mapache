@@ -1,44 +1,51 @@
 $(document).on('ready', function() {
-    let page = 2
-    const $pagination = $('#pagination');
+    let page = 2;
 
-    /**
-     * If not exist pagination remove element
-     */
-    if ( $pagination.attr('mapache-page') == 1) {
-        $('.pagination').remove();
+    const $pagination   = $('#pagination'),
+        pageTotal       = $pagination.attr('mapache-page'),
+        pageLimit       = $pagination.attr('mapache-limit'),
+        urlPage         = $('link[rel=canonical]').attr('href'),
+        $win            = $(window);
+
+    if ( pageTotal >= page) {
+        $('.pagination').css('display', 'block');
+        infiniteScroll();
     }
 
-    $pagination.on('click', function(e) {
-        e.preventDefault();
-        let that = $(this);
-        const pageTotal = that.attr('mapache-page'),
-            pageLimit   = that.attr('mapache-limit'),
-            urlPage     = $('link[rel=canonical]').attr('href'),
-            url         = urlPage+'/page/'+page;
+    function infiniteScroll() {
+        $win.on('scroll', () => {
+            if( $win.scrollTop() + $win.height() == $(document).height() ) {
 
-        that.addClass('loanding').html('Loading more');
+                $pagination.addClass('loanding').html('Loading more');
 
-        if( page <= pageTotal ){
+                if( page <= pageTotal ){
+                    getPost();
+                }else {
+                    $('.pagination').remove();
+                }
 
-            fetch(url)
-            .then( res => {
-                return res.text()
-            })
-            .then( body => {
+            }
 
-                setTimeout( () => {
-                    let entries = $('.entry-list',body);
-                    $('#entry').append(entries);
-                    that.removeClass('loanding').html('Load more');
-                    page++;
-                }, 1000);
+        });
+    }
 
-            });
+    function getPost() {
+        fetch(urlPage+'page/'+page)
+        .then( res => {
+            return res.text()
+        })
+        .then( body => {
 
-        }else {
-            $('.pagination').css('display','none');
-        }
+            setTimeout( () => {
+                let entries = $('.entry-list',body);
+                $('#entry').append(entries);
+                $pagination.removeClass('loanding').html('Load more');
+                page++;
+            }, 1000);
 
-    });
+        });
+    }
+
+
+
 });
