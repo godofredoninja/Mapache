@@ -34,7 +34,7 @@ import shareCount       from './app/app.share-count';
 import pagination       from './app/app.pagination';
 import mapacheRelated   from './app/app.related.post';
 
-import              '../sass/main.scss';
+// import              '../sass/main.scss';
 
 
 

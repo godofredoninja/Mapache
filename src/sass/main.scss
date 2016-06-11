@@ -6,7 +6,9 @@
 
  /* Normalize and icon fonts (libraries)
 ========================================================================== */
-@import "~normalize.css/normalize.css";
+// @import "~normalize.css/normalize.css"; // webpack
+@import "../../node_modules/normalize.css/normalize"; // gulp 
+
 @import "app/icon";
 @import "app/code";
 
