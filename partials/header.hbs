@@ -4,7 +4,12 @@
         {{#if @blog.navigation}}<a href="#" id="menu-open" class="menu-open header-btn i-menu hide-after-lg"></a>{{/if}}
         <div class="header-logo">
             <a class="header-logo-link" href="{{@blog.url}}">
-                {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span>{{@blog.title}}</span>{{/if}}
+                {{#if @blog.logo}}
+                <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+                <span class="header-logo-bg" style="display:none;background-image:url({{@blog.logo}})"></span>
+                {{else}}
+                <span>{{@blog.title}}</span>
+                {{/if}}
             </a>
         </div>
 

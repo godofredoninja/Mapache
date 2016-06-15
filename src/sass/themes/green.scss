@@ -1,15 +1,5 @@
 $color-theme: #0f9d58;
 
-.header,
-.godo-cover,
-.prev-next-link.no-cover:after,
-.prev-next-row:hover .prev-next-btn,
-.sidebar .title{
-  background-color: $color-theme !important;
-}
-.ps .ps-byline a{
-  color: $color-theme !important;
-}
-.pagination .btn.active{
-  background: $color-theme !important;
-}
+@import "../app/mixin-theme";
+
+@include colorFull($color-theme);
