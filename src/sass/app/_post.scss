@@ -40,6 +40,12 @@
             margin: 32px 0 16px;
         }
         a:focus {text-decoration: underline;}
+
+        iframe{
+            display: block !important;
+            margin: 0 auto 1.5rem auto !important;
+            text-align: center;
+        }
     }
     // tags
     .tags{

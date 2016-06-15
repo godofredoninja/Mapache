@@ -63,6 +63,10 @@ $ npm run sass
 
 ```
 $ npm run production
+
+or
+
+$ NODE_ENV=production webpack && gulp production
 ```
 
 

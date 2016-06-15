@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "webpack --progress --colors --watch",
     "sass": "gulp",
-    "production": "NODE_ENV=production webpack",
+    "production": "NODE_ENV=production webpack && gulp production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
-    "url": "",
+    "url": "https://github.com/godofredoninja/Mapache/issues",
     "email": "hello@godofredo.ninja"
   },
   "license": "MIT",

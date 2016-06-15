@@ -1,3 +1,7 @@
+/*
+* @package godofredoninja
+* Articles realred use first tag
+*/
 class mapacheRelated {
     constructor(elem) {
         this.elem       = elem;

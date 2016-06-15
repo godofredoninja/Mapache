@@ -7,26 +7,8 @@ Mapache Javascript Functions
 */
 
 /**
-* Table of Contents:
-*
-*       1. Imports libraris and modules
-*      2. variables Globals
-*      3. Functions
-*      4. Search header
-*      5. Opena and close menu mobile
-*      6. Video Responsive youtube and vimeo
-*      7. header transparent
-*      8. Share social
-*      9. Share count social media
-*      10. Social Link Header
-*      11. Disqus Comments
-*/
-
-
-/* 1. Imports and libraris and modules
-====================================================================== */
-// import zepto        from "./lib/zepto.js";
-// import $            from "jQuery";
+ * Imports and libraris and modules
+ */
 import prism            from "./lib/prism.js";
 import search           from './lib/jquery.ghostHunter.js'
 import mapacheShare     from './app/app.share';
@@ -40,7 +22,7 @@ import mapacheRelated   from './app/app.related.post';
 
 (function() {
 
-    /* 2. variables globals */
+    /* variables globals */
     const $gd_header        = $('#header'),
         $gd_menu            = $('#menu-mobile'),
         $gd_cover           = $('#cover'),
@@ -63,17 +45,6 @@ import mapacheRelated   from './app/app.related.post';
         opacity: 1,
         visibility: 'visible'
     };
-
-    /**
-     * Post related
-     */
-    $document.on('ready', () =>{
-        if ($gd_related.length > 0) {
-            let related = new mapacheRelated($gd_related);
-            related.mapacheGet();
-        }
-    });
-
 
 
     /**
@@ -324,7 +295,9 @@ import mapacheRelated   from './app/app.related.post';
         });
     }
 
-
+    /**
+     * when the document starts
+     */
     $document.on('ready', () => {
         shareConter();
         if( typeof social_link != 'undefined' ) socialLink(social_link);
@@ -333,6 +306,15 @@ import mapacheRelated   from './app/app.related.post';
         if( $gd_video.length > 0 ) videoPost();
         videoResponsive();
         if ($gd_sidebar_fixed.length > 0) sidebarFixed();
+
+        /**
+         * Post related
+         */
+        if ($gd_related.length > 0) {
+            let related = new mapacheRelated($gd_related);
+            related.mapacheGet();
+        }
+
     });
 
 })();

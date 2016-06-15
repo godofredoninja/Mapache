@@ -1,3 +1,8 @@
+/*
+* @package godofredoninja
+*  pagination
+*/
+
 $(document).on('ready', function() {
     let page = 2;
 

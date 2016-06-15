@@ -32,9 +32,23 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('./assets/css/themes'));
 });
 
+gulp.task('sass-compress', () => {
+    gulp.src('./src/sass/main.scss')
+    .pipe(sass({
+        errLogToConsole: true,
+        outputStyle: 'compressed',
+    })
+    .on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('./assets/css/'));
+});
+
+
+
 gulp.task('watch', () => {
   gulp.watch(['./src/sass/**/*.scss'], ['sass']);
 });
 
 
 gulp.task('default', ['sass', 'watch']);
+gulp.task('production', ['sass-compress']);
