@@ -118,7 +118,7 @@ import mapacheRelated   from './app/app.related.post';
             results             : "#search-results",
             zeroResultsInfo     : false,
             displaySearchInfo   : false,
-            result_template     : '<a href="{{link}}">{{title}}</a>',
+            result_template     : '<a href="blog{{link}}">{{title}}</a>',
             onKeyUp             : true,
         });
 
@@ -301,8 +301,8 @@ import mapacheRelated   from './app/app.related.post';
     $document.on('ready', () => {
         shareConter();
         if( typeof social_link != 'undefined' ) socialLink(social_link);
-        // if( $gd_comments.length > 0 ) disqusComments();
-        if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
+        if( $gd_comments.length > 0 ) disqusComments();
+        // if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
         if( $gd_video.length > 0 ) videoPost();
         videoResponsive();
         if ($gd_sidebar_fixed.length > 0) sidebarFixed();
