@@ -31,7 +31,7 @@ import mapacheRelated   from './app/app.related.post';
         $gd_search_input    = $('.search-field'),
         $gd_comments        = $('#comments'),
         $gd_related         = $('#related'),
-        $gd_comment_count   = $('.gd-comment_count'),
+        // $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
         $gd_video           = $('#video-format'),
         $gd_sidebar_fixed    = $('#sidebar').find('.fixed'),
@@ -107,7 +107,7 @@ import mapacheRelated   from './app/app.related.post';
             setTimeout( () => {
                 $gd_header.removeClass('search-active');
                 $('.search-popout').addClass('closed');
-            }, 100);
+            }, 200);
         });
 
         $gd_search_input.keyup( () =>  {
@@ -243,28 +243,28 @@ import mapacheRelated   from './app/app.related.post';
     /**
      * Comments Count Disqus
      */
-    function commentsCount() {
-        $gd_comment_count.each( function() {
-            let url = $(this).attr('godo-url');
-            $.ajax({
-                type: 'GET',
-                url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-                data: { api_key: disqusPublicKey, forum : disqus_shortname, thread : 'link:' + url },
-                cache: false,
-                dataType: 'jsonp',
-
-                success:  ( commet ) => {
-                    for ( let i in commet.response ) {
-                        let countText = 'Comments';
-                        let count = commet.response[i].posts;
-                        if (count == 1)
-                        countText = 'Comment';
-                        $(this).html(`${count} <span>${countText}</span>`);
-                    }
-                }
-            });
-        });
-    }
+    // function commentsCount() {
+    //     $gd_comment_count.each( function() {
+    //         let url = $(this).attr('godo-url');
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+    //             data: { api_key: disqusPublicKey, forum : disqus_shortname, thread : 'link:' + url },
+    //             cache: false,
+    //             dataType: 'jsonp',
+    //
+    //             success:  ( commet ) => {
+    //                 for ( let i in commet.response ) {
+    //                     let countText = 'Comments';
+    //                     let count = commet.response[i].posts;
+    //                     if (count == 1)
+    //                     countText = 'Comment';
+    //                     $(this).html(`${count} <span>${countText}</span>`);
+    //                 }
+    //             }
+    //         });
+    //     });
+    // }
 
     /**
      * Scroll btn link
@@ -301,7 +301,7 @@ import mapacheRelated   from './app/app.related.post';
     $document.on('ready', () => {
         shareConter();
         if( typeof social_link != 'undefined' ) socialLink(social_link);
-        if( $gd_comments.length > 0 ) disqusComments();
+        // if( $gd_comments.length > 0 ) disqusComments();
         if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
         if( $gd_video.length > 0 ) videoPost();
         videoResponsive();

@@ -36,7 +36,12 @@
                     <span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> <span>in</span></span>
                     <span class="tag">{{tags limit="1"}}</span>
                     <i class="point">·</i>
-                    <span class="comment-count"><i class="i-chat"></i> <a class="gd-comment_count scrolltop" href="#comments" godo-url="{{url absolute="true"}}">0 Comments</a></span>
+                    <span class="comment-count">
+                        <i class="i-chat"></i>
+                        <a class="gd-comment_count scrolltop" href="#comments">
+                            <span class="disqus-comment-count" data-disqus-url="{{url absolute="true"}}">0 Comments</span>                            
+                        </a>
+                    </span>
                 </div>
                 <aside class="social-share">
                     <div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
