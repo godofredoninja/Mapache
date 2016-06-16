@@ -1,0 +1,16 @@
+{{!-- Email subscribe form at the bottom of the page --}}
+
+{{#if @labs.subscribers}}
+<div class="bottom-subscribe col s12 m7">
+    <h5>Subscribe to {{@blog.title}}</h5>
+    <p>Get the latest posts delivered right to your inbox.</p>
+
+    {{subscribe_form
+    form_class="newsletter-form"
+    input_class="form-control"
+    button_class="btn btn-primary"
+    placeholder="Enter your email address"
+    autofocus=""
+    }}
+</div>
+{{/if}}

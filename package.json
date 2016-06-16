@@ -1,9 +1,11 @@
 {
-  "name": "Mapache-GodoFredo",
-  "version": "2.0.0",
+  "name": "mapache-godofredo",
+  "version": "2.0.1",
   "description": "Mapache theme ghost by GodoFredoNinja",
+  "main": "",
+  "scripts": {},
   "bugs": {
-    "url": "",
+    "url": "https://github.com/godofredoninja/Mapache/issues",
     "email": "hello@godofredo.ninja"
   },
   "license": "MIT",

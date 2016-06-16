@@ -1,22 +1,31 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#author}}
-<header class="godo-cover {{#if cover}}cover" style="background-image: url({{cover}}){{/if}}">
-  <article class="godo-cover-wrap">
-    {{!-- Avatar author --}}
-    <img  class="godo-cover-avatar animated bounceInDown" src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" />
-    {{!-- Author name --}}
-    <h1 class="godo-cover-title animated bounceIn">{{name}}</h1>
-    {{!-- Author description --}}
-    <p class="godo-cover-description" itemprop="description">{{bio}}</p>
-    {{!-- Author location website --}}
-    <div class="godo-cover-meta">
-      {{#if location}}<div class="location"><span class="icon-location">{{location}}</span></div>{{/if}}
-      {{#if website}}<a class="website btn" href="{{website}}"><i class="icon-link"></i> WebSite</a>{{/if}}
-      <div class="number-post">{{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}} <i class="icon-feed"></i></div>
+<section id="cover" class="cover vertiacal-aling">
+    {{#if cover}}<div class="background" style="background-image: url({{cover}})"></div>{{/if}}
+    <div class="vertiacal-aling-wrap">
+        <article class="cover-wrap author vertiacal-aling-content">
+            <div class="info">
+                <div  class="avatar animated bounceInDown hide-before-md" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
+                <div class="name-wrap animated bounceIn">
+                    <span class="title">Author</span>
+                    <h1 class="name">{{name}}</h1>
+                </div>
+            </div>
+
+            <p class="description" itemprop="description">{{bio}}</p>
+            {{!-- Author location website --}}
+            <div class="author-meta hide-before-lg">
+                {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" class="btn btn-circle bg-facebook i-facebook" target="_blank"></a>{{/if}}
+                {{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" class="btn btn-circle bg-twitter i-twitter" target="_blank"></a>{{/if}}
+                {{#if website}}<a href="{{website}}" title="website" class="website btn btn-circle i-link" target="_blank"></a>{{/if}}
+                {{#if location}}<span class="location btn btn-circle i-map tooltips" style="background-color:orangered" mapache-data="{{location}}"></span>{{/if}}
+                <span class="number-post btn btn-circle tooltips" style="background-color:orange" mapache-data="{{plural ../pagination.total empty='0 Posts' singular='% Post' plural='% Posts'}}">{{plural ../pagination.total empty='0' singular='%' plural='%'}}</span>
+            </div>
+        </article>
     </div>
-  </article>
-</header>
+    <a href="#main" class="scrolltop mouse hide-before-md"><span class="scroll"></span></a>
+</section>
 {{/author}}
 {{!-- Add Loop --}}
 {{> "loop"}}

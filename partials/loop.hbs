@@ -1,44 +1,46 @@
-<main class="main bg-home">
+<main id="main" class="container">
 
-  <section class="main-wrap full-site-width">
-    <div class="main-post" style="margin-top:0">
-      {{#foreach posts}}
-      <div class="ps">
-        {{!-- Post Loop Content --}}
-        <article class="ps-inner">
-          {{!-- Tags --}}
-          {{#if tags}}<div class="ps-tags hidden-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}}
-          {{!-- post content --}}
-          <div class="ps-content">
-            {{!-- Add img Cover --}}
-            {{#if image}}<span><a href="{{url}}" class="ps-thumb"><img src="{{image}}" alt="{{title}}"/></a></span>{{/if}}
-            {{!-- post Title --}}
-            <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a>
-            {{!-- post author & datetime--}}
-            <div class="ps-byline">
-              <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-              by {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
+    <section class="row layout-wrap layout-row" style="margin-top:2rem">
+        <div class="col-gd-left main-post">
+            <div id="entry" class="row">
+                {{#foreach posts}}
+                <article class="col s12 entry-list">
+                    <div class="entries">
+                        <div class="row layout-wrap layout-row">
+                            {{#if image}}
+                            <figure class="col-gd-post-image image">
+                                <a href="{{url}}" class="image-link">
+                                    <img src="{{image}}" alt="{{title}}" class="hide-after-lg"/>
+                                    <span class="entries-bg hide-before-lg" style="background-image:url({{image}})"></span>
+                                </a>
+                            </figure>
+                            {{/if}}
+                            <div class="{{#if image}}col-gd-post-meta{{else}}col s12{{/if}} entries-meta">
+                                <div class="tag">{{tags limit="1"}}</div>
+                                <h2 class="title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
+                                <div class="meta-author-date">
+                                    <span class="comment-count"><i class="i-chat"></i> <a class="gd-comment_count scroll" href="{{url}}#comments" godo-url="{{url absolute="true"}}">0 Comments</a></span>
+                                    <i class="point">·</i>
+                                    {{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
+                                    <i class="point">·</i>
+                                    <span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></span>
+                                </div>
+                                <div class="entries-excerpt hide-before-lg">{{excerpt words="15"}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                {{/foreach}}
             </div>
-            {{!-- Post excerpt --}}
-            <p class="ps-excerpt hidden-on-small-screen">{{excerpt characters="260"}} <a class="read-more" href="{{url}}">Read More</a></p>
-            {{!-- Share Post --}}
-            <aside class="share hidden-on-small-screen">
-              <a class="btn ps-comment icon-comment" href="{{url absolute="true"}}#comments"><span class="ps-comment-count fb-comments-count" data-href="{{url absolute="true"}}"></span></a>
-              <a class="btn bg-facebook icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"></a>
-              <a class="btn bg-twitter icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"></a>
-              <a class="btn bg-linkedin icon-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"></a>
-            </aside>
-          </div>
-        </article>
-      </div>
-      {{/foreach}}
-      {{! -- Add Pagination -- }}
-      {{pagination}}
-    </div>
 
-    {{!-- Add Sidebar --}}
-    {{> "sidebar"}}
+            {{! -- Add Pagination -- }}
+            {{^is "paged"}} {{> "pagination"}}  {{/is}}
 
-  </section>
+        </div>
+
+        {{!-- Add Sidebar --}}
+        {{> "sidebar"}}
+
+    </section>
 
 </main>

@@ -1,12 +1,16 @@
 {{!-- Add Layout --}}
 {{!< default}}
-<header class="godo-cover {{#if tag.image}}cover" style="background-image: url({{tag.image}}){{/if}}">
-  <article class="godo-cover-wrap">
-    {{!-- Tag name --}}
-    <h1 class="godo-cover-title">{{tag.name}}</h1>
-    {{!-- tag description --}}
-    <p class="godo-cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
-  </article>
-</header>
+<section id="cover" class="cover vertiacal-aling">
+    {{#if tag.image}}<div class="background" style="background-image: url({{tag.image}})"></div>{{/if}}
+    <div class="vertiacal-aling-wrap">
+        <article class="cover-wrap vertiacal-aling-content">
+            {{!-- Tag name --}}
+            <h1 class="cover-title">{{tag.name}}</h1>
+            {{!-- tag description --}}
+            <p class="cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
+        </article>
+    </div>
+    <a href="#main" class="scrolltop mouse hide-before-md"><span class="scroll"></span></a>
+</section>
 {{!-- Add Loop --}}
 {{> "loop"}}

@@ -1,10 +1,19 @@
-{{!-- Footer Page --}}
-<footer id="footer" class="footer">
-  <div class="footer-wrap">
-    <div class="copy">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> All rights reserved.</div>
-    <div class="by">
-      <a href="http://godofredo.ninja/godofredo"><span class="icon-code"></span> <span>with</span> <span class="icon-favorite"></span> <span>by GodoFredo</span></a>
-    </div>
-  </div>
+{{!-- Menu page --}}
+{{#if @blog.navigation}}
+<nav id="menu-mobile" class="menu-mobile hide-after-lg">
+	<ul class="menu-mobile-wrap u-unstyled">
+		{{navigation}}
+	</ul>
+</nav>
+{{/if}}
+
+<footer class="footer">
+	<div class="footer-wrap">
+		<div class="row">
+			<div class="col s12 m6 copy"><span>&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> All rights reserved.</span></div>
+			<div class="col s12 m6 by">
+				<a href="http://bit.ly/GodoFredoNinja" target="_blank" title="Desarrollador Web FullStack."><span>Design with</span> <i class="i-favorite heart"></i> <span>by GodoFredo</span></a>
+			</div>
+		</div>
+	</div>
 </footer>
-<div class="overlay"></div>

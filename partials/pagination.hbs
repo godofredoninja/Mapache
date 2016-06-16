@@ -1,9 +1,4 @@
-{{!-- Pagination --}}
-<div class="pagination">
-  {{!-- Newer page --}}
-  {{#if prev}}<a href="{{page_url prev}}" class="btn btn-circle active icon-arrow_left"></a>{{else}}<a class="btn btn-circle disabled icon-arrow_left"></a>{{/if}}
-  {{!-- Counter pages --}}
-  <span class="pagination-number">{{page}} / {{pages}}</span>
-  {{!-- Older page --}}
-  {{#if next}}<a href="{{page_url next}}" class="btn btn-circle active icon-arrow_right"></a>{{else}}<a class="btn btn-circle disabled icon-arrow_right"></a>{{/if}}
+{{! -- Add Pagination -- }}
+<div class="pagination" style="display:none">    
+    <a href="#" id="pagination" class="pagination-link" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">Load more</a>
 </div>

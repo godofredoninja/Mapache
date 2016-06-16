@@ -1,67 +1,78 @@
 {{!-- Add Layout --}}
 {{!< default}}
+
 {{#post}}
-<main class="main">
-  <section class="main-wrap full-site-width" style="padding-top:64px">
-    <div class="main-post">
-      {{!-- Post Content --}}
-      <article class="post">
-        {{!-- Add Author date --}}
-        <div class="post-author">
-          {{#author}}
-          {{!--Author avatar --}}
-          <a href="{{url}}" class="post-author-avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
-          <div class="post-author-right">
-            {{!--Author name --}}
-            <a class="post-author-name" href="{{url}}">By {{name}}</a>
-          {{/author}}
-            {{!-- Published time --}}
-            <div class="post-author-date"><span>Published: </span><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
-          </div>
-        </div>
-        {{!-- content post --}}
-        <div class="post-main">
-          {{!-- Title Post --}}
-          <h1 class="post-title">{{title}}</h1>
-          {{!-- Add Cover Img Post --}}
-          {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
-          {{content}}
-          {{!-- Post Share --}}
-          <aside class="share">
-            <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="icon-facebook"></i> <span>Facebook</span></a>
-            <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="icon-twitter"></i> <span>Twitter</span></a>
-            <a class="btn bg-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="icon-linkedin"></i> <span>Linkedin</span></a>
-          </aside>
-        </div>
-      </article>
-      {{!-- Previous and next post --}}
-      <div class="prev-next-post">
-        {{#prev_post}}
-        <div class="prev-next-row">
-          <a href="{{url}}" class="prev-next-link {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" >
-            <h2 class="prev-next-title">{{title}}</h2>
-          </a>
-          <a href="{{url}}" class="prev-next-btn btn" style="left:24px"><i class="icon-arrow_left"></i> Previous Post</a>
-        </div>
-        {{/prev_post}}
-        {{#next_post}}
-        <div class="prev-next-row">
-          <a href="{{url}}" class="prev-next-link {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" >
-            <h2 class="prev-next-title">{{title}}</h2>
-          </a>
-          <a href="{{url}}" class="prev-next-btn btn" style="right:24px">Next Post <i class="icon-arrow_right"></i></a>
-        </div>
-        {{/next_post}}
-      </div>
-      {{!-- Add Comments --}}
-      <div id="comments"class="comments">
-        <div class="card-content">
-          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%"  data-numposts="10"></div>          
-        </div>
-      </div>
-    </div>
-    {{!-- Add Sidebar --}}
-    {{> "sidebar"}}
-  </section>
+
+<main class="container">
+    <section class="row main-wrap layout-wrap layout-row margin-top">
+
+        {{#has tag="video"}}
+            <div id="video-format" class="col s12 video-wrap">
+                <aside class="video-responsive video-featured"></aside>
+                <div class="video-content hide-before-md" style="display:none">
+                    <span class="channel-name"></span>
+                    <span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+                </div>
+            </div>
+        {{/has}}
+
+        {{#has tag="photo"}}
+            {{#if image}}
+                <figure class="col s12 post-image">
+                    <img src="{{image}}" alt="{{title}}" class="img-responsive"/>
+                </figure>
+            {{/if}}
+        {{/has}}
+
+        <article class="col-gd-left post">
+
+            <h1 class="title">{{title}}</h1>
+
+            {{!-- author, date, tag, comments - share count and btn share--}}
+            <div class="meta clear">
+                <div class="meta-author-date">
+                    {{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
+                    <i class="point">·</i>
+                    <span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> <span>in</span></span>
+                    <span class="tag">{{tags limit="1"}}</span>
+                    <i class="point">·</i>
+                    <span class="comment-count"><i class="i-chat"></i> <a class="gd-comment_count scrolltop" href="#comments" godo-url="{{url absolute="true"}}">0 Comments</a></span>
+                </div>
+                <aside class="social-share">
+                    <div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
+                    <span class="share i-facebook c-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></span>
+                    <span class="share i-twitter c-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
+                    <span class="share i-reddit c-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></span>
+                    <span class="share i-pinterest c-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
+                    <span class="share i-pocket c-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></span>
+                </aside>
+            </div>
+
+            {{^has tag="photo"}}
+                {{#if image}}
+                    <figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
+                {{/if}}
+            {{/has}}
+
+            <div class="post-content">{{content}}</div>
+
+            {{#if tags}}<div class="tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow tag">{{name}}</a>{{/foreach}}</div>{{/if}}
+
+            <div class="row main-wrap layout-wrap layout-row share-subscribe">
+                {{> widget-share}}
+                {{> widget-newsletter}}
+            </div>
+
+            <div id="comments" class="comments" style="display:none"><div id="disqus_thread"></div></div>
+
+            {{!-- Post Related --}}
+            {{> widget-related}}
+
+
+        </article>
+        {{!-- Add Sidebar --}}
+        {{> "sidebar"}}
+
+    </section>
 </main>
 {{/post}}
