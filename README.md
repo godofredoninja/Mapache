@@ -1,7 +1,8 @@
 # Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
+
 [![Ghost version](https://img.shields.io/badge/Ghost-0.8.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=34RN7RHX6VLW4)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](http://bit.ly/DonateMapacheGhost)
 
 > Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/).
 
