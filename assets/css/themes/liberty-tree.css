@@ -1,0 +1,15 @@
+.header,
+.godo-cover,
+.prev-next-link.no-cover:after,
+.prev-next-row:hover .prev-next-btn,
+.sidebar .title {
+  background-color: #558000 !important
+}
+
+.ps .ps-byline a {
+  color: #558000 !important
+}
+
+.pagination .btn.active {
+  background: #558000 !important
+}
