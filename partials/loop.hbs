@@ -6,38 +6,30 @@
       <div class="ps">
         {{!-- Post Loop Content --}}
         <article class="ps-inner">
-          {{!-- Tags --}}
-          {{#if tags}}<div class="ps-tags hidden-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}}
-          {{!-- post content --}}
+          {{!-- Tags --}} {{#if tags}}
+          <div class="ps-tags hidden-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}} {{!-- post content --}}
           <div class="ps-content">
-            {{!-- Add img Cover --}}
-            {{#if image}}<span><a href="{{url}}" class="ps-thumb"><img src="{{image}}" alt="{{title}}"/></a></span>{{/if}}
-            {{!-- post Title --}}
-            <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a>
-            {{!-- post author & datetime--}}
+            {{!-- Add img Cover --}} {{#if image}}<span><a href="{{url}}" class="ps-thumb"><img src="{{image}}" alt="{{title}}"/></a></span>{{/if}} {{!-- post Title --}}
+            <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a> {{!-- post author & datetime--}}
             <div class="ps-byline">
-              <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-              by {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
+              <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date format='Do MMMM YYYY'}}</time>
+              par {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
             </div>
             {{!-- Post excerpt --}}
-            <p class="ps-excerpt hidden-on-small-screen">{{excerpt characters="260"}} <a class="read-more" href="{{url}}">Read More</a></p>
+            <p class="ps-excerpt hidden-on-small-screen">{{excerpt words="60"}} <a class="read-more" href="{{url}}">Lire l'article</a></p>
             {{!-- Share Post --}}
             <aside class="share hidden-on-small-screen">
-              <a class="btn ps-comment icon-comment" href="{{url absolute="true"}}#comments"><span class="ps-comment-count fb-comments-count" data-href="{{url absolute="true"}}"></span></a>
-              <a class="btn bg-facebook icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"></a>
-              <a class="btn bg-twitter icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"></a>
-              <a class="btn bg-linkedin icon-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"></a>
+              <a class="btn ps-comment icon-comment" href="{{url absolute=" true "}}#comments"><span class="ps-comment-count fb-comments-count" data-href="{{url absolute="true"}}"></span></a>
+              <a class="btn bg-facebook icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute=" true "}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"></a>
+              <a class="btn bg-twitter icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute=" true "}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"></a>
             </aside>
           </div>
         </article>
       </div>
-      {{/foreach}}
-      {{! -- Add Pagination -- }}
-      {{pagination}}
+      {{/foreach}} {{! -- Add Pagination -- }} {{pagination}}
     </div>
 
-    {{!-- Add Sidebar --}}
-    {{> "sidebar"}}
+    {{!-- Add Sidebar --}} {{> "sidebar"}}
 
   </section>
 

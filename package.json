@@ -1,10 +1,10 @@
 {
-  "name": "Mapache-GodoFredo",
+  "name": "Liberty-Tree",
   "version": "2.0.0",
-  "description": "Mapache theme ghost by GodoFredoNinja",
+  "description": "Liberty-Tree Theme",
   "bugs": {
     "url": "",
-    "email": "hello@godofredo.ninja"
+    "email": ""
   },
   "license": "MIT",
   "author": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/godofredoninja/Mapache"
+    "url": "https://github.com/dremixam/Liberty-Tree-Ghost-Theme"
   },
   "dependencies": {},
   "devDependencies": {}
