@@ -54,7 +54,7 @@ class mapacheRelated {
         if (post.image != null) {
             post_image = `
             <figure class="image">
-                <a href="${post_url}" class="image-link">
+                <a href="https://godofredo.ninja/blog${post_url}" class="image-link">
                     <span class="entries-bg" style="background-image:url(${post.image})"></span>
                 </a>
             </figure>`;

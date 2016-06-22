@@ -29,7 +29,7 @@ import mapacheRelated   from './app/app.related.post';
         $gd_search_btn      = $('#search-btn'),
         $gd_search          = $('#header-search'),
         $gd_search_input    = $('.search-field'),
-        $gd_comments        = $('#comments'),
+        // $gd_comments        = $('#comments'),
         $gd_related         = $('#related'),
         // $gd_comment_count   = $('.gd-comment_count'),
         $gd_share_count     = $('.share-count'),
@@ -118,7 +118,7 @@ import mapacheRelated   from './app/app.related.post';
             results             : "#search-results",
             zeroResultsInfo     : false,
             displaySearchInfo   : false,
-            result_template     : '<a href="blog{{link}}">{{title}}</a>',
+            result_template     : '<a href="https://godofredo.ninja/blog{{link}}">{{title}}</a>',
             onKeyUp             : true,
         });
 
@@ -230,15 +230,15 @@ import mapacheRelated   from './app/app.related.post';
     /**
      * Disqus Comment
      */
-    function disqusComments () {
-        if(typeof disqus_shortname != 'undefined'){
-            $gd_comments.removeAttr('style');
-            let d = document, s = d.createElement('script');
-            s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    }
+    // function disqusComments () {
+    //     if(typeof disqus_shortname != 'undefined'){
+    //         $gd_comments.removeAttr('style');
+    //         let d = document, s = d.createElement('script');
+    //         s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
+    //         s.setAttribute('data-timestamp', +new Date());
+    //         (d.head || d.body).appendChild(s);
+    //     }
+    // }
 
     /**
      * Comments Count Disqus
@@ -301,7 +301,7 @@ import mapacheRelated   from './app/app.related.post';
     $document.on('ready', () => {
         shareConter();
         if( typeof social_link != 'undefined' ) socialLink(social_link);
-        if( $gd_comments.length > 0 ) disqusComments();
+        // if( $gd_comments.length > 0 ) disqusComments();
         // if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
         if( $gd_video.length > 0 ) videoPost();
         videoResponsive();
@@ -316,5 +316,11 @@ import mapacheRelated   from './app/app.related.post';
         }
 
     });
+
+    // onlye for me
+    // change disqus comments for facebook comments
+    // change comment count for facebook
+    // change url in search
+    // change url in post related
 
 })();
