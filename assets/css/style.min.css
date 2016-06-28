@@ -1864,7 +1864,7 @@ samp {
 
 .post-main img {
   display: block;
-  margin: 40px 0
+  margin: 40px auto
 }
 
 .post-author {
@@ -2399,4 +2399,30 @@ pre[class*=language-] {
   50% {
     transform: scale3d(1.05, 1.05, 1.05)
   }
+}.header,
+.godo-cover,
+.prev-next-link.no-cover:after,
+.prev-next-row:hover .prev-next-btn,
+.sidebar .title {
+  background-color: #558000 !important
+}
+
+.ps .ps-byline a {
+  color: #558000 !important
+}
+
+.pagination .btn.active {
+  background: #558000 !important
+}
+
+figcaption {
+    position: relative;
+    top: -1em;
+    text-align: center;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+aside.share.hidden-on-small-screen {
+    clear: both;
 }
