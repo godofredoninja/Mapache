@@ -4,85 +4,85 @@
 {{#post}}
 
 <main class="container">
-    <section class="row main-wrap layout-wrap layout-row margin-top">
+	<section class="row main-wrap layout-wrap layout-row margin-top">
 
-        {{#has tag="video"}}
-            <div id="video-format" class="col s12 video-wrap">
-                <aside class="video-responsive video-featured"></aside>
-                <div class="video-content hide-before-md" style="display:none">
-                    <span class="channel-name"></span>
-                    <span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
-                </div>
-            </div>
-        {{/has}}
+		{{#has tag="video"}}
+			<div id="video-format" class="col s12 video-wrap">
+				<aside class="video-responsive video-featured"></aside>
+				<div class="video-content hide-before-md" style="display:none">
+					<span class="channel-name"></span>
+					<span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+				</div>
+			</div>
+		{{/has}}
 
-        {{#has tag="photo"}}
-            {{#if image}}
-                <figure class="col s12 post-image">
-                    <img src="{{image}}" alt="{{title}}" class="img-responsive"/>
-                </figure>
-            {{/if}}
-        {{/has}}
+		{{#has tag="photo"}}
+			{{#if image}}
+				<figure class="col s12 post-image">
+					<img src="{{image}}" alt="{{title}}" class="img-responsive"/>
+				</figure>
+			{{/if}}
+		{{/has}}
 
-        <article class="col-gd-left post">
+		<article class="col-gd-left post">
 
-            <h1 class="title">{{title}}</h1>
+			<h1 class="title">{{title}}</h1>
 
-            {{!-- author, date, tag, comments - share count and btn share--}}
-            <div class="meta clear">
-                <div class="meta-author-date">
-                    {{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
-                    <i class="point">·</i>
-                    <span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> <span>in</span></span>
-                    <span class="tag">{{tags limit="1"}}</span>
-                    <i class="point">·</i>
-                    <span class="comment-count">
-                        <i class="i-chat"></i>
-                        <a class="gd-comment_count scrolltop" href="#comments">
-                            <span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
-                            <span>Comments</span>
-                            <!-- <span class="disqus-comment-count" data-disqus-url="{{url absolute="true"}}">0 Comments</span> -->
-                        </a>
-                    </span>
-                </div>
-                <aside class="social-share">
-                    <div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
-                    <span class="share i-facebook c-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></span>
-                    <span class="share i-twitter c-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-                    <span class="share i-reddit c-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></span>
-                    <span class="share i-pinterest c-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-                    <span class="share i-pocket c-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></span>
-                </aside>
-            </div>
+			{{!-- author, date, tag, comments - share count and btn share--}}
+			<div class="meta clear">
+				<div class="meta-author-date">
+					{{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
+					<i class="point">·</i>
+					<span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> <span>in</span></span>
+					<span class="tag">{{tags limit="1"}}</span>
+					<i class="point">·</i>
+					<span class="comment-count">
+						<i class="i-chat"></i>
+						<a class="gd-comment_count scrolltop" href="#comments">
+							<span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
+							<span>Comments</span>
+							<!-- <span class="disqus-comment-count" data-disqus-url="{{url absolute="true"}}">0 Comments</span> -->
+						</a>
+					</span>
+				</div>
+				<aside class="social-share">
+					<div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
+					<span class="share i-facebook c-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></span>
+					<span class="share i-twitter c-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
+					<span class="share i-reddit c-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></span>
+					<span class="share i-pinterest c-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
+					<span class="share i-pocket c-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></span>
+				</aside>
+			</div>
 
-            {{^has tag="photo"}}
-                {{#if image}}
-                    <figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
-                {{/if}}
-            {{/has}}
+			{{^has tag="photo"}}
+				{{#if image}}
+					<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
+				{{/if}}
+			{{/has}}
 
-            <div class="post-content">{{content}}</div>
+			<div class="post-content">{{content}}</div>
 
-            {{#if tags}}<div class="tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow tag">{{name}}</a>{{/foreach}}</div>{{/if}}
+			{{#if tags}}<div class="tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow tag">{{name}}</a>{{/foreach}}</div>{{/if}}
 
-            <div class="row main-wrap layout-wrap layout-row share-subscribe">
-                {{> widget-share}}
-                {{> widget-newsletter}}
-            </div>
+			<div class="row main-wrap layout-wrap layout-row share-subscribe">
+				{{> widget-share}}
+				{{> widget-newsletter}}
+			</div>
 
-            <div id="comments" class="comments">
-                <!-- <div id="disqus_thread"></div> -->
-                <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
-            </div>
+			<div id="comments" class="comments">
+				<!-- <div id="disqus_thread"></div> -->
+				<div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
+			</div>
 
-            {{!-- Post Related --}}
-            {{> widget-related}}
+			{{!-- Post Related --}}
+			{{> widget-related}}
 
 
-        </article>
-        {{!-- Add Sidebar --}}
-        {{> "sidebar"}}
+		</article>
+		{{!-- Add Sidebar --}}
+		{{> "sidebar"}}
 
-    </section>
+	</section>
 </main>
 {{/post}}

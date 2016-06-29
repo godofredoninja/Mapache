@@ -8,7 +8,7 @@
 class GodoShareCount {
 	constructor(elem) {
 		this.elem 		= elem;
-		this.url 		= elem.attr('data-url');
+		this.url 		= elem.attr('godo-url');
 		this.total 		= 0;
 	}
 
