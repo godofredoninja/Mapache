@@ -61,19 +61,19 @@ Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
 <script>
 /* Social Media Links*/
 var social_link = {
-    'google': 'https://...',
-    'youtube': 'https://...',
-    'instagram': 'https://...',
-    'snapchat': 'https://...',
-    'dribbble': 'https://...',
-    'github': 'https://...',
-    'linkedin':'https://...',
-    'spotify':'https://...',
-    'codepen':'https://...',
-    'behance':'https://...',
-    'flickr':'https://...',
-    'pinterest':'https://...',
-    'feed':'https://...',
+	'google': 'https://...',
+	'youtube': 'https://...',
+	'instagram': 'https://...',
+	'snapchat': 'https://...',
+	'dribbble': 'https://...',
+	'github': 'https://...',
+	'linkedin':'https://...',
+	'spotify':'https://...',
+	'codepen':'https://...',
+	'behance':'https://...',
+	'flickr':'https://...',
+	'pinterest':'https://...',
+	'feed':'https://...',
 }
 
 /*Youtube button subscribe for post video format*/
@@ -113,11 +113,11 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 <!-- For theme white add two-color logo 230px * 130px -->
 
 <!--
-    ***** 230px *****
-    *				*
-    ***************** 130px
-    *				*
-    *****************
+	***** 230px *****
+	*				*
+	***************** 130px
+	*				*
+	*****************
 -->
 
 
@@ -135,15 +135,15 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 ```html
 
 <div class="widget">
-    <div class="title-primary">...your title...</div>
-    ... your content ...
+	<div class="title-primary">...your title...</div>
+	... your content ...
 </div>
 
 <!-- Add your content here - block fixed -->
 <div class="widget">
-    <div class="fixed">
-        ... your content fixed ...
-    </div>
+	<div class="fixed">
+		... your content fixed ...
+	</div>
 </div>
 
 ```
