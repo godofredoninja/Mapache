@@ -1,51 +1,52 @@
 // partial color Change for blue
 @mixin colorBlue($color-theme) {
-    .header.toolbar-shadow,
-    .cover,
-    .btn.btn-primary,
-    .sidebar .title-primary{
-      background-color: $color-theme !important;
-    }
-    .form-control:focus{
-        border-color: $color-theme !important;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($color-theme,0.6);
-    }
+	.header.toolbar-shadow,
+	.cover,
+	.btn.btn-primary,
+	.sidebar .title-primary{
+	  background-color: $color-theme !important;
+	}
+	.form-control:focus{
+		border-color: $color-theme !important;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($color-theme,0.6);
+	}
 }
 
 
 // Full Color Change
 @mixin colorFull($color-theme) {
 
-    a,
-    .btn,
-    .pagination .pagination-link{
-        color: $color-theme;
-    }
+	a,
+	.btn,
+	.pagination .pagination-link{
+		color: $color-theme;
+	}
 
-    .header.toolbar-shadow,
-    .cover,
-    .btn.btn-primary,
-    .sidebar .title-primary{
-      background-color: $color-theme !important;
-    }
-    .form-control:focus{
-        border-color: $color-theme !important;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($color-theme,0.6);
-    }
+	.header.toolbar-shadow,
+	.cover,
+	.btn.btn-primary,
+	.sidebar .title-primary,
+	.related-posts .no-image .related-posts-list{
+	  background-color: $color-theme !important;
+	}
+	.form-control:focus{
+		border-color: $color-theme !important;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($color-theme,0.6);
+	}
 
-    .btn.btn-download-cloud,
-    .btn.btn-download{
-        background-color: $color-theme;
-        &:hover{background-color: darken($color-theme, 8%);}
-    }
-    .pagination .pagination-link:before{
-        border: 2px solid $color-theme;
-    }
-    .pagination .pagination-link.loanding:before{
-        border-bottom: 2px solid $color-theme;
-    }
+	.btn.btn-download-cloud,
+	.btn.btn-download{
+		background-color: $color-theme;
+		&:hover{background-color: darken($color-theme, 8%);}
+	}
+	.pagination .pagination-link:before{
+		border: 2px solid $color-theme;
+	}
+	.pagination .pagination-link.loanding:before{
+		border-bottom: 2px solid $color-theme;
+	}
 
-    blockquote {
-        border-left: 3px solid $color-theme;
-    }
+	blockquote {
+		border-left: 3px solid $color-theme;
+	}
 }

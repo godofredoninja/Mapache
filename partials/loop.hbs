@@ -1,55 +1,55 @@
 <main id="main" class="container">
 
-    <section class="row layout-wrap layout-row" style="margin-top:2rem">
-        <div class="col-gd-left main-post">
-            <div id="entry" class="row">
-                {{#foreach posts}}
-                <article class="col s12 entry-list">
-                    <div class="entries">
-                        <div class="row layout-wrap layout-row">
-                            {{#if image}}
-                            <figure class="col-gd-post-image image">
-                                <a href="{{url}}" class="image-link">
-                                    <img src="{{image}}" alt="{{title}}" class="hide-after-lg"/>
-                                    <span class="entries-bg hide-before-lg" style="background-image:url({{image}})"></span>
-                                </a>
-                            </figure>
-                            {{/if}}
-                            <div class="{{#if image}}col-gd-post-meta{{else}}col s12{{/if}} entries-meta">
-                                <div class="tag">{{tags limit="1"}}</div>
-                                <h2 class="title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
+	<section class="row layout-wrap layout-row" style="margin-top:2rem">
+		<div class="col-gd-left main-post">
+			<div id="entry" class="row">
+				{{#foreach posts}}
+				<article class="col s12 entry-list">
+					<div class="entries">
+						<div class="row layout-wrap layout-row">
+							{{#if image}}
+							<figure class="col-gd-post-image image">
+								<a href="{{url}}" class="image-link">
+									<img src="{{image}}" alt="{{title}}" class="hide-after-lg"/>
+									<span class="entries-bg hide-before-lg" style="background-image:url({{image}})"></span>
+								</a>
+							</figure>
+							{{/if}}
+							<div class="{{#if image}}col-gd-post-meta{{else}}col s12{{/if}} entries-meta">
+								<div class="tag">{{tags limit="1"}}</div>
+								<h2 class="title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
-                                <div class="meta-author-date">
-                                    <span class="comment-count">
-                                        <i class="i-chat"></i>
-                                        <a class="gd-comment_count scroll" href="{{url}}#comments">
-                                            <span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
-                                            <span>Comments</span>
-                                        </a>
-                                        <!-- <a class="gd-comment_count scroll" href="{{url}}#comments" godo-url="{{url absolute="true"}}">0 Comments</a> -->
-                                    </span>
-                                    <i class="point">·</i>
-                                    {{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
-                                    <i class="point">·</i>
-                                    <span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></span>
-                                </div>
+								<div class="meta-author-date">
+									<span class="comment-count">
+										<i class="i-chat"></i>
+										<!-- <a class="gd-comment_count scroll" href="{{url}}#comments">
+											<span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
+											<span>Comments</span>
+										</a> -->
+										<a class="gd-comment_count scroll" href="{{url}}#comments" godo-url="{{url absolute="true"}}">0 Comments</a>
+									</span>
+									<i class="point">·</i>
+									{{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
+									<i class="point">·</i>
+									<span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></span>
+								</div>
 
-                                <div class="entries-excerpt hide-before-lg">{{excerpt words="15"}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                {{/foreach}}
-            </div>
+								<div class="entries-excerpt hide-before-lg">{{excerpt words="15"}}</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				{{/foreach}}
+			</div>
 
-            {{! -- Add Pagination -- }}
-            {{^is "paged"}} {{> "pagination"}}  {{/is}}
+			{{! -- Add Pagination -- }}
+			{{^is "paged"}} {{> "pagination"}}  {{/is}}
 
-        </div>
+		</div>
 
-        {{!-- Add Sidebar --}}
-        {{> "sidebar"}}
+		{{!-- Add Sidebar --}}
+		{{> "sidebar"}}
 
-    </section>
+	</section>
 
 </main>

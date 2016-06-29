@@ -1,155 +1,155 @@
 // Header post
 .cover{
-    background: $primary-color;
-    color: #fff;
-    letter-spacing: .2px;
-    height: 65vh;
-    position: relative;
-    text-shadow: 0 0 10px rgba(0,0,0,.33);
-    z-index: 2;
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+	background: $primary-color;
+	color: #fff;
+	letter-spacing: .2px;
+	min-height: 65vh;
+	position: relative;
+	text-shadow: 0 0 10px rgba(0,0,0,.33);
+	z-index: 2;
+	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 
-    &.full-height{
-        height: 100vh;
-    }
-
-
-    &-wrap{
-        margin: 0 auto;
-        max-width: 700px;
-        padding: 16px;
-        position: relative;
-        text-align: center;
-        z-index: 99;
-    }
-
-    &-title{
-        font-size: 3rem;
-        margin: 0 0 30px 0;
-        line-height: 1.2;
-    }
+	&.full-height{
+		height: 100vh;
+	}
 
 
+	&-wrap{
+		margin: 0 auto;
+		max-width: 700px;
+		padding: 16px;
+		position: relative;
+		text-align: center;
+		z-index: 99;
+	}
 
-    //  scroll
-    .mouse{
-        width: 25px;
-        position: absolute;
-        height: 36px;
-        border-radius: 15px;
-        border: 2px solid #888;
-        border: 2px solid rgba(255,255,255,0.27);
-        bottom: 40px;
-        right: 40px;
-        margin-left: -12px;
-        cursor: pointer;
-        transition: border-color 0.2s ease-in;
-        .scroll {
-            display: block;
-            margin: 6px auto;
-            width: 3px;
-            height: 6px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.68);
-            animation-duration: 2s;
-            animation-name: scroll;
-            animation-iteration-count: infinite;
-        }
-    }
+	&-title{
+		font-size: 3rem;
+		margin: 0 0 30px 0;
+		line-height: 1.2;
+	}
 
-    // background
-    .background{
-        position: absolute;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
 
-        &:before{
-            display: block;
-            content: ' ';
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.1)), to(rgba(0,0,0,0.7)));
-        }
-    }
+
+	//  scroll
+	.mouse{
+		width: 25px;
+		position: absolute;
+		height: 36px;
+		border-radius: 15px;
+		border: 2px solid #888;
+		border: 2px solid rgba(255,255,255,0.27);
+		bottom: 40px;
+		right: 40px;
+		margin-left: -12px;
+		cursor: pointer;
+		transition: border-color 0.2s ease-in;
+		.scroll {
+			display: block;
+			margin: 6px auto;
+			width: 3px;
+			height: 6px;
+			border-radius: 4px;
+			background: rgba(255, 255, 255, 0.68);
+			animation-duration: 2s;
+			animation-name: scroll;
+			animation-iteration-count: infinite;
+		}
+	}
+
+	// background
+	.background{
+		position: absolute;
+		overflow: hidden;
+		background-size: cover;
+		background-position: center;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		&:before{
+			display: block;
+			content: ' ';
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.1)), to(rgba(0,0,0,0.7)));
+		}
+	}
 
 }
 
 
 .author{
-    .info{
-        overflow: hidden;
-        margin-top: 10%;
-    }
-    .name-wrap{
-        display: inline-block;
-    }
-    .title{
-        display: block;
-        text-transform: uppercase;
-    }
-    .name{
-        margin: 5px 0;
-        font-size: 1.75rem;
-    }
-    .description{
-        margin: 1.5rem 0;
-        line-height: 1.8;
-        font-size: 18px;
-    }
-    .avatar{
-        display: inline-block;
-        border-radius: 90px;
-        margin-right: 5%;
-        width: 80px;
-        height: 80px;
-        background-size: cover;
-        background-position: center;
-        vertical-align: bottom;
-    }
+	.info{
+		overflow: hidden;
+		margin-top: 10%;
+	}
+	.name-wrap{
+		display: inline-block;
+	}
+	.title{
+		display: block;
+		text-transform: uppercase;
+	}
+	.name{
+		margin: 5px 0;
+		font-size: 1.75rem;
+	}
+	.description{
+		margin: 1.5rem 0;
+		line-height: 1.8;
+		font-size: 18px;
+	}
+	.avatar{
+		display: inline-block;
+		border-radius: 90px;
+		margin-right: 5%;
+		width: 80px;
+		height: 80px;
+		background-size: cover;
+		background-position: center;
+		vertical-align: bottom;
+	}
 
-    .tooltips{
-        position: relative;
-        overflow: visible;
+	.tooltips{
+		position: relative;
+		overflow: visible;
 
-        &:after{
-            content: attr(mapache-data);
-            bottom: 110%;
-            left: 50%;
-            margin-left: -76px;
-            position: absolute;
-            width: 140px;
-            color: #FFFFFF;
-            background: #000000;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            visibility: visible;
-            border-radius: 6px;
-            opacity: 0;
-            visibility: hidden;
-        }
-        &:hover:after{
-            opacity: 1;
-            visibility: visible;
-        }
-    }
+		&:after{
+			content: attr(mapache-data);
+			bottom: 110%;
+			left: 50%;
+			margin-left: -76px;
+			position: absolute;
+			width: 140px;
+			color: #FFFFFF;
+			background: #000000;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			visibility: visible;
+			border-radius: 6px;
+			opacity: 0;
+			visibility: hidden;
+		}
+		&:hover:after{
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 
-    &-meta{
-        display: inline-block;
-        margin-bottom: 2.5rem;
-        margin-top: 1rem;
-        text-align: center;
-        padding: 0;
-        span{color: #fff;}
-        a{color: inherit;background: transparent}
-        .website{background-color: #90a4ae !important;}
-    }
+	&-meta{
+		display: inline-block;
+		margin-bottom: 2.5rem;
+		margin-top: 1rem;
+		text-align: center;
+		padding: 0;
+		span{color: #fff;}
+		a{color: inherit;background: transparent}
+		.website{background-color: #90a4ae !important;}
+	}
 }
 
 
@@ -159,11 +159,11 @@
 
 @media #{$md-and-up}{
 
-    .cover{
-        &-description{
-            font-size: $font-size-lg;
-        }
-    }
+	.cover{
+		&-description{
+			font-size: $font-size-lg;
+		}
+	}
 
 
 }
