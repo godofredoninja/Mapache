@@ -1,5 +1,5 @@
 .footer{
-	background: $footer-bg-color;
+	background: $footer-bg-color;	
 	text-align: center;
 	line-height : 1;
 	color: $footer-color;
@@ -9,33 +9,78 @@
 	}
 
 	&-wrap{
-		overflow: auto;
-		padding: 14px 24px;
 		margin: 0 auto;
     	max-width: 1400px;
 	}
 
 	.heart{
-		color: #ff5b5b;
+		color: red;
 		animation: heartify .5s infinite alternate;
 	}
 
-	.copy span{display: inline;vertical-align:middle}
-	.copy, .by{
-		margin-top: .5rem;
-		margin-bottom: .5rem;
+	&-topbar{
+		padding: 2.7rem 0 2rem;
+	}
+	
+	&-bottombar{
+		background: #000;
+		color: #aaa;
+		padding: 2rem 0;
+		font-size: 15px;
+	}
+
+	&-links-social{
+		padding-bottom: 1.5rem;
+
+		a{
+			display: inline-block;
+			vertical-align: top;
+			background: #333;
+			border-radius: 50%;
+			margin: 5px 3px;
+			height: 40px;
+			line-height: 45px;
+			text-align: center;
+			width: 40px;
+			font-size: 18px;
+			&:hover{
+				background: 0 0;
+    			box-shadow: inset 0 0 0 2px #333;
+			}
+		}
+	}
+
+	&-menu{
+		a{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 4px;
+			color: #aaa;
+			text-transform: uppercase;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 24px;
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+
+	&-copy,
+	&-design-author{
+		display: inline-block;
+		vertical-align: middle;	
+		padding: .5rem 0;	
 	}
 
 }
 
 @media #{$md-and-up}{
-	.footer{
-		.copy{
-			text-align: left;
-		}
-		.by{
-			text-align: right;
-		}
+	.footer-links-social a{
+		margin: 5px 8px;
+	}	
+	.footer-menu a{
+		margin: 0 6px;
 	}
 }
 

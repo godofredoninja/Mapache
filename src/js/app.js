@@ -34,6 +34,8 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_comment_count   = $('.gd-comment_count'),
 		$gd_share_count     = $('.share-count'),
 		$gd_video           = $('#video-format'),
+		$gd_social_box		= $('.social_box'),
+		$gd_footer_menu		= $('#footer-menu'),
 		$gd_sidebar_fixed    = $('#sidebar').find('.fixed'),
 
 		url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
@@ -216,13 +218,25 @@ import mapacheRelated   from './app/app.related.post';
 	}
 
 	/**
-	 * Header Social Links
+	 * social Box
 	 */
-	function socialLink(links) {
+	function socialBox(links) {
 		$.each( links, ( type, url ) => {
 			if( typeof url === 'string' && url_regexp.test(url) ){
 				let template = `<a title="${type}" href="${url}" target="_blank" class="i-${type}"></a>`;
-				$('.header-social').append(template);
+				$gd_social_box.append(template);
+			}
+		});
+	}
+
+	/**
+	 * Menu footer
+	 */
+	function footerMenu(links) {
+		$.each( links, ( type, url ) => {
+			if( typeof url === 'string' && url_regexp.test(url) ){
+				let template = `<a title="${type}" href="${url}">${type}</a>`;
+				$gd_footer_menu.append(template).css('display','block');
 			}
 		});
 	}
@@ -300,7 +314,8 @@ import mapacheRelated   from './app/app.related.post';
 	 */
 	$document.on('ready', () => {
 		shareConter();
-		if( typeof social_link != 'undefined' ) socialLink(social_link);
+		if( typeof social_link != 'undefined' ) socialBox(social_link);
+		if( typeof footer_menu != 'undefined' ) footerMenu(footer_menu);
 		if( $gd_comments.length > 0 ) disqusComments();
 		if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
 		if( $gd_video.length > 0 ) videoPost();
