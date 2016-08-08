@@ -1,9 +1,15 @@
 {{!-- Sidebar right --}}
 <div id="sidebar" class="col-gd-right sidebar hide-before-lg">
 
-    {{#get "posts" filter="featured:true" limit="5" as |featured|}}
-        {{> "widget-featured" widgetTitle="Featured Posts" widgetPosts=featured}}
+    {{#get "posts" filter="featured:true" limit="3" as |featured|}}
+        {{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured}}
     {{/get}}
+
+    {{^is "home, tag, author"}}
+        {{#get "posts" limit="3" as |recents|}}
+            {{> "widget-post" widgetTitle="Latest" widgetPosts=recents}}
+        {{/get}}
+    {{/is}}
 
     {{!-- Add your content here --}}
 
