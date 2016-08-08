@@ -1,6 +1,6 @@
 <main id="main" class="container">
 
-	<section class="row layout-wrap layout-row" style="margin-top:2rem">
+	<section class="row layout-wrap layout-row {{^is "paged"}}" style="margin-top:2rem"{{else}}margin-top"{{/is}}>
 		<div class="col-gd-left main-post">
 			<div id="entry" class="row">
 				{{#foreach posts}}
@@ -43,7 +43,13 @@
 			</div>
 
 			{{! -- Add Pagination -- }}
-			{{^is "paged"}} {{> "pagination"}}  {{/is}}
+			{{#is "paged"}} 
+				{{"pagination"}}
+			{{else}}
+				<div class="pagination" style="display:none">    
+					<a href="#" id="pagination" class="pagination-link" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">Load more</a>
+				</div>  
+			{{/is}}			
 
 		</div>
 

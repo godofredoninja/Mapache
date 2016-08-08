@@ -302,6 +302,28 @@ pre{
 }
 
 
+// .pagination nav
+.pagination-nav{
+	padding: 2.5rem 0 3rem;
+	text-align: center;
+	.page-number{
+		display: none;
+		padding-top: 5px;
+		@media #{$md-and-up}{display: inline-block;}
+	}
+	.newer-posts{
+		float: left;
+	}
+	.older-posts{
+		float: right
+	}
+}
+
+
+
+
+
+
 .mapache{
 	overflow: hidden;
 }
