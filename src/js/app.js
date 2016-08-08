@@ -132,10 +132,7 @@ import mapacheRelated   from './app/app.related.post';
 	$document.on('ready', () => {
 
 	   if( $gd_cover.length > 0 ) {
-			$gd_header.css('background','transparent');
 			$window.on('scroll', coverScroll);
-		}else{
-			$gd_header.addClass('toolbar-shadow');
 		}
 
 		function coverScroll(){

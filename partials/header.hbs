@@ -1,5 +1,5 @@
 {{!-- Navigation Page --}}
-<header id="header" class="header">
+<header id="header" class="header{{^is "home, tag , author"}} toolbar-shadow"{{else}}" style="background:transparent"{{/is}}>
 	<div class="header-wrap">
 		{{#if @blog.navigation}}<a href="#" id="menu-open" class="menu-open header-btn i-menu hide-after-lg"></a>{{/if}}
 		<div class="header-logo">
