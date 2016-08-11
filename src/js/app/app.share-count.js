@@ -36,7 +36,7 @@ class GodoShareCount {
 	 * @description  update the number of shares.
 	 */
 	updateCounter(){
-		this.elem.html(`<span style="margin-right:5px"><strong>${this.convertNumber(this.total)}</strong></span><span>Shares</span>`);
+		this.elem.html(`${this.convertNumber(this.total)}`);
 	}
 
 	godoCount(){

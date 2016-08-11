@@ -51,6 +51,13 @@ class GodoShare {
 					description: this.godoValue('title')
                 }
 			},
+			linkedin: {
+				shareUrl: 'https://www.linkedin.com/shareArticle',
+				params: {
+					url: this.godoValue('url'),
+					mini: true
+				}
+            },
 			pocket: {
 				shareUrl: 'https://getpocket.com/save',
 				params: {

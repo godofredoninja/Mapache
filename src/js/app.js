@@ -264,14 +264,11 @@ import mapacheRelated   from './app/app.related.post';
 				cache: false,
 				dataType: 'jsonp',
 
-				success:  ( commet ) => {
-					for ( let i in commet.response ) {
-						let countText = 'Comments';
+				success:  ( commet ) => {										
+					for ( let i in commet.response ) {						
 						let count = commet.response[i].posts;
-						if (count == 1)
-						countText = 'Comment';
-						$(this).html(`${count} <span>${countText}</span>`);
-					}
+						$(this).prepend(`${count}`);
+					}						
 				}
 			});
 		});
@@ -314,7 +311,7 @@ import mapacheRelated   from './app/app.related.post';
 		if( typeof social_link != 'undefined' ) socialBox(social_link);
 		if( typeof footer_menu != 'undefined' ) footerMenu(footer_menu);
 		if( $gd_comments.length > 0 ) disqusComments();
-		if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ) commentsCount();
+		if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ){ commentsCount();}
 		if( $gd_video.length > 0 ) videoPost();
 		videoResponsive();
 		if ($gd_sidebar_fixed.length > 0) sidebarFixed();

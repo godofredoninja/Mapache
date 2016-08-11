@@ -62,7 +62,38 @@
 
 }
 
-/* Meta (autor -date - 1 tag - comments count)
+/* Post author line top
+========================================================================== */
+.post-byline{
+    color: #aaa;
+    font-size: $font-size-sm;
+    margin-bottom: 1.5rem;
+
+    @media #{$md-and-up}{
+        font-size: 1rem;
+    }
+
+    a{
+        font-weight: 500;
+        &:active{
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-authorAvatar{
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 32px;
+}
+
+
+/* Post meta 
 ========================================================================== */
 .meta{
     margin-bottom: 1rem;
@@ -87,6 +118,80 @@
         }
     }
 
+}
+
+
+/* Post Action social media
+========================================================================== */
+.post-actions{
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    a{
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.125rem;
+
+        &:hover{
+            background-color: #000 !important;
+        }
+    }
+
+    li{
+        display: block;
+        float: left;
+        margin-left: 6px;
+
+        &:first-child {
+            margin-left: 0;
+            // border-right: 1px solid #EEE;
+            // width: 80px;
+        }
+    }    
+}
+
+.post-actions-comment{
+    background: $primary-color;
+    border-radius: 18px;
+    color: #FFF;
+    display: inline-block;
+    font-weight: 500;
+    height: 32px;
+    line-height: 16px;
+    padding: 8px 8px 8px 10px;
+    width: 64px;
+
+    i{    
+        margin-right: 4px;        
+    }
+}
+
+.post-actions-shares{ 
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1; 
+}
+.post-actions-shares-count{
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+}
+.post-actions-shares-label{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #AAA;
+    font-size: 12px;
+}
+
+.post-actions-share {
+    border-radius: 50%;
+    display: block;
+    height: 32px;    
+    width: 32px;
+    line-height: 32px;
+    text-align: center;    
 }
 
 
@@ -244,7 +349,12 @@
             margin: 0 0 1rem;
         }
 
-        .meta-author-date{ float: left;margin-top: 12px; }
+        .post-actions li{margin-left: 8px;}
+        .post-actions li:first-child {
+            border-right: 1px solid #EEE;
+            width: 80px;
+        }
+
         .social-share{ float: right; }
 
         &-content {
@@ -259,9 +369,9 @@
 
 /* Media Query (large)
 ========================================================================== */
-@media #{$lg-and-up}{
-    .post{
-        .meta-author-date{ float: left;margin-top: 12px; }
-        .meta-share{ float: right; }
-    }
-}
+// @media #{$lg-and-up}{
+//     .post{
+//         .meta-author-date{ float: left;margin-top: 12px; }
+//         .meta-share{ float: right; }
+//     }
+// }
