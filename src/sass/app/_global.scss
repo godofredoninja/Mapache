@@ -355,7 +355,7 @@ pre{
 	h1,h2,h3,h4,h5,h6{margin-top: 0;}
 
 	.widget{
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 		position: relative;
 
 		&-title{
@@ -364,7 +364,7 @@ pre{
 			border-bottom: solid 1px $accent-color;
 			text-transform: uppercase;
 			font-size: 1rem;
-			font-weight: 400;
+			font-weight: $font-weight;
 		}
 
 		&-post{
@@ -389,10 +389,10 @@ pre{
 			&-meta{
 				width: calc(100% - 130px);
 				.title{
-					font-size: 0.9375rem;
+					font-size: $font-size-sm;
 					margin: 0;
 					line-height: 1.25;
-					font-weight: 400;
+					font-weight: $font-weight;
 					&:hover{
 						color: $secondary-text-color;
 					}

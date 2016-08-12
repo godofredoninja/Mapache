@@ -6,7 +6,7 @@
 <main class="container">
 	<section class="row main-wrap layout-wrap layout-row margin-top">
 
-		{{#has tag="video"}}
+		{{#has tag="#video"}}
 			<div id="video-format" class="col s12 video-wrap">
 				<aside class="video-responsive video-featured"></aside>
 				<div class="video-content hide-before-md" style="display:none">
@@ -16,7 +16,7 @@
 			</div>
 		{{/has}}
 
-		{{#has tag="photo"}}
+		{{#has tag="#image"}}
 			{{#if image}}
 				<figure class="col s12 post-image">
 					<img src="{{image}}" alt="{{title}}" class="img-responsive"/>
@@ -42,7 +42,7 @@
 			</div>
 
 
-			{{^has tag="photo"}}
+			{{^has tag="#image"}}
 				{{#if image}}
 					<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
 				{{/if}}

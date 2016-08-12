@@ -29,7 +29,7 @@ $primary-color        : #4285f4;
 // $primary-color        : #2856b6;
 
 $primary-text-color: 	#424242;
-$secondary-text-color:	#999;
+$secondary-text-color:	#aaa;
 $accent-color: 			#eee;
 
 $divider-color: 		#DDDDDD;
@@ -41,21 +41,21 @@ $link-color     : #039be5;
 
 // social colors
 $social-colors: (
-    facebook    : #3b5998,
-    twitter     : #55acee,
-    google		: #dd4b39,
-    instagram   : #306088,
-    youtube     : #e52d27,
-    github      : #333333,
-    linkedin    : #007bb6,
-    spotify     : #2ebd59,
-    codepen     : #222222,
-    behance     : #131418,
-    dribbble    : #ea4c89,
-    flickr       : #0063DC,
-    reddit		: orangered,
-    pocket		: #F50057,
-    pinterest   : #bd081c
+	facebook    : #3b5998,
+	twitter     : #55acee,
+	google		: #dd4b39,
+	instagram   : #306088,
+	youtube     : #e52d27,
+	github      : #333333,
+	linkedin    : #007bb6,
+	spotify     : #2ebd59,
+	codepen     : #222222,
+	behance     : #131418,
+	dribbble    : #ea4c89,
+	flickr       : #0063DC,
+	reddit		: orangered,
+	pocket		: #F50057,
+	pinterest   : #bd081c
 );
 
 
@@ -93,6 +93,7 @@ $headings-font-weight:     500;
 $headings-line-height:     1.1;
 $headings-color:           inherit;
 
+$font-weight:				500;
 
 $blockquote-font-size:     1.125rem;
 
@@ -108,7 +109,7 @@ $header-height: 56px;
 ========================================================================== */
 $footer-bg-color:   #131313;
 $footer-color-link: #ffffff;
-$footer-color:      #cfd8dc;
+$footer-color:      $secondary-text-color;
 
 
 /* 6. Code Syntax
