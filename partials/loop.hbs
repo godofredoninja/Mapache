@@ -31,7 +31,7 @@
 									<i class="point">·</i>
 									{{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
 									<i class="point">·</i>
-									<span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></span>
+									<time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
 								</div>
 
 								<div class="entries-excerpt hide-before-lg">{{excerpt words="15"}}</div>
@@ -43,13 +43,13 @@
 			</div>
 
 			{{! -- Add Pagination -- }}
-			{{#is "paged"}} 
+			{{#is "paged"}}
 				{{"pagination"}}
 			{{else}}
-				<div class="pagination" style="display:none">    
+				<div class="pagination" style="display:none">
 					<a href="#" id="pagination" class="pagination-link" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">Load more</a>
-				</div>  
-			{{/is}}			
+				</div>
+			{{/is}}
 
 		</div>
 

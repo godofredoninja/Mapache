@@ -1,73 +1,81 @@
 .btn{
-    background-color: #fff;
-    border-radius: 2px;
-    border: 0;
-    box-shadow: none;
-    color: $btn-secondary-color;
-    cursor: pointer;
-    display: inline-block;
-    font: 500 14px/20px $primary-font;
-    height: 36px;
-    margin: 0;
-    min-width: 36px;
-    outline: 0;
-    overflow: hidden;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    transition: background-color .2s,box-shadow .2s;
-    vertical-align: middle;
-    white-space: nowrap;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 0;
+	box-shadow: none;
+	color: $btn-secondary-color;
+	cursor: pointer;
+	display: inline-block;
+	font: 500 14px/20px $primary-font;
+	height: 36px;
+	margin: 0;
+	min-width: 36px;
+	outline: 0;
+	overflow: hidden;
+	padding: 8px;
+	text-align: center;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	transition: background-color .2s,box-shadow .2s;
+	vertical-align: middle;
+	white-space: nowrap;
 
-    + .btn{margin-left: 8px;}
+	+ .btn{margin-left: 8px;}
 
-    &:focus,
-    &:hover{
-        background-color: $btn-background-color;
-        text-decoration: none !important;
-    }
-    &:active{
-        background-color: $btn-active-background;
-    }
+	&:focus,
+	&:hover{
+		background-color: $btn-background-color;
+		text-decoration: none !important;
+	}
+	&:active{
+		background-color: $btn-active-background;
+	}
 
-    &.btn-primary{
-        background-color: $btn-primary-color;
-        color: #fff;
-        &:hover{background-color: darken($btn-primary-color, 4%);}
-    }
-    &.btn-circle{
-        border-radius: 50%;
-        height: 40px;
-        line-height: 40px;
-        padding: 0;
-        width: 40px;
-    }
-    &.btn-shadow{
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
-        color: #333;
-        background-color: #eee;
-        &:hover{background-color: rgba(0,0,0,0.12);}
-    }
+	&.btn-primary{
+		background-color: $btn-primary-color;
+		color: #fff;
+		&:hover{background-color: darken($btn-primary-color, 4%);}
+	}
+	&.btn-circle{
+		border-radius: 50%;
+		height: 40px;
+		line-height: 40px;
+		padding: 0;
+		width: 40px;
+	}
+	&.btn-circle-small{
+		border-radius: 50%;
+		height: 32px;
+		line-height: 32px;
+		padding: 0;
+		width: 32px;
+		min-width: 32px;
+	}
+	&.btn-shadow{
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+		color: #333;
+		background-color: #eee;
+		&:hover{background-color: rgba(0,0,0,0.12);}
+	}
 
-    &.btn-download-cloud,
-    &.btn-download{
-        background-color: $btn-primary-color;
-        color: #fff;
-        &:hover{background-color: darken($btn-primary-color, 8%);}
-        &:after{
-            @extend %font-icons;
-            margin-left: 5px;
-            font-size: 1.1rem;
-            display: inline-block;
-            vertical-align: top;
-        }
-    }
+	&.btn-download-cloud,
+	&.btn-download{
+		background-color: $btn-primary-color;
+		color: #fff;
+		&:hover{background-color: darken($btn-primary-color, 8%);}
+		&:after{
+			@extend %font-icons;
+			margin-left: 5px;
+			font-size: 1.1rem;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
 
-    &.btn-download:after{content: $i-download;}
-    &.btn-download-cloud:after{content: $i-cloud_download;}
-    &.external:after{font-size: 1rem;}
+	&.btn-download:after{content: $i-download;}
+	&.btn-download-cloud:after{content: $i-cloud_download;}
+	&.external:after{font-size: 1rem;}
 }
 
 
@@ -76,31 +84,31 @@
 
 //  Input
 .input-group {
-    position: relative;
-    display: table;
-    border-collapse: separate;
+	position: relative;
+	display: table;
+	border-collapse: separate;
 }
 
 
 
 
 .form-control {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 14px;
-    line-height: 1.42857;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
-    height: 36px;
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 14px;
+	line-height: 1.42857;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+	height: 36px;
 
-    &:focus {
-        border-color: $btn-primary-color;
-        outline: 0;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($btn-primary-color,0.6);
-    }
+	&:focus {
+		border-color: $btn-primary-color;
+		outline: 0;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($btn-primary-color,0.6);
+	}
 }

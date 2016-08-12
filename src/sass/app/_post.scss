@@ -2,121 +2,121 @@
 ========================================================================== */
 .post{
 
-    .title{
-        // color: #333;
-        margin: 0 0 0.625rem;
-        font-size:  1.75rem;
-        line-height: 1.2;
-        padding: 0;
-        height: auto;
-    }
-    img{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    // excerpt
-    p.excerpt{
-        line-height: 1.3;
-        font-size: $font-size-lg;
-        color: #7D7D7D;
-        margin-bottom: 10px;
-    }
-    //  Image
-    &-image{
-        margin-bottom: 1.45rem;
-        overflow: hidden;
-    }
-    // post content
-    &-content{
-        // color: #424242;
-        h2{
-            border-bottom: 1px solid $divider-color;
-            font-weight: 300;
-            margin: 2.50rem 0 1.25rem;
-            padding-bottom: 3px;
-        }
-        h3,h4{
-            margin: 32px 0 16px;
-        }
-        a:focus {text-decoration: underline;}
+	.title{
+		// color: #333;
+		margin: 0 0 0.625rem;
+		font-size:  1.75rem;
+		line-height: 1.2;
+		padding: 0;
+		height: auto;
+	}
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	// excerpt
+	p.excerpt{
+		line-height: 1.3;
+		font-size: $font-size-lg;
+		color: #7D7D7D;
+		margin-bottom: 10px;
+	}
+	//  Image
+	&-image{
+		margin-bottom: 1.45rem;
+		overflow: hidden;
+	}
+	// post content
+	&-content{
+		// color: #424242;
+		h2{
+			border-bottom: 1px solid $divider-color;
+			font-weight: 300;
+			margin: 2.50rem 0 1.25rem;
+			padding-bottom: 3px;
+		}
+		h3,h4{
+			margin: 32px 0 16px;
+		}
+		a:focus {text-decoration: underline;}
 
-        iframe{
-            display: block !important;
-            margin: 0 auto 1.5rem auto !important;
-            text-align: center;
-        }
-    }
-    // tags
-    .tags{
-        margin: 1.25rem 0;
-        .tag{
-            margin: 0 10px 10px 0;
-            text-transform: capitalize;
-        }
-    }
-    // commets
-    .comments{
-        margin: 0 0 1.5rem;
-    }
+		iframe{
+			display: block !important;
+			margin: 0 auto 1.5rem auto !important;
+			text-align: center;
+		}
+	}
+	// tags
+	.tags{
+		margin: 1.25rem 0;
+		.tag{
+			margin: 0 10px 10px 0;
+			text-transform: capitalize;
+		}
+	}
+	// commets
+	.comments{
+		margin: 0 0 1.5rem;
+	}
 
 }
 
-/* Post author line top
+/* Post author line top (author - time - tag)
 ========================================================================== */
 .post-byline{
-    color: #aaa;
-    font-size: $font-size-sm;
-    margin-bottom: 1.5rem;
+	color: #aaa;
+	font-size: $font-size-sm;
+	margin-bottom: 1.5rem;
 
-    @media #{$md-and-up}{
-        font-size: 1rem;
-    }
+	@media #{$md-and-up}{
+		font-size: 1rem;
+	}
 
-    a{
-        font-weight: 500;
-        &:active{
-            text-decoration: underline;
-        }
-    }
+	a{
+		font-weight: 500;
+		&:active{
+			text-decoration: underline;
+		}
+	}
 }
 
 .post-authorAvatar{
-    background-position: center center;
-    background-size: cover;
-    border-radius: 50%;
-    height: 32px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
-    width: 32px;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 50%;
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+	width: 32px;
 }
 
 
-/* Post meta 
+/* Post meta (loop entries)
 ========================================================================== */
 .meta{
-    margin-bottom: 1rem;
-    line-height: 1;
+	margin-bottom: 1rem;
+	line-height: 1;
 
-    &-author-date{
-        font-size: $font-size-sm;
-        color: $secondary-text-color;
-        margin: 10px 0 5px;
+	&-author-date{
+		font-size: $font-size-sm;
+		color: $secondary-text-color;
+		margin: 10px 0 5px;
 
-        a{color: inherit}
+		a{color: inherit}
 
-        .author-name a,
-        .tag a{
-            color: $primary-text-color;
-        }
-        .author-name a:hover{color: $secondary-text-color;}
+		.author-name a,
+		.tag a{
+			color: $primary-text-color;
+		}
+		.author-name a:hover{color: $secondary-text-color;}
 
-        .point{
-            margin: 0 2px;
-            display: inline-block;
-        }
-    }
+		.point{
+			margin: 0 2px;
+			display: inline-block;
+		}
+	}
 
 }
 
@@ -124,158 +124,122 @@
 /* Post Action social media
 ========================================================================== */
 .post-actions{
-    position: relative;
-    margin-bottom: 1.5rem;
+	position: relative;
+	margin-bottom: 1.5rem;
 
-    a{
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.125rem;
+	a{
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.125rem;
 
-        &:hover{
-            background-color: #000 !important;
-        }
-    }
+		&:hover{
+			background-color: #000 !important;
+		}
+	}
 
-    li{
-        display: block;
-        float: left;
-        margin-left: 6px;
+	li{
+		display: block;
+		float: left;
+		margin-left: 6px;
 
-        &:first-child {
-            margin-left: 0;
-            // border-right: 1px solid #EEE;
-            // width: 80px;
-        }
-    }    
-}
+		&:first-child {
+			margin-left: 0 !important;
+		}
+	}
 
-.post-actions-comment{
-    background: $primary-color;
-    border-radius: 18px;
-    color: #FFF;
-    display: inline-block;
-    font-weight: 500;
-    height: 32px;
-    line-height: 16px;
-    padding: 8px 8px 8px 10px;
-    width: 64px;
+	&.post-actions--bottom .btn{border-radius: 0;}
 
-    i{    
-        margin-right: 4px;        
-    }
-}
+	&-comment{
+		background: $primary-color;
+		border-radius: 18px;
+		color: #FFF;
+		display: inline-block;
+		font-weight: 500;
+		height: 32px;
+		line-height: 16px;
+		padding: 8px 8px 8px 10px;
+		width: 64px;
 
-.post-actions-shares{ 
-    padding: 0 8px;
-    text-align: center;
-    line-height: 1; 
-}
-.post-actions-shares-count{
-    color: #000;
-    font-size: 22px;
-    font-weight: bold;
-}
-.post-actions-shares-label{
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #AAA;
-    font-size: 12px;
-}
+		i{
+			margin-right: 4px;
+		}
+	}
 
-.post-actions-share {
-    border-radius: 50%;
-    display: block;
-    height: 32px;    
-    width: 32px;
-    line-height: 32px;
-    text-align: center;    
+	&-shares{
+		padding: 0 8px;
+		text-align: center;
+		line-height: 1;
+	}
+	&-shares-count{
+		color: #000;
+		font-size: 22px;
+		font-weight: bold;
+	}
+	&-shares-label{
+		font-weight: 500;
+		text-transform: uppercase;
+		color: #AAA;
+		font-size: 12px;
+	}
+
 }
 
 
-/* Social Share
-========================================================================== */
-.social-share{
-    padding: 5px 0;
-    font-size: $font-size-sm;
 
-    .share-count{
-        text-align: center;
-        // color: #000;
-        margin-right: 5px;
-        margin-left: 5px;
-    }
-    .share{
-        display: inline-block;
-        vertical-align: middle;
-        padding: 5px;
-        font-size: $font-size-lg;
-        cursor: pointer;
-        &:hover{
-            opacity: .7;
-        }
-    }
-
-    .btn{
-        padding: 8px 10px;
-        border-radius: 0;
-        color: #fff;
-    }
-}
 
 
 /* bottom share and bottom subscribe
 ========================================================================== */
 .share-subscribe{
-    margin-bottom: 1rem;
-    
-    p{
-        color: #7d7d7d;
-        margin-bottom: 1rem;
-        line-height: 1;
-        font-size: $font-size-sm;
-    }
+	margin-bottom: 1rem;
 
-    .social-share{float: none !important;}
+	p{
+		color: #7d7d7d;
+		margin-bottom: 1rem;
+		line-height: 1;
+		font-size: $font-size-sm;
+	}
 
-    &>div{
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 15px;
-        &:before{
-            content: " ";
-            border-top: solid 1px #000;
-            position: absolute;
-            top: 0;
-            left: 15px;
-            width: 40px;
-            height: 1px;
-        }
+	.social-share{float: none !important;}
 
-        h5{
-            color: #666;
-            font-size:  $font-size-sm;
-            margin: 1rem 0;
-            line-height: 1;
-            text-transform: uppercase;
-        }
-    }
+	&>div{
+		position: relative;
+		overflow: hidden;
+		margin-bottom: 15px;
+		&:before{
+			content: " ";
+			border-top: solid 1px #000;
+			position: absolute;
+			top: 0;
+			left: 15px;
+			width: 40px;
+			height: 1px;
+		}
 
-    //  subscribe
-    .newsletter-form{
-        display: flex;
+		h5{
+			color: #666;
+			font-size:  $font-size-sm;
+			margin: 1rem 0;
+			line-height: 1;
+			text-transform: uppercase;
+		}
+	}
 
-        .form-group{
-            max-width: 250px;
-            width: 100%;
-        }
+	//  subscribe
+	.newsletter-form{
+		display: flex;
 
-        .btn{
-            border-radius: 0;
-        }
-    }
+		.form-group{
+			max-width: 250px;
+			width: 100%;
+		}
+
+		.btn{
+			border-radius: 0;
+		}
+	}
 
 }
 
@@ -283,58 +247,58 @@
 /* Related post
 ========================================================================== */
 .related-posts{
-    &-list{
-        margin-bottom: 18px;
-        padding: 0;
-        border: none;
-    }
-    &-title{
-        border-bottom: solid 1px $accent-color;
-        font-size: 17px;
-        font-weight: 400;
-        height: auto;
-        line-height: 17px;
-        margin: 0 0 20px;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-    }
+	&-list{
+		margin-bottom: 18px;
+		padding: 0;
+		border: none;
+	}
+	&-title{
+		border-bottom: solid 1px $accent-color;
+		font-size: 17px;
+		font-weight: 400;
+		height: auto;
+		line-height: 17px;
+		margin: 0 0 20px;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+	}
 
-    .entries{
-        border: none;
-        padding-bottom: 0;
-        .image{margin-bottom:10px;}
-        .image-link{height: 174px;}
-        .title{
-            margin: 0;
-            padding: 0;
-            font-size: 1rem;
-            line-height: 18px;
-        }
-    }
+	.entries{
+		border: none;
+		padding-bottom: 0;
+		.image{margin-bottom:10px;}
+		.image-link{height: 174px;}
+		.title{
+			margin: 0;
+			padding: 0;
+			font-size: 1rem;
+			line-height: 18px;
+		}
+	}
 
-    .no-image{
-        position: relative;
+	.no-image{
+		position: relative;
 
-        .related-posts-list{
-            background-color: $primary-color;
-            display: flex;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: 0.9375rem;
-            right: 0.9375rem;
-        }
+		.related-posts-list{
+			background-color: $primary-color;
+			display: flex;
+			align-items: center;
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			left: 0.9375rem;
+			right: 0.9375rem;
+		}
 
-        h2{
-            color: #fff;
-            text-align: center;
-            width: 100%;
-            &:hover{
-                color: rgba(255, 255, 255, 0.70);
-            }
-        }
-    }
+		h2{
+			color: #fff;
+			text-align: center;
+			width: 100%;
+			&:hover{
+				color: rgba(255, 255, 255, 0.70);
+			}
+		}
+	}
 
 }
 
@@ -343,35 +307,30 @@
 ========================================================================== */
 
 @media #{$md-and-up}{
-    .post{
-        .title{
-            font-size: 2.25rem;
-            margin: 0 0 1rem;
-        }
+	.post{
+		.title{
+			font-size: 2.25rem;
+			margin: 0 0 1rem;
+		}
 
-        .post-actions li{margin-left: 8px;}
-        .post-actions li:first-child {
-            border-right: 1px solid #EEE;
-            width: 80px;
-        }
+		// Share social media && comments count && share count
+		.post-actions{
+			&.post-actions--top li:first-child {
+				border-right: 1px solid #EEE;
+				width: 80px;
+			}
+			li{
+				margin-left: 8px;
+			}
+		}
 
-        .social-share{ float: right; }
 
-        &-content {
-            font-size: 1.125rem;
-            line-height: 32px;
-            p{
-                margin-bottom: 1.5rem;
-            }
-        }
-    }
+		&-content {
+			font-size: 1.125rem;
+			line-height: 32px;
+			p{
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
 }
-
-/* Media Query (large)
-========================================================================== */
-// @media #{$lg-and-up}{
-//     .post{
-//         .meta-author-date{ float: left;margin-top: 12px; }
-//         .meta-share{ float: right; }
-//     }
-// }
