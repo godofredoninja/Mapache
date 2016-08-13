@@ -26,6 +26,11 @@
 	&-image{
 		margin-bottom: 1.45rem;
 		overflow: hidden;
+
+		@media #{$sm-and-down}{
+			margin-left:  - ($grid-gutter-width / 2);
+			margin-right: - ($grid-gutter-width / 2);
+		}
 	}
 	// post content
 	&-content{
@@ -111,11 +116,6 @@
 			color: $primary-text-color;
 		}
 		.author-name a:hover{color: $secondary-text-color;}
-
-		.point{
-			margin: 0 2px;
-			display: inline-block;
-		}
 	}
 
 }
