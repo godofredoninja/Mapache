@@ -482,15 +482,48 @@ pre{
 
 /* Page error 404
 ========================================================================== */
-.errorpage{
-	min-height: 85vh;
+.errorPage{
+	font-family: 'Roboto Mono', monospace;
+	height: 100vh;
+	position: relative;
+	width: 100%;
+
 	&-title{
-		font-size: 5rem;
-		margin-top: 0;
+		padding: 24px 60px;
+	}
+
+	&-link{
+		color: rgba(0,0,0,0.54);
+		font-size: 22px;
+		font-weight: 500;
+		left: -5px;
+		position: relative;
+		text-rendering: optimizeLegibility;
+		top: -6px;
+	}
+
+	&-emoji{
+		color: rgba(0,0,0,0.4);
+		font-size: 150px;
+	}
+
+	&-text{
+		color: rgba(0,0,0,0.4);
+		line-height: 21px;
+		margin-top: 60px;
+		white-space: pre-wrap;
+	}
+
+	&-wrap{
+		display: block;
+		left: 50%;
+		min-width: 680px;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translate(-50%,-50%);
 	}
 }
-
-
 
 
 /* Post Twitter facebook card embed Css Center

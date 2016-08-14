@@ -1,12 +1,30 @@
-{{!-- Add Layout --}}
-{{!< default}}
-
-{{!-- Add Error Page 404 --}}
-<main class="container errorpage vertiacal-aling margin-top">
-    <div class="vertiacal-aling-wrap">
-        <div class="vertiacal-aling-content errorpage-content">
-            <h1 class="errorpage-title">404</h1>
-            <p>Oops! Looks like what you're looking for can't be found.</p>
-        </div>
-    </div>
-</main>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>{{meta_title}}</title>
+		<meta name="description" content="{{meta_description}}" />
+		{{!-- icon  --}}
+		<link rel="shortcut icon" href="{{asset "img/icon.png"}}" />
+		<link rel="icon" sizes="192x192" href="{{asset "img/icon.png"}}" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+	</head>
+	<body>
+		<div class="errorPage">
+			<div class="errorPage-title">
+				<a class="errorPage-link" href="{{@blog.url}}">{{@blog.title}}</a>
+			</div>
+			<div class="errorPage-wrap">
+				<div id="emoji" class="errorPage-emoji">(>_<)</div>
+				<div class="errorPage-text">Unfortunately, this page doesn't exist</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var emoji = ['(·.·)', '(>_<)', '(^-^*)', '(≥o≤)', '(˚Δ˚)b', '(·_·)', '(;-;)']
+			var emojiRandom = emoji[Math.floor(Math.random()*emoji.length)];
+			document.getElementById('emoji').innerHTML = emojiRandom;
+		</script>
+	</body>
+</html>
