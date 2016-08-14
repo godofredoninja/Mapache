@@ -10,7 +10,7 @@ Mapache Javascript Functions
  * Imports and libraris and modules
  */
 import prism            from "./lib/prism.js";
-import search           from './lib/jquery.ghostHunter.js'
+import search           from './lib/jquery.ghostHunter.js';
 import mapacheShare     from './app/app.share';
 import shareCount       from './app/app.share-count';
 import pagination       from './app/app.pagination';
@@ -36,7 +36,8 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_video           = $('#video-format'),
 		$gd_social_box		= $('.social_box'),
 		$gd_footer_menu		= $('#footer-menu'),
-		$gd_sidebar_fixed    = $('#sidebar').find('.fixed'),
+		$gd_sidebar_fixed   = $('#sidebar').find('.fixed'),
+		$gd_scroll_top		= $('.scroll_top'),
 
 		url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
@@ -82,6 +83,13 @@ import mapacheRelated   from './app/app.related.post';
 		if( $gd_menu.hasClass('open') && $gd_menu.has(e.target).length === 0 ){
 			menuClose(e);
 		}
+	}
+
+	/**
+	 * Change title home
+	 */
+	if (typeof  title_home !== 'undefined') {
+		$('#title-home').html(title_home);
 	}
 
 	/**
@@ -164,7 +172,7 @@ import mapacheRelated   from './app/app.related.post';
 
 			$.each( youtube, ( channelName, channelId ) => {
 				$gd_video.find('.channel-name').html(`Subscribe to <strong>${channelName}</strong>`);
-				$('.g-ytsubscribe').attr('data-channelid', channelId)
+				$('.g-ytsubscribe').attr('data-channelid', channelId);
 			});
 
 			let s = document.createElement("script");
@@ -264,11 +272,11 @@ import mapacheRelated   from './app/app.related.post';
 				cache: false,
 				dataType: 'jsonp',
 
-				success:  ( commet ) => {										
-					for ( let i in commet.response ) {						
+				success:  ( commet ) => {
+					for ( let i in commet.response ) {
 						let count = commet.response[i].posts;
 						$(this).prepend(`${count}`);
-					}						
+					}
 				}
 			});
 		});
@@ -282,6 +290,21 @@ import mapacheRelated   from './app/app.related.post';
 		$('html, body').animate({scrollTop: $($(this).attr('href')).offset().top - 70}, 500, 'linear');
 	});
 
+	/**
+	 * scroll top 
+	 */
+	$window.on('scroll', function(){
+		if ($(this).scrollTop() > 100) {
+			$gd_scroll_top.addClass('visible');
+		} else {
+			$gd_scroll_top.removeClass('visible');
+		}
+	});
+
+	$gd_scroll_top.on('click', function(e){
+		e.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 500);
+	});
 
 	/**
 	 * Move excerpt

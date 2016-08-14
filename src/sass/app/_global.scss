@@ -361,6 +361,29 @@ pre{
 
 
 
+/* Scroll Top
+========================================================================== */
+.scroll_top{
+	background: #aaa;
+	border-radius: 5px;
+	bottom: 30px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 30px;
+	height: 50px;
+	line-height: 50px;
+	opacity: 0;
+	position: fixed;
+	right: 30px;
+	text-align: center;
+	transition: opacity 0.5s ease;
+	width: 50px;
+	z-index: 100;
+	&.visible{
+		opacity: 1;
+	}
+}
+
 /* sidebar
 ========================================================================== */
 .sidebar{
