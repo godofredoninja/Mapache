@@ -1,6 +1,6 @@
 # Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
 
-[![Ghost version](https://img.shields.io/badge/Ghost-0.8.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
+[![Ghost version](https://img.shields.io/badge/Ghost-0.9.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](http://bit.ly/DonateMapacheGhost)
 
@@ -81,8 +81,7 @@ Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
 - Create [Api key Disqus](https://disqus.com/api/docs/)
 - You have to enable via a checkbox on the labs page in your Ghost admin panel.
 
-![](./documentation/img-two.png)
-
+![](./documentation/img-api.png)
 
 
 
@@ -90,19 +89,30 @@ Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
 <script>
 /* Social Media Links*/
 var social_link = {
-    'google': 'https://...',
-    'youtube': 'https://...',
-    'instagram': 'https://...',
-    'snapchat': 'https://...',
-    'dribbble': 'https://...',
-    'github': 'https://...',
-    'linkedin':'https://...',
-    'spotify':'https://...',
-    'codepen':'https://...',
-    'behance':'https://...',
-    'flickr':'https://...',
-    'pinterest':'https://...',
-    'feed':'https://...',
+	'google': 'https://...',
+	'youtube': 'https://...',
+	'instagram': 'https://...',
+	'snapchat': 'https://...',
+	'dribbble': 'https://...',
+	'github': 'https://...',
+	'linkedin':'https://...',
+	'spotify':'https://...',
+	'codepen':'https://...',
+	'behance':'https://...',
+	'flickr':'https://...',
+	'pinterest':'https://...',
+	'feed':'https://...',
+}
+
+/*Title for home Page*/
+var title_home = '... your title ...';
+
+/*Footer menu*/   
+var footer_menu = {
+   '...name...': 'https://...',
+   '...name...': 'https://...',
+   '...name...': 'https://...',
+   '...name...': 'https://...',    
 }
 
 /*Youtube button subscribe for post video format*/
@@ -142,11 +152,11 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 <!-- For theme white add two-color logo 230px * 130px -->
 
 <!--
-    ***** 230px *****
-    *				*
-    ***************** 130px
-    *				*
-    *****************
+	***** 230px *****
+	*				*
+	***************** 130px
+	*				*
+	*****************
 -->
 
 
@@ -164,37 +174,29 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 ```html
 
 <div class="widget">
-    <div class="title-primary">...your title...</div>
-    ... your content ...
+	<div class="title-primary">...your title...</div>
+	... your content ...
 </div>
 
 <!-- Add your content here - block fixed -->
 <div class="widget">
-    <div class="fixed">
-        ... your content fixed ...
-    </div>
+	<div class="fixed">
+		... your content fixed ...
+	</div>
 </div>
 
 ```
 
 
-### Excerpt
-
-```html
-<p class="excerpt">... Your Excerpt...</p>
-```
-
-![](./documentation/excerpt.png)
-
 ### Buttons
 ```html
-... <a class="external">Your link external</a> ...
+... <a class="external" href="http://..." >Your link external</a> ...
 
-<a class="btn external">link external</a>
+<a class="btn external" href="http://..." >link external</a>
 
-<a class="btn btn-download">download</a>
+<a class="btn btn-download" href="http://..." >download</a>
 
-<a class="btn btn-download-cloud">download</a>
+<a class="btn btn-download-cloud" href="http://..." >download</a>
 ```
 ![](./documentation/buttons.png)
 
@@ -212,17 +214,19 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 
 ### PrismJS code syntax  
 
-Add the alias according to what you need ` ```xxx ` for example for sass ` ```scss ` [List language Prismjs](http://prismjs.com/#languages-list)
+Add the alias according to what you need  [List language Prismjs](http://prismjs.com/#languages-list)
 
 ![](./documentation/code.png)
 
 ## Video Post Format
-if you want to have a video format, you only have to add a tag `video` the first video will move to large size
+if you want to have a video format, you only have to add a tag `#video` the first video will move to large size
+
+![](./documentation/video-format.png)
 
 ![](./documentation/video.png)
 
 ## Image Post Format
-if you want to have a image format, you only have to add a tag `photo` the image Featured will move to large size
+if you want to have a image format, you only have to add a tag `#image` the image Featured will move to large size
 
 ### Credits
 - [Normalize](https://necolas.github.io/normalize.css/)
