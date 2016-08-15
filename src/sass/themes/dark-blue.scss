@@ -2,4 +2,4 @@ $color-theme: #01579B;
 
 @import "../app/mixin-theme";
 
-@include colorBlue($color-theme);
+@include colorFull($color-theme);

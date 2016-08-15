@@ -18,14 +18,17 @@
 
 	a,
 	.btn,
+	.related-posts .entries .title:hover,
 	.pagination .pagination-link{
 		color: $color-theme;
 	}
+
 
 	.header.toolbar-shadow,
 	.cover,
 	.btn.btn-primary,
 	.sidebar .title-primary,
+	.post-actions-comment,
 	.related-posts .no-image .related-posts-list{
 	  background-color: $color-theme !important;
 	}

@@ -377,10 +377,12 @@ pre{
 	right: 30px;
 	text-align: center;
 	transition: opacity 0.5s ease;
+	visibility: hidden;
 	width: 50px;
 	z-index: 100;
 	&.visible{
 		opacity: 1;
+		visibility: visible;
 	}
 }
 
