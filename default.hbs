@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
-    {{!-- icon  --}}
-    <link rel="shortcut icon" href="{{asset "img/icon.png"}}">
-    <link rel="icon" sizes="192x192" href="{{asset "img/icon.png"}}" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Fira+Mono' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
-    {{! Ghost outputs important style and meta data with this tag }}
-    {{ghost_head}}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}" />
+	{{!-- icon  --}}
+	<link rel="shortcut icon" href="{{asset "img/icon.png"}}" />
+	<link rel="icon" sizes="192x192" href="{{asset "img/icon.png"}}" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Fira+Mono' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+	{{! Ghost outputs important style and meta data with this tag }}
+	{{ghost_head}}
 </head>
 <body>
-    <div class="mapache">
-        {{!-- Add Header --}}
-        {{> "header"}}
-        {{!-- Add Content Body --}}
-        {{{body}}}
-        {{!-- Add footer --}}
-        {{> "footer"}}
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    {{! Ghost outputs important scripts and data with this tag }}
-    {{ghost_foot}}
-    <div class="overlay hide-after-lg"></div>
-    <script src="{{asset "js/bundle.min.js"}}"></script>
+	<div class="mapache">
+		{{!-- Add Header --}}
+		{{> "header"}}
+		{{!-- Add Content Body --}}
+		{{{body}}}
+		{{!-- Add footer --}}
+		{{> "footer"}}
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	{{! Ghost outputs important scripts and data with this tag }}
+	{{ghost_foot}}
+	<div class="overlay hide-after-lg"></div>
+	<a href="#" class="scroll_top hide-before-lg i-arrow_upward"></a>
+	<script src="{{asset "js/bundle.min.js"}}"></script>
 </body>
 </html>

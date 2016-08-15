@@ -6,7 +6,7 @@
 <main class="container">
 	<section class="row main-wrap layout-wrap layout-row margin-top">
 
-		{{#has tag="video"}}
+		{{#has tag="#video"}}
 			<div id="video-format" class="col s12 video-wrap">
 				<aside class="video-responsive video-featured"></aside>
 				<div class="video-content hide-before-md" style="display:none">
@@ -16,7 +16,7 @@
 			</div>
 		{{/has}}
 
-		{{#has tag="photo"}}
+		{{#has tag="#image"}}
 			{{#if image}}
 				<figure class="col s12 post-image">
 					<img src="{{image}}" alt="{{title}}" class="img-responsive"/>
@@ -29,37 +29,38 @@
 			<h1 class="title">{{title}}</h1>
 
 			{{!-- author, date, tag, comments - share count and btn share--}}
-			<div class="meta clear">
-				<div class="meta-author-date">
-					{{#author}}<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>{{/author}}
-					<i class="point">·</i>
-					<span class="timestamp"><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> <span>in</span></span>
-					<span class="tag">{{tags limit="1"}}</span>
-					<i class="point">·</i>
-					<span class="comment-count">
-						<i class="i-chat"></i>
-						<a class="gd-comment_count scrolltop" href="#comments">
-							<!-- <span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
-							<span>Comments</span> -->
-							<span class="disqus-comment-count" data-disqus-url="{{url absolute="true"}}">0 Comments</span>
-						</a>
-					</span>
-				</div>
-				<aside class="social-share">
-					<div style="display:inline-block;margin-right:5px;" godo-url="{{url absolute="true"}}" class="share-count"><strong style="margin-right:5px">0</strong><span>Shares</span></div>
-					<span class="share i-facebook c-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></span>
-					<span class="share i-twitter c-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-					<span class="share i-reddit c-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></span>
-					<span class="share i-pinterest c-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></span>
-					<span class="share i-pocket c-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></span>
-				</aside>
+
+			<div class="post-byline">
+			{{#author}}
+				<a class="post-authorAvatar hide-before-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
+				<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>
+			{{/author}}
+				<i class="point">—</i>
+				<time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+				<span>in</span>
+				<span class="tag">{{tags limit="1"}}</span>
 			</div>
 
-			{{^has tag="photo"}}
+
+			{{^has tag="#image"}}
 				{{#if image}}
 					<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
 				{{/if}}
 			{{/has}}
+
+			<ul class="post-actions post-actions--top u-unstyled clear">
+				<li><a class="post-actions-comment scrolltop" href="#comments"><i class="i-chat"></i><span class="gd-comment_count" godo-url="{{url absolute="true"}}"></span></a></li>
+				<li class="post-actions-shares">
+					<div class="post-actions-shares-count share-count" godo-url="{{url absolute="true"}}">0</div>
+					<div class="post-actions-shares-label">shares</div>
+				</li>
+				<li><a href="#" class="btn btn-circle-small share i-facebook bg-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></a></li>
+				<li><a href="#" class="btn btn-circle-small share i-twitter bg-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></a></li>
+				<li><a href="#" class="btn btn-circle-small share i-reddit bg-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></a></li>
+				<li><a href="#" class="btn btn-circle-small share i-linkedin bg-linkedin" godo-share="linkedin" godo-url="{{url absolute="true"}}"></a></li>
+				<li class="hide-before-md"><a href="#" class="btn btn-circle-small share i-pinterest bg-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></a></li>
+				<li class="hide-before-md"><a href="#" class="btn btn-circle-small share i-pocket bg-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></a></li>
+			</ul>
 
 			<div class="post-content">{{content}}</div>
 

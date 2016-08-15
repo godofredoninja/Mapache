@@ -1,5 +1,5 @@
 {{!-- Navigation Page --}}
-<header id="header" class="header">
+<header id="header" class="header{{^is "home, tag, author"}} toolbar-shadow"{{else}}" style="background:transparent"{{/is}}>
 	<div class="header-wrap">
 		{{#if @blog.navigation}}<a href="#" id="menu-open" class="menu-open header-btn i-menu hide-after-lg"></a>{{/if}}
 		<div class="header-logo">
@@ -32,7 +32,7 @@
 
 		<a href="#" id="search-btn" class="search-btn header-btn hide-after-md i-close i-search"></a>
 
-		<div class="header-social hide-before-lg">
+		<div class="header-social hide-before-lg social_box">
 			{{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
 			{{#if @blog.twitter}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
 		</div>

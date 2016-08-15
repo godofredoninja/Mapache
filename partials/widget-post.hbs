@@ -1,0 +1,17 @@
+<div class="widget">
+    <h3 class="widget-title">{{widgetTitle}}</h3>
+    <ul class="u-unstyled">
+        {{#foreach widgetPosts}}
+        <li class="widget-post">
+            {{#if image}}
+            <figure class="widget-post-image">
+                <a href="{{url}}" title="{{title}}" class="image-link" style="background-image:url({{image}}) "></a>
+            </figure>
+            {{/if}}
+            <div class="widget-post-meta">
+                <h3 class="title"><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
+            </div>
+        </li>
+        {{/foreach}}
+    </ul>
+</div>

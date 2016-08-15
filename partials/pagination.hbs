@@ -1,4 +1,11 @@
 {{! -- Add Pagination -- }}
-<div class="pagination" style="display:none">    
-    <a href="#" id="pagination" class="pagination-link" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">Load more</a>
-</div>
+
+<nav class="pagination-nav clear" role="navigation">
+    {{#if prev}}
+        <a class="newer-posts btn btn-primary" href="{{page_url prev}}"><i class="i-back"></i> Newer Posts</a>
+    {{/if}}
+    <span class="page-number">Page {{page}} of {{pages}}</span>
+    {{#if next}}
+        <a class="older-posts btn btn-primary" href="{{page_url next}}">Older Posts <i class="i-forward"></i></a>
+    {{/if}}
+</nav>
