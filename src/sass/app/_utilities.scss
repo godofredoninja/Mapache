@@ -17,42 +17,46 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.full-height{
-    height: 100vh;
+//  Clear both
+.u-clear{
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
 }
 
+// border-
+.u-b-b{ border-bottom: solid 1px #eee;}
+.u-b-t{ border-top: solid 1px #eee;}
+
+// Eliminar la lista de la <ul>
 .u-unstyled{
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
 }
 
+.u-floatLeft {	float: left!important; }
+.u-floatRight {	float: right!important; }
 
+//  flex box
+.u-flex{ display: flex; flex-direction: row; }
+.u-flex-wrap {display: flex; flex-wrap: wrap; }
+.u-flex-center{ display: flex; align-items: center;}
+.u-flex-aling-right { display: flex; align-items: center; justify-content: flex-end;}
+
+// margin
+.u-m-t-1{
+	margin-top: 1rem;
+}
+
+// hide global
+.u-hide{display: none !important}
 // hide before
-@media #{$md-and-down}{
-    .hide-before-md{
-        display: none !important;
-    }
-}
-
-
-@media #{$lg-and-down}{
-    .hide-before-lg{
-        display: none !important;
-    }
-}
-
+@media #{$md-and-down}{ .u-h-b-md{ display: none !important } }
+@media #{$lg-and-down}{ .u-h-b-lg{ display: none !important } }
 
 // hide after
-@media #{$md-and-up}{
-    .hide-after-md{
-        display: none !important;
-    }
-}
-
-// hide after
-@media #{$lg-and-up}{
-    .hide-after-lg{
-        display: none !important;
-    }
-}
+@media #{$md-and-up}{ .u-h-a-md{ display: none !important } }
+@media #{$lg-and-up}{ .u-h-a-lg{ display: none !important } }

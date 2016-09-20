@@ -32,6 +32,23 @@
 		background-color: $btn-active-background;
 	}
 
+	&.btn-lg{
+		font-size: 1.5rem;
+		min-width: 48px;
+		height: 48px;
+		line-height: 48px;
+	}
+	&.btn-flat{
+		background: 0;
+		box-shadow: none;
+		&:focus,
+		&:hover,
+		&:active{
+			background: 0;
+			box-shadow: none;
+		}
+	}
+
 	&.btn-primary{
 		background-color: $btn-primary-color;
 		color: #fff;

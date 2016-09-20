@@ -132,6 +132,12 @@ ol{
 }
 
 
+.footer,
+.main{
+	transition: transform .5s ease;
+	z-index: 2;
+}
+
 /* Code Syntax
 ========================================================================== */
 kbd,samp,code{
@@ -340,9 +346,7 @@ pre{
 
 
 
-.mapache{
-	overflow: hidden;
-}
+
 
 
 // overlay open menu

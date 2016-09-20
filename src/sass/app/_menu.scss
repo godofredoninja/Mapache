@@ -1,61 +1,44 @@
 // Menu Page
 
-.menu-mobile{
-    background: #fff;
-    bottom: 0;
-    box-shadow: 0 9px 18px 0 rgba(0,0,0,0.18);
-    left: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 256px;
-    z-index: 60;
-    transition-duration: .3s;
-    transform: translate3d(-100%,0,0);
-    transition: all .4s cubic-bezier(.25,.8,.58,1);
 
-    &.open{
-        transform: translate3d(0%,0,0);
-    }
+/* Navigation Mobile
+========================================================================== */
+.nav-mob {
+	height: 100vh;
+	left: 0;
+	background: linear-gradient(to bottom right,#c09,#f42 85%);
+	padding: 48px 20px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(100%);
+	transition: .4s;
+	will-change: transform;
+	z-index: 997;
+
+	a{
+		color: #000;
+	}
+
+	h5{
+		font-weight: 500;
+		letter-spacing: .04em;
+		line-height: 1.5;
+		margin: 0;
+		padding: 0;
+		text-transform: uppercase;
+	}
+
+	ul {
+		a{
+			display: block;
+			font-weight: 600;
+			padding: 5px 0;
+			text-transform: uppercase;
+		}
+	}
 
 
 
-    // Menu conten list
-    &-wrap{
-        height: 100%;
-        margin-bottom: 10px;
-        overflow-y: auto;
-        padding-bottom: 8px;
-        width: 100%;
-        padding-top: 1rem;
-    }
 
-    // Menu all links
-    .navigation-link {
-        color: $primary-text-color;
-        display: block;
-        font-size: 14px;
-        font-weight: 500;
-        height: 48px;
-        line-height: 50px;
-        opacity: .85;
-        overflow: hidden;
-        padding: 0 12px 0 20px;
-        -webkit-transition: background-color .3s cubic-bezier(0,0,0.2,1);
-        transition: background-color .3s cubic-bezier(0,0,0.2,1);
-        display: flex;
-
-        &.active,
-        &:hover{
-            background-color: #e7e7e7;
-        }
-    }
-
-    &-text{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        word-break: break-all;
-        -webkit-user-select: none;
-    }
 }

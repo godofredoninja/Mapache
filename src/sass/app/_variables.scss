@@ -103,7 +103,8 @@ $blockquote-font-size:     1.125rem;
 $header-bg: $primary-color;
 $header-color: #fff;
 $header-height: 56px;
-
+$header-search-bg: #eee;
+$header-search-color: #757575;
 
 /* 5. Footer
 ========================================================================== */
@@ -173,3 +174,4 @@ $i-cloud_download:   '\e2c0';
 $i-check_circle:     '\e86c';
 $i-play:			 "\e901";
 $i-code:			 "\f121";
+$i-close:			 "\e5cd";

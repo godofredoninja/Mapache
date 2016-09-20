@@ -56,25 +56,18 @@ import mapacheRelated   from './app/app.related.post';
 	$('.share').bind('click', shareSocial);
 	$document.on('mouseup', mouseUp);
 
-	/**
-	 * menu Mobile open
-	 */
-	$('#menu-open').on('click', e => {
+	/* Menu open and close for mobile */
+	$('#nav-mob-toggle').on('click', function(e) {
 		e.preventDefault();
-		$('html').attr('mapache-state','no-scroll');
-		$('.overlay').css(overlay);
-		$gd_menu.addClass('open');
+		$('body').toggleClass('is-showNavMob');
 	});
 
-	/**
-	 * Menu Close Mobile
-	 */
-	function menuClose(e) {
+	/* Seach open and close for Mobile */
+	$('#search-mob-toggle').on('click', function(e) {
 		e.preventDefault();
-		$('html').removeAttr('mapache-state');
-		$('.overlay').removeAttr('style');
-		$gd_menu.removeClass('open');
-	}
+		$gd_header.toggleClass('is-showSearchMob');
+		$gd_search_input.focus();
+	});
 
 	/**
 	 *  Functions MouseUp
@@ -95,12 +88,12 @@ import mapacheRelated   from './app/app.related.post';
 	/**
 	 *  Search Open and close mobile
 	 */
-	$gd_search_btn.on('click', function(e) {
-		e.preventDefault();
-		$(this).toggleClass('i-search');
-		$gd_header.toggleClass('responsive-search-open');
-		$gd_search_input.focus();
-	});
+	// $gd_search_btn.on('click', function(e) {
+	// 	e.preventDefault();
+	// 	$(this).toggleClass('i-search');
+	// 	$gd_header.toggleClass('responsive-search-open');
+	// 	$gd_search_input.focus();
+	// });
 
 	/**
 	 * Search open an close desktop.
@@ -109,13 +102,13 @@ import mapacheRelated   from './app/app.related.post';
 	$document.on('ready', () => {
 
 		$gd_search_input.focus( () => {
-			$gd_header.addClass('search-active');
+			$gd_header.addClass('is-showSearch');
 			$('.search-popout').removeClass('closed');
 		});
 
 		$gd_search_input.blur( () => {
 			setTimeout( () => {
-				$gd_header.removeClass('search-active');
+				$gd_header.removeClass('is-showSearch');
 				$('.search-popout').addClass('closed');
 			}, 200);
 		});
@@ -291,7 +284,7 @@ import mapacheRelated   from './app/app.related.post';
 	});
 
 	/**
-	 * scroll top 
+	 * scroll top
 	 */
 	$window.on('scroll', function(){
 		if ($(this).scrollTop() > 100) {
