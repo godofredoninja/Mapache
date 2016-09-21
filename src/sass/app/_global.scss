@@ -12,14 +12,6 @@ html {
 	box-sizing: border-box;
 }
 
-
-
-// Page state no scroll
-[mapache-state~=no-scroll] {
-	height: 100%;
-	overflow: hidden;
-}
-
 a{
 	color: $link-color;
 	outline: 0;
@@ -38,9 +30,6 @@ a{
 		}
 	}
 }
-
-
-
 
 body{
 	// Make the `body` use the `font-size-root`
@@ -242,23 +231,23 @@ pre{
 
 /* Vertical Aling use Flexbox
 ========================================================================== */
-.vertiacal-aling{
-	display: flex;
-	flex-direction: column;
-	&-wrap{
-		flex-grow: 1;
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&-content{
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		text-align: center;
-	}
-}
+// .vertiacal-aling{
+// 	display: flex;
+// 	flex-direction: column;
+// 	&-wrap{
+// 		flex-grow: 1;
+// 		flex-shrink: 0;
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 	}
+// 	&-content{
+// 		display: flex;
+// 		flex-direction: column;
+// 		width: 100%;
+// 		text-align: center;
+// 	}
+// }
 
 /* Social icon color and background
 ========================================================================== */
@@ -345,23 +334,6 @@ pre{
 
 
 
-
-
-
-
-// overlay open menu
-.overlay{
-	background-color: rgba(50,50,50,0.5);
-	bottom: 0;
-	left: 0;
-	opacity: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	visibility: hidden;
-	z-index: 59;
-	transition-duration: .3s
-}
 
 
 

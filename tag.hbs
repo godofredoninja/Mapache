@@ -1,16 +1,18 @@
 {{!-- Add Layout --}}
+
 {{!< default}}
-<section id="cover" class="cover vertiacal-aling">
-    {{#if tag.image}}<div class="background" style="background-image: url({{tag.image}})"></div>{{/if}}
-    <div class="vertiacal-aling-wrap">
-        <article class="cover-wrap vertiacal-aling-content">
-            {{!-- Tag name --}}
-            <h1 class="cover-title">{{tag.name}}</h1>
-            {{!-- tag description --}}
-            <p class="cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
-        </article>
-    </div>
-    <a href="#main" class="scrolltop mouse hide-before-md"><span class="scroll"></span></a>
+
+<section id="cover" class="cover u-flex-wrap">
+	{{#if tag.image}}<div class="background" style="background-image: url({{tag.image}})"></div>{{/if}}
+
+	<article class="cover-wrap u-flex-aling-center">
+		{{!-- Tag name --}}
+		<h1 class="cover-title">{{tag.name}}</h1>
+		{{!-- tag description --}}
+		<p class="cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
+	</article>
+	<a href="#main" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>
+
 {{!-- Add Loop --}}
 {{> "loop"}}

@@ -16,17 +16,12 @@ import shareCount       from './app/app.share-count';
 import pagination       from './app/app.pagination';
 import mapacheRelated   from './app/app.related.post';
 
-// import              '../sass/main.scss';
-
-
 
 (function() {
 
 	/* variables globals */
 	const $gd_header        = $('#header'),
-		$gd_menu            = $('#menu-mobile'),
 		$gd_cover           = $('#cover'),
-		$gd_search_btn      = $('#search-btn'),
 		$gd_search          = $('#header-search'),
 		$gd_search_input    = $('.search-field'),
 		$gd_comments        = $('#comments'),
@@ -38,23 +33,19 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_footer_menu		= $('#footer-menu'),
 		$gd_sidebar_fixed   = $('#sidebar').find('.fixed'),
 		$gd_scroll_top		= $('.scroll_top'),
+		$gd_page_url		= $('body').attr('mapache-page-url'),
 
 		url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
 	var $document   = $(document),
 		$window     = $(window);
 
-	var overlay = {
-		opacity: 1,
-		visibility: 'visible'
-	};
-
-
-	/**
-	 * Functions
-	 */
-	$('.share').bind('click', shareSocial);
-	$document.on('mouseup', mouseUp);
+	/* Share article Social media */
+	$('.share').bind('click', function (e) {
+		e.preventDefault();
+		let share = new mapacheShare($(this));
+		share.godoShare();
+	});
 
 	/* Menu open and close for mobile */
 	$('#nav-mob-toggle').on('click', function(e) {
@@ -69,31 +60,10 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_search_input.focus();
 	});
 
-	/**
-	 *  Functions MouseUp
-	 */
-	function mouseUp(e) {
-		if( $gd_menu.hasClass('open') && $gd_menu.has(e.target).length === 0 ){
-			menuClose(e);
-		}
-	}
-
-	/**
-	 * Change title home
-	 */
+	/* Change title home */
 	if (typeof  title_home !== 'undefined') {
 		$('#title-home').html(title_home);
 	}
-
-	/**
-	 *  Search Open and close mobile
-	 */
-	// $gd_search_btn.on('click', function(e) {
-	// 	e.preventDefault();
-	// 	$(this).toggleClass('i-search');
-	// 	$gd_header.toggleClass('responsive-search-open');
-	// 	$gd_search_input.focus();
-	// });
 
 	/**
 	 * Search open an close desktop.
@@ -117,11 +87,12 @@ import mapacheRelated   from './app/app.related.post';
 			$('.search-suggest-results').css('display','block');
 		});
 
+
 		$gd_search_input.ghostHunter({
 			results             : "#search-results",
 			zeroResultsInfo     : false,
 			displaySearchInfo   : false,
-			result_template     : '<a href="{{link}}">{{title}}</a>',
+			result_template     : '<a href="'+$gd_page_url+'{{link}}">{{title}}</a>',
 			onKeyUp             : true,
 		});
 
@@ -196,14 +167,7 @@ import mapacheRelated   from './app/app.related.post';
 	}
 
 
-	/**
-	 * Share Social
-	 */
-	function shareSocial(e) {
-		e.preventDefault();
-		let share = new mapacheShare($(this));
-		share.godoShare();
-	}
+
 
 	/**
 	 * Share Social Count

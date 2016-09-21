@@ -1,16 +1,20 @@
 {{!-- Sidebar right --}}
-<div id="sidebar" class="col-gd-right sidebar hide-before-lg">
+<div id="sidebar" class="col-gd-right sidebar u-h-b-lg">
 
-    {{#get "posts" filter="featured:true" limit="3" as |featured|}}
-        {{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured}}
-    {{/get}}
+	{{!-- 5 articles featured in page (home - author - tag) --}}
+	{{#is "home, tag, author"}}
+		{{#get "posts" filter="featured:true" limit="5" as |featured|}}
+			{{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured}}
+		{{/get}}
+	{{/is}}
 
-    {{^is "home, tag, author"}}
-        {{#get "posts" limit="3" as |recents|}}
-            {{> "widget-post" widgetTitle="Latest" widgetPosts=recents}}
-        {{/get}}
-    {{/is}}
+	{{!-- 5 articles recents in page (post) --}}
+	{{#is "post"}}
+		{{#get "posts" limit="5" as |recents|}}
+			{{> "widget-post" widgetTitle="Latest" widgetPosts=recents}}
+		{{/get}}
+	{{/is}}
 
-    {{!-- Add your content here --}}
+	{{!-- Add your content here --}}
 
 </div>

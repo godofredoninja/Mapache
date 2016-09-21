@@ -1,18 +1,13 @@
 // Header post
 .cover{
 	background: $primary-color;
+	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 	color: #fff;
 	letter-spacing: .2px;
-	min-height: 65vh;
+	min-height: 550px;
 	position: relative;
 	text-shadow: 0 0 10px rgba(0,0,0,.33);
 	z-index: 2;
-	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-
-	&.full-height{
-		height: 100vh;
-	}
-
 
 	&-wrap{
 		margin: 0 auto;
@@ -31,7 +26,7 @@
 
 
 
-	//  scroll
+	//  cover mouse scroll
 	.mouse{
 		width: 25px;
 		position: absolute;
@@ -57,8 +52,8 @@
 		}
 	}
 
-	// background
-	.background{
+	// cover background
+	&-background{
 		position: absolute;
 		overflow: hidden;
 		background-size: cover;
@@ -82,30 +77,31 @@
 
 
 .author{
-	.info{
-		overflow: hidden;
+	a{color: #FFF!important;}
+
+	&-header{
 		margin-top: 10%;
 	}
-	.name-wrap{
+	&-name-wrap{
 		display: inline-block;
 	}
-	.title{
+	&-title{
 		display: block;
 		text-transform: uppercase;
 	}
-	.name{
+	&-name{
 		margin: 5px 0;
 		font-size: 1.75rem;
 	}
-	.description{
+	&-bio{
 		margin: 1.5rem 0;
 		line-height: 1.8;
 		font-size: 18px;
 	}
-	.avatar{
+	&-avatar{
 		display: inline-block;
 		border-radius: 90px;
-		margin-right: 5%;
+		margin-right: 10px;
 		width: 80px;
 		height: 80px;
 		background-size: cover;
@@ -113,57 +109,64 @@
 		vertical-align: bottom;
 	}
 
-	.tooltips{
-		position: relative;
-		overflow: visible;
-
-		&:after{
-			content: attr(mapache-data);
-			bottom: 110%;
-			left: 50%;
-			margin-left: -76px;
-			position: absolute;
-			width: 140px;
-			color: #FFFFFF;
-			background: #000000;
-			height: 30px;
-			line-height: 30px;
-			text-align: center;
-			visibility: visible;
-			border-radius: 6px;
-			opacity: 0;
-			visibility: hidden;
-		}
-		&:hover:after{
-			opacity: 1;
-			visibility: visible;
+	// Author meta (location - website - post total)
+	&-meta{
+		margin-bottom: 20px;
+		span{
+			display: inline-block;
+			font-size: 17px;
+			font-style: italic;
+			margin: 0 2rem 1rem 0;
+			opacity: 0.8;
+			word-wrap: break-word;
 		}
 	}
 
-	&-meta{
-		display: inline-block;
-		margin-bottom: 2.5rem;
-		margin-top: 1rem;
-		text-align: center;
-		padding: 0;
-		span{color: #fff;}
-		a{color: inherit;background: transparent}
-		.website{background-color: #90a4ae !important;}
+	.author-link:hover{
+		opacity: 1;
+	}
+
+	//  author Follow
+	&-follow{
+		a{
+			border-radius: 3px;
+			box-shadow: inset 0 0 0 2px rgba(255,255,255,.5);
+			cursor: pointer;
+			display: inline-block;
+			height: 40px;
+			letter-spacing: 1px;
+			line-height: 40px;
+			margin: 0 10px;
+			padding: 0 16px;
+			text-shadow: none;
+			text-transform: uppercase;
+			&:hover{
+				box-shadow: inset 0 0 0 2px #fff;
+			}
+		}
+
 	}
 }
 
 
-
-
-
-
 @media #{$md-and-up}{
-
 	.cover{
 		&-description{
 			font-size: $font-size-lg;
 		}
 	}
 
+}
 
+
+@media #{$md-and-down} {
+	.cover{
+		padding-top: $header-height;
+		padding-bottom: 20px;
+	}
+
+	.author-avatar{
+		display: block;
+		margin: 0 auto 10px auto;
+	}
 }

@@ -1,20 +1,20 @@
 // box-shadow
 %primary-box-shadow {
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 %font-icons{
-    font-family: 'mapache' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+	font-family: 'mapache' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 //  Clear both
@@ -26,9 +26,6 @@
 	}
 }
 
-// border-
-.u-b-b{ border-bottom: solid 1px #eee;}
-.u-b-t{ border-top: solid 1px #eee;}
 
 // Eliminar la lista de la <ul>
 .u-unstyled{
@@ -45,11 +42,14 @@
 .u-flex-wrap {display: flex; flex-wrap: wrap; }
 .u-flex-center{ display: flex; align-items: center;}
 .u-flex-aling-right { display: flex; align-items: center; justify-content: flex-end;}
+.u-flex-aling-center { display: flex; align-items: center; justify-content: center;flex-direction: column;}
 
 // margin
 .u-m-t-1{
 	margin-top: 1rem;
 }
+
+
 
 // hide global
 .u-hide{display: none !important}
