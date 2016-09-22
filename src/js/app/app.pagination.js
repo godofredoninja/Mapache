@@ -24,7 +24,12 @@ $(document).on('ready', function() {
 	$pagination.on('click', function(e){
 		e.preventDefault();
 		$pagination.addClass('infinite-scroll');
-		getPost();
+		
+		if( page <= pageTotal ){
+			getPost();
+		}else {
+			$('.pagination').remove();
+		}
 	});
 
 	/**
@@ -61,8 +66,8 @@ $(document).on('ready', function() {
 		.then( body => {
 
 			setTimeout( () => {
-				let entries = $('.entry-list',body);
-				$('#entry').append(entries);
+				let entries = $('.entry-pagination',body);
+				$('.feed-wrapper').append(entries);
 				$pagination.removeClass('loanding').html('Load more');
 				page++;
 			}, 1000);

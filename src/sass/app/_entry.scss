@@ -1,17 +1,16 @@
-.entries{
+.entry{
 	margin-bottom: 1.5rem;
 	padding-bottom: 0;
-	border-bottom: solid 1px $accent-color;
 
-	.image{
+	&-image{
 		margin-bottom: 10px;
-		&-link{
+		&--link{
 			line-height: 0;
 			display: block;
 			margin: 0;
 			overflow: hidden;
 			position: relative;
-			&:hover .entries-bg{
+			&:hover .entry-image--bg{
 				transform: scale(1.03);
 				backface-visibility: hidden;
 			}
@@ -24,10 +23,19 @@
 			margin-left: auto;
 			margin-right: auto;
 		}
+		&--bg{
+			display: block;
+			width: 100%;
+			position: relative;
+			height: 100%;
+			background-position: center;
+			background-size: cover;
+			transition: transform 0.3s;
+		}
 	}
 
 	// video play for video post format
-	.video-play{
+	&-video-play{
 		border-radius: 50%;
 		border: 2px solid #fff;
 		color: #fff;
@@ -41,10 +49,10 @@
 		transform: translate(-50%, -50%);
 		width: 65px;
 		z-index: 10;
-		&:before{line-height: inherit}
+		// &:before{line-height: inherit}
 	}
 
-	.tag{
+	&-category{
 		margin-bottom: 5px;
 		text-transform: capitalize;
 		font-size: $font-size-sm;
@@ -55,49 +63,52 @@
 		}
 	}
 
-	.title{
-		font-size: $font-size-lg;
-		margin: 0 0 1rem;
-		padding: 0;
+	&-title{
+		color: $entry-color-title;
+		font-size: $entry-font-size-mb;
 		height: auto;
 		line-height: 1.3;
-		font-weight: 400;
+		margin: 0 0 1rem;
+		padding: 0;
 		&:hover{
-			color: #777;
+			color: $entry-color-title-hover;
 		}
 	}
 
-	.meta-author-date{
+	&-byline{
 		margin-top: 0;
 		margin-bottom: 1.125rem;
+		color: $entry-color-byline;
+		font-size: $entry-font-size-byline;
 	}
 
-	// entries background
-	&-bg{
-		display: block;
-		width: 100%;
-		position: relative;
-		height: 100%;
-		background-position: center;
-		background-size: cover;
-		transition: transform 0.3s;
+	&-comments {
+		color: $entry-color-byline;
 	}
+
+	&-author{
+		color: #424242;
+		&:hover{
+			color: $entry-color-byline;
+		}
+	}
+
 
 }
 
 
 @media #{$lg-and-up}{
 
-	.entries{
+	.entry{
 		margin-bottom: 2rem;
 		padding-bottom: 2rem;
-		.title{
-			font-size: 1.625rem;
+		&-title{
+			font-size: $entry-font-size;
 		}
-		.image{
+		&-image{
 			margin-bottom: 0;
 		}
-		.image-link{
+		&-image--link{
 			height: 180px;
 		}
 	}
@@ -105,5 +116,5 @@
 }
 
 @media #{$xl-and-up}{
-	.entries .image-link{height: 250px}
+	.entry-image--link{height: 250px}
 }

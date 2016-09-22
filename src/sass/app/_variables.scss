@@ -28,7 +28,7 @@ Mapache variables styles
 $primary-color        : #4285f4;
 // $primary-color        : #2856b6;
 
-$primary-text-color: 	#424242;
+$primary-text-color: 	#333;
 $secondary-text-color:	#aaa;
 $accent-color: 			#eee;
 
@@ -107,9 +107,19 @@ $header-height: 56px;
 $header-search-bg: #eee;
 $header-search-color: #757575;
 
+
+/* 5. Entry articles
+========================================================================== */
+$entry-color-title: #222;
+$entry-color-title-hover: #777;
+$entry-font-size: 1.625rem; // 26px
+$entry-font-size-mb: 1.25rem; // 20px
+$entry-font-size-byline: 0.875rem; // 14px
+$entry-color-byline: #aaa;
+
 /* 5. Footer
 ========================================================================== */
-$footer-bg-color:   #131313;
+$footer-bg-color:   #000;
 $footer-color-link: #ffffff;
 $footer-color:      $secondary-text-color;
 

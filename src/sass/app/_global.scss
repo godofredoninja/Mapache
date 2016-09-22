@@ -229,25 +229,7 @@ pre{
 }
 
 
-/* Vertical Aling use Flexbox
-========================================================================== */
-// .vertiacal-aling{
-// 	display: flex;
-// 	flex-direction: column;
-// 	&-wrap{
-// 		flex-grow: 1;
-// 		flex-shrink: 0;
-// 		display: flex;
-// 		align-items: center;
-// 		justify-content: center;
-// 	}
-// 	&-content{
-// 		display: flex;
-// 		flex-direction: column;
-// 		width: 100%;
-// 		text-align: center;
-// 	}
-// }
+
 
 /* Social icon color and background
 ========================================================================== */
@@ -274,7 +256,7 @@ pre{
 /* pagination
 ========================================================================== */
 .pagination{
-	margin: 3.75rem auto 2.5rem;
+	margin: 4rem auto;
 	position: relative;
 	.pagination-link{
 		align-items: center;

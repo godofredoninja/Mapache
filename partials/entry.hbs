@@ -1,0 +1,28 @@
+{{!-- Entry template --}}
+<article class="entry u-b-b entry-pagination">
+	<div class="row">
+		{{#if image}}
+		<figure class="col s12 entry-image">
+			<a class="entry-image--link" href="{{url}}">
+				<img  class="u-h-a-lg" src="{{image}}" alt="{{title}}"/>
+				<span class="entry-image--bg u-h-b-lg" style="background-image:url({{image}})"></span>
+				{{#has tag="#video"}}<span class="entry-video-play i-play"></span>{{/has}}
+			</a>
+		</figure>
+		{{/if}}
+
+		<div class="col s12 entry-body" {{^if image}}style="width:100% !important"{{/if}}>
+			<div class="entry-category">{{tags limit="1"}}</div>
+			<h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
+
+			<div class="entry-byline">
+				<i class="i-chat"></i>
+				<a class="entry-comments gd-comment_count" href="{{url}}#comments" godo-url="{{url absolute="true"}}">0 Comments</a>
+				{{#author}}— by <strong><a class="entry-author" href="{{url}}">{{name}}</a></strong> —{{/author}}
+				<time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+			</div>
+
+			<div class="entry-excerpt u-h-b-lg">{{excerpt words="15"}}</div>
+		</div>
+	</div>
+</article>

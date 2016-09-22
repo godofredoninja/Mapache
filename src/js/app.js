@@ -6,9 +6,7 @@ Mapache Javascript Functions
 ========================================================================
 */
 
-/**
- * Imports and libraris and modules
- */
+/* Imports and libraris and modules */
 import prism            from "./lib/prism.js";
 import search           from './lib/jquery.ghostHunter.js';
 import mapacheShare     from './app/app.share';
@@ -30,7 +28,6 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_share_count     = $('.share-count'),
 		$gd_video           = $('#video-format'),
 		$gd_social_box		= $('.social_box'),
-		$gd_footer_menu		= $('#footer-menu'),
 		$gd_sidebar_fixed   = $('#sidebar').find('.fixed'),
 		$gd_scroll_top		= $('.scroll_top'),
 		$gd_page_url		= $('body').attr('mapache-page-url'),
@@ -191,17 +188,7 @@ import mapacheRelated   from './app/app.related.post';
 		});
 	}
 
-	/**
-	 * Menu footer
-	 */
-	function footerMenu(links) {
-		$.each( links, ( type, url ) => {
-			if( typeof url === 'string' && url_regexp.test(url) ){
-				let template = `<a title="${type}" href="${url}">${type}</a>`;
-				$gd_footer_menu.append(template).css('display','block');
-			}
-		});
-	}
+
 
 	/**
 	 * Disqus Comment
@@ -239,17 +226,13 @@ import mapacheRelated   from './app/app.related.post';
 		});
 	}
 
-	/**
-	 * Scroll btn link
-	 */
+	/* scrolltop link width click (ID)*/
 	$('.scrolltop').on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop: $($(this).attr('href')).offset().top - 70}, 500, 'linear');
+		$('html, body').animate({scrollTop: $($(this).attr('href')).offset().top - 50}, 500, 'linear');
 	});
 
-	/**
-	 * scroll top
-	 */
+	/*Scroll Top Page */
 	$window.on('scroll', function(){
 		if ($(this).scrollTop() > 100) {
 			$gd_scroll_top.addClass('visible');
@@ -289,7 +272,6 @@ import mapacheRelated   from './app/app.related.post';
 	$document.on('ready', () => {
 		shareConter();
 		if( typeof social_link != 'undefined' ) socialBox(social_link);
-		if( typeof footer_menu != 'undefined' ) footerMenu(footer_menu);
 		if( $gd_comments.length > 0 ) disqusComments();
 		if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ){ commentsCount();}
 		if( $gd_video.length > 0 ) videoPost();
