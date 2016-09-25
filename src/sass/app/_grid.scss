@@ -19,10 +19,14 @@
 @media #{$lg-and-up} {
 	.content{
 		flex: 1 !important;
-		padding-right: 28px;
+		// padding-right: 28px;
+		max-width: calc(100% - 300px) !important;
+		order: 1;
+		overflow: hidden;
 	}
 	.sidebar{
 		flex: 0 0 330px !important;
+		order: 2;
 	}
 
 	.feed-wrapper{

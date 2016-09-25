@@ -3,13 +3,14 @@
 * Articles realred use first tag
 */
 class mapacheRelated {
-	constructor(elem) {
+	constructor(elem, pageUrl) {
 		this.elem       = elem;
 		this.postID     = elem.attr('mapache-post-id');
 		this.postTotal  = elem.attr('mapache-post-total');
 		this.postTags   = elem.attr('mapache-tag');
 		this.urlApi     = ghost.url.api('posts', {include: 'tags'});
 		this.count      = 0;
+		this.pageUrl	= pageUrl;
 	}
 
 	/**
@@ -35,7 +36,7 @@ class mapacheRelated {
 			this.elem.css('display','none');
 		}
 
-		$('#related-wrap').html(html);
+		$('#post-related-wrap').html(html);
 	}
 
 	/**
@@ -51,11 +52,11 @@ class mapacheRelated {
 			post_title      = post.title,
 			post_url        = post.url;
 
-		if (post.image != null) {
+		if (post.image !== null) {
 			post_image = `
-			<figure class="image">
-				<a href="${post_url}" class="image-link">
-					<span class="entries-bg" style="background-image:url(${post.image})"></span>
+			<figure class="entry-image">
+				<a href="${this.pageUrl}${post_url}" class="entry-image--link">
+					<span class="entry-image--bg" style="background-image:url(${post.image})"></span>
 				</a>
 			</figure>`;
 
@@ -63,10 +64,10 @@ class mapacheRelated {
 		}
 
 		html = `
-		<div class="col m4 ${post_no_cover}">
-			<div class="related-posts-list">
+		<div class="col s12 m6 l4 ${post_no_cover}">
+			<div class="entry entry--small">
 				${post_image}
-				<h2 class="title"><a href="${post_url}">${post_title}</a></h2>
+				<h3 class="entry-title"><a href="${this.pageUrl}${post_url}">${post_title}</a></h3>
 			</div>
 		</div>`;
 

@@ -4,14 +4,14 @@
 	{{!-- 5 articles featured in page (home - author - tag) --}}
 	{{#is "home"}}
 		{{#get "posts" filter="featured:true" limit="5" as |featured|}}
-			{{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured}}
+			{{> "widget-entry-sidebar" widgetTitle="Featured Posts" widgetPosts=featured}}
 		{{/get}}
 	{{/is}}
 
 	{{!-- 5 articles recents in page (post) --}}
 	{{#is "post, tag, author"}}
 		{{#get "posts" limit="5" as |recents|}}
-			{{> "widget-post" widgetTitle="Latest" widgetPosts=recents}}
+			{{> "widget-entry-sidebar" widgetTitle="Latest" widgetPosts=recents}}
 		{{/get}}
 	{{/is}}
 

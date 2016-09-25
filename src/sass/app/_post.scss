@@ -1,27 +1,25 @@
 /*  Post
 ========================================================================== */
+.post-wrapper{
+	margin-top: $header-height;
+	padding-top: 1.8rem;
+}
+
 .post{
 
-	.title{
-		// color: #333;
-		margin: 0 0 0.625rem;
-		font-size:  1.75rem;
-		line-height: 1.2;
-		padding: 0;
+	&-header{
+		margin-bottom: 1.2rem;
+	}
+
+	&-title{
+		color: #222;
+		font-size:  2.25rem;
 		height: auto;
+		line-height: 1.2;
+		margin: 0 0 0.9375rem;
+		padding: 0;
 	}
-	img{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	// excerpt
-	p.excerpt{
-		line-height: 1.3;
-		font-size: $font-size-lg;
-		color: #7D7D7D;
-		margin-bottom: 10px;
-	}
+
 	//  Image
 	&-image{
 		margin-bottom: 1.45rem;
@@ -32,9 +30,9 @@
 			margin-right: - ($grid-gutter-width / 2);
 		}
 	}
+
 	// post content
-	&-content{
-		// color: #424242;
+	&-body{
 		margin-bottom: 2rem;
 		h2{
 			border-bottom: 1px solid $divider-color;
@@ -53,16 +51,21 @@
 			text-align: center;
 		}
 	}
+
 	// tags
-	.tags{
+	&-tags{
 		margin: 1.25rem 0;
-		.tag{
+		a{
 			margin: 0 10px 10px 0;
 			text-transform: capitalize;
+			background: #EBEBEB;
+			text-shadow: none;
+			box-shadow: none !important;
 		}
 	}
-	// commets
-	.comments{
+
+	// Post comments
+	&-comments{
 		margin: 0 0 1.5rem;
 	}
 
@@ -72,22 +75,20 @@
 ========================================================================== */
 .post-byline{
 	color: $secondary-text-color;
-	font-size: $font-size-sm;
-	margin-bottom: 1.5rem;
 
-	@media #{$md-and-up}{
-		font-size: 1rem;
+	@media #{$md-and-down}{
+		font-size: $font-size-sm;
+		// font-size: 1rem;
 	}
 
 	a{
 		font-weight: 500;
-		&:active{
-			text-decoration: underline;
-		}
+		&:active{ text-decoration: underline; }
 	}
+
 }
 
-.post-authorAvatar{
+.post-author-avatar{
 	background-position: center center;
 	background-size: cover;
 	border-radius: 50%;
@@ -99,28 +100,6 @@
 }
 
 
-/* Post meta (loop entries)
-========================================================================== */
-.meta{
-	margin-bottom: 1rem;
-	line-height: 1;
-
-	&-author-date{
-		font-size: $font-size-sm;
-		color: $secondary-text-color;
-		margin: 10px 0 5px;
-
-		a{color: inherit}
-
-		.author-name a,
-		.tag a{
-			color: $primary-text-color;
-		}
-		.author-name a:hover{color: $secondary-text-color;}
-	}
-
-}
-
 
 /* Post Action social media
 ========================================================================== */
@@ -130,9 +109,6 @@
 
 	a{
 		color: #fff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		font-size: 1.125rem;
 
 		&:hover{
@@ -141,13 +117,8 @@
 	}
 
 	li{
-		display: block;
-		float: left;
 		margin-left: 6px;
-
-		&:first-child {
-			margin-left: 0 !important;
-		}
+		&:first-child { margin-left: 0 !important; }
 	}
 
 	&.post-actions--bottom .btn{border-radius: 0;}
@@ -188,7 +159,40 @@
 }
 
 
+/* Post author widget bottom
+========================================================================== */
+.post-author{
+	position: relative;
+	padding: 5px 80px;
+	margin-bottom: 3rem;
+	font-size: 15px;
 
+	h5{
+		color: #AAA;
+		font-size: 12px;
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	li{
+		margin-left: 30px;
+		font-size: 14px;
+		a{color: #555;&:hover{color: #000;}}
+		&:first-child{margin-left: 0;}
+	}
+
+	&-bio{
+		max-width: 500px;
+	}
+
+	.post-author-avatar{
+		height: 64px;
+		width: 64px;
+		position: absolute;
+		left: 0;
+		top: 10px;
+	}
+}
 
 
 /* bottom share and bottom subscribe
@@ -247,14 +251,8 @@
 
 /* Related post
 ========================================================================== */
-.related-posts{
-	&-list{
-		margin-bottom: 18px;
-		padding: 0;
-		border: none;
-	}
+.post-related{
 	&-title{
-		border-bottom: solid 1px $accent-color;
 		font-size: 17px;
 		font-weight: 400;
 		height: auto;
@@ -262,6 +260,16 @@
 		margin: 0 0 20px;
 		padding-bottom: 10px;
 		text-transform: uppercase;
+	}
+
+}
+
+
+.related-posts{
+	&-list{
+		margin-bottom: 18px;
+		padding: 0;
+		border: none;
 	}
 
 	.entries{
@@ -330,7 +338,7 @@
 		}
 
 
-		&-content {
+		&-body {
 			font-size: 1.125rem;
 			line-height: 32px;
 			p{

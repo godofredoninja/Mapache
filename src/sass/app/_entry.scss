@@ -97,6 +97,24 @@
 }
 
 
+/* Entry small --small
+========================================================================== */
+.entry.entry--small{
+	margin-bottom: 0;
+	padding-bottom: 0;
+
+	.entry-image{ margin-bottom: 10px;}
+	.entry-image--link{height: 174px;}
+	.entry-title{
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+	.entry-byline{
+		margin: 0;
+	}
+}
+
+
 @media #{$lg-and-up}{
 
 	.entry{

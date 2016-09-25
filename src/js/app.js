@@ -23,7 +23,7 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_search          = $('#header-search'),
 		$gd_search_input    = $('.search-field'),
 		$gd_comments        = $('#comments'),
-		$gd_related         = $('#related'),
+		$gd_related         = $('#post-related'),
 		$gd_comment_count   = $('.gd-comment_count'),
 		$gd_share_count     = $('.share-count'),
 		$gd_video           = $('#video-format'),
@@ -142,11 +142,9 @@ import mapacheRelated   from './app/app.related.post';
 		}
 	}
 
-	 /**
-	 * Video Responsive Youtube
-	 */
+	 /* search all video in <post-body>  for Responsive*/
 	function videoResponsive() {
-		$('.post-content').each( function() {
+		$('.post-body').each( function() {
 			var selectors = [
 				'iframe[src*="player.vimeo.com"]',
 				'iframe[src*="youtube.com"]',
@@ -176,9 +174,7 @@ import mapacheRelated   from './app/app.related.post';
 		}
 	}
 
-	/**
-	 * social Box
-	 */
+	/* add social follow  */
 	function socialBox(links) {
 		$.each( links, ( type, url ) => {
 			if( typeof url === 'string' && url_regexp.test(url) ){
@@ -246,12 +242,6 @@ import mapacheRelated   from './app/app.related.post';
 		$('html, body').animate({ scrollTop: 0 }, 500);
 	});
 
-	/**
-	 * Move excerpt
-	 */
-	if ( $('p.excerpt').length > 0) {
-		$('p.excerpt').insertAfter($('h1.title'));
-	}
 
 	// sidebar hidden aside
 	function sidebarFixed() {
@@ -282,7 +272,7 @@ import mapacheRelated   from './app/app.related.post';
 		 * Post related
 		 */
 		if ($gd_related.length > 0) {
-			let related = new mapacheRelated($gd_related);
+			let related = new mapacheRelated($gd_related, $gd_page_url);
 			related.mapacheGet();
 		}
 
