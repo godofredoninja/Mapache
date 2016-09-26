@@ -2,7 +2,7 @@
 ========================================================================== */
 .header{
 	background: $primary-color;
-	color: $header-color;
+	// color: $header-color;
 	height: $header-height;
 	left: 0;
 	padding-left: 1rem;
@@ -12,18 +12,27 @@
 	top: 0;
 	z-index: 999;
 
-	&-topbar-left{ flex: 0 0 auto; height: $header-height; }
-	&-topbar-right{	flex: 1 0 auto; height: $header-height;	}
+	&-wrap a{ color: $header-color;}
 
+	&-logo,
+	&-follow a,
+	&-menu a{
+		height: $header-height;
+		@extend .u-flex-center;
+	}
+
+	&-follow,
+	&-search,
+	&-logo{
+		flex: 0 0 auto;
+	}
 
 	// Logo
 	&-logo{
 		z-index: 998;
-
-		span{
-			font-size: $font-size-lg;
-			font-weight: 500;
-		}
+		font-size: $font-size-lg;
+		font-weight: 500;
+		letter-spacing: 1px;
 		img{
 			max-height: 35px;
 			position: relative;
@@ -32,17 +41,16 @@
 
 	.nav-mob-toggle,
 	.search-mob-toggle{
-		color: $header-color;
 		padding: 0;
 		z-index: 998;
 	}
 
 	// btn mobile menu open and close
 	.nav-mob-toggle{
+		margin-left: 0 !important;
 		margin-right: - ($grid-gutter-width / 2);
 		position: relative;
 		transition: transform .4s;
-		margin: 0 !important;
 
 		span {
 		   background-color: $header-color;
@@ -62,7 +70,7 @@
 
 	// Shodow for header
 	&.toolbar-shadow{ @extend %primary-box-shadow; }
-	&-topbar:not(.toolbar-shadow) { background-color: transparent!important; }
+	&:not(.toolbar-shadow) { background-color: transparent!important; }
 
 }
 
@@ -70,25 +78,23 @@
 /* Header Navigation
 ========================================================================== */
 .header-menu{
+	flex: 1 1 0;
+	overflow: hidden;
 	transition: flex .2s,margin .2s,width .2s;
-	flex: 1 1 auto;
-	overflow-y: auto;
 
 	ul{
 		margin-left: 2rem;
-		@extend .u-flex;
+		overflow-x: auto;
+		white-space: nowrap;
 
-		li{ padding-right: 15px; }
+		li{ padding-right: 15px; display: inline-block;}
 
 		a{
-			color: #fff;
-			height: $header-height;
 			padding: 0 8px;
 			position: relative;
-			@extend .u-flex-center;
 
 			&:before{
-				background: #fff;
+				background: $header-color;
 				bottom: 0;
 				content: '';
 				height: 2px;
@@ -110,11 +116,11 @@
 
 /* header social
 ========================================================================== */
-.header-follow a{
+.header-follow a {
 	padding: 0 10px;
-	color: inherit;
 	&:hover{color: rgba(255, 255, 255, 0.80)}
 	&:before{font-size: $font-size-lg !important;}
+
 }
 
 
@@ -125,7 +131,7 @@
 	background: #eee;
 	border-radius: 2px;
 	display: none;
-	flex: 0 0 auto;
+	// flex: 0 0 auto;
 	height: 36px;
 	position: relative;
 	text-align: left;
@@ -163,7 +169,7 @@ input.search-field {
 	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24),inset 0 4px 6px -4px rgba(0,0,0,.24);
 	margin-top: 10px;
 	max-height: calc(100vh - 150px);
-	width: calc(100% + 120px);
+	// width: calc(100% + 120px);
 	margin-left: -64px;
 	overflow-y: auto;
 	position: absolute;
@@ -234,7 +240,11 @@ input.search-field {
 	// Show large search and visibility hidden header menu
 	.header.is-showSearch{
 		.header-search{
+			background: #fff;
 			flex: 1 0 auto;
+
+			.search-icon{color: #757575 !important;}
+			input{color: #212121 !important}
 		}
 		.header-menu{
 			flex: 0 0 auto;
@@ -251,11 +261,13 @@ input.search-field {
 
 @media #{$lg-and-down}{
 
+	.header-menu ul{ display: none;	}
+
 	// show search mobile
 	.header.is-showSearchMob{
 		padding: 0;
 
-		.header-topbar-left,
+		.header-logo,
 		.nav-mob-toggle{
 			display: none;
 		}
@@ -269,7 +281,10 @@ input.search-field {
 
 			input{
 				height: $header-height;
+				padding-right: 48px;
 			}
+
+			.search-popout{margin-top: 0;}
 		}
 
 		.search-mob-toggle{
