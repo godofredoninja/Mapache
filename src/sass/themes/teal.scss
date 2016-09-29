@@ -1,0 +1,5 @@
+$color-theme: #009688;
+
+@import "../app/mixin-theme";
+
+@include colorFull($color-theme);

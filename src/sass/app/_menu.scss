@@ -1,0 +1,98 @@
+/* Navigation Mobile
+========================================================================== */
+.nav-mob {
+	background: $primary-color;
+	color: #000;
+	height: 100vh;
+	left: 0;
+	padding: 0 20px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(100%);
+	transition: .4s;
+	will-change: transform;
+	z-index: 997;
+
+	a{
+		color: inherit;
+	}
+
+	ul {
+		a{
+			display: block;
+			font-weight: 500;
+			padding: 8px 0;
+			text-transform: uppercase;
+			font-size: 14px;
+		}
+	}
+
+
+	&-content{
+		background: #eee;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		bottom: 0;
+		left: 0;
+		padding: 20px 0;
+		position: absolute;
+		right: 0;
+		top: $header-height;
+	}
+
+}
+
+.nav-mob ul,
+.nav-mob-subscribe,
+.nav-mob-follow{
+	border-bottom: solid 1px #DDD;
+	padding: 0 ($grid-gutter-width / 2)  20px ($grid-gutter-width / 2);
+	margin-bottom: 15px;
+}
+
+/* Navigation Mobile follow
+========================================================================== */
+.nav-mob-follow{
+	a{
+		font-size: 20px !important;
+		margin: 0 2px !important;
+		padding: 0;
+
+		@extend .btn;
+	}
+
+	@each $social-name, $color in $social-colors {
+		.i-#{$social-name}{
+			color: #fff;
+			@extend .bg-#{$social-name};
+		}
+	}
+}
+
+/* CopyRigh
+========================================================================== */
+.nav-mob-copyright{
+	color: #aaa;
+	font-size: 13px;
+	padding: 20px 15px 0;
+	text-align: center;
+	width: 100%;
+
+	a{color: $primary-color}
+}
+
+/* subscribe
+========================================================================== */
+.nav-mob-subscribe{
+	.btn{
+		border-radius: 0;
+		text-transform: none;
+		width: 80px;
+	}
+	.form-group {width: calc(100% - 80px)}
+	input{
+		border: 0;
+		box-shadow: none !important;
+	}
+}
