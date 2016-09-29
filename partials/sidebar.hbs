@@ -9,7 +9,7 @@
 	{{/is}}
 
 	{{!-- 5 articles recents in page (post) --}}
-	{{#is "post, tag, author"}}
+	{{#is "post, tag, author, paged"}}
 		{{#get "posts" limit="5" as |recents|}}
 			{{> "widget-entry-sidebar" widgetTitle="Latest" widgetPosts=recents}}
 		{{/get}}

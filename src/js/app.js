@@ -14,17 +14,14 @@ import shareCount       from './app/app.share-count';
 import pagination       from './app/app.pagination';
 import mapacheRelated   from './app/app.related.post';
 
-
 (function() {
 
 	/* variables globals */
 	const $gd_header        = $('#header'),
 		$gd_cover           = $('#cover'),
-		$gd_search          = $('#header-search'),
 		$gd_search_input    = $('.search-field'),
-		$gd_comments        = $('#comments'),
+		$gd_comments        = $('#post-comments'),
 		$gd_related         = $('#post-related'),
-		$gd_comment_count   = $('.gd-comment_count'),
 		$gd_share_count     = $('.share-count'),
 		$gd_video           = $('#video-format'),
 		$gd_social_box		= $('.social_box'),
@@ -32,7 +29,7 @@ import mapacheRelated   from './app/app.related.post';
 		$gd_scroll_top		= $('.scroll_top'),
 		$gd_page_url		= $('body').attr('mapache-page-url'),
 
-		url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+		url_regexp 			= /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/;
 
 	var $document   = $(document),
 		$window     = $(window);
@@ -40,7 +37,7 @@ import mapacheRelated   from './app/app.related.post';
 	/* Share article Social media */
 	$('.share').bind('click', function (e) {
 		e.preventDefault();
-		let share = new mapacheShare($(this));
+		let share = new mapacheShare((this$));
 		share.godoShare();
 	});
 
@@ -84,7 +81,6 @@ import mapacheRelated   from './app/app.related.post';
 			$('.search-suggest-results').css('display','block');
 		});
 
-
 		$gd_search_input.ghostHunter({
 			results             : "#search-results",
 			zeroResultsInfo     : false,
@@ -114,16 +110,12 @@ import mapacheRelated   from './app/app.related.post';
 			} else {
 				$gd_header.removeClass('toolbar-shadow').css({'background':'transparent'});
 			}
-
 			$('.cover-wrap').css('opacity', gd_cover_wrap);
-
 		}
 	});
 
-	/**
-	 * Video Full for post tag video
-	 */
-	function videoPost() {
+	/* Video Full for Video post Format */
+	function videoPostFormat() {
 		$('.post-image').css('display', 'none');
 		let video = $('iframe[src*="youtube.com"]')[0];
 		$gd_video.find('.video-featured').prepend(video);
@@ -157,16 +149,10 @@ import mapacheRelated   from './app/app.related.post';
 			$allVideos.each( function () {
 				$(this).wrap('<aside class="video-responsive"></aside>');
 			});
-
 		});
 	}
 
-
-
-
-	/**
-	 * Share Social Count
-	 */
+	/* Share Social Count */
 	function shareConter() {
 		if ($gd_share_count.length > 0) {
 			let share_count = new shareCount($gd_share_count);
@@ -184,13 +170,9 @@ import mapacheRelated   from './app/app.related.post';
 		});
 	}
 
-
-
-	/**
-	 * Disqus Comment
-	 */
+	/* Disqus Comment */
 	function disqusComments () {
-		if(typeof disqus_shortname != 'undefined'){
+		if(typeof disqus_shortname !== 'undefined'){
 			$gd_comments.removeAttr('style');
 			let d = document, s = d.createElement('script');
 			s.src = `//${disqus_shortname}.disqus.com/embed.js` ;
@@ -199,28 +181,6 @@ import mapacheRelated   from './app/app.related.post';
 		}
 	}
 
-	/**
-	 * Comments Count Disqus
-	 */
-	function commentsCount() {
-		$gd_comment_count.each( function() {
-			let url = $(this).attr('godo-url');
-			$.ajax({
-				type: 'GET',
-				url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-				data: { api_key: disqusPublicKey, forum : disqus_shortname, thread : 'link:' + url },
-				cache: false,
-				dataType: 'jsonp',
-
-				success:  ( commet ) => {
-					for ( let i in commet.response ) {
-						let count = commet.response[i].posts;
-						$(this).prepend(`${count}`);
-					}
-				}
-			});
-		});
-	}
 
 	/* scrolltop link width click (ID)*/
 	$('.scrolltop').on('click', function(e) {
@@ -264,7 +224,7 @@ import mapacheRelated   from './app/app.related.post';
 		if( typeof social_link != 'undefined' ) socialBox(social_link);
 		if( $gd_comments.length > 0 ) disqusComments();
 		if( typeof disqus_shortname != 'undefined' && typeof disqusPublicKey != 'undefined' ){ commentsCount();}
-		if( $gd_video.length > 0 ) videoPost();
+		if( $gd_video.length > 0 ) videoPostFormat();
 		videoResponsive();
 		if ($gd_sidebar_fixed.length > 0) sidebarFixed();
 
@@ -276,12 +236,9 @@ import mapacheRelated   from './app/app.related.post';
 			related.mapacheGet();
 		}
 
-	});
+		/* Prism autoloader */
+		Prism.plugins.autoloader.languages_path = '../assets/js/prism-components/';
 
-	// onlye for me
-	// change disqus comments for facebook comments
-	// change comment count for facebook
-	// change url in search
-	// change url in post related
+	});
 
 })();

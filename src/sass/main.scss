@@ -10,7 +10,7 @@
 @import "../../node_modules/normalize.css/normalize"; // gulp
 
 @import "app/icon";
-@import "app/code";
+@import "lib/prism";
 
  /* Mixins & Variables
 ========================================================================== */
@@ -29,5 +29,6 @@
 @import "app/footer";
 @import "app/buttons";
 @import "app/post";
+@import "app/sidebar";
 @import "app/subscribe";
 @import "app/animated";

@@ -42,10 +42,10 @@ class GodoShareCount {
 	godoCount(){
 
 		$.getJSON('https://graph.facebook.com/?id=' + encodeURIComponent(this.url) + '&callback=?', response => {
-			if (response.shares === undefined) this.addCounter(0);
-			else
-				this.addCounter(response.shares);
+			if (response.share !== undefined){
+				this.addCounter(response.share.share_count);
 				this.updateCounter();
+			}
 		});
 
 	}

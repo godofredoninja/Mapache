@@ -5,10 +5,29 @@
 
 <section class="container">
 	<div class="post-wrapper">
-
 		<div class="row">
-			<div class="col s12 content">
 
+			{{!-- Video Post format  --}}
+			{{#has tag="#video-post-format"}}
+				<div id="video-format" class="col s12 video-wrap">
+					<aside class="video-responsive video-featured"></aside>
+					<div class="video-content u-h-b-md" style="display:none">
+						<span class="channel-name"></span>
+						<span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+					</div>
+				</div>
+			{{/has}}
+
+			{{!-- Image Post Format  --}}
+			{{#has tag="#image-post-format"}}
+				{{#if image}}
+					<figure class="col s12 post-image">
+						<img src="{{image}}" alt="{{title}}" class="post-img"/>
+					</figure>
+				{{/if}}
+			{{/has}}
+
+			<div class="col s12 content">
 				{{!-- Article content  --}}
 				<article class="post">
 					<header class="post-header">
@@ -26,7 +45,7 @@
 					</header>
 
 					{{!-- Add Post Image --}}
-					{{^has tag="#image"}}
+					{{^has tag="#image-post-format"}}
 						{{#if image}}<figure class="post-image"><img class="post-img" src="{{image}}" alt="{{title}}" /></figure>{{/if}}
 					{{/has}}
 
@@ -50,15 +69,14 @@
 
 					{{!-- post Comments Section --}}
 					<div id="post-comments" class="post-comments">
-						<div id="disqus_thread"></div>
+						<div id="disqus_thread" class="mapache-disqus"></div>
 						{{!-- Comments section for facebook --}}
-						<div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
+						<div class="fb-comments mapache-facebook" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
 					</div>
 
 					{{!-- Post Related --}}
 					{{> widget-post-related}}
 				</article>
-
 			</div>
 
 			{{> "sidebar"}}

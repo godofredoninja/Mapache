@@ -132,7 +132,7 @@
 		height: 32px;
 		line-height: 16px;
 		padding: 8px 8px 8px 10px;
-		width: 64px;
+		min-width: 64px;
 
 		i{
 			margin-right: 4px;
@@ -252,6 +252,8 @@
 /* Related post
 ========================================================================== */
 .post-related{
+	margin-bottom: 1.5rem;
+
 	&-title{
 		font-size: 17px;
 		font-weight: 400;
@@ -262,10 +264,6 @@
 		text-transform: uppercase;
 	}
 
-}
-
-
-.related-posts{
 	&-list{
 		margin-bottom: 18px;
 		padding: 0;
@@ -330,7 +328,8 @@
 		.post-actions{
 			&.post-actions--top li:first-child {
 				border-right: 1px solid #EEE;
-				width: 80px;
+				// width: 80px;
+				padding-right: 20px;
 			}
 			li{
 				margin-left: 8px;

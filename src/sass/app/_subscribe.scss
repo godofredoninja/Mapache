@@ -1,10 +1,24 @@
 .subscribe{
 	min-height: 90vh;
+	padding-top: $header-height;
+
+	h3{
+		margin: 0;
+		margin-bottom: 8px;
+		font: 400 20px/32px $primary-font;
+	}
 
 	&-title{
 		font-weight: 400;
 		margin-top: 0;
 	}
+
+	&-wrap{
+		max-width: 700px;
+		color: #7d878a;
+		padding: 1rem 0;
+	}
+
 	.form-group{
 		margin-bottom: 1.5rem;
 
@@ -12,23 +26,12 @@
 			input {border-color: #ff5b5b;}
 		}
 	}
-	h3{
-		margin: 0;
-		margin-bottom: 8px;
-		font: 400 20px/32px $primary-font;
-	}
 
 	.btn{
 		width: 100%;
 	}
 }
 
-
-
-.subscribe-content{
-	max-width: 700px;
-	color: #7d878a;
-}
 
 .subscribe-form{
 	position: relative;

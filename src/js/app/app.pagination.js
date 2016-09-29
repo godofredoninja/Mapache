@@ -8,7 +8,6 @@ $(document).on('ready', function() {
 
 	const $pagination   = $('#pagination'),
 		pageTotal       = $pagination.attr('mapache-page'),
-		pageLimit       = $pagination.attr('mapache-limit'),
 		urlPage         = $('link[rel=canonical]').attr('href'),
 		$win            = $(window);
 
@@ -24,7 +23,7 @@ $(document).on('ready', function() {
 	$pagination.on('click', function(e){
 		e.preventDefault();
 		$pagination.addClass('infinite-scroll');
-		
+
 		if( page <= pageTotal ){
 			getPost();
 		}else {
