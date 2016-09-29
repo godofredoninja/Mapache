@@ -18,7 +18,7 @@
 
 	a,
 	.btn,
-	.related-posts .entries .title:hover,
+	.nav-mob-copyright a,
 	.pagination .pagination-link{
 		color: $color-theme;
 	}
@@ -29,6 +29,9 @@
 	.btn.btn-primary,
 	.sidebar .title-primary,
 	.post-actions-comment,
+	.post-tags a:hover,
+	.scroll_top:hover,
+	.nav-mob,
 	.related-posts .no-image .related-posts-list{
 	  background-color: $color-theme !important;
 	}
@@ -50,6 +53,6 @@
 	}
 
 	blockquote {
-		border-left: 3px solid $color-theme;
+		border-color: $color-theme;
 	}
 }

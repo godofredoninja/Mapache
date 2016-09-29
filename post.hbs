@@ -22,7 +22,7 @@
 			{{#has tag="#image-post-format"}}
 				{{#if image}}
 					<figure class="col s12 post-image">
-						<img src="{{image}}" alt="{{title}}" class="post-img"/>
+						<img src="{{image}}" alt="{{title}}"/>
 					</figure>
 				{{/if}}
 			{{/has}}
@@ -36,7 +36,7 @@
 						{{!-- author, date, tag --}}
 						<div class="post-byline">
 						{{#author}}
-							<a class="post-author-avatar hide-before-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
+							<a class="post-author-avatar u-h-b-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
 							By <strong><a href="{{url}}">{{name}}</a> — </strong>
 						{{/author}}
 							<time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>

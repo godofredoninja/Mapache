@@ -1,30 +1,35 @@
 .header-logo{
-    img{display: none;}
-    &-bg{
-        display: inherit !important;
-        width: 150px;
-        height: 42.3915px;
-        background-position: top;
-        background-size: 100%;
-    }
+	img{display: none;}
+	&-bg{
+		display: inherit !important;
+		width: 150px;
+		height: 42.3915px;
+		background-position: top;
+		background-size: 100%;
+	}
 }
 
 .header.toolbar-shadow{
-    background-color: #fff;
+	background-color: #fff;
 
-    a{
-        color: #757575;
-        &:hover{
-            color: #212121;
-        }
-    }
-    .header-logo-bg{background-position: bottom;}
-    .header-logo span{color: #212121;}
-    .header-navigation .navigation-link:hover{color: #212121;}
-    .header-navigation .navigation-link.active{border-bottom-color: #0277bd; color: #212121;}
-    .header-search{background: #f7f7f7;}
-    .header-search:hover{background-color: #ebebeb;}
-    .header-search input[placeholder], .header-search .search-icon{color: #757575}
-    .header-social a{color: #039be5 }
-    .header-social a:hover{color:#0277bd; background-color: rgba(204,204,204,.15);}
+	a{
+		color: #000;
+		&:hover{
+			color: #212121;
+		}
+	}
+	.header-menu ul a{
+		&:before{
+			background: #000;
+		}
+	}
+	.header-logo-bg{background-position: bottom;}
+	.header-logo span{color: #212121;}
+	.header-navigation .navigation-link:hover{color: #212121;}
+	.header-navigation .navigation-link.active{border-bottom-color: #0277bd; color: #212121;}
+	.header-search{background: #f7f7f7;}
+	.header-search:hover{background-color: #ebebeb;}
+	.header-search input[placeholder], .header-search .search-icon{color: #757575}
+	.header-social a{color: #039be5 }
+	.header-social a:hover{color:#0277bd; background-color: rgba(204,204,204,.15);}
 }

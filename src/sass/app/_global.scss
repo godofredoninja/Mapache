@@ -92,7 +92,7 @@ hr {
 
 
 blockquote {
-	border-left: 3px solid $primary-color;
+	border-left: 4px solid $primary-color;
 	padding: 0.75rem 1.5rem;
 	background: #fbfbfc;
 	color: #757575;
@@ -100,6 +100,7 @@ blockquote {
 	line-height: 1.7;
 	margin: 0 0 1.25rem;
 	quotes: none;
+
 }
 
 ol,ul,blockquote{
@@ -320,7 +321,7 @@ pre{
 /* Scroll Top
 ========================================================================== */
 .scroll_top{
-	background: #aaa;
+	background: #b0b5bc;
 	border-radius: 5px;
 	bottom: 30px;
 	color: #fff;
@@ -339,6 +340,9 @@ pre{
 	&.visible{
 		opacity: 1;
 		visibility: visible;
+	}
+	&:hover{
+		background: $primary-color;
 	}
 }
 

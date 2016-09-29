@@ -1,6 +1,6 @@
 # Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
 
-[![Ghost version](https://img.shields.io/badge/Ghost-0.9.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
+[![Ghost version](https://img.shields.io/badge/Ghost-0.11.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](http://bit.ly/DonateMapacheGhost)
 
@@ -10,7 +10,7 @@
 
 Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
 
-![](./documentation/img-one.png)
+![](./documentation/mapache-screenshot.png)
 
 
 ## Demo
@@ -26,17 +26,18 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Page subscribe
 - Pagination Infinite Scroll
 - Cover images for blog, tag and author
-- Social media links
-- Post related
-- Post format Video
-- Post format Image
-- Post (5 articles) Featured in sidebar
-- Disqus Comments
-- Disqus Comments Count
-- Sharing Buttons
-- Sharing socila media Count
+- links to followers in social media
+- Related Articles (6 articles)
+- Video Post Format
+- Image post Format
+- 5 articles featured in the home of the page section sidebar
+- 5 articles latest posts in the (author - tag - post) section sidebar
+- Support for comments (Facebook or Disqus)
+- Support for counter comments (Facebook or Disqus)
+- Buttons to share the article
+- Counter shared articles on Facebook
 - YouTube, Vimeo, kickstarter -> Video Responsive
-- Code syntax Supported [Prismjs](http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+aspnet+bash+c+csharp+cpp+ruby+css-extras+git+go+java+json+less+markdown+perl+php+php-extras+python+jsx+scss+sql+swift&plugins=line-numbers)
+- Code syntax [Prismjs](http://prismjs.com/index.html) Supported all syntax.
 
 
 ## USE
@@ -57,7 +58,7 @@ $ npm install
 ### Development mode
 ```
 $ npm run dev
-$ npm run sass
+$ gulp
 ```
 
 ### Production mode
@@ -77,8 +78,6 @@ Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
 
 
 ## Mapache settings
-
-- Create [Api key Disqus](https://disqus.com/api/docs/)
 - You have to enable via a checkbox on the labs page in your Ghost admin panel.
 
 ![](./documentation/img-api.png)
@@ -87,7 +86,7 @@ Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
 
 ``` html
 <script>
-/* Social Media Links*/
+/* links to followers in social media */
 var social_link = {
 	'google': 'https://...',
 	'youtube': 'https://...',
@@ -104,27 +103,23 @@ var social_link = {
 	'feed':'https://...',
 }
 
-/*Title for home Page*/
+/* Title for home Page */
 var title_home = '... your title ...';
-
-/*Footer menu*/   
-var footer_menu = {
-   '...name...': 'https://...',
-   '...name...': 'https://...',
-   '...name...': 'https://...',
-   '...name...': 'https://...',    
-}
 
 /*Youtube button subscribe for post video format*/
 var youtube = {'YOUR_CHANNEL_NAME':'YOUR_CHANNEL_ID'}
 
 /*Disqus for Comments*/
 var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
-var disqusPublicKey = "YOUR_DISQUS_API_KEY";
+
 </script>
+
+<!-- Disqus Comments Count-->
+<script id="dsq-count-scr" src="//YOUR_DISQUS_SHORTCUT_HERE.disqus.com/count.js" async></script>
+
 ```
 
-![](./documentation/img-three.png)
+![](./documentation/code-footer.png)
 
 
 ## Add Style Theme
@@ -173,13 +168,13 @@ var disqusPublicKey = "YOUR_DISQUS_API_KEY";
 
 ```html
 
-<div class="widget">
-	<div class="title-primary">...your title...</div>
+<div class="sidebar-items">
+	<div class="sidebar-title">...your title...</div>
 	... your content ...
 </div>
 
 <!-- Add your content here - block fixed -->
-<div class="widget">
+<div class="sidebar-items">
 	<div class="fixed">
 		... your content fixed ...
 	</div>
@@ -219,19 +214,49 @@ Add the alias according to what you need  [List language Prismjs](http://prismjs
 ![](./documentation/code.png)
 
 ## Video Post Format
-if you want to have a video format, you only have to add a tag `#video` the first video will move to large size
+if you want to have a video format, you only have to add a tag `#video-post-format` the first video will move to large size
 
 ![](./documentation/video-format.png)
 
 ![](./documentation/video.png)
 
 ## Image Post Format
-if you want to have a image format, you only have to add a tag `#image` the image Featured will move to large size
+if you want to have a image format, you only have to add a tag `#image-post-format` the image Featured will move to large size
+
+## Enable comments for Facebook
+To use facebook comments, skip the configuration Disqus.
+
+This enables comments and counter comment
+
+1. Add the code section -> Code Injection -> Blog Header
+```html
+<style>
+	.mapache-disqus{
+		display: none !important;
+	}
+	.mapache-facebook{
+		display: inline !important;
+	}
+</style>
+```
+2. Add the code section -> Code Injection -> Blog Footer
+```html
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+```
 
 ### Credits
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
-- [Prismjs](http://prismjs.com/)  It supports the following [link](http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+aspnet+bash+c+csharp+cpp+ruby+css-extras+git+go+java+json+less+markdown+perl+php+php-extras+python+jsx+scss+sql+swift&plugins=line-numbers)
+- [Prismjs](http://prismjs.com/)
 
 ## Copyright & License
 
