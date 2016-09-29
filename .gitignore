@@ -39,3 +39,8 @@ npm-debug.log
 
 
 .vscode
+
+#clear files
+src
+webpackag.config.js
+.editorconfig
