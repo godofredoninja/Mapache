@@ -1,27 +1,6 @@
-{{!-- Menu page --}}
-{{#if @blog.navigation}}
-<nav id="menu-mobile" class="menu-mobile hide-after-lg">
-	<ul class="menu-mobile-wrap u-unstyled">
-		{{navigation}}
-	</ul>
-</nav>
-{{/if}}
-
-<footer class="footer">
-	<div class="footer-topbar">
-		<div class="footer-wrap">
-			<div class="footer-links-social social_box">
-				{{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
-				{{#if @blog.twitter}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
-			</div>
-			<div id="footer-menu" class="footer-menu" style="display:none"></div>
-		</div>
-	</div>
-
-	<div class="footer-bottombar">
-		<div class="footer-wrap">
-			<div class="footer-copy">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> Powered by <a href="https://ghost.org" target="_blank">Ghost</a></div>
-			<div class="footer-design-author"><span>Design with</span> <i class="i-favorite heart"></i> by <a href="http://bit.ly/GodoFredoNinja" target="_blank" title="Desarrollador Web FullStack.">@GodoFredoNinja</a></div>			
-		</div>
+<footer class="footer">	
+	<div class="footer-wrap">
+		<div class="footer-copy">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> Powered by <a href="https://ghost.org" target="_blank">Ghost</a></div>
+		<div class="footer-design-author"><span>Design with</span> <i class="i-favorite heart"></i> by <a href="http://bit.ly/GodoFredoNinja" target="_blank" title="Desarrollador Web FullStack.">@GodoFredoNinja</a></div>
 	</div>
 </footer>

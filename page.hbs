@@ -1,13 +1,13 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#post}}
-<main class="container">
-    <section class="margin-top">
-        <article class="post" style="max-width:700px;margin:0 auto;min-height: 100vh;">
-            <h1 class="post-title">{{title}}</h1>
-            {{#if image}}<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>{{/if}}
-            <div class="post-content">{{content}}</div>
-        </article>
-    </section>
-</main>
+<div class="container">
+	<section class="post-wrapper">
+		<article class="post" style="max-width:700px;margin:0 auto;min-height: 100vh;">
+			<h1 class="post-title">{{title}}</h1>
+			{{#if image}}<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>{{/if}}
+			<div class="post-body">{{content}}</div>
+		</article>
+	</section>
+</div>
 {{/post}}

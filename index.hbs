@@ -1,18 +1,19 @@
 {{!-- Add layout --}}
+
 {{!< default}}
+
 {{^is "paged"}}
-	<section id="cover" class="cover vertiacal-aling full-height">
-		{{#if @blog.cover}}<div class="background" style="background-image: url({{@blog.cover}})"></div>{{/if}}
-		<div class="vertiacal-aling-wrap">
-			<article class="cover-wrap vertiacal-aling-content">
-				{{!-- Blog name --}}
-				<h1 id="title-home" class="cover-title animated bounceInDown">{{@blog.title}}</h1>
-				{{!-- Blog description --}}
-				<p class="cover-description animated bounceIn">{{@blog.description}}</p>
-			</article>
+	<section id="cover" class="cover u-flex-wrap" style="min-height:100vh">
+		{{#if @blog.cover}}<div class="cover-background" style="background-image: url({{@blog.cover}})"></div>{{/if}}
+		<div class="cover-wrap u-flex-aling-center">
+			{{!-- Blog name --}}
+			<h1 id="title-home" class="cover-title animated bounceInDown">{{@blog.title}}</h1>
+			{{!-- Blog description --}}
+			<p class="cover-description animated bounceIn">{{@blog.description}}</p>
 		</div>
-		<a href="#main" class="scrolltop mouse hide-before-md"><span class="scroll"></span></a>
+		<a href="#ScrollBody" class="scrolltop mouse u-h-b-lg"><span class="scroll"></span></a>
 	</section>
 {{/is}}
+
 {{! The tag below includes the post loop - partials/loop.hbs }}
 {{> "loop"}}

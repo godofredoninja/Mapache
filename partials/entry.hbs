@@ -1,0 +1,34 @@
+{{!-- Entry template --}}
+<article class="entry u-b-b entry-pagination">
+	<div class="row">
+		{{#if image}}
+		<figure class="col s12 entry-image">
+			<a class="entry-image--link" href="{{url}}">
+				<img  class="u-h-a-lg" src="{{image}}" alt="{{title}}"/>
+				<span class="entry-image--bg u-h-b-lg" style="background-image:url({{image}})"></span>
+				{{#has tag="#video-post-format"}}<span class="entry-video-play i-play"></span>{{/has}}
+			</a>
+		</figure>
+		{{/if}}
+
+		<div class="col s12 {{#if image}}entry-body{{/if}}">
+			<div class="entry-category">{{tags limit="1"}}</div>
+			<h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
+
+			<div class="entry-byline">
+				<i class="i-chat"></i>
+				<a class="entry-comments" href="{{url}}#post-comments">
+					{{!-- Disqus Comments Count --}}
+					<span class="disqus-comment-count mapache-disqus" data-disqus-url="{{url absolute="true"}}">0</span>
+					{{!-- Facebook Comments Counts --}}
+					<span class="fb-comments-count mapache-facebook" data-href="{{url absolute="true"}}">0</span>
+					<span>Comments</span>
+				</a>
+				{{#author}}— by <strong><a class="entry-author" href="{{url}}">{{name}}</a></strong> —{{/author}}
+				<time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+			</div>
+
+			<div class="entry-excerpt u-h-b-lg">{{excerpt words="15"}}</div>
+		</div>
+	</div>
+</article>

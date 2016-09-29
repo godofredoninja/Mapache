@@ -1,5 +1,8 @@
-{{#foreach navigation}}
-<li>
-    <a href="{{url absolute="true"}}" class="navigation-link {{#if current}}active{{/if}}">{{label}}</a>
-</li>
-{{/foreach}}
+{{!-- Navigation template --}}
+<ul class="u-unstyled">
+    {{#foreach navigation}}
+        <li>
+            <a href="{{url absolute="true"}}" class="navigation-link {{#if current}}active{{/if}}">{{label}}</a>
+        </li>
+    {{/foreach}}
+</ul>

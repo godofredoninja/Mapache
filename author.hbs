@@ -1,31 +1,38 @@
 {{!-- Add Layout --}}
-{{!< default}}
-{{#author}}
-<section id="cover" class="cover vertiacal-aling">
-	{{#if cover}}<div class="background" style="background-image: url({{cover}})"></div>{{/if}}
-	<div class="vertiacal-aling-wrap">
-		<article class="cover-wrap author vertiacal-aling-content">
-			<div class="info">
-				<div  class="avatar animated bounceInDown hide-before-md" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
-				<div class="name-wrap animated bounceIn">
-					<span class="title">Author</span>
-					<h1 class="name">{{name}}</h1>
-				</div>
-			</div>
 
-			<p class="description" itemprop="description">{{bio}}</p>
-			{{!-- Author location website --}}
-			<div class="author-meta hide-before-lg">
-				{{#if facebook}}<a href="{{facebook_url}}" title="Facebook" class="btn btn-circle bg-facebook tooltips i-facebook" mapache-data="Facebook"  target="_blank"></a>{{/if}}
-				{{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" class="btn btn-circle bg-twitter tooltips i-twitter" mapache-data="{{twitter}}" target="_blank"></a>{{/if}}
-				{{#if website}}<a href="{{website}}" title="website" class="website btn btn-circle tooltips i-link" mapache-data="{{website}}" target="_blank"></a>{{/if}}
-				{{#if location}}<span class="location btn btn-circle i-map tooltips" style="background-color:orangered" mapache-data="{{location}}"></span>{{/if}}
-				<span class="number-post btn btn-circle tooltips" style="background-color:orange" mapache-data="{{plural ../pagination.total empty='0 Posts' singular='% Post' plural='% Posts'}}">{{plural ../pagination.total empty='0' singular='%' plural='%'}}</span>
+{{!< default}}
+
+{{#author}}
+<section id="cover" class="cover author u-flex-wrap">
+	{{#if cover}}<div class="cover-background" style="background-image: url({{cover}})"></div>{{/if}}
+
+	<article class="cover-wrap u-flex-aling-center">
+		<div class="author-header">
+			<div  class="author-avatar animated bounceInDown" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
+			<div class="author-name-wrap animated bounceIn">
+				<span class="author-title">Author</span>
+				<h1 class="author-name">{{name}}</h1>
 			</div>
-		</article>
-	</div>
-	<a href="#main" class="scrolltop mouse hide-before-md"><span class="scroll"></span></a>
+		</div>
+
+		{{#if bio}}<p class="author-bio" itemprop="description">{{bio}}</p>{{/if}}
+
+		<div class="author-meta">
+			{{#if location}}<span class="author-location"><i class="i-map"></i> {{location}}</span>{{/if}}
+			{{#if website}}<span class="author-link"><i class="i-link"></i> <a href="{{website}}">{{website}}</a></span>{{/if}}
+			<span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+		</div>
+
+		{{!-- Author location website --}}
+		<div class="author-follow">
+			{{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank"><i class="i-facebook"></i> Facebook</a>{{/if}}
+			{{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" target="_blank"><i class="i-twitter"></i> Twitter</a>{{/if}}
+		</div>
+	</article>
+
+	<a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>
 {{/author}}
+
 {{!-- Add Loop --}}
 {{> "loop"}}

@@ -1,16 +1,21 @@
 {
   "name": "mapache-godofredo",
-  "version": "2.0.3",
-  "description": "Mapache theme for ghost by GodoFredoNinja",
+  "version": "2.0.4",
+  "description": "Mapache theme for ghost by @GodoFredoNinja",
   "main": "webpack.config.js",
-  "scripts": {},
+  "scripts": {
+	"dev": "webpack --progress --colors --watch",
+	"sass": "gulp",
+	"production": "NODE_ENV=production webpack && gulp production",
+	"test": "echo \"Error: no test specified\" && exit 1"
+  },
   "bugs": {
 	"url": "https://github.com/godofredoninja/Mapache/issues",
 	"email": "hello@godofredo.ninja"
   },
   "license": "MIT",
   "author": {
-	"name": "GodoFredo",
+	"name": "GodoFredoNinja",
 	"email": "hello@godofredo.ninja",
 	"url": "https://godofredo.ninja"
   },
@@ -18,6 +23,19 @@
 	"type": "git",
 	"url": "https://github.com/godofredoninja/Mapache"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+	"webpack": "^1.13.2"
+  },
+  "devDependencies": {
+	"autoprefixer": "^6.4.1",
+	"babel-core": "^6.14.0",
+	"babel-loader": "^6.2.5",
+	"babel-plugin-add-module-exports": "^0.2.1",
+	"babel-preset-es2015": "^6.14.0",
+	"gulp": "^3.9.1",
+	"gulp-postcss": "^6.2.0",
+	"gulp-sass": "^2.3.2",
+	"gulp-sourcemaps": "^1.6.0",
+	"normalize.css": "^4.2.0"
+  }
 }

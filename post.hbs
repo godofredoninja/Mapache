@@ -3,87 +3,85 @@
 
 {{#post}}
 
-<main class="container">
-	<section class="row main-wrap layout-wrap layout-row margin-top">
+<section class="container">
+	<div class="post-wrapper">
+		<div class="row">
 
-		{{#has tag="#video"}}
-			<div id="video-format" class="col s12 video-wrap">
-				<aside class="video-responsive video-featured"></aside>
-				<div class="video-content hide-before-md" style="display:none">
-					<span class="channel-name"></span>
-					<span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+			{{!-- Video Post format  --}}
+			{{#has tag="#video-post-format"}}
+				<div id="video-format" class="col s12 video-wrap">
+					<aside class="video-responsive video-featured"></aside>
+					<div class="video-content u-h-b-md" style="display:none">
+						<span class="channel-name"></span>
+						<span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
+					</div>
 				</div>
-			</div>
-		{{/has}}
+			{{/has}}
 
-		{{#has tag="#image"}}
-			{{#if image}}
-				<figure class="col s12 post-image">
-					<img src="{{image}}" alt="{{title}}" class="img-responsive"/>
-				</figure>
-			{{/if}}
-		{{/has}}
-
-		<article class="col-gd-left post">
-
-			<h1 class="title">{{title}}</h1>
-
-			{{!-- author, date, tag, comments - share count and btn share--}}
-
-			<div class="post-byline">
-			{{#author}}
-				<a class="post-authorAvatar hide-before-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
-				<span class="author-name">By <strong><a href="{{url}}">{{name}}</a></strong></span>
-			{{/author}}
-				<i class="point">—</i>
-				<time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-				<span>in</span>
-				<span class="tag">{{tags limit="1"}}</span>
-			</div>
-
-
-			{{^has tag="#image"}}
+			{{!-- Image Post Format  --}}
+			{{#has tag="#image-post-format"}}
 				{{#if image}}
-					<figure class="post-image"><img src="{{image}}" alt="{{title}}" class="img-responsive"/></figure>
+					<figure class="col s12 post-image">
+						<img src="{{image}}" alt="{{title}}"/>
+					</figure>
 				{{/if}}
 			{{/has}}
 
-			<ul class="post-actions post-actions--top u-unstyled clear">
-				<li><a class="post-actions-comment scrolltop" href="#comments"><i class="i-chat"></i><span class="gd-comment_count" godo-url="{{url absolute="true"}}"></span></a></li>
-				<li class="post-actions-shares">
-					<div class="post-actions-shares-count share-count" godo-url="{{url absolute="true"}}">0</div>
-					<div class="post-actions-shares-label">shares</div>
-				</li>
-				<li><a href="#" class="btn btn-circle-small share i-facebook bg-facebook" godo-share="facebook" godo-url="{{url absolute="true"}}"></a></li>
-				<li><a href="#" class="btn btn-circle-small share i-twitter bg-twitter" godo-share="twitter" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></a></li>
-				<li><a href="#" class="btn btn-circle-small share i-reddit bg-reddit" godo-share="reddit" godo-url="{{url absolute="true"}}"></a></li>
-				<li><a href="#" class="btn btn-circle-small share i-linkedin bg-linkedin" godo-share="linkedin" godo-url="{{url absolute="true"}}"></a></li>
-				<li class="hide-before-md"><a href="#" class="btn btn-circle-small share i-pinterest bg-pinterest" godo-share="pinterest" godo-title="{{title}}" godo-url="{{url absolute="true"}}"></a></li>
-				<li class="hide-before-md"><a href="#" class="btn btn-circle-small share i-pocket bg-pocket" godo-share="pocket" godo-url="{{url absolute="true"}}"></a></li>
-			</ul>
+			<div class="col s12 content">
+				{{!-- Article content  --}}
+				<article class="post">
+					<header class="post-header">
+						<h1 class="post-title">{{title}}</h1>
 
-			<div class="post-content">{{content}}</div>
+						{{!-- author, date, tag --}}
+						<div class="post-byline">
+						{{#author}}
+							<a class="post-author-avatar u-h-b-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
+							By <strong><a href="{{url}}">{{name}}</a> — </strong>
+						{{/author}}
+							<time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+							in {{tags limit="1"}}
+						</div>
+					</header>
 
-			{{#if tags}}<div class="tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow tag">{{name}}</a>{{/foreach}}</div>{{/if}}
+					{{!-- Add Post Image --}}
+					{{^has tag="#image-post-format"}}
+						{{#if image}}<figure class="post-image"><img class="post-img" src="{{image}}" alt="{{title}}" /></figure>{{/if}}
+					{{/has}}
 
-			<div class="row main-wrap layout-wrap layout-row share-subscribe">
-				{{> widget-share}}
-				{{> widget-newsletter}}
+					{{!-- Post share top --}}
+					{{> widget-post-share }}
+
+					{{!-- Post content body --}}
+					<div class="post-body">{{content}}</div>
+
+					{{!-- Post All Tags (category) --}}
+					{{#if tags}}<div class="post-tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow">{{name}}</a>{{/foreach}}</div>{{/if}}
+
+					{{!-- post Share Button and Suscribe newsletter --}}
+					<div class="row share-subscribe">
+						{{> widget-share}}
+						{{> widget-newsletter}}
+					</div>
+
+					{{!-- Post author info --}}
+					{{> widget-post-author}}
+
+					{{!-- post Comments Section --}}
+					<div id="post-comments" class="post-comments">
+						<div id="disqus_thread" class="mapache-disqus"></div>
+						{{!-- Comments section for facebook --}}
+						<div class="fb-comments mapache-facebook" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
+					</div>
+
+					{{!-- Post Related --}}
+					{{> widget-post-related}}
+				</article>
 			</div>
 
-			<div id="comments" class="comments">
-				<div id="disqus_thread"></div>
-				<!-- <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div> -->
-			</div>
+			{{> "sidebar"}}
 
-			{{!-- Post Related --}}
-			{{> widget-related}}
-
-
-		</article>
-		{{!-- Add Sidebar --}}
-		{{> "sidebar"}}
-
-	</section>
-</main>
+		</div>
+	</div>
+</section>
 {{/post}}
