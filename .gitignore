@@ -44,3 +44,4 @@ npm-debug.log
 src
 webpackag.config.js
 .editorconfig
+gulpfile.babel.js
