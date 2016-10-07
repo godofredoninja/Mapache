@@ -37,7 +37,7 @@ import mapacheRelated   from './app/app.related.post';
 	/* Share article Social media */
 	$('.share').bind('click', function (e) {
 		e.preventDefault();
-		let share = new mapacheShare((this$));
+		let share = new mapacheShare($(this));
 		share.godoShare();
 	});
 
