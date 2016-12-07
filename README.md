@@ -40,17 +40,25 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Code syntax [Prismjs](http://prismjs.com/index.html) Supported all syntax.
 
 
-### Replace icon
-Replace icon with these measures `155px * 155px` in `./assets/img/icon.png`
-
+### Replace Favorite icon
+Create an image icon with these dimensions with the name icon.png `155px * 155px` in ` Copy your new favorite icon to ./assets/img/icon.png`
 
 
 ## Mapache settings
-- You have to enable via a checkbox on the labs page in your Ghost admin panel.
+- Enable **all** checkboxes on the labs page in your Ghost admin panel.
 
 ![](./documentation/img-api.png)
 
+- Copy the below script to Settings -> Code Injection  -> Blog Footer section.
 
+### Social Links
+Add the Social Links only for the services you want to appear in the header section of your website. Pay attention as enabling too many services will cause menu problems.
+
+### Title 
+This section will display the desired title name in the browser tab
+
+### YouTube Subscribe Button
+This section enables the YouTube Post format. Add the Channel Name and Channel ID which can be found here [YouTube Advanced Settings](https://www.youtube.com/account_advanced)
 
 ``` html
 <script>
@@ -86,11 +94,54 @@ var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
 <script id="dsq-count-scr" src="//YOUR_DISQUS_SHORTCUT_HERE.disqus.com/count.js" async></script>
 
 ```
+## Enable Disqus or Facebook Comments
+This seciton will cover how to cover Disqus of Facebook commenting into the theme. Only enable either Disqus or Facebook comments.
+
+### Disqus Comments
+To enable Disqus comments update the code in Settings -> Code Injection -> Blog Footer.
+
+Insert your [Disqus shortname](https://shortname.disqus.com/admin/) in both the comments and Disqus comment count sections.
+
+To ensure the Disqus comment count is working correctly verify that the Disqus settings -> Comment & Community Configuration is set as seen below.
+![](./documentation/disqus_comment_count.png)
+
+### Facebook Comments
+To use facebook comments, skip the configuration Disqus.
+
+This enables comments and comment counter
+
+1. Add the code in Settings -> Code Injection -> Blog Header
+
+```html
+<style>
+	.mapache-disqus{
+		display: none !important;
+	}
+	.mapache-facebook{
+		display: inline !important;
+	}
+</style>
+```
+2. Add the code Settings -> Code Injection -> Blog Footer
+
+```html
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+```
 
 ![](./documentation/code-footer.png)
 
 
-## Add Style Theme
+## Change Theme Style
+To change the color of the Mapache theme select one of the theme styles below and copy it into the Setting -> Code Injection -> Blog Header
 
 ```html
 <!-- Theme indigo -->
@@ -131,8 +182,7 @@ var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
 
 
 ### Edit Sidebar
-
-`./partials/sidebar.hbs`
+Add you own custom content into the side bar by editing the `./partials/sidebar.hbs` file.
 
 ```html
 
@@ -152,6 +202,8 @@ var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
 
 
 ### Buttons
+Format your hyperlinks with some really cool buttons. Check out the different button options here. Add these buttons directly into your blog posts.
+
 ```html
 ... <a class="external" href="http://..." >Your link external</a> ...
 
@@ -165,6 +217,8 @@ var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
 
 
 ### Warning - Note - Success
+Add some more styling options to your articles text with these three styles. 
+
 ```html
 <p class="warning"> ... your text warning ... </p>
 
@@ -177,49 +231,22 @@ var disqus_shortname = 'YOUR_DISQUS_SHORTCUT_HERE';
 
 ### PrismJS code syntax  
 
-Add the alias according to what you need  [List language Prismjs](http://prismjs.com/#languages-list)
+Make your code stand out. WIth the PrismJS code highlighter. PrismJS allows you to select which languge you embeded and performs code highlighting according to the language. Neat!
 
-![](./documentation/code.png)
+Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languages-list)
+
+![](./documentation/code.png) to find your coding language.
 
 ## Video Post Format
-if you want to have a video format, you only have to add a tag `#video-post-format` the first video will move to large size
+If you want to have a video post format, you only have to add the tag `#video-post-format` . The first video in the article will be large in size.
 
 ![](./documentation/video-format.png)
 
 ![](./documentation/video.png)
 
 ## Image Post Format
-if you want to have a image format, you only have to add a tag `#image-post-format` the image Featured will move to large size
+If you want to have a image post format, you only have to add the tag `#image-post-format` The Featured image will become large in size
 
-## Enable comments for Facebook
-To use facebook comments, skip the configuration Disqus.
-
-This enables comments and counter comment
-
-1. Add the code section -> Code Injection -> Blog Header
-```html
-<style>
-	.mapache-disqus{
-		display: none !important;
-	}
-	.mapache-facebook{
-		display: inline !important;
-	}
-</style>
-```
-2. Add the code section -> Code Injection -> Blog Footer
-```html
-	<div id="fb-root"></div>
-	<script>
-	(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	</script>
-```
 
 ### Credits
 - [Normalize](https://necolas.github.io/normalize.css/)
