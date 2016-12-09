@@ -1,3 +1,5 @@
+'use strict';
+
 var debug = process.env.NODE_ENV !== "production";
 var path = require('path');
 var webpack = require('webpack');
@@ -7,25 +9,32 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./src/js/app.js",
   module: {
-	loaders: [
-	  {
-		test: /\.js?$/,
-		exclude: /(node_modules|bower_components)/,
-		loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
-		query: {
-		  presets: ['es2015'],
-		  plugins: ['add-module-exports']
-		}
-	  }
-	]
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      }
+    ],
+    loaders: [
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
+        query: {
+          presets: ['es2015'],
+          plugins: ['add-module-exports']
+        }
+      }
+    ]
   },
   output: {
-	path: path.join(__dirname, "assets/js"),    
-	filename: "bundle.min.js"
+    path: path.join(__dirname, "assets/js"),
+    filename: "bundle.min.js"
   },
   plugins: debug ? [] : [
-	new webpack.optimize.DedupePlugin(),
-	new webpack.optimize.OccurenceOrderPlugin(),
-	new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
 };

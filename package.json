@@ -4,38 +4,45 @@
   "description": "Mapache theme for ghost by @GodoFredoNinja",
   "main": "webpack.config.js",
   "scripts": {
-	"dev": "webpack --progress --colors --watch",
-	"sass": "gulp",
-	"production": "NODE_ENV=production webpack && gulp production",
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --progress --colors --watch",
+    "sass": "gulp",
+    "production": "NODE_ENV=production webpack && gulp production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
-	"url": "https://github.com/godofredoninja/Mapache/issues",
-	"email": "hello@godofredo.ninja"
+    "url": "https://github.com/godofredoninja/Mapache/issues",
+    "email": "hello@godofredo.ninja"
   },
   "license": "MIT",
   "author": {
-	"name": "GodoFredoNinja",
-	"email": "hello@godofredo.ninja",
-	"url": "https://godofredo.ninja"
+    "name": "GodoFredoNinja",
+    "email": "hello@godofredo.ninja",
+    "url": "https://godofredo.ninja"
   },
   "repository": {
-	"type": "git",
-	"url": "https://github.com/godofredoninja/Mapache"
+    "type": "git",
+    "url": "https://github.com/godofredoninja/Mapache"
   },
   "dependencies": {
-	"webpack": "^1.13.2"
+    "webpack": "^1.14.0"
   },
   "devDependencies": {
-	"autoprefixer": "^6.4.1",
-	"babel-core": "^6.14.0",
-	"babel-loader": "^6.2.5",
-	"babel-plugin-add-module-exports": "^0.2.1",
-	"babel-preset-es2015": "^6.14.0",
-	"gulp": "^3.9.1",
-	"gulp-postcss": "^6.2.0",
-	"gulp-sass": "^2.3.2",
-	"gulp-sourcemaps": "^1.6.0",
-	"normalize.css": "^4.2.0"
+    "autoprefixer": "^6.4.1",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.9",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "^3.11.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "normalize.css": "^4.2.0"
   }
 }
