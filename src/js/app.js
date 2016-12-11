@@ -21,6 +21,7 @@ const $postBody = $('.post-body');
 const $followBox = $('.social_box');
 const $scrollTop = $('.scroll_top');
 const $videoFormatBox = $('#video-format');
+const $shareCount = $('.share-count');
 
 const $pageUrl = $('body').attr('mapache-page-url');
 
@@ -146,6 +147,9 @@ $doc.on('ready', () => {
 
   /* FollowMe */
   if (typeof followSocialMedia !== 'undefined') Mapache.follow(followSocialMedia, $followBox, urlRegexp); // eslint-disable-line
+
+  /* Facebook Share Count */
+  Mapache.facebookShare($shareCount);
 
   /* Video Post Format*/
   videoPostFormat();

@@ -1,3 +1,11 @@
+/* Return rounded and pretty value of share count. */
+const convertNumber = (n) => {
+  if (n >= 1000000000) return `${(n / 1000000000).toFixed(1)}G`;
+  if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}K`;
+  return n;
+};
+
 /* add social follow  */
 function followMe(links, box, urlRegexp) {
   return $.each(links, (name, url) => {
@@ -26,7 +34,25 @@ function allVideoResponsive(elem) {
   });
 }
 
+/* Facebook Comments Counts */
+function facebookShareCount(sharebox) {
+  sharebox.each(() => {
+    const url = sharebox.attr('godo-url');
+    const getURL = `https://graph.facebook.com/?id=${encodeURIComponent(url)}&callback=?`;
+
+    $.getJSON(getURL, (res) => {
+      if (res.share !== undefined) {
+        const n = res.share.share_count;
+        const count = convertNumber(n);
+        sharebox.html(count);
+      }
+    });
+  });
+}
+
+
 module.exports = {
   follow: followMe,
   videoResponsive: allVideoResponsive,
+  facebookShare: facebookShareCount,
 };
