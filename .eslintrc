@@ -6,9 +6,11 @@
     "amd": true,
     "browser": true,
     "jquery": true,
-    "node": true
+    "node": true,
   },
   "rules": {
+    "no-console": 0,
+    "func-names": 0,
     "react/require-extension": 0,
     "import/extensions": [1, { "js": "never" }]
   }
