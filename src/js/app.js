@@ -6,9 +6,12 @@ Mapache Javascript Functions
 ========================================================================
 */
 
+// import external dependencies
 // import ghostHunter from './lib/jquery.ghostHunter'; // eslint-disable-line
 
+// import local dependencies
 import Mapache from './app/app.helper';
+import Share from './app/app.share';
 
 /* variables globals */
 const $doc = $(document);
@@ -22,6 +25,7 @@ const $followBox = $('.social_box');
 const $scrollTop = $('.scroll_top');
 const $videoFormatBox = $('#video-format');
 const $shareCount = $('.share-count');
+const $share = $('.share');
 
 const $pageUrl = $('body').attr('mapache-page-url');
 
@@ -156,6 +160,13 @@ $doc.on('ready', () => {
 
   /* Video Responsive*/
   Mapache.videoResponsive($postBody);
+
+  /* Share article in Social media */
+  $share.bind('click', function (e) {
+    e.preventDefault();
+    const share = new Share($(this));
+    share.mapacheShare();
+  });
 
   /* Disqys Comments */
   if (typeof disqusShortname !== 'undefined') disqusComments(disqusShortname); // eslint-disable-line

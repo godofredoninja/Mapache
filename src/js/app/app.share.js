@@ -3,113 +3,110 @@
 * Share social media
 */
 
-'use strict';
+class mapacheShare {
+  constructor(elem) {
+    this.elem = elem;
+  }
 
-class GodoShare {
-	constructor(elem) {
-		this.elem = elem;
-	}
-	
-	 /**
-     *  @function godoValue
-     *  @description Helper to get the attribute of a DOM element
-     *  @param {String} attr DOM element attribute
-     *  @returns {String|Empty} returns the attr value or empty string
-     */
-	godoValue(a) {
-        let val = this.elem.attr('godo-' + a);
-        return (val === undefined || val === null) ? false : val;
-	}
-	
-	/**
-     * @event godoShare
-     * @description Main share event. Will pop a window or redirect to a link
-     */
-	godoShare(){
-		let share_name = this.godoValue('share').toLowerCase(),
+  /**
+   * @description Helper to get the attribute of a DOM element
+   * @param {String} attr DOM element attribute
+   * @returns {String|Empty} returns the attr value or empty string
+   */
+  mapacheValue(a) {
+    const val = this.elem.attr(`mapache-${a}`);
+    return (val === undefined || val === null) ? false : val;
+  }
 
-		share_social = {
-			facebook: {
-				shareUrl: 'https://www.facebook.com/sharer/sharer.php',
-				params: {u: this.godoValue('url')}
-			},
-			twitter: {
-                shareUrl: 'https://twitter.com/intent/tweet/',
-                params: {
-                    text: this.godoValue('title'),
-                	url: this.godoValue('url'),
-                }
-			},
-			reddit: {
-				shareUrl: 'https://www.reddit.com/submit',
-				params: {'url': this.godoValue('url')}
-			},
-			pinterest: {
-            	shareUrl: 'https://www.pinterest.com/pin/create/button/',
-				params: {
-					url: this.godoValue('url'),					
-					description: this.godoValue('title')
-                }
-			},
-			linkedin: {
-				shareUrl: 'https://www.linkedin.com/shareArticle',
-				params: {
-					url: this.godoValue('url'),
-					mini: true
-				}
-            },
-			pocket: {
-				shareUrl: 'https://getpocket.com/save',
-				params: {
-					url: this.godoValue('url')
-				}
-			}
-		},
+  /**
+   * @description Main share event. Will pop a window or redirect to a link
+   */
+  mapacheShare() {
+    const socialMediaName = this.mapacheValue('share').toLowerCase();
 
-		s = share_social[share_name];
-		
-		return s !== undefined ? this.godoPopup(s) : false;
-	}
+    const socialMedia = {
+      facebook: {
+        shareUrl: 'https://www.facebook.com/sharer/sharer.php',
+        params: {
+          url: this.mapacheValue('url'),
+        },
+      },
+      twitter: {
+        shareUrl: 'https://twitter.com/intent/tweet/',
+        params: {
+          text: this.mapacheValue('title'),
+          url: this.mapacheValue('url'),
+        },
+      },
+      reddit: {
+        shareUrl: 'https://www.reddit.com/submit',
+        params: {
+          url: this.mapacheValue('url'),
+        },
+      },
+      pinterest: {
+        shareUrl: 'https://www.pinterest.com/pin/create/button/',
+        params: {
+          url: this.mapacheValue('url'),
+          description: this.mapacheValue('title'),
+        },
+      },
+      linkedin: {
+        shareUrl: 'https://www.linkedin.com/shareArticle',
+        params: {
+          url: this.mapacheValue('url'),
+          mini: true,
+        },
+      },
+      pocket: {
+        shareUrl: 'https://getpocket.com/save',
+        params: {
+          url: this.mapacheValue('url'),
+        },
+      },
+    };
 
-	/**
-     * @event godoPopup
-     * @param {Object} share
-     */
-	godoPopup(share) {
-		var p = share.params || {},
-		keys = Object.keys(p),
-		i,
-		str = keys.length > 0 ? '?' : '';
-		
-		for (i = 0; i < keys.length; i++) {
-			if (str !== '?') {
-				str += '&';
-			}
-			if (p[keys[i]]) {
-				str += keys[i] + '=' + encodeURIComponent(p[keys[i]]);
-			}
-		}
-		
-		share.shareUrl += str;
+    const social = socialMedia[socialMediaName];
 
-		if (!share.isLink) {
-			let popWidth = share.width || 600,
-			popHeight = share.height || 480,
-			left = window.innerWidth / 2 - popWidth / 2 + window.screenX,
-			top = window.innerHeight / 2 - popHeight / 2 + window.screenY,
-			popParams = 'scrollbars=no, width=' + popWidth + ', height=' + popHeight + ', top=' + top + ', left=' + left,
-			newWindow = window.open(share.shareUrl, '', popParams);
+    return social !== undefined ? this.mapachePopup(social) : false;
+  }
 
-			if (window.focus) {
-				newWindow.focus();
-			}
-		} else {
-			window.location.href = share.shareUrl;
-		}
-	}
+  /* windows Popup */
+  mapachePopup(share) {
+    const p = share.params || {};
+    const keys = Object.keys(p);
 
+    let socialMediaUrl = share.shareUrl;
+    let str = keys.length > 0 ? '?' : '';
 
+    for (const i in keys) {
+      if (str !== '?') {
+        str += '&';
+      }
+      if (p[keys[i]]) {
+        str += `${keys[i]}=${encodeURIComponent(p[keys[i]])}`;
+      }
+    }
+
+    socialMediaUrl += str;
+
+    if (!share.isLink) {
+      const popWidth = 600;
+      const popHeight = 480;
+      const left = ((window.innerWidth / 2) - (popWidth / 2)) + window.screenX;
+      const top = ((window.innerHeight / 2) - (popHeight / 2)) + window.screenY;
+
+      const popParams = `scrollbars=no, width=${popWidth}, height=${popHeight}, top=${top}, left=${left}`;
+      const newWindow = window.open(socialMediaUrl, '', popParams);
+
+      if (window.focus) {
+        newWindow.focus();
+      }
+    } else {
+      window.location.href = socialMediaUrl;
+    }
+  }
 }
 
-
-module.exports = GodoShare;
+/* Export Class */
+module.exports = mapacheShare;
