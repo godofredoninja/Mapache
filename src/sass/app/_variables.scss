@@ -9,17 +9,17 @@ Mapache variables styles
 /**
 * Table of Contents:
 *
-*		1. Colors
-*		2. Fonts
-*		3. Typography
-*		4. Header
-*		5. Footer
-*		6. Code Syntax
-*		7. buttons
-*		8. container
-*		9. Grid
-*		10. Media Query Ranges
-*		11. Icons
+*   1. Colors
+*   2. Fonts
+*   3. Typography
+*   4. Header
+*   5. Footer
+*   6. Code Syntax
+*   7. buttons
+*   8. container
+*   9. Grid
+*   10. Media Query Ranges
+*   11. Icons
 */
 
 
@@ -28,11 +28,11 @@ Mapache variables styles
 $primary-color        : #4285f4;
 // $primary-color        : #2856b6;
 
-$primary-text-color: 	#333;
-$secondary-text-color:	#aaa;
-$accent-color: 			#eee;
+$primary-text-color:  #333;
+$secondary-text-color:  #aaa;
+$accent-color:      #eee;
 
-$divider-color: 		#DDDDDD;
+$divider-color:     #DDDDDD;
 
 // $link-color     : #4184F3;
 $link-color     : #039be5;
@@ -41,30 +41,30 @@ $link-color     : #039be5;
 
 // social colors
 $social-colors: (
-	facebook    : #3b5998,
-	twitter     : #55acee,
-	google		: #dd4b39,
-	instagram   : #306088,
-	youtube     : #e52d27,
-	github      : #333333,
-	linkedin    : #007bb6,
-	spotify     : #2ebd59,
-	codepen     : #222222,
-	behance     : #131418,
-	dribbble    : #ea4c89,
-	flickr       : #0063DC,
-	reddit		: orangered,
-	pocket		: #F50057,
-	pinterest   : #bd081c,
-	feed		: orange,
+  facebook    : #3b5998,
+  twitter     : #55acee,
+  google    : #dd4b39,
+  instagram   : #306088,
+  youtube     : #e52d27,
+  github      : #333333,
+  linkedin    : #007bb6,
+  spotify     : #2ebd59,
+  codepen     : #222222,
+  behance     : #131418,
+  dribbble    : #ea4c89,
+  flickr       : #0063DC,
+  reddit    : orangered,
+  pocket    : #F50057,
+  pinterest   : #bd081c,
+  feed    : orange,
 );
 
 
 
 /* 2. Fonts
 ========================================================================== */
-$primary-font: 	 	'Roboto', sans-serif; // font default page
-$code-font: 		'Roboto Mono', monospace; // font for code and pre
+$primary-font:    'Roboto', sans-serif; // font default page
+$code-font:     'Roboto Mono', monospace; // font for code and pre
 
 
 /* 3. Typography
@@ -94,7 +94,7 @@ $headings-font-weight:     500;
 $headings-line-height:     1.1;
 $headings-color:           inherit;
 
-$font-weight:				500;
+$font-weight:       500;
 
 $blockquote-font-size:     1.125rem;
 
@@ -126,9 +126,9 @@ $footer-color:      $secondary-text-color;
 
 /* 6. Code Syntax
 ========================================================================== */
-$code-bg-color: 	    #f7f7f7;
-$font-size-code: 	    0.9375rem;
-$code-color: 		    #c7254e;
+$code-bg-color:       #f7f7f7;
+$font-size-code:      0.9375rem;
+$code-color:        #c7254e;
 $pre-code-color:        #37474f;
 
 
@@ -183,6 +183,6 @@ $i-star:             '\e838';
 $i-download:         '\e900';
 $i-cloud_download:   '\e2c0';
 $i-check_circle:     '\e86c';
-$i-play:			 "\e901";
-$i-code:			 "\f121";
-$i-close:			 "\e5cd";
+$i-play:       "\e901";
+$i-code:       "\f121";
+$i-close:      "\e5cd";

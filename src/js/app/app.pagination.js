@@ -1,79 +1,75 @@
-/*
-* @package godofredoninja
-*  pagination
-*/
+/**
+ * @package godofredoninja
+ * pagination
+ */
+const $win = $(window);
+const paginationUrl = $('link[rel=canonical]').attr('href');
+const $btnLoadMore = $('.mapache-load-more');
+const $paginationTotal = $btnLoadMore.attr('mapache-page-total');
 
-$(document).on('ready', function() {
-	let page = 2;
+let enableDisableScroll = false; // false => !1
+let pagingNumber = 2;
 
-	const $pagination   = $('#pagination'),
-		pageTotal       = $pagination.attr('mapache-page'),
-		urlPage         = $('link[rel=canonical]').attr('href'),
-		$win            = $(window);
+/* Page end */
+function activeScroll() {
+  enableDisableScroll = true; // true => !0
+}
 
-	if ( pageTotal >= page) {
-		$('.pagination').css('display', 'block');
-		// infiniteScroll();
-	}
+//  window scroll
+$win.on('scroll', activeScroll);
 
-	/**
-	 * @description call first getPost and add class for infinite-scroll
-	 * @return {getPost} [returns the number of the page with articles]
-	 */
-	$pagination.on('click', function(e){
-		e.preventDefault();
-		$pagination.addClass('infinite-scroll');
+/* Scroll page END */
+function PageEnd() {
+  const scrollTopWindow = $win.scrollTop() + window.innerHeight;
+  const scrollTopBody = document.body.clientHeight - (window.innerHeight * 2);
 
-		if( page <= pageTotal ){
-			getPost();
-		}else {
-			$('.pagination').remove();
-		}
-	});
+  return (enableDisableScroll === true && scrollTopWindow > scrollTopBody);
+}
 
-	/**
-	 * @description the second brings forward makes infinite scroll
-	 * @return {getPost} [returns the number of the page with articles]
-	 */
-	$win.on('scroll', () => {
-		if ( $pagination.hasClass('infinite-scroll') ) {
+/* get urL */
+function getURL() {
+  $btnLoadMore.text('Loading...');
 
-			if( $win.scrollTop() + $win.height() == $(document).height() ) {
+  $.get((`${paginationUrl}page/${pagingNumber}`), (data) => {
+    $win.off('scroll', activeScroll);
 
-				if( page <= pageTotal ){
-					getPost();
-				}else {
-					$('.pagination').remove();
-				}
+    /* Add the following page after 2 seconds */
+    setTimeout(() => {
+      const entries = $('.feed-entry-wrapper', data);
+      $('.feed-entry-content').append(entries);
 
-			}
-		}
+      $btnLoadMore.html('Load more <i class="i-keyboard_arrow_down">');
 
-	});
+      $win.on('scroll', activeScroll);
+    }, 400);
 
-	/**
-	 * @description does the requested of items according to the page number sent
-	 */
-	function getPost() {
+    pagingNumber += 1;
 
-		$pagination.addClass('loanding').html('Loading more');
+    /* Scroll False*/
+    enableDisableScroll = false; // => !1;
+  });
+}
 
-		fetch(urlPage+'page/'+page)
-		.then( res => {
-			return res.text()
-		})
-		.then( body => {
+$(document).on('ready', () => {
+  // set interbal
+  setInterval(() => {
+    if (PageEnd()) {
+      if (typeof $paginationTotal !== 'undefined' && !$btnLoadMore.hasClass('not-load-more')) {
+        /* Add class <.not-load-more> to <.mapache-load-more> */
+        if (pagingNumber === 3) $btnLoadMore.addClass('not-load-more');
 
-			setTimeout( () => {
-				let entries = $('.entry-pagination',body);
-				$('.feed-wrapper').append(entries);
-				$pagination.removeClass('loanding').html('Load more');
-				page++;
-			}, 1000);
+        if (pagingNumber <= $paginationTotal) {
+          getURL();
+        } else {
+          $btnLoadMore.remove();
+        }
+      }
+    }
+  }, 500);
 
-		});
-	}
-
-
-
+  /* Remove class <.not-load-more> to <.not-load-more> */
+  $('.content').on('click', '.mapache-load-more.not-load-more', function (e) {
+    e.preventDefault();
+    $(this).removeClass('not-load-more');
+  });
 });

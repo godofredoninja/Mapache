@@ -1,29 +1,29 @@
 // box-shadow
 %primary-box-shadow {
-	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 %font-icons{
-	font-family: 'mapache' !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+  font-family: 'mapache' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 //  Clear both
 .u-clear{
-	&:after {
-		clear: both;
-		content: "";
-		display: table;
-	}
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
 
 // border-
@@ -32,18 +32,18 @@
 
 // Padding
 .u-p-t-2{
-	padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 // Eliminar la lista de la <ul>
 .u-unstyled{
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
-.u-floatLeft {	float: left!important; }
-.u-floatRight {	float: right!important; }
+.u-floatLeft {  float: left!important; }
+.u-floatRight { float: right!important; }
 
 //  flex box
 .u-flex{ display: flex; flex-direction: row; }
@@ -54,7 +54,7 @@
 
 // margin
 .u-m-t-1{
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 

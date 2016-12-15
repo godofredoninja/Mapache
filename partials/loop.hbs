@@ -1,21 +1,22 @@
 <section id="ScrollBody" class="container u-p-t-2 {{#is "paged"}}margin-top{{/is}}">
-	<div class="row">
-		<div class="col s12 content">
-			<div class="feed-wrapper">
-				{{#foreach posts}} {{> entry}} {{/foreach}}
-			</div>
+    <div class="row">
+        <div class="col s12 content">
 
-			{{#is "paged"}}
-				{{"pagination"}}
-			{{else}}
-				<div class="pagination" style="display:none">
-					<a href="#" id="pagination" class="pagination-link" mapache-page="{{pagination.pages}}" mapache-limit="{{@blog.posts_per_page}}">Load more</a>
-				</div>
-			{{/is}}
-		</div>
+            <div class="feed-entry-content">
+                <div class="feed-entry-wrapper">
+                    {{#foreach posts}} {{> entry}} {{/foreach}}
+                </div>
+            </div>
 
-		{{!-- Add Sidebar --}}
-		{{> "sidebar"}}
+            {{^is "paged"}}
+                <a href="#" class="mapache-load-more" mapache-page-total="{{pagination.pages}}">Load more <i class="i-keyboard_arrow_down"></i></a>
+            {{else}}
+                {{"pagination"}}
+            {{/is}}
+        </div>
 
-	</div>
+        {{!-- Add Sidebar --}}
+        {{> "sidebar"}}
+
+    </div>
 </section>

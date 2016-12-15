@@ -1,1 +1,23 @@
-a,.btn,.nav-mob-copyright a,.pagination .pagination-link{color:#01579B}.header.toolbar-shadow,.cover,.btn.btn-primary,.sidebar .title-primary,.post-actions-comment,.post-tags a:hover,.scroll_top:hover,.nav-mob,.related-posts .no-image .related-posts-list{background-color:#01579B !important}.form-control:focus{border-color:#01579B !important;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(1,87,155,0.6)}.btn.btn-download-cloud,.btn.btn-download{background-color:#01579B}.btn.btn-download-cloud:hover,.btn.btn-download:hover{background-color:#014072}.pagination .pagination-link:before{border:2px solid #01579B}.pagination .pagination-link.loanding:before{border-bottom:2px solid #01579B}blockquote{border-color:#01579B}
+.btn,.nav-mob-copyright a,.pagination .pagination-link,a{
+  color:#01579b; }
+
+.btn.btn-primary,.cover,.header.toolbar-shadow,.nav-mob,.post-actions-comment,.post-tags a:hover,.related-posts .no-image .related-posts-list,.scroll_top:hover,.sidebar .title-primary{
+  background-color:#01579b !important; }
+
+.form-control:focus{
+  border-color:#01579b !important;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(1,87,155,.6); }
+
+.btn.btn-download,.btn.btn-download-cloud{
+  background-color:#01579b; }
+  .btn.btn-download-cloud:hover,.btn.btn-download:hover{
+    background-color:#014072; }
+
+.pagination .pagination-link:before{
+  border:2px solid #01579b; }
+
+.pagination .pagination-link.loanding:before{
+  border-bottom:2px solid #01579b; }
+
+blockquote{
+  border-color:#01579b; }

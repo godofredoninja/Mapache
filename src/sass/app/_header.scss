@@ -1,76 +1,76 @@
 /* Header Page
 ========================================================================== */
 .header{
-	background: $primary-color;
-	// color: $header-color;
-	height: $header-height;
-	left: 0;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 999;
+  background: $primary-color;
+  // color: $header-color;
+  height: $header-height;
+  left: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
 
-	&-wrap a{ color: $header-color;}
+  &-wrap a{ color: $header-color;}
 
-	&-logo,
-	&-follow a,
-	&-menu a{
-		height: $header-height;
-		@extend .u-flex-center;
-	}
+  &-logo,
+  &-follow a,
+  &-menu a{
+    height: $header-height;
+    @extend .u-flex-center;
+  }
 
-	&-follow,
-	&-search,
-	&-logo{
-		flex: 0 0 auto;
-	}
+  &-follow,
+  &-search,
+  &-logo{
+    flex: 0 0 auto;
+  }
 
-	// Logo
-	&-logo{
-		z-index: 998;
-		font-size: $font-size-lg;
-		font-weight: 500;
-		letter-spacing: 1px;
-		img{
-			max-height: 35px;
-			position: relative;
-		}
-	}
+  // Logo
+  &-logo{
+    z-index: 998;
+    font-size: $font-size-lg;
+    font-weight: 500;
+    letter-spacing: 1px;
+    img{
+      max-height: 35px;
+      position: relative;
+    }
+  }
 
-	.nav-mob-toggle,
-	.search-mob-toggle{
-		padding: 0;
-		z-index: 998;
-	}
+  .nav-mob-toggle,
+  .search-mob-toggle{
+    padding: 0;
+    z-index: 998;
+  }
 
-	// btn mobile menu open and close
-	.nav-mob-toggle{
-		margin-left: 0 !important;
-		margin-right: - ($grid-gutter-width / 2);
-		position: relative;
-		transition: transform .4s;
+  // btn mobile menu open and close
+  .nav-mob-toggle{
+    margin-left: 0 !important;
+    margin-right: - ($grid-gutter-width / 2);
+    position: relative;
+    transition: transform .4s;
 
-		span {
-		   background-color: $header-color;
-		   display: block;
-		   height: 2px;
-		   left: 14px;
-		   margin-top: -1px;
-		   position: absolute;
-		   top: 50%;
-		   transition: .4s;
-		   width: 20px;
-		   &:first-child { transform: translate(0,-6px); }
-		   &:last-child { transform: translate(0,6px); }
-		}
+    span {
+       background-color: $header-color;
+       display: block;
+       height: 2px;
+       left: 14px;
+       margin-top: -1px;
+       position: absolute;
+       top: 50%;
+       transition: .4s;
+       width: 20px;
+       &:first-child { transform: translate(0,-6px); }
+       &:last-child { transform: translate(0,6px); }
+    }
 
-	}
+  }
 
-	// Shodow for header
-	&.toolbar-shadow{ @extend %primary-box-shadow; }
-	&:not(.toolbar-shadow) { background-color: transparent!important; }
+  // Shodow for header
+  &.toolbar-shadow{ @extend %primary-box-shadow; }
+  &:not(.toolbar-shadow) { background-color: transparent!important; }
 
 }
 
@@ -78,47 +78,47 @@
 /* Header Navigation
 ========================================================================== */
 .header-menu{
-	flex: 1 1 0;
-	overflow: hidden;
-	transition: flex .2s,margin .2s,width .2s;
+  flex: 1 1 0;
+  overflow: hidden;
+  transition: flex .2s,margin .2s,width .2s;
 
-	ul{
-		margin-left: 2rem;
-		white-space: nowrap;
+  ul{
+    margin-left: 2rem;
+    white-space: nowrap;
 
-		li{ padding-right: 15px; display: inline-block;}
+    li{ padding-right: 15px; display: inline-block;}
 
-		a{
-			padding: 0 8px;
-			position: relative;
+    a{
+      padding: 0 8px;
+      position: relative;
 
-			&:before{
-				background: $header-color;
-				bottom: 0;
-				content: '';
-				height: 2px;
-				left: 0;
-				opacity: 0;
-				position: absolute;
-				transition: opacity .2s;
-				width: 100%;
-			}
-			&:hover:before,
-			&.active:before{
-				opacity: 1;
-			}
-		}
+      &:before{
+        background: $header-color;
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transition: opacity .2s;
+        width: 100%;
+      }
+      &:hover:before,
+      &.active:before{
+        opacity: 1;
+      }
+    }
 
-	}
+  }
 }
 
 
 /* header social
 ========================================================================== */
 .header-follow a {
-	padding: 0 10px;
-	&:hover{color: rgba(255, 255, 255, 0.80)}
-	&:before{font-size: $font-size-lg !important;}
+  padding: 0 10px;
+  &:hover{color: rgba(255, 255, 255, 0.80)}
+  &:before{font-size: $font-size-lg !important;}
 
 }
 
@@ -127,84 +127,84 @@
 /* Header search
 ========================================================================== */
 .header-search{
-	background: #eee;
-	border-radius: 2px;
-	display: none;
-	// flex: 0 0 auto;
-	height: 36px;
-	position: relative;
-	text-align: left;
-	transition: background .2s,flex .2s;
-	vertical-align: top;
-	margin-left: 1.5rem;
-	margin-right: 1.5rem;
+  background: #eee;
+  border-radius: 2px;
+  display: none;
+  // flex: 0 0 auto;
+  height: 36px;
+  position: relative;
+  text-align: left;
+  transition: background .2s,flex .2s;
+  vertical-align: top;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 
-	.search-icon{
-		color: #757575;
-		font-size: 24px;
-		left: 24px;
-		position: absolute;
-		top: 12px;
-		transition: color .2s;
-	}
+  .search-icon{
+    color: #757575;
+    font-size: 24px;
+    left: 24px;
+    position: absolute;
+    top: 12px;
+    transition: color .2s;
+  }
 }
 
 input.search-field {
-	background: 0;
-	border: 0;
-	color: #212121;
-	height: 36px;
-	padding: 0 8px 0 72px;
-	transition: color .2s;
-	width: 100%;
-	&:focus{
-		border: 0;
-		outline: none;
-	}
+  background: 0;
+  border: 0;
+  color: #212121;
+  height: 36px;
+  padding: 0 8px 0 72px;
+  transition: color .2s;
+  width: 100%;
+  &:focus{
+    border: 0;
+    outline: none;
+  }
 }
 
 .search-popout{
-	background: $header-color;
-	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24),inset 0 4px 6px -4px rgba(0,0,0,.24);
-	margin-top: 10px;
-	max-height: calc(100vh - 150px);
-	// width: calc(100% + 120px);
-	margin-left: -64px;
-	overflow-y: auto;
-	position: absolute;
-	// transition: transform .2s,visibility .2s;
-	// transform: translateY(0);
+  background: $header-color;
+  box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24),inset 0 4px 6px -4px rgba(0,0,0,.24);
+  margin-top: 10px;
+  max-height: calc(100vh - 150px);
+  // width: calc(100% + 120px);
+  margin-left: -64px;
+  overflow-y: auto;
+  position: absolute;
+  // transition: transform .2s,visibility .2s;
+  // transform: translateY(0);
 
-	z-index: -1;
+  z-index: -1;
 
-	&.closed{
-		// transform: translateY(-110%);
-		visibility: hidden;
-	}
+  &.closed{
+    // transform: translateY(-110%);
+    visibility: hidden;
+  }
 }
 
 .search-suggest-results{
-	padding: 0 8px 0 75px;
+  padding: 0 8px 0 75px;
 
-	a{
-		color: #212121;
-		display: block;
-		margin-left: -8px;
-		outline: 0;
-		height: auto;
-		padding: 8px;
-		transition: background .2s;
-		font-size: $font-size-sm;
-		&:first-child{
-			margin-top: 10px;
-		}
-		&:last-child{
-			margin-bottom: 10px;
-		}
-		&:hover{
-			background: #f7f7f7;
-		}
-	}
+  a{
+    color: #212121;
+    display: block;
+    margin-left: -8px;
+    outline: 0;
+    height: auto;
+    padding: 8px;
+    transition: background .2s;
+    font-size: $font-size-sm;
+    &:first-child{
+      margin-top: 10px;
+    }
+    &:last-child{
+      margin-bottom: 10px;
+    }
+    &:hover{
+      background: #f7f7f7;
+    }
+  }
 }
 
 
@@ -214,44 +214,44 @@ input.search-field {
 ========================================================================== */
 
 @media #{$lg-and-up}{
-	.header-search{
-		background: rgba(255,255,255,.25);
-		box-shadow: 0 1px 1.5px rgba(0,0,0,0.06),0 1px 1px rgba(0,0,0,0.12);
-		color: $header-color;
-		display: inline-block;
-		width: 200px;
+  .header-search{
+    background: rgba(255,255,255,.25);
+    box-shadow: 0 1px 1.5px rgba(0,0,0,0.06),0 1px 1px rgba(0,0,0,0.12);
+    color: $header-color;
+    display: inline-block;
+    width: 200px;
 
-		&:hover{
-			background: rgba(255,255,255,.4);
-		}
+    &:hover{
+      background: rgba(255,255,255,.4);
+    }
 
-		.search-icon{top: 0px;}
+    .search-icon{top: 0px;}
 
-		input[placeholder], .search-icon{color: $header-color;}
+    input[placeholder], .search-icon{color: $header-color;}
 
-	}
+  }
 
-	.search-popout{
-		width: 100%;
-		margin-left: 0;
-	}
+  .search-popout{
+    width: 100%;
+    margin-left: 0;
+  }
 
-	// Show large search and visibility hidden header menu
-	.header.is-showSearch{
-		.header-search{
-			background: #fff;
-			flex: 1 0 auto;
+  // Show large search and visibility hidden header menu
+  .header.is-showSearch{
+    .header-search{
+      background: #fff;
+      flex: 1 0 auto;
 
-			.search-icon{color: #757575 !important;}
-			input{color: #212121 !important}
-		}
-		.header-menu{
-			flex: 0 0 auto;
-			margin: 0;
-			visibility: hidden;
-			width: 0;
-		}
-	}
+      .search-icon{color: #757575 !important;}
+      input{color: #212121 !important}
+    }
+    .header-menu{
+      flex: 0 0 auto;
+      margin: 0;
+      visibility: hidden;
+      width: 0;
+    }
+  }
 }
 
 
@@ -260,63 +260,63 @@ input.search-field {
 
 @media #{$lg-and-down}{
 
-	.header-menu ul{ display: none;	}
+  .header-menu ul{ display: none; }
 
-	// show search mobile
-	.header.is-showSearchMob{
-		padding: 0;
+  // show search mobile
+  .header.is-showSearchMob{
+    padding: 0;
 
-		.header-logo,
-		.nav-mob-toggle{
-			display: none;
-		}
+    .header-logo,
+    .nav-mob-toggle{
+      display: none;
+    }
 
-		.header-search{
-			border-radius: 0;
-			display: inline-block !important;
-			height: $header-height;
-			margin: 0;
-			width: 100%;
+    .header-search{
+      border-radius: 0;
+      display: inline-block !important;
+      height: $header-height;
+      margin: 0;
+      width: 100%;
 
-			input{
-				height: $header-height;
-				padding-right: 48px;
-			}
+      input{
+        height: $header-height;
+        padding-right: 48px;
+      }
 
-			.search-popout{margin-top: 0;}
-		}
+      .search-popout{margin-top: 0;}
+    }
 
-		.search-mob-toggle{
-			border: 0;
-			color: $header-search-color;
-			position: absolute;
-			right: 0;
-			&:before{content: $i-close !important;}
-		}
+    .search-mob-toggle{
+      border: 0;
+      color: $header-search-color;
+      position: absolute;
+      right: 0;
+      &:before{content: $i-close !important;}
+    }
 
-	}
+  }
 
-	// show menu mobile
-	body.is-showNavMob{
-		overflow: hidden;
+  // show menu mobile
+  body.is-showNavMob{
+    overflow: hidden;
 
-		.nav-mob{
-			transform: translateX(0);
-		}
-		.nav-mob-toggle {
-			border: 0;
-			transform: rotate(90deg);
-			span:first-child { transform: rotate(45deg) translate(0,0);}
-			span:nth-child(2) { transform: scaleX(0);}
-			span:last-child {transform: rotate(-45deg) translate(0,0);}
-		}
-		.search-mob-toggle{
-			display: none;
-		}
+    .nav-mob{
+      transform: translateX(0);
+    }
+    .nav-mob-toggle {
+      border: 0;
+      transform: rotate(90deg);
+      span:first-child { transform: rotate(45deg) translate(0,0);}
+      span:nth-child(2) { transform: scaleX(0);}
+      span:last-child {transform: rotate(-45deg) translate(0,0);}
+    }
+    .search-mob-toggle{
+      display: none;
+    }
 
-		.main,.footer{
-			transform: translateX(-25%);
-		}
-	}
+    .main,.footer{
+      transform: translateX(-25%);
+    }
+  }
 
 }

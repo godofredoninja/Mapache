@@ -1,31 +1,31 @@
 .footer{
-	text-align: center;
-	line-height : 1;
-	background: $footer-bg-color;
-	color: $footer-color;
-	padding: 1.6rem 15px;
-	font-size: 15px;
+  text-align: center;
+  line-height : 1;
+  background: $footer-bg-color;
+  color: $footer-color;
+  padding: 1.6rem 15px;
+  font-size: 15px;
 
-	a{
-		color: $footer-color-link;
-	}
+  a{
+    color: $footer-color-link;
+  }
 
-	&-wrap{
-		margin: 0 auto;
-		max-width: 1400px;
-	}
+  &-wrap{
+    margin: 0 auto;
+    max-width: 1400px;
+  }
 
-	.heart{
-		color: red;
-		animation: heartify .5s infinite alternate;
-	}
+  .heart{
+    color: red;
+    animation: heartify .5s infinite alternate;
+  }
 
-	&-copy,
-	&-design-author{
-		display: inline-block;
-		vertical-align: middle;
-		padding: .5rem 0;
-	}
+  &-copy,
+  &-design-author{
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem 0;
+  }
 
 }
 
@@ -33,7 +33,7 @@
 
 
 @keyframes heartify{
-	0% {
-		transform: scale(.8);
-	}
+  0% {
+    transform: scale(.8);
+  }
 }

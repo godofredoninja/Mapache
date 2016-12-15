@@ -12,20 +12,22 @@ Mapache Javascript Functions
 // import local dependencies
 import Mapache from './app/app.helper';
 import Share from './app/app.share';
+import Pagination from './app/app.pagination'; // eslint-disable-line
 
 /* variables globals */
 const $doc = $(document);
 const $win = $(window);
 
-const $header = $('#header');
-const $searchInput = $('.search-field');
 const $cover = $('#cover');
-const $postBody = $('.post-body');
+const $comments = $('.post-comments');
 const $followBox = $('.social_box');
+const $header = $('#header');
+const $postBody = $('.post-body');
 const $scrollTop = $('.scroll_top');
-const $videoFormatBox = $('#video-format');
-const $shareCount = $('.share-count');
+const $searchInput = $('.search-field');
 const $share = $('.share');
+const $shareCount = $('.share-count');
+const $videoFormatBox = $('#video-format');
 
 const $pageUrl = $('body').attr('mapache-page-url');
 
@@ -169,5 +171,5 @@ $doc.on('ready', () => {
   });
 
   /* Disqys Comments */
-  if (typeof disqusShortname !== 'undefined') disqusComments(disqusShortname); // eslint-disable-line
+  if (typeof disqusShortname !== 'undefined' && $comments.length > 0) disqusComments(disqusShortname); // eslint-disable-line
 });

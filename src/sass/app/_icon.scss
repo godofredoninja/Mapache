@@ -1,29 +1,86 @@
 @font-face {
-	font-family: 'mapache';
-	src:
-		url('../fonts/mapache.ttf') format('truetype'),
-		url('../fonts/mapache.woff') format('woff'),
-		url('../fonts/mapache.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'mapache';
+  src:
+    url('../fonts/mapache.ttf?fb7ahj') format('truetype'),
+    url('../fonts/mapache.woff?fb7ahj') format('woff'),
+    url('../fonts/mapache.svg?fb7ahj#mapache') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="i-"]:before, [class*=" i-"]:before {
-	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'mapache' !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: inherit;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'mapache' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: inherit;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
+.i-keyboard_arrow_down:before {
+  content: "\e313";
+}
+.i-arrow_upward:before {
+  content: "\e5d8";
+}
+.i-cloud_download:before {
+  content: "\e2c0";
+}
+.i-star:before {
+  content: "\e838";
+}
+.i-keyboard_arrow_up:before {
+  content: "\e316";
+}
+.i-open_in_new:before {
+  content: "\e89e";
+}
+.i-warning:before {
+  content: "\e002";
+}
+.i-back:before {
+  content: "\e5c4";
+}
+.i-forward:before {
+  content: "\e5c8";
+}
+.i-chat:before {
+  content: "\e0cb";
+}
+.i-close:before {
+  content: "\e5cd";
+}
+.i-code2:before {
+  content: "\e86f";
+}
+.i-favorite:before {
+  content: "\e87d";
+}
+.i-link:before {
+  content: "\e157";
+}
+.i-menu:before {
+  content: "\e5d2";
+}
+.i-feed:before {
+  content: "\e0e5";
+}
+.i-search:before {
+  content: "\e8b6";
+}
+.i-share:before {
+  content: "\e80d";
+}
+.i-check_circle:before {
+  content: "\e86c";
+}
 .i-play:before {
   content: "\e901";
 }
@@ -83,58 +140,4 @@
 }
 .i-snapchat:before {
   content: "\f2ac";
-}
-.i-arrow_upward:before {
-  content: "\e5d8";
-}
-.i-cloud_download:before {
-  content: "\e2c0";
-}
-.i-star:before {
-  content: "\e838";
-}
-.i-keyboard_arrow_up:before {
-  content: "\e316";
-}
-.i-open_in_new:before {
-  content: "\e89e";
-}
-.i-warning:before {
-  content: "\e002";
-}
-.i-back:before {
-  content: "\e5c4";
-}
-.i-forward:before {
-  content: "\e5c8";
-}
-.i-chat:before {
-  content: "\e0cb";
-}
-.i-close:before {
-  content: "\e5cd";
-}
-.i-code2:before {
-  content: "\e86f";
-}
-.i-favorite:before {
-  content: "\e87d";
-}
-.i-link:before {
-  content: "\e157";
-}
-.i-menu:before {
-  content: "\e5d2";
-}
-.i-feed:before {
-  content: "\e0e5";
-}
-.i-search:before {
-  content: "\e8b6";
-}
-.i-share:before {
-  content: "\e80d";
-}
-.i-check_circle:before {
-  content: "\e86c";
 }
