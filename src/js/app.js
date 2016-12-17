@@ -8,6 +8,7 @@ Mapache Javascript Functions
 
 // import external dependencies
 // import ghostHunter from './lib/jquery.ghostHunter'; // eslint-disable-line
+import stickyKit from './lib/sticky-kit'; // eslint-disable-line
 
 // import local dependencies
 import Mapache from './app/app.helper';
@@ -177,6 +178,11 @@ $doc.on('ready', () => {
     const related = new MapachePostRelated($postBox);
     related.mapacheGet();
   }
+
+  /* sticky fixed for Sidenar */
+  $('.sidebar-sticky').stick_in_parent({
+    offset_top: $header.outerHeight() + 16,
+  });
 
   /* Disqys Comments */
   if (typeof disqusShortname !== 'undefined' && $comments.length > 0) disqusComments(disqusShortname); // eslint-disable-line
