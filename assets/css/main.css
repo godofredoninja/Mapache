@@ -1973,24 +1973,9 @@ input.search-field{
     margin-bottom:18px;
     padding:0;
     border:none; }
-  .post-related .entries{
-    border:none;
-    padding-bottom:0; }
-    .post-related .entries .image{
-      margin-bottom:10px; }
-    .post-related .entries .image-link{
-      height:174px; }
-    .post-related .entries .title{
-      margin:0;
-      padding:0;
-      font-size:.9375rem;
-      font-weight:500;
-      line-height:18px; }
-      .post-related .entries .title:hover{
-        color:#4285f4; }
   .post-related .no-image{
     position:relative; }
-    .post-related .no-image .related-posts-list{
+    .post-related .no-image .entry{
       background-color:#4285f4;
       display:-webkit-box;
       display:-ms-flexbox;
@@ -2003,11 +1988,12 @@ input.search-field{
       top:0;
       left:.9375rem;
       right:.9375rem; }
-    .post-related .no-image h2{
+    .post-related .no-image .entry-title{
       color:#fff;
+      padding:0 10px;
       text-align:center;
       width:100%; }
-      .post-related .no-image h2:hover{
+      .post-related .no-image .entry-title:hover{
         color:hsla(0,0%,100%,.7); }
 @media only screen and (min-width:766px){
   .post .title{

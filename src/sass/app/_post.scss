@@ -277,27 +277,10 @@
     border: none;
   }
 
-  .entries{
-    border: none;
-    padding-bottom: 0;
-    .image{margin-bottom:10px;}
-    .image-link{height: 174px;}
-    .title{
-      margin: 0;
-      padding: 0;
-      font-size: 0.9375rem;
-      font-weight: 500;
-      line-height: 18px;
-      &:hover{
-        color: $primary-color;
-      }
-    }
-  }
-
   .no-image{
     position: relative;
 
-    .related-posts-list{
+    .entry{
       background-color: $primary-color;
       display: flex;
       align-items: center;
@@ -308,8 +291,9 @@
       right: 0.9375rem;
     }
 
-    h2{
+    .entry-title{
       color: #fff;
+      padding: 0 10px;
       text-align: center;
       width: 100%;
       &:hover{
