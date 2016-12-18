@@ -1,0 +1,25 @@
+{{!-- widget post Related Numero 6--}}
+{{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags"}}
+<div class="post-related u-h-b-md">
+    <h2 class="post-related-title u-b-b">Related Article</h2>
+    <div id="post-related-wrap" class="row">
+
+        {{#foreach posts}}
+        <div class="col s12 m6 l4{{^if image}} no-image{{/if}}">
+            <div class="entry entry--small">
+                {{#if image}}
+                <figure class="entry-image">
+                    <a href="{{url}}" class="entry-image--link">
+                        <span class="entry-image--bg" style="background-image:url({{image}})"></span>
+                    </a>
+                </figure>
+                {{/if}}
+            <h3 class="entry-title"><a href="{{url}}">{{title}}</a></h3>
+            </div>
+        </div>
+        {{/foreach}}
+
+    </div>
+</div>
+{{/get}}
+

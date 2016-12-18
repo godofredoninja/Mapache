@@ -13,7 +13,6 @@ import stickyKit from './lib/sticky-kit'; // eslint-disable-line
 // import local dependencies
 import Mapache from './app/app.helper';
 import Share from './app/app.share';
-import MapachePostRelated from './app/app.post.related';
 import Pagination from './app/app.pagination'; // eslint-disable-line
 
 /* variables globals */
@@ -161,7 +160,7 @@ $doc.on('ready', () => {
   Mapache.facebookShare($shareCount);
 
   /* Video Post Format*/
-  videoPostFormat();
+  if ($videoFormatBox.length > 0) videoPostFormat();
 
   /* Video Responsive*/
   Mapache.videoResponsive($postBody);
@@ -172,12 +171,6 @@ $doc.on('ready', () => {
     const share = new Share($(this));
     share.mapacheShare();
   });
-
-  /* Post related */
-  if ($postBox.length > 0) {
-    const related = new MapachePostRelated($postBox);
-    related.mapacheGet();
-  }
 
   /* sticky fixed for Sidenar */
   $('.sidebar-sticky').stick_in_parent({

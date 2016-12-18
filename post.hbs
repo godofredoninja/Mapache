@@ -29,12 +29,7 @@
 
             <div class="col s12 content">
                 {{!-- Post Section  --}}
-                <article id="post" class="post"
-                    mapache-page-url="{{@blog.url}}"
-                    mapache-post-id="{{id}}"
-                    mapache-post-total="6"
-                    mapache-related-title="Related Article"
-                    mapache-tag-id="{{#if tags }}{{#foreach tags limit="1"}}{{id}}{{/foreach}}{{/if}}">
+                <article class="post">
 
                     {{!-- Post Header --}}
                     <header class="post-header">
@@ -80,6 +75,10 @@
                         {{!-- Comments section for facebook --}}
                         <div class="fb-comments mapache-facebook" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
                     </div>
+
+                    {{!-- post Related Numero 6--}}
+                    {{/post}} {{> "wiget-post-related"}} {{#post}}
+
                 </article>
             </div>
 
