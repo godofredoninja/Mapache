@@ -3,15 +3,15 @@
 {{!< default}}
 
 <section id="cover" class="cover u-flex-wrap">
-	{{#if tag.image}}<div class="background" style="background-image: url({{tag.image}})"></div>{{/if}}
+    {{#if tag.image}}<div class="background" style="background-image: url({{tag.image}})"></div>{{/if}}
 
-	<article class="cover-wrap u-flex-aling-center">
-		{{!-- Tag name --}}
-		<h1 class="cover-title">{{tag.name}}</h1>
-		{{!-- tag description --}}
-		<p class="cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
-	</article>
-	<a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
+    <article class="cover-wrap u-flex-aling-center">
+        {{!-- Tag name --}}
+        <h1 class="cover-title">{{tag.name}}</h1>
+        {{!-- tag description --}}
+        <p class="cover-description">{{#if tag.description}}{{tag.description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
+    </article>
+    <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>
 
 {{!-- Add Loop --}}
