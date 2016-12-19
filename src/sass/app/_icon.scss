@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'mapache';
   src:
-    url('../fonts/mapache.ttf?fb7ahj') format('truetype'),
-    url('../fonts/mapache.woff?fb7ahj') format('woff'),
-    url('../fonts/mapache.svg?fb7ahj#mapache') format('svg');
+    url('../fonts/mapache.ttf?l1na7c') format('truetype'),
+    url('../fonts/mapache.woff?l1na7c') format('woff'),
+    url('../fonts/mapache.svg?l1na7c#mapache') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,7 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.i-tag:before {
+  content: "\e54e";
+}
 .i-keyboard_arrow_down:before {
   content: "\e313";
 }

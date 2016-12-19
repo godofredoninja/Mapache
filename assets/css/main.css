@@ -111,7 +111,7 @@ textarea{
 
 @font-face{
   font-family:mapache;
-  src:url(../fonts/mapache.ttf?fb7ahj) format("truetype"),url(../fonts/mapache.woff?fb7ahj) format("woff"),url(../fonts/mapache.svg?fb7ahj#mapache) format("svg");
+  src:url(../fonts/mapache.ttf?l1na7c) format("truetype"),url(../fonts/mapache.woff?l1na7c) format("woff"),url(../fonts/mapache.svg?l1na7c#mapache) format("svg");
   font-weight:400;
   font-style:normal; }
 
@@ -125,6 +125,9 @@ textarea{
   line-height:inherit;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale; }
+
+.i-tag:before{
+  content:"\e54e"; }
 
 .i-keyboard_arrow_down:before{
   content:"\e313"; }
@@ -436,6 +439,19 @@ pre.line-numbers,pre.line-numbers>code{
 
 .u-m-t-1{
   margin-top:1rem; }
+.u-tags{
+  font-size:12px !important;
+  margin:3px !important;
+  color:#4c5765 !important;
+  background-color:#ebebeb !important;
+  -webkit-transition:all .3s;
+  transition:all .3s; }
+  .u-tags:before{
+    padding-right:5px;
+    opacity:.8; }
+  .u-tags:hover{
+    background-color:#4285f4 !important;
+    color:#fff !important; }
 
 .u-hide{
   display:none !important; }
@@ -1827,16 +1843,6 @@ input.search-field{
 
 .post-tags{
   margin:1.25rem 0; }
-  .post-tags a{
-    margin:0 10px 10px 0;
-    text-transform:capitalize;
-    background:#eceff5 !important;
-    text-shadow:none;
-    box-shadow:none !important;
-    color:#4c5765 !important; }
-    .post-tags a:hover{
-      color:#fff !important;
-      background:#4285f4 !important; }
 
 .post-comments{
   margin:0 0 1.5rem; }

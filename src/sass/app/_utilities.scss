@@ -57,7 +57,23 @@
   margin-top: 1rem;
 }
 
-
+/* Tags
+========================================================================== */
+.u-tags{
+  font-size: 12px !important;
+  margin: 3px !important;
+  color: #4c5765 !important;
+  background-color:#ebebeb !important;
+  transition: all .3s;
+  &:before{
+    padding-right: 5px;
+    opacity: .8;
+  }
+  &:hover{
+    background-color: $primary-color !important;
+    color: #fff !important;
+  }
+}
 
 // hide global
 .u-hide{display: none !important}

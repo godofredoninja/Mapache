@@ -52,22 +52,22 @@
                     {{/has}}
 
                     {{!-- Post share top --}}
-                    {{> widget-post-share }}
+                    {{> "widget-post-share" }}
 
                     {{!-- Post content body --}}
                     <div class="post-body">{{content}}</div>
 
                     {{!-- Post All Tags (category) --}}
-                    {{#if tags}}<div class="post-tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn btn-shadow">{{name}}</a>{{/foreach}}</div>{{/if}}
+                    {{#if tags}}<div class="post-tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn u-tags i-tag">{{name}}</a>{{/foreach}}</div>{{/if}}
 
                     {{!-- post Share Button and Suscribe newsletter --}}
                     <div class="row share-subscribe">
-                        {{> widget-share}}
-                        {{> widget-newsletter}}
+                        {{> "widget-share" }}
+                        {{> "widget-newsletter" }}
                     </div>
 
                     {{!-- Post author info --}}
-                    {{> widget-post-author}}
+                    {{> "widget-post-author" }}
 
                     {{!-- post Comments Section --}}
                     <div id="post-comments" class="post-comments">
@@ -77,7 +77,7 @@
                     </div>
 
                     {{!-- post Related Numero 6--}}
-                    {{/post}} {{> "wiget-post-related"}} {{#post}}
+                    {{/post}} {{> "widget-post-related" }} {{#post}}
 
                 </article>
             </div>
