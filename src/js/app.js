@@ -7,8 +7,9 @@ Mapache Javascript Functions
 */
 
 // import external dependencies
-// import ghostHunter from './lib/jquery.ghostHunter'; // eslint-disable-line
+import ghostHunter from './lib/jquery.ghostHunter'; // eslint-disable-line
 import stickyKit from './lib/sticky-kit'; // eslint-disable-line
+import Prism from './lib/prism'; // eslint-disable-line
 
 // import local dependencies
 import Mapache from './app/app.helper';
@@ -67,13 +68,13 @@ $doc.on('ready', () => {
       $('.search-suggest-results').css('display', 'block');
     });
 
-  // $searchInput.ghostHunter({
-  //   results: '#search-results',
-  //   zeroResultsInfo: false,
-  //   displaySearchInfo: false,
-  //   result_template: `<a href="${$pageUrl}{{link}}">{{title}}</a>`,
-  //   onKeyUp: true,
-  // });
+  $searchInput.ghostHunter({
+    results: '#search-results',
+    zeroResultsInfo: false,
+    displaySearchInfo: false,
+    result_template: `<a href="${$pageUrl}{{link}}">{{title}}</a>`,
+    onKeyUp: true,
+  });
 });
 
 /* Header box shadow and transparent */
@@ -189,4 +190,7 @@ $doc.on('ready', () => {
 
   /* Disqys Comments */
   if (typeof disqusShortname !== 'undefined' && $comments.length > 0) disqusComments(disqusShortname); // eslint-disable-line
+
+  /* Prism autoloader */
+  Prism.plugins.autoloader.languages_path = '../assets/js/prism-components/';
 });
