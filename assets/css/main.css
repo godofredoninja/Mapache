@@ -1564,6 +1564,8 @@ input.search-field{
   .cover{
     padding-top:50px;
     padding-bottom:20px; }
+    .cover-title{
+      font-size:2rem; }
   .author-avatar{
     display:block;
     margin:0 auto 10px; } }
@@ -1809,6 +1811,24 @@ input.search-field{
     border-color:#4285f4;
     outline:0;
     box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(66,133,244,.6); }
+
+.btn-subscribe-home{
+  background-color:transparent;
+  border-radius:3px;
+  box-shadow:inset 0 0 0 2px hsla(0,0%,100%,.5);
+  color:#fff;
+  display:block;
+  font-size:20px;
+  font-weight:400;
+  line-height:1.2;
+  margin-top:50px;
+  max-width:300px;
+  padding:15px 10px;
+  -webkit-transition:all .3s;
+  transition:all .3s;
+  width:100%; }
+  .btn-subscribe-home:hover{
+    box-shadow:inset 0 0 0 2px #fff; }
 .post-wrapper{
   margin-top:50px;
   padding-top:1.8rem; }

@@ -29,7 +29,6 @@ const $searchInput = $('.search-field');
 const $share = $('.share');
 const $shareCount = $('.share-count');
 const $videoFormatBox = $('#video-format');
-const $postBox = $('#post');
 
 const $pageUrl = $('body').attr('mapache-page-url');
 
@@ -135,6 +134,14 @@ function videoPostFormat() {
   }
 }
 
+// change btn Home
+function changeBtnHome(data) {
+  const $btnHome = $('#btn-home');
+  $.each(data, (title, url) => {
+    $btnHome.attr('href', url).html(title);
+  });
+}
+
 
 $win.on('scroll', function () {
   /* Add background Header */
@@ -151,7 +158,10 @@ $win.on('scroll', function () {
 
 $doc.on('ready', () => {
   /* Change title home */
-  if (typeof titleHome !== 'undefined') $('#title-home').html(titleHome); // eslint-disable-line
+  if (typeof homeTitle !== 'undefined') $('#title-home').html(homeTitle); // eslint-disable-line
+
+  /* Change btn Home */
+  if (typeof homeBtn !== 'undefined') changeBtnHome(homeBtn); // eslint-disable-line
 
   /* FollowMe */
   if (typeof followSocialMedia !== 'undefined') Mapache.follow(followSocialMedia, $followBox, urlRegexp); // eslint-disable-line
