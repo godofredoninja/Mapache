@@ -189,6 +189,53 @@
   }
 }
 
+/* prev-post and next-post
+========================================================================== */
+.prev-post,
+.next-post{
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #e9e9ea;
+  color: #23527c;
+  display: block;
+  font-size: 14px;
+  height: 60px;
+  line-height: 60px;
+  overflow: hidden;
+  position: fixed;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  top: calc(50% - 25px);
+  transition: all 0.5s ease 0s;
+  white-space: nowrap;
+  width: 200px;
+  z-index: 999;
+
+  &:before{
+    color: #c3c3c3;
+    font-size: 36px;
+    height: 60px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 50px;
+  }
+}
+
+.prev-post {
+  left: -150px;
+  padding-right: 50px;
+  text-align: right;
+  &:hover{ left:0; }
+  &:before{ right: 0; }
+}
+
+.next-post {
+  right: -150px;
+  padding-left: 50px;
+  &:hover{ right: 0; }
+  &:before{ left: 0; }
+}
+
 
 /* bottom share and bottom subscribe
 ========================================================================== */
