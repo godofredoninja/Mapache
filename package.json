@@ -1,6 +1,6 @@
 {
   "name": "mapache-godofredo",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Mapache theme for ghost by @GodoFredoNinja",
   "main": "webpack.config.js",
   "scripts": {

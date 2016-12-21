@@ -17,7 +17,7 @@ const postCssPlugins = [
     autoprefixer: {
       add: true,
     },
-    core: false,
+    core: true,
   }),
 ];
 
