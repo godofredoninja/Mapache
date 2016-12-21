@@ -189,7 +189,7 @@ $doc.on('ready', () => {
   });
 
   /* Disqys Comments */
-  if (typeof disqusShortname !== 'undefined' && $comments.length > 0) disqusComments(disqusShortname); // eslint-disable-line
+  if (typeof disqusShortName !== 'undefined' && $comments.length > 0) disqusComments(disqusShortName); // eslint-disable-line
 
   /* Prism autoloader */
   Prism.plugins.autoloader.languages_path = '../assets/js/prism-components/';

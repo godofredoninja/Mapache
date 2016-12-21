@@ -10,7 +10,7 @@ const convertNumber = (n) => {
 function followMe(links, box, urlRegexp) {
   return $.each(links, (name, url) => {
     if (typeof url === 'string' && urlRegexp.test(url)) {
-      const template = `<a title="${name}" href="${url}" target="_blank" class="i-${name}"></a>`;
+      const template = `<a title="Follow me in ${name}" href="${url}" target="_blank" class="i-${name}"></a>`;
       box.append(template);
     }
   });
