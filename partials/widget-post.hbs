@@ -1,0 +1,20 @@
+{{!-- Sidebar Post Template --}}
+<div class="sidebar-items">
+    <h3 class="sidebar-title">{{widgetTitle}}</h3>
+    <ul class="u-unstyled">
+        {{#foreach widgetPosts}}
+        <li class="entry entry--small u-flex u-b-b">
+            {{#if image}}
+            <figure class="entry-image">
+                <a href="{{url}}" title="{{title}}" class="entry-image--link">
+                    <span class="entry-image--bg u-h-b-lg" style="background-image:url({{image}})"></span>
+                </a>
+            </figure>
+            {{/if}}
+            <div class="entry-body">
+                <h3 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
+            </div>
+        </li>
+        {{/foreach}}
+    </ul>
+</div>

@@ -1,44 +1,44 @@
 {{!-- Header section --}}
 <header id="header" class="header {{^is "home, tag, author"}} toolbar-shadow"{{else}}" style="background:transparent"{{/is}}>
-	<section class="header-wrap u-flex-wrap u-flex-center">
+    <section class="header-wrap u-flex-wrap u-flex-center">
 
-		{{!-- Header Logo --}}
-		<a class="header-logo" href="{{@blog.url}}">
-			{{#if @blog.logo}}
-				<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
-				<span class="header-logo-bg" style="display:none;background-image:url({{@blog.logo}})"></span>
-			{{else}}
-				{{@blog.title}}
-			{{/if}}
-		</a>
+        {{!-- Header Logo --}}
+        <a class="header-logo" href="{{@blog.url}}">
+            {{#if @blog.logo}}
+                <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+                <span class="header-logo-bg" style="display:none;background-image:url({{@blog.logo}})"></span>
+            {{else}}
+                {{@blog.title}}
+            {{/if}}
+        </a>
 
-		{{!-- Header Navigation --}}
-		<nav class="header-menu u-flex">{{navigation}}</nav>
+        {{!-- Header Navigation --}}
+        <nav class="header-menu u-flex">{{navigation}}</nav>
 
-		{{!-- Header search section --}}
-		<form id="header-search" class="header-search u-flex" >
-			<div id="searchbox" class="searchbox">
-				<input id="searchbox-input" placeholder="Search" type="text" class="search-field" name="q" value="" autocomplete="off">
-				<span class="search-icon i-search"></span>
-			</div>
+        {{!-- Header search section --}}
+        <form id="header-search" class="header-search u-flex" >
+            <div id="searchbox" class="searchbox">
+                <input id="searchbox-input" placeholder="Search" type="text" class="search-field" name="q" value="" autocomplete="off">
+                <span class="search-icon i-search"></span>
+            </div>
 
-			<div class="search-popout closed">
-				<div id="search-results" class="search-suggest-results" style="display:none"></div>
-			</div>
-		</form>
+            <div class="search-popout closed">
+                <div id="search-results" class="search-suggest-results" style="display:none"></div>
+            </div>
+        </form>
 
-		{{!-- Header follow section --}}
-		<aside class="header-follow u-flex u-h-b-lg social_box">
-			{{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
-			{{#if @blog.twitter}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
-		</aside>
+        {{!-- Header follow section --}}
+        <aside class="header-follow u-flex u-h-b-lg social_box">
+            {{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
+            {{#if @blog.twitter}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
+        </aside>
 
-		{{!-- Search - menu open and  close for mobile --}}
-		<a id="search-mob-toggle"  class="search-mob-toggle btn btn-lg btn-flat u-h-a-lg i-search" href="#"></a>
-		<a id="nav-mob-toggle" class="nav-mob-toggle btn btn-lg btn-flat u-h-a-lg" href="#"><span></span><span></span><span></span></a>
+        {{!-- Search - menu open and  close for mobile --}}
+        <a id="search-mob-toggle"  class="search-mob-toggle btn btn-lg btn-flat u-h-a-lg i-search" href="#"></a>
+        <a id="nav-mob-toggle" class="nav-mob-toggle btn btn-lg btn-flat u-h-a-lg" href="#"><span></span><span></span><span></span></a>
 
-	</section>
+    </section>
 
-	{{> nav-mob}}
+    {{> "nav-mob" }}
 
 </header>

@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <head>
-	{{!-- Document Settings --}}
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	{{!-- Page Meta --}}
-	<title>{{meta_title}}</title>
-	<meta name="description" content="{{meta_description}}" />
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
 
-	{{!-- Mobile Meta --}}
-	<meta name="HandheldFriendly" content="True" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-	{{!-- Brand icon --}}
-	<link rel="shortcut icon" href="{{asset "img/icon.png"}}" />
-	<link rel="icon" sizes="192x192" href="{{asset "img/icon.png"}}" />
+    {{!-- Brand icon --}}
+    <link rel="shortcut icon" href="{{asset "img/icon.png"}}" />
+    <link rel="icon" sizes="192x192" href="{{asset "img/icon.png"}}" />
 
-	{{!-- Styles'n'Scripts --}}
-	<link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500" rel="stylesheet">
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
 
-	{{! Ghost outputs important style and meta data with this tag }}
-	{{ghost_head}}
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
 </head>
 <body class="{{#is "home"}}is-frontpage{{/is}}{{#is "post"}}is-article{{/is}}{{#is "tag"}}is-tag{{/is}}{{#is "author"}}is-author{{/is}}" mapache-page-url="{{@blog.url}}">
-	{{!-- Add Header --}}
-	{{> "header"}}
-	{{!-- Add Content Body --}}
-	<main class="main">{{{body}}}</main>
-	{{!-- Add footer --}}
-	{{> "footer"}}
+    {{!-- Add Header --}}
+    {{> "header"}}
+    {{!-- Add Content Body --}}
+    <main class="main">{{{body}}}</main>
+    {{!-- Add footer --}}
+    {{> "footer"}}
 
-	{{!-- jQuery --}}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {{!-- jQuery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-	{{! Ghost outputs important scripts and data with this tag }}
-	{{ghost_foot}}
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
 
-	<a href="#" class="scroll_top u-h-b-lg i-arrow_upward"></a>
+    <a href="#" class="scroll_top u-h-b-lg i-arrow_upward"></a>
 
-	{{!-- The main JavaScript file for Mapache --}}
-	<script src="{{asset "js/bundle.min.js"}}"></script>
+    {{!-- The main JavaScript file for Mapache --}}
+    <script src="{{asset "js/bundle.min.js"}}"></script>
+
+    {{!--  Font Roboto  && Roboto Mono --}}
+    <script type="text/javascript">WebFontConfig ={google:{families:['Roboto:300,400,500','Roboto+Mono']}};(function(){var wf=document.createElement('script');wf.src=('https:'==document.location.protocol?'https':'http')+'://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
 </body>
 </html>

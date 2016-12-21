@@ -4,33 +4,33 @@
 
 {{#author}}
 <section id="cover" class="cover author u-flex-wrap">
-	{{#if cover}}<div class="cover-background" style="background-image: url({{cover}})"></div>{{/if}}
+    {{#if cover}}<div class="cover-background" style="background-image: url({{cover}})"></div>{{/if}}
 
-	<article class="cover-wrap u-flex-aling-center">
-		<div class="author-header">
-			<div  class="author-avatar animated bounceInDown" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
-			<div class="author-name-wrap animated bounceIn">
-				<span class="author-title">Author</span>
-				<h1 class="author-name">{{name}}</h1>
-			</div>
-		</div>
+    <article class="cover-wrap u-flex-aling-center">
+        <div class="author-header">
+            <div  class="author-avatar animated bounceInDown" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})" alt="{{name}}"> </div>
+            <div class="author-name-wrap animated bounceIn">
+                <span class="author-title">Author</span>
+                <h1 class="author-name">{{name}}</h1>
+            </div>
+        </div>
 
-		{{#if bio}}<p class="author-bio" itemprop="description">{{bio}}</p>{{/if}}
+        {{#if bio}}<p class="author-bio" itemprop="description">{{bio}}</p>{{/if}}
 
-		<div class="author-meta">
-			{{#if location}}<span class="author-location"><i class="i-map"></i> {{location}}</span>{{/if}}
-			{{#if website}}<span class="author-link"><i class="i-link"></i> <a href="{{website}}">{{website}}</a></span>{{/if}}
-			<span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
-		</div>
+        <div class="author-meta">
+            {{#if location}}<span class="author-location"><i class="i-map"></i> {{location}}</span>{{/if}}
+            {{#if website}}<span class="author-link"><i class="i-link"></i> <a href="{{website}}">{{website}}</a></span>{{/if}}
+            <span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+        </div>
 
-		{{!-- Author location website --}}
-		<div class="author-follow">
-			{{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank"><i class="i-facebook"></i> Facebook</a>{{/if}}
-			{{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" target="_blank"><i class="i-twitter"></i> Twitter</a>{{/if}}
-		</div>
-	</article>
+        {{!-- Author location website --}}
+        <div class="author-follow">
+            {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank"><i class="i-facebook"></i> Facebook</a>{{/if}}
+            {{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" target="_blank"><i class="i-twitter"></i> Twitter</a>{{/if}}
+        </div>
+    </article>
 
-	<a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
+    <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>
 {{/author}}
 

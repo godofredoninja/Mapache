@@ -1,0 +1,9 @@
+{{!-- Tag Cloud --}}
+{{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
+    <div class="sidebar-items">
+        <h3 class="sidebar-title">Tags</h3>
+            {{#foreach tags}}
+                <a href="/tag/{{slug}}" class="btn u-tags i-tag">{{name}}</a>
+            {{/foreach}}
+    </div>
+{{/get}}

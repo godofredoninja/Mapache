@@ -1,20 +1,33 @@
 {{!-- Sidebar right --}}
 <div id="sidebar" class="col s12 sidebar u-h-b-lg">
 
-	{{!-- 5 articles featured in page (home - author - tag) --}}
-	{{#is "home"}}
-		{{#get "posts" filter="featured:true" limit="5" as |featured|}}
-			{{> "widget-entry-sidebar" widgetTitle="Featured Posts" widgetPosts=featured}}
-		{{/get}}
-	{{/is}}
+    {{!-- 5 articles featured in page (home - author - tag) --}}
+    {{#is "home" }}
+        {{#get "posts" filter="featured:true" limit="5" as |featured| }}
+            {{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured }}
+        {{/get}}
+    {{/is}}
 
-	{{!-- 5 articles recents in page (post) --}}
-	{{#is "post, tag, author, paged"}}
-		{{#get "posts" limit="5" as |recents|}}
-			{{> "widget-entry-sidebar" widgetTitle="Latest" widgetPosts=recents}}
-		{{/get}}
-	{{/is}}
+    {{!-- 5 articles recents in page (post) --}}
+    {{#is "post, tag, author, paged" }}
+        {{#get "posts" limit="5" as |recents| }}
+            {{> "widget-post" widgetTitle="Latest" widgetPosts=recents }}
+        {{/get}}
+    {{/is}}
 
-	{{!-- Add your content here --}}
+    {{!-- Tag Cloud --}}
+    {{> "widget-tag-cloud" }}
+
+    {{!-- Add your content here --}}
+    {{!--<div class="sidebar-items">
+        <h3 class="sidebar-title">... your title ...</h3>
+        ... your content ...
+    </div>--}}
+
+    {{!-- Add your content sticky --}}
+    {{!--<div class="sidebar-sticky">
+        <h3 class="sidebar-title">...your title sticky ...</h3>
+        ... your content sticky ...
+    </div>--}}
 
 </div>
