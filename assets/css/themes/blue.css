@@ -1,7 +1,7 @@
 .btn,.nav-mob-copyright a,.pagination .pagination-link,a{
   color:#0273d4; }
 
-.btn.btn-primary,.cover,.header.toolbar-shadow,.nav-mob,.post-actions-comment,.post-tags a:hover,.related-posts .no-image .related-posts-list,.scroll_top:hover,.sidebar .title-primary{
+.btn.btn-primary,.cover,.header.toolbar-shadow,.mapache-load-more:hover,.nav-mob,.post-actions-comment,.post-related .no-image .entry,.scroll_top:hover,.sidebar .title-primary,.u-tags:hover{
   background-color:#0273d4 !important; }
 
 .form-control:focus{
@@ -15,6 +15,9 @@
 
 .pagination .pagination-link:before{
   border:2px solid #0273d4; }
+
+.mapache-load-more:hover{
+  border-color:#0273d4 !important; }
 
 .pagination .pagination-link.loanding:before{
   border-bottom:2px solid #0273d4; }

@@ -1,14 +1,23 @@
 // partial color Change for blue
 @mixin colorBlue($color-theme) {
-  .header.toolbar-shadow,
-  .cover,
   .btn.btn-primary,
-  .sidebar .title-primary{
+  .cover,
+  .header.toolbar-shadow,
+  .header.toolbar-shadow,
+  .mapache-load-more:hover,
+  .nav-mob,
+  .post-related .no-image .entry,
+  .scroll_top:hover,
+  .u-tags:hover,
+  {
     background-color: $color-theme !important;
   }
   .form-control:focus{
     border-color: $color-theme !important;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba($color-theme,0.6);
+  }
+  .mapache-load-more:hover{
+    border-color: $color-theme !important;
   }
 }
 
@@ -24,15 +33,16 @@
   }
 
 
-  .header.toolbar-shadow,
-  .cover,
   .btn.btn-primary,
-  .sidebar .title-primary,
-  .post-actions-comment,
-  .post-tags a:hover,
-  .scroll_top:hover,
+  .cover,
+  .header.toolbar-shadow,
   .nav-mob,
-  .related-posts .no-image .related-posts-list{
+  .post-actions-comment,
+  .post-related .no-image .entry,
+  .scroll_top:hover,
+  .sidebar .title-primary,
+  .mapache-load-more:hover,
+  .u-tags:hover{
     background-color: $color-theme !important;
   }
   .form-control:focus{
@@ -47,6 +57,9 @@
   }
   .pagination .pagination-link:before{
     border: 2px solid $color-theme;
+  }
+  .mapache-load-more:hover{
+    border-color: $color-theme !important;
   }
   .pagination .pagination-link.loanding:before{
     border-bottom: 2px solid $color-theme;
