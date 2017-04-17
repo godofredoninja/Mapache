@@ -1,0 +1,20 @@
+{
+  "entry": {
+    "main": [
+      "./scripts/main.js",
+      "./styles/main.scss"
+    ]
+  },
+  "publicPath": "/content/themes/Mapache",
+  "devUrl": "http://localhost:2368",
+  "proxyUrl": "http://localhost:3000",
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": [
+    "*.hbs"
+  ],
+  "browsers": [
+    "last 2 versions",
+    "android 4",
+    "opera 12"
+  ]
+}
