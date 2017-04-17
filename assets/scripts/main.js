@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f2459104c24b4053a985"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f8fa5809db9ad0240dc3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1998,7 +1998,7 @@ var $btnLoadMore = $('.mapache-load-more');
 var $paginationTotal = $btnLoadMore.attr('mapache-page-total');
 
 var enableDisableScroll = false; // false => !1
-var pagingNumber = 2;
+var paginationNumber = 2;
 
 /* Page end */
 function activeScroll() {
@@ -2017,27 +2017,30 @@ function PageEnd() {
 }
 
 /* get urL */
-function getURL() {
-  $btnLoadMore.text('Loading...');
+function getNextPage() {
+  $.ajax({
+    type: 'GET',
+    url: (paginationUrl + "page/" + paginationNumber),
 
-  $.get(((paginationUrl + "page/" + pagingNumber)), function (data) {
-    $win.off('scroll', activeScroll);
+    beforeSend: function () {
+      $win.off('scroll', activeScroll);
+      $btnLoadMore.text('Loading...');
+    },
 
-    /* Add the following page after 2 seconds */
-    setTimeout(function () {
+    success: function (data) {
       var entries = $('.feed-entry-wrapper', data);
       $('.feed-entry-content').append(entries);
 
       $btnLoadMore.html('Load more <i class="i-keyboard_arrow_down">');
 
+      paginationNumber += 1;
+
       $win.on('scroll', activeScroll);
-    }, 400);
-
-    pagingNumber += 1;
-
-    /* Scroll False*/
-    enableDisableScroll = false; // => !1;
+    },
   });
+
+  /* Scroll False*/
+  enableDisableScroll = false; // => !1;
 }
 
 $(document).on('ready', function () {
@@ -2046,13 +2049,9 @@ $(document).on('ready', function () {
     if (PageEnd()) {
       if (typeof $paginationTotal !== 'undefined' && !$btnLoadMore.hasClass('not-load-more')) {
         /* Add class <.not-load-more> to <.mapache-load-more> */
-        if (pagingNumber === 3) { $btnLoadMore.addClass('not-load-more'); }
+        if (paginationNumber === 3) { $btnLoadMore.addClass('not-load-more'); }
 
-        if (pagingNumber <= $paginationTotal) {
-          getURL();
-        } else {
-          $btnLoadMore.remove();
-        }
+        (paginationNumber <= $paginationTotal) ? getNextPage() : $btnLoadMore.remove();
       }
     }
   }, 500);

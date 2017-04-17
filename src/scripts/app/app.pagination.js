@@ -8,7 +8,7 @@ const $btnLoadMore = $('.mapache-load-more');
 const $paginationTotal = $btnLoadMore.attr('mapache-page-total');
 
 let enableDisableScroll = false; // false => !1
-let pagingNumber = 2;
+let paginationNumber = 2;
 
 /* Page end */
 function activeScroll() {
@@ -27,27 +27,30 @@ function PageEnd() {
 }
 
 /* get urL */
-function getURL() {
-  $btnLoadMore.text('Loading...');
+function getNextPage() {
+  $.ajax({
+    type: 'GET',
+    url: `${paginationUrl}page/${paginationNumber}`,
 
-  $.get((`${paginationUrl}page/${pagingNumber}`), (data) => {
-    $win.off('scroll', activeScroll);
+    beforeSend: () => {
+      $win.off('scroll', activeScroll);
+      $btnLoadMore.text('Loading...');
+    },
 
-    /* Add the following page after 2 seconds */
-    setTimeout(() => {
+    success: (data) => {
       const entries = $('.feed-entry-wrapper', data);
       $('.feed-entry-content').append(entries);
 
       $btnLoadMore.html('Load more <i class="i-keyboard_arrow_down">');
 
+      paginationNumber += 1;
+
       $win.on('scroll', activeScroll);
-    }, 400);
-
-    pagingNumber += 1;
-
-    /* Scroll False*/
-    enableDisableScroll = false; // => !1;
+    },
   });
+
+  /* Scroll False*/
+  enableDisableScroll = false; // => !1;
 }
 
 $(document).on('ready', () => {
@@ -56,13 +59,9 @@ $(document).on('ready', () => {
     if (PageEnd()) {
       if (typeof $paginationTotal !== 'undefined' && !$btnLoadMore.hasClass('not-load-more')) {
         /* Add class <.not-load-more> to <.mapache-load-more> */
-        if (pagingNumber === 3) $btnLoadMore.addClass('not-load-more');
+        if (paginationNumber === 3) $btnLoadMore.addClass('not-load-more');
 
-        if (pagingNumber <= $paginationTotal) {
-          getURL();
-        } else {
-          $btnLoadMore.remove();
-        }
+        (paginationNumber <= $paginationTotal) ? getNextPage() : $btnLoadMore.remove();
       }
     }
   }, 500);
