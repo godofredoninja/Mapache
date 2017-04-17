@@ -119,9 +119,9 @@ $entry-color-byline: #aaa;
 
 /* 5. Footer
 ========================================================================== */
-$footer-bg-color:   #000;
-$footer-color-link: #ffffff;
-$footer-color:      $secondary-text-color;
+// $footer-bg-color:   #000;
+$footer-color-link: rgba(0, 0, 0, .6);
+$footer-color:      rgba(0, 0, 0, .44);
 
 
 /* 6. Code Syntax

@@ -187,7 +187,7 @@ $doc.on('ready', () => {
 
   /* sticky fixed for Sidenar */
   $('.sidebar-sticky').stick_in_parent({
-    offset_top: $header.outerHeight() + 16,
+    offset_top: 66,
   });
 
   /* Disqys Comments */

@@ -1,31 +1,31 @@
-.footer{
-  text-align: center;
-  line-height : 1;
-  background: $footer-bg-color;
+.footer {
   color: $footer-color;
-  padding: 1.6rem 15px;
   font-size: 14px;
   font-weight: 500;
+  line-height : 1;
+  padding: 1.6rem 15px;
+  text-align: center;
 
-  a{
+  a {
     color: $footer-color-link;
+    &:hover { color: rgba(0, 0, 0, .8); }
   }
 
-  &-wrap{
+  &-wrap {
     margin: 0 auto;
     max-width: 1400px;
   }
 
-  .heart{
-    color: red;
+  .heart {
     animation: heartify .5s infinite alternate;
+    color: red;
   }
 
   &-copy,
-  &-design-author{
+  &-design-author {
     display: inline-block;
-    vertical-align: middle;
     padding: .5rem 0;
+    vertical-align: middle;
   }
 
 }
@@ -33,7 +33,7 @@
 
 
 
-@keyframes heartify{
+@keyframes heartify {
   0% {
     transform: scale(.8);
   }

@@ -3,7 +3,7 @@
     <div class="sidebar-items">
         <h3 class="sidebar-title">Tags</h3>
             {{#foreach tags}}
-                <a href="/tag/{{slug}}" class="btn u-tags i-tag">{{name}}</a>
+                <a href="{{url absolute="true"}}" class="btn u-tags i-tag">{{name}}</a>
             {{/foreach}}
     </div>
 {{/get}}
