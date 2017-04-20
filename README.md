@@ -10,11 +10,16 @@
 
 Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
 
+
+### 😃 To have updated the subject please help me with a small collaboration in [paypal](http://bit.ly/DonateMapacheGhost). I will thank you enormentene
+
+[![](./documentation/donate.gif)](http://bit.ly/DonateMapacheGhost)
+
 ![](./documentation/mapache-screenshot.png)
 
 
 ## Demo
-You can see a demo in my [blog](http://bit.ly/GodoFredoNinja-blog).
+You can see a demo in my [blog](http://bit.ly/GodoFredoNinja-Mapache).
 
 ## Mapache Support for Web Browsers
 Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox)
@@ -178,7 +183,7 @@ To change the color of the Mapache theme select one of the theme styles below an
 -->
 
 
-<link rel="stylesheet" href="/assets/css/themes/white.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/indigo.css"/>
 
 ```
 
@@ -256,6 +261,7 @@ If you want to have a image post format, you only have to add the tag `#image-po
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
 - [Prismjs](http://prismjs.com/)
 - [sticky-kit](https://github.com/leafo/sticky-kit)
+- [jquery-lazyload](http://www.appelsiini.net/projects/lazyload)
 
 ## Copyright & License
 

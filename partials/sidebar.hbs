@@ -1,5 +1,5 @@
 {{!-- Sidebar right --}}
-<div id="sidebar" class="col s12 sidebar u-h-b-lg">
+<div id="sidebar" class="col s12 sidebar u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
 
     {{!-- 5 articles featured in page (home - author - tag) --}}
     {{#is "home" }}

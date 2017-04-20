@@ -1,13 +1,7 @@
 {
-  "name": "mapache-godofredo",
-  "version": "2.0.5",
+  "name": "mapache-godofredoninja",
+  "version": "2.0.6",
   "description": "Mapache theme for ghost by @GodoFredoNinja",
-  "scripts": {},
-  "bugs": {
-    "url": "https://github.com/godofredoninja/Mapache/issues",
-    "email": "hello@godofredo.ninja"
-  },
-  "license": "MIT",
   "author": {
     "name": "GodoFredoNinja",
     "email": "hello@godofredo.ninja",
@@ -17,6 +11,12 @@
     "type": "git",
     "url": "https://github.com/godofredoninja/Mapache"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "bugs": {
+    "url": "https://github.com/godofredoninja/Mapache/issues",
+    "email": "hello@godofredo.ninja"
+  },
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {}
 }

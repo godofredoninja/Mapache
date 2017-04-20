@@ -38,11 +38,11 @@
                         {{!-- author, date, tag --}}
                         <div class="post-byline">
                         {{#author}}
-                            <a class="post-author-avatar u-h-b-md" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
+                            <a class="post-author-avatar u-h-b-md u-not-avatar" href="{{url}}" {{#if image}}style="background-image:url({{image}})"{{/if}}></a>
                             By <strong><a href="{{url}}">{{name}}</a> — </strong>
                         {{/author}}
                             <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-                            in {{tags limit="1"}}
+                            {{#if tags}}in {{tags limit="1"}}{{/if}}
                         </div>
                     </header>
 
