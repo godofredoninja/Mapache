@@ -4,15 +4,14 @@
         {{#if image}}
         <figure class="col s12 entry-image">
             <a class="entry-image--link" href="{{url}}">
-                <img  class="u-h-a-lg" src="{{image}}" alt="{{title}}"/>
-                <span class="entry-image--bg u-h-b-lg" style="background-image:url({{image}})"></span>
+                <span class="lazy entry-image--bg" data-original="{{image}}"></span>
                 {{#has tag="#video-post-format"}}<span class="entry-video-play i-play"></span>{{/has}}
             </a>
         </figure>
         {{/if}}
 
         <div class="col s12 {{#if image}}entry-body{{/if}}">
-            <div class="entry-category">{{tags limit="1"}}</div>
+            {{#if tags}}<div class="entry-category">{{tags limit="1"}}</div>{{/if}}
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
             <div class="entry-byline">

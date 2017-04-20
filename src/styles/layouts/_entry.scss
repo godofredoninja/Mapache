@@ -11,12 +11,14 @@
 
   &-image{
     margin-bottom: 10px;
-    &--link{
-      line-height: 0;
+    &--link {
       display: block;
+      height: 180px;
+      line-height: 0;
       margin: 0;
       overflow: hidden;
       position: relative;
+
       &:hover .entry-image--bg{
         transform: scale(1.03);
         backface-visibility: hidden;

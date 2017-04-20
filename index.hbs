@@ -4,8 +4,8 @@
 
 {{^is "paged"}}
 
-<section id="cover" class="cover u-flex-wrap" style="min-height:100vh">
-    {{#if @blog.cover}}<div class="cover-background" style="background-image: url({{@blog.cover}})"></div>{{/if}}
+<section id="cover" class="cover u-flex-wrap" style="min-height:100vh;{{#if @blog.cover}}background-color:#1f1f1f;{{/if}}">
+    {{#if @blog.cover}}<div class="cover-background lazy" data-original="{{@blog.cover}}"></div>{{/if}}
     <div class="cover-wrap u-flex-aling-center">
         {{!-- Blog name --}}
         <h1 id="title-home" class="cover-title animated bounceInDown">{{@blog.title}}</h1>

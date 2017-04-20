@@ -150,28 +150,28 @@ pre[class*=language-]{
   line-height: 1.5;
 
   .token.comment{ opacity: .8; }
-  &.line-numbers{
-    padding-left: 58px;
-    &:before{
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: #F0EDEE;
-      width: 40px;
-      height: 100%;
-    }
-  }
-  .line-numbers-rows {
-    border-right: none;
-    top: -3px;
-    left: -58px;
-    &>span:before{
-      padding-right: 0;
-      text-align: center;
-      opacity: .8;
-    }
-  }
+  // &.line-numbers{
+  //   padding-left: 58px;
+  //   &:before{
+  //     content: "";
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     background: #F0EDEE;
+  //     width: 40px;
+  //     height: 100%;
+  //   }
+  // }
+  // .line-numbers-rows {
+  //   border-right: none;
+  //   top: -3px;
+  //   left: -58px;
+  //   &>span:before{
+  //     padding-right: 0;
+  //     text-align: center;
+  //     opacity: .8;
+  //   }
+  // }
 
 }
 

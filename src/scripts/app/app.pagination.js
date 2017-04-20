@@ -45,6 +45,8 @@ function getNextPage() {
 
       paginationNumber += 1;
 
+      $('span.lazy').lazyload();
+
       $win.on('scroll', activeScroll);
     },
   });

@@ -16,10 +16,9 @@
   @media #{$md-and-up}{padding-top: 1.8rem;}
 }
 
-@media #{$lg-and-up} {
+@media #{$md-and-up} {
   .content{
     flex: 1 !important;
-    // padding-right: 28px;
     max-width: calc(100% - 300px) !important;
     order: 1;
     overflow: hidden;
@@ -28,7 +27,9 @@
     flex: 0 0 330px !important;
     order: 2;
   }
+}
 
+@media #{$lg-and-up} {
   .feed-entry-wrapper{
     .entry-image{
       width: 46.5% !important;
@@ -42,6 +43,11 @@
   }
 }
 
+@media #{$lg-and-down} {
+  body.is-article .content {
+    max-width: 100% !important;
+  }
+}
 
 
 .row {

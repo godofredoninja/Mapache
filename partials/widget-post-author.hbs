@@ -2,7 +2,7 @@
 {{#author}}
 
 <footer class="post-author">
-    <a class="post-author-avatar" href="{{url}}" style="background-image:url({{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}})"></a>
+    <a class="post-author-avatar u-not-avatar" href="{{url}}" {{#if image}}style="background-image:url({{image}})"{{/if}}></a>
     <div class="post-author-wrap">
         {{#if bio}}
             <p class="post-author-bio"><strong><a href="{{url}}">{{name}}</a> — </strong>{{bio}}</p>

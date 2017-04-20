@@ -10,6 +10,7 @@ Mapache Javascript Functions
 import Prism from 'prismjs';
 import 'prismjs/plugins/autoloader/prism-autoloader';
 import 'sticky-kit/dist/sticky-kit';
+import 'jquery-lazyload';
 
 import './lib/jquery.ghostHunter';
 
@@ -190,9 +191,15 @@ $doc.on('ready', () => {
     offset_top: 66,
   });
 
+  /* Lazy load for image */
+  $('span.lazy').lazyload();
+  $('div.lazy').lazyload({
+    effect : 'fadeIn',
+  });
+
   /* Disqys Comments */
   if (typeof disqusShortName !== 'undefined' && $comments.length > 0) disqusComments(disqusShortName); // eslint-disable-line
 
   /* Prism autoloader */
-  Prism.plugins.autoloader.languages_path = '../assets/js/prism-components/';
+  Prism.plugins.autoloader.languages_path = '../assets/scripts/prism-components/';
 });
