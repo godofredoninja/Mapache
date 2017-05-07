@@ -154,23 +154,23 @@ To change the color of the Mapache theme select one of the theme styles below an
 
 ```html
 <!-- Theme indigo -->
-<link rel="stylesheet" href="/assets/css/themes/indigo.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/indigo.css"/>
 <!-- Theme dark blue -->
-<link rel="stylesheet" href="/assets/css/themes/dark-blue.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/dark-blue.css"/>
 <!-- Theme blue semi dark -->
-<link rel="stylesheet" href="/assets/css/themes/blue-semi-dark.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/blue-semi-dark.css"/>
 <!-- Theme blue -->
-<link rel="stylesheet" href="/assets/css/themes/blue.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/blue.css"/>
 <!-- Theme Grey -->
-<link rel="stylesheet" href="/assets/css/themes/grey.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/grey.css"/>
 <!-- Theme dark cyan -->
-<link rel="stylesheet" href="/assets/css/themes/dark-cyan.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/dark-cyan.css"/>
 <!-- Theme purple -->
-<link rel="stylesheet" href="/assets/css/themes/purple.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/purple.css"/>
 <!-- Theme teal -->
-<link rel="stylesheet" href="/assets/css/themes/teal.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/teal.css"/>
 <!-- Theme Green -->
-<link rel="stylesheet" href="/assets/css/themes/green.css"/>
+<link rel="stylesheet" href="/assets/styles/themes/green.css"/>
 
 <!-- For theme white add two-color logo 230px * 130px -->
 
