@@ -303,36 +303,30 @@ pre{
 /* Scroll Top
 ========================================================================== */
 .scroll_top{
-  background: #b0b5bc;
-  border-radius: 5px;
-  bottom: 30px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 30px;
-  height: 50px;
-  line-height: 50px;
-  opacity: 0;
+  bottom: 50px;
   position: fixed;
-  right: 30px;
+  right: 20px;
   text-align: center;
-  transition: opacity 0.5s ease;
+  z-index: 11;
+  width: 60px;
+  opacity: 0;
   visibility: hidden;
-  width: 50px;
-  z-index: 100;
+  transition: opacity 0.5s ease;
+
   &.visible{
     opacity: 1;
     visibility: visible;
   }
-  &:hover{
-    background: $primary-color;
+
+  &:hover svg path {
+    fill: rgba(0,0,0,.6);
   }
 }
 
-
 // svg all icons
-.svg-icon{
-  margin: auto;
-  background-repeat: no-repeat no-repeat;
+.svg-icon svg {
+  width: 100%;
+  height: auto;
   display: block;
   fill: currentcolor;
 }
