@@ -26,9 +26,9 @@ class mapacheShare {
 
     const socialMedia = {
       facebook: {
-        shareUrl: 'https://www.facebook.com/sharer/sharer.php',
+        shareUrl: 'https://www.facebook.com/sharer.php',
         params: {
-          url: this.mapacheValue('url'),
+          u: this.mapacheValue('url'),
         },
       },
       twitter: {
