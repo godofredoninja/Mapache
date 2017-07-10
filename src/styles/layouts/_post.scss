@@ -76,31 +76,16 @@
 .post-byline{
   color: $secondary-text-color;
   font-size: 14px;
+  flex-grow: 1;
+  letter-spacing: -.028em !important;
 
-  @media #{$md-and-down}{
-    font-size: $font-size-sm;
-    // font-size: 1rem;
-  }
-
-  a{
+  a {
     color: inherit;
     &:active{ text-decoration: underline; }
     &:hover {color: #222}
   }
 
 }
-
-.post-author-avatar{
-  background-position: center center;
-  background-size: cover;
-  border-radius: 50%;
-  height: 32px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-  width: 32px;
-}
-
 
 
 /* Post Action social media
@@ -109,7 +94,7 @@
   position: relative;
   margin-bottom: 1.5rem;
 
-  a{
+  a {
     color: #fff;
     font-size: 1.125rem;
 
@@ -123,23 +108,7 @@
     &:first-child { margin-left: 0 !important; }
   }
 
-  &.post-actions--bottom .btn{border-radius: 0;}
-
-  &-comment{
-    background: $primary-color;
-    border-radius: 18px;
-    color: #FFF;
-    display: inline-block;
-    font-weight: 500;
-    height: 32px;
-    line-height: 16px;
-    padding: 8px 8px 8px 10px;
-    min-width: 64px;
-
-    i{
-      margin-right: 4px;
-    }
-  }
+  .btn{border-radius: 0;}
 
   &-shares{
     padding: 0 8px;
@@ -160,6 +129,25 @@
 
 }
 
+
+// Post actions top
+.post-actions--top {
+  .share {
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 1;
+    font-size: 20px;
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+.post-action-comments {
+  color: $secondary-text-color;
+  margin-right: 15px;
+  font-size: 14px;
+}
 
 /* Post author widget bottom
 ========================================================================== */
@@ -193,8 +181,13 @@
     position: absolute;
     left: 0;
     top: 10px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
   }
 }
+
+
 
 /* prev-post and next-post
 ========================================================================== */
@@ -356,19 +349,6 @@
       font-size: 2.25rem;
       margin: 0 0 1rem;
     }
-
-    // Share social media && comments count && share count
-    .post-actions{
-      &.post-actions--top li:first-child {
-        border-right: 1px solid #EEE;
-        // width: 80px;
-        padding-right: 20px;
-      }
-      li{
-        margin-left: 8px;
-      }
-    }
-
 
     &-body {
       font-size: 1.125rem;
