@@ -37,12 +37,9 @@
 
                         {{!-- author, date, tag --}}
                         <div class="post-byline">
-                        {{#author}}
-                            <a class="post-author-avatar u-h-b-md u-not-avatar" href="{{url}}" {{#if image}}style="background-image:url({{image}})"{{/if}}></a>
-                            By <strong><a href="{{url}}">{{name}}</a> — </strong>
-                        {{/author}}
+                        {{#author}} By <a href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
                             <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-                            {{#if tags}}in {{tags limit="1"}}{{/if}}
+                            {{#if tags}} <span style="margin: 0 5px">/</span> {{tags limit="1"}}{{/if}}
                         </div>
                     </header>
 

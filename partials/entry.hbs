@@ -15,7 +15,7 @@
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
             <div class="entry-byline">
-                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> —{{/author}}
+                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
                 <time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
             </div>
 
