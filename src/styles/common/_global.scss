@@ -122,6 +122,10 @@ ol{
   list-style: decimal outside;
 }
 
+mark {
+  background-image: linear-gradient(to bottom, lighten($primary-color, 35%), lighten($primary-color, 30%));
+  background-color: transparent;
+}
 
 .footer,
 .main{
@@ -420,7 +424,7 @@ iframe[src*="facebook.com"],
 .fb-post,
 .twitter-tweet{
   display: block !important;
-  margin: 1.5rem auto !important;
+  margin: 1.5rem 0 !important;
 }
 
 

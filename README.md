@@ -2,7 +2,7 @@
 
 [![Ghost version](https://img.shields.io/badge/Ghost-0.11.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](http://bit.ly/DonateMapacheGhost)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://bit.ly/PayPal-GodoFredoNinja)
 
 > Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/).
 
@@ -11,9 +11,9 @@
 Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
 
 
-### 😃 To have updated the subject please help me with a small collaboration in [paypal](http://bit.ly/DonateMapacheGhost). I will thank you enormentene
+### 😃 To have updated the subject please help me with a small collaboration in [paypal](https://bit.ly/PayPal-GodoFredoNinja). I will thank you enormentene
 
-[![](./documentation/donate.gif)](http://bit.ly/DonateMapacheGhost)
+[![](./documentation/donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
 
 ![](./documentation/mapache-screenshot.png)
 

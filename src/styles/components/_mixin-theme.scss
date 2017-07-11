@@ -7,7 +7,6 @@
   .mapache-load-more:hover,
   .nav-mob,
   .post-related .no-image .entry,
-  .scroll_top:hover,
   .u-tags:hover,
   {
     background-color: $color-theme !important;
@@ -32,6 +31,9 @@
     color: $color-theme;
   }
 
+  mark {
+    background-image: linear-gradient(to bottom, lighten($color-theme, 35%), lighten($color-theme, 30%));
+  }
 
   .btn.btn-primary,
   .cover,
@@ -39,7 +41,6 @@
   .nav-mob,
   .post-actions-comment,
   .post-related .no-image .entry,
-  .scroll_top:hover,
   .sidebar .title-primary,
   .mapache-load-more:hover,
   .u-tags:hover{
