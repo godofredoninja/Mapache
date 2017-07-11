@@ -35,14 +35,32 @@
                     <header class="post-header">
                         <h1 class="post-title">{{title}}</h1>
 
-                        {{!-- author, date, tag --}}
-                        <div class="post-byline">
-                        {{#author}}
-                            <a class="post-author-avatar u-h-b-md u-not-avatar" href="{{url}}" {{#if image}}style="background-image:url({{image}})"{{/if}}></a>
-                            By <strong><a href="{{url}}">{{name}}</a> — </strong>
-                        {{/author}}
-                            <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-                            {{#if tags}}in {{tags limit="1"}}{{/if}}
+                        <div class="u-flex u-flex-center u-flex-wrap">
+                            {{!-- author, date, tag --}}
+                            <div class="post-byline">
+                            {{#author}} By <a href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
+                                <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+                                {{#if tags}} <span style="margin: 0 5px">/</span> {{tags limit="1"}}{{/if}}
+                            </div>
+
+                            {{!-- Post Share --}}
+                            <ul class="post-actions--top u-flex-center u-unstyled">
+                                <li>
+                                    <a class="scrolltop post-action-comments" href="#post-comments">
+                                        <i class="i-chat"></i>
+                                        {{!-- Disqus Comments Count --}}
+                                        <span class="disqus-comment-count mapache-disqus" data-disqus-url="{{url absolute="true"}}">0</span>
+                                        {{!-- Facebook Comments Counts --}}
+                                        <span class="fb-comments-count mapache-facebook" data-href="{{url absolute="true"}}">0</span>
+                                        Comments
+                                    </a>
+                                </li>
+                                <li class="u-h-b-lg"><a href="#" class="share i-facebook c-facebook" mapache-share="facebook" mapache-url="{{url absolute="true"}}"></a></li>
+                                <li class="u-h-b-lg"><a href="#" class="share i-twitter c-twitter" mapache-share="twitter" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
+                                <li class="u-h-b-lg"><a href="#" class="share i-reddit c-reddit" mapache-share="reddit" mapache-url="{{url absolute="true"}}"></a></li>
+                                <li class="u-h-b-lg"><a href="#" class="share i-pinterest c-pinterest" mapache-share="pinterest" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
+                                <li class="u-h-b-lg"><a href="#" class="share i-pocket c-pocket" mapache-share="pocket" mapache-url="{{url absolute="true"}}"></a></li>
+                            </ul>
                         </div>
                     </header>
 
@@ -50,9 +68,6 @@
                     {{^has tag="#image-post-format"}}
                         {{#if image}}<figure class="post-image"><img class="post-img" src="{{image}}" alt="{{title}}" /></figure>{{/if}}
                     {{/has}}
-
-                    {{!-- Post share top --}}
-                    {{> "widget-post-share" }}
 
                     {{!-- Post content body --}}
                     <div class="post-body">{{content}}</div>

@@ -15,15 +15,7 @@
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
             <div class="entry-byline">
-                <i class="i-chat"></i>
-                <a class="entry-comments" href="{{url}}#post-comments">
-                    {{!-- Disqus Comments Count --}}
-                    <span class="disqus-comment-count mapache-disqus" data-disqus-url="{{url absolute="true"}}">0</span>
-                    {{!-- Facebook Comments Counts --}}
-                    <span class="fb-comments-count mapache-facebook" data-href="{{url absolute="true"}}">0</span>
-                    <span>Comments</span>
-                </a>
-                {{#author}}— by <strong><a class="entry-author" href="{{url}}">{{name}}</a></strong> —{{/author}}
+                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
                 <time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
             </div>
 

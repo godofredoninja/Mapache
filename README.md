@@ -2,7 +2,7 @@
 
 [![Ghost version](https://img.shields.io/badge/Ghost-0.11.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](http://bit.ly/DonateMapacheGhost)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://bit.ly/PayPal-GodoFredoNinja)
 
 > Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/).
 
@@ -11,9 +11,9 @@
 Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
 
 
-### 😃 To have updated the subject please help me with a small collaboration in [paypal](http://bit.ly/DonateMapacheGhost). I will thank you enormentene
+### 😃 To have updated the subject please help me with a small collaboration in [paypal](https://bit.ly/PayPal-GodoFredoNinja). I will thank you enormentene
 
-[![](./documentation/donate.gif)](http://bit.ly/DonateMapacheGhost)
+[![](./documentation/donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
 
 ![](./documentation/mapache-screenshot.png)
 
@@ -154,23 +154,23 @@ To change the color of the Mapache theme select one of the theme styles below an
 
 ```html
 <!-- Theme indigo -->
-<link rel="stylesheet" href="/assets/css/themes/indigo.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-indigo.css"/>
 <!-- Theme dark blue -->
-<link rel="stylesheet" href="/assets/css/themes/dark-blue.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-dark-blue.css"/>
 <!-- Theme blue semi dark -->
-<link rel="stylesheet" href="/assets/css/themes/blue-semi-dark.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-blue-semi-dark.css"/>
 <!-- Theme blue -->
-<link rel="stylesheet" href="/assets/css/themes/blue.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-blue.css"/>
 <!-- Theme Grey -->
-<link rel="stylesheet" href="/assets/css/themes/grey.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-grey.css"/>
 <!-- Theme dark cyan -->
-<link rel="stylesheet" href="/assets/css/themes/dark-cyan.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-dark-cyan.css"/>
 <!-- Theme purple -->
-<link rel="stylesheet" href="/assets/css/themes/purple.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-purple.css"/>
 <!-- Theme teal -->
-<link rel="stylesheet" href="/assets/css/themes/teal.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-teal.css"/>
 <!-- Theme Green -->
-<link rel="stylesheet" href="/assets/css/themes/green.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-green.css"/>
 
 <!-- For theme white add two-color logo 230px * 130px -->
 
@@ -183,7 +183,7 @@ To change the color of the Mapache theme select one of the theme styles below an
 -->
 
 
-<link rel="stylesheet" href="/assets/styles/themes/indigo.css"/>
+<link rel="stylesheet" href="/assets/styles/theme-white.css"/>
 
 ```
 
@@ -194,16 +194,10 @@ To change the color of the Mapache theme select one of the theme styles below an
 Add you own custom content into the side bar by editing the `./partials/sidebar.hbs` file.
 
 ```html
-
+<!-- Add your content to the bottom -->
 <div class="sidebar-items">
   <div class="sidebar-title">...your title...</div>
   ... your content ...
-</div>
-
-<!-- Add sticky content to the bottom -->
-<div class="sidebar-sticky">
-  <h3 class="sidebar-title">...your title sticky ...</h3>
-  ... your content sticky ...
 </div>
 
 ```
