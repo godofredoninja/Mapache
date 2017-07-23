@@ -5,12 +5,12 @@
     <div id="post-related-wrap" class="row">
 
         {{#foreach posts}}
-        <div class="col s12 m6 l4{{^if image}} no-image{{/if}}">
+        <div class="col s12 m6 l4{{^if feature_image}} no-image{{/if}}">
             <div class="entry entry--small">
-                {{#if image}}
+                {{#if feature_image}}
                 <figure class="entry-image">
                     <a href="{{url}}" class="entry-image--link">
-                        <span class="entry-image--bg lazy" data-original="{{image}}"></span>
+                        <span class="entry-image--bg lazy" data-original="{{feature_image}}"></span>
                     </a>
                 </figure>
                 {{/if}}

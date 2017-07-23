@@ -2,10 +2,22 @@
   "name": "mapache-godofredoninja",
   "version": "2.0.7",
   "description": "Mapache theme for ghost by @GodoFredoNinja",
+  "demo": "https://godofredo.ninja",
   "author": {
     "name": "GodoFredoNinja",
     "email": "hello@godofredo.ninja",
     "url": "https://godofredo.ninja"
+  },
+  "engines": {
+    "ghost": ">=1.0.0"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Minimal",
+      "Magazine",
+      "godofredo"
+    ]
   },
   "repository": {
     "type": "git",
@@ -14,6 +26,9 @@
   "bugs": {
     "url": "https://github.com/godofredoninja/Mapache/issues",
     "email": "hello@godofredo.ninja"
+  },
+  "config": {
+     "posts_per_page": 10
   },
   "license": "MIT",
   "scripts": {},

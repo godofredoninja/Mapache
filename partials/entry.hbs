@@ -1,16 +1,16 @@
 {{!-- Entry template --}}
 <article class="entry u-b-b entry-pagination">
     <div class="row">
-        {{#if image}}
+        {{#if feature_image}}
         <figure class="col s12 entry-image">
             <a class="entry-image--link" href="{{url}}">
-                <span class="lazy entry-image--bg" data-original="{{image}}"></span>
+                <span class="lazy entry-image--bg" data-original="{{feature_image}}"></span>
                 {{#has tag="#video-post-format"}}<span class="entry-video-play i-play"></span>{{/has}}
             </a>
         </figure>
         {{/if}}
 
-        <div class="col s12 {{#if image}}entry-body{{/if}}">
+        <div class="col s12 {{#if feature_image}}entry-body{{/if}}">
             {{#if tags}}<div class="entry-category">{{tags limit="1"}}</div>{{/if}}
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 

@@ -2,8 +2,8 @@
 
 {{!< default}}
 
-<section id="cover" class="cover u-flex-wrap" {{#if @blog.cover}}style="background-color:#1f1f1f;"{{/if}}>
-    {{#if tag.image}}<div class="cover-background lazy" data-original="{{tag.image}}"></div>{{/if}}
+<section id="cover" class="cover u-flex-wrap">
+    {{#if feature_image}}<div class="cover-background lazy" data-original="{{feature_image}}"></div>{{/if}}
 
     <article class="cover-wrap u-flex-aling-center">
         {{!-- Tag name --}}

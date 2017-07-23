@@ -1,6 +1,6 @@
 # Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
 
-[![Ghost version](https://img.shields.io/badge/Ghost-0.11.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
+[![Ghost version](https://img.shields.io/badge/Ghost-1.0.0-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://bit.ly/PayPal-GodoFredoNinja)
 
@@ -45,11 +45,6 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Counter shared articles on Facebook
 - YouTube, Vimeo, kickstarter -> Video Responsive
 - Code syntax [Prismjs](http://prismjs.com/index.html) Supported all syntax.
-
-
-### Replace Favorite icon
-Create an image icon with these dimensions with the name icon.png `155px * 155px` in ` Copy your new favorite icon to ./assets/img/icon.png`
-
 
 ## Mapache settings
 - Enable **all** checkboxes on the labs page in your Ghost admin panel.

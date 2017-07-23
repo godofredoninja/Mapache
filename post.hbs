@@ -20,9 +20,9 @@
 
             {{!-- Image Post Format  --}}
             {{#has tag="#image-post-format"}}
-                {{#if image}}
+                {{#if feature_image}}
                     <figure class="col s12 post-image">
-                        <img src="{{image}}" alt="{{title}}"/>
+                        <img src="{{feature_image}}" alt="{{title}}"/>
                     </figure>
                 {{/if}}
             {{/has}}
@@ -66,7 +66,7 @@
 
                     {{!-- Add Post Image --}}
                     {{^has tag="#image-post-format"}}
-                        {{#if image}}<figure class="post-image"><img class="post-img" src="{{image}}" alt="{{title}}" /></figure>{{/if}}
+                        {{#if feature_image}}<figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}" /></figure>{{/if}}
                     {{/has}}
 
                     {{!-- Post content body --}}
