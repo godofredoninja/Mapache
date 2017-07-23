@@ -50,9 +50,6 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 ## Simply Support for Web Browsers
 Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox)
 
-### Replace Favorite Icon
-Create an image icon with these dimensions with the name icon.png `192px * 192px` in Copy your new favorite icon to `./assets/images/icon.png`
-
 ## Theme development
 
 Simply uses [Webpack](https://webpack.github.io/) as a build tool and [npm](https://www.npmjs.com/) to manage front-end packages.

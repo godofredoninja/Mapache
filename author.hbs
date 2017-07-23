@@ -3,12 +3,12 @@
 {{!< default}}
 
 {{#author}}
-<section id="cover" class="cover author u-flex-wrap" {{#if @blog.cover}}style="background-color:#1f1f1f;"{{/if}}>
-    {{#if cover}}<div class="cover-background lazy" data-original="{{cover}}"></div>{{/if}}
+<section id="cover" class="cover author u-flex-wrap">
+    {{#if @blog.cover_image}}<div class="cover-background lazy" data-original="{{cover_image}}"></div>{{/if}}
 
     <article class="cover-wrap u-flex-aling-center">
         <div class="author-header">
-            <div  class="author-avatar animated bounceInDown u-not-avatar" {{#if image}}style="background-image:url({{image}})"{{/if}} alt="{{name}}"> </div>
+            <div  class="author-avatar animated bounceInDown u-not-avatar" {{#if profile_image}}style="background-image:url({{profile_image}})"{{/if}} alt="{{name}}"> </div>
             <div class="author-name-wrap animated bounceIn">
                 <span class="author-title">Author</span>
                 <h1 class="author-name">{{name}}</h1>
