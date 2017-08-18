@@ -3,28 +3,11 @@
     "main": [
       "./scripts/main.js",
       "./styles/main.scss"
-    ],
-    "theme-blue-semi-dark": "./styles/themes/blue-semi-dark.scss",
-    "theme-blue": "./styles/themes/blue.scss",
-    "theme-dark-blue": "./styles/themes/dark-blue.scss",
-    "theme-dark-cyan": "./styles/themes/dark-cyan.scss",
-    "theme-green": "./styles/themes/green.scss",
-    "theme-grey": "./styles/themes/grey.scss",
-    "theme-indigo": "./styles/themes/indigo.scss",
-    "theme-purple": "./styles/themes/purple.scss",
-    "theme-teal": "./styles/themes/teal.scss",
-    "theme-white": "./styles/themes/white.scss"
+    ]
   },
-  "publicPath": "/content/themes/Mapache",
+  "publicPath": "",
   "devUrl": "http://localhost:2368",
   "proxyUrl": "http://localhost:3000",
-  "cacheBusting": "[name]",
-  "watch": [
-    "*.hbs"
-  ],
-  "browsers": [
-    "last 2 versions",
-    "android 4",
-    "opera 12"
-  ]
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": "**/*.hbs"
 }
