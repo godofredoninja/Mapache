@@ -3,27 +3,29 @@ html {
   // Sets a specific default `font-size` for user with `rem` type scales.
   font-size: $font-size-root;
   // Changes the default tap highlight to be completely transparent in iOS.
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-a{
+a {
   color: $link-color;
   outline: 0;
   text-decoration: none;
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
+
   &:focus {
     text-decoration: none;
     // background-color: transparent;
   }
-  &.external{
-    &:after{
+
+  &.external {
+    &::after {
       @extend %font-icons;
       content: $i-open_in_new;
       margin-left: 5px;
@@ -31,7 +33,7 @@ a{
   }
 }
 
-body{
+body {
   // Make the `body` use the `font-size-root`
   color: $primary-text-color;
   font-family: $primary-font;
@@ -40,16 +42,14 @@ body{
   margin: 0 auto;
 }
 
+figure { margin: 0; }
 
-figure{
-  margin: 0;
-}
-
-img{
+img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
   width: auto;
+
   &:not([src]) {
     visibility: hidden;
   }
@@ -61,12 +61,10 @@ img{
   height: auto;
 }
 
-
-i{
+i {
   display: inline-block;
   vertical-align: middle;
 }
-
 
 hr {
   background: #F1F2F1;
@@ -76,8 +74,8 @@ hr {
   margin: 80px auto;
   max-width: 90%;
   position: relative;
-  &:before{
-    @extend %font-icons;
+
+  &::before {
     background: #fff;
     color: rgba(73,55,65,.75);
     content: $i-code;
@@ -88,36 +86,34 @@ hr {
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
+    @extend %font-icons;
   }
 }
 
-
 blockquote {
   border-left: 4px solid $primary-color;
-  padding: 0.75rem 1.5rem;
+  padding: .75rem 1.5rem;
   background: #fbfbfc;
   color: #757575;
   font-size: $blockquote-font-size;
   line-height: 1.7;
   margin: 0 0 1.25rem;
   quotes: none;
-
 }
 
-ol,ul,blockquote{
+ol,ul,blockquote {
   margin-left: 2rem;
 }
 
-strong{
+strong {
   font-weight: 500;
 }
-
 
 small, .small {
   font-size: 85%;
 }
 
-ol{
+ol {
   padding-left: 40px;
   list-style: decimal outside;
 }
@@ -128,17 +124,16 @@ mark {
 }
 
 .footer,
-.main{
+.main {
   transition: transform .5s ease;
   z-index: 2;
 }
 
-.mapache-facebook{display: none !important;}
-
+.mapache-facebook { display: none !important; }
 
 /* Code Syntax
 ========================================================================== */
-kbd,samp,code{
+kbd,samp,code {
   font-family: $code-font !important;
   font-size: $font-size-code;
   color: $code-color;
@@ -149,14 +144,16 @@ kbd,samp,code{
 }
 
 code[class*=language-],
-pre[class*=language-]{
+pre[class*=language-] {
   color: $pre-code-color;
   line-height: 1.5;
 
-  .token.comment{ opacity: .8; }
-  &.line-numbers{
+  .token.comment { opacity: .8; }
+
+  &.line-numbers {
     padding-left: 58px;
-    &:before{
+
+    &::before {
       content: "";
       position: absolute;
       left: 0;
@@ -166,21 +163,21 @@ pre[class*=language-]{
       height: 100%;
     }
   }
+
   .line-numbers-rows {
     border-right: none;
     top: -3px;
     left: -58px;
-    &>span:before{
+
+    & > span::before {
       padding-right: 0;
       text-align: center;
       opacity: .8;
     }
   }
-
 }
 
-
-pre{
+pre {
   background-color: $code-bg-color!important;
   padding: 1rem;
   overflow: hidden;
@@ -191,7 +188,7 @@ pre{
   font-size: $font-size-code;
   position: relative;
 
-  code{
+  code {
     color: $pre-code-color;
     text-shadow: 0 1px #fff;
     padding: 0;
@@ -199,10 +196,9 @@ pre{
   }
 }
 
-
 /* .warning & .note & .success
 ========================================================================== */
-.warning{
+.warning {
   background: #fbe9e7;
   color: #d50000;
   &:before{content: $i-warning;}
@@ -239,8 +235,6 @@ pre{
 }
 
 
-
-
 /* Social icon color and background
 ========================================================================== */
 @each $social-name, $color in $social-colors {
@@ -252,7 +246,6 @@ pre{
   }
 }
 
-
 //  Clear both
 .clear{
   &:after {
@@ -261,7 +254,6 @@ pre{
     clear: both;
   }
 }
-
 
 /* pagination Infinite scroll
 ========================================================================== */
@@ -284,7 +276,6 @@ pre{
   }
 }
 
-
 // .pagination nav
 .pagination-nav{
   padding: 2.5rem 0 3rem;
@@ -301,8 +292,6 @@ pre{
     float: right
   }
 }
-
-
 
 /* Scroll Top
 ========================================================================== */
@@ -356,7 +345,6 @@ pre{
   }
 }
 
-
 /* Video full for tag video
 ========================================================================== */
 #video-format{
@@ -370,7 +358,6 @@ pre{
     }
   }
 }
-
 
 /* Page error 404
 ========================================================================== */
@@ -417,21 +404,11 @@ pre{
   }
 }
 
-
 /* Post Twitter facebook card embed Css Center
 ========================================================================== */
 iframe[src*="facebook.com"],
 .fb-post,
-.twitter-tweet{
+.twitter-tweet {
   display: block !important;
   margin: 1.5rem 0 !important;
 }
-
-
-// .mapache-ad-footer-post{
-//   padding-top: 30px;
-//   padding-bottom: 30px;
-//   margin-bottom: 30px;
-//   border-top: solid 1px #EEE;
-//   border-bottom: solid 1px #EEE;
-// }

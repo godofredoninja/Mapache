@@ -1,24 +1,31 @@
 /*  Post
 ========================================================================== */
-.post-wrapper{
+.post-wrapper {
   margin-top: $header-height;
   padding-top: 1.8rem;
 }
 
-.post{
+.post {
 
-  &-header{
+  &-header {
     margin-bottom: 1.2rem;
   }
 
-  &-title{
+  &-title {
     color: #222;
-    font-size:  2.5rem;
+    font-size: 2.5rem;
     height: auto;
     line-height: 1.04;
     margin: 0 0 0.9375rem;
     letter-spacing: -.028em !important;
     padding: 0;
+  }
+
+  &-excerpt {
+    line-height: 1.3em;
+    font-size: 20px;
+    color: #7D7D7D;
+    margin-bottom: 8px;
   }
 
   //  Image
@@ -70,9 +77,9 @@
 
 }
 
-/* Post author line top (author - time - tag)
+/* Post author by line top (author - time - tag - sahre)
 ========================================================================== */
-.post-byline{
+.post-byline {
   color: $secondary-text-color;
   font-size: 14px;
   flex-grow: 1;
@@ -80,72 +87,43 @@
 
   a {
     color: inherit;
-    &:active{ text-decoration: underline; }
-    &:hover {color: #222}
+    &:active { text-decoration: underline; }
+    &:hover { color: #222 }
   }
-
 }
-
-
-/* Post Action social media
-========================================================================== */
-.post-actions{
-  position: relative;
-  margin-bottom: 1.5rem;
-
-  a {
-    color: #fff;
-    font-size: 1.125rem;
-
-    &:hover{
-      background-color: #000 !important;
-    }
-  }
-
-  li{
-    margin-left: 6px;
-    &:first-child { margin-left: 0 !important; }
-  }
-
-  .btn{border-radius: 0;}
-
-  &-shares{
-    padding: 0 8px;
-    text-align: center;
-    line-height: 1;
-  }
-  &-shares-count{
-    color: #000;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  &-shares-label{
-    font-weight: 500;
-    text-transform: uppercase;
-    color: $secondary-text-color;
-    font-size: 12px;
-  }
-
-}
-
 
 // Post actions top
-.post-actions--top {
-  .share {
-    display: inline-block;
-    margin-right: 10px;
-    line-height: 1;
-    font-size: 20px;
-    &:hover {
-      opacity: .7;
-    }
-  }
+.post-actions--top .share {
+  margin-right: 10px;
+  font-size: 20px;
+
+  &:hover { opacity: .7; }
 }
 
 .post-action-comments {
   color: $secondary-text-color;
   margin-right: 15px;
   font-size: 14px;
+}
+
+/* Post Action social media
+========================================================================== */
+.post-actions {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: #fff;
+    font-size: 1.125rem;
+    &:hover { background-color: #000 !important; }
+  }
+
+  li {
+    margin-left: 6px;
+    &:first-child { margin-left: 0 !important; }
+  }
+
+  .btn { border-radius: 0; }
 }
 
 /* Post author widget bottom
@@ -192,50 +170,50 @@
 
 /* prev-post and next-post
 ========================================================================== */
-.prev-post,
-.next-post{
-  background: none repeat scroll 0 0 #fff;
-  border: 1px solid #e9e9ea;
-  color: #23527c;
-  display: block;
-  font-size: 14px;
-  height: 60px;
-  line-height: 60px;
-  overflow: hidden;
-  position: fixed;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  top: calc(50% - 25px);
-  transition: all 0.5s ease 0s;
-  white-space: nowrap;
-  width: 200px;
-  z-index: 999;
+// .prev-post,
+// .next-post{
+//   background: none repeat scroll 0 0 #fff;
+//   border: 1px solid #e9e9ea;
+//   color: #23527c;
+//   display: block;
+//   font-size: 14px;
+//   height: 60px;
+//   line-height: 60px;
+//   overflow: hidden;
+//   position: fixed;
+//   text-overflow: ellipsis;
+//   text-transform: uppercase;
+//   top: calc(50% - 25px);
+//   transition: all 0.5s ease 0s;
+//   white-space: nowrap;
+//   width: 200px;
+//   z-index: 999;
 
-  &:before{
-    color: #c3c3c3;
-    font-size: 36px;
-    height: 60px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 50px;
-  }
-}
+//   &:before{
+//     color: #c3c3c3;
+//     font-size: 36px;
+//     height: 60px;
+//     position: absolute;
+//     text-align: center;
+//     top: 0;
+//     width: 50px;
+//   }
+// }
 
-.prev-post {
-  left: -150px;
-  padding-right: 50px;
-  text-align: right;
-  &:hover{ left:0; }
-  &:before{ right: 0; }
-}
+// .prev-post {
+//   left: -150px;
+//   padding-right: 50px;
+//   text-align: right;
+//   &:hover{ left:0; }
+//   &:before{ right: 0; }
+// }
 
-.next-post {
-  right: -150px;
-  padding-left: 50px;
-  &:hover{ right: 0; }
-  &:before{ left: 0; }
-}
+// .next-post {
+//   right: -150px;
+//   padding-left: 50px;
+//   &:hover{ right: 0; }
+//   &:before{ left: 0; }
+// }
 
 
 /* bottom share and bottom subscribe

@@ -1,0 +1,31 @@
+<div class="row share-subscribe">
+
+    {{!-- Article Share --}}
+    <div class="bottom-share col s12 m5">
+        <h5>Share this Article</h5>
+        <ul class="post-actions u-flex-center u-unstyled">
+            <li><a href="#" class="share btn i-facebook bg-facebook" mapache-share="facebook" mapache-url="{{url absolute="true"}}"></a></li>
+            <li><a href="#" class="share btn i-twitter bg-twitter" mapache-share="twitter" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
+            <li><a href="#" class="share btn i-reddit bg-reddit" mapache-share="reddit" mapache-url="{{url absolute="true"}}"></a></li>
+            <li><a href="#" class="share btn i-linkedin bg-linkedin" mapache-share="linkedin" mapache-url="{{url absolute="true"}}"></a></li>
+            <li class="hide-before-md"><a href="#" class="share btn i-pinterest bg-pinterest" mapache-share="pinterest" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
+        </ul>
+    </div>
+
+    {{!-- Email subscribe form at the bottom of the page --}}
+    {{#if @labs.subscribers}}
+        <div class="bottom-subscribe col s12 m7">
+            <h5>Subscribe to {{@blog.title}}</h5>
+            <p>Get the latest posts delivered right to your inbox.</p>
+
+            {{subscribe_form
+            form_class="newsletter-form"
+            input_class="form-control"
+            button_class="btn btn-primary"
+            placeholder="Enter your email address"
+            autofocus=""
+            }}
+        </div>
+    {{/if}}
+
+</div>
