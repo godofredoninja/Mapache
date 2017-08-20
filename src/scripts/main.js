@@ -108,6 +108,7 @@ $scrollTop.on('click', function (e) {
 
 /* Disqus Comment */
 function disqusComments(shortname) {
+  $('.mapache-disqus').removeClass('u-hide');
   const dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;

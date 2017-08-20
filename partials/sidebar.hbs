@@ -4,24 +4,18 @@
         {{!-- 5 articles featured in page (home - author - tag) --}}
         {{#is "home" }}
             {{#get "posts" filter="featured:true" limit="5" as |featured| }}
-                {{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured }}
+                {{> "sidebar-post" widgetTitle="Featured Posts" widgetPosts=featured }}
             {{/get}}
         {{/is}}
 
         {{!-- 5 articles recents in page (post) --}}
         {{#is "post, tag, author, paged" }}
             {{#get "posts" limit="5" as |recents| }}
-                {{> "widget-post" widgetTitle="Latest" widgetPosts=recents }}
+                {{> "sidebar-post" widgetTitle="Latest" widgetPosts=recents }}
             {{/get}}
         {{/is}}
 
         {{!-- Tag Cloud --}}
-        {{> "widget-tag-cloud" }}
-
-        {{!-- Add your content here --}}
-        {{!--<div class="sidebar-items">
-            <h3 class="sidebar-title">... your title ...</h3>
-            ... your content ...
-        </div>--}}
+        {{> "sidebar-tag-cloud" }}
     </div>
 </div>

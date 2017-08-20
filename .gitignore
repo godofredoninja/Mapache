@@ -74,3 +74,5 @@ typings/
 
 .sass-lint.yml
 .cache-loader
+*.map
+*.js.map
