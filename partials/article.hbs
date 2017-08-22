@@ -12,7 +12,7 @@
     </header>
 
     {{!-- Article featured Image --}}
-    {{^has tag="#image-post-format, #image-post-format"}}
+    {{^has tag="#image-post-format, #video-post-format"}}
         {{#if feature_image}}
             <figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}" /></figure>
         {{/if}}
@@ -31,7 +31,7 @@
     {{/if}}
 
     {{!-- Article ( Share Button — Suscribe newsletter ) --}}
-    {{> "article-footer"}}
+    {{> "article-share-subscribe"}}
 
     {{!-- Article author info --}}
     {{> "article-author" }}
