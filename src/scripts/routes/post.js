@@ -55,6 +55,18 @@ function youtubeBtnSubscribe () {
   }
 }
 
+/* Disqus Comment */
+function disqusComments () {
+  if (typeof disqusShortName !== 'undefined') {
+    $('.mapache-disqus').removeClass('u-hide');
+    const dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = `//${disqusShortName}.disqus.com/embed.js`; // eslint-disable-line
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }
+}
+
 /**
  *  Events in post Page
  */
@@ -66,8 +78,12 @@ export default {
   finalize() {
     // btn subscribe for Youtube
     youtubeBtnSubscribe ();
+
     // Video Responsive
     videoResponsive ();
+
+    // Commets
+    disqusComments ();
 
     /* Prism autoloader */
     Prism.plugins.autoloader.languages_path = '../assets/scripts/prism-components/'; // eslint-disable-line
