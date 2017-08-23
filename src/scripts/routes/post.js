@@ -8,6 +8,7 @@ const iframeForVideoResponsive = [
   'iframe[src*="facebook.com/plugins/video.php"]',
   'iframe[src*="youtube.com"]',
   'iframe[src*="youtube-nocookie.com"]',
+  'iframe[src*="vid.me"]',
   'iframe[src*="kickstarter.com"][src*="video.html"]',
 ];
 

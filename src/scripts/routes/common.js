@@ -68,15 +68,15 @@ function widgetFacebook () {
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>`;
 
-    $('body').append(facebookSdkScript);
+    if ($("#fb-root").is("div") === false) $('body').append(facebookSdkScript);
     $('.widget-facebook').html(fansPage);
   }
 }
 
 // Twitter Widtget
 function widgetTwitter () {
-  $('.widget-twitter').parent().removeClass('u-hide');
   if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
+    $('.widget-twitter').parent().removeClass('u-hide');
     const twitterBlock = `<a class="twitter-timeline"  href="https://twitter.com/${twitterUserName}" data-chrome="nofooter noborders noheader" data-tweet-limit="${twitterNumber}">Tweets by ${twitterUserName}</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>`; // eslint-disable-line
     $('.widget-twitter').html(twitterBlock);
   }
@@ -104,9 +104,6 @@ export default {
       effect : 'fadeIn',
     });
 
-    // Twitter and facebook fans page
-    widgetTwitter ();
-    widgetFacebook ();
 
   },
   finalize() {
@@ -146,6 +143,10 @@ export default {
       additionalMarginTop: 66,
     });
 
+    // Twitter and facebook fans page
+    widgetTwitter ();
+    widgetFacebook ();
+
     // Search function
     searchGhostHunter ();
 
@@ -154,6 +155,5 @@ export default {
      * Show the button to go back top
      */
     windowScroll ();
-
   },
 };
