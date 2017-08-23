@@ -291,30 +291,30 @@
     border: none;
   }
 
-  .no-image{
-    position: relative;
+  // .no-image{
+  //   position: relative;
 
-    .entry{
-      background-color: $primary-color;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      left: 0.9375rem;
-      right: 0.9375rem;
-    }
+  //   .entry{
+  //     background-color: $primary-color;
+  //     display: flex;
+  //     align-items: center;
+  //     position: absolute;
+  //     bottom: 0;
+  //     top: 0;
+  //     left: 0.9375rem;
+  //     right: 0.9375rem;
+  //   }
 
-    .entry-title{
-      color: #fff;
-      padding: 0 10px;
-      text-align: center;
-      width: 100%;
-      &:hover{
-        color: rgba(255, 255, 255, 0.70);
-      }
-    }
-  }
+  //   .entry-title{
+  //     color: #fff;
+  //     padding: 0 10px;
+  //     text-align: center;
+  //     width: 100%;
+  //     &:hover{
+  //       color: rgba(255, 255, 255, 0.70);
+  //     }
+  //   }
+  // }
 
 }
 
