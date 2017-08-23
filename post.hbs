@@ -3,17 +3,17 @@
 
 <section class="container">
     <div class="post-wrapper">
+
+        {{#post}}
+
+        {{!--  Video Post Format and image post Format --}}
+        {{^has tag="#image-post-format"}}
+            {{#has tag="#video-post-format"}} <div class="video-post-format"></div> {{/has}}
+        {{else}}
+            {{#if feature_image}}<figure class="post-image"><img src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
+        {{/has}}
+
         <div class="row">
-
-            {{#post}}
-
-            {{!--  Video Post Format and image post Format --}}
-            {{^has tag="#image-post-format"}}
-                {{#has tag="#video-post-format"}} <div class="video-post-format col s12"></div> {{/has}}
-            {{else}}
-                {{#if feature_image}}<figure class="post-image col s12"><img src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
-            {{/has}}
-
             <div class="col s12 content">
 
                 {{!-- Article Content  --}}

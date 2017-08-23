@@ -55,6 +55,7 @@ function searchGhostHunter () {
 // Facebook widtget
 function widgetFacebook () {
   if (typeof fansPageName !== 'undefined') {
+    $('.widget-facebook').parent().removeClass('u-hide');
     const fansPage = `<div class="fb-page" data-href="https://www.facebook.com/${fansPageName}" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">`; // eslint-disable-line
 
     let facebookSdkScript = `<div id="fb-root"></div>
@@ -72,6 +73,14 @@ function widgetFacebook () {
   }
 }
 
+// Twitter Widtget
+function widgetTwitter () {
+  $('.widget-twitter').parent().removeClass('u-hide');
+  if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
+    const twitterBlock = `<a class="twitter-timeline"  href="https://twitter.com/${twitterUserName}" data-chrome="nofooter noborders noheader" data-tweet-limit="${twitterNumber}">Tweets by ${twitterUserName}</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>`; // eslint-disable-line
+    $('.widget-twitter').html(twitterBlock);
+  }
+}
 
 /**
  * Export events
@@ -95,13 +104,9 @@ export default {
       effect : 'fadeIn',
     });
 
-    // facebook fans page
+    // Twitter and facebook fans page
+    widgetTwitter ();
     widgetFacebook ();
-
-    /* sticky fixed for Sidenar */
-    $('.sidebar-sticky').stick_in_parent({
-      offset_top: 66,
-    });
 
   },
   finalize() {
@@ -135,6 +140,10 @@ export default {
       e.preventDefault();
       const share = new Share($(this));
       share.mapacheShare();
+    });
+
+    $('.sidebar-sticky').theiaStickySidebar({
+      additionalMarginTop: 66,
     });
 
     // Search function
