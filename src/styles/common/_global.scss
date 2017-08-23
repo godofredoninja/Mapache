@@ -406,9 +406,11 @@ pre {
 
 /* Post Twitter facebook card embed Css Center
 ========================================================================== */
-iframe[src*="facebook.com"],
-.fb-post,
-.twitter-tweet {
-  display: block !important;
-  margin: 1.5rem 0 !important;
+.post {
+  iframe[src*="facebook.com"],
+  .fb-post,
+  .twitter-tweet {
+    display: block !important;
+    margin: 1.5rem 0 !important;
+  }
 }

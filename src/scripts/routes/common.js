@@ -12,7 +12,7 @@ const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\
  * Sticky Navbar in (home - tag - author)
  * Show the button to go back up
  */
-const windowScroll = $win.on('scroll', function () {
+let windowScroll = $win.on('scroll', function () {
   const scrollTop = $win.scrollTop();
   const coverHeight = $('#cover').height() - $header.height();
   const coverWrap = (coverHeight - scrollTop) / coverHeight;
@@ -52,6 +52,26 @@ function searchGhostHunter () {
   });
 }
 
+// Facebook widtget
+function widgetFacebook () {
+  if (typeof fansPageName !== 'undefined') {
+    const fansPage = `<div class="fb-page" data-href="https://www.facebook.com/${fansPageName}" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">`; // eslint-disable-line
+
+    let facebookSdkScript = `<div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.async=true;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>`;
+
+    $('body').append(facebookSdkScript);
+    $('.widget-facebook').html(fansPage);
+  }
+}
+
 
 /**
  * Export events
@@ -75,6 +95,9 @@ export default {
       effect : 'fadeIn',
     });
 
+    // facebook fans page
+    widgetFacebook ();
+
     /* sticky fixed for Sidenar */
     $('.sidebar-sticky').stick_in_parent({
       offset_top: 66,
@@ -82,8 +105,6 @@ export default {
 
   },
   finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
-
     /* Menu open and close for mobile */
     $('#nav-mob-toggle').on('click', (e) => {
       e.preventDefault();
@@ -96,9 +117,6 @@ export default {
       $header.toggleClass('is-showSearchMob');
       $searchInput.focus();
     });
-
-    // Search function
-    searchGhostHunter ();
 
     /* scroll link width click (ID)*/
     $('.scrolltop').on('click', function (e) {
@@ -117,7 +135,10 @@ export default {
       e.preventDefault();
       const share = new Share($(this));
       share.mapacheShare();
-  });
+    });
+
+    // Search function
+    searchGhostHunter ();
 
     /**
      * Sticky Navbar in (home - tag - author)
