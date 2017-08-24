@@ -1,27 +1,31 @@
 {{!-- Sidebar right --}}
-<div id="sidebar" class="col s12 sidebar u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
-    <div class="sidebar-sticky ">
-        {{!-- 5 articles featured in page (home - author - tag) --}}
-        {{#is "home" }}
-            {{#get "posts" filter="featured:true" limit="5" as |featured| }}
-                {{> "widget-post" widgetTitle="Featured Posts" widgetPosts=featured }}
-            {{/get}}
-        {{/is}}
+<div id="sidebar" class="col s12 sidebar sidebar-sticky u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
+    {{!-- 5 articles featured in page (home - author - tag) --}}
+    {{#is "home" }}
+        {{#get "posts" filter="featured:true" limit="5" as |featured| }}
+            {{> "sidebar-post" widgetTitle="Featured Posts" widgetPosts=featured }}
+        {{/get}}
+    {{/is}}
 
-        {{!-- 5 articles recents in page (post) --}}
-        {{#is "post, tag, author, paged" }}
-            {{#get "posts" limit="5" as |recents| }}
-                {{> "widget-post" widgetTitle="Latest" widgetPosts=recents }}
-            {{/get}}
-        {{/is}}
+    {{!-- 5 articles recents in page (post) --}}
+    {{#is "post, tag, author, paged" }}
+        {{#get "posts" limit="5" as |recents| }}
+            {{> "sidebar-post" widgetTitle="Latest" widgetPosts=recents }}
+        {{/get}}
+    {{/is}}
 
-        {{!-- Tag Cloud --}}
-        {{> "widget-tag-cloud" }}
+    {{!-- Tag Cloud --}}
+    {{> "sidebar-tag-cloud" }}
 
-        {{!-- Add your content here --}}
-        {{!--<div class="sidebar-items">
-            <h3 class="sidebar-title">... your title ...</h3>
-            ... your content ...
-        </div>--}}
+    {{!-- Twitter --}}
+    <div class="sidebar-items u-hide">
+        <h3 class="sidebar-title">Recents Tweets</h3>
+        <div class="widget-twitter"></div>
+    </div>
+
+    {{!-- facebook --}}
+    <div class="sidebar-items u-hide" style="min-height:500px">
+        <h3 class="sidebar-title">Facebook</h3>
+        <div class="widget-facebook"></div>
     </div>
 </div>

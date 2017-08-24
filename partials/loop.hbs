@@ -9,7 +9,7 @@
             </div>
 
             {{^is "paged"}}
-                <a href="#" class="mapache-load-more" mapache-page-total="{{pagination.pages}}">Load more <i class="i-keyboard_arrow_down"></i></a>
+                <a href="#" class="mapache-load-more" data-page-total="{{pagination.pages}}">Load more <i class="i-keyboard_arrow_down"></i></a>
             {{else}}
                 {{"pagination"}}
             {{/is}}

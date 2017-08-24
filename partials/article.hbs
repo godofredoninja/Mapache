@@ -1,0 +1,42 @@
+<article class="post">
+
+    {{!-- Article Header --}}
+    <header class="post-header">
+        <h1 class="post-title">{{title}}</h1>
+
+        {{!-- excerpt  --}}
+        {{#if custom_excerpt}}<p class="post-excerpt">{{custom_excerpt}}</p>{{/if}}
+
+        {{!-- Article By line (author - date - tag) --}}
+        {{> "article-byline" }}
+    </header>
+
+    {{!-- Article featured Image --}}
+    {{^has tag="#image-post-format, #video-post-format"}}
+        {{#if feature_image}}
+            <figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}" /></figure>
+        {{/if}}
+    {{/has}}
+
+    {{!-- Article content body --}}
+    <div class="post-body">{{content}}</div>
+
+    {{!-- Article Tags --}}
+    {{#if tags}}
+        <div class="post-tags">
+            {{#foreach tags}}
+                <a href="{{url}}" title="{{name}}" class="btn u-tags i-tag">{{name}}</a>
+            {{/foreach}}
+        </div>
+    {{/if}}
+
+    {{!-- Article ( Share Button — Suscribe newsletter ) --}}
+    {{> "article-share-subscribe"}}
+
+    {{!-- Article author info --}}
+    {{> "article-author" }}
+
+    {{!-- Article Comments Section --}}
+    {{> "article-comments" }}
+
+</article>

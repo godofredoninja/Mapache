@@ -1,15 +1,14 @@
 # Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
 
-[![Ghost version](https://img.shields.io/badge/Ghost-1.0.0-brightgreen.svg?style=flat-square)](https://ghost.org/)
+[![Ghost version](https://img.shields.io/badge/Ghost-1.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://bit.ly/PayPal-GodoFredoNinja)
 
-> Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/).
+> Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/)
 
-### Free theme for Ghost
+## Free theme for Ghost
 
 Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
-
 
 ### 😃 To have updated the subject please help me with a small collaboration in [paypal](https://bit.ly/PayPal-GodoFredoNinja). I will thank you enormentene
 
@@ -17,14 +16,18 @@ Hello, I created this theme Ghost to see how it works. It is available for free 
 
 ![](./documentation/mapache-screenshot.png)
 
-
 ## Demo
+
+> Later I will write an article showing the functionality of the theme. For the moment in my page I am using one of my theme [simply](https://github.com/godofredoninja/simply)
+
 You can see a demo in my [blog](http://bit.ly/GodoFredoNinja-Mapache).
 
 ## Mapache Support for Web Browsers
+
 Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox)
 
 ## Featured
+
 - Responsive layout
 - Blog navigation
 - Page 404 (Multiple faces emoticons)
@@ -38,33 +41,41 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - 5 articles featured in the home of the page section sidebar
 - 5 articles latest posts in the (author - tag - post) section sidebar
 - 10 Tags in the sidebar
-- Previous and next button in the Post
 - Support for comments (Facebook or Disqus)
 - Support for counter comments (Facebook or Disqus)
 - Buttons to share the article
-- Counter shared articles on Facebook
-- YouTube, Vimeo, kickstarter -> Video Responsive
+- YouTube, Vimeo, kickstarter, Facebook Video, dailymotion, vid.me -> Video Responsive
+- YouTube Subscribe Button => Video Post Format
+- Facebook widget in sidebar
+- Twitter widget in sidebar
 - Code syntax [Prismjs](http://prismjs.com/index.html) Supported all syntax.
 
-## Mapache settings
+## Ghost settings
+
 - Enable **all** checkboxes on the labs page in your Ghost admin panel.
 
 ![](./documentation/img-api.png)
 
-- Copy the below script to Settings -> Code Injection  -> Blog Footer section.
+## Mapache settings
 
 ### Social Links
+
 Add the Social Links only for the services you want to appear in the header section of your website. Pay attention as enabling too many services will cause menu problems.
 
-### Title
-This section will display the desired title name in the browser tab
-
 ### YouTube Subscribe Button
+
 This section enables the YouTube Post format. Add the Channel Name and Channel ID which can be found here [YouTube Advanced Settings](https://www.youtube.com/account_advanced)
 
-``` html
+
+— Copy the below script to `Settings -> Code Injection  -> Blog Footer section`
+
+```html
 <script>
-/* links to followers in social media */
+/*====================================================
+  THEME SETTINGS & GLOBAL VARIABLES
+====================================================*/
+
+/* 01. Social Media Follow */
 var followSocialMedia = {
   'google': 'https://...',
   'youtube': 'https://...',
@@ -78,73 +89,59 @@ var followSocialMedia = {
   'behance':'https://...',
   'flickr':'https://...',
   'pinterest':'https://...',
+  'telegram':'https://...',
   'feed':'https://...',
 };
 
-/* Title for home Page */
+/* 02. Title for home Page */
 var homeTitle = '... your title ...';
 
-/* Btn Home <SUBSCRIBE> */
-var homeBtn = {'... Name Btn ...':'https://...'};
+/* 03. Home BTN <SUBSCRIBE> */
+var homeBtnTitle = 'Name BTN';
+var homeBtnURL = 'https://...';
 
-/* Youtube button subscribe for post video format */
-var youtubeChannel = {'YOUR_CHANNEL_NAME':'YOUR_CHANNEL_ID'};
+/* 04. Youtube button subscribe for Video Post Format */
+var youtubeChannelName = 'YOUR_CHANNEL_NAME';
+var youtubeChannelID = 'YOUR_CHANNEL_ID';
 
-/* Disqus for Comments */
+/* 05. Disqus Comment Settings */
 var disqusShortName = 'YOUR_DISQUS_SHORTCUT_HERE';
 
+/* 06. Facebook Widget Settings */
+var fansPageName = 'YOUR_FANS_PAGE_NAME';
+
+/* 07. Twitter Widget Settings */
+var twitterUserName = 'YOUR_TWITTER_NAME';
+var twitterNumber = 2;
 </script>
 
 <!-- Disqus Comments Count-->
 <script id="dsq-count-scr" src="//YOUR_DISQUS_SHORTCUT_HERE.disqus.com/count.js" async></script>
-
 ```
-## Enable Disqus or Facebook Comments
-This seciton will cover how to cover Disqus of Facebook commenting into the theme. Only enable either Disqus or Facebook comments.
-
-### Disqus Comments
-To enable Disqus comments update the code in ` Settings -> Code Injection -> Blog Footer `.
-
-Insert your [Disqus shortname](https://shortname.disqus.com/admin/) in both the comments and Disqus comment count sections.
-
-To ensure the Disqus comment count is working correctly verify that the Disqus settings -> Comment & Community Configuration is set as seen below.
-![](./documentation/disqus_comment_count.png)
 
 ### Facebook Comments
+
 To use facebook comments, skip the configuration Disqus.
 
 This enables comments and comment counter
 
-1. Add the code in Settings -> Code Injection -> Blog Header
+— Add the code `Settings -> Code Injection -> Blog Footer`
 
-  ```html
-  <style>
-    .mapache-disqus{
-      display: none !important;
-    }
-    .mapache-facebook{
-      display: inline !important;
-    }
-  </style>
+```html
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    $('.mapache-facebook').removeClass('u-hide');
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.async=true;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 ```
-2. Add the code `Settings -> Code Injection -> Blog Footer`
-
-  ```html
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.async=true;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  ```
-
-![](./documentation/code-footer.png)
-
 
 ## Change Theme Style
+
 To change the color of the Mapache theme select one of the theme styles below and copy it into the Setting -> Code Injection -> Blog Header
 
 ```html
@@ -179,13 +176,12 @@ To change the color of the Mapache theme select one of the theme styles below an
 
 
 <link rel="stylesheet" href="/assets/styles/theme-white.css"/>
-
 ```
 
 ![](./documentation/img-four.png)
 
-
 ### Add additional content to the sidebar
+
 Add you own custom content into the side bar by editing the `./partials/sidebar.hbs` file.
 
 ```html
@@ -194,26 +190,10 @@ Add you own custom content into the side bar by editing the `./partials/sidebar.
   <div class="sidebar-title">...your title...</div>
   ... your content ...
 </div>
-
 ```
-
-
-### Buttons
-Format your hyperlinks with some really cool buttons. Check out the different button options here. Add these buttons directly into your blog posts.
-
-```html
-... <a class="external" href="http://..." >Your link external</a> ...
-
-<a class="btn external" href="http://..." >link external</a>
-
-<a class="btn btn-download" href="http://..." >download</a>
-
-<a class="btn btn-download-cloud" href="http://..." >download</a>
-```
-![](./documentation/buttons.png)
-
 
 ### Warning - Note - Success
+
 Add some more styling options to your articles text with these three styles.
 
 ```html
@@ -223,8 +203,8 @@ Add some more styling options to your articles text with these three styles.
 
 <p class="success"> ... your text success ... </p>
 ```
-![](./documentation/note.png)
 
+![](./documentation/note.png)
 
 ### PrismJS code syntax
 
@@ -234,22 +214,26 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 
 ![](./documentation/code.png) to find your coding language.
 
+## Image Post Format
+
+If you want to have a image post format, you only have to add the tag `#image-post-format` The Featured image will become large in size
+
 ## Video Post Format
+
 If you want to have a video post format, you only have to add the tag `#video-post-format` . The first video in the article will be large in size.
+
+> Add video where convenient. When you change the theme you will not have problems
 
 ![](./documentation/video-format.png)
 
 ![](./documentation/video.png)
 
-## Image Post Format
-If you want to have a image post format, you only have to add the tag `#image-post-format` The Featured image will become large in size
-
-
 ### Credits
+
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
 - [Prismjs](http://prismjs.com/)
-- [sticky-kit](https://github.com/leafo/sticky-kit)
+- [theia-sticky-sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
 - [jquery-lazyload](http://www.appelsiini.net/projects/lazyload)
 
 ## Copyright & License

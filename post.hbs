@@ -1,110 +1,32 @@
 {{!-- Add Layout --}}
 {{!< default}}
 
-{{#post}}
-
 <section class="container">
     <div class="post-wrapper">
+
+        {{#post}}
+
+        {{!--  Video Post Format and image post Format --}}
+        {{^has tag="#image-post-format"}}
+            {{#has tag="#video-post-format"}} <div class="video-post-format"></div> {{/has}}
+        {{else}}
+            {{#if feature_image}}<figure class="post-image"><img src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
+        {{/has}}
+
         <div class="row">
-
-            {{!-- Video Post format  --}}
-            {{#has tag="#video-post-format"}}
-                <div id="video-format" class="col s12 video-wrap">
-                    <aside class="video-responsive video-featured"></aside>
-                    <div class="video-content u-h-b-md" style="display:none">
-                        <span class="channel-name"></span>
-                        <span class="youtube-subscribe"><div class="g-ytsubscribe" data-channelid="" data-layout="default" data-count="default"></div></span>
-                    </div>
-                </div>
-            {{/has}}
-
-            {{!-- Image Post Format  --}}
-            {{#has tag="#image-post-format"}}
-                {{#if feature_image}}
-                    <figure class="col s12 post-image">
-                        <img src="{{feature_image}}" alt="{{title}}"/>
-                    </figure>
-                {{/if}}
-            {{/has}}
-
             <div class="col s12 content">
-                {{!-- Post Section  --}}
-                <article class="post">
 
-                    {{!-- Post Header --}}
-                    <header class="post-header">
-                        <h1 class="post-title">{{title}}</h1>
+                {{!-- Article Content  --}}
+                {{> "article"}}
 
-                        <div class="u-flex u-flex-center u-flex-wrap">
-                            {{!-- author, date, tag --}}
-                            <div class="post-byline">
-                            {{#author}} By <a href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
-                                <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-                                {{#if tags}} <span style="margin: 0 5px">/</span> {{tags limit="1"}}{{/if}}
-                            </div>
+            {{/post}}
 
-                            {{!-- Post Share --}}
-                            <ul class="post-actions--top u-flex-center u-unstyled">
-                                <li>
-                                    <a class="scrolltop post-action-comments" href="#post-comments">
-                                        <i class="i-chat"></i>
-                                        {{!-- Disqus Comments Count --}}
-                                        <span class="disqus-comment-count mapache-disqus" data-disqus-url="{{url absolute="true"}}">0</span>
-                                        {{!-- Facebook Comments Counts --}}
-                                        <span class="fb-comments-count mapache-facebook" data-href="{{url absolute="true"}}">0</span>
-                                        Comments
-                                    </a>
-                                </li>
-                                <li class="u-h-b-lg"><a href="#" class="share i-facebook c-facebook" mapache-share="facebook" mapache-url="{{url absolute="true"}}"></a></li>
-                                <li class="u-h-b-lg"><a href="#" class="share i-twitter c-twitter" mapache-share="twitter" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
-                                <li class="u-h-b-lg"><a href="#" class="share i-reddit c-reddit" mapache-share="reddit" mapache-url="{{url absolute="true"}}"></a></li>
-                                <li class="u-h-b-lg"><a href="#" class="share i-pinterest c-pinterest" mapache-share="pinterest" mapache-title="{{title}}" mapache-url="{{url absolute="true"}}"></a></li>
-                                <li class="u-h-b-lg"><a href="#" class="share i-pocket c-pocket" mapache-share="pocket" mapache-url="{{url absolute="true"}}"></a></li>
-                            </ul>
-                        </div>
-                    </header>
-
-                    {{!-- Add Post Image --}}
-                    {{^has tag="#image-post-format"}}
-                        {{#if feature_image}}<figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}" /></figure>{{/if}}
-                    {{/has}}
-
-                    {{!-- Post content body --}}
-                    <div class="post-body">{{content}}</div>
-
-                    {{!-- Post All Tags (category) --}}
-                    {{#if tags}}<div class="post-tags">{{#foreach tags}}<a href="{{url}}" title="{{name}}" class="btn u-tags i-tag">{{name}}</a>{{/foreach}}</div>{{/if}}
-
-                    {{!-- post Share Button and Suscribe newsletter --}}
-                    <div class="row share-subscribe">
-                        {{> "widget-share" }}
-                        {{> "widget-newsletter" }}
-                    </div>
-
-                    {{!-- Post author info --}}
-                    {{> "widget-post-author" }}
-
-                    {{!-- post Comments Section --}}
-                    <div id="post-comments" class="post-comments">
-                        <div id="disqus_thread" class="mapache-disqus"></div>
-                        {{!-- Comments section for facebook --}}
-                        <div class="fb-comments mapache-facebook" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
-                    </div>
-
-                    {{!-- post Related Numero 6--}}
-                    {{/post}} {{> "widget-post-related" }} {{#post}}
-
-                </article>
+                {{!-- Article Related Numero 6--}}
+                {{> "article-related" }}
             </div>
 
-            {{> "sidebar"}}
-
+            {{!-- Sidebar --}}
+            {{> "sidebar" }}
         </div>
     </div>
 </section>
-
-{{!-- Post next and Prev --}}
-{{#prev_post}}<a class="prev-post u-h-b-lg i-navigate_before" href="{{url}}">Read Prev Post</a>{{/prev_post}}
-{{#next_post}}<a class="next-post u-h-b-lg i-navigate_next" href="{{url}}">Read Next Post</a>{{/next_post}}
-
-{{/post}}

@@ -1,6 +1,6 @@
 {
   "name": "mapache-godofredoninja",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Mapache theme for ghost by @GodoFredoNinja",
   "demo": "https://godofredo.ninja",
   "author": {
@@ -28,7 +28,7 @@
     "email": "hello@godofredo.ninja"
   },
   "config": {
-     "posts_per_page": 10
+    "posts_per_page": 10
   },
   "license": "MIT",
   "scripts": {},
