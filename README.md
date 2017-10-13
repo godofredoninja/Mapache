@@ -1,4 +1,4 @@
-# Mapache for [Ghost](https://github.com/tryghost/ghost/) by GodoFredo
+# Mapache for [Ghost](https://github.com/tryghost/ghost/)
 
 [![Ghost version](https://img.shields.io/badge/Ghost-1.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
 [![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
@@ -36,8 +36,10 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Cover images for blog, tag and author
 - links to followers in social media
 - Related Articles (6 articles)
-- Video Post Format
-- Image post Format
+- Template (Video Post Format)
+- Teamplate (Image post Format)
+- Template (Audio post Format)
+- AMP Template (Accelerated Mobile Pages)
 - 5 articles featured in the home of the page section sidebar
 - 5 articles latest posts in the (author - tag - post) section sidebar
 - 10 Tags in the sidebar
@@ -214,15 +216,26 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 
 ![](./documentation/code.png) to find your coding language.
 
-## Image Post Format
+## Template for (Video - Image - Audio)
 
-If you want to have a image post format, you only have to add the tag `#image-post-format` The Featured image will become large in size
+**Image** — The Featured image will become large in size.
 
-## Video Post Format
+**Video** — The first video in the article will be large in size. Supports formats
 
-If you want to have a video post format, you only have to add the tag `#video-post-format` . The first video in the article will be large in size.
+- vimeo
+- Dailymotion
+- Facebook Video
+- Youtube
+- Vid
+- kickstarter
 
-> Add video where convenient. When you change the theme you will not have problems
+**Audio** — The first Audio in the article will be large in size. Supports formats
+
+- Soundcloud
+- Mixcloud
+- Spotify
+
+> Add video or Audio where convenient. When you change the theme you will not have problems and not have Problem in your AMP Template
 
 ![](./documentation/video-format.png)
 
@@ -230,6 +243,7 @@ If you want to have a video post format, you only have to add the tag `#video-po
 
 ### Credits
 
+- [Hodor AMP Template](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost)
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
 - [Prismjs](http://prismjs.com/)

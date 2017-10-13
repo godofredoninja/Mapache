@@ -1,32 +1,24 @@
-{{!-- Add Layout --}}
-{{!< default}}
+{{!-- Layout --}}
+{{!< layout-article }}
 
-<section class="container">
-    <div class="post-wrapper">
+<div class="row">
+    <div class="col s12 content">
 
-        {{#post}}
+    {{#post}}
+        {{!-- Block Featured Image --}}
+        {{#contentFor "mapache_feature_image"}}
+            {{#if feature_image}}<figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
+        {{/contentFor}}
 
-        {{!--  Video Post Format and image post Format --}}
-        {{^has tag="#image-post-format"}}
-            {{#has tag="#video-post-format"}} <div class="video-post-format"></div> {{/has}}
-        {{else}}
-            {{#if feature_image}}<figure class="post-image"><img src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
-        {{/has}}
+        {{!-- Article Content  --}}
+        {{> "article"}}
+    {{/post}}
 
-        <div class="row">
-            <div class="col s12 content">
-
-                {{!-- Article Content  --}}
-                {{> "article"}}
-
-            {{/post}}
-
-                {{!-- Article Related Numero 6--}}
-                {{> "article-related" }}
-            </div>
-
-            {{!-- Sidebar --}}
-            {{> "sidebar" }}
-        </div>
+        {{!-- Article Related Numero 6--}}
+        {{> "article-related" }}
     </div>
-</section>
+
+    {{!-- Sidebar --}}
+    {{> "sidebar" }}
+</div>
+

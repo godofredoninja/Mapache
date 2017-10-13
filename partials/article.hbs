@@ -12,26 +12,19 @@
     </header>
 
     {{!-- Article featured Image --}}
-    {{^has tag="#image-post-format, #video-post-format"}}
-        {{#if feature_image}}
-            <figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}" /></figure>
-        {{/if}}
-    {{/has}}
+    {{{block "mapache_feature_image"}}}
+
+    {{!-- audio post format --}}
+    {{{block "mapache_audio"}}}
 
     {{!-- Article content body --}}
     <div class="post-body">{{content}}</div>
 
     {{!-- Article Tags --}}
-    {{#if tags}}
-        <div class="post-tags">
-            {{#foreach tags}}
-                <a href="{{url}}" title="{{name}}" class="btn u-tags i-tag">{{name}}</a>
-            {{/foreach}}
-        </div>
-    {{/if}}
+    {{> "article-tags" }}
 
     {{!-- Article ( Share Button — Suscribe newsletter ) --}}
-    {{> "article-share-subscribe"}}
+    {{> "article-share-subscribe" }}
 
     {{!-- Article author info --}}
     {{> "article-author" }}
