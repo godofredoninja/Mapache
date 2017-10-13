@@ -1,0 +1,8 @@
+{{!-- Article Tags --}}
+{{#if tags}}
+    <div class="post-tags">
+        {{#foreach tags}}
+            <a href="{{url}}" title="{{name}}" class="btn u-tags i-tag">{{name}}</a>
+        {{/foreach}}
+    </div>
+{{/if}}

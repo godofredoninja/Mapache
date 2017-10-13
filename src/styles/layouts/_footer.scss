@@ -2,7 +2,7 @@
   color: $footer-color;
   font-size: 14px;
   font-weight: 500;
-  line-height : 1;
+  line-height: 1;
   padding: 1.6rem 15px;
   text-align: center;
 
@@ -28,10 +28,16 @@
     vertical-align: middle;
   }
 
+  &-follow {
+    padding: 20px 0;
+
+    a {
+      font-size: 20px;
+      margin: 0 5px;
+      color: rgba(0, 0, 0, .8);
+    }
+  }
 }
-
-
-
 
 @keyframes heartify {
   0% {

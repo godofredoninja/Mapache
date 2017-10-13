@@ -6,3 +6,22 @@
     {{!-- Comments section for facebook --}}
     <div class="fb-comments mapache-facebook u-hide" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
 </div>
+
+{{#contentFor "scripts"}}
+
+{{!-- Disqys Comments --}}
+<script>
+    (function() {
+        if (typeof disqusShortName !== 'undefined') {
+            $('.mapache-disqus').removeClass('u-hide');
+            var d = document, s = d.createElement('script');
+            s.async = true;
+            // IMPORTANT: Replace EXAMPLE with your forum shortname!
+            s.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    })();
+</script>
+
+{{/contentFor}}

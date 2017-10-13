@@ -1,9 +1,6 @@
 // import external dependencies
 // import 'jquery';
-import 'prismjs';
-import 'prismjs/plugins/autoloader/prism-autoloader';
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'theia-sticky-sidebar/dist/ResizeSensor'
+import 'theia-sticky-sidebar/dist/ResizeSensor';
 import 'theia-sticky-sidebar';
 import 'jquery-lazyload';
 
@@ -15,6 +12,8 @@ import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
 import isArticle from './routes/post';
+import isVideo from './routes/video';
+import isAudio from './routes/audio';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -24,6 +23,10 @@ const routes = new Router({
   home,
   // article
   isArticle,
+  // Video
+  isVideo,
+  // Audio
+  isAudio,
 });
 
 // Load Events
