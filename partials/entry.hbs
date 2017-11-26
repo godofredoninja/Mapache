@@ -1,25 +1,34 @@
 {{!-- Entry template --}}
-<article class="entry u-b-b entry-pagination">
+<article class="entry entry-pagination u-card-shadow">
     <div class="row">
-        {{#if feature_image}}
+        {{!-- Image --}}
         <figure class="col s12 entry-image">
-            <a class="entry-image--link" href="{{url}}" style="background-color:#f0f0f0">
-                <span class="lazy entry-image--bg" data-original="{{feature_image}}"></span>
+            <a class="entry-image--link u-relative u-block" href="{{url}}" style="background-color:#f0f0f0">
+                {{#if feature_image}}
+                <span class="entry-lazy entry-image--bg u-absolute0 u-bg-cover u-block" data-original="{{feature_image}}"></span>
+                {{else}}
+                <span class="u-not-image u-absolute0 u-block" style="background-image: url({{asset "images/not-image.png"}})"></span>
+                {{/if}}
+
+                {{!-- tag Video Icon --}}
                 {{#has tag="#video-post-format"}}<span class="entry-video-play i-play"></span>{{/has}}
             </a>
         </figure>
-        {{/if}}
 
-        <div class="col s12 {{#if feature_image}}entry-body{{/if}}">
-            {{#if tags}}<div class="entry-category">{{tags limit="1"}}</div>{{/if}}
+        <div class="col s12 entry-body">
+            {{!-- Primary Tag --}}
+            {{#primary_tag}}<div class="entry-category"><a href="{{url}}" class="u-tag">{{name}}</a></div>{{/primary_tag}}
+
+            {{!-- Title --}}
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
             <div class="entry-byline">
-                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
+                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> / {{/author}}
                 <time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
+                <span class="reading-time">/ {{reading_time}}</span>
             </div>
 
-            <div class="entry-excerpt u-h-b-lg">{{excerpt words="15"}}</div>
+            <div class="entry-excerpt">{{excerpt words="15"}}</div>
         </div>
     </div>
 </article>

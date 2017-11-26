@@ -30,6 +30,7 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 
 - Responsive layout
 - Blog navigation
+- Home title Typed style
 - Page 404 (Multiple faces emoticons)
 - Page subscribe
 - Pagination Infinite Scroll
@@ -46,7 +47,7 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Support for comments (Facebook or Disqus)
 - Support for counter comments (Facebook or Disqus)
 - Buttons to share the article
-- YouTube, Vimeo, kickstarter, Facebook Video, dailymotion, vid.me -> Video Responsive
+- YouTube, Vimeo, kickstarter, dailymotion, vid.me -> Video Responsive
 - YouTube Subscribe Button => Video Post Format
 - Facebook widget in sidebar
 - Twitter widget in sidebar
@@ -67,7 +68,6 @@ Add the Social Links only for the services you want to appear in the header sect
 ### YouTube Subscribe Button
 
 This section enables the YouTube Post format. Add the Channel Name and Channel ID which can be found here [YouTube Advanced Settings](https://www.youtube.com/account_advanced)
-
 
 — Copy the below script to `Settings -> Code Injection  -> Blog Footer section`
 
@@ -97,6 +97,10 @@ var followSocialMedia = {
 
 /* 02. Title for home Page */
 var homeTitle = '... your title ...';
+
+/* if you want to have the title style typed
+ignore homeTitle and add this code */
+var homeTitleTyped = ['YOUR TITLE 1', 'YOUR TITLE 2', 'YOUR TITLE 3', 'YOUR TITLE 4'];
 
 /* 03. Home BTN <SUBSCRIBE> */
 var homeBtnTitle = 'Name BTN';
@@ -137,7 +141,7 @@ This enables comments and comment counter
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.async=true;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 ```
@@ -224,7 +228,6 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 
 - vimeo
 - Dailymotion
-- Facebook Video
 - Youtube
 - Vid
 - kickstarter
@@ -244,6 +247,7 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 ### Credits
 
 - [Hodor AMP Template](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost)
+- [Typed](https://github.com/mattboldt/typed.js/)
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
 - [Prismjs](http://prismjs.com/)

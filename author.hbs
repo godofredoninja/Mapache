@@ -4,7 +4,11 @@
 
 {{#author}}
 <section id="cover" class="cover author u-flex-wrap">
-    {{#if @blog.cover_image}}<div class="cover-background lazy" data-original="{{cover_image}}"></div>{{/if}}
+    {{!-- Image featured --}}
+    {{#if cover_image}}
+        <div class="u-absolute0 u-block u-bg-gradient" style="background-color:#000"></div>
+        <div class="cover-background cover-lazy u-absolute0 u-bg-cover u-block" style="opacity:0.5" data-original="{{cover_image}}"></div>
+    {{/if}}
 
     <article class="cover-wrap u-flex-aling-center">
         <div class="author-header">
