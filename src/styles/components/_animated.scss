@@ -1,16 +1,16 @@
 // animated Global
 .animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    &.infinite {
-        animation-iteration-count: infinite;
-    }
+  animation-duration: 1s;
+  animation-fill-mode: both;
+
+  &.infinite { animation-iteration-count: infinite }
 }
 
 // animated All
-.bounceIn {animation-name: bounceIn;}
-.bounceInDown {animation-name: bounceInDown}
-
+.bounceIn { animation-name: bounceIn; }
+.bounceInDown { animation-name: bounceInDown }
+.slideInUp { animation-name: slideInUp }
+.slideOutDown { animation-name: slideOutDown }
 
 // all keyframes Animates
 
@@ -111,4 +111,26 @@
 @keyframes spin {
     from { transform:rotate(0deg); }
     to { transform:rotate(360deg); }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, 20%, 0);
+  }
 }

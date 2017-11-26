@@ -8,8 +8,8 @@ import Share from '../app/app.share';
 const iframeForVideoResponsive = [
   'iframe[src*="player.vimeo.com"]',
   'iframe[src*="dailymotion.com"]',
-  'iframe[src*="facebook.com/plugins/video.php"]',
   'iframe[src*="youtube.com"]',
+  'iframe[src*="facebook.com/plugins/video.php"]',
   'iframe[src*="youtube-nocookie.com"]',
   'iframe[src*="vid.me"]',
   'iframe[src*="kickstarter.com"][src*="video.html"]',
@@ -22,13 +22,7 @@ export default {
     // allVideos.map((key, value) => $(value).wrap('<aside class="video-responsive"></aside>'));
 
     $allVideos.each(function () {
-      const $this = $(this);
-
-      const height = ( this.tagName.toLowerCase() === 'object' || ($this.attr('height') && !isNaN(parseInt($this.attr('height'), 10))) ) ? parseInt($this.attr('height'), 10) : $this.height();
-      const width = !isNaN(parseInt($this.attr('width'), 10)) ? parseInt($this.attr('width'), 10) : $this.width();
-      const aspectRatio = height / width;
-
-      $(this).wrap('<aside class="video-responsive"></aside>').parent('.video-responsive').css('padding-bottom', (aspectRatio * 100)+'%');
+      $(this).wrap('<aside class="video-responsive"></aside>').parent('.video-responsive');
     });
   },
   finalize() {

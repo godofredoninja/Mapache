@@ -41,8 +41,9 @@ export default {
     if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia); // eslint-disable-line
 
     /* Lazy load for image */
-    $('span.lazy').lazyload();
-    $('div.lazy').lazyload({effect : 'fadeIn'});
+    $('.entry-lazy').lazyload();
+    $('.cover-lazy').lazyload({effect : 'fadeIn'});
+    // $('.sidebar-lazy').lazyload();
   },
   finalize() {
     /* Menu open and close for mobile */

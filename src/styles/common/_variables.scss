@@ -91,7 +91,7 @@ $font-size-h6:             1rem;
 
 $headings-margin-bottom:   ($spacer / 2);
 $headings-font-family:     $primary-font;
-$headings-font-weight:     500;
+$headings-font-weight:     700;
 $headings-line-height:     1.1;
 $headings-color:           inherit;
 
@@ -111,7 +111,7 @@ $header-search-color: #757575;
 
 /* 5. Entry articles
 ========================================================================== */
-$entry-color-title: #222;
+$entry-color-title: #000;
 $entry-color-title-hover: #777;
 $entry-font-size: 1.75rem; // 28px
 $entry-font-size-mb: 1.25rem; // 20px
@@ -148,7 +148,7 @@ $grid-gutter-width:        1.875rem; // 30px
 $container-sm:             576px;
 $container-md:             750px;
 $container-lg:             970px;
-$container-xl:             1200px;
+$container-xl:             1250px;
 
 
 /* 9. Grid

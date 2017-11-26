@@ -1,7 +1,14 @@
+<div class="post-card u-card-shadow">
+
+{{#post}}
+
 <article class="post">
 
     {{!-- Article Header --}}
     <header class="post-header">
+        {{!-- Primary Tag --}}
+        {{#primary_tag}}<div class="entry-category" style="margin-bottom:15px"><a href="{{url}}" class="u-tag">{{name}}</a></div>{{/primary_tag}}
+
         <h1 class="post-title">{{title}}</h1>
 
         {{!-- excerpt  --}}
@@ -33,3 +40,10 @@
     {{> "article-comments" }}
 
 </article>
+
+{{/post}}
+
+{{!-- Article Related Numero 6--}}
+{{> "article-related" }}
+
+</div>

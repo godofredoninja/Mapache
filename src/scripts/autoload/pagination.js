@@ -42,7 +42,7 @@
           currentPage ++;
 
           /* Lazy load for image */
-          $('span.lazy').lazyload();
+          $('.entry-lazy').lazyload();
 
           $win.on('scroll', onScroll);
         },

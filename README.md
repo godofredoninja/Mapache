@@ -30,6 +30,7 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 
 - Responsive layout
 - Blog navigation
+- Home title Typed style
 - Page 404 (Multiple faces emoticons)
 - Page subscribe
 - Pagination Infinite Scroll
@@ -44,7 +45,7 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 - Support for comments (Facebook or Disqus)
 - Support for counter comments (Facebook or Disqus)
 - Buttons to share the article
-- YouTube, Vimeo, kickstarter, Facebook Video, dailymotion, vid.me -> Video Responsive
+- YouTube, Vimeo, kickstarter, dailymotion, vid.me -> Video Responsive
 - YouTube Subscribe Button => Video Post Format
 - Facebook widget in sidebar
 - Twitter widget in sidebar

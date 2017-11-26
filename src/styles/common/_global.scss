@@ -27,6 +27,7 @@ a {
   &.external {
     &::after {
       @extend %font-icons;
+
       content: $i-open_in_new;
       margin-left: 5px;
     }
@@ -40,6 +41,7 @@ body {
   font-size: $font-size-base;
   line-height: $line-height;
   margin: 0 auto;
+  background-color: #f5f5f5;
 }
 
 figure { margin: 0; }
@@ -119,8 +121,8 @@ ol {
 }
 
 mark {
-  background-image: linear-gradient(to bottom, lighten($primary-color, 35%), lighten($primary-color, 30%));
-  background-color: transparent;
+  // background-image: linear-gradient(to bottom, lighten($primary-color, 35%), lighten($primary-color, 30%));
+  background-color: #fdffb6;
 }
 
 .footer,

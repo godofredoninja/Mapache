@@ -27,13 +27,13 @@
   a,
   .btn,
   .nav-mob-copyright a,
-  .pagination .pagination-link{
+  .pagination .pagination-link {
     color: $color-theme;
   }
 
-  mark {
-    background-image: linear-gradient(to bottom, lighten($color-theme, 30%), lighten($color-theme, 30%));
-  }
+  // mark {
+  //   background-image: linear-gradient(to bottom, lighten($color-theme, 30%), lighten($color-theme, 30%));
+  // }
 
   .btn.btn-primary,
   .cover,
@@ -41,6 +41,7 @@
   .nav-mob,
   .post-actions-comment,
   .sidebar .title-primary,
+  .u-tag,
   .mapache-load-more:hover,
   .u-tags:hover {
     background-color: $color-theme !important;

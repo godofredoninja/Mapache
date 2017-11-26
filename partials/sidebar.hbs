@@ -1,5 +1,5 @@
 {{!-- Sidebar right --}}
-<div id="sidebar" class="col s12 sidebar sidebar-sticky u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
+<div id="sidebar" class="col s12 m4 sidebar sidebar-sticky u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
     {{!-- 5 articles featured in page (home - author - tag) --}}
     {{#is "home" }}
         {{#get "posts" filter="featured:true" limit="5" as |featured| }}
@@ -18,13 +18,13 @@
     {{> "sidebar-tag-cloud" }}
 
     {{!-- Twitter --}}
-    <div class="sidebar-items u-hide">
+    <div class="sidebar-items u-hide u-card-shadow">
         <h3 class="sidebar-title">Recents Tweets</h3>
         <div class="widget-twitter"></div>
     </div>
 
     {{!-- facebook --}}
-    <div class="sidebar-items u-hide" style="min-height:500px">
+    <div class="sidebar-items u-hide u-card-shadow" style="min-height:500px">
         <h3 class="sidebar-title">Facebook</h3>
         <div class="widget-facebook"></div>
     </div>

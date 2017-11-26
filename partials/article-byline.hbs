@@ -3,9 +3,9 @@
 
 <div class="u-flex u-flex-center u-flex-wrap">
     <div class="post-byline">
-        {{#author}} By <a href="{{url}}">{{name}}</a> <span style="margin: 0 5px">/</span> {{/author}}
+        {{#author}} By <a href="{{url}}">{{name}}</a> / {{/author}}
         <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}"> {{date published_at timeago="true"}} </time>
-        {{#if tags}} <span style="margin: 0 5px">/</span> {{tags limit="1"}} {{/if}}
+        <span class="reading-time">/ {{reading_time}}</span>
     </div>
 
     {{!-- Article Share Top --}}

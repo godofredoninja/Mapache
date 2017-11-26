@@ -6,13 +6,14 @@
 }
 
 .post {
+  // padding: 15px;
 
   &-header {
     margin-bottom: 1.2rem;
   }
 
   &-title {
-    color: #222;
+    color: #000;
     font-size: 2.5rem;
     height: auto;
     line-height: 1.04;
@@ -30,7 +31,7 @@
 
   //  Image
   &-image{
-    margin-bottom: 1.45rem;
+    margin-bottom: 30px;
     overflow: hidden;
   }
 
@@ -66,16 +67,12 @@
   }
 
   // tags
-  &-tags{
+  &-tags {
     margin: 1.25rem 0;
   }
-
-  // Post comments
-  &-comments{
-    margin: 0 0 1.5rem;
-  }
-
 }
+
+.post-card { padding: 15px }
 
 /* Post author by line top (author - time - tag - sahre)
 ========================================================================== */
@@ -128,33 +125,35 @@
 
 /* Post author widget bottom
 ========================================================================== */
-.post-author{
+.post-author {
   position: relative;
   font-size: 15px;
   padding: 30px 0 30px 100px;
   margin-bottom: 3rem;
   background-color: #f3f5f6;
 
-
-  h5{
+  h5 {
     color: #AAA;
     font-size: 12px;
     line-height: 1.5;
     margin: 0;
+    font-weight: 500;
   }
 
-  li{
+  li {
     margin-left: 30px;
     font-size: 14px;
-    a{color: #555;&:hover{color: #000;}}
-    &:first-child{margin-left: 0;}
+
+    a { color: #555; &:hover { color: #000 } }
+
+    &:first-child { margin-left: 0 }
   }
 
-  &-bio{
+  &-bio {
     max-width: 500px;
   }
 
-  .post-author-avatar{
+  .post-author-avatar {
     height: 64px;
     width: 64px;
     position: absolute;
@@ -165,56 +164,6 @@
     border-radius: 50%;
   }
 }
-
-
-
-/* prev-post and next-post
-========================================================================== */
-// .prev-post,
-// .next-post{
-//   background: none repeat scroll 0 0 #fff;
-//   border: 1px solid #e9e9ea;
-//   color: #23527c;
-//   display: block;
-//   font-size: 14px;
-//   height: 60px;
-//   line-height: 60px;
-//   overflow: hidden;
-//   position: fixed;
-//   text-overflow: ellipsis;
-//   text-transform: uppercase;
-//   top: calc(50% - 25px);
-//   transition: all 0.5s ease 0s;
-//   white-space: nowrap;
-//   width: 200px;
-//   z-index: 999;
-
-//   &:before{
-//     color: #c3c3c3;
-//     font-size: 36px;
-//     height: 60px;
-//     position: absolute;
-//     text-align: center;
-//     top: 0;
-//     width: 50px;
-//   }
-// }
-
-// .prev-post {
-//   left: -150px;
-//   padding-right: 50px;
-//   text-align: right;
-//   &:hover{ left:0; }
-//   &:before{ right: 0; }
-// }
-
-// .next-post {
-//   right: -150px;
-//   padding-left: 50px;
-//   &:hover{ right: 0; }
-//   &:before{ left: 0; }
-// }
-
 
 /* bottom share and bottom subscribe
 ========================================================================== */
@@ -245,11 +194,11 @@
     }
 
     h5{
-      color: #666;
       font-size:  $font-size-sm;
       margin: 1rem 0;
       line-height: 1;
       text-transform: uppercase;
+      font-weight: 500;
     }
   }
 
@@ -266,18 +215,17 @@
       border-radius: 0;
     }
   }
-
 }
-
 
 /* Related post
 ========================================================================== */
-.post-related{
-  margin-bottom: 1.5rem;
+.post-related {
+  margin-top: 40px;
 
-  &-title{
-    font-size: 17px;
-    font-weight: 400;
+  &-title {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
     height: auto;
     line-height: 17px;
     margin: 0 0 20px;
@@ -285,46 +233,19 @@
     text-transform: uppercase;
   }
 
-  &-list{
+  &-list {
     margin-bottom: 18px;
     padding: 0;
     border: none;
   }
-
-  // .no-image{
-  //   position: relative;
-
-  //   .entry{
-  //     background-color: $primary-color;
-  //     display: flex;
-  //     align-items: center;
-  //     position: absolute;
-  //     bottom: 0;
-  //     top: 0;
-  //     left: 0.9375rem;
-  //     right: 0.9375rem;
-  //   }
-
-  //   .entry-title{
-  //     color: #fff;
-  //     padding: 0 10px;
-  //     text-align: center;
-  //     width: 100%;
-  //     &:hover{
-  //       color: rgba(255, 255, 255, 0.70);
-  //     }
-  //   }
-  // }
-
 }
-
 
 /* Media Query (medium)
 ========================================================================== */
 
-@media #{$md-and-up}{
-  .post{
-    .title{
+@media #{$md-and-up} {
+  .post {
+    .title {
       font-size: 2.25rem;
       margin: 0 0 1rem;
     }
@@ -332,11 +253,12 @@
     &-body {
       font-size: 1.125rem;
       line-height: 32px;
-      p{
-        margin-bottom: 1.5rem;
-      }
+
+      p { margin-bottom: 1.5rem }
     }
   }
+
+  .post-card { padding: 30px }
 }
 
 
