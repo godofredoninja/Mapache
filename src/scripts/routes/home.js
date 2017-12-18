@@ -6,7 +6,7 @@ export default {
     if (typeof homeTitle !== 'undefined') $('#title-home').html(homeTitle); // eslint-disable-line
 
     // Home Title Typed
-    if (homeTitleTyped instanceof Array) { // eslint-disable-line
+    if (typeof homeTitleTyped !== 'undefined') { // eslint-disable-line
       $('#title-home').addClass('u-hide');
       $('#home-typed').removeClass('u-hide');
 
