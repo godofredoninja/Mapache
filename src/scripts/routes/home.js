@@ -10,7 +10,7 @@ export default {
       $('#title-home').addClass('u-hide');
       $('#home-typed').removeClass('u-hide');
 
-      var typed = new Typed('#home-title-typed', {
+      var typed = new Typed('#home-title-typed', { // eslint-disable-line
         strings: homeTitleTyped, // eslint-disable-line
         typeSpeed: 100,
         loop: true,
