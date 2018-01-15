@@ -3,14 +3,14 @@
     {{!-- 5 articles featured in page (home - author - tag) --}}
     {{#is "home" }}
         {{#get "posts" filter="featured:true" limit="5" as |featured| }}
-            {{> "sidebar-post" widgetTitle="Featured Posts" widgetPosts=featured }}
+            {{> "sidebar-post" widgetTitle=(t "Featured Posts") widgetPosts=featured }}
         {{/get}}
     {{/is}}
 
     {{!-- 5 articles recents in page (post) --}}
     {{#is "post, tag, author, paged" }}
         {{#get "posts" limit="5" as |recents| }}
-            {{> "sidebar-post" widgetTitle="Latest" widgetPosts=recents }}
+            {{> "sidebar-post" widgetTitle=(t "Latest Posts") widgetPosts=recents }}
         {{/get}}
     {{/is}}
 
@@ -19,7 +19,7 @@
 
     {{!-- Twitter --}}
     <div class="sidebar-items u-hide u-card-shadow">
-        <h3 class="sidebar-title">Recents Tweets</h3>
+        <h3 class="sidebar-title">{{t "Recents Tweets"}}</h3>
         <div class="widget-twitter"></div>
     </div>
 

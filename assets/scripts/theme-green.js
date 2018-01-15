@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "40c33c31de661b520dc8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5aa2883f9ae1aafd7e38"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(25)(__webpack_require__.s = 25);
+/******/ 	return hotCreateRequire(70)(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1015,6 +1015,24 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
+/*!*************************************!*\
+  !*** ./build/helpers/hmr-client.js ***!
+  \*************************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+var hotMiddlewareScript = __webpack_require__(/*! webpack-hot-middleware/client?noInfo=true&timeout=20000&reload=true */ 3);
+
+hotMiddlewareScript.subscribe(function (event) {
+  if (event.action === 'reload') {
+    window.location.reload();
+  }
+});
+
+
+/***/ }),
+/* 3 */
 /*!**********************************************************************************************!*\
   !*** ../node_modules/webpack-hot-middleware/client.js?noInfo=true&timeout=20000&reload=true ***!
   \**********************************************************************************************/
@@ -1036,7 +1054,7 @@ var options = {
   autoConnect: true
 };
 if (true) {
-  var querystring = __webpack_require__(/*! querystring */ 4);
+  var querystring = __webpack_require__(/*! querystring */ 5);
   var overrides = querystring.parse(__resourceQuery.slice(1));
   setOverrides(overrides);
 }
@@ -1170,11 +1188,11 @@ if (typeof window !== 'undefined') {
 }
 
 function createReporter() {
-  var strip = __webpack_require__(/*! strip-ansi */ 7);
+  var strip = __webpack_require__(/*! strip-ansi */ 8);
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(/*! ./client-overlay */ 9);
+    overlay = __webpack_require__(/*! ./client-overlay */ 10);
   }
 
   var styles = {
@@ -1227,7 +1245,7 @@ function createReporter() {
   };
 }
 
-var processUpdate = __webpack_require__(/*! ./process-update */ 37);
+var processUpdate = __webpack_require__(/*! ./process-update */ 15);
 
 var customHandler;
 var subscribeAllHandler;
@@ -1293,10 +1311,10 @@ if (module) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, "?noInfo=true&timeout=20000&reload=true", __webpack_require__(/*! ./../webpack/buildin/module.js */ 3)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, "?noInfo=true&timeout=20000&reload=true", __webpack_require__(/*! ./../webpack/buildin/module.js */ 4)(module)))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /*!*************************************************!*\
   !*** ../node_modules/webpack/buildin/module.js ***!
   \*************************************************/
@@ -1329,7 +1347,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /*!************************************************!*\
   !*** ../node_modules/querystring-es3/index.js ***!
   \************************************************/
@@ -1340,12 +1358,12 @@ module.exports = function(module) {
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(/*! ./decode */ 5);
-exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ 6);
+exports.decode = exports.parse = __webpack_require__(/*! ./decode */ 6);
+exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ 7);
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /*!*************************************************!*\
   !*** ../node_modules/querystring-es3/decode.js ***!
   \*************************************************/
@@ -1441,7 +1459,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /*!*************************************************!*\
   !*** ../node_modules/querystring-es3/encode.js ***!
   \*************************************************/
@@ -1538,7 +1556,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /*!*******************************************!*\
   !*** ../node_modules/strip-ansi/index.js ***!
   \*******************************************/
@@ -1548,7 +1566,7 @@ var objectKeys = Object.keys || function (obj) {
 
 "use strict";
 
-var ansiRegex = __webpack_require__(/*! ansi-regex */ 8)();
+var ansiRegex = __webpack_require__(/*! ansi-regex */ 9)();
 
 module.exports = function (str) {
 	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
@@ -1556,7 +1574,7 @@ module.exports = function (str) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /*!*******************************************!*\
   !*** ../node_modules/ansi-regex/index.js ***!
   \*******************************************/
@@ -1572,7 +1590,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /*!****************************************************************!*\
   !*** ../node_modules/webpack-hot-middleware/client-overlay.js ***!
   \****************************************************************/
@@ -1606,7 +1624,7 @@ for (var key in styles) {
   clientOverlay.style[key] = styles[key];
 }
 
-var ansiHTML = __webpack_require__(/*! ansi-html */ 10);
+var ansiHTML = __webpack_require__(/*! ansi-html */ 11);
 var colors = {
   reset: ['transparent', 'transparent'],
   black: '181818',
@@ -1621,7 +1639,7 @@ var colors = {
 };
 ansiHTML.setColors(colors);
 
-var Entities = __webpack_require__(/*! html-entities */ 11).AllHtmlEntities;
+var Entities = __webpack_require__(/*! html-entities */ 12).AllHtmlEntities;
 var entities = new Entities();
 
 exports.showProblems =
@@ -1662,7 +1680,7 @@ function problemType (type) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /*!******************************************!*\
   !*** ../node_modules/ansi-html/index.js ***!
   \******************************************/
@@ -1850,7 +1868,7 @@ ansiHTML.reset()
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /*!**********************************************!*\
   !*** ../node_modules/html-entities/index.js ***!
   \**********************************************/
@@ -1859,15 +1877,15 @@ ansiHTML.reset()
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  XmlEntities: __webpack_require__(/*! ./lib/xml-entities.js */ 12),
-  Html4Entities: __webpack_require__(/*! ./lib/html4-entities.js */ 13),
+  XmlEntities: __webpack_require__(/*! ./lib/xml-entities.js */ 13),
+  Html4Entities: __webpack_require__(/*! ./lib/html4-entities.js */ 14),
   Html5Entities: __webpack_require__(/*! ./lib/html5-entities.js */ 0),
   AllHtmlEntities: __webpack_require__(/*! ./lib/html5-entities.js */ 0)
 };
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /*!*********************************************************!*\
   !*** ../node_modules/html-entities/lib/xml-entities.js ***!
   \*********************************************************/
@@ -2033,7 +2051,7 @@ module.exports = XmlEntities;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /*!***********************************************************!*\
   !*** ../node_modules/html-entities/lib/html4-entities.js ***!
   \***********************************************************/
@@ -2191,77 +2209,7 @@ module.exports = Html4Entities;
 
 
 /***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */
-/*!******************************************************************************!*\
-  !*** multi ./build/util/../helpers/hmr-client.js ./styles/themes/green.scss ***!
-  \******************************************************************************/
-/*! dynamic exports provided */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! C:\Users\Smigol\projects\ghost\content\themes\mapache\src\build\util/../helpers/hmr-client.js */0);
-module.exports = __webpack_require__(/*! ./styles/themes/green.scss */26);
-
-
-/***/ }),
-/* 26 */
-/*!**********************************!*\
-  !*** ./styles/themes/green.scss ***!
-  \**********************************/
-/*! dynamic exports provided */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 46);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ 38)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(true) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 46, function() {
-			var newContent = __webpack_require__(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 46);
-			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */
+/* 15 */
 /*!****************************************************************!*\
   !*** ../node_modules/webpack-hot-middleware/process-update.js ***!
   \****************************************************************/
@@ -2418,7 +2366,7 @@ module.exports = function(hash, moduleMap, options) {
 
 
 /***/ }),
-/* 38 */
+/* 16 */
 /*!*****************************************************!*\
   !*** ../node_modules/style-loader/lib/addStyles.js ***!
   \*****************************************************/
@@ -2479,7 +2427,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(/*! ./urls */ 39);
+var	fixUrls = __webpack_require__(/*! ./urls */ 17);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2795,7 +2743,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 39 */
+/* 17 */
 /*!************************************************!*\
   !*** ../node_modules/style-loader/lib/urls.js ***!
   \************************************************/
@@ -2895,13 +2843,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ../node_modules/cache-loader/dist/cjs.js!../node_modules/css-loader?{"sourceMap":true}!../node_modules/postcss-loader/lib?{"config":{"path":"C://Users//Smigol//projects//ghost//content//themes//mapache//src//build","ctx":{"open":true,"copy":"images/**_/*","proxyUrl":"http://localhost:3000","cacheBusting":"[name]","paths":{"root":"C://Users//Smigol//projects//ghost//content//themes//mapache","assets":"C://Users//Smigol//projects//ghost//content//themes//mapache//src","dist":"C://Users//Smigol//projects//ghost//content//themes//mapache//assets"},"enabled":{"sourceMaps":true,"optimize":false,"cacheBusting":false,"watcher":true},"watch":"**_/*.hbs","entry":{"main":["./scripts/main.js","./styles/main.scss"],"theme-blue-semi-dark":"./styles/themes/blue-semi-dark.scss","theme-blue":"./styles/themes/blue.scss","theme-dark-blue":"./styles/themes/dark-blue.scss","theme-dark-cyan":"./styles/themes/dark-cyan.scss","theme-green":"./styles/themes/green.scss","theme-grey":"./styles/themes/grey.scss","theme-indigo":"./styles/themes/indigo.scss","theme-purple":"./styles/themes/purple.scss","theme-teal":"./styles/themes/teal.scss","theme-white":"./styles/themes/white.scss"},"publicPath":"/assets/","devUrl":"http://localhost:2368","env":{"production":false,"development":true},"manifest":{}}},"sourceMap":true}!../node_modules/resolve-url-loader?{"sourceMap":true}!../node_modules/sass-loader/lib/loader.js?{"sourceMap":true}!../node_modules/import-glob!./styles/themes/green.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -2918,6 +2866,100 @@ exports.push([module.i, "a,\n.btn,\n.nav-mob-copyright a,\n.pagination .paginati
 
 // exports
 
+
+/***/ }),
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */
+/*!******************************************************************************!*\
+  !*** multi ./build/util/../helpers/hmr-client.js ./styles/themes/green.scss ***!
+  \******************************************************************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\Smigol\projects\ghost\content\themes\mapache\src\build\util/../helpers/hmr-client.js */2);
+module.exports = __webpack_require__(/*! ./styles/themes/green.scss */71);
+
+
+/***/ }),
+/* 71 */
+/*!**********************************!*\
+  !*** ./styles/themes/green.scss ***!
+  \**********************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 24);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ 16)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(true) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 24, function() {
+			var newContent = __webpack_require__(/*! !../../../node_modules/cache-loader/dist/cjs.js!../../../node_modules/css-loader??ref--4-3!../../../node_modules/postcss-loader/lib??ref--4-4!../../../node_modules/resolve-url-loader??ref--4-5!../../../node_modules/sass-loader/lib/loader.js??ref--4-6!../../../node_modules/import-glob!./green.scss */ 24);
+			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

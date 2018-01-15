@@ -5,7 +5,7 @@ import mapacheTwitter from '../app/app.twitter';
 
 const $win = $(window);
 const $header = $('#header');
-const $blogUrl = $('body').attr('mapache-page-url');
+const $blogUrl = $('body').attr('data-page-url');
 const $searchInput = $('.search-field');
 const $buttonBackTop = $('.scroll_top');
 

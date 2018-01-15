@@ -37,6 +37,6 @@ export default {
     $('.post-body').find('pre').addClass('line-numbers');
 
     /* Prism autoloader */
-    Prism.plugins.autoloader.languages_path = `${$('body').attr('mapache-page-url')}/assets/scripts/prism-components/`; // eslint-disable-line
+    Prism.plugins.autoloader.languages_path = `${$('body').attr('data-page-url')}/assets/scripts/prism-components/`; // eslint-disable-line
   },
 };

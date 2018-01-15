@@ -14,7 +14,7 @@
         <div class="author-header">
             <div  class="author-avatar animated bounceInDown u-not-avatar" {{#if profile_image}}style="background-image:url({{profile_image}})"{{/if}} alt="{{name}}"> </div>
             <div class="author-name-wrap animated bounceIn">
-                <span class="author-title">Author</span>
+                <span class="author-title">{{t "Author"}}</span>
                 <h1 class="author-name">{{name}}</h1>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="author-meta">
             {{#if location}}<span class="author-location"><i class="i-map"></i> {{location}}</span>{{/if}}
             {{#if website}}<span class="author-link"><i class="i-link"></i> <a href="{{website}}">{{website}}</a></span>{{/if}}
-            <span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+            <span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
         </div>
 
         {{!-- Author location website --}}

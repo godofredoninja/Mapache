@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="{{lang}}">
 <head>
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
@@ -18,7 +19,7 @@
     {{ghost_head}}
 
 </head>
-<body class="{{#is "index"}}home is-frontpage{{/is}}{{#is "tag"}}is-tag{{/is}}{{#is "author"}}is-author{{/is}}{{#is "page"}}is-article{{/is}}" mapache-page-url="{{@blog.url}}">
+<body class="{{#is "index"}}home is-frontpage{{/is}}{{#is "tag"}}is-tag{{/is}}{{#is "author"}}is-author{{/is}}{{#is "page"}}is-article{{/is}}" data-page-url="{{@blog.url}}">
 
     {{!-- Add Header --}}
     {{> "header"}}
@@ -46,6 +47,6 @@
     <script src="{{asset "scripts/main.js"}}"></script>
 
     {{!--  Font Roboto  && Roboto Mono --}}
-    <script type="text/javascript">WebFontConfig ={google:{families:['Roboto:300,400,500,700']}};(function(){var wf=document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
+    <script>WebFontConfig ={google:{families:['Roboto:300,400,500,700']}};(function(){var wf=document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
 </body>
 </html>

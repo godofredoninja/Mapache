@@ -14,15 +14,15 @@
                 form_class="newsletter-form u-flex"
                 input_class="form-control"
                 button_class="btn btn-primary"
-                placeholder="Enter your email address"
+                placeholder=(t "youremail@example.com")
                 autofocus=""
             }}
         </div>
         {{/if}}
 
         <div class="nav-mob-copyright">
-            &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> Powered by <a href="https://ghost.org" target="_blank">Ghost</a>
-            <span>Design with</span> <i class="i-favorite heart"></i> by <a href="http://bit.ly/GodoFredoNinja-Mapache" target="_blank" title="Desarrollador Web FullStack.">@GodoFredoNinja</a>
+            &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a>
+            {{{t "<span>Design with</span> <i class='i-favorite heart'></i> by"}}} <a href="http://bit.ly/GodoFredoNinja-Mapache" target="_blank" title="Desarrollador Web FullStack.">@GodoFredoNinja</a>
         </div>
 
     </div>
