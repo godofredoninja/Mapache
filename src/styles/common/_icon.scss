@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'mapache';
   src:
-    url('../fonts/mapache.ttf?g7hms8') format('truetype'),
-    url('../fonts/mapache.woff?g7hms8') format('woff'),
-    url('../fonts/mapache.svg?g7hms8#mapache') format('svg');
+    url('../fonts/mapache.ttf?6orc77') format('truetype'),
+    url('../fonts/mapache.woff?6orc77') format('woff'),
+    url('../fonts/mapache.svg?6orc77#mapache') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,6 +23,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-discord:before {
+  content: "\e902";
+}
+.i-play:before {
+  content: "\e901";
+}
+.i-download:before {
+  content: "\e900";
+}
+.i-flag:before {
+  content: "\e153";
+}
 .i-navigate_before:before {
   content: "\e408";
 }
@@ -88,12 +100,6 @@
 }
 .i-check_circle:before {
   content: "\e86c";
-}
-.i-play:before {
-  content: "\e901";
-}
-.i-download:before {
-  content: "\e900";
 }
 .i-code:before {
   content: "\f121";

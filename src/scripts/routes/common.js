@@ -43,7 +43,7 @@ export default {
     /* Lazy load for image */
     $('.entry-lazy').lazyload();
     $('.cover-lazy').lazyload({effect : 'fadeIn'});
-    // $('.sidebar-lazy').lazyload();
+    $('.sidebar-lazy').lazyload();
   },
   finalize() {
     /* Menu open and close for mobile */

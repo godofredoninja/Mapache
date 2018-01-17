@@ -2,8 +2,8 @@
 <div id="sidebar" class="col s12 m4 sidebar sidebar-sticky u-h-b-{{#is "post"}}lg{{else}}md{{/is}}">
     {{!-- 5 articles featured in page (home - author - tag) --}}
     {{#is "home" }}
-        {{#get "posts" filter="featured:true" limit="5" as |featured| }}
-            {{> "sidebar-post" widgetTitle=(t "Featured Posts") widgetPosts=featured }}
+        {{#get "posts" filter="featured:true" limit="2" as |featured| }}
+            {{> "sidebar-post-featured" widgetTitle=(t "Featured Posts") widgetPosts=featured }}
         {{/get}}
     {{/is}}
 
