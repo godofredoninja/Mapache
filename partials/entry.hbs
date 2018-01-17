@@ -23,9 +23,9 @@
             <h2 class="entry-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
 
             <div class="entry-byline">
-                {{#author}} By <a class="entry-author" href="{{url}}">{{name}}</a> / {{/author}}
+                {{#author}} {{t "By"}} <a class="entry-author" href="{{url}}">{{name}}</a> / {{/author}}
                 <time class="entry-timeago timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
-                <span class="reading-time">/ {{reading_time}}</span>
+                <span class="reading-time">/ {{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% min read")}}</span>
             </div>
 
             <div class="entry-excerpt">{{excerpt words="15"}}</div>

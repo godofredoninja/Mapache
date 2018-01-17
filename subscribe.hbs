@@ -7,20 +7,20 @@
 
     <div class="subscribe-wrap">
         {{^if success}}
-            <h2 class="subscribe-title">Subscribe to {{@blog.title}}</h2>
+            <h2 class="subscribe-title">{{t "Subscribe to"}} {{@blog.title}}</h2>
 
             {{subscribe_form
                 form_class="subscribe-form"
                 input_class="subscribe-input"
                 button_class="btn btn-primary btn-block"
-                placeholder="Your email address"
+                placeholder= (t "Your email address")
                 autofocus="true"
             }}
         {{else}}
-            <h3>Subscribed!</h3>
+            <h3>{{t "Subscribed!"}}</h3>
             <div class="success">
-                <span>You've successfully subscribed to <strong>{{@blog.title}}</strong></span>
-                <span>with the email address <strong>{{email}}</strong>.</span>
+                <span>{{t "You've successfully subscribed to"}} <strong>{{@blog.title}}</strong></span>
+                <span>{{t "with the email address"}} <strong>{{email}}</strong>.</span>
             </div>
 
         {{/if}}

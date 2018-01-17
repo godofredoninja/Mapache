@@ -1,11 +1,10 @@
-{{!-- Article by line top
-— author, date, tag --}}
+{{!-- Article by line top — author, date, tag --}}
 
 <div class="u-flex u-flex-center u-flex-wrap">
     <div class="post-byline">
-        {{#author}} By <a href="{{url}}">{{name}}</a> / {{/author}}
+        {{#author}} {{t "By"}} <a href="{{url}}">{{name}}</a> / {{/author}}
         <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}"> {{date published_at timeago="true"}} </time>
-        <span class="reading-time">/ {{reading_time}}</span>
+        <span class="reading-time">/ {{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% min read")}}</span>
     </div>
 
     {{!-- Article Share Top --}}
@@ -14,10 +13,10 @@
             <a class="scrolltop post-action-comments" href="#post-comments">
                 <i class="i-chat" style="font-size: 16px;line-height: 1;"></i>
                 {{!-- Disqus Comments Count --}}
-                <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0</span>
+                <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
                 {{!-- Facebook Comments Counts --}}
                 <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
-                <span class="mapache-facebook u-hide">Comments</span>
+                <span class="mapache-facebook u-hide">{{t "Comments"}}</span>
             </a>
         </li>
         <li class="u-h-b-lg"><a href="#" class="share i-facebook c-facebook" mapache-share="facebook" mapache-url="{{url absolute="true"}}"></a></li>

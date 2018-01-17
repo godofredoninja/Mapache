@@ -14,8 +14,15 @@
     <article class="cover-wrap u-flex-aling-center">
         {{!-- Tag name --}}
         <h1 class="cover-title">{{name}}</h1>
+
         {{!-- tag description --}}
-        <p class="cover-description">{{#if description}}{{description}}{{else}}A collection of {{pagination.total}} Articles{{/if}}</p>
+        <p class="cover-description">
+            {{#if description}}
+                {{description}}
+            {{else}}
+                {{plural ../pagination.total empty=(t "A collection of posts") singular=(t "A collection of 1 post") plural=(t "A collection of % posts")}}
+            {{/if}}
+        </p>
     </article>
     <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>

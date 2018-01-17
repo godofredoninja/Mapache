@@ -28,6 +28,7 @@ Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox
 
 ## Featured
 
+- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es)
 - Responsive layout
 - Blog navigation
 - Home title Typed style
@@ -145,6 +146,15 @@ This enables comments and comment counter
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 ```
+
+## Publication Language
+
+![](./documentation/language.png)
+
+Mapache supports English and Spanish languages.
+if you want to have in another language you just have to copy `locales>en.json` and rename the file then translate to your favorite language:
+
+Just enter the [language/locale tag](https://www.w3schools.com/tags/ref_language_codes.asp) of the files to use (e.g.: `fr.json` for French, `zh.json` for Chinese, `ja.json` for Japanese)
 
 ## Change Theme Style
 
