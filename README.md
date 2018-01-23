@@ -93,6 +93,7 @@ var followSocialMedia = {
   'flickr':'https://...',
   'pinterest':'https://...',
   'telegram':'https://...',
+  'discord':'https://...',
   'feed':'https://...',
 };
 
