@@ -150,9 +150,14 @@ This enables comments and comment counter
 
 ## Publication Language
 
+**Mapache supports:**
+
+- `en` — English default language
+- `es` — Español
+- `de` — German
+
 ![](./documentation/language.png)
 
-Mapache supports English and Spanish languages.
 if you want to have in another language you just have to copy `locales>en.json` and rename the file then translate to your favorite language:
 
 Just enter the [language/locale tag](https://www.w3schools.com/tags/ref_language_codes.asp) of the files to use (e.g.: `fr.json` for French, `zh.json` for Chinese, `ja.json` for Japanese)
