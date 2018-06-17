@@ -12,13 +12,13 @@
             {{#has any="twitter, facebook"}}
             <li>
                 <h5 class="u-textUppercase">{{t "contact"}}</h5>
-                {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank"><i class="i-facebook"></i> Facebook</a>{{/if}}
-                {{#if twitter}}<a href="{{twitter_url}}" style="margin-left:5px" title="{{twitter}}" target="_blank"><i class="i-twitter"></i> Twitter</a>{{/if}}
+                {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow"><i class="i-facebook"></i> Facebook</a>{{/if}}
+                {{#if twitter}}<a href="{{twitter_url}}" style="margin-left:5px" title="{{twitter}}" target="_blank" rel="nofollow"><i class="i-twitter"></i> Twitter</a>{{/if}}
             </li>
             {{/has}}
 
             {{#if location}}<li><h5 class="u-textUppercase">{{t "location"}}</h5><span><i class="i-flag"></i> {{location}}</span></li>{{/if}}
-            {{#if website}}<li><h5 class="u-textUppercase">{{t "website"}}</h5><a href="{{website}}" target="_blank">{{website}}</a></li>{{/if}}
+            {{#if website}}<li><h5 class="u-textUppercase">{{t "website"}}</h5><a href="{{website}}" target="_blank" rel="nofollow">{{website}}</a></li>{{/if}}
         </ul>
 
         {{!-- Read More post --}}
