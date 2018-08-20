@@ -1,0 +1,13 @@
+//  Follow me btn is post
+.mapache-follow {
+  &:hover {
+    .mapache-hover-hidden { display: none !important }
+    .mapache-hover-show { display: inline-block !important }
+  }
+
+  &-btn {
+    height: 19px;
+    line-height: 17px;
+    padding: 0 10px;
+  }
+}

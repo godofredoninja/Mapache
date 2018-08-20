@@ -6,6 +6,10 @@
 class mapacheShare {
   constructor(elem) {
     this.elem = elem;
+    this.popWidth = 600;
+    this.popHeight = 480;
+    this.left = ((window.innerWidth / 2) - (this.popWidth / 2)) + window.screenX;
+    this.top = ((window.innerHeight / 2) - (this.popHeight / 2)) + window.screenY;
   }
 
   /**
@@ -13,90 +17,93 @@ class mapacheShare {
    * @param {String} attr DOM element attribute
    * @returns {String|Empty} returns the attr value or empty string
    */
-  mapacheValue(a) {
-    const val = this.elem.attr(`mapache-${a}`);
+  attributes(a) {
+    const val = this.elem.attr(`data-${a}`);
     return (val === undefined || val === null) ? false : val;
   }
 
   /**
    * @description Main share event. Will pop a window or redirect to a link
    */
-  mapacheShare() {
-    const socialMediaName = this.mapacheValue('share').toLowerCase();
+  share() {
+    const socialMediaName = this.attributes('share').toLowerCase();
 
     const socialMedia = {
       facebook: {
         shareUrl: 'https://www.facebook.com/sharer.php',
         params: {
-          u: this.mapacheValue('url'),
+          u: this.attributes('url'),
         },
       },
       twitter: {
         shareUrl: 'https://twitter.com/intent/tweet/',
         params: {
-          text: this.mapacheValue('title'),
-          url: this.mapacheValue('url'),
+          text: this.attributes('title'),
+          url: this.attributes('url'),
         },
       },
       reddit: {
         shareUrl: 'https://www.reddit.com/submit',
         params: {
-          url: this.mapacheValue('url'),
+          url: this.attributes('url'),
         },
       },
       pinterest: {
         shareUrl: 'https://www.pinterest.com/pin/create/button/',
         params: {
-          url: this.mapacheValue('url'),
-          description: this.mapacheValue('title'),
+          url: this.attributes('url'),
+          description: this.attributes('title'),
         },
       },
       linkedin: {
         shareUrl: 'https://www.linkedin.com/shareArticle',
         params: {
-          url: this.mapacheValue('url'),
+          url: this.attributes('url'),
           mini: true,
         },
+      },
+      whatsapp: {
+        shareUrl: 'whatsapp://send',
+        params: {
+          text: this.attributes('title') + ' ' + this.attributes('url'),
+        },
+        isLink: true,
       },
       pocket: {
         shareUrl: 'https://getpocket.com/save',
         params: {
-          url: this.mapacheValue('url'),
+          url: this.attributes('url'),
         },
       },
     };
 
     const social = socialMedia[socialMediaName];
 
-    return social !== undefined ? this.mapachePopup(social) : false;
+    return social !== undefined ? this.popup(social) : false;
   }
 
   /* windows Popup */
-  mapachePopup(share) {
+  popup(share) {
     const p = share.params || {};
     const keys = Object.keys(p);
 
     let socialMediaUrl = share.shareUrl;
     let str = keys.length > 0 ? '?' : '';
 
-    for (const i in keys) {
+    Object.keys(keys).forEach((i) => {
       if (str !== '?') {
         str += '&';
       }
+
       if (p[keys[i]]) {
         str += `${keys[i]}=${encodeURIComponent(p[keys[i]])}`;
       }
-    }
+    });
 
     socialMediaUrl += str;
 
     if (!share.isLink) {
-      const popWidth = 600;
-      const popHeight = 480;
-      const left = ((window.innerWidth / 2) - (popWidth / 2)) + window.screenX;
-      const top = ((window.innerHeight / 2) - (popHeight / 2)) + window.screenY;
-
-      const popParams = `scrollbars=no, width=${popWidth}, height=${popHeight}, top=${top}, left=${left}`;
+      const popParams = `scrollbars=no, width=${this.popWidth}, height=${this.popHeight}, top=${this.top}, left=${this.left}`;
       const newWindow = window.open(socialMediaUrl, '', popParams);
 
       if (window.focus) {

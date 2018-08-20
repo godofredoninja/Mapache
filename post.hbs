@@ -1,22 +1,37 @@
 {{!-- Layout --}}
-{{!< layout-article }}
+{{!< default }}
 
-<div class="row">
-    <div class="col s12 content">
+<section class="post extreme-container u-marginTop30 u-marginBottom40">
+    <div class="row">
+        <div class="col-left">
+            {{!-- Article Header - partials/article/article-header.hbs --}}
+            {{> "article/article-header"}}
 
-    {{#post}}
-        {{!-- Block Featured Image --}}
-        {{#contentFor "mapache_feature_image"}}
-            {{#if feature_image}}<figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
-        {{/contentFor}}
-    {{/post}}
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
 
-        {{!-- Article Content  --}}
-        {{> "article"}}
+            {{#post}}
 
+            {{!-- Image post - Default Post --}}
+            {{#if feature_image}}
+                <figure class="post-image u-block u-marginAuto u-maxWidth1000">
+                    <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}" data-action="zoom"/>
+                </figure>
+            {{/if}}
+
+            {{/post}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
     </div>
+</section>
 
-    {{!-- Sidebar --}}
-    {{> "sidebar" }}
-</div>
+{{!-- Comments partials/article/article-related.hbs --}}
+{{> "article/article-related"}}
 
+{{!-- Instagram partials/widget/widget-instagram.hbs --}}
+{{> "widget/widget-instagram"}}

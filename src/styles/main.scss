@@ -1,34 +1,37 @@
-// @package godofredoninja
-// ==========================================================================
 @charset "UTF-8";
 
-// Normalize and icon fonts (libraries)
-// ==========================================================================
-
-@import "~normalize.css/normalize.css";
-@import "~prismjs/themes/prism.css";
-@import "~prismjs/plugins/line-numbers/prism-line-numbers";
-
-//  icons
-@import "common/icon";
-
 // Mixins & Variables
-// ==========================================================================
 @import "common/variables";
-@import "common/utilities";
+@import "common/mixins";
 
-// Structure
-// ==========================================================================
+// Import npm dependencies
+@import "~normalize.css/normalize";
+@import "~prismjs/themes/prism";
+// zoom img
+@import "autoload/zoom";
+
+// common
 @import "common/global";
 @import "components/grid";
 @import "common/typography";
-@import "layouts/menu";
-@import "layouts/header";
-@import "layouts/cover";
-@import "layouts/entry";
-@import "layouts/footer";
-@import "components/buttons";
-@import "layouts/post";
-@import "layouts/sidebar";
-@import "layouts/subscribe";
+@import "common/utilities";
+
+// components
+@import "components/form";
+@import "components/icons";
 @import "components/animated";
+
+//layouts
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/homepage";
+@import "layouts/post";
+@import "layouts/story";
+@import "layouts/author";
+@import "layouts/search";
+@import "layouts/sidebar";
+@import "layouts/sidenav";
+@import "layouts/helper";
+@import "layouts/subscribe";
+@import "layouts/comments";
+@import "common/modal";

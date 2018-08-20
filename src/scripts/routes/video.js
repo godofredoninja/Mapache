@@ -1,6 +1,3 @@
-// const $postBody = $('.post-body');
-const $videoPostFormat = $('.video-post-format');
-
 /* Iframe SRC video */
 const iframeVideo = [
   'iframe[src*="player.vimeo.com"]',
@@ -13,27 +10,55 @@ const iframeVideo = [
 
 export default {
   init() {
-    // video Large in tOP
-    const firstVideo = $('.post-body').find(iframeVideo.join(','))[0];
-    $(firstVideo).parent('.video-responsive').appendTo($videoPostFormat);
+    const $videoEmbed = $('.cc-video-embed');
+    const firstVideo = $('.post-body-wrap').find(iframeVideo.join(','))[0];
 
-    if (typeof youtubeChannelName !== 'undefined' && typeof youtubeChannelID !== 'undefined') {
-      /*eslint-disable */
-      let template = `<div class="video-subscribe u-flex u-h-b-md" style="margin-bottom:16px">
-        <span class="channel-name" style="margin-right:16px">Subscribe to ${youtubeChannelName}</span>
-        <div class="g-ytsubscribe" data-channelid="${youtubeChannelID}" data-layout="default" data-count="default"></div>
-      </div>`;
-      /*eslint-enable */
+    if (typeof firstVideo === 'undefined') {
+      return;
+    }
 
-      $videoPostFormat.append(template);
+    const $video = $(firstVideo);
+    const $firstParentVideo = $video.parent('.video-responsive');
+    const $secondParentVideo = $firstParentVideo.parent('.kg-embed-card');
 
-      const go = document.createElement('script');
-      go.type = 'text/javascript';
-      go.async = true;
-      go.src = 'https://apis.google.com/js/platform.js';
-      // document.body.appendChild(go);
-      const s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(go, s);
+    // Append Video
+    if ($secondParentVideo.hasClass('kg-embed-card')) {
+      $secondParentVideo.appendTo($videoEmbed);
+    } else {
+      $firstParentVideo.appendTo($videoEmbed);
     }
   },
-};
+
+  finalize() {
+    //  Dnot scroll
+    let didScroll = false;
+
+    // Active Scroll
+    $(window).on('scroll.video', () => didScroll = true );
+
+    // Fixed video in te footer of page
+    function fixedVideo() {
+      const scrollTop = $(window).scrollTop();
+      const elementOffset = $('.post').offset().top;
+
+      if (scrollTop > elementOffset){
+        $('body').addClass('has-video-fixed');
+      } else {
+        $('body').removeClass('has-video-fixed');
+      }
+    }
+
+    // Close video fixed
+    $('.cc-video-close').on('click', () => {
+      $('body').removeClass('has-video-fixed');
+      $(window).off('scroll.video');
+    });
+
+    setInterval(() => {
+      if (didScroll) {
+        fixedVideo();
+        didScroll = false;
+      }
+    }, 500);
+  },
+}

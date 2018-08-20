@@ -1,46 +1,49 @@
+// Footer
+// ==========================================================================
+
 .footer {
-  color: $footer-color;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  padding: 1.6rem 15px;
-  text-align: center;
+  color: #888;
 
   a {
-    color: $footer-color-link;
-    &:hover { color: rgba(0, 0, 0, .8); }
+    color: var(--secondary-color);
+    &:hover { color: #fff }
   }
 
-  &-wrap {
-    margin: 0 auto;
-    max-width: 1400px;
+  &-links {
+    padding: 3em 0 2.5em;
+    background-color: #131313;
   }
 
-  .heart {
-    animation: heartify .5s infinite alternate;
-    color: red;
-  }
-
-  &-copy,
-  &-design-author {
+  .follow > a {
+    background: #333;
+    border-radius: 50%;
+    color: inherit;
     display: inline-block;
-    padding: .5rem 0;
-    vertical-align: middle;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px 8px;
+    text-align: center;
+    width: 40px;
+
+    &:hover {
+      background: transparent;
+      box-shadow: inset 0 0 0 2px #333;
+    }
   }
 
-  &-follow {
-    padding: 20px 0;
-
-    a {
-      font-size: 20px;
-      margin: 0 5px;
-      color: rgba(0, 0, 0, .8);
-    }
+  &-copy {
+    padding: 3em 0;
+    background-color: #000;
   }
 }
 
-@keyframes heartify {
-  0% {
-    transform: scale(.8);
+.footer-menu {
+  li {
+    display: inline-block;
+    line-height: 24px;
+    margin: 0 8px;
+
+    /* stylelint-disable-next-line */
+    a { color: #888 }
   }
 }

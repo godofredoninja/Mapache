@@ -1,28 +1,67 @@
 <!DOCTYPE html>
 <html lang="{{lang}}">
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <title>Page not found - {{meta_title}}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Page not found</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
-    </head>
-    <body>
-        <div class="errorPage">
-            <div class="errorPage-title">
-                <a class="errorPage-link" href="{{@blog.url}}">{{@blog.title}}</a>
-            </div>
-            <div class="errorPage-wrap">
-                <div id="emoji" class="errorPage-emoji">(>_<)</div>
+    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
+</head>
+<body class="u-backgroundWhite">
+
+    {{!-- Header Content --}}
+    {{>"header"}}
+
+    <main class="u-paddingBottom30 u-paddingTop30">
+        {{!-- Content Emojis --}}
+        <section class="errorPage u-lineHeight1">
+            <div class="errorPage-wrap u-marginAuto u-maxWidth1000 u-textAlignCenter">
+                <div id="emoji" class="errorPage-emoji" style="font-size:100px">(>_<)</div>
                 <div class="errorPage-text">{{t "Unfortunately, this page doesn't exist"}}</div>
             </div>
+        </section>
+
+        {{!-- Articles style Card --}}
+        {{#get "posts" limit="6" include="tags" as |recents| }}
+
+        <div class="u-maxWidth1000 u-marginAuto u-container story-card">
+            <div class="row">
+                {{#foreach recents}}
+                    <div class="col s12 m6 l4">
+                        {{> "story/story-grid"}}
+                    </div>
+                {{/foreach}}
+            </div>
         </div>
-        <script type="text/javascript">
-            var emoji = ['(·.·)', '(>_<)', '(^-^*)', '(≥o≤)', '(˚Δ˚)b', '(·_·)', '(;-;)']
-            var emojiRandom = emoji[Math.floor(Math.random()*emoji.length)];
-            document.getElementById('emoji').innerHTML = emojiRandom;
-        </script>
-    </body>
+
+        {{/get}}
+    </main>
+
+    {{!-- Footer Content --}}
+    {{>"footer"}}
+
+    {{!-- Search box --}}
+    {{>"search"}}
+
+    {{!-- Widget Modal Subscribe --}}
+    {{> "widget/widget-subscribe-modal"}}
+
+    {{!-- Scripts --}}
+    {{ghost_foot}}
+
+    <script type="text/javascript">
+        var emoji = ['(·.·)', '(>_<)', '(^-^*)', '(≥o≤)', '(˚Δ˚)', '(·_·)', '(;-;)']
+        var emojiRandom = emoji[Math.floor(Math.random()*emoji.length)];
+        document.getElementById('emoji').innerHTML = emojiRandom;
+    </script>
+
+    {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    {{!-- The main JavaScript --}}
+    <script type="text/javascript" src="{{asset "scripts/main.js"}}"></script>
+
+    {{!--  Font Source sans Pro && roboto mono --}}
+    <script type="text/javascript">WebFontConfig ={google:{families:['Roboto+Mono:400','Ruda:400,700,900']}};(function(){var wf=document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
+</body>
 </html>

@@ -1,87 +1,67 @@
-.container {
+// Container
+.extreme-container {
+  box-sizing: border-box;
   margin: 0 auto;
-  padding-left: ($grid-gutter-width / 2);
-  padding-right: ($grid-gutter-width / 2);
+  max-width: 1200px;
+  padding: 0 16px;
   width: 100%;
-  max-width: $container-xl;
-
-  // @media #{$sm-and-up}{max-width: $container-sm;}
-  // @media #{$md-and-up}{max-width: $container-md;}
-  // @media #{$lg-and-up}{max-width: $container-lg;}
-  // @media #{$lg-and-up} {  }
 }
 
-.margin-top {
-  margin-top: $header-height;
-  padding-top: 1rem;
+// @media #{$lg-and-up} {
+//   .content {
+//     // flex: 1 !important;
+//     max-width: calc(100% - 340px) !important;
+//     // order: 1;
+//     // overflow: hidden;
+//   }
 
-  @media #{$md-and-up} { padding-top: 1.8rem }
+//   .sidebar {
+//     width: 340px !important;
+//     // flex: 0 0 340px !important;
+//     // order: 2;
+//   }
+// }
+
+.col-left,
+.cc-video-left {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 @media #{$md-and-up} {
-  .content {
-    flex-basis: 69.66666667% !important;
-    max-width: 69.66666667% !important;
-    // flex: 1 !important;
-    // max-width: calc(100% - 300px) !important;
-    // order: 1;
-    // overflow: hidden;
-  }
-
-  .sidebar {
-    flex-basis: 30.33333333% !important;
-    max-width: 30.33333333% !important;
-    // flex: 0 0 330px !important;
-    // order: 2;
-  }
-}
-
-@media #{$xl-and-up} {
-  .content { padding-right: 40px !important }
+  .col-left { max-width: calc(100% - 340px) }
 }
 
 @media #{$lg-and-up} {
-  .feed-entry-wrapper {
-    .entry-image {
-      width: 40% !important;
-      max-width: 40% !important;
-    }
-
-    .entry-body {
-      width: 60% !important;
-      max-width: 60% !important;
-    }
-  }
+  .cc-video-left { max-width: calc(100% - 320px) }
+  .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
+  body.is-article .col-left { padding-right: 40px }
 }
 
-@media #{$lg-and-down} {
-  body.is-article .content {
-    max-width: 100% !important;
-  }
+.col-right {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 320px;
 }
 
 .row {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   flex: 0 1 auto;
-  flex-flow: row wrap;
-  // margin: -8px;
-
-  margin-left: - $gutter-width / 2;
-  margin-right: - $gutter-width / 2;
-
-  // // Clear floating children
-  // &:after {
-  //  content: "";
-  //  display: table;
-  //  clear: both;
-  // }
+  margin-left: - 10px;
+  margin-right: - 10px;
 
   .col {
-    // float: left;
-    // box-sizing: border-box;
     flex: 0 0 auto;
-    padding-left: $gutter-width / 2;
-    padding-right: $gutter-width / 2;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
 
     $i: 1;
 
@@ -89,10 +69,10 @@
       $perc: unquote((100 / ($num-cols / $i)) + "%");
 
       &.s#{$i} {
-        // width: $perc;
         flex-basis: $perc;
         max-width: $perc;
       }
+
       $i: $i + 1;
     }
 
@@ -104,11 +84,11 @@
         $perc: unquote((100 / ($num-cols / $i)) + "%");
 
         &.m#{$i} {
-          // width: $perc;
           flex-basis: $perc;
           max-width: $perc;
         }
-        $i: $i + 1
+
+        $i: $i + 1;
       }
     }
 
@@ -120,10 +100,10 @@
         $perc: unquote((100 / ($num-cols / $i)) + "%");
 
         &.l#{$i} {
-          // width: $perc;
           flex-basis: $perc;
           max-width: $perc;
         }
+
         $i: $i + 1;
       }
     }

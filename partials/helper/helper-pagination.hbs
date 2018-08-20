@@ -1,0 +1,14 @@
+{{!-- Pagination --}}
+
+{{^is "paged"}}
+    <div class="load-more u-hide u-textAlignCenter u-sizeFullWidth u-marginTop30">
+        <a href="#" class="load-more-btn u-inlineBlock u-lineHeight1 u-textUppercase u-fontWeightBold u-fontSizeSmaller" data-page-total="{{pagination.pages}}">{{t "Load More"}}</a>
+    </div>
+{{else}}
+    {{"pagination"}}
+{{/is}}
+
+
+{{#if pagination.pages}}
+    {{#contentFor "scripts"}} <script>var maxPages = parseInt('{{pagination.pages}}');</script> {{/contentFor}}
+{{/if}}

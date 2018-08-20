@@ -1,0 +1,27 @@
+<div class="row u-marginTop30">
+    {{!-- Prev Post --}}
+    <div class="col s12 m6">
+        {{#prev_post}}
+        <a href="{{url}}" class="u-flexCenter prev-next-link">
+            <span class="prev-next-arrow i-arrow-left"></span>
+            <div>
+                <span class="prev-next-span">{{t "Prev article"}}</span>
+                <h5 class="prev-next-title">{{title}}</h5>
+            </div>
+        </a>
+        {{/prev_post}}
+    </div>
+
+    {{!-- Next Post --}}
+    <div class="col s12 m6">
+        {{#next_post}}
+        <a href="{{url}}" class="u-flexCenter prev-next-link u-flexEnd">
+            <div style="text-align:right">
+                <span class="prev-next-span">{{t "Next article"}}</span>
+                <h5 class="prev-next-title">{{title}}</h5>
+            </div>
+            <span class="prev-next-arrow i-arrow-right"></span>
+        </a>
+        {{/next_post}}
+    </div>
+</div>

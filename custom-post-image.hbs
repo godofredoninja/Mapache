@@ -1,0 +1,46 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-image show-category share-margin{{/contentFor}}
+
+
+<div class="cc-image u-overflowHidden u-relative">
+    {{!-- Image and Backround Iand overlay --}}
+    {{#post}}
+    {{#if feature_image}}
+        <figure class="cc-image-figure u-textAlignCenter u-block u-marginAuto u-sizeFullWidth">
+            <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}"/>
+        </figure>
+    {{/if}}
+    {{/post}}
+
+
+    <div class="cc-image-header u-absolute zindex2">
+        <div class="extreme-container">
+            {{!-- Article Header - partials/article/article-header.hbs --}}
+            {{> "article/article-header"}}
+        </div>
+    </div>
+</div>
+
+<section class="post extreme-container u-marginTop30 u-marginBottom40">
+    <div class="row">
+        <div class="col-left">
+
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </div>
+</section>
+
+{{!-- Comments partials/article/article-related.hbs --}}
+{{> "article/article-related"}}
+
+{{!-- Instagram partials/widget/widget-instagram.hbs --}}
+{{> "widget/widget-instagram"}}

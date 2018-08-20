@@ -1,0 +1,34 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article-single{{/contentFor}}
+
+<div class="u-container u-maxWidth740 u-marginTop30">
+    {{!-- Title & Excerpt - partials/article/article-header.hbs --}}
+    {{> "article/article-header"}}
+
+    {{!-- Article Author - partials/article/article-author.hbs --}}
+    {{> "article/article-author"}}
+</div>
+
+
+{{#post}}
+    {{!-- Image post - Default Post --}}
+    {{#if feature_image}}
+        <figure class="post-image u-block u-marginAuto u-maxWidth1000">
+            <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}" data-action="zoom"/>
+        </figure>
+    {{/if}}
+{{/post}}
+
+<section class="post u-maxWidth740 u-container u-marginAuto u-marginTop20 u-marginBottom40">
+    {{!-- Article Content - partials/article/article-body.hbs --}}
+    {{> "article/article-body"}}
+
+</section>
+
+{{!-- Comments partials/article/article-related.hbs --}}
+{{> "article/article-related"}}
+
+{{!-- Instagram partials/widget/widget-instagram.hbs --}}
+{{> "widget/widget-instagram"}}

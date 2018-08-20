@@ -1,95 +1,72 @@
-import mapacheSearch from '../app/app.search';
+import mapacheShare from '../app/app.share';
 import mapacheFollow from '../app/app.follow';
-import mapacheFacebook from '../app/app.facebook';
-import mapacheTwitter from '../app/app.twitter';
+import mapacheSearch from '../app/app.search';
+import mapacheFooterLinks from '../app/app.footer.links';
 
-const $win = $(window);
-const $header = $('#header');
-const $blogUrl = $('body').attr('data-page-url');
-const $searchInput = $('.search-field');
-const $buttonBackTop = $('.scroll_top');
+// Varibles
+const $body = $('body');
+const $blogUrl = $body.attr('data-page');
+const $seachInput = $('#search-field');
+const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
 
-
-/**
- * Sticky Navbar in (home - tag - author)
- * Show the button to go back up
- */
-function mapacheScroll() {
-  $win.on('scroll', function () {
-    const scrollTop = $win.scrollTop();
-    const coverHeight = $('#cover').height() - $header.height();
-    const coverWrap = (coverHeight - scrollTop) / coverHeight;
-
-    // show background in header
-    (scrollTop >= coverHeight) ? $header.addClass('toolbar-shadow') : $header.removeClass('toolbar-shadow');
-
-    $('.cover-wrap').css('opacity', coverWrap);
-
-    /* show btn SctrollTop */
-    ($(this).scrollTop() > 100) ? $buttonBackTop.addClass('visible') : $buttonBackTop.removeClass('visible');
-
-  });
-}
-
-
-/**
- * Export events
- */
 export default {
   init() {
-    // Follow Social Media
-    if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia); // eslint-disable-line
+    // Follow me
+    if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia, urlRegexp); // eslint-disable-line
+
+    /* Footer Links */
+    if (typeof footerLinks !== 'undefined') mapacheFooterLinks (footerLinks, urlRegexp); // eslint-disable-line
 
     /* Lazy load for image */
-    $('.entry-lazy').lazyload();
     $('.cover-lazy').lazyload({effect : 'fadeIn'});
-    $('.sidebar-lazy').lazyload();
-  },
+    $('.story-image-lazy').lazyload({threshold : 200});
+  }, // end Init
+
   finalize() {
     /* Menu open and close for mobile */
-    $('#nav-mob-toggle').on('click', (e) => {
+    $('.menu--toggle').on('click', (e) => {
       e.preventDefault();
-      $('body').toggleClass('is-showNavMob');
+      $body.toggleClass('is-showNavMob').removeClass('is-search');
     });
 
-    /* Seach open and close for Mobile */
-    $('#search-mob-toggle').on('click', (e) => {
+    /* rocket to the moon (retur TOP HOME) */
+    // $('.rocket').on('click', function (e) {
+    //   e.preventDefault();
+    //   $('html, body').animate({scrollTop: 0}, 250);
+    // });
+
+    /* Share article in Social media */
+    $('.mapache-share').bind('click', function (e) {
       e.preventDefault();
-      $header.toggleClass('is-showSearchMob');
-      $searchInput.focus();
+      const share = new mapacheShare($(this));
+      share.share();
     });
 
-    /* scroll link width click (ID)*/
-    $('.scrolltop').on('click', function (e) {
+    /* Toggle show more social media */
+    $('.follow-toggle').on('click', (e) => {
       e.preventDefault();
-      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 50 }, 500, 'linear');
+      $body.toggleClass('is-showFollowMore');
     });
 
-    // button back top
-    $buttonBackTop.on('click', function (e) {
+    /* Modal Open for susbscribe */
+    $('.modal-toggle').on('click', e => {
       e.preventDefault();
-      $('html, body').animate({ scrollTop: 0 }, 500);
+      $body.toggleClass('has-modal');
     });
 
-    $('.sidebar-sticky').theiaStickySidebar({
-      additionalMarginTop: 66,
-    });
+    /* sicky sidebar */
+    $('.sidebar-sticky').theiaStickySidebar({additionalMarginTop: 70});
 
-    // Twitter and facebook fans page
-    if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
-      mapacheTwitter(twitterUserName, twitterNumber); // eslint-disable-line
-    }
-
-    // Facebook Witget
-    if (typeof fansPageName !== 'undefined') mapacheFacebook(fansPageName); // eslint-disable-line
+    // show comments count of disqus
+    if (typeof disqusShortName !== 'undefined') $('.mapache-disqus').removeClass('u-hide');
 
     // Search
-    mapacheSearch($header, $searchInput, $blogUrl);
+    mapacheSearch($seachInput, $blogUrl);
 
-    /**
-     * Sticky Navbar in (home - tag - author)
-     * Show the button to go back top
-     */
-    mapacheScroll();
-  },
+    /* show btn for Retur TOP PAGE */
+    setInterval( () => {
+      ($(window).scrollTop() > 100) ? $('.rocket').removeClass('u-hide') : $('.rocket').addClass('u-hide');
+    }, 250);
+
+  }, //end => Finalize
 };

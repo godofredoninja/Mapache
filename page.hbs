@@ -1,13 +1,25 @@
-{{!-- Add Layout --}}
-{{!< default}}
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article is-page{{/contentFor}}
+
 {{#post}}
-<div class="container">
-    <section class="post-wrapper">
-        <article class="post" style="max-width:700px;margin:0 auto;min-height: 100vh;">
-            <h1 class="post-title">{{title}}</h1>
-            {{#if feature_image}}<figure class="post-image"><img src="{{feature_image}}" alt="{{title}}" class="img-responsive"/></figure>{{/if}}
-            <div class="post-body">{{content}}</div>
-        </article>
-    </section>
-</div>
+
+<article class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
+    {{!-- Page Title --}}
+    <h1 class="post-title u-fontSize36 u-marginBottom30 u-contentTitle u-md-fontSizeLarger">{{title}}</h1>
+
+    {{!-- Page Image --}}
+    {{#if feature_image}}
+        <figure class="post-image u-block u-marginAuto">
+            <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}" data-action="zoom"/>
+        </figure>
+    {{/if}}
+
+    {{!-- Page Content --}}
+    <div class="post-body post-body-wrap" style="margin:0">
+        {{content}}
+    </div>
+</article>
+
 {{/post}}

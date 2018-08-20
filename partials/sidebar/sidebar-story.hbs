@@ -1,0 +1,12 @@
+<div class="sidebar-items u-marginBottom30 u-flexColumn">
+    <h3 class="sidebar-title u-fontSizeBase u-textColorDarker u-marginBottom20 u-fontWeightBolder"><span class="u-paddingBottom10 u-inlineBlock">{{widgetTitle}}</span></h3>
+
+    {{#foreach widgetPosts}}
+    <div class="sidebar-post mapache-tracking u-relative u-flex" data-event-category="{{#is "tag"}}Tag{{else}}Author{{/is}}" data-event-action="Sidebar - Latest articles" data-event-label="{{url absolute="true"}}" data-event-non-interaction="1">
+        <span class="u-flex0 sidebar-border u-flexCenter u-fontSize40 u-fontWeightSemibold">{{@number}}</span>
+        <h3 class="u-padding15 u-flex1 u-fontSize15 u-fontWeightBold u-lineHeightTight">{{title}}</h3>
+        <a href="{{url absolute="true"}}" class="u-absolute0 u-zindex2"></a>
+    </div>
+    {{/foreach}}
+
+</div>

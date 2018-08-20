@@ -1,12 +1,13 @@
 {
-  "name": "mapache-godofredo",
-  "description": "Mapache theme for ghost",
+  "name": "mapache-godofredoninja",
+  "description": "mapache theme for ghost by @GodoFredoNinja",
   "demo": "https://godofredo.ninja",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "engines": {
-    "ghost": ">=2.0.0"
+    "ghost": ">=2.0.0",
+    "node": ">= 6.9.4"
   },
-  "license": "MIT",
+  "license": "CC BY-NC-SA 4.0",
   "author": {
     "name": "GodoFredoNinja",
     "email": "hello@godofredo.ninja",
@@ -17,7 +18,7 @@
     "categories": [
       "Minimal",
       "Magazine",
-      "godofredo"
+      "Blog"
     ]
   },
   "keywords": [
@@ -28,14 +29,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/godofredoninja/Mapache"
+    "url": "https://github.com/godofredoninja/mapache"
   },
   "bugs": {
-    "url": "https://github.com/godofredoninja/Mapache/issues",
+    "url": "https://github.com/godofredoninja/mapache/issues",
     "email": "hello@godofredo.ninja"
   },
   "config": {
-    "posts_per_page": 10
+    "posts_per_page": 14
   },
   "browserslist": [
     "last 2 versions",
@@ -94,10 +95,10 @@
   },
   "dependencies": {
     "jquery-lazyload": "^1.9.7",
-    "lunr": "^0.7.2",
-    "normalize.css": "^6.0.0",
-    "prismjs": "^1.6.0",
-    "theia-sticky-sidebar": "^1.7.0",
-    "typed.js": "^2.0.6"
+    "lazyload": "^2.0.0-beta.2",
+    "lunr": "1.0.0",
+    "normalize.css": "^8.0.0",
+    "prismjs": "^1.14.0",
+    "theia-sticky-sidebar": "^1.7.0"
   }
 }
