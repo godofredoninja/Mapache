@@ -65,8 +65,9 @@
 
   &-excerpt {
     color: #555;
-    line-height: 1.5;
     font-family: $secundary-font;
+    font-weight: 300;
+    line-height: 1.5;
   }
 
   &-category { color: rgba(0, 0, 0, 0.84) }

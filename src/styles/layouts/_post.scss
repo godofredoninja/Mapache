@@ -10,7 +10,13 @@
     max-width: 900px;
   }
 
-  &-excerpt { color: #555 }
+  &-excerpt {
+    color: #555;
+    font-family: $secundary-font;
+    font-weight: 300;
+    letter-spacing: -.012em;
+    line-height: 1.6;
+  }
 
   // author
   &-author-social {
@@ -91,7 +97,7 @@
     font-weight: 400;
     letter-spacing: -.003em;
     line-height: 1.6;
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
   ul,
