@@ -22,26 +22,17 @@
 
     img { max-height: 100%; }
   }
-
-  // Left
-  &-left {
-    a {
-      padding: 5px 8px;
-    }
-  }
 }
 
 // not have logo
 .not-logo .header-logo { height: auto !important }
 
-// Follow more toggle
-.follow-toggle {
+// Header line separate
+.header-line {
   height: $header-height;
   border-right: 1px solid rgba(187, 241, 185, .3);
-  display: flex;
-  align-items: center;
-  margin-right: 8px;
-  padding-right: 10px !important;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 // Header Follow More
@@ -73,15 +64,23 @@ body.is-showFollowMore {
     overflow: hidden;
     white-space: nowrap;
   }
+}
 
-  li {
-    float: left;
+.header-left a,
+.nav ul li a {
+  border-radius: 3px;
+  color: var(--header-color);
+  display: inline-block;
+  font-weight: 600;
+  line-height: 30px;
+  padding: 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
 
-    a {
-      font-weight: 600;
-      margin-right: 22px;
-      text-transform: uppercase;
-    }
+  &.active,
+  &:hover {
+    color: var(--header-color-hover);
   }
 }
 

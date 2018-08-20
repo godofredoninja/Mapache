@@ -24,17 +24,6 @@
 //  background color
 .u-bgColor { background-color: var(--primary-color); }
 
-.u-headerColorLink a {
-  // color: rgba(0, 0, 0, .44);
-  color: var(--header-color);
-
-  &.active,
-  &:hover {
-    // color: $header-
-    color: var(--header-color-hover);
-  }
-}
-
 .u-textColorDarker { @extend %u-text-color-darker; }
 
 // Positions

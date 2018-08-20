@@ -7,9 +7,9 @@
         </a>
 
         {{!-- Navigation --}}
-        <nav class="nav u-flex u-flex1 u-paddingLeft20 u-flexCenter u-headerColorLink u-hide-before-md">{{navigation}}</nav>
+        <nav class="nav u-flex u-flex1 u-paddingLeft20 u-flexCenter u-hide-before-md">{{navigation}}</nav>
 
-        <div class="header-left u-flex0 u-flex u-flexEnd u-headerColorLink u-fontSize21">
+        <div class="header-left u-flex0 u-flex u-flexEnd u-fontSize21">
 
             {{!-- Facebook adn Twitter --}}
             {{#if @blog.facebook}}<a class="mapache-tracking i-facebook u-hide-before-md" data-event-category="Header" data-event-action="Follow Me" data-event-label="Facebook" data-event-non-interaction="1" title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank"></a>{{/if}}
@@ -25,6 +25,8 @@
 
             {{!-- toggle follow more --}}
             <a href="#" class="follow-toggle u-relative u-fontSizeLarge u-hide u-hide-before-md i-more"></a>
+            {{!-- separe --}}
+            <span class="header-line u-hide-before-md"></span>
             {{!-- Toggle Search --}}
             <a href="#" class="search-toggle u-relative i-search"></a>
             {{!-- Toggle Menu --}}
