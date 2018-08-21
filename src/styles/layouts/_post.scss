@@ -7,7 +7,7 @@
     color: #000;
     line-height: 1.2;
     font-weight: 900;
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   &-excerpt {
@@ -93,10 +93,10 @@
 
   p {
     font-family: $secundary-font;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     letter-spacing: -.003em;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-top: 25px;
   }
 
@@ -104,7 +104,7 @@
   ol {
     counter-reset: post;
     font-family: $secundary-font;
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-top: 20px;
 
     li {
@@ -375,7 +375,7 @@ body {
     // }
 
     ol, ul, p {
-      font-size: 16px;
+      font-size: 1rem;
       letter-spacing: -.004em;
       line-height: 1.58;
     }

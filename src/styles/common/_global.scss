@@ -26,11 +26,11 @@ a {
 blockquote {
   border-left: 3px solid rgba(0, 0, 0, .8);
   font-family: $secundary-font;
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.003em;
-  line-height: 1.58;
+  line-height: 1.7;
   margin: 30px 0 0 -12px;
   padding-bottom: 2px;
   padding-left: 20px;
@@ -240,13 +240,13 @@ table {
 
 // Animation main page and footer
 // ==========================================================================
-.main { margin-bottom: 4em; }
+.main { margin-bottom: 4em; min-height: 90vh }
 
 .main,
 .footer { transition: transform .5s ease; }
 
 @media #{$md-and-down} {
-  blockquote { margin-left: -5px }
+  blockquote { margin-left: -5px; font-size: 1.125rem }
 }
 
 // warning success and Note
