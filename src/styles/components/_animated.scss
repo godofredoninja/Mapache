@@ -79,3 +79,16 @@
   60% { transform: translateX(0) }
   100% { transform: translateX(100%) }
 }
+
+// Arrow move left
+@keyframes arrow-move-right {
+  0% { opacity: 0 }
+  10% { transform: translateX(-100%); opacity: 0 }
+  100% { transform: translateX(0); opacity: 1 }
+}
+
+@keyframes arrow-move-left {
+  0% { opacity: 0 }
+  10% { transform: translateX(100%); opacity: 0 }
+  100% { transform: translateX(0); opacity: 1 }
+}

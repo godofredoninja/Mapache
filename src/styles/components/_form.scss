@@ -133,3 +133,21 @@
     color: rgba(0, 0, 0, .68);
   }
 }
+
+// button dark line
+// ==========================================================================
+.button--dark-line {
+  border: 1px solid #000;
+  color: #000;
+  display: block;
+  font-weight: 600;
+  margin: 50px auto 0;
+  max-width: 300px;
+  text-transform: uppercase;
+  transition: color .3s ease, box-shadow .3s cubic-bezier(.455, .03, .515, .955);
+
+  &:hover {
+    color: #fff;
+    box-shadow: inset 0 -50px 8px -4px #000;
+  }
+}

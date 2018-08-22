@@ -1,25 +1,6 @@
 // post Comments
 // ==========================================================================
 
-.button--comments .comments-text {
-  border-radius: 3px;
-  border: 1px solid #000;
-  color: #000;
-  cursor: pointer;
-  letter-spacing: .02em;
-  line-height: 100%;
-  max-width: 250px;
-  padding: 15px 0;
-  text-transform: uppercase;
-  width: 100%;
-  transition: all .25s;
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
 .post-comments {
   position: fixed;
   top: 0;

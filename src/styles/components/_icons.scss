@@ -14,11 +14,26 @@
   @extend %fonts-icons;
 }
 
+.i-tag:before {
+  content: "\e911";
+}
+.i-discord:before {
+  content: "\e90a";
+}
+.i-arrow-round-next:before {
+  content: "\e90c";
+}
+.i-arrow-round-prev:before {
+  content: "\e90d";
+}
+.i-arrow-round-up:before {
+  content: "\e90e";
+}
+.i-arrow-round-down:before {
+  content: "\e90f";
+}
 .i-photo:before {
   content: "\e90b";
-}
-.i-comments:before {
-  content: "\e90a";
 }
 .i-send:before {
   content: "\e909";
@@ -51,6 +66,9 @@
 .i-search:before {
   content: "\e905";
 }
+.i-chat:before {
+  content: "\e910";
+}
 .i-arrow-left:before {
   content: "\e314";
 }
@@ -80,9 +98,6 @@
 }
 .i-share:before {
   content: "\e80d";
-}
-.i-email:before {
-  content: "\f0e0";
 }
 .i-email:before {
   content: "\f0e0";

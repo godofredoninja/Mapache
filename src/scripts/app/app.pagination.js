@@ -9,7 +9,7 @@
 export default {
   init() {
     // Variables
-    const $buttonLoadMore = $('.load-more-btn');
+    const $buttonLoadMore = $('.load-more');
     const $result = $('.story-feed');
     const $win = $(window);
 
@@ -19,7 +19,7 @@ export default {
 
     // show button for load more
     if (maxPages >= 2){ // eslint-disable-line
-      $buttonLoadMore.parent().removeClass('u-hide');
+      $buttonLoadMore.removeClass('u-hide');
     }
 
     function sanitizePathname(path) {
@@ -54,7 +54,7 @@ export default {
       * we return and disable the listeners.
       */
       if (currentPage >= maxPages) { // eslint-disable-line
-        $(this).parent().remove();
+        $(this).remove();
 
         return;
       }
@@ -75,7 +75,7 @@ export default {
       }).fail( (xhr) => {
         // 404 indicates we've run out of pages
         if (xhr.status === 404) {
-          $(this).parent().remove();
+          $(this).remove();
         }
       }).always( () => {
         /* Lazy load for image */

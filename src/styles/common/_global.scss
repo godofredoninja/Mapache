@@ -24,7 +24,8 @@ a {
 }
 
 blockquote {
-  border-left: 3px solid rgba(0, 0, 0, .8);
+  border-left: 3px solid #000;
+  color: #000;
   font-family: $secundary-font;
   font-size: 1.1875rem;
   font-style: italic;
@@ -480,21 +481,7 @@ svg {
 // Pagination Infinite Scroll
 // ==========================================================================
 
-.load-more-btn {
-  background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid #000;
-  color: #000;
-  letter-spacing: .02em;
-  padding: 15px 0;
-  width: 70%;
-  transition: all .25s;
-
-  &:hover {
-    background-color: #000;
-    color: #fff;
-  }
-}
+.load-more { max-width: 70% !important }
 
 // loadingBar
 // ==========================================================================

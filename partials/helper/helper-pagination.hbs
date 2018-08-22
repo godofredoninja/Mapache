@@ -1,9 +1,9 @@
 {{!-- Pagination --}}
 
 {{^is "paged"}}
-    <div class="load-more u-hide u-textAlignCenter u-sizeFullWidth u-marginTop30">
-        <a href="#" class="load-more-btn u-inlineBlock u-lineHeight1 u-textUppercase u-fontWeightBold u-fontSizeSmaller" data-page-total="{{pagination.pages}}">{{t "Load More"}}</a>
-    </div>
+
+<a href="#" class="load-more button button--large button--dark-line" data-page-total="{{pagination.pages}}">{{t "Load More"}}</a>
+
 {{else}}
     {{"pagination"}}
 {{/is}}
