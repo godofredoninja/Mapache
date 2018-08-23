@@ -1,13 +1,30 @@
 //  Follow me btn is post
-.mapache-follow {
-  &:hover {
-    .mapache-hover-hidden { display: none !important }
-    .mapache-hover-show { display: inline-block !important }
-  }
+// .mapache-follow {
+//   &:hover {
+//     .mapache-hover-hidden { display: none !important }
+//     .mapache-hover-show { display: inline-block !important }
+//   }
 
-  &-btn {
-    height: 19px;
-    line-height: 17px;
-    padding: 0 10px;
+//   &-btn {
+//     height: 19px;
+//     line-height: 17px;
+//     padding: 0 10px;
+//   }
+// }
+
+// Transparece header and cover img
+
+.has-cover-padding { padding-top: 100px }
+
+body.has-cover {
+  .header { position: fixed }
+
+  &.is-transparency:not(.is-search) {
+    .header {
+      background: rgba(0, 0, 0, .05);
+      box-shadow: none;
+      border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+    }
+    .header-left a, .nav ul li a { color: #fff; }
   }
 }

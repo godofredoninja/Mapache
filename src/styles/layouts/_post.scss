@@ -303,7 +303,7 @@
 // Image post Format
 // ==========================================================================
 .cc-image {
-  max-height: 95vh;
+  max-height: 100vh;
   min-height: 350px;
   background-color: #000;
 
@@ -314,7 +314,7 @@
   }
 
   &-figure img {
-    opacity: .5;
+    opacity: .4;
     object-fit: cover;
     width: 100%
   }

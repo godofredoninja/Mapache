@@ -9,8 +9,15 @@ const $blogUrl = $body.attr('data-page');
 const $seachInput = $('#search-field');
 const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
 
+let didScroll = false;
+let lastScrollTop = 0; // eslint-disable-line
+let delta = 5;
+
 export default {
   init() {
+    // Active Scroll
+    $(window).on('scroll', () => didScroll = true );
+
     // Follow me
     if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia, urlRegexp); // eslint-disable-line
 
@@ -60,13 +67,42 @@ export default {
     // show comments count of disqus
     if (typeof disqusShortName !== 'undefined') $('.mapache-disqus').removeClass('u-hide');
 
+    // functions that are activated when scrolling
+    function hasScrolled() {
+      const st = $(window).scrollTop();
+
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta) {
+        return;
+      }
+
+      // show background and transparency
+      // in header when page hace cover image
+      if (st >= 50) {
+        $('body.has-cover').removeClass('is-transparency');
+      } else {
+        $('body.has-cover').addClass('is-transparency');
+      }
+
+      console.log(st);
+
+      lastScrollTop = st;
+    }
+
+    setInterval(() => {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, 500);
+
     // Search
     mapacheSearch($seachInput, $blogUrl);
 
     /* show btn for Retur TOP PAGE */
-    setInterval( () => {
-      ($(window).scrollTop() > 100) ? $('.rocket').removeClass('u-hide') : $('.rocket').addClass('u-hide');
-    }, 250);
+    // setInterval( () => {
+    //   ($(window).scrollTop() > 100) ? $('.rocket').removeClass('u-hide') : $('.rocket').addClass('u-hide');
+    // }, 250);
 
   }, //end => Finalize
 };

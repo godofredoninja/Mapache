@@ -50,5 +50,5 @@
 }
 
 @media #{$md-and-up} {
-  body.has-featured-image .author { min-height: 500px }
+  body.has-cover .author { min-height: 600px }
 }
