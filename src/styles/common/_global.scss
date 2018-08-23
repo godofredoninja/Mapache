@@ -164,6 +164,11 @@ i {
   vertical-align: middle;
 }
 
+input {
+  border: none;
+  outline: 0;
+}
+
 ol, ul {
   list-style: none;
   list-style-image: none;
@@ -330,47 +335,6 @@ table {
   &:hover::after {
     animation: tooltip .1s ease-out both;
   }
-}
-
-// Instagram Fedd
-// ==========================================================================
-.instagram {
-  &-hover {
-    background-color: rgba(0, 0, 0, .3);
-    // transition: opacity 1s ease-in-out;
-    opacity: 0;
-  }
-
-  &-img {
-    height: 264px;
-
-    &:hover > .instagram-hover { opacity: 1 }
-  }
-
-  &-name {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-
-    a {
-      background-color: #fff;
-      color: #000 !important;
-      font-size: 18px !important;
-      font-weight: 900 !important;
-      min-width: 200px;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-      text-align: center !important;
-    }
-  }
-
-  &-col {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  &-wrap { margin: 0 !important }
 }
 
 // Error page
