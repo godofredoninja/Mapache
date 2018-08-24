@@ -16,10 +16,10 @@
   // background-color: lighten($primary-color, 15%);
   background-color: var(--secondary-color);
   color: var(--black);
-  height: 50px;
+  height: 45px;
   left: 15px;
   top: 15px;
-  width: 50px;
+  width: 45px;
   opacity: .9;
 
   // @extend .u-bgColor;
@@ -59,6 +59,8 @@
     flex: 0 0  44% /*380px*/;
     height: 235px;
     margin-right: 30px;
+
+    &:hover .image-hover { transform: scale(1.03) }
   }
 
   &-lower { flex-grow: 1 }
@@ -72,16 +74,12 @@
 
   &-category { color: rgba(0, 0, 0, 0.84) }
 
-  // Hover Post list
-  &:hover {
-    .image-hover { transform: scale(1.03) }
-
-    h2 a {
-      // box-shadow: inset 0 -2px 0 rgba(0, 171, 107, .5);
-      // box-shadow: inset 0 -2px 0 rgba($primary-color, .5);
-      box-shadow: inset 0 -2px 0 var(--story-color-hover);
-      transition: all .25s;
-    }
+  h2 a:hover {
+    // box-shadow: inset 0 -2px 0 rgba(0, 171, 107, .5);
+    // box-shadow: inset 0 -2px 0 rgba($primary-color, .5);
+    // box-shadow: inset 0 -2px 0 var(--story-color-hover);
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+    transition: all .25s;
   }
 }
 
@@ -118,7 +116,7 @@
     // box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
     margin-top: 0 !important;
 
-    &:hover .story-image { box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1) }
+    // &:hover .story-image { box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1) }
   }
 
   /* stylelint-disable-next-line */
@@ -134,8 +132,12 @@
     overflow: hidden;
     height: 200px !important;
 
-    .story-img-bg {
-      margin: 10px;
+    .story-img-bg { margin: 10px }
+
+    &:hover {
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1);
+
+      .story-img-bg { transform: none }
     }
   }
 

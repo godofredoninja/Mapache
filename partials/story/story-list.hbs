@@ -5,7 +5,7 @@
 <article class="story u-flex u-relative {{#if featured}}featured{{/if}}">
     {{!-- Story Image --}}
     <div class="story-image u-relative u-overflowHidden u-backgroundColorGrayLight">
-        <span class="story-image-lazy u-absolute0 u-block {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-original="{{feature_image}}"></span>
+        <a href="{{url}}" class="story-image-lazy u-absolute0 u-block {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-original="{{feature_image}}"></a>
         {{!-- icon If is Video or Image / Gallery --}}
         {{#has tag="#video"}}
             <span class="media-type u-absolute i-play"></span>
@@ -14,16 +14,15 @@
             <span class="media-type u-absolute i-photo"></span>
             {{/has}}
         {{/has}}
-
     </div>
 
-    <div class="story-body u-flexColumn u-marginTop20">
+    <div class="story-body u-flexColumn u-marginTop20 u-relative">
         <div class="flow-meta u-fontSizeSmallest u-flexCenter">
             {{!-- primary tag --}}
-            {{#if primary_tag}}
-                <span class="u-fontWeightBolder u-textUppercase story-category">{{primary_tag.name}}</span>
+            {{#if primary_tag}}{{#primary_tag}}
+                <a href="{{url}}" class="link--underline u-fontWeightBolder u-textUppercase story-category u-relative zindex4">{{name}}</a>
                 <span class="point">/</span>
-            {{/if}}
+            {{/primary_tag}}{{/if}}
 
             {{!-- DateTime --}}
             <span><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time></span>
@@ -38,8 +37,9 @@
         <div class="story-lower u-relative u-overflowHidden u-flexColumnTop">
             <p class="story-excerpt">{{excerpt words="25"}}</p>
         </div>
+
+        {{!-- Link Story Wrap --}}
+        <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
     </div>
 
-    {{!-- Link Story Wrap --}}
-    <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
 </article>
