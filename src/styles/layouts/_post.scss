@@ -304,12 +304,12 @@
 // ==========================================================================
 .cc-image {
   max-height: 100vh;
-  min-height: 350px;
+  min-height: 600px;
   background-color: #000;
 
   &-header {
     right: 0;
-    bottom: 20%;
+    bottom: 10%;
     left: 0;
   }
 
@@ -405,7 +405,8 @@ body {
     margin: 0 auto 0 -50%;
   }
 
-  .cc-image-header { bottom: 10% }
+  .cc-image-header { bottom: 24px }
+  .cc-image .post-excerpt { font-size: 18px; }
 
   // video post format
   .cc-video {
@@ -421,13 +422,13 @@ body {
 @media #{$lg-and-down} {
   body.is-article {
     .col-left { max-width: 100% }
-    .sidebar { display: none; }
+    // .sidebar { display: none; }
   }
 }
 
 @media #{$md-and-up} {
   // Image post Format
-  .cc-image .post-title { font-size: 3.5rem }
+  .cc-image .post-title { font-size: 3.2rem }
 }
 
 @media #{$lg-and-up} {
@@ -472,5 +473,7 @@ body {
     }
 
     .cc-video-cont { height: 465px; }
+
+    .cc-image-header { bottom: 20% }
   }
 }

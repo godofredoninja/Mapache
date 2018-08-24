@@ -36,7 +36,10 @@ export default {
     // facebookShareCount($('.share-count'));
 
     // sticky share post in left
-    $('.sharePost').theiaStickySidebar({additionalMarginTop: 120});
+    $('.sharePost').theiaStickySidebar({
+      additionalMarginTop: 120,
+      minWidth: 970,
+    });
 
     // newsletter title change
     // if (typeof newsletterTitle !== 'undefined') $('.newsletter-title').html(newsletterTitle); // eslint-disable-line

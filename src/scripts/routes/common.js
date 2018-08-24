@@ -76,7 +76,10 @@ export default {
     });
 
     /* sicky sidebar */
-    $('.sidebar-sticky').theiaStickySidebar({additionalMarginTop: 70});
+    $('.sidebar-sticky').theiaStickySidebar({
+      additionalMarginTop: 70,
+      minWidth: 970,
+    });
 
     // show comments count of disqus
     if (typeof disqusShortName !== 'undefined') $('.mapache-disqus').removeClass('u-hide');

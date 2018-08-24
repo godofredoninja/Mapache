@@ -31,11 +31,11 @@
   padding-left: 10px;
 }
 
-@media #{$md-and-up} {
-  .col-left { max-width: calc(100% - 340px) }
-}
+// @media #{$md-and-up} {
+// }
 
 @media #{$lg-and-up} {
+  .col-left { max-width: calc(100% - 340px) }
   .cc-video-left { max-width: calc(100% - 320px) }
   .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
   body.is-article .col-left { padding-right: 40px }
