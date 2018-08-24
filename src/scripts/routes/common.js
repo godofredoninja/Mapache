@@ -13,10 +13,18 @@ let didScroll = false;
 let lastScrollTop = 0; // eslint-disable-line
 let delta = 5;
 
+// Active Scroll
+$(window).on('scroll', () => didScroll = true );
+
 export default {
   init() {
-    // Active Scroll
-    $(window).on('scroll', () => didScroll = true );
+    // Change title HOME PAGE
+    if (typeof homeTitle !== 'undefined') $('#home-title').html(homeTitle); // eslint-disable-line
+
+    // change BTN ( Name - URL) in Home Page
+    if (typeof homeBtnTitle !== 'undefined' && typeof homeBtnURL !== 'undefined') {
+      $('#home-button').attr('href', homeBtnURL).html(homeBtnTitle); // eslint-disable-line
+    }
 
     // Follow me
     if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia, urlRegexp); // eslint-disable-line
@@ -55,6 +63,12 @@ export default {
       $body.toggleClass('is-showFollowMore');
     });
 
+    /* scroll link width click (ID)*/
+    $('.scrolltop').on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 60 }, 500, 'linear');
+    });
+
     /* Modal Open for susbscribe */
     $('.modal-toggle').on('click', e => {
       e.preventDefault();
@@ -83,8 +97,6 @@ export default {
       } else {
         $('body.has-cover').addClass('is-transparency');
       }
-
-      console.log(st);
 
       lastScrollTop = st;
     }

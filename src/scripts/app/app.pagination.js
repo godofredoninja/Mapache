@@ -11,11 +11,11 @@ export default {
     // Variables
     const $buttonLoadMore = $('.load-more');
     const $result = $('.story-feed');
-    const $win = $(window);
+    // const $win = $(window);
 
     let pathname = window.location.pathname;
     let currentPage = 1;
-    let lastScroll = 0;
+    // let lastScroll = 0;
 
     // show button for load more
     if (maxPages >= 2){ // eslint-disable-line
@@ -85,39 +85,39 @@ export default {
     }
 
     /* Is visble next page */
-    function isVisible(element) {
-      const scroll_pos = $win.scrollTop();
-      const windowHeight = $win.height();
-      const elementTop = $(element).offset().top;
-      const elementHeight = $(element).height();
-      const elementBottom = elementTop + elementHeight;
+    // function isVisible(element) {
+    //   const scroll_pos = $win.scrollTop();
+    //   const windowHeight = $win.height();
+    //   const elementTop = $(element).offset().top;
+    //   const elementHeight = $(element).height();
+    //   const elementBottom = elementTop + elementHeight;
 
-      return ((elementBottom - elementHeight * 0.25 > scroll_pos) && (elementTop < (scroll_pos + 0.5 * windowHeight)));
-    }
+    //   return ((elementBottom - elementHeight * 0.25 > scroll_pos) && (elementTop < (scroll_pos + 0.5 * windowHeight)));
+    // }
 
     /**
      * the url is changed when the articles on the next page are loaded.
      */
-    function historyReplaceState () {
-      const scroll = $win.scrollTop();
+    // function historyReplaceState () {
+    //   const scroll = $win.scrollTop();
 
-      if (Math.abs(scroll - lastScroll) > $win.height() * 0.1) {
-        lastScroll = scroll;
+    //   if (Math.abs(scroll - lastScroll) > $win.height() * 0.1) {
+    //     lastScroll = scroll;
 
-        $('.story-feed-content').each(function () {
-          if (isVisible($(this))) {
-            history.replaceState(null, null, $(this).attr("data-page"));
-            return false;
-          }
-        });
-      }
-    }
+    //     $('.story-feed-content').each(function () {
+    //       if (isVisible($(this))) {
+    //         history.replaceState(null, null, $(this).attr("data-page"));
+    //         return false;
+    //       }
+    //     });
+    //   }
+    // }
 
 
     // Click buttom for Load More Post
     $buttonLoadMore.on('click', mapachePagination);
 
     // history Replace State
-    setInterval(() => historyReplaceState(), 500);
+    // setInterval(() => historyReplaceState(), 500);
   },
 };

@@ -31,6 +31,63 @@
   }
 }
 
+// Home Page Personal Cover page
+// ==========================================================================
+.hm-cover {
+  padding: 30px 0;
+  min-height: 100vh;
+
+  &-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  &-des {
+    max-width: 600px;
+    font-size: 1.25rem;
+  }
+}
+
+.hm-subscribe {
+  background-color: transparent;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, .5);
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-top: 50px;
+  max-width: 300px;
+  padding: 15px 10px;
+  transition: all .3s;
+  width: 100%;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+}
+
+.hm-down {
+  animation-duration: 1.2s !important;
+  bottom: 60px;
+  color: hsla(0, 0%, 100%, .5);
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 70px;
+  z-index: 100;
+
+  svg {
+    display: block;
+    fill: currentcolor;
+    height: auto;
+    width: 100%;
+  }
+}
+
 // Media Query
 // ==========================================================================
 @media #{$md-and-up} {
@@ -49,4 +106,7 @@
       }
     }
   }
+
+  // Home page
+  .hm-cover-title { font-size: 3.5rem }
 }

@@ -1,8 +1,12 @@
 {{!< default}}
 
 {{!-- custom Styles For tag <body> --}}
-{{#contentFor "mapache_class_body"}}is-frontpage {{^is "paged"}}is-pagination{{/is}}{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-frontpage {{^is "paged"}}is-pagination has-cover is-transparency{{/is}}{{/contentFor}}
 
-<section class="extreme-container u-marginTop20">
+{{^is "paged"}}
+    {{> "home/home-personal-cover"}}
+{{/is}}
+
+<section id="main-content" class="extreme-container u-marginTop20">
     {{> "loop"}}
 </section>
