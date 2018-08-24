@@ -2,6 +2,7 @@ import mapacheShare from '../app/app.share';
 import mapacheFollow from '../app/app.follow';
 import mapacheSearch from '../app/app.search';
 import mapacheFooterLinks from '../app/app.footer.links';
+import mapacheTwitter from '../app/app.twitter';
 
 // Varibles
 const $body = $('body');
@@ -80,6 +81,11 @@ export default {
       additionalMarginTop: 70,
       minWidth: 970,
     });
+
+    // Twitter and facebook fans page
+    if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
+      mapacheTwitter(twitterUserName, twitterNumber); // eslint-disable-line
+    }
 
     // show comments count of disqus
     if (typeof disqusShortName !== 'undefined') $('.mapache-disqus').removeClass('u-hide');
