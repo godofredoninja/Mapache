@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
+@import "~normalize.css/normalize";
+@import "~prismjs/themes/prism";
+@import "~prismjs/plugins/line-numbers/prism-line-numbers";
+
 // Mixins & Variables
 @import "common/variables";
 @import "common/mixins";
 
 // Import npm dependencies
-@import "~normalize.css/normalize";
-@import "~prismjs/themes/prism";
 // zoom img
 @import "autoload/zoom";
 

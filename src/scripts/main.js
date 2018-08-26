@@ -1,6 +1,4 @@
 // import external dependencies
-import 'prismjs';
-import 'prismjs/plugins/autoloader/prism-autoloader';
 import 'jquery-lazyload';
 import 'theia-sticky-sidebar';
 

@@ -1,4 +1,8 @@
 // import facebookShareCount from '../app/app.facebook-share-count';
+import Prism from 'prismjs'
+import 'prismjs/plugins/autoloader/prism-autoloader';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+
 import mapacheInstagram from '../app/app.instagram';
 
 /* Iframe SRC video */
@@ -32,20 +36,11 @@ export default {
       $('body').toggleClass('has-comments').removeClass('is-showNavMob')
     });
 
-    // Share Count
-    // facebookShareCount($('.share-count'));
-
     // sticky share post in left
     $('.sharePost').theiaStickySidebar({
       additionalMarginTop: 120,
       minWidth: 970,
     });
-
-    // newsletter title change
-    // if (typeof newsletterTitle !== 'undefined') $('.newsletter-title').html(newsletterTitle); // eslint-disable-line
-
-    // newsletter Description
-    // if (typeof newsletterDescription !== 'undefined') $('.newsletter-description').html(newsletterDescription); // eslint-disable-line
 
     // Instagram Feed
     if (typeof instagramUserId !== 'undefined' && typeof instagramToken !== 'undefined' && typeof instagramUserName !== 'undefined') {
@@ -53,6 +48,8 @@ export default {
     }
 
     /* Prism autoloader */
-    Prism.plugins.autoloader.languages_path = `${$('body').attr('data-page')}/assets/scripts/prism-components/`; // eslint-disable-line
+    Prism.highlightAll();
+
+    // Prism.plugins.autoloader.languages_path = `${$('body').attr('data-page')}/assets/scripts/components/`; // eslint-disable-line
   }, // end finalize
 };
