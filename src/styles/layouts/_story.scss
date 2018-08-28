@@ -14,8 +14,8 @@
 // media type icon ( video - image )
 .media-type {
   // background-color: lighten($primary-color, 15%);
-  background-color: var(--secondary-color);
-  color: var(--black);
+  background-color: rgba(0, 0, 0, .7);
+  color: #fff;
   height: 45px;
   left: 15px;
   top: 15px;
@@ -103,7 +103,7 @@
   }
 }
 
-.cover-category { color: var(--secondary-color) }
+.cover-category { color: var(--story-cover-category-color) }
 
 // Story Card
 // ==========================================================================

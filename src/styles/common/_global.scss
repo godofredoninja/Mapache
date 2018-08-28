@@ -5,8 +5,11 @@
   --secondary-color: #2ad88d;
   --header-color: #BBF1B9;
   --header-color-hover: #EEFFEA;
-  --story-color-hover: rgba(28, 153, 99, 0.5);
+  --post-color-link: #2ad88d;
+  --story-cover-category-color: #2ad88d;
   --composite-color: #CC116E;
+  --footer-color-link: #2ad88d;
+  --media-type-color: #2ad88d;
 }
 
 *, *::before, *::after {
@@ -49,6 +52,7 @@ body {
   line-height: 1.4;
   margin: 0 auto;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 //Default styles
@@ -277,10 +281,6 @@ table {
 .main,
 .footer { transition: transform .5s ease; }
 
-@media #{$md-and-down} {
-  blockquote { margin-left: -5px; font-size: 1.125rem }
-}
-
 // warning success and Note
 // ==========================================================================
 .warning {
@@ -494,6 +494,14 @@ svg {
   display: block;
 }
 
-// Ghost CLasses
-.kg-width-wide,
-.kg-width-full { margin: 0 auto }
+// Media Query responsinve
+// ==========================================================================
+@media #{$md-and-down} {
+  blockquote { margin-left: -5px; font-size: 1.125rem }
+
+  .kg-image-card,
+  .kg-embed-card {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
