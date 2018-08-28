@@ -145,6 +145,7 @@
   max-width: 300px;
   text-transform: uppercase;
   transition: color .3s ease, box-shadow .3s cubic-bezier(.455, .03, .515, .955);
+  width: 100%;
 
   &:hover {
     color: #fff;
