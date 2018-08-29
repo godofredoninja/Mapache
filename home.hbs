@@ -1,0 +1,31 @@
+{{!-- Layouts --}}
+{{!< default}}
+
+{{#contentFor "mapache_class_body"}}is-home {{^is "paged"}}is-pagination{{/is}}{{/contentFor}}
+
+{{!-- Home Top Section --}}
+<div class="cover u-marginAuto u-marginBottom30 u-clear cover--grid3">
+
+    {{#foreach posts from="1" to="3"}}
+        {{!-- Home Top Section -> 3 first Articles - partials/story/story-cover.hbs --}}
+        {{> "story/story-cover" }}
+    {{/foreach}}
+
+</div>
+
+<section class="extreme-container">
+    <div class="row u-marginBottom40">
+
+        {{!-- Post Grid - 6 lates article --}}
+        {{#foreach posts from="4" to="9"}}
+            <div class="col s12 m6 l4">
+                {{!-- partiasl/story/story-grid.hbs --}}
+                {{> "story/story-grid" }}
+            </div>
+        {{/foreach}}
+
+    </div>
+
+    {{!-- show 4 articles - partials/home/home-story-list.hbs --}}
+    {{> "home/home-story-list"}}
+</section>

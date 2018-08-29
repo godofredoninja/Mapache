@@ -1,0 +1,45 @@
+{{!-- hr > line in top --}}
+<hr class="hr-list">
+
+{{!-- Article --}}
+<article class="story u-flex u-relative {{#if featured}}featured{{/if}}">
+    {{!-- Story Image --}}
+    <div class="story-image u-relative u-overflowHidden u-backgroundColorGrayLight">
+        <a href="{{url}}" class="story-image-lazy u-absolute0 u-block {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-original="{{feature_image}}"></a>
+        {{!-- icon If is Video or Image / Gallery --}}
+        {{#has tag="#video"}}
+            <span class="media-type u-absolute i-play"></span>
+        {{else}}
+            {{#has tag="#image"}}
+            <span class="media-type u-absolute i-photo"></span>
+            {{/has}}
+        {{/has}}
+    </div>
+
+    <div class="story-body u-flexColumn u-marginTop20 u-relative">
+        <div class="flow-meta u-fontSizeSmallest u-flexCenter">
+            {{!-- primary tag --}}
+            {{#if primary_tag}}{{#primary_tag}}
+                <a href="{{url}}" class="link--underline u-fontWeightBolder u-textUppercase story-category u-relative zindex4">{{name}}</a>
+                <span class="point">/</span>
+            {{/primary_tag}}{{/if}}
+
+            {{!-- DateTime --}}
+            <span><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time></span>
+        </div>
+
+        {{!-- Title --}}
+        <h2 class="u-contentTitle u-fontSize22 u-lineHeightTight u-marginBottom10">
+            <a href="{{url}}" class="u-relative zindex4">{{title}}</a>
+        </h2>
+
+        {{!-- excerpt --}}
+        <div class="story-lower u-relative u-overflowHidden u-flexColumnTop">
+            <p class="story-excerpt">{{excerpt words="25"}}</p>
+        </div>
+
+        {{!-- Link Story Wrap --}}
+        <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
+    </div>
+
+</article>

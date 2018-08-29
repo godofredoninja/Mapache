@@ -1,33 +1,28 @@
-{{!-- Add Layout --}}
-
 {{!< default}}
 
 {{#tag}}
 
-<section id="cover" class="cover u-flex-wrap">
-    {{!-- Image featured --}}
+{{!-- custom Styles For tag <body> --}}
+{{#contentFor "mapache_class_body"}}is-tag {{^is "paged"}}is-pagination{{/is}} {{#if feature_image}}has-cover is-transparency{{/if}}{{/contentFor}}
+
+<section class="tag u-relative u-textAlignCenter u-flexCenter u-flexColumn u-paddingBottom30 u-paddingTop30 {{#if feature_image}}u-marginBottom30 u-textColorWhite has--image u-boxShadowBottom has-cover-padding{{/if}}">
+
+    {{!-- Cover Background --}}
     {{#if feature_image}}
-        <div class="u-absolute0 u-block u-bg-gradient" style="background-color:#000"></div>
-        <div class="cover-background cover-lazy u-absolute0 u-bg-cover u-block" style="opacity:0.5" data-original="{{feature_image}}"></div>
+    <div class="u-absolute0 u-backgroundDark"></div>
+    <div class="cover-opacity cover-lazy u-absolute0 u-backgroundSizeCover zindex2 u-block" data-original="{{feature_image}}"></div>
     {{/if}}
 
-    <article class="cover-wrap u-flex-aling-center">
-        {{!-- Tag name --}}
-        <h1 class="cover-title">{{name}}</h1>
+    <div class="u-maxWidth1040 u-container zindex2">
+        <h1 class="tag-title animated bounceIn u-contentTitle u-fontSize36 u-md-fontSizeBase">{{name}}</h1>
+        {{#if description}}<p class="tag-description u-fontSizeSmall u-marginTop30">{{description}}</p>{{/if}}
+    </div>
 
-        {{!-- tag description --}}
-        <p class="cover-description">
-            {{#if description}}
-                {{description}}
-            {{else}}
-                {{plural ../pagination.total empty=(t "A collection of posts") singular=(t "A collection of 1 post") plural=(t "A collection of % posts")}}
-            {{/if}}
-        </p>
-    </article>
-    <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
 </section>
-
 {{/tag}}
 
-{{!-- Add Loop --}}
-{{> "loop"}}
+{{!-- Post Grid --}}
+<section class="extreme-container">
+    {{!-- lates post --}}
+    {{> "loop"}}
+</section>

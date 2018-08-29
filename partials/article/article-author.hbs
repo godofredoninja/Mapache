@@ -1,0 +1,34 @@
+{{#post}}
+
+<div class="post-author u-flex u-flexCenter u-marginTop20">
+    {{!-- author Avatar --}}
+    {{#primary_author}}
+    <div class="u-flex0">
+        <a href="{{url}}" style="background-image:url({{profile_image}})" class="avatar-image avatar-image--smaller u-backgroundSizeCover u-relative {{^if profile_image}}no-avatar{{/if}}"></a>
+    </div>
+    {{/primary_author}}
+
+    <div class="u-paddingLeft15 u-textColorNormal u-flex1 u-fontSizeSmaller u-lineHeight1">
+
+        {{!-- Datetime - readingTime  --}}
+        <div class="u-block">
+            <time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{t "Published"}} {{date published_at timeago="true"}}</time>
+            <span class="point">—</span>
+            <span class="readingTime">{{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        </div>
+
+        {{#primary_author}}
+
+        <div class="u-block u-paddingTop5">
+            {{t "By"}} <a href="{{url}}" class="mapache-tracking link link--underline u-fontWeightBold u-textColorDarker" title="{{t "Posts by"}} {{name}}" data-event-category="Article" data-event-action="Author - {{name}}" data-event-label="Profile" data-event-non-interaction="1">{{name}}</a>
+
+            {{!-- Author Social Media (Facebook - Twitter) --}}
+            {{#if facebook}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-facebook i-facebook" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow"></a>{{/if}}
+            {{#if twitter}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-twitter i-twitter" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow"></a>{{/if}}
+        </div>
+
+        {{/primary_author}}
+    </div>
+</div>
+
+{{/post}}

@@ -1,0 +1,49 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-video show-category share-margin{{/contentFor}}
+
+<div class="cc-video u-overflowHidden u-relative">
+    <div class="extreme-container">
+        <div class="row">
+            <div class="cc-video-left">
+                <div class="cc-video-cont">
+                    {{!-- Video Embed --}}
+                    <div class="cc-video-embed">
+                        <span class="cc-video-close i-close u-hide"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 cc-video-right">
+                {{!-- Article Header - partials/article/article-header.hbs --}}
+                {{> "article/article-header"}}
+            </div>
+        </div>
+
+        {{!-- Filter video with tag [hash-video] - partials/helper/helper-video-post-related.hbs --}}
+        {{> "helper/helper-video-post-related"}}
+
+    </div>
+</div>
+
+<section class="post extreme-container u-paddingTop30 u-marginBottom40">
+    <div class="row">
+        <div class="col-left">
+
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </div>
+</section>
+
+{{!-- Comments partials/article/article-related.hbs --}}
+{{> "article/article-related"}}
+
+{{!-- Instagram partials/widget/widget-instagram.hbs --}}
+{{> "widget/widget-instagram"}}

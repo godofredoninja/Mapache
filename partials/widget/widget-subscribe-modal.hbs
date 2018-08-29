@@ -1,0 +1,23 @@
+{{#if @labs.subscribers}}
+<div class="modal modal-subscribe u-flexColumn u-flexCenter u-fixed u-absolute0">
+    <div class="modal-shader u-absolute0 zindex1"></div>
+
+    {{!-- Popup card --}}
+    {{!-- <div class="test" > --}}
+        <div class="modal-inner u-relative u-textAlignCenter zindex2">
+            <a href="#" class="modal-toggle modal-close u-absolute u-fontSizeLarge i-close"></a>
+            <h2 class="u-fontSizeLarger u-marginBottom15 u-contentTitle">{{t "Sign Up To The Newsletter"}}</h2>
+            <p class="u-marginBottom30 u-fontSizeSmall">{{t "Stay up to date! Get all the latest & greatest posts delivered straight to your inbox"}}</p>
+
+            {{!-- form --}}
+            {{subscribe_form
+            form_class="modal-form u-marginBottom15"
+            input_class="form--input u-block u-fontSize20 u-textAlignCenter"
+            button_class="subscribe-btn button button--dark u-fontSizeSmaller u-textUppercase"
+            placeholder=(t "Your email address")
+            autofocus=""
+            }}
+        </div>
+    {{!-- </div> --}}
+</div>
+{{/if}}

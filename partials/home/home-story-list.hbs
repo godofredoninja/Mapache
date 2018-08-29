@@ -1,0 +1,29 @@
+{{#get "posts" include="tags" limit="14" as |list_posts|}}
+{{#if list_posts}}
+
+<div class="row">
+    <div class="col-left">
+        <div class="story-feed">
+            <div class="story-feed-content">
+
+                {{#foreach list_posts visibility="all" from="10" to="14"}}
+
+                    {{!-- The tag below includes the post loop - partials/story/story-list.hbs --}}
+                    {{> "story/story-list"}}
+
+                {{/foreach}}
+
+            </div>
+        </div>
+
+        {{!-- Pagination - partials/helper/helper-pagination.hbs --}}
+        {{> "helper/helper-pagination"}}
+
+    </div>
+
+    {{!-- Sidebar - partials/sidebar.hbs --}}
+    {{> "sidebar"}}
+</div>
+
+{{/if}}
+{{/get}}

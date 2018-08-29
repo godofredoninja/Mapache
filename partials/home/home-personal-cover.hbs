@@ -1,0 +1,27 @@
+<section id="hm-cover" class="hm-cover u-relative u-flexCenter u-flexColumn u-marginBottom30 has--image u-boxShadowBottom">
+    {{!-- Image featured --}}
+    {{#if @blog.cover_image}}
+        <div class="u-absolute0 u-backgroundDark"></div>
+        <div class="cover-opacity cover-lazy u-absolute0 u-backgroundSizeCover zindex2 u-block" data-original="{{@blog.cover_image}}"></div>
+    {{/if}}
+
+    <div class="u-relative u-maxWidth1040 u-marginAuto u-padding20 u-sizeFullWidth u-textAlignCenter zindex3 u-textColorWhite">
+        <div class="u-fontSizeLarge u-fontWeightBold u-marginBottom30">{{t "Welcome"}}</div>
+        {{!-- Blog name --}}
+        <h1 id="home-title" class="hm-cover-title u-marginBottom30 animated bounceInDown">{{@blog.title}}</h1>
+
+        {{!-- Blog description --}}
+        <p class="hm-cover-des animated bounceI u-marginAuto">{{@blog.description}}</p>
+
+        {{!-- Btn suscribe --}}
+        {{#if @labs.subscribers}}
+            <a id="home-button" href="{{@blog.url}}/subscribe" class="hm-subscribe u-marginAuto animated bounceIn u-textUppercase">{{t "Subscribe"}}</a>
+        {{/if}}
+    </div>
+
+    {{!-- Scroll --}}
+    <a href="#main-content" class="scrolltop animated slideOutDown infinite hm-down u-hide-before-lg">
+        {{> "icons/arrow-down-circle"}}
+    </a>
+
+</section>

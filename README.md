@@ -1,58 +1,53 @@
-# Mapache for [Ghost](https://github.com/tryghost/ghost/)
+# Free theme for [Ghost](https://github.com/tryghost/ghost/)
 
-[![Ghost version](https://img.shields.io/badge/Ghost-1.x-brightgreen.svg?style=flat-square)](https://ghost.org/)
-[![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)](https://nodejs.org/en/)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://bit.ly/PayPal-GodoFredoNinja)
+[![Ghost version](https://img.shields.io/badge/Ghost-1.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
+[![Node](https://img.shields.io/node/v/uno-zen.svg)](https://nodejs.org/en/)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://bit.ly/PayPal-GodoFredoNinja)
 
-> Minimalist Material Design and Elegant theme for [Ghost](https://github.com/tryghost/ghost/)
+> Minimalist Material Design and Elegant theme.
 
-## Free theme for Ghost
+Hi. I created this theme for ghost especially for you.
+It is available for free so you can use on your site. It is strictly forbidden to use it for commercial use. If you have any suggestions to improve the theme,  you can send me a tweet [@GodoFredoNinja](https://goo.gl/y3aivK)
 
-Hello, I created this theme Ghost to see how it works. It is available for free so you can use on your site. It is strictly forbidden commercial use. If you have any suggestions to improve the theme,  you can send me tweet to [@GodoFredoNinja](http://bit.ly/tw-GodoFredoNinja)
+## If you have a ❤ heart and value my work. 🙏 Please, help me with a small donation on [Paypal](https://bit.ly/PayPal-GodoFredoNinja). It'll help motivate me to update the theme with many improvements
 
-### 😃 To have updated the subject please help me with a small collaboration in [paypal](https://bit.ly/PayPal-GodoFredoNinja). I will thank you enormentene
+[![donate](./donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
 
-[![](./documentation/donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
-
-![](./documentation/mapache-screenshot.png)
+![mapache theme for ghost](./screenshot.png)
 
 ## Demo
 
-> Later I will write an article showing the functionality of the theme. For the moment in my page I am using one of my theme [simply](https://github.com/godofredoninja/simply)
-
-You can see a demo in my [blog](http://bit.ly/GodoFredoNinja-Mapache).
-
-## Mapache Support for Web Browsers
-
-Mapache supports the following web [browsers](http://caniuse.com/#search=flexbox)
+You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 
 ## Featured
 
 - Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es)
 - Responsive layout
-- Blog navigation
-- Home title Typed style
-- Page 404 (Multiple faces emoticons)
+- 404 error page (emoticons — last 6 articles)
 - Page subscribe
 - Pagination Infinite Scroll
-- Cover images for blog, tag and author
-- links to followers in social media
+- Instagram Feed in footer of Post
+- Optional menu at the footer of the page
+- [AMP](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost) Template (Accelerated Mobile Pages)
+- Follow on Social Media
 - Related Articles (6 articles)
-- Template (Video Post Format)
-- Teamplate (Image post Format)
-- Template (Audio post Format)
-- AMP Template (Accelerated Mobile Pages)
-- 5 articles featured in the home of the page section sidebar
-- 5 articles latest posts in the (author - tag - post) section sidebar
-- 10 Tags in the sidebar
+- Template - Post single
+- Template - Post full header
+- Template - Video post format
+- Template - Image post format
+- Template - Image single post format
+- Template - not image post => featured image is not displayed
+- 5 featured articles in the sidebar (home - tag - author)
+- 5 lates articles in the sidebar (post)
+- Tag Cloud in the sidebar
+- Previous and next articles buttons
 - Support for comments (Facebook or Disqus)
 - Support for counter comments (Facebook or Disqus)
-- Buttons to share the article
-- YouTube, Vimeo, kickstarter, dailymotion, vid.me -> Video Responsive
-- YouTube Subscribe Button => Video Post Format
-- Facebook widget in sidebar
-- Twitter widget in sidebar
-- Code syntax [Prismjs](http://prismjs.com/index.html) Supported all syntax.
+- Buttons to share the article (Facebook - Twitter - Reddit - Linkedin - Pinterest - Whatsapp)
+- Sticky content in the sidebar
+- YouTube, Vimeo, kickstarter, Facebook, dailymotion => Responsive
+- Lazy image loading for better performance only in backgrounds
+- Code syntax [Prismjs](http://prismjs.com/index.html#languages-list) Supported all syntax.
 
 ## Ghost settings
 
@@ -76,56 +71,6 @@ This section enables the YouTube Post format. Add the Channel Name and Channel I
 <script>
 /*====================================================
   THEME SETTINGS & GLOBAL VARIABLES
-====================================================*/
-
-/* 01. Social Media Follow */
-var followSocialMedia = {
-  'google': 'https://...',
-  'youtube': 'https://...',
-  'instagram': 'https://...',
-  'snapchat': 'https://...',
-  'dribbble': 'https://...',
-  'github': 'https://...',
-  'linkedin':'https://...',
-  'spotify':'https://...',
-  'codepen':'https://...',
-  'behance':'https://...',
-  'flickr':'https://...',
-  'pinterest':'https://...',
-  'telegram':'https://...',
-  'discord':'https://...',
-  'feed':'https://...',
-};
-
-/* 02. Title for home Page */
-var homeTitle = '... your title ...';
-
-/* if you want to have the title style typed
-ignore homeTitle and add this code */
-var homeTitleTyped = ['YOUR TITLE 1', 'YOUR TITLE 2', 'YOUR TITLE 3', 'YOUR TITLE 4'];
-
-/* 03. Home BTN <SUBSCRIBE> */
-var homeBtnTitle = 'Name BTN';
-var homeBtnURL = 'https://...';
-
-/* 04. Youtube button subscribe for Video Post Format */
-var youtubeChannelName = 'YOUR_CHANNEL_NAME';
-var youtubeChannelID = 'YOUR_CHANNEL_ID';
-
-/* 05. Disqus Comment Settings */
-var disqusShortName = 'YOUR_DISQUS_SHORTCUT_HERE';
-
-/* 06. Facebook Widget Settings */
-var fansPageName = 'YOUR_FANS_PAGE_NAME';
-
-/* 07. Twitter Widget Settings */
-var twitterUserName = 'YOUR_TWITTER_NAME';
-var twitterNumber = 2;
-</script>
-
-<!-- Disqus Comments Count-->
-<script id="dsq-count-scr" src="//YOUR_DISQUS_SHORTCUT_HERE.disqus.com/count.js" async></script>
-```
 
 ### Facebook Comments
 
@@ -263,13 +208,15 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 ### Credits
 
 - [Hodor AMP Template](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost)
-- [Typed](https://github.com/mattboldt/typed.js/)
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
 - [Prismjs](http://prismjs.com/)
-- [theia-sticky-sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
+- [sticky-kit](https://github.com/leafo/sticky-kit)
+- [lunr.js](https://github.com/olivernn/lunr.js)
+- [zoom.js](https://github.com/fat/zoom.js/)
 - [jquery-lazyload](http://www.appelsiini.net/projects/lazyload)
+- [Fonts](https://fonts.google.com/?selection.family=Fira+Mono|Merriweather:400,700|Ruda:400,700,900&query=Merriweather)
 
 ## Copyright & License
 
-Copyright (c) 2016 @GodoFredoNinja - Released under the [MIT license](LICENSE).
+Copyright (c) 2017 GodoFredoNinja - Released under the [CC BY-NC-SA 4.0](LICENSE).

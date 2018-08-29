@@ -1,0 +1,37 @@
+{{#post}}
+
+<article class="post-body u-relative">
+    {{!-- Share post - partials/article/article-share.hbs --}}
+    {{> "article/article-share"}}
+
+    <div class="post-body-wrap">
+        {{!-- Content of Post --}}
+        {{content}}
+
+        {{!-- Cloud Tags - partials/article/article-tags.hbs --}}
+        {{> "article/article-tags"}}
+
+        {{!-- Prev and Next Post - partials/article/article-prev-next.hbs --}}
+        {{> "article/article-prev-next"}}
+
+        {{!-- Comments partials/article/article-share-mobile.hbs --}}
+        {{> "article/article-share-mobile"}}
+
+        <hr class="post-footer-hr">
+
+        {{!-- Butoon for Comments Open --}}
+        <div class="button button--large button--dark-line post-comments-show toggle-comments ">
+            {{!-- Disqus Comments Count --}}
+            <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
+            {{!-- Facebook Comments Counts --}}
+            <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
+            <span class="mapache-facebook u-hide">{{t "Comments"}}</span>
+        </div>
+
+    </div>
+</article>
+
+{{!-- Comments partials/article/article-comments.hbs --}}
+{{> "article/article-comments"}}
+
+{{/post}}

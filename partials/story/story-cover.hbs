@@ -1,0 +1,31 @@
+{{!-- Story Cover Temple  --}}
+
+<article class="cover-story u-relative u-backgroundColorGrayLigh u-floatLeft {{#if @first}}firts{{/if}}">
+
+    {{!-- background image --}}
+    <div class="cover-img story-image-lazy u-absolute u-block {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-original="{{feature_image}}"></div>
+
+    <header class="cover-header u-absolute u-textColorWhite zindex2">
+
+        <div class="flow-meta u-fontSizeSmallest u-textColorWhite">
+            {{!-- primary tag --}}
+            {{#if primary_tag}}
+                <span class="u-fontWeightBolder u-textUppercase cover-category">{{primary_tag.name}}</span>
+                <span class="point">/</span>
+            {{/if}}
+
+            {{!-- Datetime --}}
+            <time class="datetime u-fontSize14" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time>
+        </div>
+
+        {{!-- Title --}}
+        <h2 class="cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22 u-contentTitle">{{title}}</h2>
+
+        {{!-- excerpt --}}
+        {{#if @first}} <p class="cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}}
+    </header>
+
+    {{!-- story link --}}
+    <a href="{{url}}" class="cover-link u-absolute zindex3"></a>
+
+</article>

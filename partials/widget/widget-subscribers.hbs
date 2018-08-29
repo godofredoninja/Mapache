@@ -1,0 +1,14 @@
+{{#if @labs.subscribers}}
+<div class="sidebar-items witget-subscribe u-marginBottom30 u-textAlignCenter">
+    <h5 class="u-fontSizeBase u-textColorDarker u-marginBottom20 u-fontWeightBolder">{{t "Newsletter"}}</h5>
+    <div class="u-fontSizeSmaller u-marginBottom20">{{t "Get the latest posts delivered right to your inbox"}}</div>
+
+    {{subscribe_form
+    form_class="witget-subscribe--form"
+    input_class="u-fontSizeSmaller u-block u-marginBottom10"
+    button_class="button i-send u-textColorWhite u-textUppercase"
+    placeholder=(t "Your email address")
+    autofocus=""
+    }}
+</div>
+{{/if}}

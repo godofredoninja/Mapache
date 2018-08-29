@@ -1,12 +1,26 @@
-<footer class="footer">
-    <div class="footer-wrap">
-        {{!-- Social Media --}}
-        <div class="footer-follow social_box">
-            {{#if @blog.facebook}} <a title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" class="i-facebook"></a>{{/if}}
-            {{#if @blog.twitter}} <a title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" class="i-twitter"></a>{{/if}}
+<footer class="footer u-fontSizeSmaller u-fontWeightBold">
+        {{!-- follow Me --}}
+    <div class="footer-links">
+
+        <div class="extreme-container u-flexCenter u-flexColumn">
+            {{!-- Follow social media --}}
+            <aside class="follow followMe u-textColorWhite u-fontSize20 u-textAlignCenter">
+                {{#if @blog.facebook}}<a class="mapache-tracking i-facebook" data-event-category="Header" data-event-action="Follow Me" data-event-label="Facebook" data-event-non-interaction="1" title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank"></a>{{/if}}
+                {{#if @blog.twitter}}<a class="mapache-tracking i-twitter" data-event-category="Header" data-event-action="Follow Me" data-event-label="Twitter" data-event-non-interaction="1" title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank"></a>{{/if}}
+                {{!-- Subscribe BTN for modal newsletter --}}
+                {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative i-email u-floatRight"></a>{{/if}}
+            </aside>
+
+            {{!-- Footer Menu --}}
+            <ul class="footer-menu u-textUppercase u-textAlignCenter u-marginTop20 u-hide"></ul>
         </div>
 
-        <div class="footer-copy">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a></div>
-        <div class="footer-design-author">{{{t "<span>Design with</span> <i class='i-favorite heart'></i> by"}}} <a href="http://bit.ly/GodoFredoNinja-Mapache" target="_blank" title="Developer Web FullStack.">@GodoFredoNinja</a></div>
+
+    </div>
+
+    {{!-- copy --}}
+    <div class="footer-copy u-textAlignCenter">
+        &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a>
+        Design with <i class="i-favorite animated infinite pulse" style="color:red;display:inline-block"></i> by <a href="https://goo.gl/Jf1tZe" target="_blank" title="Developer FullStack.">@GodoFredoNinja</a>
     </div>
 </footer>

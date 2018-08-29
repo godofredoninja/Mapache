@@ -1,0 +1,20 @@
+{{#get "posts" filter="tags:[hash-video]+id:-{{post.id}}" include="tags" order="title desc" limit="4" as |filter_video_related|}}
+{{#if filter_video_related}}
+
+<div class="row u-hide-before-md">
+
+    {{!-- More video Title --}}
+    <div class="col s12">
+        <h4 class="title-line u-marginBottom20 u-marginTop20"><span class="u-oblique">{{t "More Videos"}}</span></h4>
+    </div>
+
+    {{#foreach filter_video_related}}
+    <div class="col s12 m6 l3">
+        {{!-- Story style Grid - partials/story/story-grid.hbs --}}
+        {{> "story/story-grid"}}
+    </div>
+    {{/foreach}}
+</div>
+
+{{/if}}
+{{/get}}

@@ -1,30 +1,40 @@
-{{!-- Add Layout --}}
-
 {{!< default}}
 
+{{!-- custom Styles For tag <body> --}}
+{{#contentFor "mapache_class_body"}}is-subscribe u-backgroundColorGrayLight{{/contentFor}}
 
-<div class="container subscribe u-flex-aling-center">
+<section class="subscribe u-flexColumn u-flexCenter {{#if success}}subscribe-success{{/if}}">
+    <div class="subscribe-wrap u-flex1 u-flexCenter u-marginTop30 u-marginBottom15">
+        <div class="subscribe-card u-textAlignCenter u-overflowHidden u-flexColumn u-relative">
 
-    <div class="subscribe-wrap">
         {{^if success}}
-            <h2 class="subscribe-title">{{t "Subscribe to"}} {{@blog.title}}</h2>
 
-            {{subscribe_form
-                form_class="subscribe-form"
-                input_class="subscribe-input"
-                button_class="btn btn-primary btn-block"
-                placeholder= (t "Your email address")
-                autofocus="true"
-            }}
-        {{else}}
-            <h3>{{t "Subscribed!"}}</h3>
-            <div class="success">
-                <span>{{t "You've successfully subscribed to"}} <strong>{{@blog.title}}</strong></span>
-                <span>{{t "with the email address"}} <strong>{{email}}</strong>.</span>
+            <h1 class="subscribe-title u-fontSizeLarger u-contentTitle u-marginAuto u-marginBottom20">{{t "Sign up for my newsletter!"}}</h1>
+            <h2 class="u-fontWeightNormal u-fontSizeSmall u-marginBottom20">{{t "Stay up to date! Get all the latest & greatest posts delivered straight to your inbox"}}</h2>
+
+            <div class="subscribe-form">
+                <div class="u-flex0 u-marginTop30">
+                    {{subscribe_form
+                        form_class="u-marginAuto"
+                        input_class="subscribe-input u-sizeFullWidth u-fontSizeBase u-marginBottom15 u-textAlignCenter"
+                        button_class="subscribe-btn button button--dark u-fontSizeSmaller u-textUppercase"
+                        placeholder=(t "Your email address")
+                        autofocus="true"
+                    }}
+                </div>
             </div>
 
+        {{else}}
+
+            <h1 class="subscribe-title u-flex0 u-fontSizeLarger u-marginAuto u-marginBottom20 u-contentTitle">{{t "Subscribed!"}}</h1>
+            <h2 class="u-fontWeightNormal u-flex0 u-fontSizeSmall u-marginAuto u-marginBottom20">{{t "You've successfully subscribed"}} {{t "with the email address"}} {{email}}</h2>
+
+            <a href="{{#if subscribed_url}}{{subscribed_url}}{{else}}{{@blog.url}}{{/if}}" class="button button--dark u-marginAuto u-flex0 u-marginTop15 u-marginBottom15 u-marginTop20">ok</a>
+
+            <div class="u-flex1"></div>
+
         {{/if}}
+
+        </div>
     </div>
-
-
-</div>
+</section>
