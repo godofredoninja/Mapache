@@ -42,13 +42,12 @@
             $('.mapache-disqus').removeClass('u-hide');
             $showComments.removeClass('u-hide');
 
-            var dd = document;
-            var ss = dd.createElement('script');
-            ss.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
-            ss.async = true;
+            var js = d.createElement(s);
+            js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
+            js.async = true;
 
-            ss.setAttribute('data-timestamp', +new Date());
-            (dd.head || dd.body).appendChild(ss);
+            js.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(js);
         } else if (typeof facebookLocaleComments !== 'undefined') {
             $('.mapache-facebook').removeClass('u-hide');
             $showComments.removeClass('u-hide');

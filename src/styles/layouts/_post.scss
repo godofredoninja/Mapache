@@ -147,9 +147,9 @@
 
   // & > p:first-of-type { margin-top: 30px }
 
-  h1, h2, h3, h4, h5, h6,
-  ol, ul, hr, pre,
-  .post-tags, .prev-next, .mob-share {
+  h1, h2, h3, h4, h5, h6, p,
+  ol, ul, hr, pre, dl, blockquote,
+  .post-tags, .prev-next, .mob-share, .kg-embed-card {
     min-width: 100%;
   }
 
