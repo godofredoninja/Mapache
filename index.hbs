@@ -18,7 +18,9 @@
         {{!-- Blog description --}}
         <p class="cover-description animated bounceIn">{{@blog.description}}</p>
         {{!-- Btn suscribe --}}
-        <a id="btn-home" href="{{@blog.url}}/subscribe" class="btn-subscribe-home animated bounceIn u-textUppercase">{{t "Subscribe"}}</a>
+        {{#if @labs.subscribers}}
+            <a id="btn-home" href="{{@blog.url}}/subscribe" class="btn-subscribe-home animated bounceIn u-textUppercase">{{t "Subscribe"}}</a>
+        {{/if}}
     </div>
 
     {{!-- Scroll --}}
