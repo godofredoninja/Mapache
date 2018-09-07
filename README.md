@@ -88,7 +88,7 @@ var followSocialMedia = {
   'pinterest':'https://...',
   'telegram':'https://...',
   'discord':'https://...',
-  'feed':'https://...',
+  'rss':'https://...',
 };
 
 /* 02. Instagram - Optional
