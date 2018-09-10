@@ -7,8 +7,3 @@
 {{else}}
     {{"pagination"}}
 {{/is}}
-
-
-{{#if pagination.pages}}
-    {{#contentFor "scripts"}} <script>var maxPages = parseInt('{{pagination.pages}}');</script> {{/contentFor}}
-{{/if}}

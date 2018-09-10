@@ -13,12 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/> --}}
+
+    {{!-- All Styles Compress --}}
+    <style>{{> "styles"}}</style>
 
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 </head>
-<body class="{{#is "post"}}is-article{{/is}} {{{block "mapache_class_body"}}}" data-page="{{@blog.url}}">
+<body class="{{#is "post"}}is-article{{/is}} {{{block "mapache_class_body"}}}">
 
     {{!-- Header Content --}}
     {{>"header"}}
@@ -50,6 +53,11 @@
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
+
+    <script>
+        var maxPages = parseInt('{{pagination.pages}}');
+        var blogUrl = '{{@blog.url}}';
+    </script>
 
     {{!-- The main JavaScript file for Casper --}}
     <script src="{{asset "scripts/main.js"}}"></script>

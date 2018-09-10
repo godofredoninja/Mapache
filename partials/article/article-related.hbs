@@ -1,9 +1,12 @@
 {{!-- Article related --}}
 {{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |post_related|}}
 
-{{#if post_related}}
-
 <section class="post-related u-backgroundWhite u-paddingTop30 u-paddingBottom20 u-overflowHidden">
+
+{{!-- Ad --}}
+{{> "ad/ad-post-footer"}}
+
+{{#if post_related}}
     <div class="extreme-container">
         <div class="row story-card">
 
@@ -17,8 +20,7 @@
 
         </div>
     </div>
-</section>
-
 {{/if}}
 
+</section>
 {{/get}}
