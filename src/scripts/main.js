@@ -5,6 +5,9 @@ import 'theia-sticky-sidebar';
 // Import everything from autoload
 import './autoload/**/*';
 
+// Impor main Script
+import './app/app.main'
+
 // Pagination infinite scroll
 // import './app/pagination';
 
@@ -13,7 +16,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import isArticle from './routes/post';
 import isVideo from './routes/video';
-import isAudio from './routes/audio';
+// import isAudio from './routes/audio';
 import isPagination from './app/app.pagination'
 
 
@@ -32,7 +35,7 @@ const routes = new Router({
   isVideo,
 
   // Audio post Format
-  isAudio,
+  // isAudio,
 });
 
 // Load Events

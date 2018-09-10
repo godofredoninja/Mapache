@@ -30,12 +30,6 @@ export default {
     $('.post-body').find('img').attr('data-action', 'zoom');
     $('.post-body').find('a').find('img').removeAttr("data-action")
 
-    // Open Post Comments
-    $('.toggle-comments').on('click', function (e) {
-      e.preventDefault();
-      $('body').toggleClass('has-comments').removeClass('is-showNavMob')
-    });
-
     // sticky share post in left
     $('.sharePost').theiaStickySidebar({
       additionalMarginTop: 120,
