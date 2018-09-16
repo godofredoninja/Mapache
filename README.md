@@ -20,7 +20,7 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 
 ## Featured
 
-- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko)
+- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
 - Responsive layout
 - Magazine style home page or personal blog style
 - 404 error page (emoticons — last 6 articles)
