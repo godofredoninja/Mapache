@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Page not found</title>
+    <title>{{t "Page not found"}}</title>
 
-    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
+    {{!-- All Styles Compress --}}
+    <style>{{> "styles"}}</style>
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
 </head>
 <body class="u-backgroundWhite">
 
@@ -48,6 +52,10 @@
 
     {{!-- Scripts --}}
     {{ghost_foot}}
+
+    <script>
+        var blogUrl = '{{@blog.url}}';
+    </script>
 
     <script type="text/javascript">
         var emoji = ['(·.·)', '(>_<)', '(^-^*)', '(≥o≤)', '(˚Δ˚)', '(·_·)', '(;-;)']
