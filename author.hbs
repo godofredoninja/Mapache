@@ -30,13 +30,13 @@
         <div class="author-meta u-paddingBottom30">
             {{#if location}}<span><i class="i-location"></i> {{location}}</span>{{/if}}
             {{#if website}}<span><a href="{{website}}" target="_blank"><i class="i-link"></i> {{website}}</a></span>{{/if}}
-            <span><a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="nofollow"><i class="i-rss"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</a></span>
+            <span><a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="nofollow noopener noreferrer"><i class="i-rss"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</a></span>
         </div>
 
         {{!-- Facebook and Twitter --}}
         <div class="author-follow buttonSet">
-            {{#if facebook}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow"><i class="i-facebook"></i> Facebook</a>{{/if}}
-            {{#if twitter}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow"><i class="i-twitter"></i> Twitter</a>{{/if}}
+            {{#if facebook}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow noopener noreferrer"><i class="i-facebook"></i> Facebook</a>{{/if}}
+            {{#if twitter}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow noopener noreferrer"><i class="i-twitter"></i> Twitter</a>{{/if}}
         </div>
     </article>
 </div>
