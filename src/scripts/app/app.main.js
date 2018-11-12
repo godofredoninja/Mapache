@@ -5,9 +5,9 @@ import mapacheShare from './app.share';
   // Varibles
   const globalBlogUrl = blogUrl; // eslint-disable-line
   const $body = $('body');
-  const $seachInput = $('#search-field');
+  // const $seachInput = $('#search-field');
 
-  let loadGhostHunter = true;
+  // let loadGhostHunter = true;
   let didScroll = false;
   let lastScrollTop = 0; // eslint-disable-line
   let delta = 5;
@@ -47,29 +47,16 @@ import mapacheShare from './app.share';
   });
 
   /* Search Template */
-  const searchTemplate = `
-  <a class="u-block" href="${globalBlogUrl}{{link}}">
-    <span class="u-contentTitle u-fontSizeBase">{{title}}</span>
-    <span class="u-block u-fontSizeSmaller u-textColorNormal u-paddingTop5">{{pubDate}}</span>
-  </a>`;
+  // const searchTemplate = `
+  // <a class="u-block" href="${globalBlogUrl}{{link}}">
+  //   <span class="u-contentTitle u-fontSizeBase">{{title}}</span>
+  //   <span class="u-block u-fontSizeSmaller u-textColorNormal u-paddingTop5">{{pubDate}}</span>
+  // </a>`;
 
   /* Toggle card for search Search */
   $('.search-toggle').on('click', (e) => {
     e.preventDefault();
     $('body').toggleClass('is-search').removeClass('is-showNavMob');
-    $seachInput.focus();
-
-    if (loadGhostHunter) {
-      $seachInput.ghostHunter({
-        results: '#searchResults',
-        zeroResultsInfo: true,
-        info_template: '<p class="u-paddingBottom20 u-fontSize15">Showing {{amount}} results</p>',
-        result_template: searchTemplate,
-        onKeyUp: true,
-      });
-    }
-
-    loadGhostHunter = false;
   });
 
   // Open Post Comments

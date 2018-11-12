@@ -41,15 +41,20 @@
 
   // result
   &-results {
-    max-height: calc(90% - 100px);
+    max-height: calc(100% - 100px);
     max-width: 680px;
     overflow: auto;
 
     a {
-      border-bottom: 1px solid #eee;
-      padding: 12px 0;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, .05);
+      color: rgba(0, 0, 0, .7);
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #fff;
+      transition: all 0.3s ease-in-out;
 
-      &:hover { color: rgba(0, 0, 0, .44) }
+      &:hover { background: rgba(0, 0, 0, 0.1) }
     }
   }
 }

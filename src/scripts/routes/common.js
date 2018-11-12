@@ -1,9 +1,20 @@
 import mapacheFollow from '../app/app.follow';
 import mapacheFooterLinks from '../app/app.footer.links';
+// import simplyGhostSearch from '../app/app.search';
+import ghostSearch from '../app/search';
 import mapacheTwitter from '../app/app.twitter';
 
 // Varibles
 const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
+
+const mySearchSettings = {
+  input: '#search-field',
+  results: '#searchResults',
+  on: {
+    beforeFetch: () => {$('body').addClass('is-loading')},
+    afterFetch: () => {setTimeout(() => {$('body').removeClass('is-loading')}, 4000)},
+  },
+}
 
 export default {
   init() {
@@ -32,6 +43,13 @@ export default {
       additionalMarginTop: 70,
       minWidth: 970,
     });
+
+    if (typeof searchSettings !== 'undefined') {
+      Object.assign(mySearchSettings, searchSettings); // eslint-disable-line
+    }
+
+    // Search
+    new ghostSearch(mySearchSettings);
 
     // Twitter Widget
     if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
