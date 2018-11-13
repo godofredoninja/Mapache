@@ -3,7 +3,7 @@
     {{!-- Story Image --}}
     <div class="story-image u-relative u-overflowHidden u-backgroundColorGrayLight">
         {{!-- Background Image --}}
-        <a href="{{url}}" class="story-image-lazy u-absolute0 u-block story-img-bg {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-original="{{feature_image}}"></a>
+        <a href="{{url}}" class="lazy-load-image u-absolute0 u-block story-img-bg {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-src="{{feature_image}}"></a>
         {{!-- icon If is Video or Image / Gallery --}}
         {{#has tag="#video"}}
             <span class="media-type u-absolute i-play"></span>

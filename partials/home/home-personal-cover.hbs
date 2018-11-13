@@ -2,7 +2,7 @@
     {{!-- Image featured --}}
     {{#if @blog.cover_image}}
         <div class="u-absolute0 u-backgroundDark"></div>
-        <div class="cover-opacity cover-lazy u-absolute0 u-backgroundSizeCover zindex2 u-block" data-original="{{@blog.cover_image}}"></div>
+        <div class="cover-opacity lazy-load-image u-absolute0 u-backgroundSizeCover zindex2 u-block" data-src="{{@blog.cover_image}}"></div>
     {{/if}}
 
     <div class="u-relative u-maxWidth1040 u-marginAuto u-padding20 u-sizeFullWidth u-textAlignCenter zindex3 u-textColorWhite">

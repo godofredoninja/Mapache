@@ -38,7 +38,10 @@ export default {
 
     // Instagram Feed
     if (typeof instagramUserId !== 'undefined' && typeof instagramToken !== 'undefined' && typeof instagramUserName !== 'undefined') {
-      mapacheInstagram(instagramUserId, instagramToken, instagramUserName); // eslint-disable-line
+      const url = `https://api.instagram.com/v1/users/${instagramUserId}/media/recent/?access_token=${instagramToken}&count=10&callback=?`; // eslint-disable-line
+      const user = `<a href="https://www.instagram.com/${instagramUserName}" class="button button--large button--chromeless" target="_blank"><i class="i-instagram"></i> ${instagramUserName}</a>`; // eslint-disable-line
+
+      mapacheInstagram(url, user);
     }
 
     // Gallery

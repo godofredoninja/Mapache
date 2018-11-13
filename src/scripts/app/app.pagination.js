@@ -6,6 +6,8 @@
  * the page is inspired by the casper code theme for ghost
  */
 
+import lazyLoadImage from '../app/app.lazy-load';
+
 export default {
   init() {
     // Variables
@@ -79,7 +81,8 @@ export default {
         }
       }).always( () => {
         /* Lazy load for image */
-        $('.story-image-lazy').lazyload({ threshold : 200 });
+        // $('.lazy-load-image').lazyload({ threshold : 200 });
+        lazyLoadImage().update();
       });
 
     }

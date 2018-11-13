@@ -95,9 +95,9 @@
   },
   "dependencies": {
     "fuzzysort": "^1.1.4",
-    "jquery-lazyload": "^1.9.7",
     "normalize.css": "^8.0.0",
     "prismjs": "^1.15.0",
-    "theia-sticky-sidebar": "^1.7.0"
+    "theia-sticky-sidebar": "^1.7.0",
+    "vanilla-lazyload": "^8.17.0"
   }
 }

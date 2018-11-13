@@ -1,5 +1,4 @@
 // import external dependencies
-import 'jquery-lazyload';
 import 'theia-sticky-sidebar';
 
 // Import everything from autoload

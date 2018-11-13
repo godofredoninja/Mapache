@@ -3,9 +3,7 @@ import mapacheShare from './app.share';
 
 (function () {
   // Varibles
-  const globalBlogUrl = blogUrl; // eslint-disable-line
   const $body = $('body');
-  // const $seachInput = $('#search-field');
 
   // let loadGhostHunter = true;
   let didScroll = false;
@@ -45,13 +43,6 @@ import mapacheShare from './app.share';
     e.preventDefault();
     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 60 }, 500, 'linear');
   });
-
-  /* Search Template */
-  // const searchTemplate = `
-  // <a class="u-block" href="${globalBlogUrl}{{link}}">
-  //   <span class="u-contentTitle u-fontSizeBase">{{title}}</span>
-  //   <span class="u-block u-fontSizeSmaller u-textColorNormal u-paddingTop5">{{pubDate}}</span>
-  // </a>`;
 
   /* Toggle card for search Search */
   $('.search-toggle').on('click', (e) => {

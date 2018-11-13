@@ -2,6 +2,7 @@ import mapacheFollow from '../app/app.follow';
 import mapacheFooterLinks from '../app/app.footer.links';
 // import simplyGhostSearch from '../app/app.search';
 import ghostSearch from '../app/search';
+import lazyLoadImage from '../app/app.lazy-load';
 import mapacheTwitter from '../app/app.twitter';
 
 // Varibles
@@ -33,8 +34,10 @@ export default {
     if (typeof footerLinks !== 'undefined') mapacheFooterLinks (footerLinks, urlRegexp); // eslint-disable-line
 
     /* Lazy load for image */
-    $('.cover-lazy').lazyload({effect : 'fadeIn'});
-    $('.story-image-lazy').lazyload({threshold : 200});
+    /* Lazy load for image */
+    lazyLoadImage();
+    // $('.lazy-load-image').lazyload({effect : 'fadeIn'});
+    // $('.lazy-load-image').lazyload({threshold : 200});
   }, // end Init
 
   finalize() {
