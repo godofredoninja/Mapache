@@ -23,8 +23,8 @@
             {{t "By"}} <a href="{{url}}" class="mapache-tracking link link--underline u-fontWeightBold u-textColorDarker" title="{{t "Posts by"}} {{name}}" data-event-category="Article" data-event-action="Author - {{name}}" data-event-label="Profile" data-event-non-interaction="1">{{name}}</a>
 
             {{!-- Author Social Media (Facebook - Twitter) --}}
-            {{#if facebook}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-facebook i-facebook" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow"></a>{{/if}}
-            {{#if twitter}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-twitter i-twitter" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow"></a>{{/if}}
+            {{#if facebook}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-facebook i-facebook" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow noopener noreferrer"></a>{{/if}}
+            {{#if twitter}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-twitter i-twitter" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow noopener noreferrer"></a>{{/if}}
         </div>
 
         {{/primary_author}}
