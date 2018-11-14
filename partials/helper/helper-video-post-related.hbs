@@ -2,7 +2,6 @@
 {{#if filter_video_related}}
 
 <div class="row u-hide-before-md">
-
     {{!-- More video Title --}}
     <div class="col s12">
         <h4 class="title-line u-marginBottom20 u-marginTop20"><span class="u-oblique">{{t "More Videos"}}</span></h4>
@@ -10,8 +9,8 @@
 
     {{#foreach filter_video_related}}
     <div class="col s12 m6 l3">
-        {{!-- Story style Grid - partials/story/story-grid.hbs --}}
-        {{> "story/story-grid"}}
+        {{!-- Story Small Grid - partials/story/story-small.hbs --}}
+        {{> "story/story-small"}}
     </div>
     {{/foreach}}
 </div>

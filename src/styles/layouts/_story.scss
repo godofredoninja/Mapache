@@ -162,6 +162,44 @@
   }
 }
 
+// Story Small
+// ==========================================================================
+
+.story-small {
+  h3 {
+    color: #fff;
+    max-height: 2.5em;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+  }
+
+  &-img {
+    height: 170px
+  }
+
+  /* stylelint-disable-next-line */
+  .media-type {
+    height: 34px;
+    width: 34px;
+  }
+}
+
+// All Story Hover
+// ==========================================================================
+
+.story--hover {
+  /* stylelint-disable-next-line */
+  .lazy-load-image, h2, h3 { transition: all .25s }
+
+  &:hover {
+    .lazy-load-image { opacity: .8 }
+    h3,h2 { opacity: .6 }
+  }
+}
+
 // Media query after medium
 // ==========================================================================
 

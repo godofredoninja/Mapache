@@ -288,26 +288,26 @@
   .kg-embed-card, .video-responsive { margin-top: 0 }
 
   // Video related
-  .story h2 {
-    color: #fff;
-    margin: 0;
-    font-size: 1.125rem !important;
-    font-weight: 700 !important;
-    max-height: 2.5em;
-    overflow: hidden;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 2 !important;
-    text-overflow: ellipsis !important;
-    display: -webkit-box !important;
-  }
+  // .story h2 {
+  //   color: #fff;
+  //   margin: 0;
+  //   font-size: 1.125rem !important;
+  //   font-weight: 700 !important;
+  //   max-height: 2.5em;
+  //   overflow: hidden;
+  //   -webkit-box-orient: vertical !important;
+  //   -webkit-line-clamp: 2 !important;
+  //   text-overflow: ellipsis !important;
+  //   display: -webkit-box !important;
+  // }
 
-  .flow-meta, .story-lower, figcaption { display: none !important }
-  .story-image { height: 170px !important; }
+  // .flow-meta, .story-lower, figcaption { display: none !important }
+  // .story-image { height: 170px !important; }
 
-  .media-type {
-    height: 34px !important;
-    width: 34px !important;
-  }
+  // .media-type {
+  //   height: 34px !important;
+  //   width: 34px !important;
+  // }
 }
 
 // change the design according to the classes of the body

@@ -47,6 +47,8 @@
   z-index: 1;
 }
 
+.u-bgBlack { background-color: #000 }
+
 .u-gradient {
   background: linear-gradient(to bottom, transparent 20%, #000 100%);
   bottom: 0;
@@ -115,7 +117,7 @@
 // font weight
 .u-fontWeightThin { font-weight: 300 }
 .u-fontWeightNormal { font-weight: 400 }
-// .u-fontWeightMedium { font-weight: 500 }
+.u-fontWeightMedium { font-weight: 500 }
 .u-fontWeightSemibold { font-weight: 600 !important }
 .u-fontWeightBold { font-weight: 700 }
 .u-fontWeightBolder { font-weight: 900 }
