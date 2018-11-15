@@ -104,7 +104,29 @@
   }
 }
 
-.cover-category { color: var(--story-cover-category-color) }
+// sory cover -> .st-cover
+// ==========================================================================
+
+.st-cover {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+
+  &-inner { height: 100% }
+  &-img { transition: all .25s; }
+  .flow-meta-cat { color: var(--story-cover-category-color) }
+  .flow-meta { color: #fff }
+
+  &-header {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 3.846153846% 20px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, .9) 100%);
+  }
+
+  &:hover .st-cover-img { opacity: .8 }
+}
 
 // Story Card
 // ==========================================================================
@@ -221,7 +243,7 @@
 // ==========================================================================
 @media #{$md-and-down} {
   // Story Cover
-  .cover--firts .cover-story { height: 500px }
+  .cover--firts .story-cover { height: 500px }
 
   // story default list
   .story {

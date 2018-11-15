@@ -9,7 +9,7 @@ import lazyLoadImage from './app.lazy-load';
 const templateInstagram = data => {
   return `<div class="instagram-col col s6 m4 l2">
     <a href="${data.link}" class="instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block" target="_blank">
-      <span class="u-absolute0 u-backgroundSizeCover u-backgroundColorGrayLight lazy-load-image" data-src="${data.images.standard_resolution.url}" style:"z-index:2"></span>
+      <span class="u-absolute0 u-bgCover u-backgroundColorGrayLight lazy-load-image" data-src="${data.images.standard_resolution.url}" style:"z-index:2"></span>
       <div class="instagram-hover u-absolute0 u-flexColumn" style="z-index:3">
         <div class="u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20">
           <span style="padding-right:10px"><i class="i-favorite"></i> ${data.likes.count}</span>

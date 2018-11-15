@@ -9,12 +9,12 @@
     {{!-- Cover Background --}}
     {{#if cover_image}}
     <div class="u-absolute0 u-backgroundDark"></div>
-    <div class="cover-opacity lazy-load-image u-absolute0 u-backgroundSizeCover zindex2 u-block" data-src="{{cover_image}}"></div>
+    <div class="cover-opacity lazy-load-image u-absolute0 u-bgCover zindex2 u-block" data-src="{{cover_image}}"></div>
     {{/if}}
 
     <article class="author-wrap u-relative u-maxWidth1040 u-container u-textAlignCenter zindex3">
         {{!-- Avatar --}}
-        <div  class="author-avatar u-relative u-marginBottom30 animated bounceInDown u-round u-backgroundSizeCover u-marginAuto {{^if profile_image}}no-avatar{{/if}}" style="background-image:url({{profile_image}})">
+        <div  class="author-avatar u-relative u-marginBottom30 animated bounceInDown u-round u-bgCover u-marginAuto {{^if profile_image}}no-avatar{{/if}}" style="background-image:url({{profile_image}})">
             <div class="u-absolute u-accentColor--iconNormal svgIcon" style="width:calc(100% + 14px);height:calc(100% + 14px);top:-7px;left:-7px;">
                 {{> "icons/halo"}}
             </div>

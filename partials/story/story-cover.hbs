@@ -1,31 +1,21 @@
-{{!-- Story Cover Temple  --}}
+<article class="st-cover u-relative u-floatLeft {{#if @first}}firts{{/if}}">
+    <div class="st-cover-inner u-relative u-bgBlack">
+        {{!-- background image --}}
+        <div class="st-cover-img lazy-load-image u-absolute0 u-bgCover" data-src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/not-image.jpg"}}{{/if}}"></div>
 
-<article class="cover-story u-relative u-backgroundColorGrayLigh u-floatLeft {{#if @first}}firts{{/if}}">
+        <header class="st-cover-header u-absolute u-textColorWhite zindex2">
 
-    {{!-- background image --}}
-    <div class="cover-img lazy-load-image u-absolute u-block {{#unless feature_image}}not-image{{else}}image-hover u-backgroundSizeCover{{/unless}}" data-src="{{feature_image}}"></div>
+            {{!-- Category and Datetime partials/helper/helper-story-meta --}}
+            {{> "helper/helper-story-meta"}}
 
-    <header class="cover-header u-absolute u-textColorWhite zindex2">
+            {{!-- Title --}}
+            <h2 class="st-cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22">{{title}}</h2>
 
-        <div class="flow-meta u-fontSizeSmallest u-textColorWhite">
-            {{!-- primary tag --}}
-            {{#if primary_tag}}
-                <span class="u-fontWeightBold u-textUppercase cover-category">{{primary_tag.name}}</span>
-                <span class="point">/</span>
-            {{/if}}
+            {{!-- excerpt --}}
+            {{#if @first}} <p class="st-cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}}
+        </header>
 
-            {{!-- Datetime --}}
-            <time class="datetime u-fontSize14" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time>
-        </div>
-
-        {{!-- Title --}}
-        <h2 class="cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22 u-contentTitle">{{title}}</h2>
-
-        {{!-- excerpt --}}
-        {{#if @first}} <p class="cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}}
-    </header>
-
-    {{!-- story link --}}
-    <a href="{{url}}" class="cover-link u-absolute zindex3"></a>
-
+        {{!-- link --}}
+        <a href="{{url}}" class="u-absolute0 zindex3"></a>
+    </div>
 </article>

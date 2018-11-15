@@ -1,0 +1,10 @@
+<div class="flow-meta u-fontSizeSmallest u-flexCenter">
+    {{!-- primary tag --}}
+    {{#if primary_tag}}{{#primary_tag}}
+        <a href="{{url}}" class="flow-meta-cat link--underline u-fontWeightMedium u-textUppercase u-relative zindex4">{{name}}</a>
+        <span class="point">/</span>
+    {{/primary_tag}}{{/if}}
+
+    {{!-- DateTime --}}
+    <span><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time></span>
+</div>
