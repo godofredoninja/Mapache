@@ -1,9 +1,12 @@
-{{!-- Header Template --}}
 <header class="header u-sizeFullWidth u-bgColor">
     <div class="header-wrap u-flexCenter u-relative">
 
         <a class="header-logo u-inlineBlock u-flex0" href="{{@blog.url}}">
-            {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}"/>{{else}}<span class="u-fontSizeLarge u-fontWeightBold">{{@blog.title}}</span>{{/if}}
+            {{#if @blog.logo}}
+                <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+            {{else}}
+                <span class="u-fontSizeLarge u-fontWeightBold">{{@blog.title}}</span>
+            {{/if}}
         </a>
 
         {{!-- Navigation --}}
@@ -19,10 +22,7 @@
             <div class="followMe follow-more u-hide-before-md"></div>
 
             {{!-- Open Subscribe card --}}
-            {{#if @labs.subscribers}}
-            <a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-md i-email"></a>
-            {{/if}}
-
+            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-md i-email"></a>{{/if}}
             {{!-- toggle follow more --}}
             <a href="#" class="follow-toggle u-relative u-fontSizeLarge u-hide u-hide-before-md i-more"></a>
             {{!-- separe --}}
@@ -31,11 +31,9 @@
             <a href="#" class="search-toggle u-relative i-search"></a>
             {{!-- Toggle Menu --}}
             <a href="#" class="menu--toggle u-relative u-hide-after-md"><span></span><span></span><span></span></a>
-
         </div>
     </div>
-
-    {{!-- Side Nav for Mobile --}}
-    {{>"sidenav"}}
-
 </header>
+
+{{!-- Side Nav for Mobile --}}
+{{>"sidenav"}}

@@ -26,7 +26,7 @@
 }
 
 // not have logo
-.not-logo .header-logo { height: auto !important }
+// .not-logo .header-logo { height: auto !important }
 
 // Header line separate
 .header-line {
@@ -130,7 +130,6 @@ body.is-showFollowMore {
       span:last-child { transform: rotate(-45deg) translate(0, 0); }
     }
 
-    .header .button-search--toggle { display: none; }
-    .main, .footer { transform: translateX(-25%) !important; }
+    .main, .footer { transform: translateX(-25%) !important }
   }
 }
