@@ -20,8 +20,14 @@
     word-wrap: break-word;
   }
 
+  &-bio {
+    max-width: 700px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
   &-name { color: rgba(0, 0, 0, .8) }
-  &-bio { max-width: 600px; }
   &-meta a:hover { opacity: .8 !important }
 }
 

@@ -326,7 +326,12 @@ table {
 // Page Tags
 // ==========================================================================
 .tag {
-  &-description { max-width: 700px }
+  &-description {
+    max-width: 700px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
   &.has--image { min-height: 350px }
 }
 
