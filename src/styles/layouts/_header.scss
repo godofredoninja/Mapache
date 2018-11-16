@@ -111,7 +111,7 @@ body.is-showFollowMore {
 // Header menu
 // ==========================================================================
 
-@media #{$md-and-down} {
+@media #{$lg-and-down} {
   .header-left { flex-grow: 1 !important; }
   .header-logo span { font-size: 24px }
 
