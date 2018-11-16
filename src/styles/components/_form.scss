@@ -22,25 +22,25 @@
   vertical-align: middle;
   white-space: nowrap;
 
-  &--chromeless {
-    border-radius: 0;
-    border-width: 0;
-    box-shadow: none;
-    color: rgba(0, 0, 0, .44);
-    height: auto;
-    line-height: inherit;
-    padding: 0;
-    text-align: left;
-    vertical-align: baseline;
-    white-space: normal;
+  // &--chromeless {
+  //   border-radius: 0;
+  //   border-width: 0;
+  //   box-shadow: none;
+  //   color: rgba(0, 0, 0, .44);
+  //   height: auto;
+  //   line-height: inherit;
+  //   padding: 0;
+  //   text-align: left;
+  //   vertical-align: baseline;
+  //   white-space: normal;
 
-    &:active,
-    &:hover,
-    &:focus {
-      border-width: 0;
-      color: rgba(0, 0, 0, .6);
-    }
-  }
+  //   &:active,
+  //   &:hover,
+  //   &:focus {
+  //     border-width: 0;
+  //     color: rgba(0, 0, 0, .6);
+  //   }
+  // }
 
   &--large {
     font-size: 15px;
@@ -67,46 +67,46 @@
   color: $primary-color;
 }
 
-.button--large.button--chromeless,
-.button--large.button--link {
-  padding: 0;
-}
+// .button--large.button--chromeless,
+// .button--large.button--link {
+//   padding: 0;
+// }
 
-.buttonSet {
-  > .button {
-    margin-right: 8px;
-    vertical-align: middle;
-  }
+// .buttonSet {
+//   > .button {
+//     margin-right: 8px;
+//     vertical-align: middle;
+//   }
 
-  > .button:last-child {
-    margin-right: 0;
-  }
+//   > .button:last-child {
+//     margin-right: 0;
+//   }
 
-  .button--chromeless {
-    height: 37px;
-    line-height: 35px;
-  }
+//   .button--chromeless {
+//     height: 37px;
+//     line-height: 35px;
+//   }
 
-  .button--large.button--chromeless,
-  .button--large.button--link {
-    height: 44px;
-    line-height: 42px;
-  }
+//   .button--large.button--chromeless,
+//   .button--large.button--link {
+//     height: 44px;
+//     line-height: 42px;
+//   }
 
-  & > .button--chromeless:not(.button--circle) {
-    margin-right: 0;
-    padding-right: 8px;
-  }
+//   & > .button--chromeless:not(.button--circle) {
+//     margin-right: 0;
+//     padding-right: 8px;
+//   }
 
-  & > .button--chromeless:last-child {
-    padding-right: 0;
-  }
+//   & > .button--chromeless:last-child {
+//     padding-right: 0;
+//   }
 
-  & > .button--chromeless + .button--chromeless:not(.button--circle) {
-    margin-left: 0;
-    padding-left: 8px;
-  }
-}
+//   & > .button--chromeless + .button--chromeless:not(.button--circle) {
+//     margin-left: 0;
+//     padding-left: 8px;
+//   }
+// }
 
 .button--circle {
   background-image: none !important;

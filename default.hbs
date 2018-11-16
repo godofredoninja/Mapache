@@ -59,10 +59,7 @@
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
 
-    <script>
-        var maxPages = parseInt('{{pagination.pages}}');
-        var blogUrl = '{{@blog.url}}';
-    </script>
+    {{#if pagination.pages}}<script>var maxPages = parseInt('{{pagination.pages}}');</script>{{/if}}
 
     {{!-- The main JavaScript file for Casper --}}
     <script src="{{asset "scripts/main.js"}}"></script>
