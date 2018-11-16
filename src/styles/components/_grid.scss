@@ -3,7 +3,6 @@
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 16px;
   width: 100%;
 }
 
@@ -44,9 +43,9 @@
 .col-right {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 320px;
+  padding-left: $container-gutter-width;
+  padding-right: $container-gutter-width;
+  width: 330px;
 }
 
 .row {
@@ -54,14 +53,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   flex: 0 1 auto;
-  margin-left: - 10px;
-  margin-right: - 10px;
+  margin-left: - $container-gutter-width;
+  margin-right: - $container-gutter-width;
 
   .col {
     flex: 0 0 auto;
     box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: $container-gutter-width;
+    padding-right: $container-gutter-width;
 
     $i: 1;
 

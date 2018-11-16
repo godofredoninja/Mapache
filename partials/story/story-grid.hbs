@@ -1,31 +1,14 @@
-{{!-- Article  Grid Template--}}
-<article class="story u-flex u-relative story--grid {{#if featured}}featured{{/if}}">
-    {{!-- Story Image --}}
+<article class="story u-flex u-relative {{#if featured}}featured{{/if}}">
     <div class="story-image u-relative u-overflowHidden u-backgroundColorGrayLight">
         {{!-- Background Image --}}
-        <a href="{{url}}" class="lazy-load-image u-absolute0 u-block story-img-bg {{#unless feature_image}}not-image{{else}}image-hover u-bgCover{{/unless}}" data-src="{{feature_image}}"></a>
-        {{!-- icon If is Video or Image / Gallery --}}
-        {{#has tag="#video"}}
-            <span class="media-type u-absolute i-play"></span>
-        {{else}}
-            {{#has tag="#image"}}
-            <span class="media-type u-absolute i-photo"></span>
-            {{/has}}
-        {{/has}}
-
+        <a href="{{url}}" class="story-img-bg lazy-load-image u-absolute0 u-block image-hover u-bgCover" data-src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/not-image.jpg"}}{{/if}}"></a>
+        {{!-- Media Type - partials/helper/helper-media-type.hbs --}}
+        {{> "helper/helper-media-type"}}
     </div>
 
     <div class="story-body u-flexColumn u-marginTop20 u-relative">
-        <div class="flow-meta u-fontSizeSmallest u-flexCenter">
-            {{!-- primary tag --}}
-            {{#if primary_tag}}{{#primary_tag}}
-                <a href="{{url}}" class="link--underline u-fontWeightMedium u-textUppercase story-category u-relative zindex4">{{name}}</a>
-                <span class="point">/</span>
-            {{/primary_tag}}{{/if}}
-
-            {{!-- DateTime --}}
-            <span><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time></span>
-        </div>
+        {{!-- Category and Datetime partials/helper/helper-story-meta --}}
+        {{> "helper/helper-story-meta"}}
 
         {{!-- Title --}}
         <h2 class="u-fontSize20 u-lineHeightTight u-marginBottom10">
@@ -40,5 +23,4 @@
         {{!-- Link Story Wrap --}}
         <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
     </div>
-
 </article>

@@ -24,7 +24,7 @@
         {{!-- Articles style Card --}}
         {{#get "posts" limit="6" include="tags" as |recents| }}
 
-        <div class="u-maxWidth1000 u-marginAuto u-container story-card">
+        <div class="u-maxWidth1000 u-marginAuto u-container story--card story--grid ">
             <div class="row">
                 {{#foreach recents}}
                     <div class="col s12 m6 l4">

@@ -16,17 +16,19 @@
 {{!-- Ad --}}
 {{> "ad/ad-home-top"}}
 
-<section class="extreme-container">
-    <div class="row u-marginBottom40">
+<section class="u-container">
+    <div class="story--grid extreme-container">
+        <div class="row u-marginBottom40">
 
-        {{!-- Post Grid - 6 lates article --}}
-        {{#foreach posts from="4" to="9"}}
-            <div class="col s12 m6 l4">
-                {{!-- partiasl/story/story-grid.hbs --}}
-                {{> "story/story-grid" }}
-            </div>
-        {{/foreach}}
+            {{!-- Post Grid - 6 lates article --}}
+            {{#foreach posts from="4" to="9"}}
+                <div class="col s12 m6 l4">
+                    {{!-- partiasl/story/story-grid.hbs --}}
+                    {{> "story/story-grid" }}
+                </div>
+            {{/foreach}}
 
+        </div>
     </div>
 
     {{!-- show 4 articles - partials/home/home-story-list.hbs --}}
