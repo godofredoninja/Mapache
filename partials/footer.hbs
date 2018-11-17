@@ -5,8 +5,8 @@
         <div class="extreme-container u-flexCenter u-flexColumn">
             {{!-- Follow social media --}}
             <aside class="follow followMe u-textColorWhite u-fontSize20 u-textAlignCenter">
-                {{#if @blog.facebook}}<a class="mapache-tracking i-facebook" data-event-category="Header" data-event-action="Follow Me" data-event-label="Facebook" data-event-non-interaction="1" title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank"></a>{{/if}}
-                {{#if @blog.twitter}}<a class="mapache-tracking i-twitter" data-event-category="Header" data-event-action="Follow Me" data-event-label="Twitter" data-event-non-interaction="1" title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank"></a>{{/if}}
+                {{#if @blog.facebook}}<a class="mapache-tracking i-facebook" data-event-category="Header" data-event-action="Follow Me" data-event-label="Facebook" data-event-non-interaction="1" title="Facebook {{@blog.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+                {{#if @blog.twitter}}<a class="mapache-tracking i-twitter" data-event-category="Header" data-event-action="Follow Me" data-event-label="Twitter" data-event-non-interaction="1" title="Twitter {{@blog.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
                 {{!-- Subscribe BTN for modal newsletter --}}
                 {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative i-email u-floatRight"></a>{{/if}}
             </aside>
@@ -21,6 +21,6 @@
     {{!-- copy --}}
     <div class="footer-copy u-textAlignCenter">
         &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a>
-        Design with <i class="i-favorite animated infinite pulse" style="color:red;display:inline-block"></i> by <a href="https://goo.gl/Jf1tZe" target="_blank" title="Developer FullStack.">@GodoFredoNinja</a>
+        Design with <i class="i-favorite animated infinite pulse" style="color:red;display:inline-block"></i> by <a href="https://goo.gl/Jf1tZe" target="_blank" rel="nofollow noopener noreferrer" title="Developer FullStack.">@GodoFredoNinja</a>
     </div>
 </footer>
