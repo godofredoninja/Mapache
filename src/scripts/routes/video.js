@@ -1,3 +1,5 @@
+import youtubeSubscribe from '../app/app.youtube-subscribe'
+
 /* Iframe SRC video */
 const iframeVideo = [
   'iframe[src*="player.vimeo.com"]',
@@ -32,6 +34,11 @@ export default {
   finalize() {
     //  Dnot scroll
     let didScroll = false;
+
+    // Youtube subscribe
+    if (typeof youtubeChannelID !== 'undefined') {
+      youtubeSubscribe(youtubeChannelID); /* eslint-disable-line */
+    }
 
     // Active Scroll
     $(window).on('scroll.video', () => didScroll = true );

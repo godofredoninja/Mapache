@@ -1,12 +1,12 @@
 {{#post}}
 
-<article class="post-body u-relative">
+<div class="post-body u-relative">
     {{!-- Share post - partials/article/article-share.hbs --}}
     {{> "article/article-share"}}
 
     <div class="post-body-wrap">
         {{!-- Content of Post --}}
-        {{content}}
+        <div class="post-inner">{{content}}</div>
 
         {{!-- Cloud Tags - partials/article/article-tags.hbs --}}
         {{> "article/article-tags"}}
@@ -19,7 +19,7 @@
 
         <hr class="post-footer-hr">
 
-        {{!-- Butoon for Comments Open --}}
+        {{!-- Button for Comments Open --}}
         <div class="button button--large button--dark-line post-comments-show toggle-comments ">
             {{!-- Disqus Comments Count --}}
             <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
@@ -29,7 +29,7 @@
         </div>
 
     </div>
-</article>
+</div>
 
 {{!-- Comments partials/article/article-comments.hbs --}}
 {{> "article/article-comments"}}

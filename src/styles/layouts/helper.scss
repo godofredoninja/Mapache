@@ -21,7 +21,7 @@ body.has-cover {
 
   &.is-transparency:not(.is-search) {
     .header {
-      background: rgba(0, 0, 0, .05);
+      background: transparent;
       box-shadow: none;
       border-bottom: 1px solid hsla(0, 0%, 100%, .1);
     }

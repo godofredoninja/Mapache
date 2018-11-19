@@ -3,6 +3,8 @@
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 1200px;
+  padding-left: 16px;
+  padding-right: 16px;
   width: 100%;
 }
 
@@ -38,6 +40,7 @@
   .cc-video-left { max-width: calc(100% - 320px) }
   .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
   body.is-article .col-left { padding-right: 40px }
+  .extreme-container { padding-left: 0; padding-right: 0 }
 }
 
 .col-right {

@@ -47,6 +47,8 @@
   z-index: 1;
 }
 
+.u-bgGradient { background: linear-gradient(to bottom, rgba(0, 0, 0, .3) 29%, rgba(0, 0, 0, .7) 81%) }
+
 .u-bgBlack { background-color: #000 }
 
 .u-gradient {
@@ -283,8 +285,9 @@
   background-color: var(--composite-color);
   color: #fff;
   display: inline-block;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   line-height: 1;
   padding: 5px 13px;
   text-transform: uppercase;

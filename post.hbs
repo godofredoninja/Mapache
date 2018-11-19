@@ -6,7 +6,7 @@
 
 <section class="post extreme-container u-marginTop30 u-marginBottom40">
     <div class="row">
-        <div class="col-left">
+        <article class="col-left">
             {{!-- Article Header - partials/article/article-header.hbs --}}
             {{> "article/article-header"}}
 
@@ -14,19 +14,17 @@
             {{> "article/article-author"}}
 
             {{#post}}
-
             {{!-- Image post - Default Post --}}
             {{#if feature_image}}
                 <figure class="post-image u-block u-marginAuto u-maxWidth1000">
                     <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}" data-action="zoom"/>
                 </figure>
             {{/if}}
-
             {{/post}}
 
             {{!-- Article Content - partials/article/article-body.hbs --}}
             {{> "article/article-body"}}
-        </div>
+        </article>
 
         {{!-- Sidebar - partials/sidebar.hbs --}}
         {{> "sidebar"}}
