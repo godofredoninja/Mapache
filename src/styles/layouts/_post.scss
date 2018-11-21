@@ -156,6 +156,16 @@
     border: 2px solid #bbb;
     color: #bbb;
   }
+
+  .share-inner {
+    transition: visibility 0s linear 0s, opacity .3s 0s;
+
+    &.is-hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear .3s, opacity .3s 0s;
+    }
+  }
 }
 
 // Post mobile share
@@ -241,7 +251,7 @@
 
 .cc-video {
   background-color: rgb(18, 18, 18);
-  padding: 40px 0 30px;
+  padding: 80px 0 30px;
 
   .post-excerpt { color: #aaa; font-size: 1rem }
   .post-title { color: #fff; font-size: 1.8rem }
@@ -268,14 +278,19 @@ body {
     .sharePost { left: -100px }
     .kg-width-full .kg-image { max-width: 100vw }
     .kg-width-wide .kg-image { max-width: 1040px }
+
+    .kg-gallery-container {
+      max-width: 1040px;
+      width: 100vw;
+    }
   }
 
   // Video
   &.is-video {
-    .header { background-color: rgb(35, 35, 35) }
-    .header-left a, .nav ul li a { color: #fff; }
-    .menu--toggle span { background-color: #fff }
-    .post-primary-tag { display: block !important }
+    // .header { background-color: rgb(35, 35, 35) }
+    // .header-left a, .nav ul li a { color: #fff; }
+    // .menu--toggle span { background-color: #fff }
+    // .post-primary-tag { display: block !important }
     .story-small h3 { font-weight: 400 }
   }
 }
@@ -318,6 +333,9 @@ body {
 
     .post-header { margin-top: 10px }
   }
+
+  // Image
+  .kg-width-wide .kg-image { width: 100% !important }
 }
 
 @media #{$lg-and-down} {

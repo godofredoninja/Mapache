@@ -40,9 +40,6 @@ export default {
       youtubeSubscribe(youtubeChannelID); /* eslint-disable-line */
     }
 
-    // Active Scroll
-    $(window).on('scroll.video', () => didScroll = true );
-
     // Fixed video in te footer of page
     function fixedVideo() {
       const scrollTop = $(window).scrollTop();
@@ -61,11 +58,16 @@ export default {
       $(window).off('scroll.video');
     });
 
-    setInterval(() => {
-      if (didScroll) {
-        fixedVideo();
-        didScroll = false;
-      }
-    }, 500);
+    if( $(window).width() > 1200 ) {
+      // Active Scroll
+      $(window).on('scroll.video', () => didScroll = true );
+
+      setInterval(() => {
+        if (didScroll) {
+          fixedVideo();
+          didScroll = false;
+        }
+      }, 500);
+    }
   },
 }

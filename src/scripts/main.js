@@ -5,7 +5,7 @@ import 'theia-sticky-sidebar';
 import './autoload/**/*';
 
 // Impor main Script
-import './app/app.main'
+import './mapache';
 
 // Pagination infinite scroll
 // import './app/pagination';

@@ -27,8 +27,8 @@ export default {
   },
   finalize() {
     // Add data action zoom FOR IMG
-    $('.post-body').find('img').attr('data-action', 'zoom');
-    $('.post-body').find('a').find('img').removeAttr("data-action")
+    $('.post-inner img').not('.kg-width-full img').attr('data-action', 'zoom');
+    $('.post-inner').find('a').find('img').removeAttr("data-action")
 
     // sticky share post in left
     $('.sharePost').theiaStickySidebar({
