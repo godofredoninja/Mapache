@@ -1,3 +1,5 @@
+/* global instagramFeed */
+
 // import facebookShareCount from '../app/app.facebook-share-count';
 import Prism from 'prismjs'
 import 'prismjs/plugins/autoloader/prism-autoloader';
@@ -37,9 +39,9 @@ export default {
     });
 
     // Instagram Feed
-    if (typeof instagramUserId !== 'undefined' && typeof instagramToken !== 'undefined' && typeof instagramUserName !== 'undefined') {
-      const url = `https://api.instagram.com/v1/users/${instagramUserId}/media/recent/?access_token=${instagramToken}&count=10&callback=?`; // eslint-disable-line
-      const user = `<a href="https://www.instagram.com/${instagramUserName}" class="button button--large button--chromeless" target="_blank"><i class="i-instagram"></i> ${instagramUserName}</a>`; // eslint-disable-line
+    if (typeof instagramFeed === 'object' && instagramFeed !== null) {
+      const url = `https://api.instagram.com/v1/users/${instagramFeed.userId}/media/recent/?access_token=${instagramFeed.token}&count=10&callback=?`;
+      const user = `<a href="https://www.instagram.com/${instagramFeed.userName}" class="button button--large button--chromeless" target="_blank"><i class="i-instagram"></i> ${instagramFeed.userName}</a>`;
 
       mapacheInstagram(url, user);
     }
