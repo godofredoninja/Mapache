@@ -53,7 +53,8 @@ body.has-comments {
 @media #{$md-and-up} {
   .post-comments {
     left: auto;
-    width: 500px;
+    max-width: 700px;
+    min-width: 500px;
     top: $header-height;
     z-index: 9;
   }

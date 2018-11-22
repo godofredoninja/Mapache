@@ -30,38 +30,47 @@
 
 {{!-- Disqys Comments --}}
 <script>
-    var disqus_config = function () {
-        this.page.url = '{{url absolute="true"}}';
-        this.page.identifier = 'ghost-{{comment_id}}';
-    };
-
-    var $showComments = $('.post-comments-show');
-
     (function(d, s, id) {
-        if (typeof disqusShortName !== 'undefined') {
-            $('.mapache-disqus').removeClass('u-hide');
-            $showComments.removeClass('u-hide');
+         var disqus_config = function () {
+            this.page.url = '{{url absolute="true"}}';
+            this.page.identifier = 'ghost-{{comment_id}}';
+        };
 
-            var js = d.createElement(s);
-            js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
-            js.async = true;
+        var $showComments = $('.post-comments-show');
 
-            js.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(js);
-        } else if (typeof facebookLocaleComments !== 'undefined') {
-            $('.mapache-facebook').removeClass('u-hide');
-            $showComments.removeClass('u-hide');
+        $(window).on('load', function() {
+            if (typeof disqusShortName !== 'undefined') {
+                $('.mapache-disqus').removeClass('u-hide');
+                $showComments.removeClass('u-hide');
 
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/'+facebookLocaleComments+'/sdk.js#xfbml=1&version=v3.1';
-            js.async = true;
-            fjs.parentNode.insertBefore(js, fjs);
-        } else {
-            $showComments.remove();
-        }
+                var js = d.createElement(s);
+                js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
+                js.async = true;
+
+                /* Comments Count */
+                var count = d.createElement(s);
+                count.src = 'https://'+disqusShortName+'.disqus.com/count.js';
+                count.id = 'dsq-count-scr';
+                count.async = true;
+
+                js.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(js);
+                d.body.append(count);
+            } else if (typeof facebookLocaleComments !== 'undefined') {
+                $('.mapache-facebook').removeClass('u-hide');
+                $showComments.removeClass('u-hide');
+
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/'+facebookLocaleComments+'/sdk.js#xfbml=1&version=v3.1';
+                js.async = true;
+                fjs.parentNode.insertBefore(js, fjs);
+            } else {
+                $showComments.remove();
+            }
+        });
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
