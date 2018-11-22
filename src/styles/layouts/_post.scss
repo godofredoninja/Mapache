@@ -25,6 +25,8 @@
   }
 
   &-image { margin-top: 30px }
+
+  // &-body-wrap { max-width: 700px }
 }
 
 // Avatar
@@ -348,6 +350,8 @@ body {
 @media #{$md-and-up} {
   // Image post Format
   .cc-image .post-title { font-size: 3.2rem }
+  .prev-next-link { margin: 0 !important }
+  .prev-next-right { text-align: right }
 }
 
 @media #{$lg-and-up} {

@@ -26,6 +26,8 @@
   box-shadow: 0 1px 7px rgba(0, 0, 0, .0785);
   min-height: 60px;
 
+  h3 { padding: 10px }
+
   &:hover { .sidebar-border { background-color: rgba(229, 239, 245, 1) } }
 
   &:nth-child(3n) { .sidebar-border { border-color: darken(orange, 2%); } }

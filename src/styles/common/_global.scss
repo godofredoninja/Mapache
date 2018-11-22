@@ -152,30 +152,19 @@ pre[class*=language-] {
 
 // hr
 // ==========================================================================
-hr:not(.hr-list):not(.post-footer-hr) {
+hr:not(.hr-list) {
+  margin: 40px auto 10px;
+  height: 1px;
+  background-color: #ddd;
   border: 0;
-  display: block;
-  margin: 50px auto;
-  text-align: center;
-
-  &::before {
-    color: rgba(0, 0, 0, .6);
-    content: '...';
-    display: inline-block;
-    font-family: $primary-font;
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: .6em;
-    position: relative;
-    top: -25px;
-  }
+  max-width: 100%;
 }
 
 .post-footer-hr {
-  height: 1px;
+  // height: 1px;
   margin: 32px 0;
-  border: 0;
-  background-color: #ddd;
+  // border: 0;
+  // background-color: #ddd;
 }
 
 img {
