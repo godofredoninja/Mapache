@@ -127,6 +127,8 @@
 .u-textCapitalize { text-transform: capitalize }
 .u-textAlignCenter { text-align: center }
 
+.u-textShadow { text-shadow: 0 0 10px rgba(0, 0, 0, 0.33) }
+
 .u-noWrapWithEllipsis {
   overflow: hidden !important;
   text-overflow: ellipsis !important;

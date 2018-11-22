@@ -1,0 +1,20 @@
+.topic {
+  &-img {
+    transition: transform .7s;
+    transform: translateZ(0)
+  }
+
+  &-items {
+    height: 320px;
+    padding: 30px;
+
+    &:hover {
+      .topic-img { transform: scale(1.03); }
+    }
+  }
+
+  &-c {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+}
