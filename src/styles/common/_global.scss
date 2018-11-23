@@ -10,6 +10,7 @@
   --composite-color: #CC116E;
   --footer-color-link: #2ad88d;
   --media-type-color: #2ad88d;
+  --podcast-button-color: #1C9963;
 }
 
 *, *::before, *::after {
@@ -484,13 +485,31 @@ table {
   }
 }
 
+svg {
+  height: auto;
+  width: 100%;
+}
+
 .svgIcon {
   display: inline-block;
 }
 
-svg {
-  height: auto;
-  width: 100%;
+.svg-icon {
+  fill: currentColor;
+  display: inline-block;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    fill: inherit;
+    pointer-events: none;
+    transform: translateX(0);
+  }
 }
 
 // Pagination Infinite Scroll
