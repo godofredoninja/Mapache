@@ -62,7 +62,7 @@
     {{#if pagination.pages}}<script>var maxPages = parseInt('{{pagination.pages}}');</script>{{/if}}
 
     {{!-- The main JavaScript file for Casper --}}
-    <script src="{{asset "scripts/main.js"}}"></script>
+    <script src="{{asset "scripts/main.js"}}" async></script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
@@ -70,8 +70,8 @@
     {{!-- PrismJs Autoloader --}}
     {{#is "post, page"}}
     <script>
+        $('.post-inner').find('pre').addClass('line-numbers');
         Prism.plugins.autoloader.languages_path = '{{@blog.url}}/assets/scripts/components/';
-        $('.post-body').find('pre').addClass('line-numbers');
     </script>
     {{/is}}
 

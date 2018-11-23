@@ -1,3 +1,5 @@
+/* global homeBtn twitterFeed followSocialMedia footerLinks searchSettings */
+
 import mapacheFollow from '../app/app.follow';
 import mapacheFooterLinks from '../app/app.footer.links';
 // import simplyGhostSearch from '../app/app.search';
@@ -23,15 +25,19 @@ export default {
     if (typeof homeTitle !== 'undefined') $('#home-title').html(homeTitle); // eslint-disable-line
 
     // change BTN ( Name - URL) in Home Page
-    if (typeof homeBtnTitle !== 'undefined' && typeof homeBtnURL !== 'undefined') {
-      $('#home-button').attr('href', homeBtnURL).html(homeBtnTitle); // eslint-disable-line
+    if (typeof homeBtn === 'object' && homeBtn !== null) {
+      $('#home-button').attr('href', homeBtn.url).html(homeBtn.title);
     }
 
     // Follow me
-    if (typeof followSocialMedia !== 'undefined') mapacheFollow(followSocialMedia, urlRegexp); // eslint-disable-line
+    if (typeof followSocialMedia === 'object' && followSocialMedia !== null) {
+      mapacheFollow(followSocialMedia, urlRegexp);
+    }
 
     /* Footer Links */
-    if (typeof footerLinks !== 'undefined') mapacheFooterLinks (footerLinks, urlRegexp); // eslint-disable-line
+    if (typeof footerLinks === 'object' && footerLinks !== null) {
+      mapacheFooterLinks (footerLinks, urlRegexp);
+    }
 
     /* Lazy load for image */
     /* Lazy load for image */
@@ -47,16 +53,17 @@ export default {
       minWidth: 970,
     });
 
-    if (typeof searchSettings !== 'undefined') {
-      Object.assign(mySearchSettings, searchSettings); // eslint-disable-line
+    // concatenating the settings of the search engine with those of the user
+    if (typeof searchSettings === 'object' && searchSettings !== null) {
+      Object.assign(mySearchSettings, searchSettings);
     }
 
     // Search
     new ghostSearch(mySearchSettings);
 
     // Twitter Widget
-    if (typeof twitterUserName !== 'undefined' && typeof twitterNumber !== 'undefined') {
-      mapacheTwitter(twitterUserName, twitterNumber); // eslint-disable-line
+    if (typeof twitterFeed === 'object' && twitterFeed !== null) {
+      mapacheTwitter(twitterFeed.name, twitterFeed.number);
     }
 
     // show comments count of disqus

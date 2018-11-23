@@ -19,7 +19,7 @@ const iframeVideo = [
 
 export default {
   init() {
-    const $allMedia = $('.post-body').find(iframeVideo.join(','));
+    const $allMedia = $('.post-inner').find(iframeVideo.join(','));
 
     // Video responsive
     // allMedia.map((key, value) => $(value).wrap('<aside class="video-responsive"></aside>'));

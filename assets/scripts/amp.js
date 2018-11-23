@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a783826c647b2e0376d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "91407e470a9e4914f642"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(57)(__webpack_require__.s = 57);
+/******/ 	return hotCreateRequire(58)(__webpack_require__.s = 58);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2953,7 +2953,8 @@ exports.push([module.i, "/* line 9, stdin */\n\n.u-bgColor {\n  background-color
 /* 54 */,
 /* 55 */,
 /* 56 */,
-/* 57 */
+/* 57 */,
+/* 58 */
 /*!**************************************************************************************!*\
   !*** multi ./build/util/../helpers/hmr-client.js ./scripts/amp.js ./styles/amp.scss ***!
   \**************************************************************************************/
@@ -2962,12 +2963,12 @@ exports.push([module.i, "/* line 9, stdin */\n\n.u-bgColor {\n  background-color
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\Smigol\Projects\ghost\content\themes\mapache\src\build\util/../helpers/hmr-client.js */2);
-__webpack_require__(/*! ./scripts/amp.js */58);
-module.exports = __webpack_require__(/*! ./styles/amp.scss */59);
+__webpack_require__(/*! ./scripts/amp.js */59);
+module.exports = __webpack_require__(/*! ./styles/amp.scss */60);
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /*!************************!*\
   !*** ./scripts/amp.js ***!
   \************************/
@@ -2979,7 +2980,7 @@ console.log('hola Mundo'); // eslint-disable-line
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /*!*************************!*\
   !*** ./styles/amp.scss ***!
   \*************************/
