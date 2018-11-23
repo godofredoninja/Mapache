@@ -1,0 +1,20 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{!-- Class for <body> --}}
+{{#contentFor "mapache_class_body"}}is-newsletter{{/contentFor}}
+
+{{#post}}
+
+<article class="post ne">
+    <header class="ne-h u-container">
+        <div class="ne-inner u-maxWidth740 u-marginAuto u-relative u-flexColumn u-flexCenter u-textAlignCenter">
+            <h1 class="ne-t">{{title}}</h1>
+            {{#if custom_excerpt}}<p class="ne-e u-textColorNormal">{{custom_excerpt}}</p>{{/if}}
+        </div>
+    </header>
+
+    <section class="ne-body u-relative u-container"><div class="post-inner u-maxWidth1000 u-marginAuto ">{{content}}</div></section>
+</article>
+
+{{/post}}

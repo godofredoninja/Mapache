@@ -15,7 +15,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import isArticle from './routes/post';
 import isVideo from './routes/video';
-// import isAudio from './routes/audio';
+import isNewsletter from './routes/newsletter';
 import isPagination from './app/app.pagination'
 
 
@@ -32,6 +32,9 @@ const routes = new Router({
 
   // video post format
   isVideo,
+
+  // Newsletter page
+  isNewsletter,
 
   // Audio post Format
   // isAudio,
