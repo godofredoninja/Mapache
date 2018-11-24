@@ -8,6 +8,7 @@ import mapacheShare from './app/app.share';
   // const $header = $('.header');
   const intersectSels = ['.kg-width-full', '.kg-width-wide'];
   const $shareBox = $('.share-inner')
+  const $rocket = $('.rocket');
 
   let observe = [];
   let didScroll = false;
@@ -66,6 +67,12 @@ import mapacheShare from './app/app.share';
       $('body').toggleClass('has-comments').removeClass('is-showNavMob')
     });
 
+    /* rocket to the moon (return TOP HOME) */
+    $rocket.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop: 0}, 250);
+    });
+
   });
 
   /* Intersect share and image */
@@ -120,6 +127,13 @@ import mapacheShare from './app/app.share';
       } else {
         $body.addClass('is-transparency');
       }
+    }
+
+    // Show Rocket
+    if (st > 500 ) {
+      $rocket.addClass('to-top');
+    } else {
+      $rocket.removeClass('to-top');
     }
 
     // Share Fade

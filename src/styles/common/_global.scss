@@ -475,16 +475,24 @@ table {
 // Rocket for return top page
 // ==========================================================================
 .rocket {
-  bottom: 50px;
+  background: rgba(0, 0, 0, .3);
+  border-right: 0;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  opacity: 1;
   position: fixed;
-  right: 20px;
-  text-align: center;
-  width: 60px;
+  right: 0;
+  top: 50%;
+  transform: translate3d(100px, 0, 0);
+  transition: all .3s;
+  width: 50px;
   z-index: 5;
 
-  &:hover svg path {
-    fill: rgba(0, 0, 0, .6);
-  }
+  &:hover { background: rgba(0, 0, 0, .5); }
+
+  &.to-top { transform: translate3d(0, 0, 0) }
 }
 
 svg {
