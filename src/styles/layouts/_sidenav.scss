@@ -30,6 +30,7 @@
     margin: 15px 0;
 
     a {
+      background-color: rgba(0, 0, 0, 0.84);
       color: #fff;
       display: inline-block;
       height: 36px;
@@ -41,10 +42,10 @@
       vertical-align: middle;
     }
 
-    @each $social-name, $color in $social-colors {
-      .i-#{$social-name} {
-        @extend .bg-#{$social-name};
-      }
-    }
+    // @each $social-name, $color in $social-colors {
+    //   .i-#{$social-name} {
+    //     @extend .bg-#{$social-name};
+    //   }
+    // }
   }
 }

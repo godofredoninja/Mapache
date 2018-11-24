@@ -450,7 +450,7 @@ table {
 // Social Media Color
 // ==========================================================================
 @each $social-name, $color in $social-colors {
-  .c-#{$social-name} { color: $color !important; }
+  // .c-#{$social-name} { color: $color !important; }
   .bg-#{$social-name} { background-color: $color !important; }
 }
 

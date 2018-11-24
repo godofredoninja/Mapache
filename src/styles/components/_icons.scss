@@ -14,8 +14,20 @@
   @extend %fonts-icons;
 }
 
-.i-tag:before {
+.i-slack:before {
+  content: "\e901";
+}
+.i-tumblr:before {
+  content: "\e902";
+}
+.i-vimeo:before {
   content: "\e911";
+}
+.i-vk:before {
+  content: "\e912";
+}
+.i-twitch:before {
+  content: "\e913";
 }
 .i-discord:before {
   content: "\e90a";
@@ -37,13 +49,6 @@
 }
 .i-send:before {
   content: "\e909";
-}
-.i-audio:before {
-  content: "\e901";
-}
-.i-rocket:before {
-  content: "\e902";
-  color: #999;
 }
 .i-comments-line:before {
   content: "\e900";
