@@ -4,6 +4,8 @@
       "./scripts/main.js",
       "./styles/main.scss"
     ],
+    "search":"./scripts/search.js",
+    "prismjs":"./scripts/prismjs.js",
     "amp": [
       "./scripts/amp.js",
       "./styles/amp.scss"

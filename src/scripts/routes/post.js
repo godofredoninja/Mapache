@@ -1,10 +1,6 @@
-/* global instagramFeed */
+/* global instagramFeed blogUrl */
 
 // import facebookShareCount from '../app/app.facebook-share-count';
-import Prism from 'prismjs'
-import 'prismjs/plugins/autoloader/prism-autoloader';
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-
 import mapacheInstagram from '../app/app.instagram';
 
 /* Iframe SRC video */
@@ -17,9 +13,11 @@ const iframeVideo = [
   'iframe[src*="kickstarter.com"][src*="video.html"]',
 ];
 
+const $postInner = $('.post-inner');
+
 export default {
   init() {
-    const $allMedia = $('.post-inner').find(iframeVideo.join(','));
+    const $allMedia = $postInner.find(iframeVideo.join(','));
 
     // Video responsive
     // allMedia.map((key, value) => $(value).wrap('<aside class="video-responsive"></aside>'));
@@ -30,7 +28,7 @@ export default {
   finalize() {
     // Add data action zoom FOR IMG
     $('.post-inner img').not('.kg-width-full img').attr('data-action', 'zoom');
-    $('.post-inner').find('a').find('img').removeAttr("data-action")
+    $postInner.find('a').find('img').removeAttr("data-action")
 
     // sticky share post in left
     $('.sharePost').theiaStickySidebar({
@@ -50,16 +48,24 @@ export default {
     const images = document.querySelectorAll('.kg-gallery-image img');
 
     images.forEach(function (image) {
-        const container = image.closest('.kg-gallery-image');
-        const width = image.attributes.width.value;
-        const height = image.attributes.height.value;
-        const ratio = width / height;
-        container.style.flex = ratio + ' 1 0%';
-    })
+      const container = image.closest('.kg-gallery-image');
+      const width = image.attributes.width.value;
+      const height = image.attributes.height.value;
+      const ratio = width / height;
+      container.style.flex = ratio + ' 1 0%';
+    });
 
-    /* Prism autoloader */
-    Prism.highlightAll();
+    // PrismJS code syntax
+    const $prismPre = $postInner.find('code[class*="language-"]');
 
-    // Prism.plugins.autoloader.languages_path = `${$('body').attr('data-page')}/assets/scripts/components/`; // eslint-disable-line
+    if ($prismPre.length > 0) {
+      $postInner.find('pre').addClass('line-numbers');
+
+      let prismScript = document.createElement('script');
+      prismScript.src = `${blogUrl}/assets/scripts/prismjs.js`;
+      prismScript.defer = true;
+
+      document.body.appendChild(prismScript);
+    }
   }, // end finalize
 };

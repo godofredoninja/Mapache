@@ -4,26 +4,21 @@
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     {{!-- Page Meta --}}
     <title>{{meta_title}}</title>
-
     {{!-- Mobile Meta --}}
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
-
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/> --}}
     {{!-- All Styles Compress --}}
     {{!-- <style>{{> "styles"}}</style> --}}
+    {{!-- Font Roboto 400 --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 </head>
 <body class="{{#is "post"}}is-article{{/is}} {{{block "mapache_class_body"}}}">
-
     {{!-- Header Content --}}
     {{>"header"}}
 
@@ -52,6 +47,9 @@
         crossorigin="anonymous">
     </script>
 
+    {{!-- Blog URL --}}
+    <script>var blogUrl = '{{@blog.url}}';</script>
+
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
 
@@ -63,15 +61,7 @@
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
-    {{!-- PrismJs Autoloader --}}
-    {{#is "post, page"}}
-    <script>
-        $('.post-inner').find('pre').addClass('line-numbers');
-        Prism.plugins.autoloader.languages_path = '{{@blog.url}}/assets/scripts/components/';
-    </script>
-    {{/is}}
-
-    {{!--  Fonts => Roboto && Merriweather --}}
+    {{!--  Fonts => Roboto && Merriweather  && Roboto Mono--}}
     <script>WebFontConfig ={google:{families:['Roboto:300,500,700','Merriweather:300,400,700'{{#is "post"}},'Roboto+Mono'{{/is}}]}};(function(){var wf=document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
 </body>
 </html>

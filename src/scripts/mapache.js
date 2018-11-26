@@ -55,12 +55,6 @@ import mapacheShare from './app/app.share';
       $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 60 }, 500, 'linear');
     });
 
-    /* Toggle card for search Search */
-    $('.search-toggle').on('click', (e) => {
-      e.preventDefault();
-      $('body').toggleClass('is-search').removeClass('is-showNavMob');
-    });
-
     // Open Post Comments
     $('.toggle-comments').on('click', function (e) {
       e.preventDefault();

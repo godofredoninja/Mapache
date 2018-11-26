@@ -1,23 +1,12 @@
-/* global homeBtn twitterFeed followSocialMedia footerLinks searchSettings */
+/* global homeBtn twitterFeed followSocialMedia footerLinks blogUrl */
 
 import mapacheFollow from '../app/app.follow';
 import mapacheFooterLinks from '../app/app.footer.links';
-// import simplyGhostSearch from '../app/app.search';
-import ghostSearch from '../app/search';
 import lazyLoadImage from '../app/app.lazy-load';
 import mapacheTwitter from '../app/app.twitter';
 
 // Varibles
 const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
-
-const mySearchSettings = {
-  input: '#search-field',
-  results: '#searchResults',
-  on: {
-    beforeFetch: () => {$('body').addClass('is-loading')},
-    afterFetch: () => {setTimeout(() => {$('body').removeClass('is-loading')}, 4000)},
-  },
-}
 
 export default {
   init() {
@@ -40,10 +29,7 @@ export default {
     }
 
     /* Lazy load for image */
-    /* Lazy load for image */
     lazyLoadImage();
-    // $('.lazy-load-image').lazyload({effect : 'fadeIn'});
-    // $('.lazy-load-image').lazyload({threshold : 200});
   }, // end Init
 
   finalize() {
@@ -53,21 +39,16 @@ export default {
       minWidth: 970,
     });
 
-    // concatenating the settings of the search engine with those of the user
-    if (typeof searchSettings === 'object' && searchSettings !== null) {
-      Object.assign(mySearchSettings, searchSettings);
-    }
-
     // Search
-    new ghostSearch(mySearchSettings);
+    let searchScript = document.createElement('script');
+    searchScript.src = `${blogUrl}/assets/scripts/search.js`;
+    searchScript.defer = true;
+
+    document.body.appendChild(searchScript);
 
     // Twitter Widget
     if (typeof twitterFeed === 'object' && twitterFeed !== null) {
       mapacheTwitter(twitterFeed.name, twitterFeed.number);
     }
-
-    // show comments count of disqus
-    // if (typeof disqusShortName !== 'undefined') $('.mapache-disqus').removeClass('u-hide');
-
   }, //end => Finalize
 };

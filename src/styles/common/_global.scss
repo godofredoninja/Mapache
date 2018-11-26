@@ -10,9 +10,9 @@
   --composite-color: #CC116E;
   --footer-color-link: #2ad88d;
   --media-type-color: #2ad88d;
-  --podcast-button-color: #1C9963;
+  --podcast-button-color: #2ecc71;
   --newsletter-color: #1C9963;
-  --newsletter-bg-color: #1C9963;
+  --newsletter-bg-color: #55d17e;
 }
 
 *, *::before, *::after {
@@ -416,6 +416,14 @@ table {
 
 .kg-embed-card .video-responsive { margin-top: 0 }
 
+.kg-embed-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  max-width: 100%;
+}
+
 // Gallery
 // ==========================================================================
 
@@ -450,7 +458,7 @@ table {
 // Social Media Color
 // ==========================================================================
 @each $social-name, $color in $social-colors {
-  // .c-#{$social-name} { color: $color !important; }
+  .c-#{$social-name} { color: $color !important; }
   .bg-#{$social-name} { background-color: $color !important; }
 }
 
@@ -552,10 +560,4 @@ svg {
 // ==========================================================================
 @media #{$md-and-down} {
   blockquote { margin-left: -5px; font-size: 1.125rem }
-
-  .kg-image-card,
-  .kg-embed-card {
-    margin-right: -20px;
-    margin-left: -20px;
-  }
 }

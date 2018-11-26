@@ -13,7 +13,7 @@ const templateInstagram = data => {
       <div class="instagram-hover u-absolute0 u-flexColumn" style="z-index:3">
         <div class="u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20">
           <span style="padding-right:10px"><i class="i-favorite"></i> ${data.likes.count}</span>
-          <span style="padding-left:10px"><i class="i-comments"></i> ${data.comments.count}</span>
+          <span style="padding-left:10px"><i class="i-chat"></i> ${data.comments.count}</span>
         </div>
       </div>
     </a>
