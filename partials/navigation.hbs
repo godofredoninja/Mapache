@@ -1,7 +1,7 @@
 {{!-- Navigation template --}}
 <ul class="u-unstyled u-flex1">
     {{#foreach navigation}}
-        <li class="godo-tracking" data-event-category="Header" data-event-action="Menu" data-event-label="{{label}}" data-event-non-interaction="true">
+        <li {{^is "amp"}}class="godo-tracking" data-event-category="Header" data-event-action="Menu" data-event-label="{{label}}" data-event-non-interaction="true"{{/is}}>
             <a href="{{url absolute="true"}}" class="navigation-link u-fontSize15 u-block {{#if current}}active{{/if}}">{{label}}</a>
         </li>
     {{/foreach}}
