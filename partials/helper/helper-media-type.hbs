@@ -1,0 +1,8 @@
+{{!-- icon If is Video or Image / Gallery --}}
+{{#has tag="#video"}}
+    <span class="media-type u-absolute i-play"></span>
+{{else}}
+    {{#has tag="#image"}}
+        <span class="media-type u-absolute i-photo"></span>
+    {{/has}}
+{{/has}}

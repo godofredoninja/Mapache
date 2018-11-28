@@ -1,16 +1,22 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article-single show-category share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article-single share-margin has-cover is-transparency{{/contentFor}}
 
 <div class="cc-image u-overflowHidden u-relative u-boxShadowBottom">
     {{!-- Image and Backround Iand overlay --}}
     {{#post}}
+
     {{#if feature_image}}
         <figure class="cc-image-figure u-textAlignCenter u-block u-marginAuto u-sizeFullWidth">
             <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}"/>
         </figure>
+    {{else}}
+        <div class="u-absolute0 lazy-load-image u-block" data-src="{{asset "images/not-image.jpg"}}"></div>
     {{/if}}
+    {{!-- Gradient --}}
+    <div class="u-bgGradient u-absolute0 zindex2"></div>
+
     {{/post}}
 
     <div class="cc-image-header u-absolute zindex2">
@@ -24,7 +30,7 @@
 {{!-- Ad --}}
 {{> "ad/ad-post-header"}}
 
-<section class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
+<article class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
 
     {{!-- Article Author - partials/article/article-author.hbs --}}
     {{> "article/article-author"}}
@@ -32,7 +38,7 @@
     {{!-- Article Content - partials/article/article-body.hbs --}}
     {{> "article/article-body"}}
 
-</section>
+</article>
 
 {{!-- Comments partials/article/article-related.hbs --}}
 {{> "article/article-related"}}

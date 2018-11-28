@@ -8,7 +8,7 @@
 Hi. I created this theme for ghost especially for you.
 It is available for free so you can use on your site. It is strictly forbidden to use it for commercial use. If you have any suggestions to improve the theme,  you can send me a tweet [@GodoFredoNinja](https://goo.gl/y3aivK)
 
-## If you have a ❤ heart and value my work. 🙏 Please, help me with a small donation on [Paypal](https://bit.ly/PayPal-GodoFredoNinja). It'll help motivate me to update the theme with many improvements
+## 🙏 Please, help me with a small donation on [Paypal](https://bit.ly/PayPal-GodoFredoNinja). It'll help motivate me to update the theme with many improvements
 
 [![donate](./donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
 
@@ -31,6 +31,11 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 - [AMP](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost) Template (Accelerated Mobile Pages)
 - Follow on Social Media
 - Related Articles (6 articles)
+- Template - home Layout Masonry
+- Template - home Layout Personal Blog
+- Template - Page Newsletter (Mailchimp)
+- Template - Page Podcast
+- Template - Page Tag
 - Template - Post single
 - Template - Post full header
 - Template - Video post format
@@ -236,15 +241,15 @@ if you want to have the homepage in a personal blog style, please follow these s
 
 ### Credits
 
-- [Hodor AMP Template](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost)
+- [Hodor AMP](https://github.com/godofredoninja/Hodor-AMP-Ghost)
 - [Normalize](https://necolas.github.io/normalize.css/)
-- [Jquery.ghostHunter](https://github.com/jamalneufeld/ghostHunter)
+- [Ghost Search](https://github.com/HauntedThemes/ghost-search)
+- [Fuzzysort](https://github.com/farzher/fuzzysort)
 - [Prismjs](http://prismjs.com/)
-- [sticky-kit](https://github.com/leafo/sticky-kit)
-- [lunr.js](https://github.com/olivernn/lunr.js)
+- [Theia Sticky Sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
 - [zoom.js](https://github.com/fat/zoom.js/)
-- [jquery-lazyload](http://www.appelsiini.net/projects/lazyload)
-- [Fonts](https://fonts.google.com/?selection.family=Fira+Mono|Merriweather:400,700|Ruda:400,700,900&query=Merriweather)
+- [Vanilla Lazyload](https://github.com/verlok/lazyload)
+- [Fonts](https://fonts.googleapis.com/css?family=Merriweather:300i,400,700|Roboto|Roboto+Mono:300i,400,500,700)
 
 ## Copyright & License
 

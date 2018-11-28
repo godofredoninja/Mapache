@@ -10,12 +10,12 @@
     {{!-- Cover Background --}}
     {{#if feature_image}}
     <div class="u-absolute0 u-backgroundDark"></div>
-    <div class="cover-opacity cover-lazy u-absolute0 u-backgroundSizeCover zindex2 u-block" data-original="{{feature_image}}"></div>
+    <div class="cover-opacity lazy-load-image u-absolute0 u-bgCover zindex2 u-block" data-src="{{feature_image}}"></div>
     {{/if}}
 
     <div class="u-maxWidth1040 u-container zindex2">
-        <h1 class="tag-title animated bounceIn u-contentTitle u-fontSize36 u-md-fontSizeBase">{{name}}</h1>
-        {{#if description}}<p class="tag-description u-fontSizeSmall u-marginTop30">{{description}}</p>{{/if}}
+        <h1 class="tag-title animated bounceIn u-fontSize36 u-md-fontSizeBase">{{name}}</h1>
+        {{#if description}}<p class="tag-description u-marginTop30">{{description}}</p>{{/if}}
     </div>
 
 </section>

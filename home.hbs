@@ -4,7 +4,7 @@
 {{#contentFor "mapache_class_body"}}is-home {{^is "paged"}}is-pagination{{/is}}{{/contentFor}}
 
 {{!-- Home Top Section --}}
-<div class="cover u-marginAuto u-marginBottom30 u-clear cover--grid3">
+<div class="hmCover u-marginAuto u-marginBottom30 u-clear cover--grid3">
 
     {{#foreach posts from="1" to="3"}}
         {{!-- Home Top Section -> 3 first Articles - partials/story/story-cover.hbs --}}
@@ -16,7 +16,7 @@
 {{!-- Ad --}}
 {{> "ad/ad-home-top"}}
 
-<section class="extreme-container">
+<section class="extreme-container story--grid">
     <div class="row u-marginBottom40">
 
         {{!-- Post Grid - 6 lates article --}}
@@ -28,10 +28,10 @@
         {{/foreach}}
 
     </div>
-
-    {{!-- show 4 articles - partials/home/home-story-list.hbs --}}
-    {{> "home/home-story-list"}}
 </section>
+
+{{!-- show 4 articles - partials/home/home-story-list.hbs --}}
+{{> "home/home-story-list"}}
 
 {{!-- Ad --}}
 {{> "ad/ad-home-footer"}}

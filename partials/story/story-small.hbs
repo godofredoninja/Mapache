@@ -1,0 +1,12 @@
+<div class="story-small u-relative story--hover u-marginBottom15 {{#if featured}}featured{{/if}}">
+    <div class="story-small-img u-relative u-overflowHidden u-marginBottom15 u-bgBlack">
+        {{!-- Background Image --}}
+        <div  class="lazy-load-image u-absolute0 u-block u-bgCover" data-src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/not-image.jpg"}}{{/if}}"></div>
+        {{!-- Media Type - partials/helper/helper-media-type.hbs --}}
+        {{> "helper/helper-media-type"}}
+    </div>
+    {{!-- Title --}}
+    <h3 class="u-fontWeightMedium u-fontSizeBase u-lineHeightTight"><a href="{{url}}">{{title}}</a></h3>
+    {{!-- Link --}}
+    <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
+</div>

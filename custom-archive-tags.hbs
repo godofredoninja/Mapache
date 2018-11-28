@@ -1,0 +1,28 @@
+{{!-- Layout --}}
+{{!< default}}
+
+<section class="topic u-container extreme-container u-paddingTop30">
+
+{{#get "tags" limit="18" include="count.posts" order="count.posts desc"}}
+
+<div class="row">
+
+    {{#foreach tags}}
+
+    <div class="col s12 m6 l4 u-marginBottom30">
+        <div class="topic-items u-relative u-textColorWhite u-textAlignCenter u-flexColumn u-flexCenter u-overflowHidden">
+            <div class="topic-img u-bgCover lazy-load-image u-bgColorGrayLight u-absolute0" data-src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/not-image.jpg"}}{{/if}}"></div>
+            <div class="u-bgGradient u-absolute0"></div>
+            <h3 class="u-fontSize28 u-fontWeightMedium u-relative zindex2 u-flex1 u-textShadow"><a href="{{url}}">{{name}}</a></h3>
+            <div class="topic-c u-relative u-marginTop30 u-textUppercase button zindex2">Posts ({{count.posts}})</div>
+            <a href="{{url}}" class="u-absolute0 zindex3"></a>
+        </div>
+    </div>
+
+    {{/foreach}}
+
+</div>
+
+{{/get}}
+
+</section>
