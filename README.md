@@ -228,6 +228,7 @@ var twitterFeed = {
 - `de` — German - By [Frederik Niedernolte](https://github.com/MaluNoPeleke)
 - `ko` — Korean - By [SHGroup](https://github.com/sunghun7511)
 - `fr` — French - By [Letroll](https://github.com/letroll)
+- `pl` — Polish - By [kacperduras](https://github.com/kacperduras)
 
 ![Publication Language for ghost](./documentation/language.jpg)
 
