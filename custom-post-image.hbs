@@ -3,20 +3,23 @@
 
 {{#contentFor "mapache_class_body"}}is-image share-margin has-cover is-transparency{{/contentFor}}
 
-
 <div class="cc-image u-overflowHidden u-boxShadowBottom u-relative">
-    {{!-- Image and Backround Iand overlay --}}
+
     {{#post}}
 
     {{#if feature_image}}
-        <figure class="cc-image-figure u-textAlignCenter u-block u-marginAuto u-sizeFullWidth">
-            <img src="{{feature_image}}" class="u-block u-marginAuto" alt="{{title}}"/>
-        </figure>
-    {{else}}
-        <div class="u-absolute0 lazy-load-image u-block" data-src="{{asset "images/not-image.jpg"}}"></div>
+        <img class="u-absolute u-image u-block"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+            src="{{img_url feature_image size="xl"}}"
+            alt="{{title}}"
+        />
+        {{!-- Gradient --}}
+        <div class="u-bgGradient u-absolute0 zindex2"></div>
     {{/if}}
-    {{!-- Gradient --}}
-    <div class="u-bgGradient u-absolute0 zindex2"></div>
 
     {{/post}}
 

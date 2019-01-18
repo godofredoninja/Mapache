@@ -1,16 +1,16 @@
 # Mapache free theme for [Ghost](https://github.com/tryghost/ghost/)
 
 [![Ghost version](https://img.shields.io/badge/Ghost-2.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://bit.ly/PayPal-GodoFredoNinja)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://www.paypal.me/godofredoninja)
 
 > Minimalist Material Design and Elegant theme.
 
 Hi. I created this theme for ghost especially for you.
 It is available for free so you can use on your site. It is strictly forbidden to use it for commercial use. If you have any suggestions to improve the theme,  you can send me a tweet [@GodoFredoNinja](https://goo.gl/y3aivK)
 
-## 🙏 Please, help me with a small donation on [Paypal](https://bit.ly/PayPal-GodoFredoNinja). It'll help motivate me to update the theme with many improvements
+## 🙏 Please, help me with a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y7UB5Q8GVN3HN&source=url) or [PayPal](https://www.paypal.me/godofredoninja). It'll help motivate me to update the theme with many improvements
 
-[![donate](./donate.gif)](https://bit.ly/PayPal-GodoFredoNinja)
+[![donate](./donate.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y7UB5Q8GVN3HN&source=url)
 
 ![mapache theme for ghost](./screenshot.jpg)
 
@@ -56,26 +56,33 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 
 ## Table of Contents
 
-- [Ghost Settings](#ghost-settings)
-- [Mapache Settings](#mapache-settings)
-  - [Social Media](#1-social-media)
-  - [Footer Menu](#2-Footer-Menu)
-  - [YouTube Subscribe Button](#3-youtube-subscribe-button)
-  - [Instagram](#4-instagram)
-  - [Comments](#5-comments)
-  - [Search](#6-search)
-- [Theme Translation](#theme-translation)
-- [AMP](#amp)
-- [Home Page](#home-page)
-- [Post Format](#post-format)
-- [Tags Page](#tags-page)
-- [Newsletter Page](#newsletter-page)
-- [Podcast Page](#podcast-page)
-- [Ads](#ads)
-- [Change Theme Color](#change-theme-color)
-- [Tracking Google Tag Mananger](#tracking-google-tag-mananger)
-- [Warnig Note Success](#warning---note---success)
-- [PrismJS code syntax](#prismjs-code-syntax)
+- [Mapache free theme for Ghost](#mapache-free-theme-for-ghost)
+  - [🙏 Please, help me with a small donation here or PayPal. It'll help motivate me to update the theme with many improvements](#-please-help-me-with-a-small-donation-here-or-paypal-itll-help-motivate-me-to-update-the-theme-with-many-improvements)
+  - [Demo](#demo)
+  - [Featured](#featured)
+  - [Table of Contents](#table-of-contents)
+  - [Web Browser Support for mapache](#web-browser-support-for-mapache)
+  - [Ghost Settings](#ghost-settings)
+  - [Mapache Settings](#mapache-settings)
+    - [1. Social Media](#1-social-media)
+    - [2. Footer Menu](#2-footer-menu)
+    - [3. YouTube Subscribe Button](#3-youtube-subscribe-button)
+    - [4. Instagram](#4-instagram)
+    - [5. Comments](#5-comments)
+    - [6. Search](#6-search)
+  - [Theme Translation](#theme-translation)
+  - [AMP](#amp)
+  - [Home Page](#home-page)
+  - [Post Format](#post-format)
+  - [Tags Page](#tags-page)
+  - [Newsletter Page](#newsletter-page)
+  - [Podcast Page](#podcast-page)
+  - [Ads](#ads)
+  - [Change Theme Color](#change-theme-color)
+    - [Warning - Note - Success](#warning---note---success)
+    - [PrismJS code syntax](#prismjs-code-syntax)
+    - [Credits](#credits)
+  - [Copyright & License](#copyright--license)
 
 ## Web Browser Support for mapache
 
@@ -453,6 +460,7 @@ You have to enter the following directory `partials/ad` and add in each file you
 ```html
 <style>.mapache-ad-author-tag-top,.mapache-ad-home-top,.mapache-ad-post-footer{margin-bottom:30px}.mapache-ad-author-tag-footer,.mapache-ad-home-footer,.mapache-ad-post-header{margin-top:30px}</style>
 ```
+
 ## Change Theme Color
 
 > It is very easy to customize with your favorite colors.
@@ -520,98 +528,6 @@ mark { background-image: linear-gradient(to bottom, rgba(255, 225, 194, 1), rgba
 </style>
 ```
 
-## Tracking Google Tag Mananger
-
-Mapache keeps track of the user's actions on the page, for example:
-
-- Header
-  - Click Menu Name
-  - Click Social Media
-  - Click Newsletter Modal
-  - Click Search
-- Footer
-  - Click Social Media
-  - Click Nesletter Modal
-- Sidebar
-  - Click Sidebar post
-  - Click Name of the sidebar Tag Cloud
-- Article
-  - Click Author Name
-  - Click Author Facebook
-  - Click Author Twitter
-  - Click Share
-  - Click Next Post
-  - Click Prev Post
-  - Click Related Post
-  - Click Name of Tag
-  - Click Comments Button
-
-### Settings Google Tag Mananger
-
-With [Google Tag Manager](https://tagmanager.google.com), there are a million different ways to make your tagging setup leaner and more flexible.
-
-> I'll use an easy way to reduce redundancy here. It's the generic event tag 😊 you guessed it!
-
-— What are you waiting? 🖐 hands in action.
-
-#### First we'll create triggers
-
-1. Click Triggers
-2. New
-3. Name of the Trigger
-4. Select Custom Event
-5. Name of the Event
-
-— If you do not understand. look at the image
-
-![Google tag Mananger Trigger](./documentation/analytics01.jpg)
-
-#### Second we'll create Tag
-
-1. Click tags
-2. New
-3. Name of the Tag
-4. Select Google Analytics
-5. Track Type `Event`
-6. `{{Event Category}}`
-7. `{{Event Action}}`
-8. `{{Event Label}}`
-9. `{{Event Value}}`
-10. Non-Interaction Hit `true`
-11. Here you have to add your Google Analytics code. I have my Google Analytics code in a Global variable. I select my global variable
-12. Triggering — Select the trigger we created first
-
-— If you do not understand. look at the image
-
-![Google tag Mananger tag](./documentation/analytics02.jpg)
-
-#### Third Insert code
-
-🤔 *You can improve the code. I'll leave that to your imagination.*
-
-➡️ Copy the below script to `Settings -> Code Injection -> Blog Footer`
-
-```html
-<script>
-  /* Tracking With Google Tag Mananger*/
-   $('.godo-tracking').bind('click', function (e) {
-    var $this = $(this);
-    var godoCategory = $this.attr('data-event-category');
-    var godoAction = $this.attr('data-event-action');
-    var godoLabel = $this.attr('data-event-label');
-    var godoValue = $this.attr('data-event-non-interaction');
-
-    dataLayer.push({
-      'event' : 'godoGhostEvent',
-      'eventCategory' : godoCategory,
-      'eventAction' : godoAction,
-      'eventLabel' : godoLabel,
-      'eventValue' : godoValue,
-    });
-  });
-</script>
-```
-
 ### Warning - Note - Success
 
 > It is very important to add in the block of `Markdown` or `HTML`
@@ -647,7 +563,7 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 - [Prismjs](http://prismjs.com/)
 - [Theia Sticky Sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
 - [zoom.js](https://github.com/fat/zoom.js/)
-- [Vanilla Lazyload](https://github.com/verlok/lazyload)
+- [lazysizes](https://github.com/aFarkas/lazysizes)
 - [Fonts](https://fonts.googleapis.com/css?family=Merriweather:300i,400,700|Roboto|Roboto+Mono:300i,400,500,700)
 
 ## Copyright & License

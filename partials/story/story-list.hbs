@@ -1,30 +1,22 @@
 {{!-- hr > line in top --}}
 <hr class="hr-list">
 
-{{!-- Article --}}
 <article class="story u-flex u-relative {{#if featured}}featured{{/if}}">
-    {{!-- Story Image --}}
-    <div class="story-image u-relative u-overflowHidden u-backgroundColorGrayLight">
-        <a href="{{url}}" class="lazy-load-image u-absolute0 u-block image-hover u-bgCover" data-src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/not-image.jpg"}}{{/if}}"></a>
+    <a href="{{url}}" class="story-image u-relative u-overflowHidden u-bgGray image-hover">
+        {{!-- Image - partials/helper/helper-story-image.hbs --}}
+        {{> "helper/helper-story-image"}}
         {{!-- Media Type - partials/helper/helper-media-type.hbs --}}
         {{> "helper/helper-media-type"}}
-    </div>
+    </a>
 
     <div class="story-body u-flexColumn u-marginTop20 u-relative">
         {{!-- Category and Datetime partials/helper/helper-story-meta --}}
         {{> "helper/helper-story-meta"}}
-
         {{!-- Title --}}
-        <h2 class="u-contentTitle u-fontSize22 u-lineHeightTight u-marginBottom10">
-            <a href="{{url}}" class="u-relative zindex4">{{title}}</a>
-        </h2>
-
+        <h2 class="u-fontSize22 u-lineHeightTight u-marginBottom10"><a href="{{url}}">{{title}}</a></h2>
         {{!-- excerpt --}}
         <div class="story-lower u-relative u-overflowHidden u-flexColumnTop">
-            <p class="story-excerpt">{{excerpt words="25"}}</p>
+            <a href="{{url}}" class="story-excerpt u-block">{{excerpt words="25"}}</a>
         </div>
-
-        {{!-- Link Story Wrap --}}
-        <a href="{{url}}" class="u-absolute0 u-zindex2"></a>
     </div>
 </article>

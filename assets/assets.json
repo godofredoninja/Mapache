@@ -13,6 +13,7 @@
   "scripts/amp.js": "scripts/amp.js",
   "styles/main.css": "styles/main.css",
   "scripts/main.js": "scripts/main.js",
+  "scripts/pagination.js": "scripts/pagination.js",
   "scripts/prismjs.js": "scripts/prismjs.js",
   "scripts/search.js": "scripts/search.js"
 }

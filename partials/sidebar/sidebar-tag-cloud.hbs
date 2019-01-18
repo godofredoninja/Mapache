@@ -3,7 +3,7 @@
 <div class="sidebar-items u-marginBottom30">
     <h3 class="sidebar-title u-fontSizeBase u-textColorDarker u-marginBottom20 u-fontWeightBold"><span class="u-paddingBottom10 u-inlineBlock">{{t "Tag Cloud"}}</span></h3>
     {{#foreach tags}}
-        <a href="{{url absolute="true"}}" title="{{name}}" class="button tag-button godo-tracking" data-event-category="Sidebar" data-event-action="Tags" data-event-label="{{name}}" data-event-non-interaction="true">{{name}}</a>
+        <a href="{{url absolute="true"}}" title="{{name}}" class="button tag-button">{{name}}</a>
     {{/foreach}}
 </div>
 {{/get}}

@@ -3,22 +3,33 @@
 {{#author}}
 
 {{!-- custom Styles For tag <body> --}}
-{{#contentFor "mapache_class_body"}}is-author {{^is "paged"}}is-pagination{{/is}} {{#if cover_image}}has-cover is-transparency{{/if}}{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-author {{#if cover_image}}has-cover is-transparency{{/if}}{{/contentFor}}
 
-<div class="author u-relative u-flexCenter u-flexColumn u-paddingBottom30 u-paddingTop30 {{#if cover_image}}u-marginBottom30 has--image u-boxShadowBottom has-cover-padding{{/if}}">
-    {{!-- Cover Background --}}
+<div class="author u-relative u-flexCenter u-flexColumn {{#if cover_image}}u-marginBottom30 has--image u-boxShadowBottom{{/if}}">
+
     {{#if cover_image}}
-    <div class="u-absolute0 u-backgroundDark"></div>
-    <div class="cover-opacity lazy-load-image u-absolute0 u-bgCover zindex2 u-block" data-src="{{cover_image}}"></div>
+        {{!-- Gradient --}}
+        <img class="u-absolute u-image u-block zindex1 lazyload"
+            src="{{img_url cover_image size="m"}}"
+            srcset="{{img_url cover_image size="xxs"}}"
+            data-srcset="{{img_url cover_image size="s"}} 300w,
+                {{img_url cover_image size="m"}} 600w,
+                {{img_url cover_image size="l"}} 1000w,
+                {{img_url cover_image size="xl"}} 2000w"
+            data-sizes="(max-width: 1000px) 400px, 700px"
+            alt="{{name}}"
+        />
+        <div class="u-bgGradient u-absolute0 zindex2"></div>
     {{/if}}
 
     <article class="author-wrap u-relative u-maxWidth1040 u-container u-textAlignCenter zindex3">
         {{!-- Avatar --}}
-        <div  class="author-avatar u-relative u-marginBottom30 animated bounceInDown u-round u-bgCover u-marginAuto {{^if profile_image}}no-avatar{{/if}}" style="background-image:url({{profile_image}})">
-            <div class="u-absolute u-accentColor--iconNormal svgIcon" style="width:calc(100% + 14px);height:calc(100% + 14px);top:-7px;left:-7px;">
+        <figure  class="author-avatar u-relative u-marginBottom30 animated bounceInDown u-marginAuto">
+            <img class="u-absolute u-image u-block u-round" src="{{#if profile_image}}{{img_url profile_image size="s"}}{{else}}{{asset "images/avatar.png"}}{{/if}}" alt="{{name}}"/>
+            <div class="u-absolute u-accentColor svgIcon" style="width:calc(100% + 14px);height:calc(100% + 14px);top:-7px;left:-7px;">
                 {{> "icons/halo"}}
             </div>
-        </div>
+        </figure>
 
         {{!-- Name --}}
         <h1 class="author-name animated bounceIn u-fontSize36 u-md-fontSizeBase u-marginBottom30">{{name}}</h1>
@@ -29,14 +40,14 @@
         {{!-- Location - website - RSS --}}
         <div class="author-meta u-paddingBottom30">
             {{#if location}}<span><i class="i-location"></i> {{location}}</span>{{/if}}
-            {{#if website}}<span><a href="{{website}}" target="_blank" rel="nofollow noopener noreferrer"><i class="i-link"></i> {{website}}</a></span>{{/if}}
-            <span><a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="nofollow noopener noreferrer"><i class="i-rss"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</a></span>
+            {{#if website}}<span><a href="{{website}}" target="_blank"><i class="i-link"></i> {{website}}</a></span>{{/if}}
+            <span><a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener noreferrer"><i class="i-rss"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</a></span>
         </div>
 
         {{!-- Facebook and Twitter --}}
         <div class="author-follow buttonSet">
-            {{#if facebook}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow noopener noreferrer"><i class="i-facebook"></i> Facebook</a>{{/if}}
-            {{#if twitter}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow noopener noreferrer"><i class="i-twitter"></i> Twitter</a>{{/if}}
+            {{#if facebook}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="i-facebook"></i> Facebook</a>{{/if}}
+            {{#if twitter}}<a class="button button--primary u-borderRadius2 u-fontSizeSmall" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"><i class="i-twitter"></i> Twitter</a>{{/if}}
         </div>
     </article>
 </div>

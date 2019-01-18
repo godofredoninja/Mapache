@@ -1,21 +1,33 @@
 <section id="hm-cover" class="hm-cover u-relative u-flexCenter u-flexColumn u-marginBottom30 has--image u-boxShadowBottom">
     {{!-- Image featured --}}
-    {{#if @blog.cover_image}}
-        <div class="u-absolute0 u-backgroundDark"></div>
-        <div class="cover-opacity lazy-load-image u-absolute0 u-bgCover zindex2 u-block" data-src="{{@blog.cover_image}}"></div>
+    {{#if @site.cover_image}}
+        {{!-- <div class="u-absolute0 u-backgroundDark"></div> --}}
+        {{!-- <div class="cover-opacity lazy-load-image u-absolute0 u-bgCover zindex2 u-block" data-src="{{@site.cover_image}}"></div> --}}
+
+        <img class="u-absolute u-image u-block"
+            srcset="{{img_url @site.cover_image size="s"}} 300w,
+                    {{img_url @site.cover_image size="m"}} 600w,
+                    {{img_url @site.cover_image size="l"}} 1000w,
+                    {{img_url @site.cover_image size="xl"}} 2000w"
+            sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+            src="{{img_url @site.cover_image size="l"}}"
+            alt="{{@site.title}}"
+        />
+        {{!-- Gradient --}}
+        <div class="u-bgGradient u-absolute0 zindex2"></div>
     {{/if}}
 
     <div class="u-relative u-maxWidth1040 u-marginAuto u-padding20 u-sizeFullWidth u-textAlignCenter zindex3 u-textColorWhite">
         <div class="u-fontSizeLarge u-fontWeightMedium u-marginBottom30">{{t "Welcome"}}</div>
         {{!-- Blog name --}}
-        <h1 id="home-title" class="hm-cover-title u-marginBottom30 animated bounceInDown">{{@blog.title}}</h1>
+        <h1 id="home-title" class="hm-cover-title u-marginBottom30 animated bounceInDown">{{@site.title}}</h1>
 
         {{!-- Blog description --}}
-        <p class="hm-cover-des animated bounceI u-marginAuto">{{@blog.description}}</p>
+        <p class="hm-cover-des animated bounceI u-marginAuto">{{@site.description}}</p>
 
         {{!-- Btn suscribe --}}
         {{#if @labs.subscribers}}
-            <a id="home-button" href="{{@blog.url}}/subscribe" class="hm-subscribe u-marginAuto animated bounceIn u-textUppercase">{{t "Subscribe"}}</a>
+            <a id="home-button" href="{{@site.url}}/subscribe" class="hm-subscribe u-marginAuto animated bounceIn u-textUppercase">{{t "Subscribe"}}</a>
         {{/if}}
     </div>
 

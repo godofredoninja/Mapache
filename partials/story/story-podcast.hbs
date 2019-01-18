@@ -2,7 +2,13 @@
     <div class="spc-c u-relative u-marginBottom30">
 
         {{#if feature_image}}
-        <div class="spc-c-img u-bgCover u-relative u-bgColorGrayLight lazy-load-image" data-src="{{feature_image}}"></div>
+        <figure class="spc-c-img u-bgCover u-relative">
+            <img class="u-absolute u-image u-block lazyload"
+                data-srcset="{{img_url feature_image size="xs"}} 100w,{{img_url feature_image size="s"}} 300w"
+                data-src="{{img_url feature_image size="s"}}"
+                alt="{{title}}"
+            />
+        </figure>
         {{/if}}
 
         <div class="spc-c-body">

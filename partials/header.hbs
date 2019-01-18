@@ -1,11 +1,11 @@
 <header class="header u-sizeFullWidth u-bgColor">
     <div class="header-wrap u-flexCenter u-relative">
 
-        <a class="header-logo u-inlineBlock u-flex0" href="{{@blog.url}}">
-            {{#if @blog.logo}}
-                <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
+        <a class="header-logo u-inlineBlock u-flex0" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}"/>
             {{else}}
-                <span class="u-fontSizeLarge u-fontWeightBold">{{@blog.title}}</span>
+                <span class="u-fontSizeLarge u-fontWeightBold">{{@site.title}}</span>
             {{/if}}
         </a>
 
@@ -15,20 +15,20 @@
         <div class="header-left u-flex0 u-flex u-flexEnd u-fontSize21">
 
             {{!-- Facebook adn Twitter --}}
-            {{#if @blog.facebook}}<a class="i-facebook u-hide-before-lg godo-tracking" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer" data-event-category="Header" data-event-action="Social" data-event-label="Facebook" data-event-non-interaction="true"></a>{{/if}}
-            {{#if @blog.twitter}}<a class="i-twitter u-hide-before-lg godo-tracking" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer" data-event-category="Header" data-event-action="Social" data-event-label="Twitter" data-event-non-interaction="true"></a>{{/if}}
+            {{#if @site.facebook}}<a class="i-facebook u-hide-before-lg" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+            {{#if @site.twitter}}<a class="i-twitter u-hide-before-lg" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
 
             {{!-- Box for follow more --}}
             <div class="followMe follow-more u-hide-before-lg"></div>
 
             {{!-- Open Subscribe card --}}
-            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-lg i-email godo-tracking" data-event-category="Header" data-event-action="Click" data-event-label="Newsletter" data-event-non-interaction="true"></a>{{/if}}
+            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-lg i-email"></a>{{/if}}
             {{!-- toggle follow more --}}
             <a href="#" class="follow-toggle u-relative u-fontSizeLarge u-hide u-hide-before-lg i-more"></a>
             {{!-- separe --}}
             <span class="header-line u-hide-before-lg"></span>
             {{!-- Toggle Search --}}
-            <a href="#" class="search-toggle u-relative i-search godo-tracking" data-event-category="Header" data-event-action="Click" data-event-label="Search" data-event-non-interaction="true"></a>
+            <a href="#" class="search-toggle u-relative i-search"></a>
             {{!-- Toggle Menu --}}
             <a href="#" class="menu--toggle u-relative u-hide-after-lg"><span></span><span></span><span></span></a>
         </div>

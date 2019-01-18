@@ -4,7 +4,9 @@
     {{!-- author Avatar --}}
     {{#primary_author}}
     <div class="u-flex0">
-        <a href="{{url}}" style="background-image:url({{profile_image}})" class="avatar-image avatar-image--smaller u-bgCover u-relative {{^if profile_image}}no-avatar{{/if}}"></a>
+        <a href="{{url}}" class="avatar-image avatar-image--smaller u-relative">
+            <img class="u-absolute u-image u-block u-round lazyload" data-src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/avatar.png"}}{{/if}}" alt="{{t "Go to the profile of "}} {{name}}"/>
+        </a>
     </div>
     {{/primary_author}}
 
@@ -20,11 +22,11 @@
         {{#primary_author}}
 
         <div class="u-block u-paddingTop5">
-            {{t "By"}} <a href="{{url}}" class="godo-tracking link link--underline u-fontWeightMedium u-textColorDarker" title="{{t "Posts by"}} {{name}}" data-event-category="Article" data-event-action="Author - {{name}}" data-event-label="Profile" data-event-non-interaction="true">{{name}}</a>
+            {{t "By"}} <a href="{{url}}" class="link link--underline u-fontWeightMedium u-textColorDarker" title="{{t "Posts by"}} {{name}}">{{name}}</a>
 
             {{!-- Author Social Media (Facebook - Twitter) --}}
-            {{#if facebook}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-facebook i-facebook godo-tracking" href="{{facebook_url}}" title="Facebook" target="_blank" rel="nofollow noopener noreferrer" data-event-category="Article" data-event-action="Author - {{name}}" data-event-label="Facebook" data-event-non-interaction="true"></a>{{/if}}
-            {{#if twitter}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-twitter i-twitter godo-tracking" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="nofollow noopener noreferrer" data-event-category="Article" data-event-action="Author - {{name}}" data-event-label="Twitter" data-event-non-interaction="true"></a>{{/if}}
+            {{#if facebook}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-facebook i-facebook" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+            {{#if twitter}}<a class="post-author-social u-fontSizeBase u-inlineBlock c-twitter i-twitter" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
         </div>
 
         {{/primary_author}}
