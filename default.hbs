@@ -10,9 +10,9 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{!-- Styles --}}
-    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
     {{!-- All Styles Compress --}}
-    <style>{{> "styles"}}</style>
+    {{!-- <style>{{> "styles"}}</style> --}}
     {{!-- Font Roboto 400 --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     {{!-- Ghost outputs important style and meta data with this tag --}}
@@ -55,6 +55,8 @@
 
     {{!-- The main JavaScript --}}
     <script src="{{asset "scripts/main.js"}}" defer></script>
+    {{!-- Content API --}}
+    <script src="https://unpkg.com/@tryghost/content-api@1.0.0/umd/content-api.min.js" defer></script>
     <script src="{{asset "scripts/search.js"}}" defer></script>
 
     {{#if pagination.pages}}

@@ -1,19 +1,49 @@
 <aside class="sharePost u-textAlignCenter u-hide-before-lg">
     <ul class="share-inner">
         <li>
-            <a href="#" class="mapache-share button--circle i-facebook bg-facebook u-fontSize20" data-share="facebook" data-url="{{url absolute="true"}}"></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{t "Share on"}} Facebook"
+                class="button--circle i-facebook bg-facebook u-fontSize20"
+                onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            </a>
         </li>
         <li>
-            <a href="#" class="mapache-share button--circle i-twitter bg-twitter u-fontSize20" data-share="twitter" data-url="{{url absolute="true"}}" data-title="{{title}} {{#if @site.twitter}}by {{@site.twitter}}{{/if}}"></a>
+            <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{t "Share on"}} Twitter"
+                class="button--circle i-twitter bg-twitter u-fontSize20"
+                onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            </a>
         </li>
         <li>
-            <a href="#" class="mapache-share button--circle i-reddit bg-reddit u-fontSize20" data-share="reddit" data-url="{{url absolute="true"}}"></a>
+            <a href="https://www.reddit.com/submit?url={{url absolute="true"}}&amp;title={{encode title}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{t "Share on"}} Redit"
+                class="button--circle i-reddit bg-reddit u-fontSize20"
+                onclick="window.open(this.href, 'share-reddit', 'width=600,height=480');return false;">
+            </a>
         </li>
         <li>
-            <a href="#" class="mapache-share button--circle i-linkedin bg-linkedin u-fontSize20" data-share="linkedin" data-url="{{url absolute="true"}}"></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{t "Share on"}} Linkedin"
+                class="button--circle i-linkedin bg-linkedin u-fontSize20"
+                onclick="window.open(this.href, 'share-linkedin', 'width=600,height=480');return false;">
+            </a>
         </li>
         <li>
-            <a href="#" class="mapache-share button--circle i-pinterest bg-pinterest u-fontSize20" data-share="pinterest" data-url="{{url absolute="true"}}" data-title="{{title}}"></a>
+            <a href="http://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="{{t "Share on"}} Pinterest"
+                class="button--circle i-pinterest bg-pinterest u-fontSize20"
+                onclick="window.open(this.href, 'share-pinterest', 'width=600,height=480');return false;">
+            </a>
         </li>
         <li>
             <a href="#" class="toggle-comments button--circle i-chat u-fontSize20 u-hide post-comments-show"></a>
