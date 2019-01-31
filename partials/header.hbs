@@ -15,14 +15,14 @@
         <div class="header-left u-flex0 u-flex u-flexEnd u-fontSize21">
 
             {{!-- Facebook adn Twitter --}}
-            {{#if @site.facebook}}<a class="i-facebook u-hide-before-lg" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
-            {{#if @site.twitter}}<a class="i-twitter u-hide-before-lg" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+            {{#if @site.facebook}}<a class="i-facebook u-hide-before-lg godo-tracking" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer" data-event-category="Header" data-event-action="Social" data-event-label="Facebook" data-event-non-interaction="true"></a>{{/if}}
+            {{#if @site.twitter}}<a class="i-twitter u-hide-before-lg godo-tracking" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer" data-event-category="Header" data-event-action="Social" data-event-label="Twitter" data-event-non-interaction="true"></a>{{/if}}
 
             {{!-- Box for follow more --}}
             <div class="followMe follow-more u-hide-before-lg"></div>
 
             {{!-- Open Subscribe card --}}
-            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-lg i-email"></a>{{/if}}
+            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-lg i-email godo-tracking" data-event-category="Header" data-event-action="Click" data-event-label="Newsletter" data-event-non-interaction="true"></a>{{/if}}
             {{!-- toggle follow more --}}
             <a href="#" class="follow-toggle u-relative u-fontSizeLarge u-hide u-hide-before-lg i-more"></a>
             {{!-- separe --}}

@@ -7,15 +7,15 @@
         <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
 
         {{!-- Facebook Comments Counts --}}
-        <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
-        <span class="mapache-facebook u-hide">{{t "Comments"}}</span>
+        {{!-- <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
+        <span class="mapache-facebook u-hide">{{t "Comments"}}</span> --}}
     </div>
 
     <div class="post-comments-wrap u-padding15">
         {{!-- Disqus Comments --}}
         <div id="disqus_thread" class="mapache-disqus u-hide"></div>
         {{!-- Comments section for facebook --}}
-        <div class="fb-comments mapache-facebook u-hide" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
+        {{!-- <div class="fb-comments mapache-facebook u-hide" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div> --}}
     </div>
 </div>
 
@@ -24,9 +24,6 @@
 
 
 {{#contentFor "scripts"}}
-
-{{!-- facebook Root Class--}}
-<div id="fb-root"></div>
 
 {{!-- Disqys Comments --}}
 <script>
@@ -56,17 +53,6 @@
                 js.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(js);
                 d.body.append(count);
-            } else if (typeof facebookLocaleComments !== 'undefined') {
-                $('.mapache-facebook').removeClass('u-hide');
-                $showComments.removeClass('u-hide');
-
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://connect.facebook.net/'+facebookLocaleComments+'/sdk.js#xfbml=1&version=v3.1';
-                js.async = true;
-                fjs.parentNode.insertBefore(js, fjs);
             } else {
                 $showComments.remove();
             }

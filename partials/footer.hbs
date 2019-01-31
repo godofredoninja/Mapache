@@ -3,10 +3,10 @@
         <div class="extreme-container u-flexCenter u-flexColumn">
             {{!-- Follow social media --}}
             <aside class="follow followMe u-textColorWhite u-fontSize20 u-textAlignCenter">
-                {{#if @site.facebook}}<a class="i-facebook" title="Facebook {{@site.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
-                {{#if @site.twitter}}<a class="i-twitter" title="Twitter {{@site.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+                {{#if @site.facebook}}<a class="i-facebook godo-tracking" title="Facebook {{@site.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"  data-event-category="Footer" data-event-action="Social Media" data-event-label="Facebook" data-event-non-interaction="true"></a>{{/if}}
+                {{#if @site.twitter}}<a class="i-twitter godo-tracking" title="Twitter {{@site.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"  data-event-category="Footer" data-event-action="Social Media" data-event-label="Twitter" data-event-non-interaction="true"></a>{{/if}}
                 {{!-- Subscribe BTN for modal newsletter --}}
-                {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative i-email u-floatRight"></a>{{/if}}
+                {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative i-email u-floatRight godo-tracking" data-event-category="Footer" data-event-action="Social Media" data-event-label="Newsletter" data-event-non-interaction="true"></a>{{/if}}
             </aside>
             {{!-- Footer Menu --}}
             <ul class="footer-menu u-textUppercase u-textAlignCenter u-marginTop20 u-hide"></ul>

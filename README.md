@@ -46,8 +46,8 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 - 5 lates articles in the sidebar (post)
 - Tag Cloud in the sidebar
 - Previous and next articles buttons
-- Support for comments (Facebook or Disqus)
-- Support for counter comments (Facebook or Disqus)
+- Support for comments (Disqus)
+- Support for counter comments (Disqus)
 - Buttons to share the article (Facebook - Twitter - Reddit - Linkedin - Pinterest - Whatsapp)
 - Sticky content in the sidebar
 - YouTube, Vimeo, kickstarter, Facebook, dailymotion => Responsive
@@ -56,34 +56,28 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 
 ## Table of Contents
 
-- [Mapache free theme for Ghost](#mapache-free-theme-for-ghost)
-  - [🙏 Please, help me with a small donation here or PayPal. It'll help motivate me to update the theme with many improvements](#-please-help-me-with-a-small-donation-here-or-paypal-itll-help-motivate-me-to-update-the-theme-with-many-improvements)
-  - [Demo](#demo)
-  - [Featured](#featured)
-  - [Table of Contents](#table-of-contents)
-  - [Web Browser Support for mapache](#web-browser-support-for-mapache)
-  - [Ghost Settings](#ghost-settings)
-  - [Mapache Settings](#mapache-settings)
-    - [1. Social Media](#1-social-media)
-    - [2. Footer Menu](#2-footer-menu)
-    - [3. YouTube Subscribe Button](#3-youtube-subscribe-button)
-    - [4. Instagram](#4-instagram)
-    - [5. Comments](#5-comments)
-    - [6. Search](#6-search)
-      - [Setup a Custom integration](#setup-a-custom-integration)
-  - [Theme Translation](#theme-translation)
-  - [AMP](#amp)
-  - [Home Page](#home-page)
-  - [Post Format](#post-format)
-  - [Tags Page](#tags-page)
-  - [Newsletter Page](#newsletter-page)
-  - [Podcast Page](#podcast-page)
-  - [Ads](#ads)
-  - [Change Theme Color](#change-theme-color)
-    - [Warning - Note - Success](#warning---note---success)
-    - [PrismJS code syntax](#prismjs-code-syntax)
-    - [Credits](#credits)
-  - [Copyright & License](#copyright--license)
+- [Web Browser Support for mapache](#web-browser-support-for-mapache)
+- [Ghost Settings](#ghost-settings)
+- [Mapache Settings](#mapache-settings)
+  - [1. Social Media](#1-social-media)
+  - [2. Footer Menu](#2-footer-menu)
+  - [3. YouTube Subscribe Button](#3-youtube-subscribe-button)
+  - [4. Instagram](#4-instagram)
+  - [5. Comments](#5-comments)
+  - [6. Search](#6-search)
+- [Theme Translation](#theme-translation)
+- [AMP](#amp)
+- [Home Page](#home-page)
+- [Post Format](#post-format)
+- [Tags Page](#tags-page)
+- [Newsletter Page](#newsletter-page)
+- [Podcast Page](#podcast-page)
+- [Ads](#ads)
+- [Change Theme Color](#change-theme-color)
+- [Tracking Google Tag Mananger](#tracking-google-tag-mananger)
+- [Settings Google Tag Mananger](#settings-google-tag-mananger)
+- [Warning - Note - Success](#warning---note---success)
+- [PrismJS code syntax](#prismjs-code-syntax)
 
 ## Web Browser Support for mapache
 
@@ -124,11 +118,9 @@ First, you will need to get your account `userName` and `userId` and `accessToke
 
 ### 5. Comments
 
-Mapache supports Disqus comments and Facebook comments as well as comment counting
+Mapache supports Disqus comments and comment counting
 
 **Disqus Comments** — First, you will need to get your account `disqusShortName`
-
-**Facebook Comments** — Changing the Language (`en_US` - `es_ES` - `es_LA`) more information link below [language](https://developers.facebook.com/docs/plugins/comments/#language)
 
 ### 6. Search
 
@@ -204,11 +196,8 @@ var instagramFeed  = {
   userName: 'User_Name',
 };
 
-/* 05. Comments */
-
-/* Disqus Comments or Facebook Comments - choose only one */
+/* 05. Disqus Comments */
 var disqusShortName = 'YOUR_DISQUS_SHORTCUT_HERE';
-var facebookLocaleComments = 'en_US';
 
 /* 06. Search Settings */
 var searchSettings = {
@@ -546,6 +535,97 @@ To change the color of the Mapache theme select one of the theme styles below an
 mark { background-image: linear-gradient(to bottom, rgba(255, 225, 194, 1), rgba(255, 225, 194, 1)) }
 
 </style>
+```
+
+## Tracking Google Tag Mananger
+
+Mapache keeps track of the user's actions on the page, for example:
+
+- Header
+  - Click Menu Name
+  - Click Social Media
+  - Click Newsletter Modal
+- Footer
+  - Click Social Media
+  - Click Nesletter Modal
+- Sidebar
+  - Click Sidebar post
+  - Click Name of the sidebar Tag Cloud
+- Article
+  - Click Author Name
+  - Click Author Facebook
+  - Click Author Twitter
+  - Click Share
+  - Click Next Post
+  - Click Prev Post
+  - Click Related Post
+  - Click Name of Tag
+  - Click Comments Button
+
+### Settings Google Tag Mananger
+
+With [Google Tag Manager](https://tagmanager.google.com), there are a million different ways to make your tagging setup leaner and more flexible.
+
+> I'll use an easy way to reduce redundancy here. It's the generic event tag 😊 you guessed it!
+
+— What are you waiting? 🖐 hands in action.
+
+#### First we'll create triggers
+
+1. Click Triggers
+2. New
+3. Name of the Trigger
+4. Select Custom Event
+5. Name of the Event
+
+— If you do not understand. look at the image
+
+![Google tag Mananger Trigger](./documentation/analytics01.jpg)
+
+#### Second we'll create Tag
+
+1. Click tags
+2. New
+3. Name of the Tag
+4. Select Google Analytics
+5. Track Type `Event`
+6. `{{Event Category}}`
+7. `{{Event Action}}`
+8. `{{Event Label}}`
+9. `{{Event Value}}`
+10. Non-Interaction Hit `true`
+11. Here you have to add your Google Analytics code. I have my Google Analytics code in a Global variable. I select my global variable
+12. Triggering — Select the trigger we created first
+
+— If you do not understand. look at the image
+
+![Google tag Mananger tag](./documentation/analytics02.jpg)
+
+#### Third Insert code
+
+🤔 *You can improve the code. I'll leave that to your imagination.*
+
+➡️ Copy the below script to `Settings -> Code Injection -> Blog Footer`
+
+```html
+<script>
+  /* Tracking With Google Tag Mananger*/
+   $('.godo-tracking').bind('click', function (e) {
+    var $this = $(this);
+    var godoCategory = $this.attr('data-event-category');
+    var godoAction = $this.attr('data-event-action');
+    var godoLabel = $this.attr('data-event-label');
+    var godoValue = $this.attr('data-event-non-interaction');
+
+    dataLayer.push({
+      'event' : 'godoGhostEvent',
+      'eventCategory' : godoCategory,
+      'eventAction' : godoAction,
+      'eventLabel' : godoLabel,
+      'eventValue' : godoValue,
+    });
+  });
+</script>
 ```
 
 ### Warning - Note - Success

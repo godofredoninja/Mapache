@@ -20,12 +20,12 @@
         <hr class="post-footer-hr">
 
         {{!-- Button for Comments Open --}}
-        <div class="button button--large button--dark-line post-comments-show toggle-comments">
+        <div class="button button--large button--dark-line post-comments-show toggle-comments godo-tracking" data-event-category="Article" data-event-action="Click" data-event-label="Toggle Comments" data-event-non-interaction="true">
             {{!-- Disqus Comments Count --}}
             <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
             {{!-- Facebook Comments Counts --}}
-            <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
-            <span class="mapache-facebook u-hide">{{t "Comments"}}</span>
+            {{!-- <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
+            <span class="mapache-facebook u-hide">{{t "Comments"}}</span> --}}
         </div>
 
     </div>
