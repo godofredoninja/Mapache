@@ -8,9 +8,17 @@
 Hi. I created this theme for ghost especially for you.
 It is available for free so you can use on your site. It is strictly forbidden to use it for commercial use. If you have any suggestions to improve the theme,  you can send me a tweet [@GodoFredoNinja](https://goo.gl/y3aivK)
 
-## 🙏 Please, help me with a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4H53Q4RTPSFQW&source=url) or [PayPal](https://www.paypal.me/godofredoninja). It'll help motivate me to update the theme with many improvements
+## Please help me. I met a girl on the Internet and we are a couple, now I want to travel to her country.  The money will be used for travel expenses
 
-[![donate](./donate.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4H53Q4RTPSFQW&source=url)
+### The campaign is being launched on [https://www.gofundme.com/](https://www.gofundme.com/manage/por-favor-ayudame-quiero-conocer-a-worapitcha/). Here is the link where you can learn more about my story
+
+[Help me. I want to travel and meet Worapitcha](https://www.gofundme.com/manage/por-favor-ayudame-quiero-conocer-a-worapitcha)
+
+### You can also help me with donations in [PayPal](https://www.paypal.me/godofredoninja). If you don't have Paypal you can do it through [this link](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4H53Q4RTPSFQW&source=url)
+
+### Please, I tell you with my heart, help me
+
+[![donate](./donate.gif)](https://www.paypal.me/godofredoninja)
 
 ![mapache theme for ghost](./screenshot.jpg)
 
