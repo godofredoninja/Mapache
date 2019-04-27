@@ -1,0 +1,17 @@
+{{#if "pagination.pages"}}
+ <nav class="pagination u-flex u-flexCenter u-flexContentCenter" role="navigation">
+    {{#if pagination.prev}}
+        <a class="newer-posts button--dark-line button--large" href="{{page_url pagination.prev}}"><i class="i-arrow-left"></i> {{t "Newer Posts"}}</a>
+    {{/if}}
+    {{!-- <span class="page-number">{{t "Page {page} of {pages}" page=pagination.page pages=pagination.pages}}</span> --}}
+    {{#if pagination.next}}
+        <a class="older-posts button--dark-line button--large" href="{{page_url pagination.next}}">{{t "Older Posts"}} <i class="i-arrow-right"></i></a>
+    {{/if}}
+</nav>
+{{/if}}
+
+<style type="text/css">
+.pagination {margin-top: 60px;}
+.pagination .button--dark-line {margin: 0 15px;max-width:250px;text-align:center}
+.pagination i {font-size: 24px;display:inline-block}
+</style>

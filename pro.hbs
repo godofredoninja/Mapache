@@ -1,0 +1,57 @@
+{{!-- Layouts --}}
+{{!< default}}
+
+{{#contentFor "mapache_class_body"}}is-home{{/contentFor}}
+
+{{!-- Home Top Section --}}
+<div class="hmCover u-marginAuto u-marginBottom30 u-clear cover--grid3">
+
+    {{#foreach posts from="1" to="3"}}
+        {{!-- Home Top Section -> 3 first Articles - partials/story/story-cover.hbs --}}
+        {{> "story/story-cover" }}
+    {{/foreach}}
+
+</div>
+
+{{!-- Ad --}}
+{{> "ad/ad-home-top"}}
+
+<section class="extreme-container story--grid">
+    <div class="row u-marginBottom40">
+
+        {{!-- Post Grid - 6 lates article --}}
+        {{#foreach posts from="4" to="9"}}
+            <div class="col s12 m6 l4">
+                {{!-- partiasl/story/story-grid.hbs --}}
+                {{> "story/story-grid" }}
+            </div>
+        {{/foreach}}
+
+    </div>
+</section>
+
+{{!-- show 4 articles - partials/home/home-story-list.hbs --}}
+{{!-- {{> "home/home-story-list"}} --}}
+<div class="extreme-container">
+    <div class="row">
+        <div class="col-left">
+            <div class="story-feed">
+                <div class="story-feed-content">
+
+                    {{#foreach posts from="10" to="14"}}
+                        {{!-- Story - partials/story/story-list.hbs --}}
+                        {{> "story/story-list"}}
+                    {{/foreach}}
+
+                </div>
+            </div>
+            {{!-- Pagination - partials/helper/helper-pagination.hbs --}}
+            {{> "helper/helper-pagination"}}
+        </div>
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </div>
+</div>
+
+{{!-- Ad --}}
+{{> "ad/ad-home-footer"}}
