@@ -4,17 +4,18 @@
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    {{!-- Page Meta --}}
+    {{!-- Base Meta --}}
     <title>{{meta_title}}</title>
-    {{!-- Mobile Meta --}}
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{!-- Styles --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/> --}}
     {{!-- All Styles Compress --}}
-    {{!-- <style>{{> "styles"}}</style> --}}
-    {{!-- Font Roboto 400 --}}
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>{{> "styles"}}</style>
+
+    {{!-- Fonts => Roboto && Merriweather --}}
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700,700i|Roboto:300,400,400i,500,500i,700&display=swap" rel="stylesheet">
+
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 </head>
@@ -41,11 +42,7 @@
     <div class="rocket u-hide-before-md i-arrow-round-up u-flexCenter u-flexContentCenter u-fontSize40"></div>
 
     {{!-- Jquery --}}
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     {{!-- Site URL --}}
     <script>var siteUrl = '{{@site.url}}';</script>
@@ -55,8 +52,8 @@
 
     {{!-- The main JavaScript --}}
     <script src="{{asset "scripts/main.js"}}" defer></script>
-    {{!-- Content API --}}
-    <script src="https://unpkg.com/@tryghost/content-api@1.0.0/umd/content-api.min.js" defer></script>
+    {{!-- Content APi --}}
+    <script src="https://unpkg.com/@tryghost/content-api@1.2.5/umd/content-api.min.js" defer></script>
     <script src="{{asset "scripts/search.js"}}" defer></script>
 
     {{#if pagination.pages}}
@@ -66,8 +63,5 @@
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. --}}
     {{{block "scripts"}}}
-
-    {{!-- Fonts => Roboto && Merriweather --}}
-    <script>WebFontConfig ={google:{families:['Roboto:300,500,700','Merriweather:300,400,700']}};(function(){var wf=document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf,s);})();</script>
 </body>
 </html>

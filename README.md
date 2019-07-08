@@ -12,17 +12,11 @@ It is available for free so you can use on your site. It is strictly forbidden t
 
 [![donate](./donate.gif)](https://www.paypal.me/godofredoninja)
 
-![mapache theme for ghost](./screenshot.jpg)
-
-## Demo
-
-You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
+![mapache theme for ghost](./screenshot.png)
 
 ## Featured
 
 - Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
-- Responsive layout
-- Magazine style home page or personal blog style
 - 404 error page (emoticons — last 6 articles)
 - Page subscribe
 - Pagination Infinite Scroll
@@ -31,32 +25,26 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 - [AMP](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost) Template (Accelerated Mobile Pages)
 - Follow on Social Media
 - Related Articles (6 articles)
-- Template - home Layout Masonry
-- Template - home Layout Personal Blog
-- Template - Page Newsletter (Mailchimp)
-- Template - Page Podcast
-- Template - Page Tag
-- Template - Post single
-- Template - Post full header
-- Template - Video post format
-- Template - Image post format
-- Template - Image single post format
-- Template - not image post => featured image is not displayed
-- 5 featured articles in the sidebar (home - tag - author)
+- Different templates for the Home Page
+- Different templates for publishing posts
+- Page Newsletter (Mailchimp)
+- Page Podcast
+- Page Tag
+- 5 featured articles in the sidebar (Home - Tag - Author)
 - 5 lates articles in the sidebar (post)
 - Tag Cloud in the sidebar
 - Previous and next articles buttons
-- Support for comments (Facebook or Disqus)
-- Support for counter comments (Facebook or Disqus)
-- Buttons to share the article (Facebook - Twitter - Reddit - Linkedin - Pinterest - Whatsapp)
+- Support for comments (Disqus)
+- Support for counter comments (Disqus)
+- Buttons to share the article (Facebook - Twitter - Reddit - Linkedin - Pinterest)
 - Sticky content in the sidebar
-- YouTube, Vimeo, kickstarter, Facebook, dailymotion => Responsive
+- YouTube, Vimeo, kickstarter, dailymotion => Responsive
 - Lazy image loading for better performance only in backgrounds
 - Code syntax [Prismjs](http://prismjs.com/index.html#languages-list) Supported all syntax.
 
 ## Table of Contents
 
-- [Web Browser Support for mapache](#web-browser-support-for-mapache)
+- [Web Browser Support for Mapache](#web-browser-support-for-mapache)
 - [Ghost Settings](#ghost-settings)
 - [Mapache Settings](#mapache-settings)
   - [1. Social Media](#1-social-media)
@@ -74,7 +62,6 @@ You can see mapache in action on my Page [Demo](https://goo.gl/V7moIY)
 - [Podcast Page](#podcast-page)
 - [Ads](#ads)
 - [Change Theme Color](#change-theme-color)
-- [Warning - Note - Success](#warning---note---success)
 - [PrismJS code syntax](#prismjs-code-syntax)
 
 ## Web Browser Support for mapache
@@ -89,21 +76,67 @@ Enable the following checkboxes on the Labs page in the Ghost admin panel.
 
 ## Mapache Settings
 
-You don't have to add all the Mapache configurations. only the ones you need
+> You don't have to add all the Simply configurations. only the ones you need
 
-### 1. Social Media
+### 1. Social Media Links
 
-Facebook and Twitter is not necessary because I use them from the ghost settings
+> Facebook and Twitter is not necessary because I use them from the ghost settings
 
 Add the Social Links only for the services you want to appear in the header section of your website. Pay attention as enabling too many services will cause menu problems.
 
+➡️ `Dashboard -> Code injection -> Site Footer`
+
+```html
+<script>
+var followSocialMedia = {
+  'youtube': ['YOUR_URL','YOUR_TITLE'],
+  'instagram': ['YOUR_URL','YOUR_TITLE'],
+  'snapchat': ['YOUR_URL','YOUR_TITLE'],
+  'dribbble': ['YOUR_URL','YOUR_TITLE'],
+  'github': ['YOUR_URL','YOUR_TITLE'],
+  'linkedin': ['YOUR_URL','YOUR_TITLE'],
+  'spotify': ['YOUR_URL','YOUR_TITLE'],
+  'codepen': ['YOUR_URL','YOUR_TITLE'],
+  'behance': ['YOUR_URL','YOUR_TITLE'],
+  'flickr': ['YOUR_URL','YOUR_TITLE'],
+  'pinterest': ['YOUR_URL','YOUR_TITLE'],
+  'telegram': ['YOUR_URL','YOUR_TITLE'],
+  'vimeo': ['YOUR_URL','YOUR_TITLE'],
+  'twitch': ['YOUR_URL','YOUR_TITLE'],
+  'vk': ['YOUR_URL','YOUR_TITLE'],
+  'slack': ['YOUR_URL','YOUR_TITLE'],
+  'tumblr': ['YOUR_URL','YOUR_TITLE'],
+  'discord': ['YOUR_URL','YOUR_TITLE'],
+  'rss': ['YOUR_URL','YOUR_TITLE'],
+};
+</script>
+```
 ### 2. Footer Menu
 
 You can add an additional menu bar at the footer of the page
 
+➡️ `Dashboard -> Code injection -> Site Footer`
+
+```html
+<script>
+var footerLinks = {
+  'Menu 1': 'YOUR_URL',
+  'Menu 2': 'YOUR_URL',
+  'Menu 3': 'YOUR_URL',
+};
+</script>
+```
 ### 3. YouTube Subscribe Button
 
 Subscription Button of YouTube in Video Post Format. Add the Channel ID which can be found here [YouTube Advanced Settings](https://www.youtube.com/account_advanced)
+
+➡️ `Dashboard -> Code injection -> Site Footer`
+
+```html
+<script>
+var youtubeChannelID = 'YOUR_CHANNEL_ID';
+</script>
+```
 
 ### 4. Instagram
 
@@ -111,105 +144,68 @@ I get the last 10 images then show 6 randomly It will only be shown in the foote
 
 First, you will need to get your account `userName` and `userId` and `accessToken` from the following URLs:
 
-- userId: [codeofaninja.com/tools/find-instagram-user-id](https://codeofaninja.com/tools/find-instagram-user-id)
-- accessToken: [instagram.pixelunion.net](http://instagram.pixelunion.net/)
+- User ID: [codeofaninja.com/tools/find-instagram-user-id](https://codeofaninja.com/tools/find-instagram-user-id)
+- Access Token: [instagram.pixelunion.net](http://instagram.pixelunion.net/)
 
-### 5. Comments
-
-Mapache supports Disqus comments and Facebook comments as well as comment counting
-
-**Disqus Comments** — First, you will need to get your account `disqusShortName`
-
-**Facebook Comments** — Changing the Language (`en_US` - `es_ES` - `es_LA`) more information link below [language](https://developers.facebook.com/docs/plugins/comments/#language)
-
-### 6. Search
-
-The default search engine will only search the titles of the post
-
-#### Setup a Custom integration
-
-1. Go in your Ghost's dashboard -> Integrations -> Add custom integration
-2. Set a name: GodoFredo Themes Search
-3. Get the Content API Key and replace the demo key with this one
-4. Get the admin domain. This will be different in some cases
+➡️ `Dashboard -> Code injection -> Site Footer`
 
 ```html
 <script>
-  var searchSettings = {
-    key: 'ADD_YOUR_API_KEY',
-    host: 'https://demo.ghost.io',
-  };
-</script>
-```
-
-The search engine that includes Mapache is very powerful, supports almost all languages and you can customize to your liking.
-
-Read more about the search engine [Read More](https://github.com/HauntedThemes/ghost-search)
-
----
-
-➡️ Copy the below script to `Settings -> Code Injection -> Blog Footer`
-
-```html
-<script>
-/*====================================================
-  MAPACHE SETTINGS & GLOBAL VARIABLES
-====================================================*/
-
-/* 01. Social Media */
-var followSocialMedia = {
-  'youtube': 'https://...',
-  'instagram': 'https://...',
-  'snapchat': 'https://...',
-  'dribbble': 'https://...',
-  'github': 'https://...',
-  'linkedin':'https://...',
-  'spotify':'https://...',
-  'codepen':'https://...',
-  'behance':'https://...',
-  'flickr':'https://...',
-  'pinterest':'https://...',
-  'telegram':'https://...',
-  'vimeo':'https://...',
-  'twitch':'https://...',
-  'vk':'https://...',
-  'slack':'https://...',
-  'tumblr':'https://...',
-  'discord':'https://...',
-  'rss':'https://...',
-};
-
-/* 02. Footer Menu */
-var footerLinks = {
-  'menu 1': 'https://...',
-  'menu 2': 'https://...',
-  'menu 3': 'https://...',
-};
-
-/* 03. YouTube Subscribe Button */
-var youtubeChannelID = 'YOUR_CHANNEL_ID';
-
-/* 04. Instagram */
 var instagramFeed  = {
   token: 'Token_app_instagram',
   userId: 'User_ID',
   userName: 'User_Name',
 };
+</script>
+```
 
-/* 05. Comments */
+### 5. Comments
 
-/* Disqus Comments or Facebook Comments - choose only one */
+Mapache supports Disqus comments as well as comment counting
+
+— First, you will need to get your account `disqusShortName`
+
+➡️ `Dashboard -> Code injection -> Site Footer`
+
+```html
+<script>
 var disqusShortName = 'YOUR_DISQUS_SHORTCUT_HERE';
-var facebookLocaleComments = 'en_US';
+</script>
+```
 
-/* 06. Search Settings */
+### 6. Search
+
+> The default search engine will only search the titles of the post
+
+**Setup a Custom integration**
+
+1. Go in your Ghost's `dashboard -> Integrations -> Add custom integration`
+2. Set a name: `GodoFredo Themes Search`
+3. Get the Content API Key and replace the demo key with this one
+4. Get the admin domain. This will be different in some cases
+
+➡️ `Dashboard -> Code injection -> Site Footer`
+
+```html
+<script>
+  var searchSettings = {
+    key: 'ADD_YOUR_API_KEY',
+    url: 'https://demo.ghost.io',
+  };
+</script>
+```
+
+OR - Adding parameters to the search
+
+```html
+<script>
 var searchSettings = {
   key: 'ADD_YOUR_API_KEY',
-  host: 'https://demo.ghost.io',
+  url: 'https://demo.ghost.io',
   /* This is optional */
   options: {
     keys: [
-      'title',
+        'title',
     ],
     limit: 10,
   },
@@ -225,9 +221,18 @@ var searchSettings = {
       formats: '',
     },
   },
-};
+}
+</script>
+```
 
-/* 07. Twitter Widget in the sidebar */
+The search engine that includes Mapache is very powerful, supports almost all languages and you can customize to your liking.
+
+Read more about the search engine [Read More](https://github.com/HauntedThemes/ghost-search)
+
+### 7. Twitter widget in the sidebar
+
+```html
+<script>
 var twitterFeed = {
   name: 'YOUR_TWITTER_USER_NAME',
   number: 2,
@@ -290,8 +295,8 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 
   /* 02. Home BTN <SUBSCRIBE> - optional */
   var homeBtn = {
-      title: 'Add_TITLE',
-      url: 'Add_URL',
+    title: 'Add_TITLE',
+    url: 'Add_URL',
   };
 </script>
 ```
@@ -314,7 +319,7 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
     - vimeo
     - Dailymotion
     - Youtube
-    - Vid
+    - Twitch
     - kickstarter
 
 > Add video where convenient. When you change the theme you will not have problems and not have Problem in your AMP Template
@@ -327,9 +332,8 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 
 > A page will be displayed with all tags sorted from highest to lowest number of articles.
 
-- To create the tags page you just have to create a new story
+- To create the tags page you just have to create a new page
 - Choose your favorite url and title
-- Click the Turn this post into a static page checkbox
 - Select the `Archive Tags` template from the Template dropdown
 - Publish the page
 - To add the page to the navigation
@@ -338,9 +342,8 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 
 ## Newsletter Page
 
-- To create the Newsletter page you just have to create a new story
+- To create the Newsletter page you just have to create a new page
 - Choose your favorite url and title
-- Click the Turn this post into a static page checkbox
 - Select the `Archive Newsletter` template from the Template dropdown
 - Write the list as normal in your content
 - To have the **Mailchimp** form copy the code and add an `HTML` section in Ghost then change the form action url.
@@ -402,10 +405,9 @@ Example: `<form action="https://ninja.us10.list-manage.com/subscribe/post?u=5c52
 
 ## Podcast Page
 
-- To create the Podcast Page you just have to create a new story
+- To create the Podcast Page you just have to create a new page
 - Choose your favorite title
 - Use the url `podcast`
-- Click the Turn this post into a static page checkbox
 - In your articles use the internal tags `#podcast`
 - First back up your routes in your ghost settings `Labs -> Routes -> Download current routes.yml`
 - Re-download the Route and edit `routes.yml` line `routes`
@@ -470,7 +472,7 @@ You have to enter the following directory `partials/ad` and add in each file you
 — It is important to add the following style in your ghost settings. in the section `Code injection -> Blog Header`
 
 ```html
-<style>.mapache-ad-author-tag-top,.mapache-ad-home-top,.mapache-ad-post-footer{margin-bottom:30px}.mapache-ad-author-tag-footer,.mapache-ad-home-footer,.mapache-ad-post-header{margin-top:30px}</style>
+<style>.mapache-ad-author-tag-top,.mapache-ad-home-top,.mapache-ad-post-footer{margin-bottom:30px}.mapache-ad-author-tag-top,.mapache-ad-author-tag-footer,.mapache-ad-home-footer,.mapache-ad-post-header{margin-top:30px}</style>
 ```
 
 ## Change Theme Color
@@ -485,22 +487,22 @@ To change the color of the Mapache theme select one of the theme styles below an
 
 ```html
 <!-- 1.- Theme Mapache Deep Orange -->
-<style>:root{--primary-color:#d25704;--header-color:#ffc79e;--header-color-hover:#fff4de;--story-cover-category-color:#ff7b22;--footer-color-link:#d25704;--media-type-color:rgba(243,137,59,0.86);--composite-color:#007d85;--podcast-button-color:#f06e17;--newsletter-color:#d25704;--newsletter-bg-color:rgba(210,87,4,0.6)}.button--primary{border-color:#d25704;color:#d25704}.u-accentColor--iconNormal{color:#d25704;fill:#d25704}.button--dark:hover{background:#d25704;border-color:#d25704}mark{background-image:linear-gradient(180deg,#ffe1c2,#ffe1c2)}</style>
+<style>:root{--primary-color:#d25704;--header-logo-color:#fff;--header-bg-color:#d25704;--header-color:#ffc79e;--header-menu-color:#ffc79e;--header-menu-color-hover:#fff4de;--header-color-hover:#fff4de;--header-color-divider:rgba(234,233,233,0.34);--footer-color-link:#d25704;--media-type-color:rgba(243,137,59,0.86);--composite-color:#007d85;--podcast-button-color:#f06e17;--newsletter-color:#d25704;--newsletter-bg-color:rgba(210,87,4,0.6)}</style>
 
 <!-- 2.-Theme Mapache Blue Dark -->
-<style>:root{--primary-color:#1e3757;--header-color:#c1cbdb;--header-color-hover:#fcffff;--story-cover-category-color:#7aa9f3;--footer-color-link:#c1cbdb;--composite-color:#007d85;--newsletter-color:#1e3757;--newsletter-bg-color:rgba(30,55,87,0.6)}.button--primary{border-color:#1e3757;color:#1e3757}.u-accentColor--iconNormal{color:#1e3757;fill:#1e3757}.button--dark:hover{background:#1e3757;border-color:#1e3757}mark{background-image:linear-gradient(180deg,#dff6f8,#dff6f8)}</style>
+<style>:root{--primary-color:#1e3757;--header-logo-color:#fff;--header-bg-color:#1e3757;--header-menu-color:#c1cbdb;--header-menu-color-hover:#fcffff;--header-color-divider:#687fa5;--header-color:#c1cbdb;--header-color-hover:#fcffff;--footer-color-link:#c1cbdb;--composite-color:#007d85;--newsletter-color:#1e3757;--newsletter-bg-color:rgba(30,55,87,0.6)}</style>
 
 <!-- 3.-Theme Mapache Red -->
-<style>:root{--primary-color:#c43235;--header-color:#ffbbb4;--header-color-hover:#fff0ec;--story-cover-category-color:#ff9699;--footer-color-link:#ff5b5e;--composite-color:#ff5b5e;--podcast-button-color:#c43235;--newsletter-color:#c43235;--newsletter-bg-color:rgba(196,50,53,0.6)}.button--primary{border-color:#c43235;color:#c43235}.u-accentColor--iconNormal{color:#c43235;fill:#c43235}.button--dark:hover{background:#c43235;border-color:#c43235}mark{background-image:linear-gradient(180deg,#ffdcd6,#ffdcd6)!important}</style>
+<style>:root{--primary-color:#c43235;--header-logo-color:#fff;--header-bg-color:#c43235;--header-menu-color:#ffbbb4;--header-menu-color-hover:#fff0ec;--header-color-divider:#e6867c;--header-color:#ffbbb4;--header-color-hover:#fff0ec;--footer-color-link:#b56566;--composite-color:#ff5b5e;--podcast-button-color:#c43235;--newsletter-color:#c43235;--newsletter-bg-color:rgba(196,50,53,0.6)}</style>
 
 <!-- 4.-Theme Mapache Blue -->
-<style>:root{--primary-color:#0273d4;--header-color:#ddecfa;--header-color-hover:#fff;--story-cover-category-color:#c9e6ff;--footer-color-link:rgba(164,209,248,0.8);--composite-color:#ff5b5e;--podcast-button-color:#2ecc71;--newsletter-color:#0273d4;--newsletter-bg-color:rgba(2,115,212,0.6)}.button--primary{border-color:#0273d4;color:#0273d4}.u-accentColor--iconNormal{color:#0273d4;fill:#0273d4}.button--dark:hover{background:#0273d4;border-color:#0273d4}mark{background-image:linear-gradient(180deg,#e1f5fe,#e1f5fe)}</style>
+<style>:root{--primary-color:#0273d4;--header-logo-color:#fff;--header-bg-color:#0273d4;--header-menu-color:#ddecfa;--header-menu-color-hover:#fff;--header-color-divider:#699bca;--header-color:#ddecfa;--header-color-hover:#fff;--footer-color-link:rgba(164,209,248,0.8);--composite-color:#ff5b5e;--podcast-button-color:#2ecc71;--newsletter-color:#0273d4;--newsletter-bg-color:rgba(2,115,212,0.6)}</style>
 
 <!-- 5.-Theme Mapache Bluen Semi Dark -->
-<style>:root{--primary-color:#01579b;--header-color:#ddecfa;--header-color-hover:#fff;--story-cover-category-color:#c9e6ff;--footer-color-link:rgba(164,209,248,0.8);--composite-color:#ff5b5e;--podcast-button-color:#2ecc71;--newsletter-color:#01579b;--newsletter-bg-color:rgba(2,115,212,0.6)}.button--primary{border-color:#01579b;color:#01579b}.u-accentColor--iconNormal{color:#01579b;fill:#01579b}.button--dark:hover{background:#01579b;border-color:#01579b}mark{background-image:linear-gradient(180deg,#e1f5fe,#e1f5fe)}</style>
+<style>:root{--primary-color:#01579b;--header-logo-color:#fff;--header-bg-color:#01579b;--header-menu-color:#ddecfa;--header-menu-color-hover:#fff;--header-color-divider:#4a77a2;--header-color:#ddecfa;--header-color-hover:#fff;--footer-color-link:rgba(164,209,248,0.8);--composite-color:#ff5b5e;--podcast-button-color:#2ecc71;--newsletter-color:#01579b;--newsletter-bg-color:rgba(2,115,212,0.6)}</style>
 
 <!-- 6.-Theme Mapache Black -->
-<style>:root{--primary-color:#000;--header-color:hsla(0,0%,100%,0.9);--header-color-hover:#fff;--story-cover-category-color:#ccc;--footer-color-link:hsla(0,0%,100%,0.8);--composite-color:rgba(0,0,0,0.54);--podcast-button-color:#2ecc71;--newsletter-color:rgba(0,0,0,0.84);--newsletter-bg-color:#b1aeae}.button--primary{border-color:#000;color:#000}.u-accentColor--iconNormal{color:#000;fill:#000}.button--dark:hover{background:#000;border-color:#000}.u-oblique{background:#2ecc71;color:rgba(0,0,0,.84)}mark{background-image:linear-gradient(180deg,#efefef,#efefef)!important}</style>
+<style>:root{--primary-color:#000;--header-logo-color:#fff;--header-bg-color:#000;--header-menu-color:hsla(0,0%,100%,0.9);--header-menu-color-hover:#fff;--header-color-divider:#717171;--header-color:hsla(0,0%,100%,0.9);--header-color-hover:#fff;--footer-color-link:hsla(0,0%,100%,0.8);--composite-color:rgba(0,0,0,0.54);--podcast-button-color:#2ecc71;--newsletter-color:rgba(0,0,0,0.84);--newsletter-bg-color:#b1aeae}</style>
 ```
 
 **➡ If you don't like the colors above, then play with your favorite colors. Just change the colors in the following code**
@@ -508,53 +510,23 @@ To change the color of the Mapache theme select one of the theme styles below an
 ```html
 <style>
 :root {
-  --primary-color: rgba(210, 87, 4, 1);
-  --header-color: #FFC79E;
-  --header-color-hover: #FFF4DE;
-  --story-cover-category-color: rgb(255, 123, 34);
-  --footer-color-link: rgba(210, 87, 4, 1);
-  --media-type-color: rgba(243, 137, 59, 0.86);
-  --composite-color: #007D85;
-  --podcast-button-color: rgba(240, 110, 23, 1);
-  --newsletter-color: rgba(210, 87, 4, 1);
-  --newsletter-bg-color: rgba(210, 87, 4, .6);
+  --primary-color:#d25704;
+  --header-logo-color:#fff;
+  --header-bg-color:#d25704;
+  --header-color:#ffc79e;
+  --header-menu-color:#ffc79e;
+  --header-menu-color-hover:#fff4de;
+  --header-color-hover:#fff4de;
+  --header-color-divider:rgba(234, 233, 233, 0.34);
+  --footer-color-link:#d25704;
+  --media-type-color:rgba(243,137,59,0.86);
+  --composite-color:#007d85;
+  --podcast-button-color:#f06e17;
+  --newsletter-color:#d25704;
+  --newsletter-bg-color:rgba(210,87,4,0.6)
 }
-
-.button--primary {
-  border-color: rgba(210, 87, 4, 1);
-  color: rgba(210, 87, 4, 1);
-}
-
-.u-accentColor--iconNormal {
-  color: rgba(210, 87, 4, 1);
-  fill: rgba(210, 87, 4, 1);
-}
-
-.button--dark:hover {
-  background: rgba(210, 87, 4, 1);
-  border-color: rgba(210, 87, 4, 1);
-}
-
-mark { background-image: linear-gradient(to bottom, rgba(255, 225, 194, 1), rgba(255, 225, 194, 1)) }
-
 </style>
 ```
-
-### Warning - Note - Success
-
-> It is very important to add in the block of `Markdown` or `HTML`
-
-Add some more styling options to your articles text with these three styles.
-
-```html
-<p class="warning"> ... your text warning ... </p>
-
-<p class="note"> ... your text note ... </p>
-
-<p class="success"> ... your text success ... </p>
-```
-
-![Warning Note](./documentation/warning-note-success.jpg)
 
 ### PrismJS code syntax
 
@@ -574,9 +546,10 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 - [Fuzzysort](https://github.com/farzher/fuzzysort)
 - [Prismjs](http://prismjs.com/)
 - [Theia Sticky Sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
-- [zoom.js](https://github.com/fat/zoom.js/)
-- [lazysizes](https://github.com/aFarkas/lazysizes)
+- [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js/)
+- [Lazysizes](https://github.com/aFarkas/lazysizes)
 - [Fonts](https://fonts.googleapis.com/css?family=Merriweather:300i,400,700|Roboto|Roboto+Mono:300i,400,500,700)
+- [Safari Light - Mockup](https://www.uplabs.com/posts/safari-light-version)
 
 ## Copyright & License
 

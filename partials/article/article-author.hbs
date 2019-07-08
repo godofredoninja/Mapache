@@ -1,11 +1,11 @@
 {{#post}}
 
-<div class="post-author u-flex u-flexCenter u-marginTop20">
+<div class="post-author u-flex u-flexCenter">
     {{!-- author Avatar --}}
     {{#primary_author}}
     <div class="u-flex0">
         <a href="{{url}}" class="avatar-image avatar-image--smaller u-relative">
-            <img class="u-absolute u-image u-block u-round lazyload" data-src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/avatar.png"}}{{/if}}" alt="{{t "Go to the profile of "}} {{name}}"/>
+            <img class="u-absolute u-image u-block u-round" src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/avatar.png"}}{{/if}}" alt="{{t "Go to the profile of "}} {{name}}"/>
         </a>
     </div>
     {{/primary_author}}

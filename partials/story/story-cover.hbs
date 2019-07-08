@@ -2,12 +2,15 @@
     <div class="st-cover-inner u-relative u-bgBlack">
         {{!-- Imagenes --}}
         {{#if feature_image}}
-            <img class="u-absolute u-image u-block"
-                src="{{img_url feature_image size="m"}}"
-                srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w,"
-                sizes="(max-width: 1000px) 400px, 700px"
-                alt="{{title}}"
-            />
+            <a href="{{url}}">
+                <img class="u-absolute u-image u-block lazyload"
+                    src="{{img_url feature_image size="m"}}"
+                    srcset="{{img_url feature_image size="xxs"}}"
+                    data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w,"
+                    data-sizes="(max-width: 1000px) 400px, 700px"
+                    alt="{{title}}"
+                />
+            </a>
         {{else}}
             <div class="u-absolute0 u-bgCover u-block" style="background-image:url({{asset "images/not-image.jpg"}})"></div>
         {{/if}}
@@ -17,13 +20,15 @@
             {{> "helper/helper-story-meta"}}
 
             {{!-- Title --}}
-            <h2 class="st-cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22">{{title}}</h2>
+            <h2 class="st-cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22">
+                <a href="{{url}}">{{title}}</a>
+            </h2>
 
             {{!-- excerpt --}}
-            {{#if @first}} <p class="st-cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}}
+            {{!-- {{#if @first}} <p class="st-cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}} --}}
         </header>
 
         {{!-- link --}}
-        <a href="{{url}}" class="u-absolute0 zindex3"></a>
+        {{!-- <a href="{{url}}" class="u-absolute0 zindex3"></a> --}}
     </div>
 </article>

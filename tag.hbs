@@ -8,7 +8,7 @@
 
 <section class="extreme-container">
     {{#tag}}
-        <div class="tag u-relative u-textAlignCenter u-textAlignCenter u-flexCenter u-marginTop30 u-marginBottom30 {{#if feature_image}}u-textColorWhite has-image{{else}}u-textColorDarker{{/if}}">
+        <div class="tag u-relative u-textAlignCenter u-textAlignCenter u-flexCenter u-marginTop30 u-marginBottom30 {{#if feature_image}}u-textColorWhite u-textShadow has-image{{else}}u-textColorDarker{{/if}}">
             {{#if feature_image}}
                 <img class="u-absolute u-image u-block lazyload"
                     src="{{img_url feature_image size="m"}}"
@@ -17,13 +17,13 @@
                     data-sizes="(max-width: 1000px) 400px, 700px"
                     alt="{{title}}"
                 />
-                <div class="u-bgGradient u-absolute0 zindex2"></div>
+                <div class="u-absolute0 zindex2" style="background:#000;opacity:.5"></div>
             {{/if}}
 
-            <div class="tag-body u-relative u-maxWidth740 u-container zindex3 u-fontSize20">
-                <h1 class="tag-title u-fontSize36 u-md-fontSizeBase">{{name}}</h1>
+            <div class="tag-body u-relative u-container zindex3 u-fontSize20">
+                <h1 class="tag-title u-fontSize40 u-md-fontSizeLarger u-textCapitalize">{{name}}</h1>
                 <p class="u-marginTop20 u-fontSizeBase">Total {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}</p>
-                {{#if description}}<p class="tag-description u-marginTop20 u-fontWeightThin">{{description}}</p>{{/if}}
+                {{#if description}}<p class="tag-description u-marginTop20 u-maxWidth1000 u-marginAuto">{{description}}</p>{{/if}}
             </div>
         </div>
     {{/tag}}

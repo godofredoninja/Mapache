@@ -1,52 +1,42 @@
-<aside class="sharePost u-textAlignCenter u-hide-before-lg">
+<aside class="sharePost u-textAlignCenter u-hide-before-lg u-fontSizeBase">
     <ul class="share-inner">
         <li>
             <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="{{t "Share on"}} Facebook"
-                class="button--circle i-facebook bg-facebook u-fontSize20"
+                aria-label="Share on Facebook"
+                class="button--circle i-facebook bg-facebook"
                 onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             </a>
         </li>
         <li>
             <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="{{t "Share on"}} Twitter"
-                class="button--circle i-twitter bg-twitter u-fontSize20"
+                aria-label="Share on Twitter"
+                class="button--circle i-twitter bg-twitter"
                 onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             </a>
         </li>
         <li>
             <a href="https://www.reddit.com/submit?url={{url absolute="true"}}&amp;title={{encode title}}"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="{{t "Share on"}} Redit"
-                class="button--circle i-reddit bg-reddit u-fontSize20"
+                aria-label="Share on Reddit"
+                class="button--circle i-reddit bg-reddit"
                 onclick="window.open(this.href, 'share-reddit', 'width=600,height=480');return false;">
             </a>
         </li>
         <li>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="{{t "Share on"}} Linkedin"
-                class="button--circle i-linkedin bg-linkedin u-fontSize20"
-                onclick="window.open(this.href, 'share-linkedin', 'width=600,height=480');return false;">
+                aria-label="Share on Linkedin"
+                class="button--circle i-linkedin bg-linkedin"
+                onclick="window.open(this.href, 'share-linkeding', 'width=600,height=480');return false;">
             </a>
         </li>
         <li>
-            <a href="http://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="{{t "Share on"}} Pinterest"
-                class="button--circle i-pinterest bg-pinterest u-fontSize20"
+            <a href="https://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
+                aria-label="Share on Pinterest"
+                class="button--circle i-pinterest bg-pinterest"
                 onclick="window.open(this.href, 'share-pinterest', 'width=600,height=480');return false;">
             </a>
         </li>
         <li>
-            <a href="#" class="toggle-comments button--circle i-chat u-fontSize20 u-hide post-comments-show"></a>
+            <div class="js-toggle-comments u-pointer button--circle i-chat u-hide post-comments-show" style="margin-top:8px"></div>
         </li>
     </ul>
 </aside>

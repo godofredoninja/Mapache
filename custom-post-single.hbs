@@ -14,22 +14,8 @@
     {{> "article/article-author"}}
 </div>
 
-{{#post}}
-    {{#if feature_image}}
-        <figure class="post-image u-block u-marginAuto u-maxWidth1000">
-            <img class="u-block u-marginAuto"
-                srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w"
-                sizes="(max-width: 400px) 300px,(max-width: 730px) 600px, (max-width: 1600px) 1000px"
-                src="{{img_url feature_image size="xl"}}"
-                alt="{{title}}"
-                data-action="zoom"
-            />
-        </figure>
-    {{/if}}
-{{/post}}
+{{!-- Article Image - partials/helper/helper-article-image.hbs --}}
+{{#post}} {{> "helper/helper-article-image"}} {{/post}}
 
 <section class="post u-maxWidth740 u-container u-marginAuto u-marginTop20 u-marginBottom40">
     {{!-- Article Content - partials/article/article-body.hbs --}}

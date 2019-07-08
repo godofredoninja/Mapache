@@ -1,39 +1,43 @@
-<header class="header u-sizeFullWidth u-bgColor">
+<header class="header u-sizeFullWidth">
     <div class="header-wrap u-flexCenter u-relative">
-
+        {{!-- Page Logo and Name --}}
         <a class="header-logo u-inlineBlock u-flex0" href="{{@site.url}}">
             {{#if @site.logo}}
                 <img src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}"/>
             {{else}}
-                <span class="u-fontSizeLarge u-fontWeightBold">{{@site.title}}</span>
+                <span class="u-fontSize26 u-fontWeightBold u-lineHeight1">{{@site.title}}</span>
             {{/if}}
         </a>
 
         {{!-- Navigation --}}
-        <nav class="nav u-flex u-flex1 u-paddingLeft20 u-flexCenter u-hide-before-lg">{{navigation}}</nav>
+        <nav class="nav u-flex u-flex1 u-paddingLeft20 u-flexCenter u-hide-before-lg">
+            <ul class="u-unstyled u-flex1" itemscope itemtype="http://schema.org/SiteNavigationElement" role="menu">
+                {{navigation}}
+            </ul>
+        </nav>
 
-        <div class="header-left u-flex0 u-flex u-flexEnd u-fontSize21">
+        <ul class="header-left u-flex0 u-flex u-flexEnd u-fontSize21 u-unstyled">
 
             {{!-- Facebook adn Twitter --}}
-            {{#if @site.facebook}}<a class="i-facebook u-hide-before-lg" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
-            {{#if @site.twitter}}<a class="i-twitter u-hide-before-lg" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"></a>{{/if}}
+            {{#if @site.facebook}}<li><a href="{{facebook_url}}" title="Facebook {{@site.facebook}}" class="i-facebook u-hide-before-lg" target="_blank" rel="noopener noreferrer"></a></li>{{/if}}
+            {{#if @site.twitter}}<li><a href="{{twitter_url}}"  title="Twitter {{@site.twitter}}" class="i-twitter u-hide-before-lg" target="_blank" rel="noopener noreferrer"></a></li>{{/if}}
 
-            {{!-- Box for follow more --}}
-            <div class="followMe follow-more u-hide-before-lg"></div>
+            {{!-- Social Media --}}
+            <li class="js-social-media social-media u-hide-before-lg"></li>
 
             {{!-- Open Subscribe card --}}
-            {{#if @labs.subscribers}}<a href="#" class="subscribe-toggle modal-toggle u-relative u-hide-before-lg i-email"></a>{{/if}}
-            {{!-- toggle follow more --}}
-            <a href="#" class="follow-toggle u-relative u-fontSizeLarge u-hide u-hide-before-lg i-more"></a>
+            {{#if @labs.subscribers}}<li><a href="#" class="subscribe-toggle js-toggle-modal u-relative u-hide-before-lg i-email" aria-label="subscribe close"></a></li>{{/if}}
+            {{!-- Toggle Social Media --}}
+            <li><a href="#" class="js-toggle-social-media toggle-social-media u-relative u-fontSizeLarge u-hide u-hide-before-lg i-more" aria-label="Toggle social media"></a></li>
             {{!-- separe --}}
-            <span class="header-line u-hide-before-lg"></span>
+            <li class="header-line u-hide-before-lg"></li>
             {{!-- Toggle Search --}}
-            <a href="#" class="search-toggle u-relative i-search u-hide"></a>
-            {{!-- Toggle Menu --}}
-            <a href="#" class="menu--toggle u-relative u-hide-after-lg"><span></span><span></span><span></span></a>
-        </div>
+            <li><a href="#" class="js-search-open search-toggle u-relative u-fontSizeLarge i-search" aria-label="search"></a></li>
+            {{!-- Toggle Menu Mobile --}}
+            <li><a href="#" class="menu--toggle u-relative u-hide-after-lg" aria-label="Toggle Menu"><span></span><span></span><span></span></a></li>
+        </ul>
     </div>
 </header>
 
-{{!-- Side Nav for Mobile --}}
+{{!-- Sidenav Mobile - partilas/sidenav.hbs --}}
 {{>"sidenav"}}

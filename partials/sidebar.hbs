@@ -1,7 +1,7 @@
 <aside class="sidebar col-right sidebar-sticky u-hide-before-lg">
     {{#is "post"}}
         {{!-- show the last 5 articles on the post page --}}
-        {{#get "posts" limit="5" as |sidebar_latest_post| }}
+        {{#get "posts" limit="5" filter="id:-{{post.id}}" as |sidebar_latest_post| }}
             {{#if sidebar_latest_post}}
                 {{> "sidebar/sidebar-story" widgetTitle=(t "Latest Articles") widgetPosts=sidebar_latest_post}}
             {{/if}}

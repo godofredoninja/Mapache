@@ -25,8 +25,13 @@
 
     <div class="cc-image-header u-absolute zindex2">
         <div class="extreme-container">
-            {{!-- Title & Excerpt - partials/article/article-header.hbs --}}
-            {{> "article/article-header"}}
+            {{#post}}
+            <div class="post-header">
+                {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom10"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+                <h1 class="post-t u-fontSizeJumbo u-textShadow u-md-fontSizeLarger u-textColorWhite">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="post-e u-fontSize20 u-paddingTop10 u-textColorNormal">{{custom_excerpt}}</p>{{/if}}
+            </div>
+            {{/post}}
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 {{#post}}
 
 <div class="post-body u-relative">
-    {{!-- Share post - partials/article/article-share.hbs --}}
+    {{!-- Share Sticky post - partials/article/article-share.hbs --}}
     {{> "article/article-share"}}
 
     <div class="post-body-wrap">
@@ -19,13 +19,13 @@
 
         <hr class="post-footer-hr">
 
-        {{!-- Button for Comments Open --}}
-        <div class="button button--large button--dark-line post-comments-show toggle-comments">
+        {{!-- Button for Toggle Comments --}}
+        <div class="button button--large button--dark-line post-comments-show js-toggle-comments">
             {{!-- Disqus Comments Count --}}
-            <span class="disqus-comment-count mapache-disqus u-hide" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
+            <span class="disqus-comment-count mapache-disqus" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
             {{!-- Facebook Comments Counts --}}
-            <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
-            <span class="mapache-facebook u-hide">{{t "Comments"}}</span>
+            {{!-- <span class="fb-comments-count mapache-facebook u-hide" data-href="{{url absolute="true"}}">0</span>
+            <span class="mapache-facebook u-hide">{{t "Comments"}}</span> --}}
         </div>
 
     </div>

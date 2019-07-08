@@ -9,14 +9,17 @@
             <div class="cc-video-left">
                 <div class="cc-video-cont">
                     {{!-- Video Embed --}}
-                    <div class="cc-video-embed">
-                        <span class="cc-video-close i-close u-hide"></span>
-                    </div>
+                    <div class="cc-video-embed"><span class="cc-video-close i-close u-hide"></span></div>
                 </div>
             </div>
             <div class="col s12 cc-video-right">
-                {{!-- Article Header - partials/article/article-header.hbs --}}
-                {{> "article/article-header"}}
+                {{#post}}
+                <div class="post-header">
+                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom10"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+                    <h1 class="post-t u-fontSizeLarger u-md-fontSizeLarger u-lineHeightTight u-textColorWhite">{{title}}</h1>
+                    {{#if custom_excerpt}}<p class="post-e u-fontSizeSmall u-paddingTop10" style="color:#7d7d7d">{{custom_excerpt}}</p>{{/if}}
+                </div>
+                {{/post}}
             </div>
 
             {{!-- Yputube Subscribe --}}
