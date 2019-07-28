@@ -33,30 +33,27 @@
         count.src = 'https://'+disqusShortName+'.disqus.com/count.js';
         count.id = 'dsq-count-scr';
         count.async = true;
-        (d.head || d.body).appendChild(count);
+        count.defer = true;
+        d.body.appendChild(count);
 
         // Toggle Comments
         $('.js-toggle-comments').on('click', function (e) {
             e.preventDefault();
             $('body').toggleClass('has-comments').removeClass('is-showNavMob')
 
-            /* Call Disqus */
-            var js, djs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
 
-            if (d.getElementById(id)) {
-                return;
-            } else {
-                setTimeout(function(){
-                    $('.mapache-disqus-loanding').remove();
-                    $('.mapache-disqus').removeClass('u-hide');
-                }, 2000);
-            };
+            setTimeout(function(){
+                $('.mapache-disqus-loanding').remove();
+                $('.mapache-disqus').removeClass('u-hide');
+            }, 2000);
 
-            js = d.createElement(s);
+            var js = d.createElement(s);
             js.id = id;
             js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
             js.async = true;
-            djs.parentNode.insertBefore(js, djs);
+            js.defer = true;
+            d.body.appendChild(js)
         });
     }(document, 'script', 'disqus-js'));
 </script>
