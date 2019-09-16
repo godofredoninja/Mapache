@@ -476,3 +476,8 @@ __pycache__/
 .sass-lint.yml
 .cache-loader
 yarn-error.log
+*.swp
+*.zip
+yarn.lock
+
+

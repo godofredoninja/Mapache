@@ -1,0 +1,91 @@
+// Author page
+// ==========================================================================
+
+.author {
+  &-inner {
+    margin-bottom: 30px;
+    padding: 40px 5%;
+    width: 90%;
+  }
+
+  &-left {
+    width: 216px;
+    margin-right: 50px;
+  }
+
+  &-avatar {
+    height: 216px;
+    width: 216px;
+    overflow: hidden;
+
+    img { border: 8px solid #ddd; }
+  }
+
+  &-bio {
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 150%;
+    width: 100%;
+  }
+
+  &-meta span {
+    display: inline-block;
+    font-size: 17px;
+    font-style: italic;
+    margin: 0 25px 16px 0;
+    opacity: .8;
+    word-wrap: break-word;
+  }
+
+  &-follow .button {
+    border: 1px solid #000;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .fb:hover {
+    border-color: #3b5998;
+    background-color: #3b5998;
+    color: #fff;
+  }
+
+  .tw:hover {
+    border-color: #55acee;
+    background-color: #55acee;
+    color: #fff;
+  }
+
+  .rs:hover {
+    border-color: #e99804;
+    background-color: #e99804;
+    color: #fff;
+  }
+
+  .title-line {
+    &::before { background: rgba(0, 0, 0, 0.54) }
+  }
+
+  .u-oblique { background: #000 }
+}
+
+@media #{$md-and-down} {
+  .author {
+    &-inner {
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    &-left {
+      margin: 0 auto 20px auto;
+      width: 150px;
+    }
+
+    &-avatar {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

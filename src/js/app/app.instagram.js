@@ -1,0 +1,48 @@
+// user id => 1397790551
+// token => 1397790551.1aa422d.37dca7d33ba34544941e111aa03e85c7
+// user nname => GodoFredoNinja
+// http://instagram.com/oauth/authorize/?client_id=YOURCLIENTIDHERE&redirect_uri=HTTP://YOURREDIRECTURLHERE.COM&response_type=token
+
+// import lazyLoadImage from './app.lazy-load';
+
+/* Template for images */
+const templateInstagram = data => {
+  return `<div class="instagram-col col s6 m4 l2">
+    <a href="${data.link}" class="instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block u-bgGray" target="_blank" rel="noopener noreferrer">
+      <img aria-label="Instagram image" class="u-absolute0 u-image lazyload zindex2" src="${data.images.low_resolution.url}"/>
+      <div class="instagram-hover u-absolute0 u-flexColumn" style="z-index:3">
+        <div class="u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20">
+          <span style="padding-right:10px"><i class="i-favorite"></i> ${data.likes.count}</span>
+          <span style="padding-left:10px"><i class="i-chat"></i> ${data.comments.count}</span>
+        </div>
+      </div>
+    </a>
+  </div>`;
+}
+
+// Shuffle Array
+const shuffleInstagram = arr => arr
+  .map(a => [Math.random(), a])
+  .sort((a, b) => a[0] - b[0])
+  .map(a => a[1]);
+
+// Display Instagram Images
+const displayInstagram = (res, user) => {
+  const shuffle = shuffleInstagram(res.data);
+  const sf = shuffle.slice(0, 6);
+
+  return sf.map(img => {
+    const images = templateInstagram(img);
+    $('.instagram').removeClass('u-hide');
+    $('.instagram-wrap').append(images);
+    $('.instagram-name').html(user);
+  });
+}
+
+export default (url, user) => {
+  fetch(url)
+  .then(response => response.json())
+  .then(resource => displayInstagram(resource, user))
+  // .then(() => lazyLoadImage().update())
+  .catch( () => $('.instagram').remove());
+}

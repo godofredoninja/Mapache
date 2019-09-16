@@ -1,0 +1,60 @@
+// post Comments
+// ==========================================================================
+
+.post-comments {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  width: 100%;
+  left: 0;
+  overflow-y: auto;
+  background: #fff;
+  border-left: 1px solid #f1f1f1;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
+  font-size: 14px;
+  transform: translateX(100%);
+  transition: .2s;
+  will-change: transform;
+
+  &-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+
+    .js-toggle-comments {
+      font-size: 24px;
+      line-height: 1;
+      left: 0;
+      top: 0;
+      padding: 17px;
+      cursor: pointer;
+    }
+  }
+
+  &-overlay {
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, .2);
+    display: none;
+    transition: background-color .4s linear;
+    z-index: 8;
+    cursor: pointer;
+  }
+}
+
+body.has-comments {
+  overflow: hidden;
+
+  .post-comments-overlay { display: block }
+  .post-comments { transform: translateX(0) }
+}
+
+@media #{$md-and-up} {
+  .post-comments {
+    left: auto;
+    max-width: 700px;
+    min-width: 500px;
+    top: $header-height;
+    z-index: 9;
+  }
+}

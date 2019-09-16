@@ -1,0 +1,149 @@
+// Header
+// ==========================================================================
+
+// .header-logo,
+// .menu--toggle,
+// .search-toggle {
+//   z-index: 15;
+// }
+
+.header {
+  background-color: var(--header-bg-color);
+  // box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  transition: all .3s ease-in-out;
+  z-index: 10;
+
+  &-wrap { height: $header-height; }
+
+  &-logo {
+    color: var(--header-logo-color);
+    height: 30px;
+
+    img { max-height: 100%; }
+  }
+}
+
+// not have logo
+// .not-logo .header-logo { height: auto !important }
+
+// Header line separate
+.header-line {
+  border-right: 1px solid var(--header-color-divider);
+  display: inline-block;
+  height: $header-height;
+  margin-right: 10px;
+}
+
+// Header Follow More
+// ==========================================================================
+.social-media {
+  transition: width .4s ease;
+  overflow: hidden;
+  width: 0;
+}
+
+body.is-showFollowMore {
+  .social-media { width: auto }
+  .toggle-social-media { color: var(--header-color-hover) }
+  .toggle-social-media::before { content: "\e5cd" }
+}
+
+// Header menu
+// ==========================================================================
+
+.nav {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+
+  ul {
+    @extend %flex;
+    // display: flex;
+    margin-right: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.header-left a,
+.nav ul li a {
+  // border-radius: 3px;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  letter-spacing: .02em;
+}
+
+.nav ul li a {
+  color: var(--header-menu-color);
+
+  &.active,
+  &:hover {
+    color: var(--header-menu-color-hover);
+  }
+}
+
+// stylelint-disable-next-line
+.header-left a {
+  color: var(--header-color);
+  // stylelint-disable-next-line
+  &:hover { color: var(--header-color-hover) }
+}
+
+// button-nav
+.menu--toggle {
+  height: 48px;
+  position: relative;
+  transition: transform .4s;
+  width: 48px;
+
+  span {
+    background-color: var(--header-color);
+    display: block;
+    height: 2px;
+    left: 14px;
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+    transition: .4s;
+    width: 20px;
+
+    &:first-child { transform: translate(0, -6px); }
+    &:last-child { transform: translate(0, 6px); }
+  }
+}
+
+// Header menu
+// ==========================================================================
+
+@media #{$lg-and-down} {
+  .header-left { flex-grow: 1 !important; }
+  .header-logo span { font-size: 24px }
+
+  // show menu mobile
+  body.is-showNavMob {
+    overflow: hidden;
+
+    .sideNav { transform: translateX(0); }
+
+    .menu--toggle {
+      border: 0;
+      transform: rotate(90deg);
+
+      span:first-child { transform: rotate(45deg) translate(0, 0); }
+      span:nth-child(2) { transform: scaleX(0); }
+      span:last-child { transform: rotate(-45deg) translate(0, 0); }
+    }
+
+    .main, .footer { transform: translateX(-25%) !important }
+  }
+}

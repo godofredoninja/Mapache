@@ -1,0 +1,102 @@
+%modal {
+  opacity: 0;
+  transition: opacity .2s ease-out .1s, visibility 0s .4s;
+  z-index: 100;
+  visibility: hidden;
+}
+
+%modal-bg { background-color: rgba(0, 0, 0, .5) }
+
+%modal-inner {
+  opacity: 0;
+  transform: scale(.6);
+  transition: transform .3s cubic-bezier(.06, .47, .38, .99), opacity .3s cubic-bezier(.06, .47, .38, .99);
+  overflow: hidden;
+}
+
+.modal {
+  @extend %modal;
+  // Shader
+  &-shader { @extend %modal-bg; }
+
+  // modal close
+  &-close {
+    // color: rgba(0, 0, 0, .54);
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1;
+    padding: 15px;
+  }
+
+  // Inner
+  &-inner {
+    @extend %modal-inner;
+    // background-color: #E8F3EC;
+    // border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+    max-width: 700px;
+    height: 100%;
+    max-height: 400px;
+    // opacity: 0;
+    padding: 72px 5% 56px;
+    // transform: scale(.6);
+    // transition: transform .3s cubic-bezier(.06, .47, .38, .99), opacity .3s cubic-bezier(.06, .47, .38, .99);
+    width: 100%;
+  }
+
+  h2 { color: #000 }
+  label { color: #888; max-width: 400px; }
+
+  // form
+  .form-group {
+    width: 76%;
+    margin: 0 auto 30px;
+  }
+
+  .form--input {
+    display: inline-block;
+    margin-bottom: 10px;
+    vertical-align: top;
+    height: 40px;
+    line-height: 40px;
+    background-color: transparent;
+    padding: 17px 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    width: 100%;
+  }
+
+  // .form--btn {
+  //   background-color: rgba(0, 0, 0, .84);
+  //   border: 0;
+  //   height: 37px;
+  //   border-radius: 3px;
+  //   line-height: 37px;
+  //   padding: 0 16px;
+  //   transition: background-color .3s ease-in-out;
+  //   letter-spacing: 1px;
+  //   color: rgba(255, 255, 255, .97);
+  //   cursor: pointer;
+
+  //   &:hover { background-color: #1C9963 }
+  // }
+}
+
+// if has modal
+
+body.has-modal {
+  overflow: hidden;
+
+  .modal {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s ease;
+
+    &-inner {
+      opacity: 1;
+      transform: scale(1);
+      transition: transform .8s cubic-bezier(.26, .63, 0, .96);
+    }
+  }
+}

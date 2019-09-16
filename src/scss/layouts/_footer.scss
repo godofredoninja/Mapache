@@ -1,0 +1,49 @@
+// Footer
+// ==========================================================================
+
+.footer {
+  color: #888;
+
+  a {
+    color: var(--footer-color-link);
+    &:hover { color: #fff }
+  }
+
+  &-links {
+    padding: 3em 0 2.5em;
+    background-color: #131313;
+  }
+
+  .follow > a {
+    background: #333;
+    border-radius: 50%;
+    color: inherit;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px 8px;
+    text-align: center;
+    width: 40px;
+
+    &:hover {
+      background: transparent;
+      box-shadow: inset 0 0 0 2px #333;
+    }
+  }
+
+  &-copy {
+    padding: 3em 0;
+    background-color: #000;
+  }
+}
+
+.footer-menu {
+  li {
+    display: inline-block;
+    line-height: 24px;
+    margin: 0 8px;
+
+    /* stylelint-disable-next-line */
+    a { color: #888 }
+  }
+}
