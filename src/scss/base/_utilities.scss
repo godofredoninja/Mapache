@@ -169,7 +169,7 @@
 // .u-flex { display: flex; }
 // .u-flexCenter { align-items: center; display: flex; }
 .u-flexContentCenter { @extend %flex-justify-content-center; }
-// .u-flex--1 { flex: 1 }
+.u-flex--1 { flex: 1 }
 .u-flex1 { flex: 1 1 auto; }
 .u-flex0 { flex: 0 0 auto; }
 .u-flexWrap { flex-wrap: wrap }

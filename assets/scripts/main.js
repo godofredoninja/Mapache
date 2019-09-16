@@ -1441,7 +1441,7 @@ jQuery(document).ready(function () {
 
   $(document).ready(function () {
     /* Menu open and close for mobile */
-    $('.menu--toggle').on('click', function (e) {
+    $('.js-menu-toggle').on('click', function (e) {
       e.preventDefault();
       $body.toggleClass('is-showNavMob').removeClass('is-search');
     });
@@ -1456,7 +1456,7 @@ jQuery(document).ready(function () {
 
     $('.js-toggle-social-media').on('click', function (e) {
       e.preventDefault();
-      $body.toggleClass('is-showFollowMore');
+      $body.toggleClass('is-showSocialMedia');
     });
     /* Modal Open for susbscribe */
 

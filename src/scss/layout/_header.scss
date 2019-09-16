@@ -1,36 +1,27 @@
 // Header
-// ==========================================================================
-
-// .header-logo,
-// .menu--toggle,
-// .search-toggle {
-//   z-index: 15;
-// }
+// -----------------------------------------------------------------------------
 
 .header {
   background-color: var(--header-bg-color);
   // box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
+  height: $header-height;
   padding: 0 16px;
   position: sticky;
   top: 0;
   transition: all .3s ease-in-out;
   z-index: 10;
 
-  &-wrap { height: $header-height; }
-
   &-logo {
     color: var(--header-logo-color);
     height: 30px;
 
-    img { height: 100%; }
+    img { height: 100% }
   }
 }
 
-// not have logo
-// .not-logo .header-logo { height: auto !important }
-
 // Header line separate
+// -----------------------------------------------------------------------------
 .header-line {
   border-right: 1px solid var(--header-color-divider);
   display: inline-block;
@@ -38,22 +29,22 @@
   margin-right: 10px;
 }
 
-// Header Follow More
-// ==========================================================================
-.social-media {
+// Header social Media
+// -----------------------------------------------------------------------------
+.header-social-media {
   transition: width .4s ease;
   overflow: hidden;
   width: 0;
 }
 
-body.is-showFollowMore {
-  .social-media { width: auto }
+.is-showSocialMedia {
+  .header-social-media { width: auto }
   .toggle-social-media { color: var(--header-color-hover) }
   .toggle-social-media::before { content: "\e5cd" }
 }
 
-// Header menu
-// ==========================================================================
+// Header Menu
+// -----------------------------------------------------------------------------
 
 .nav {
   padding-top: 8px;
@@ -99,8 +90,9 @@ body.is-showFollowMore {
   &:hover { color: var(--header-color-hover) }
 }
 
-// button-nav
-.menu--toggle {
+// Menu Bugger Button for show menu in mobile
+// -----------------------------------------------------------------------------
+.menu-burger {
   height: 48px;
   position: relative;
   transition: transform .4s;
@@ -122,8 +114,8 @@ body.is-showFollowMore {
   }
 }
 
-// Header menu
-// ==========================================================================
+// Breakpoint
+// -----------------------------------------------------------------------------
 
 @media #{$lg-and-down} {
   .header-left { flex-grow: 1 !important; }
@@ -135,7 +127,7 @@ body.is-showFollowMore {
 
     .sideNav { transform: translateX(0); }
 
-    .menu--toggle {
+    .menu-burger {
       border: 0;
       transform: rotate(90deg);
 

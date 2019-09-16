@@ -1358,6 +1358,10 @@ svg {
   float: left;
 }
 
+.u-flex--1 {
+  flex: 1;
+}
+
 .u-flex1 {
   flex: 1 1 auto;
 }
@@ -1753,15 +1757,12 @@ p {
 .header {
   background-color: var(--header-bg-color);
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+  height: 60px;
   padding: 0 16px;
   position: sticky;
   top: 0;
   transition: all .3s ease-in-out;
   z-index: 10;
-}
-
-.header-wrap {
-  height: 60px;
 }
 
 .header-logo {
@@ -1780,21 +1781,21 @@ p {
   margin-right: 10px;
 }
 
-.social-media {
+.header-social-media {
   transition: width .4s ease;
   overflow: hidden;
   width: 0;
 }
 
-body.is-showFollowMore .social-media {
+.is-showSocialMedia .header-social-media {
   width: auto;
 }
 
-body.is-showFollowMore .toggle-social-media {
+.is-showSocialMedia .toggle-social-media {
   color: var(--header-color-hover);
 }
 
-body.is-showFollowMore .toggle-social-media::before {
+.is-showSocialMedia .toggle-social-media::before {
   content: "\e5cd";
 }
 
@@ -1839,14 +1840,14 @@ body.is-showFollowMore .toggle-social-media::before {
   color: var(--header-color-hover);
 }
 
-.menu--toggle {
+.menu-burger {
   height: 48px;
   position: relative;
   transition: transform .4s;
   width: 48px;
 }
 
-.menu--toggle span {
+.menu-burger span {
   background-color: var(--header-color);
   display: block;
   height: 2px;
@@ -1858,11 +1859,11 @@ body.is-showFollowMore .toggle-social-media::before {
   width: 20px;
 }
 
-.menu--toggle span:first-child {
+.menu-burger span:first-child {
   transform: translate(0, -6px);
 }
 
-.menu--toggle span:last-child {
+.menu-burger span:last-child {
   transform: translate(0, 6px);
 }
 
@@ -1879,17 +1880,17 @@ body.is-showFollowMore .toggle-social-media::before {
   body.is-showNavMob .sideNav {
     transform: translateX(0);
   }
-  body.is-showNavMob .menu--toggle {
+  body.is-showNavMob .menu-burger {
     border: 0;
     transform: rotate(90deg);
   }
-  body.is-showNavMob .menu--toggle span:first-child {
+  body.is-showNavMob .menu-burger span:first-child {
     transform: rotate(45deg) translate(0, 0);
   }
-  body.is-showNavMob .menu--toggle span:nth-child(2) {
+  body.is-showNavMob .menu-burger span:nth-child(2) {
     transform: scaleX(0);
   }
-  body.is-showNavMob .menu--toggle span:last-child {
+  body.is-showNavMob .menu-burger span:last-child {
     transform: rotate(-45deg) translate(0, 0);
   }
   body.is-showNavMob .main, body.is-showNavMob .footer {

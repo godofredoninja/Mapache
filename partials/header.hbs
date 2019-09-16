@@ -1,5 +1,5 @@
-<header class="header u-sizeFullWidth">
-    <div class="header-wrap u-flexCenter u-relative">
+<header class="header u-sizeFullWidth u-flexCenter">
+    <div class="header-wrap u-relative u-flexCenter u-flex--1">
         {{!-- Page Logo and Name --}}
         <a class="header-logo u-inlineBlock u-flex0" href="{{@site.url}}">
             {{#if @site.logo}}
@@ -23,7 +23,7 @@
             {{#if @site.twitter}}<li><a href="{{twitter_url}}"  title="Twitter {{@site.twitter}}" class="i-twitter u-hide-before-lg" target="_blank" rel="noopener noreferrer"></a></li>{{/if}}
 
             {{!-- Social Media --}}
-            <li class="js-social-media social-media u-hide-before-lg"></li>
+            <li class="js-social-media header-social-media u-hide-before-lg"></li>
 
             {{!-- Open Subscribe card --}}
             {{#if @labs.subscribers}}<li><a href="#" class="subscribe-toggle js-toggle-modal u-relative u-hide-before-lg i-email" aria-label="subscribe close"></a></li>{{/if}}
@@ -34,7 +34,7 @@
             {{!-- Toggle Search --}}
             <li><a href="#" class="js-search-open search-toggle u-relative u-fontSizeLarge i-search" aria-label="search"></a></li>
             {{!-- Toggle Menu Mobile --}}
-            <li><a href="#" class="menu--toggle u-relative u-hide-after-lg" aria-label="Toggle Menu"><span></span><span></span><span></span></a></li>
+            <li><a href="#" class="menu-burger js-menu-toggle u-relative u-hide-after-lg" aria-label="Toggle Menu"><span></span><span></span><span></span></a></li>
         </ul>
     </div>
 </header>

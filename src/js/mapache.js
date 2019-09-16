@@ -25,7 +25,7 @@
    */
   $( document ).ready(function() {
     /* Menu open and close for mobile */
-    $('.menu--toggle').on('click', (e) => {
+    $('.js-menu-toggle').on('click', (e) => {
       e.preventDefault();
       $body.toggleClass('is-showNavMob').removeClass('is-search');
     });
@@ -40,7 +40,7 @@
     /* Toggle show more social media */
     $('.js-toggle-social-media').on('click', (e) => {
       e.preventDefault();
-      $body.toggleClass('is-showFollowMore');
+      $body.toggleClass('is-showSocialMedia');
     });
 
     /* Modal Open for susbscribe */
