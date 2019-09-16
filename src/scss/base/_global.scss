@@ -405,20 +405,20 @@ svg {
 
 // 16. LazyLoad Image Imate
 // -----------------------------------------------------------------------------
-// .lazyload,
-// .lazyloading {
-//   opacity: 0;
-// }
-
-// .lazyloaded {
-//   opacity: 1;
-//   transition: opacity 300ms;
-// }
-.blur-up {
-  .lazyload { filter: blur(5px) }
-  .lazyloading { filter: blur(2px); transition: filter 200ms }
-  .lazyloaded { filter: blur(0) }
+.lazyload,
+.lazyloading {
+  opacity: 0;
 }
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+// .blur-up {
+//   .lazyload { filter: blur(5px) }
+//   .lazyloading { filter: blur(2px); transition: filter 200ms }
+//   .lazyloaded { filter: blur(0) }
+// }
 
 // Video Responsive
 // ==========================================================================

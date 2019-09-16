@@ -1,16 +1,16 @@
-<article class="story u-flex u-relative {{#if featured}}featured{{/if}}">
-    <a href="{{url}}" class="story-image u-relative u-overflowHidden u-bgGray image-hover">
+<article class="story-grid u-flexColumnTop u-relative u-marginBottom30 {{#if featured}}featured{{/if}}">
+    <a href="{{url}}" class="story-grid-image u-relative u-overflowHidden u-bgGray image-hover">
         {{!-- Image - partials/helper/helper-story-image.hbs --}}
         {{> "helper/helper-story-image"}}
         {{!-- Media Type - partials/helper/helper-media-type.hbs --}}
         {{> "helper/helper-media-type"}}
     </a>
 
-    <div class="story-body u-flexColumn u-marginTop20 u-relative">
+    <div class="story-grid-body u-flexColumn u-marginTop20 u-relative">
         {{!-- Category and Datetime partials/helper/helper-story-meta --}}
         {{> "helper/helper-story-meta"}}
         {{!-- Title --}}
-        <h2 class="story-title u-fontSize20 u-lineHeightTight u-marginBottom10"><a href="{{url}}">{{title}}</a></h2>
+        <h2 class="story-grid-title u-fontSize20 u-lineHeightTight u-marginBottom10"><a href="{{url}}">{{title}}</a></h2>
         {{!-- excerpt --}}
         {{!-- <div class="story-lower u-relative u-overflowHidden u-flexColumnTop u-hide-after-mdf">
             <p class="story-excerpt">{{excerpt words="25"}}</p>

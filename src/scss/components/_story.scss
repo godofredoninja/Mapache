@@ -1,4 +1,4 @@
-// styles for story
+// <hr> To Add borders and separate stories
 // -----------------------------------------------------------------------------
 .hr-list {
   border: 0;
@@ -30,7 +30,8 @@
   @extend .u-flexContentCenter;
 }
 
-// Image over
+// When the cursor is hover the story the image for a zoom animation
+// -----------------------------------------------------------------------------
 .image-hover {
   img {
     transition: transform .7s;
@@ -46,7 +47,8 @@
 //   background-repeat: repeat;
 // }
 
-// Meta
+// Meta for Story ( Category - Datetime )
+// -----------------------------------------------------------------------------
 .flow-meta {
   color: rgba(0, 0, 0, 0.54);
   font-weight: 500;
@@ -57,7 +59,7 @@
 }
 
 // Story Default list
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
 .story {
   &-image {
@@ -76,40 +78,26 @@
     line-height: 1.5;
   }
 
-  h2 a:hover {
-    // box-shadow: inset 0 -2px 0 rgba(0, 171, 107, .5);
-    // box-shadow: inset 0 -2px 0 rgba($primary-color, .5);
-    // box-shadow: inset 0 -2px 0 var(--story-color-hover);
-    // box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.4);
-    // transition: all .25s;
-    opacity: .6;
-  }
+  h2 a:hover { opacity: .6 }
 }
 
 // Story Grid
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
-.story--grid {
-  .story {
-    flex-direction: column;
-    margin-bottom: 30px;
-
-    &-image {
-      flex: 0 0 auto;
-      margin-right: 0;
-      height: 170px;
-      // padding-top: 64%;
-    }
-  }
-
-  .media-type {
-    font-size: 24px;
-    height: 40px;
-    width: 40px;
-  }
+.story-grid {
+  &-image { height: 170px }
+  h2:hover { opacity: .6; }
 }
 
-.home-story-grid .story-title { font-size: 18px }
+.story-grid .media-type {
+  font-size: 24px;
+  height: 40px;
+  width: 40px;
+}
+
+@media #{$lg-and-up} {
+  .home-story-grid .story-grid-title { font-size: 18px }
+}
 
 // Story Cover -> .st-cover
 // -----------------------------------------------------------------------------
