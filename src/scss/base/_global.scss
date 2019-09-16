@@ -1,3 +1,15 @@
+/**
+  * 1. body
+  * 2. blockquote
+  * 3. cite - figcamption - figure
+  * 4. hr
+  * 5. image
+  * 6. ul ol
+  * 7. mark and q
+  * 8. Input Textarean
+  * 9. table
+  */
+
 :root {
   --black: #000;
   --white: #fff;
@@ -38,6 +50,9 @@ html {
   font-size: $font-size-root;
 }
 
+// 1. Body
+// -----------------------------------------------------------------------------
+
 body {
   @extend %primary-font;
   // font-family: $primary-font;
@@ -57,10 +72,14 @@ a {
   text-decoration: none;
 
   &:active,
+  &:focus,
   &:hover {
     outline: 0;
   }
 }
+
+// 2. Blockquote
+// -----------------------------------------------------------------------------
 
 blockquote {
   position: relative;
@@ -88,24 +107,17 @@ blockquote {
     content: "\201c";
   }
 
-  // border-left: 3px solid #000;
-  // color: #000;
-  // font-family: $secundary-font;
-  // font-size: 1.1875rem;
-  // font-style: italic;
-  // font-weight: 400;
-  // letter-spacing: -.003em;
-  // line-height: 1.7;
-  // margin: 30px 0 0 -12px;
-  // padding-bottom: 2px;
-  // padding-left: 20px;
-
   p:first-of-type { margin-top: 0 }
 }
 
-figure {
-  margin: 0;
+@media #{$md-and-down} {
+  blockquote { font-size: 1.125rem }
 }
+
+// 3. cite - figcamption - figure
+// -----------------------------------------------------------------------------
+
+figure { margin: 0 }
 
 figcaption {
   @extend %primary-font;
@@ -127,37 +139,9 @@ figcaption {
   width: 100%;
 }
 
-// Code
-// ==========================================================================
-kbd, samp, code {
-  background: $code-bg-color;
-  border-radius: 4px;
-  color: $code-color;
-  font-size: $font-size-code;
-  padding: 3px;
-  white-space: pre-wrap;
-}
+// 4. hr
+// -----------------------------------------------------------------------------
 
-pre {
-  background-color: #29292e;
-  border-radius: 4px;
-  // font-size: $font-size-code;
-  margin-top: 30px !important;
-  max-width: 100%;
-  padding: 1rem;
-  word-wrap: normal;
-
-  code {
-    background: transparent;
-    color: $pre-code-color;
-    padding: 0;
-  }
-
-  .line-numbers-rows { line-height: 1.7 }
-}
-
-// hr
-// ==========================================================================
 hr:not(.hr-list) {
   margin: 40px auto 10px;
   height: 1px;
@@ -172,6 +156,9 @@ hr:not(.hr-list) {
   // border: 0;
   // background-color: #ddd;
 }
+
+// 5. Image
+// -----------------------------------------------------------------------------
 
 img {
   height: auto;
@@ -189,10 +176,8 @@ i {
   vertical-align: middle;
 }
 
-input {
-  border: none;
-  outline: 0;
-}
+// 6. List ol - ul
+// -----------------------------------------------------------------------------
 
 ol, ul {
   list-style: none;
@@ -201,26 +186,40 @@ ol, ul {
   padding: 0;
 }
 
+// 7. Mark and q
+// -----------------------------------------------------------------------------
+
 mark {
   background-color: transparent !important;
   background-image: linear-gradient(to bottom, rgba(215, 253, 211, 1), rgba(215, 253, 211, 1));
   color: rgba(0, 0, 0, .8);
 }
 
-// q {
-//   color: rgba(0, 0, 0, .44);
-//   display: block;
-//   font-size: 28px;
-//   font-style: italic;
-//   font-weight: 400;
-//   letter-spacing: -.014em;
-//   line-height: 1.48;
-//   padding-left: 50px;
-//   padding-top: 15px;
-//   text-align: left;
+q {
+  color: rgba(0, 0, 0, .44);
+  display: block;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.014em;
+  line-height: 1.48;
+  padding-left: 50px;
+  padding-top: 15px;
+  text-align: left;
 
-//   &::before, &::after { display: none; }
-// }
+  &::before, &::after { display: none; }
+}
+
+// 8. Input Textarean
+// -----------------------------------------------------------------------------
+
+input {
+  border: none;
+  outline: 0;
+}
+
+// 9. table
+// -----------------------------------------------------------------------------
 
 table {
   border-collapse: collapse;
@@ -254,8 +253,9 @@ table {
   }
 }
 
-// Links color
-// ==========================================================================
+// 10. Links
+// -----------------------------------------------------------------------------
+
 .link--accent { @extend %link--accent; }
 
 .link { @extend %link; }
@@ -269,15 +269,17 @@ table {
   }
 }
 
-// Animation main page and footer
-// ==========================================================================
+// 11. Main .main
+// -----------------------------------------------------------------------------
+
 .main { margin-bottom: 4em; min-height: 90vh }
 
 .main,
 .footer { transition: transform .5s ease; }
 
-// warning success and Note
-// ==========================================================================
+// 12. warning success and Note
+// -----------------------------------------------------------------------------
+
 .warning {
   background: #fbe9e7;
   color: #d50000;
@@ -318,33 +320,99 @@ table {
   }
 }
 
-// Page Tags
-// ==========================================================================
-.tag {
-  &.has-image { min-height: 220px }
-  &-body { padding: 48px 24px }
+// 13. Social Media Color
+// -----------------------------------------------------------------------------
+
+@each $social-name, $color in $social-colors {
+  // .c-#{$social-name} { color: $color !important; }
+  .bg-#{$social-name} { background-color: $color !important; }
 }
 
-// Error page
-// ==========================================================================
-.errorPage {
-  font-family: 'Roboto Mono', monospace;
+.c-facebook { color: #3b5998 }
+.c-twitter { color: #55acee }
 
-  &-link {
-    left: -5px;
-    padding: 24px 60px;
-    top: -6px;
-  }
+// 14. Back to Top
+// -----------------------------------------------------------------------------
 
-  &-text {
-    margin-top: 60px;
-    white-space: pre-wrap;
-  }
+.rocket {
+  background: rgba(0, 0, 0, .3);
+  border-right: 0;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translate3d(100px, 0, 0);
+  transition: all .3s;
+  width: 50px;
+  z-index: 5;
 
-  &-wrap {
-    color: rgba(0, 0, 0, .4);
-    padding: 7vw 4vw;
+  &:hover { background: rgba(0, 0, 0, .5); }
+
+  &.to-top { transform: translate3d(0, 0, 0) }
+}
+
+svg {
+  height: auto;
+  width: 100%;
+}
+
+.svgIcon {
+  display: inline-block;
+}
+
+.svg-icon {
+  fill: currentColor;
+  display: inline-block;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    fill: inherit;
+    pointer-events: none;
+    transform: translateX(0);
   }
+}
+
+// 15. Loanding Bar
+// -----------------------------------------------------------------------------
+
+.loadingBar {
+  background-color: #48e79a;
+  display: none;
+  height: 2px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  z-index: 800;
+}
+
+.is-loading .loadingBar {
+  animation: loading-bar 1s ease-in-out infinite;
+  animation-delay: .8s;
+  display: block;
+}
+
+// 16. LazyLoad Image Imate
+// -----------------------------------------------------------------------------
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms;
 }
 
 // Video Responsive
@@ -428,124 +496,3 @@ table {
 }
 
 .mapache-light-gallery { cursor: zoom-in }
-
-// Social Media Color
-// ==========================================================================
-@each $social-name, $color in $social-colors {
-  // .c-#{$social-name} { color: $color !important; }
-  .bg-#{$social-name} { background-color: $color !important; }
-}
-
-.c-facebook { color: #3b5998 }
-.c-twitter { color: #55acee }
-
-// Facebook Save
-// ==========================================================================
-// .fbSave {
-//   &-dropdown {
-//     background-color: #fff;
-//     border: 1px solid #e0e0e0;
-//     bottom: 100%;
-//     display: none;
-//     max-width: 200px;
-//     min-width: 100px;
-//     padding: 8px;
-//     transform: translate(-50%, 0);
-//     z-index: 10;
-
-//     &.is-visible { display: block; }
-//   }
-// }
-
-// Rocket for return top page
-// ==========================================================================
-.rocket {
-  background: rgba(0, 0, 0, .3);
-  border-right: 0;
-  border: 2px solid #fff;
-  color: #fff;
-  cursor: pointer;
-  height: 50px;
-  opacity: 1;
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translate3d(100px, 0, 0);
-  transition: all .3s;
-  width: 50px;
-  z-index: 5;
-
-  &:hover { background: rgba(0, 0, 0, .5); }
-
-  &.to-top { transform: translate3d(0, 0, 0) }
-}
-
-svg {
-  height: auto;
-  width: 100%;
-}
-
-.svgIcon {
-  display: inline-block;
-}
-
-.svg-icon {
-  fill: currentColor;
-  display: inline-block;
-  line-height: 0;
-  overflow: hidden;
-  position: relative;
-  vertical-align: middle;
-
-  svg {
-    height: 100%;
-    width: 100%;
-    background: inherit;
-    fill: inherit;
-    pointer-events: none;
-    transform: translateX(0);
-  }
-}
-
-// Pagination Infinite Scroll
-// ==========================================================================
-
-.load-more { max-width: 70% !important }
-
-// loadingBar
-// ==========================================================================
-
-.loadingBar {
-  background-color: #48e79a;
-  display: none;
-  height: 2px;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transform: translateX(100%);
-  z-index: 800;
-}
-
-.is-loading .loadingBar {
-  animation: loading-bar 1s ease-in-out infinite;
-  animation-delay: .8s;
-  display: block;
-}
-
-/* fade image in after load - lazyload */
-.lazyload,
-.lazyloading {
-  opacity: 0;
-}
-
-.lazyloaded {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
-// Media Query responsinve
-// ==========================================================================
-@media #{$md-and-down} {
-  blockquote { font-size: 1.125rem }
-}

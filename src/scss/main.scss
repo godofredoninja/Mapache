@@ -37,11 +37,13 @@
 // @import "components/newsletter";
 @import "components/search";
 @import "components/story";
+@import "components/code";
 @import "components/prism";
 @import "components/cover";
 @import "components/modal";
 @import "components/comments";
 @import "components/widget";
+@import "components/pagination";
 // @import "components/instagram";
 
 // Pages
@@ -53,7 +55,8 @@
 // @import 'pages/archive-author';
 // @import 'pages/archive-contact';
 @import 'pages/podcast';
-@import 'pages/topic';
+@import 'pages/tag';
+@import 'pages/archive-tags';
 @import 'pages/archive-newsletter';
 @import 'pages/subscribe';
-// @import 'pages/error';
+@import 'pages/error';

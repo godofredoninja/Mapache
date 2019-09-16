@@ -1,0 +1,28 @@
+// Code
+// -----------------------------------------------------------------------------
+kbd, samp, code {
+  background: $code-bg-color;
+  border-radius: 4px;
+  color: $code-color;
+  font-size: $font-size-code;
+  padding: 3px;
+  white-space: pre-wrap;
+}
+
+pre {
+  background-color: #29292e;
+  border-radius: 4px;
+  // font-size: $font-size-code;
+  margin-top: 30px !important;
+  max-width: 100%;
+  padding: 1rem;
+  word-wrap: normal;
+
+  code {
+    background: transparent;
+    color: $pre-code-color;
+    padding: 0;
+  }
+
+  .line-numbers-rows { line-height: 1.7 }
+}
