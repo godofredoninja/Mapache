@@ -1,9 +1,9 @@
 <article class="st-cover u-relative u-floatLeft {{#if @first}}firts{{/if}}">
-    <div class="st-cover-inner u-relative u-bgBlack">
+    <div class="st-cover-inner u-relative u-bgDark">
         {{!-- Imagenes --}}
         {{#if feature_image}}
             <a href="{{url}}">
-                <img class="u-absolute u-image u-block lazyload"
+                <img class="st-cover-img u-absolute u-image u-block lazyload blur-up"
                     src="{{img_url feature_image size="m"}}"
                     srcset="{{img_url feature_image size="xxs"}}"
                     data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w,"
@@ -11,8 +11,6 @@
                     alt="{{title}}"
                 />
             </a>
-        {{else}}
-            <div class="u-absolute0 u-bgCover u-block" style="background-image:url({{asset "images/not-image.jpg"}})"></div>
         {{/if}}
 
         <header class="st-cover-header u-absolute u-textColorWhite zindex2">
@@ -20,12 +18,9 @@
             {{> "helper/helper-story-meta"}}
 
             {{!-- Title --}}
-            <h2 class="st-cover-title u-marginBottom10 u-lineHeightTight u-titleSpacing u-fontSizeLarge u-md-fontSize22">
+            <h2 class="st-cover-title u-lineHeightTight u-fontSizeLarge u-md-fontSize22">
                 <a href="{{url}}">{{title}}</a>
             </h2>
-
-            {{!-- excerpt --}}
-            {{!-- {{#if @first}} <p class="st-cover-excerpt u-lineHeightTight u-fontSize20 u-md-fontSizeBase">{{excerpt words="30"}}</p>{{/if}} --}}
         </header>
 
         {{!-- link --}}

@@ -957,14 +957,17 @@ svg {
   display: block;
 }
 
-.lazyload,
-.lazyloading {
-  opacity: 0;
+.blur-up .lazyload {
+  filter: blur(5px);
 }
 
-.lazyloaded {
-  opacity: 1;
-  transition: opacity 300ms;
+.blur-up .lazyloading {
+  filter: blur(2px);
+  transition: filter 200ms;
+}
+
+.blur-up .lazyloaded {
+  filter: blur(0);
 }
 
 .video-responsive {
@@ -1075,6 +1078,10 @@ svg {
 
 .u-bgBlack {
   background-color: #000;
+}
+
+.u-bgDark {
+  background-color: #110f16;
 }
 
 .u-pointer {
@@ -3123,7 +3130,7 @@ body.has-comments .post-comments {
 }
 
 .hmCover .st-cover.firts {
-  height: 500px;
+  height: 400px;
 }
 
 .hmCover .st-cover.firts .st-cover-title {
@@ -3184,6 +3191,15 @@ body.has-comments .post-comments {
   fill: currentcolor;
   height: auto;
   width: 100%;
+}
+
+@media only screen and (min-width: 766px) {
+  .hmCover .st-cover {
+    width: 50%;
+  }
+  .hmCover .st-cover.firts {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
