@@ -1,44 +1,59 @@
+// Style entry file
+// --------------------------------------------------
 @charset "UTF-8";
+
+// Lib
+// --------------------------------------------------
 
 @import "node_modules/normalize.css/normalize";
 // @import "node_modules/prismjs/themes/prism";
 @import "node_modules/prismjs/themes/prism-okaidia";
 @import "node_modules/prismjs/plugins/line-numbers/prism-line-numbers";
 
-// Mixins & Variables
-@import "common/variables";
-@import "common/mixins";
+// Abstracts
+// --------------------------------------------------
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
-// Import npm dependencies
-// zoom img
-// @import "autoload/zoom";
+// Base
+// --------------------------------------------------
+@import "base/global";
+@import "base/utilities";
+@import "base/typography";
 
-// common
-@import "common/global";
-@import "components/grid";
-@import "common/typography";
-@import "common/utilities";
+// Layout
+// --------------------------------------------------
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+@import "layout/sidenav";
 
-// components
-@import "components/form";
-@import "components/icons";
+// Components
+// --------------------------------------------------
+@import "components/buttons";
 @import "components/animated";
+@import "components/icons";
+// @import "components/newsletter";
+@import "components/search";
+@import "components/story";
+@import "components/prism";
+@import "components/cover";
+@import "components/modal";
+@import "components/comments";
+@import "components/widget";
+// @import "components/instagram";
 
-//layouts
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/homepage";
-@import "layouts/post";
-@import "layouts/story";
-@import "layouts/author";
-@import "layouts/search";
-@import "layouts/sidebar";
-@import "layouts/sidenav";
-@import "layouts/helper";
-@import "layouts/subscribe";
-@import "layouts/comments";
-@import "layouts/topic";
-@import "layouts/podcast";
-@import "layouts/newsletter";
-@import "common/modal";
-@import "common/widget";
+// Pages
+// --------------------------------------------------
+@import 'pages/home';
+@import 'pages/post';
+// @import 'pages/post-image';
+@import 'pages/author';
+// @import 'pages/archive-author';
+// @import 'pages/archive-contact';
+@import 'pages/podcast';
+@import 'pages/topic';
+@import 'pages/archive-newsletter';
+@import 'pages/subscribe';
+// @import 'pages/error';

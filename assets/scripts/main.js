@@ -1,5 +1,1975 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+},{}],2:[function(require,module,exports){
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+},{}],3:[function(require,module,exports){
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+},{}],4:[function(require,module,exports){
+function _getRequireWildcardCache() {
+  if (typeof WeakMap !== "function") return null;
+  var cache = new WeakMap();
+
+  _getRequireWildcardCache = function _getRequireWildcardCache() {
+    return cache;
+  };
+
+  return cache;
+}
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  }
+
+  var cache = _getRequireWildcardCache();
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+
+  if (obj != null) {
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+        if (desc && (desc.get || desc.set)) {
+          Object.defineProperty(newObj, key, desc);
+        } else {
+          newObj[key] = obj[key];
+        }
+      }
+    }
+  }
+
+  newObj["default"] = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+module.exports = _interopRequireWildcard;
+},{}],5:[function(require,module,exports){
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+},{}],6:[function(require,module,exports){
+(function(window, factory) {
+	var lazySizes = factory(window, window.document);
+	window.lazySizes = lazySizes;
+	if(typeof module == 'object' && module.exports){
+		module.exports = lazySizes;
+	}
+}(typeof window != 'undefined' ?
+      window : {}, function l(window, document) {
+	'use strict';
+	/*jshint eqnull:true */
+
+	var lazysizes, lazySizesCfg;
+
+	(function(){
+		var prop;
+
+		var lazySizesDefaults = {
+			lazyClass: 'lazyload',
+			loadedClass: 'lazyloaded',
+			loadingClass: 'lazyloading',
+			preloadClass: 'lazypreload',
+			errorClass: 'lazyerror',
+			//strictClass: 'lazystrict',
+			autosizesClass: 'lazyautosizes',
+			srcAttr: 'data-src',
+			srcsetAttr: 'data-srcset',
+			sizesAttr: 'data-sizes',
+			//preloadAfterLoad: false,
+			minSize: 40,
+			customMedia: {},
+			init: true,
+			expFactor: 1.5,
+			hFac: 0.8,
+			loadMode: 2,
+			loadHidden: true,
+			ricTimeout: 0,
+			throttleDelay: 125,
+		};
+
+		lazySizesCfg = window.lazySizesConfig || window.lazysizesConfig || {};
+
+		for(prop in lazySizesDefaults){
+			if(!(prop in lazySizesCfg)){
+				lazySizesCfg[prop] = lazySizesDefaults[prop];
+			}
+		}
+	})();
+
+	if (!document || !document.getElementsByClassName) {
+		return {
+			init: function () {},
+			cfg: lazySizesCfg,
+			noSupport: true,
+		};
+	}
+
+	var docElem = document.documentElement;
+
+	var Date = window.Date;
+
+	var supportPicture = window.HTMLPictureElement;
+
+	var _addEventListener = 'addEventListener';
+
+	var _getAttribute = 'getAttribute';
+
+	var addEventListener = window[_addEventListener];
+
+	var setTimeout = window.setTimeout;
+
+	var requestAnimationFrame = window.requestAnimationFrame || setTimeout;
+
+	var requestIdleCallback = window.requestIdleCallback;
+
+	var regPicture = /^picture$/i;
+
+	var loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];
+
+	var regClassCache = {};
+
+	var forEach = Array.prototype.forEach;
+
+	var hasClass = function(ele, cls) {
+		if(!regClassCache[cls]){
+			regClassCache[cls] = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+		}
+		return regClassCache[cls].test(ele[_getAttribute]('class') || '') && regClassCache[cls];
+	};
+
+	var addClass = function(ele, cls) {
+		if (!hasClass(ele, cls)){
+			ele.setAttribute('class', (ele[_getAttribute]('class') || '').trim() + ' ' + cls);
+		}
+	};
+
+	var removeClass = function(ele, cls) {
+		var reg;
+		if ((reg = hasClass(ele,cls))) {
+			ele.setAttribute('class', (ele[_getAttribute]('class') || '').replace(reg, ' '));
+		}
+	};
+
+	var addRemoveLoadEvents = function(dom, fn, add){
+		var action = add ? _addEventListener : 'removeEventListener';
+		if(add){
+			addRemoveLoadEvents(dom, fn);
+		}
+		loadEvents.forEach(function(evt){
+			dom[action](evt, fn);
+		});
+	};
+
+	var triggerEvent = function(elem, name, detail, noBubbles, noCancelable){
+		var event = document.createEvent('Event');
+
+		if(!detail){
+			detail = {};
+		}
+
+		detail.instance = lazysizes;
+
+		event.initEvent(name, !noBubbles, !noCancelable);
+
+		event.detail = detail;
+
+		elem.dispatchEvent(event);
+		return event;
+	};
+
+	var updatePolyfill = function (el, full){
+		var polyfill;
+		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesCfg.pf) ) ){
+			if(full && full.src && !el[_getAttribute]('srcset')){
+				el.setAttribute('srcset', full.src);
+			}
+			polyfill({reevaluate: true, elements: [el]});
+		} else if(full && full.src){
+			el.src = full.src;
+		}
+	};
+
+	var getCSS = function (elem, style){
+		return (getComputedStyle(elem, null) || {})[style];
+	};
+
+	var getWidth = function(elem, parent, width){
+		width = width || elem.offsetWidth;
+
+		while(width < lazySizesCfg.minSize && parent && !elem._lazysizesWidth){
+			width =  parent.offsetWidth;
+			parent = parent.parentNode;
+		}
+
+		return width;
+	};
+
+	var rAF = (function(){
+		var running, waiting;
+		var firstFns = [];
+		var secondFns = [];
+		var fns = firstFns;
+
+		var run = function(){
+			var runFns = fns;
+
+			fns = firstFns.length ? secondFns : firstFns;
+
+			running = true;
+			waiting = false;
+
+			while(runFns.length){
+				runFns.shift()();
+			}
+
+			running = false;
+		};
+
+		var rafBatch = function(fn, queue){
+			if(running && !queue){
+				fn.apply(this, arguments);
+			} else {
+				fns.push(fn);
+
+				if(!waiting){
+					waiting = true;
+					(document.hidden ? setTimeout : requestAnimationFrame)(run);
+				}
+			}
+		};
+
+		rafBatch._lsFlush = run;
+
+		return rafBatch;
+	})();
+
+	var rAFIt = function(fn, simple){
+		return simple ?
+			function() {
+				rAF(fn);
+			} :
+			function(){
+				var that = this;
+				var args = arguments;
+				rAF(function(){
+					fn.apply(that, args);
+				});
+			}
+		;
+	};
+
+	var throttle = function(fn){
+		var running;
+		var lastTime = 0;
+		var gDelay = lazySizesCfg.throttleDelay;
+		var rICTimeout = lazySizesCfg.ricTimeout;
+		var run = function(){
+			running = false;
+			lastTime = Date.now();
+			fn();
+		};
+		var idleCallback = requestIdleCallback && rICTimeout > 49 ?
+			function(){
+				requestIdleCallback(run, {timeout: rICTimeout});
+
+				if(rICTimeout !== lazySizesCfg.ricTimeout){
+					rICTimeout = lazySizesCfg.ricTimeout;
+				}
+			} :
+			rAFIt(function(){
+				setTimeout(run);
+			}, true)
+		;
+
+		return function(isPriority){
+			var delay;
+
+			if((isPriority = isPriority === true)){
+				rICTimeout = 33;
+			}
+
+			if(running){
+				return;
+			}
+
+			running =  true;
+
+			delay = gDelay - (Date.now() - lastTime);
+
+			if(delay < 0){
+				delay = 0;
+			}
+
+			if(isPriority || delay < 9){
+				idleCallback();
+			} else {
+				setTimeout(idleCallback, delay);
+			}
+		};
+	};
+
+	//based on http://modernjavascript.blogspot.de/2013/08/building-better-debounce.html
+	var debounce = function(func) {
+		var timeout, timestamp;
+		var wait = 99;
+		var run = function(){
+			timeout = null;
+			func();
+		};
+		var later = function() {
+			var last = Date.now() - timestamp;
+
+			if (last < wait) {
+				setTimeout(later, wait - last);
+			} else {
+				(requestIdleCallback || run)(run);
+			}
+		};
+
+		return function() {
+			timestamp = Date.now();
+
+			if (!timeout) {
+				timeout = setTimeout(later, wait);
+			}
+		};
+	};
+
+	var loader = (function(){
+		var preloadElems, isCompleted, resetPreloadingTimer, loadMode, started;
+
+		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom, isBodyHidden;
+
+		var regImg = /^img$/i;
+		var regIframe = /^iframe$/i;
+
+		var supportScroll = ('onscroll' in window) && !(/(gle|ing)bot/.test(navigator.userAgent));
+
+		var shrinkExpand = 0;
+		var currentExpand = 0;
+
+		var isLoading = 0;
+		var lowRuns = -1;
+
+		var resetPreloading = function(e){
+			isLoading--;
+			if(!e || isLoading < 0 || !e.target){
+				isLoading = 0;
+			}
+		};
+
+		var isVisible = function (elem) {
+			if (isBodyHidden == null) {
+				isBodyHidden = getCSS(document.body, 'visibility') == 'hidden';
+			}
+
+			return isBodyHidden || (getCSS(elem.parentNode, 'visibility') != 'hidden' && getCSS(elem, 'visibility') != 'hidden');
+		};
+
+		var isNestedVisible = function(elem, elemExpand){
+			var outerRect;
+			var parent = elem;
+			var visible = isVisible(elem);
+
+			eLtop -= elemExpand;
+			eLbottom += elemExpand;
+			eLleft -= elemExpand;
+			eLright += elemExpand;
+
+			while(visible && (parent = parent.offsetParent) && parent != document.body && parent != docElem){
+				visible = ((getCSS(parent, 'opacity') || 1) > 0);
+
+				if(visible && getCSS(parent, 'overflow') != 'visible'){
+					outerRect = parent.getBoundingClientRect();
+					visible = eLright > outerRect.left &&
+						eLleft < outerRect.right &&
+						eLbottom > outerRect.top - 1 &&
+						eLtop < outerRect.bottom + 1
+					;
+				}
+			}
+
+			return visible;
+		};
+
+		var checkElements = function() {
+			var eLlen, i, rect, autoLoadElem, loadedSomething, elemExpand, elemNegativeExpand, elemExpandVal,
+				beforeExpandVal, defaultExpand, preloadExpand, hFac;
+			var lazyloadElems = lazysizes.elements;
+
+			if((loadMode = lazySizesCfg.loadMode) && isLoading < 8 && (eLlen = lazyloadElems.length)){
+
+				i = 0;
+
+				lowRuns++;
+
+				for(; i < eLlen; i++){
+
+					if(!lazyloadElems[i] || lazyloadElems[i]._lazyRace){continue;}
+
+					if(!supportScroll || (lazysizes.prematureUnveil && lazysizes.prematureUnveil(lazyloadElems[i]))){unveilElement(lazyloadElems[i]);continue;}
+
+					if(!(elemExpandVal = lazyloadElems[i][_getAttribute]('data-expand')) || !(elemExpand = elemExpandVal * 1)){
+						elemExpand = currentExpand;
+					}
+
+					if (!defaultExpand) {
+						defaultExpand = (!lazySizesCfg.expand || lazySizesCfg.expand < 1) ?
+							docElem.clientHeight > 500 && docElem.clientWidth > 500 ? 500 : 370 :
+							lazySizesCfg.expand;
+
+						lazysizes._defEx = defaultExpand;
+
+						preloadExpand = defaultExpand * lazySizesCfg.expFactor;
+						hFac = lazySizesCfg.hFac;
+						isBodyHidden = null;
+
+						if(currentExpand < preloadExpand && isLoading < 1 && lowRuns > 2 && loadMode > 2 && !document.hidden){
+							currentExpand = preloadExpand;
+							lowRuns = 0;
+						} else if(loadMode > 1 && lowRuns > 1 && isLoading < 6){
+							currentExpand = defaultExpand;
+						} else {
+							currentExpand = shrinkExpand;
+						}
+					}
+
+					if(beforeExpandVal !== elemExpand){
+						eLvW = innerWidth + (elemExpand * hFac);
+						elvH = innerHeight + elemExpand;
+						elemNegativeExpand = elemExpand * -1;
+						beforeExpandVal = elemExpand;
+					}
+
+					rect = lazyloadElems[i].getBoundingClientRect();
+
+					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
+						(eLtop = rect.top) <= elvH &&
+						(eLright = rect.right) >= elemNegativeExpand * hFac &&
+						(eLleft = rect.left) <= eLvW &&
+						(eLbottom || eLright || eLleft || eLtop) &&
+						(lazySizesCfg.loadHidden || isVisible(lazyloadElems[i])) &&
+						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
+						unveilElement(lazyloadElems[i]);
+						loadedSomething = true;
+						if(isLoading > 9){break;}
+					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
+						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
+						(preloadElems[0] || lazySizesCfg.preloadAfterLoad) &&
+						(preloadElems[0] || (!elemExpandVal && ((eLbottom || eLright || eLleft || eLtop) || lazyloadElems[i][_getAttribute](lazySizesCfg.sizesAttr) != 'auto')))){
+						autoLoadElem = preloadElems[0] || lazyloadElems[i];
+					}
+				}
+
+				if(autoLoadElem && !loadedSomething){
+					unveilElement(autoLoadElem);
+				}
+			}
+		};
+
+		var throttledCheckElements = throttle(checkElements);
+
+		var switchLoadingClass = function(e){
+			var elem = e.target;
+
+			if (elem._lazyCache) {
+				delete elem._lazyCache;
+				return;
+			}
+
+			resetPreloading(e);
+			addClass(elem, lazySizesCfg.loadedClass);
+			removeClass(elem, lazySizesCfg.loadingClass);
+			addRemoveLoadEvents(elem, rafSwitchLoadingClass);
+			triggerEvent(elem, 'lazyloaded');
+		};
+		var rafedSwitchLoadingClass = rAFIt(switchLoadingClass);
+		var rafSwitchLoadingClass = function(e){
+			rafedSwitchLoadingClass({target: e.target});
+		};
+
+		var changeIframeSrc = function(elem, src){
+			try {
+				elem.contentWindow.location.replace(src);
+			} catch(e){
+				elem.src = src;
+			}
+		};
+
+		var handleSources = function(source){
+			var customMedia;
+
+			var sourceSrcset = source[_getAttribute](lazySizesCfg.srcsetAttr);
+
+			if( (customMedia = lazySizesCfg.customMedia[source[_getAttribute]('data-media') || source[_getAttribute]('media')]) ){
+				source.setAttribute('media', customMedia);
+			}
+
+			if(sourceSrcset){
+				source.setAttribute('srcset', sourceSrcset);
+			}
+		};
+
+		var lazyUnveil = rAFIt(function (elem, detail, isAuto, sizes, isImg){
+			var src, srcset, parent, isPicture, event, firesLoad;
+
+			if(!(event = triggerEvent(elem, 'lazybeforeunveil', detail)).defaultPrevented){
+
+				if(sizes){
+					if(isAuto){
+						addClass(elem, lazySizesCfg.autosizesClass);
+					} else {
+						elem.setAttribute('sizes', sizes);
+					}
+				}
+
+				srcset = elem[_getAttribute](lazySizesCfg.srcsetAttr);
+				src = elem[_getAttribute](lazySizesCfg.srcAttr);
+
+				if(isImg) {
+					parent = elem.parentNode;
+					isPicture = parent && regPicture.test(parent.nodeName || '');
+				}
+
+				firesLoad = detail.firesLoad || (('src' in elem) && (srcset || src || isPicture));
+
+				event = {target: elem};
+
+				addClass(elem, lazySizesCfg.loadingClass);
+
+				if(firesLoad){
+					clearTimeout(resetPreloadingTimer);
+					resetPreloadingTimer = setTimeout(resetPreloading, 2500);
+					addRemoveLoadEvents(elem, rafSwitchLoadingClass, true);
+				}
+
+				if(isPicture){
+					forEach.call(parent.getElementsByTagName('source'), handleSources);
+				}
+
+				if(srcset){
+					elem.setAttribute('srcset', srcset);
+				} else if(src && !isPicture){
+					if(regIframe.test(elem.nodeName)){
+						changeIframeSrc(elem, src);
+					} else {
+						elem.src = src;
+					}
+				}
+
+				if(isImg && (srcset || isPicture)){
+					updatePolyfill(elem, {src: src});
+				}
+			}
+
+			if(elem._lazyRace){
+				delete elem._lazyRace;
+			}
+			removeClass(elem, lazySizesCfg.lazyClass);
+
+			rAF(function(){
+				// Part of this can be removed as soon as this fix is older: https://bugs.chromium.org/p/chromium/issues/detail?id=7731 (2015)
+				var isLoaded = elem.complete && elem.naturalWidth > 1;
+
+				if( !firesLoad || isLoaded){
+					if (isLoaded) {
+						addClass(elem, 'ls-is-cached');
+					}
+					switchLoadingClass(event);
+					elem._lazyCache = true;
+					setTimeout(function(){
+						if ('_lazyCache' in elem) {
+							delete elem._lazyCache;
+						}
+					}, 9);
+				}
+				if (elem.loading == 'lazy') {
+					isLoading--;
+				}
+			}, true);
+		});
+
+		var unveilElement = function (elem){
+			if (elem._lazyRace) {return;}
+			var detail;
+
+			var isImg = regImg.test(elem.nodeName);
+
+			//allow using sizes="auto", but don't use. it's invalid. Use data-sizes="auto" or a valid value for sizes instead (i.e.: sizes="80vw")
+			var sizes = isImg && (elem[_getAttribute](lazySizesCfg.sizesAttr) || elem[_getAttribute]('sizes'));
+			var isAuto = sizes == 'auto';
+
+			if( (isAuto || !isCompleted) && isImg && (elem[_getAttribute]('src') || elem.srcset) && !elem.complete && !hasClass(elem, lazySizesCfg.errorClass) && hasClass(elem, lazySizesCfg.lazyClass)){return;}
+
+			detail = triggerEvent(elem, 'lazyunveilread').detail;
+
+			if(isAuto){
+				 autoSizer.updateElem(elem, true, elem.offsetWidth);
+			}
+
+			elem._lazyRace = true;
+			isLoading++;
+
+			lazyUnveil(elem, detail, isAuto, sizes, isImg);
+		};
+
+		var afterScroll = debounce(function(){
+			lazySizesCfg.loadMode = 3;
+			throttledCheckElements();
+		});
+
+		var altLoadmodeScrollListner = function(){
+			if(lazySizesCfg.loadMode == 3){
+				lazySizesCfg.loadMode = 2;
+			}
+			afterScroll();
+		};
+
+		var onload = function(){
+			if(isCompleted){return;}
+			if(Date.now() - started < 999){
+				setTimeout(onload, 999);
+				return;
+			}
+
+
+			isCompleted = true;
+
+			lazySizesCfg.loadMode = 3;
+
+			throttledCheckElements();
+
+			addEventListener('scroll', altLoadmodeScrollListner, true);
+		};
+
+		return {
+			_: function(){
+				started = Date.now();
+
+				lazysizes.elements = document.getElementsByClassName(lazySizesCfg.lazyClass);
+				preloadElems = document.getElementsByClassName(lazySizesCfg.lazyClass + ' ' + lazySizesCfg.preloadClass);
+
+				addEventListener('scroll', throttledCheckElements, true);
+
+				addEventListener('resize', throttledCheckElements, true);
+
+				if(window.MutationObserver){
+					new MutationObserver( throttledCheckElements ).observe( docElem, {childList: true, subtree: true, attributes: true} );
+				} else {
+					docElem[_addEventListener]('DOMNodeInserted', throttledCheckElements, true);
+					docElem[_addEventListener]('DOMAttrModified', throttledCheckElements, true);
+					setInterval(throttledCheckElements, 999);
+				}
+
+				addEventListener('hashchange', throttledCheckElements, true);
+
+				//, 'fullscreenchange'
+				['focus', 'mouseover', 'click', 'load', 'transitionend', 'animationend'].forEach(function(name){
+					document[_addEventListener](name, throttledCheckElements, true);
+				});
+
+				if((/d$|^c/.test(document.readyState))){
+					onload();
+				} else {
+					addEventListener('load', onload);
+					document[_addEventListener]('DOMContentLoaded', throttledCheckElements);
+					setTimeout(onload, 20000);
+				}
+
+				if(lazysizes.elements.length){
+					checkElements();
+					rAF._lsFlush();
+				} else {
+					throttledCheckElements();
+				}
+			},
+			checkElems: throttledCheckElements,
+			unveil: unveilElement,
+			_aLSL: altLoadmodeScrollListner,
+		};
+	})();
+
+
+	var autoSizer = (function(){
+		var autosizesElems;
+
+		var sizeElement = rAFIt(function(elem, parent, event, width){
+			var sources, i, len;
+			elem._lazysizesWidth = width;
+			width += 'px';
+
+			elem.setAttribute('sizes', width);
+
+			if(regPicture.test(parent.nodeName || '')){
+				sources = parent.getElementsByTagName('source');
+				for(i = 0, len = sources.length; i < len; i++){
+					sources[i].setAttribute('sizes', width);
+				}
+			}
+
+			if(!event.detail.dataAttr){
+				updatePolyfill(elem, event.detail);
+			}
+		});
+		var getSizeElement = function (elem, dataAttr, width){
+			var event;
+			var parent = elem.parentNode;
+
+			if(parent){
+				width = getWidth(elem, parent, width);
+				event = triggerEvent(elem, 'lazybeforesizes', {width: width, dataAttr: !!dataAttr});
+
+				if(!event.defaultPrevented){
+					width = event.detail.width;
+
+					if(width && width !== elem._lazysizesWidth){
+						sizeElement(elem, parent, event, width);
+					}
+				}
+			}
+		};
+
+		var updateElementsSizes = function(){
+			var i;
+			var len = autosizesElems.length;
+			if(len){
+				i = 0;
+
+				for(; i < len; i++){
+					getSizeElement(autosizesElems[i]);
+				}
+			}
+		};
+
+		var debouncedUpdateElementsSizes = debounce(updateElementsSizes);
+
+		return {
+			_: function(){
+				autosizesElems = document.getElementsByClassName(lazySizesCfg.autosizesClass);
+				addEventListener('resize', debouncedUpdateElementsSizes);
+			},
+			checkElems: debouncedUpdateElementsSizes,
+			updateElem: getSizeElement
+		};
+	})();
+
+	var init = function(){
+		if(!init.i && document.getElementsByClassName){
+			init.i = true;
+			autoSizer._();
+			loader._();
+		}
+	};
+
+	setTimeout(function(){
+		if(lazySizesCfg.init){
+			init();
+		}
+	});
+
+	lazysizes = {
+		cfg: lazySizesCfg,
+		autoSizer: autoSizer,
+		loader: loader,
+		init: init,
+		uP: updatePolyfill,
+		aC: addClass,
+		rC: removeClass,
+		hC: hasClass,
+		fire: triggerEvent,
+		gW: getWidth,
+		rAF: rAF,
+	};
+
+	return lazysizes;
+}
+));
+
+},{}],7:[function(require,module,exports){
 /*!
- * mapache-godofredoninja v3.1.0
- * Copyright 2019 GodoFredoNinja <hello@godofredo.ninja> (https://github.com/godofredoninja/mapache)
- * Licensed under GPLv3
- */!function r(o,s,l){function c(t,e){if(!s[t]){if(!o[t]){var i="function"==typeof require&&require;if(!e&&i)return i(t,!0);if(d)return d(t,!0);var a=new Error("Cannot find module '"+t+"'");throw a.code="MODULE_NOT_FOUND",a}var n=s[t]={exports:{}};o[t][0].call(n.exports,function(e){return c(o[t][1][e]||e)},n,n.exports,r,o,s,l)}return s[t].exports}for(var d="function"==typeof require&&require,e=0;e<l.length;e++)c(l[e]);return c}({1:[function(e,t,i){t.exports=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}},{}],2:[function(e,t,i){function a(e,t){for(var i=0;i<t.length;i++){var a=t[i];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}t.exports=function(e,t,i){return t&&a(e.prototype,t),i&&a(e,i),e}},{}],3:[function(e,t,i){t.exports=function(e){return e&&e.__esModule?e:{default:e}}},{}],4:[function(e,t,i){function o(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return o=function(){return e},e}t.exports=function(e){if(e&&e.__esModule)return e;var t=o();if(t&&t.has(e))return t.get(e);var i={};if(null!=e){var a=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var r=a?Object.getOwnPropertyDescriptor(e,n):null;r&&(r.get||r.set)?Object.defineProperty(i,n,r):i[n]=e[n]}}return i.default=e,t&&t.set(e,i),i}},{}],5:[function(e,t,i){function a(e){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function n(e){return"function"==typeof Symbol&&"symbol"===a(Symbol.iterator)?t.exports=n=function(e){return a(e)}:t.exports=n=function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":a(e)},n(e)}t.exports=n},{}],6:[function(e,t,i){var a,n;a="undefined"!=typeof window?window:{},n=function(c,R){"use strict";var W,D;if(function(){var e,t={lazyClass:"lazyload",loadedClass:"lazyloaded",loadingClass:"lazyloading",preloadClass:"lazypreload",errorClass:"lazyerror",autosizesClass:"lazyautosizes",srcAttr:"data-src",srcsetAttr:"data-srcset",sizesAttr:"data-sizes",minSize:40,customMedia:{},init:!0,expFactor:1.5,hFac:.8,loadMode:2,loadHidden:!0,ricTimeout:0,throttleDelay:125};for(e in D=c.lazySizesConfig||c.lazysizesConfig||{},t)e in D||(D[e]=t[e])}(),!R||!R.getElementsByClassName){return{init:function(){},cfg:D,noSupport:true}}var I=R.documentElement,d=c.Date,a=c.HTMLPictureElement,F="addEventListener",N="getAttribute",L=c[F],q=c.setTimeout,s=c.requestAnimationFrame||q,l=c.requestIdleCallback,H=/^picture$/i,n=["load","error","lazyincluded","_lazyloaded"],i={},U=Array.prototype.forEach,V=function(e,t){if(!i[t]){i[t]=new RegExp("(\\s|^)"+t+"(\\s|$)")}return i[t].test(e[N]("class")||"")&&i[t]},Q=function(e,t){if(!V(e,t)){e.setAttribute("class",(e[N]("class")||"").trim()+" "+t)}},G=function(e,t){var i;if(i=V(e,t)){e.setAttribute("class",(e[N]("class")||"").replace(i," "))}},Y=function(t,i,e){var a=e?F:"removeEventListener";if(e){Y(t,i)}n.forEach(function(e){t[a](e,i)})},J=function(e,t,i,a,n){var r=R.createEvent("Event");if(!i){i={}}i.instance=W;r.initEvent(t,!a,!n);r.detail=i;e.dispatchEvent(r);return r},K=function(e,t){var i;if(!a&&(i=c.picturefill||D.pf)){if(t&&t.src&&!e[N]("srcset")){e.setAttribute("srcset",t.src)}i({reevaluate:true,elements:[e]})}else if(t&&t.src){e.src=t.src}},X=function(e,t){return(getComputedStyle(e,null)||{})[t]},o=function(e,t,i){i=i||e.offsetWidth;while(i<D.minSize&&t&&!e._lazysizesWidth){i=t.offsetWidth;t=t.parentNode}return i},Z=function(){var i,a;var t=[];var n=[];var r=t;var o=function(){var e=r;r=t.length?n:t;i=true;a=false;while(e.length){e.shift()()}i=false};var e=function(e,t){if(i&&!t){e.apply(this,arguments)}else{r.push(e);if(!a){a=true;(R.hidden?q:s)(o)}}};e._lsFlush=o;return e}(),ee=function(i,e){return e?function(){Z(i)}:function(){var e=this;var t=arguments;Z(function(){i.apply(e,t)})}},te=function(e){var i;var a=0;var n=D.throttleDelay;var r=D.ricTimeout;var t=function(){i=false;a=d.now();e()};var o=l&&r>49?function(){l(t,{timeout:r});if(r!==D.ricTimeout){r=D.ricTimeout}}:ee(function(){q(t)},true);return function(e){var t;if(e=e===true){r=33}if(i){return}i=true;t=n-(d.now()-a);if(t<0){t=0}if(e||t<9){o()}else{q(o,t)}}},ie=function(e){var t,i;var a=99;var n=function(){t=null;e()};var r=function(){var e=d.now()-i;if(e<a){q(r,a-e)}else{(l||n)(n)}};return function(){i=d.now();if(!t){t=q(r,a)}}},e=function(){var p,m,u,h,e;var b,v,y,g,w,S,k;var r=/^img$/i;var f=/^iframe$/i;var C="onscroll"in c&&!/(gle|ing)bot/.test(navigator.userAgent);var z=0;var x=0;var M=0;var _=-1;var $=function(e){M--;if(!e||M<0||!e.target){M=0}};var j=function(e){if(k==null){k=X(R.body,"visibility")=="hidden"}return k||X(e.parentNode,"visibility")!="hidden"&&X(e,"visibility")!="hidden"};var T=function(e,t){var i;var a=e;var n=j(e);y-=t;S+=t;g-=t;w+=t;while(n&&(a=a.offsetParent)&&a!=R.body&&a!=I){n=(X(a,"opacity")||1)>0;if(n&&X(a,"overflow")!="visible"){i=a.getBoundingClientRect();n=w>i.left&&g<i.right&&S>i.top-1&&y<i.bottom+1}}return n};var t=function(){var e,t,i,a,n,r,o,s,l,c,d,u;var f=W.elements;if((h=D.loadMode)&&M<8&&(e=f.length)){t=0;_++;for(;t<e;t++){if(!f[t]||f[t]._lazyRace){continue}if(!C||W.prematureUnveil&&W.prematureUnveil(f[t])){O(f[t]);continue}if(!(s=f[t][N]("data-expand"))||!(r=s*1)){r=x}if(!c){c=!D.expand||D.expand<1?I.clientHeight>500&&I.clientWidth>500?500:370:D.expand;W._defEx=c;d=c*D.expFactor;u=D.hFac;k=null;if(x<d&&M<1&&_>2&&h>2&&!R.hidden){x=d;_=0}else if(h>1&&_>1&&M<6){x=c}else{x=z}}if(l!==r){b=innerWidth+r*u;v=innerHeight+r;o=r*-1;l=r}i=f[t].getBoundingClientRect();if((S=i.bottom)>=o&&(y=i.top)<=v&&(w=i.right)>=o*u&&(g=i.left)<=b&&(S||w||g||y)&&(D.loadHidden||j(f[t]))&&(m&&M<3&&!s&&(h<3||_<4)||T(f[t],r))){O(f[t]);n=true;if(M>9){break}}else if(!n&&m&&!a&&M<4&&_<4&&h>2&&(p[0]||D.preloadAfterLoad)&&(p[0]||!s&&(S||w||g||y||f[t][N](D.sizesAttr)!="auto"))){a=p[0]||f[t]}}if(a&&!n){O(a)}}};var i=te(t);var B=function(e){var t=e.target;if(t._lazyCache){delete t._lazyCache;return}$(e);Q(t,D.loadedClass);G(t,D.loadingClass);Y(t,E);J(t,"lazyloaded")};var a=ee(B);var E=function(e){a({target:e.target})};var P=function(t,i){try{t.contentWindow.location.replace(i)}catch(e){t.src=i}};var A=function(e){var t;var i=e[N](D.srcsetAttr);if(t=D.customMedia[e[N]("data-media")||e[N]("media")]){e.setAttribute("media",t)}if(i){e.setAttribute("srcset",i)}};var o=ee(function(t,e,i,a,n){var r,o,s,l,c,d;if(!(c=J(t,"lazybeforeunveil",e)).defaultPrevented){if(a){if(i){Q(t,D.autosizesClass)}else{t.setAttribute("sizes",a)}}o=t[N](D.srcsetAttr);r=t[N](D.srcAttr);if(n){s=t.parentNode;l=s&&H.test(s.nodeName||"")}d=e.firesLoad||"src"in t&&(o||r||l);c={target:t};Q(t,D.loadingClass);if(d){clearTimeout(u);u=q($,2500);Y(t,E,true)}if(l){U.call(s.getElementsByTagName("source"),A)}if(o){t.setAttribute("srcset",o)}else if(r&&!l){if(f.test(t.nodeName)){P(t,r)}else{t.src=r}}if(n&&(o||l)){K(t,{src:r})}}if(t._lazyRace){delete t._lazyRace}G(t,D.lazyClass);Z(function(){var e=t.complete&&t.naturalWidth>1;if(!d||e){if(e){Q(t,"ls-is-cached")}B(c);t._lazyCache=true;q(function(){if("_lazyCache"in t){delete t._lazyCache}},9)}if(t.loading=="lazy"){M--}},true)});var O=function(e){if(e._lazyRace){return}var t;var i=r.test(e.nodeName);var a=i&&(e[N](D.sizesAttr)||e[N]("sizes"));var n=a=="auto";if((n||!m)&&i&&(e[N]("src")||e.srcset)&&!e.complete&&!V(e,D.errorClass)&&V(e,D.lazyClass)){return}t=J(e,"lazyunveilread").detail;if(n){ae.updateElem(e,true,e.offsetWidth)}e._lazyRace=true;M++;o(e,t,n,a,i)};var n=ie(function(){D.loadMode=3;i()});var s=function(){if(D.loadMode==3){D.loadMode=2}n()};var l=function(){if(m){return}if(d.now()-e<999){q(l,999);return}m=true;D.loadMode=3;i();L("scroll",s,true)};return{_:function(){e=d.now();W.elements=R.getElementsByClassName(D.lazyClass);p=R.getElementsByClassName(D.lazyClass+" "+D.preloadClass);L("scroll",i,true);L("resize",i,true);if(c.MutationObserver){new MutationObserver(i).observe(I,{childList:true,subtree:true,attributes:true})}else{I[F]("DOMNodeInserted",i,true);I[F]("DOMAttrModified",i,true);setInterval(i,999)}L("hashchange",i,true);["focus","mouseover","click","load","transitionend","animationend"].forEach(function(e){R[F](e,i,true)});if(/d$|^c/.test(R.readyState)){l()}else{L("load",l);R[F]("DOMContentLoaded",i);q(l,2e4)}if(W.elements.length){t();Z._lsFlush()}else{i()}},checkElems:i,unveil:O,_aLSL:s}}(),ae=function(){var i;var r=ee(function(e,t,i,a){var n,r,o;e._lazysizesWidth=a;a+="px";e.setAttribute("sizes",a);if(H.test(t.nodeName||"")){n=t.getElementsByTagName("source");for(r=0,o=n.length;r<o;r++){n[r].setAttribute("sizes",a)}}if(!i.detail.dataAttr){K(e,i.detail)}});var a=function(e,t,i){var a;var n=e.parentNode;if(n){i=o(e,n,i);a=J(e,"lazybeforesizes",{width:i,dataAttr:!!t});if(!a.defaultPrevented){i=a.detail.width;if(i&&i!==e._lazysizesWidth){r(e,n,a,i)}}}};var e=function(){var e;var t=i.length;if(t){e=0;for(;e<t;e++){a(i[e])}}};var t=ie(e);return{_:function(){i=R.getElementsByClassName(D.autosizesClass);L("resize",t)},checkElems:t,updateElem:a}}(),t=function(){if(!t.i&&R.getElementsByClassName){t.i=true;ae._();e._()}};return q(function(){D.init&&t()}),W={cfg:D,autoSizer:ae,loader:e,init:t,uP:K,aC:Q,rC:G,hC:V,fire:J,gW:o,rAF:Z}}(a,a.document),a.lazySizes=n,"object"==typeof t&&t.exports&&(t.exports=n)},{}],7:[function(e,t,i){var g;(g=jQuery).fn.theiaStickySidebar=function(e){var t,i;function a(e,t){return!0===e.initialized||!(g("body").width()<e.minWidth)&&(function(v,e){v.initialized=!0,0===g("#theia-sticky-sidebar-stylesheet-"+v.namespace).length&&g("head").append(g('<style id="theia-sticky-sidebar-stylesheet-'+v.namespace+'">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style>')),e.each(function(){var e={};if(e.sidebar=g(this),e.options=v||{},e.container=g(e.options.containerSelector),0==e.container.length&&(e.container=e.sidebar.parent()),e.sidebar.parents().css("-webkit-transform","none"),e.sidebar.css({position:e.options.defaultPosition,overflow:"visible","-webkit-box-sizing":"border-box","-moz-box-sizing":"border-box","box-sizing":"border-box"}),e.stickySidebar=e.sidebar.find(".theiaStickySidebar"),0==e.stickySidebar.length){var i=/(?:text|application)\/(?:x-)?(?:javascript|ecmascript)/i;e.sidebar.find("script").filter(function(e,t){return 0===t.type.length||t.type.match(i)}).remove(),e.stickySidebar=g("<div>").addClass("theiaStickySidebar").append(e.sidebar.children()),e.sidebar.append(e.stickySidebar)}e.marginBottom=parseInt(e.sidebar.css("margin-bottom")),e.paddingTop=parseInt(e.sidebar.css("padding-top")),e.paddingBottom=parseInt(e.sidebar.css("padding-bottom"));var t,a,n,r=e.stickySidebar.offset().top,o=e.stickySidebar.outerHeight();function b(){e.fixedScrollTop=0,e.sidebar.css({"min-height":"1px"}),e.stickySidebar.css({position:"static",width:"",transform:"none"})}e.stickySidebar.css("padding-top",1),e.stickySidebar.css("padding-bottom",1),r-=e.stickySidebar.offset().top,o=e.stickySidebar.outerHeight()-o-r,0==r?(e.stickySidebar.css("padding-top",0),e.stickySidebarPaddingTop=0):e.stickySidebarPaddingTop=1,0==o?(e.stickySidebar.css("padding-bottom",0),e.stickySidebarPaddingBottom=0):e.stickySidebarPaddingBottom=1,e.previousScrollTop=null,e.fixedScrollTop=0,b(),e.onScroll=function(e){if(e.stickySidebar.is(":visible"))if(g("body").width()<e.options.minWidth)b();else{if(e.options.disableOnResponsiveLayouts&&e.sidebar.outerWidth("none"==e.sidebar.css("float"))+50>e.container.width())return void b();var t=g(document).scrollTop(),i="static";if(t>=e.sidebar.offset().top+(e.paddingTop-e.options.additionalMarginTop)){var a,n=e.paddingTop+v.additionalMarginTop,r=e.paddingBottom+e.marginBottom+v.additionalMarginBottom,o=e.sidebar.offset().top,s=e.sidebar.offset().top+function(e){var t=e.height();return e.children().each(function(){t=Math.max(t,g(this).height())}),t}(e.container),l=0+v.additionalMarginTop;a=e.stickySidebar.outerHeight()+n+r<g(window).height()?l+e.stickySidebar.outerHeight():g(window).height()-e.marginBottom-e.paddingBottom-v.additionalMarginBottom;var c=o-t+e.paddingTop,d=s-t-e.paddingBottom-e.marginBottom,u=e.stickySidebar.offset().top-t,f=e.previousScrollTop-t;"fixed"==e.stickySidebar.css("position")&&"modern"==e.options.sidebarBehavior&&(u+=f),"stick-to-top"==e.options.sidebarBehavior&&(u=v.additionalMarginTop),"stick-to-bottom"==e.options.sidebarBehavior&&(u=a-e.stickySidebar.outerHeight()),u=0<f?Math.min(u,l):Math.max(u,a-e.stickySidebar.outerHeight()),u=Math.max(u,c),u=Math.min(u,d-e.stickySidebar.outerHeight());var p=e.container.height()==e.stickySidebar.outerHeight();i=!p&&u==l||!p&&u==a-e.stickySidebar.outerHeight()?"fixed":t+u-e.sidebar.offset().top-e.paddingTop<=v.additionalMarginTop?"static":"absolute"}if("fixed"==i){var m=g(document).scrollLeft();e.stickySidebar.css({position:"fixed",width:y(e.stickySidebar)+"px",transform:"translateY("+u+"px)",left:e.sidebar.offset().left+parseInt(e.sidebar.css("padding-left"))-m+"px",top:"0px"})}else if("absolute"==i){var h={};"absolute"!=e.stickySidebar.css("position")&&(h.position="absolute",h.transform="translateY("+(t+u-e.sidebar.offset().top-e.stickySidebarPaddingTop-e.stickySidebarPaddingBottom)+"px)",h.top="0px"),h.width=y(e.stickySidebar)+"px",h.left="",e.stickySidebar.css(h)}else"static"==i&&b();"static"!=i&&1==e.options.updateSidebarHeight&&e.sidebar.css({"min-height":e.stickySidebar.outerHeight()+e.stickySidebar.offset().top-e.sidebar.offset().top+e.paddingBottom}),e.previousScrollTop=t}},e.onScroll(e),g(document).on("scroll."+e.options.namespace,(t=e,function(){t.onScroll(t)})),g(window).on("resize."+e.options.namespace,(a=e,function(){a.stickySidebar.css({position:"static"}),a.onScroll(a)})),"undefined"!=typeof ResizeSensor&&new ResizeSensor(e.stickySidebar[0],(n=e,function(){n.onScroll(n)}))})}(e,t),!0)}function y(e){var t;try{t=e[0].getBoundingClientRect().width}catch(e){}return void 0===t&&(t=e.width()),t}return(e=g.extend({containerSelector:"",additionalMarginTop:0,additionalMarginBottom:0,updateSidebarHeight:!0,minWidth:0,disableOnResponsiveLayouts:!0,sidebarBehavior:"modern",defaultPosition:"relative",namespace:"TSS"},e)).additionalMarginTop=parseInt(e.additionalMarginTop)||0,e.additionalMarginBottom=parseInt(e.additionalMarginBottom)||0,a(t=e,i=this)||(console.log("TSS: Body width smaller than options.minWidth. Init is delayed."),g(document).on("scroll."+t.namespace,function(t,i){return function(e){a(t,i)&&g(this).unbind(e)}}(t,i)),g(window).on("resize."+t.namespace,function(t,i){return function(e){a(t,i)&&g(this).unbind(e)}}(t,i))),this}},{}],8:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;i.default=function(e,a){return $(".js-toggle-social-media").removeClass("u-hide"),$.each(e,function(e,t){if("string"==typeof t[0]&&a.test(t[0])){var i='<a href="'.concat(t[0],'" title="').concat(t[1],'" target="_blank" rel="noopener noreferrer" class="i-').concat(e,'"></a>');$(".js-social-media").append(i)}})}},{}],9:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;i.default=function(e,a){return $(".footer-menu").removeClass("u-hide"),$.each(e,function(e,t){if("string"==typeof t&&a.test(t)){var i='<li><a href="'.concat(t,'" title="').concat(e,'">').concat(e,"</a></li>");$(".footer-menu").append(i)}})}},{}],10:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;function a(e,i){return function(e){return e.map(function(e){return[Math.random(),e]}).sort(function(e,t){return e[0]-t[0]}).map(function(e){return e[1]})}(e.data).slice(0,6).map(function(e){var t=function(e){return'<div class="instagram-col col s6 m4 l2">\n    <a href="'.concat(e.link,'" class="instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block u-bgGray" target="_blank" rel="noopener noreferrer">\n      <img aria-label="Instagram image" class="u-absolute0 u-image lazyload zindex2" src="').concat(e.images.low_resolution.url,'"/>\n      <div class="instagram-hover u-absolute0 u-flexColumn" style="z-index:3">\n        <div class="u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20">\n          <span style="padding-right:10px"><i class="i-favorite"></i> ').concat(e.likes.count,'</span>\n          <span style="padding-left:10px"><i class="i-chat"></i> ').concat(e.comments.count,"</span>\n        </div>\n      </div>\n    </a>\n  </div>")}(e);$(".instagram").removeClass("u-hide"),$(".instagram-wrap").append(t),$(".instagram-name").html(i)})}i.default=function(e,t){fetch(e).then(function(e){return e.json()}).then(function(e){return a(e,t)}).catch(function(){return $(".instagram").remove()})}},{}],11:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.loadStyle=function(e){var t=document.createElement("link");t.rel="stylesheet",t.href=e,document.head.appendChild(t)},i.loadScript=function(e,t){var i=document.createElement("script");i.src=e,i.defer=!0,t&&i.addEventListener("load",t),document.body.appendChild(i)}},{}],12:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;i.default=function(e,t){$(".widget-twitter").removeClass("u-hide");var i='<a class="twitter-timeline"  href="https://twitter.com/'.concat(e,'" data-chrome="nofooter noborders noheader" data-tweet-limit="').concat(t,'">Tweets by ').concat(e,'</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"><\/script>');$(".widget-twitter").append(i)}},{}],13:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.iframeVideo=i.$postInner=i.$body=void 0;var a=$("body");i.$body=a;var n=$(".post-inner");i.$postInner=n;i.iframeVideo=['iframe[src*="player.vimeo.com"]','iframe[src*="dailymotion.com"]','iframe[src*="youtube.com"]','iframe[src*="youtube-nocookie.com"]','iframe[src*="player.twitch.tv"]','iframe[src*="kickstarter.com"][src*="video.html"]']},{}],14:[function(e,t,i){"use strict";var a=e("@babel/runtime/helpers/interopRequireDefault");e("lazysizes"),e("theia-sticky-sidebar"),e("./mapache");var n=a(e("./util/Router")),r=a(e("./routes/common")),o=a(e("./routes/post")),s=a(e("./routes/video")),l=a(e("./routes/newsletter")),c=new n.default({common:r.default,isArticle:o.default,isVideo:s.default,isNewsletter:l.default});jQuery(document).ready(function(){return c.loadEvents()})},{"./mapache":15,"./routes/common":16,"./routes/newsletter":17,"./routes/post":18,"./routes/video":19,"./util/Router":20,"@babel/runtime/helpers/interopRequireDefault":3,lazysizes:6,"theia-sticky-sidebar":7}],15:[function(e,t,i){"use strict";!function(t){var a=t(window),i=t("body"),n=t(".share-inner"),r=t(".rocket"),o=[],e=!1,s=0;t([".kg-width-full",".kg-width-wide"].join(",")).map(function(){o.push(this)}),t(document).ready(function(){t(".menu--toggle").on("click",function(e){e.preventDefault(),i.toggleClass("is-showNavMob").removeClass("is-search")}),t(".js-toggle-social-media").on("click",function(e){e.preventDefault(),i.toggleClass("is-showFollowMore")}),t(".js-toggle-modal").on("click",function(e){e.preventDefault(),i.toggleClass("has-modal")}),t(".scrolltop").on("click",function(e){e.preventDefault(),t("html, body").animate({scrollTop:t(t(this).attr("href")).offset().top-60},500,"linear")}),r.on("click",function(e){e.preventDefault(),t("html, body").animate({scrollTop:0},250)})});var l=function(e,t){var i=e.getBoundingClientRect(),a=t.getBoundingClientRect();return!(i.top>a.bottom||i.right<a.left||i.bottom<a.top||i.left>a.right)};function c(){var e=a.scrollTop();Math.abs(s-e)<=5||(i.hasClass("has-cover")&&(100<=e?i.removeClass("is-transparency"):i.addClass("is-transparency")),500<e?r.addClass("to-top"):r.removeClass("to-top"),i.hasClass("is-article-single")&&o.length&&function(){if(a.width()<1e3)return;var e=n.get(0),t=!1;for(var i in o)if(l(e,o[i])){t=!0;break}t?n.addClass("is-hidden"):n.removeClass("is-hidden")}(),s=e)}a.on("scroll",function(){return e=!0}),a.on("load",function(){setInterval(function(){e&&(c(),e=!1)},250)})}(jQuery)},{}],16:[function(e,t,i){"use strict";var a=e("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;var n=a(e("@babel/runtime/helpers/typeof")),r=a(e("../app/app.follow")),o=a(e("../app/app.footer.links")),s=a(e("../app/app.twitter")),l=/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/,c={init:function(){"undefined"!=typeof homeTitle&&$("#home-title").html(homeTitle),"object"===("undefined"==typeof homeBtn?"undefined":(0,n.default)(homeBtn))&&null!==homeBtn&&$("#home-button").attr("href",homeBtn.url).html(homeBtn.title),"object"===("undefined"==typeof followSocialMedia?"undefined":(0,n.default)(followSocialMedia))&&null!==followSocialMedia&&(0,r.default)(followSocialMedia,l),"object"===("undefined"==typeof footerLinks?"undefined":(0,n.default)(footerLinks))&&null!==footerLinks&&(0,o.default)(footerLinks,l)},finalize:function(){$(".sidebar-sticky").theiaStickySidebar({additionalMarginTop:70,minWidth:970}),"object"===("undefined"==typeof twitterFeed?"undefined":(0,n.default)(twitterFeed))&&null!==twitterFeed&&(0,s.default)(twitterFeed.name,twitterFeed.number)}};i.default=c},{"../app/app.follow":8,"../app/app.footer.links":9,"../app/app.twitter":12,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/typeof":5}],17:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;var a={init:function(){var t=$("#godo-form");t.submit(function(e){e.preventDefault(),function(t){$.ajax({type:t.attr("method"),url:t.attr("action").replace("/post?","/post-json?").concat("&c=?"),data:t.serialize(),cache:!1,dataType:"jsonp",contentType:"application/json; charset=utf-8",beforeSend:function(){return $("body").addClass("is-loading")},success:function(e){"success"===e.result?($(".godo-ne-input").removeClass("error"),$(".godo-ne-success").removeClass("u-hide"),t.addClass("u-hide"),$(".godo-ne-input").val("")):$(".godo-ne-input").addClass("error")},complete:function(){return setTimeout(function(){return $("body").removeClass("is-loading")},700)}})}(t)})}};i.default=a},{}],18:[function(e,t,i){"use strict";var a=e("@babel/runtime/helpers/interopRequireWildcard"),n=e("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;var r=n(e("@babel/runtime/helpers/typeof")),o=e("../app/app.load-style-script"),s=a(e("../app/app.variables")),l=n(e("../app/app.instagram")),c={init:function(){s.$postInner.find(s.iframeVideo.join(",")).each(function(){$(this).wrap('<aside class="video-responsive"></aside>').parent(".video-responsive")})},finalize:function(){if(document.querySelectorAll(".kg-gallery-image img").forEach(function(e){var t=e.closest(".kg-gallery-image"),i=e.attributes.width.value/e.attributes.height.value;t.style.flex=i+" 1 0%"}),s.$postInner.find("img").each(function(e,t){var i=$(this);if(!i.parents("a").length&&(i.addClass("mapache-light-gallery"),i.attr("data-src",t.src),i.next("figcaption").length)){var a=i.next("figcaption").html();i.attr("data-sub-html",a)}}),s.$postInner.find(".mapache-light-gallery").length&&((0,o.loadStyle)("https://unpkg.com/lightgallery.js/dist/css/lightgallery.min.css"),(0,o.loadScript)("".concat(siteUrl,"/assets/scripts/lightgallery.min.js"),function(){s.$postInner.each(function(e,t){return window.lightGallery(t,{selector:".mapache-light-gallery"})})}),(0,o.loadScript)("".concat(siteUrl,"/assets/scripts/lg-zoom.min.js"))),$(".sharePost").theiaStickySidebar({additionalMarginTop:120,minWidth:970}),"object"===("undefined"==typeof instagramFeed?"undefined":(0,r.default)(instagramFeed))&&null!==instagramFeed){var e="https://api.instagram.com/v1/users/".concat(instagramFeed.userId,"/media/recent/?access_token=").concat(instagramFeed.token,"&count=10&callback=?"),t='<a href="https://www.instagram.com/'.concat(instagramFeed.userName,'" class="button button--large button--chromeless" target="_blank" rel="noopener noreferrer"><i class="i-instagram"></i> ').concat(instagramFeed.userName,"</a>");768<$(window).width()&&(0,l.default)(e,t)}s.$postInner.find('code[class*="language-"]').length&&(s.$postInner.find("pre").addClass("line-numbers"),(0,o.loadScript)("".concat(siteUrl,"/assets/scripts/prismjs.js")))}};i.default=c},{"../app/app.instagram":10,"../app/app.load-style-script":11,"../app/app.variables":13,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"@babel/runtime/helpers/typeof":5}],19:[function(e,t,i){"use strict";var a=e("@babel/runtime/helpers/interopRequireWildcard");Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;var o=a(e("../app/app.variables")),s=e("../app/app.load-style-script"),n={init:function(){var t=$(window),e=$(".cc-video-embed"),i=!1,a=o.$postInner.find(o.iframeVideo.join(","))[0],n=$(a);if(n.length){if(n.parents(".kg-embed-card").length?n.parents(".kg-embed-card").appendTo(e):n.parent().appendTo(e),"undefined"!=typeof youtubeChannelID){var r='<span class="u-paddingLeft15"><div class="g-ytsubscribe" data-channelid="'.concat(youtubeChannelID,'" data-layout="default" data-count="default"></div></span>');$(".cc-video-subscribe").append(r),(0,s.loadScript)("https://apis.google.com/js/platform.js")}$(".cc-video-close").on("click",function(){o.$body.removeClass("has-video-fixed"),t.off("scroll.video")}),1200<t.width()&&(t.on("scroll.video",function(){return i=!0}),setInterval(function(){i&&(function(){var e=t.scrollTop();$(".post").offset().top<e?o.$body.addClass("has-video-fixed"):o.$body.removeClass("has-video-fixed")}(),i=!1)},500))}}};i.default=n},{"../app/app.load-style-script":11,"../app/app.variables":13,"@babel/runtime/helpers/interopRequireWildcard":4}],20:[function(e,t,i){"use strict";var a=e("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;var n=a(e("@babel/runtime/helpers/classCallCheck")),r=a(e("@babel/runtime/helpers/createClass")),o=a(e("./camelCase")),s=function(){function t(e){(0,n.default)(this,t),this.routes=e}return(0,r.default)(t,[{key:"fire",value:function(e){var t=1<arguments.length&&void 0!==arguments[1]?arguments[1]:"init",i=2<arguments.length?arguments[2]:void 0,a=""!==e&&this.routes[e]&&"function"==typeof this.routes[e][t];a&&this.routes[e][t](i)}},{key:"loadEvents",value:function(){var t=this;this.fire("common"),document.body.className.toLowerCase().replace(/-/g,"_").split(/\s+/).map(o.default).forEach(function(e){t.fire(e),t.fire(e,"finalize")}),this.fire("common","finalize")}}]),t}();i.default=s},{"./camelCase":21,"@babel/runtime/helpers/classCallCheck":1,"@babel/runtime/helpers/createClass":2,"@babel/runtime/helpers/interopRequireDefault":3}],21:[function(e,t,i){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0;i.default=function(e){return"".concat(e.charAt(0).toLowerCase()).concat(e.replace(/[\W_]/g,"|").split("|").map(function(e){return"".concat(e.charAt(0).toUpperCase()).concat(e.slice(1))}).join("").slice(1))}},{}]},{},[14]);
+ * Theia Sticky Sidebar v1.7.0
+ * https://github.com/WeCodePixels/theia-sticky-sidebar
+ *
+ * Glues your website's sidebars, making them permanently visible while scrolling.
+ *
+ * Copyright 2013-2016 WeCodePixels and other contributors
+ * Released under the MIT license
+ */
+
+(function ($) {
+    $.fn.theiaStickySidebar = function (options) {
+        var defaults = {
+            'containerSelector': '',
+            'additionalMarginTop': 0,
+            'additionalMarginBottom': 0,
+            'updateSidebarHeight': true,
+            'minWidth': 0,
+            'disableOnResponsiveLayouts': true,
+            'sidebarBehavior': 'modern',
+            'defaultPosition': 'relative',
+            'namespace': 'TSS'
+        };
+        options = $.extend(defaults, options);
+
+        // Validate options
+        options.additionalMarginTop = parseInt(options.additionalMarginTop) || 0;
+        options.additionalMarginBottom = parseInt(options.additionalMarginBottom) || 0;
+
+        tryInitOrHookIntoEvents(options, this);
+
+        // Try doing init, otherwise hook into window.resize and document.scroll and try again then.
+        function tryInitOrHookIntoEvents(options, $that) {
+            var success = tryInit(options, $that);
+
+            if (!success) {
+                console.log('TSS: Body width smaller than options.minWidth. Init is delayed.');
+
+                $(document).on('scroll.' + options.namespace, function (options, $that) {
+                    return function (evt) {
+                        var success = tryInit(options, $that);
+
+                        if (success) {
+                            $(this).unbind(evt);
+                        }
+                    };
+                }(options, $that));
+                $(window).on('resize.' + options.namespace, function (options, $that) {
+                    return function (evt) {
+                        var success = tryInit(options, $that);
+
+                        if (success) {
+                            $(this).unbind(evt);
+                        }
+                    };
+                }(options, $that))
+            }
+        }
+
+        // Try doing init if proper conditions are met.
+        function tryInit(options, $that) {
+            if (options.initialized === true) {
+                return true;
+            }
+
+            if ($('body').width() < options.minWidth) {
+                return false;
+            }
+
+            init(options, $that);
+
+            return true;
+        }
+
+        // Init the sticky sidebar(s).
+        function init(options, $that) {
+            options.initialized = true;
+
+            // Add CSS
+            var existingStylesheet = $('#theia-sticky-sidebar-stylesheet-' + options.namespace);
+            if (existingStylesheet.length === 0) {
+                $('head').append($('<style id="theia-sticky-sidebar-stylesheet-' + options.namespace + '">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style>'));
+            }
+
+            $that.each(function () {
+                var o = {};
+
+                o.sidebar = $(this);
+
+                // Save options
+                o.options = options || {};
+
+                // Get container
+                o.container = $(o.options.containerSelector);
+                if (o.container.length == 0) {
+                    o.container = o.sidebar.parent();
+                }
+
+                // Create sticky sidebar
+                o.sidebar.parents().css('-webkit-transform', 'none'); // Fix for WebKit bug - https://code.google.com/p/chromium/issues/detail?id=20574
+                o.sidebar.css({
+                    'position': o.options.defaultPosition,
+                    'overflow': 'visible',
+                    // The "box-sizing" must be set to "content-box" because we set a fixed height to this element when the sticky sidebar has a fixed position.
+                    '-webkit-box-sizing': 'border-box',
+                    '-moz-box-sizing': 'border-box',
+                    'box-sizing': 'border-box'
+                });
+
+                // Get the sticky sidebar element. If none has been found, then create one.
+                o.stickySidebar = o.sidebar.find('.theiaStickySidebar');
+                if (o.stickySidebar.length == 0) {
+                    // Remove <script> tags, otherwise they will be run again when added to the stickySidebar.
+                    var javaScriptMIMETypes = /(?:text|application)\/(?:x-)?(?:javascript|ecmascript)/i;
+                    o.sidebar.find('script').filter(function (index, script) {
+                        return script.type.length === 0 || script.type.match(javaScriptMIMETypes);
+                    }).remove();
+
+                    o.stickySidebar = $('<div>').addClass('theiaStickySidebar').append(o.sidebar.children());
+                    o.sidebar.append(o.stickySidebar);
+                }
+
+                // Get existing top and bottom margins and paddings
+                o.marginBottom = parseInt(o.sidebar.css('margin-bottom'));
+                o.paddingTop = parseInt(o.sidebar.css('padding-top'));
+                o.paddingBottom = parseInt(o.sidebar.css('padding-bottom'));
+
+                // Add a temporary padding rule to check for collapsable margins.
+                var collapsedTopHeight = o.stickySidebar.offset().top;
+                var collapsedBottomHeight = o.stickySidebar.outerHeight();
+                o.stickySidebar.css('padding-top', 1);
+                o.stickySidebar.css('padding-bottom', 1);
+                collapsedTopHeight -= o.stickySidebar.offset().top;
+                collapsedBottomHeight = o.stickySidebar.outerHeight() - collapsedBottomHeight - collapsedTopHeight;
+                if (collapsedTopHeight == 0) {
+                    o.stickySidebar.css('padding-top', 0);
+                    o.stickySidebarPaddingTop = 0;
+                }
+                else {
+                    o.stickySidebarPaddingTop = 1;
+                }
+
+                if (collapsedBottomHeight == 0) {
+                    o.stickySidebar.css('padding-bottom', 0);
+                    o.stickySidebarPaddingBottom = 0;
+                }
+                else {
+                    o.stickySidebarPaddingBottom = 1;
+                }
+
+                // We use this to know whether the user is scrolling up or down.
+                o.previousScrollTop = null;
+
+                // Scroll top (value) when the sidebar has fixed position.
+                o.fixedScrollTop = 0;
+
+                // Set sidebar to default values.
+                resetSidebar();
+
+                o.onScroll = function (o) {
+                    // Stop if the sidebar isn't visible.
+                    if (!o.stickySidebar.is(":visible")) {
+                        return;
+                    }
+
+                    // Stop if the window is too small.
+                    if ($('body').width() < o.options.minWidth) {
+                        resetSidebar();
+                        return;
+                    }
+
+                    // Stop if the sidebar width is larger than the container width (e.g. the theme is responsive and the sidebar is now below the content)
+                    if (o.options.disableOnResponsiveLayouts) {
+                        var sidebarWidth = o.sidebar.outerWidth(o.sidebar.css('float') == 'none');
+
+                        if (sidebarWidth + 50 > o.container.width()) {
+                            resetSidebar();
+                            return;
+                        }
+                    }
+
+                    var scrollTop = $(document).scrollTop();
+                    var position = 'static';
+
+                    // If the user has scrolled down enough for the sidebar to be clipped at the top, then we can consider changing its position.
+                    if (scrollTop >= o.sidebar.offset().top + (o.paddingTop - o.options.additionalMarginTop)) {
+                        // The top and bottom offsets, used in various calculations.
+                        var offsetTop = o.paddingTop + options.additionalMarginTop;
+                        var offsetBottom = o.paddingBottom + o.marginBottom + options.additionalMarginBottom;
+
+                        // All top and bottom positions are relative to the window, not to the parent elemnts.
+                        var containerTop = o.sidebar.offset().top;
+                        var containerBottom = o.sidebar.offset().top + getClearedHeight(o.container);
+
+                        // The top and bottom offsets relative to the window screen top (zero) and bottom (window height).
+                        var windowOffsetTop = 0 + options.additionalMarginTop;
+                        var windowOffsetBottom;
+
+                        var sidebarSmallerThanWindow = (o.stickySidebar.outerHeight() + offsetTop + offsetBottom) < $(window).height();
+                        if (sidebarSmallerThanWindow) {
+                            windowOffsetBottom = windowOffsetTop + o.stickySidebar.outerHeight();
+                        }
+                        else {
+                            windowOffsetBottom = $(window).height() - o.marginBottom - o.paddingBottom - options.additionalMarginBottom;
+                        }
+
+                        var staticLimitTop = containerTop - scrollTop + o.paddingTop;
+                        var staticLimitBottom = containerBottom - scrollTop - o.paddingBottom - o.marginBottom;
+
+                        var top = o.stickySidebar.offset().top - scrollTop;
+                        var scrollTopDiff = o.previousScrollTop - scrollTop;
+
+                        // If the sidebar position is fixed, then it won't move up or down by itself. So, we manually adjust the top coordinate.
+                        if (o.stickySidebar.css('position') == 'fixed') {
+                            if (o.options.sidebarBehavior == 'modern') {
+                                top += scrollTopDiff;
+                            }
+                        }
+
+                        if (o.options.sidebarBehavior == 'stick-to-top') {
+                            top = options.additionalMarginTop;
+                        }
+
+                        if (o.options.sidebarBehavior == 'stick-to-bottom') {
+                            top = windowOffsetBottom - o.stickySidebar.outerHeight();
+                        }
+
+                        if (scrollTopDiff > 0) { // If the user is scrolling up.
+                            top = Math.min(top, windowOffsetTop);
+                        }
+                        else { // If the user is scrolling down.
+                            top = Math.max(top, windowOffsetBottom - o.stickySidebar.outerHeight());
+                        }
+
+                        top = Math.max(top, staticLimitTop);
+
+                        top = Math.min(top, staticLimitBottom - o.stickySidebar.outerHeight());
+
+                        // If the sidebar is the same height as the container, we won't use fixed positioning.
+                        var sidebarSameHeightAsContainer = o.container.height() == o.stickySidebar.outerHeight();
+
+                        if (!sidebarSameHeightAsContainer && top == windowOffsetTop) {
+                            position = 'fixed';
+                        }
+                        else if (!sidebarSameHeightAsContainer && top == windowOffsetBottom - o.stickySidebar.outerHeight()) {
+                            position = 'fixed';
+                        }
+                        else if (scrollTop + top - o.sidebar.offset().top - o.paddingTop <= options.additionalMarginTop) {
+                            // Stuck to the top of the page. No special behavior.
+                            position = 'static';
+                        }
+                        else {
+                            // Stuck to the bottom of the page.
+                            position = 'absolute';
+                        }
+                    }
+
+                    /*
+                     * Performance notice: It's OK to set these CSS values at each resize/scroll, even if they don't change.
+                     * It's way slower to first check if the values have changed.
+                     */
+                    if (position == 'fixed') {
+                        var scrollLeft = $(document).scrollLeft();
+
+                        o.stickySidebar.css({
+                            'position': 'fixed',
+                            'width': getWidthForObject(o.stickySidebar) + 'px',
+                            'transform': 'translateY(' + top + 'px)',
+                            'left': (o.sidebar.offset().left + parseInt(o.sidebar.css('padding-left')) - scrollLeft) + 'px',
+                            'top': '0px'
+                        });
+                    }
+                    else if (position == 'absolute') {
+                        var css = {};
+
+                        if (o.stickySidebar.css('position') != 'absolute') {
+                            css.position = 'absolute';
+                            css.transform = 'translateY(' + (scrollTop + top - o.sidebar.offset().top - o.stickySidebarPaddingTop - o.stickySidebarPaddingBottom) + 'px)';
+                            css.top = '0px';
+                        }
+
+                        css.width = getWidthForObject(o.stickySidebar) + 'px';
+                        css.left = '';
+
+                        o.stickySidebar.css(css);
+                    }
+                    else if (position == 'static') {
+                        resetSidebar();
+                    }
+
+                    if (position != 'static') {
+                        if (o.options.updateSidebarHeight == true) {
+                            o.sidebar.css({
+                                'min-height': o.stickySidebar.outerHeight() + o.stickySidebar.offset().top - o.sidebar.offset().top + o.paddingBottom
+                            });
+                        }
+                    }
+
+                    o.previousScrollTop = scrollTop;
+                };
+
+                // Initialize the sidebar's position.
+                o.onScroll(o);
+
+                // Recalculate the sidebar's position on every scroll and resize.
+                $(document).on('scroll.' + o.options.namespace, function (o) {
+                    return function () {
+                        o.onScroll(o);
+                    };
+                }(o));
+                $(window).on('resize.' + o.options.namespace, function (o) {
+                    return function () {
+                        o.stickySidebar.css({'position': 'static'});
+                        o.onScroll(o);
+                    };
+                }(o));
+
+                // Recalculate the sidebar's position every time the sidebar changes its size.
+                if (typeof ResizeSensor !== 'undefined') {
+                    new ResizeSensor(o.stickySidebar[0], function (o) {
+                        return function () {
+                            o.onScroll(o);
+                        };
+                    }(o));
+                }
+
+                // Reset the sidebar to its default state
+                function resetSidebar() {
+                    o.fixedScrollTop = 0;
+                    o.sidebar.css({
+                        'min-height': '1px'
+                    });
+                    o.stickySidebar.css({
+                        'position': 'static',
+                        'width': '',
+                        'transform': 'none'
+                    });
+                }
+
+                // Get the height of a div as if its floated children were cleared. Note that this function fails if the floats are more than one level deep.
+                function getClearedHeight(e) {
+                    var height = e.height();
+
+                    e.children().each(function () {
+                        height = Math.max(height, $(this).height());
+                    });
+
+                    return height;
+                }
+            });
+        }
+
+        function getWidthForObject(object) {
+            var width;
+
+            try {
+                width = object[0].getBoundingClientRect().width;
+            }
+            catch (err) {
+            }
+
+            if (typeof width === "undefined") {
+                width = object.width();
+            }
+
+            return width;
+        }
+
+        return this;
+    }
+})(jQuery);
+
+
+
+},{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default(links, urlRegexp) {
+  $('.js-toggle-social-media').removeClass('u-hide');
+  return $.each(links, function (name, urlTitle) {
+    if (typeof urlTitle[0] === 'string' && urlRegexp.test(urlTitle[0])) {
+      var template = "<a href=\"".concat(urlTitle[0], "\" title=\"").concat(urlTitle[1], "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"i-").concat(name, "\"></a>");
+      $('.js-social-media').append(template);
+    }
+  });
+};
+
+exports.default = _default;
+
+},{}],9:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default(links, urlRegexp) {
+  $('.footer-menu').removeClass('u-hide');
+  return $.each(links, function (name, url) {
+    if (typeof url === 'string' && urlRegexp.test(url)) {
+      var template = "<li><a href=\"".concat(url, "\" title=\"").concat(name, "\">").concat(name, "</a></li>");
+      $('.footer-menu').append(template);
+    }
+  });
+};
+
+exports.default = _default;
+
+},{}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+// user id => 1397790551
+// token => 1397790551.1aa422d.37dca7d33ba34544941e111aa03e85c7
+// user nname => GodoFredoNinja
+// http://instagram.com/oauth/authorize/?client_id=YOURCLIENTIDHERE&redirect_uri=HTTP://YOURREDIRECTURLHERE.COM&response_type=token
+// import lazyLoadImage from './app.lazy-load';
+
+/* Template for images */
+var templateInstagram = function templateInstagram(data) {
+  return "<div class=\"instagram-col col s6 m4 l2\">\n    <a href=\"".concat(data.link, "\" class=\"instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block u-bgGray\" target=\"_blank\" rel=\"noopener noreferrer\">\n      <img aria-label=\"Instagram image\" class=\"u-absolute0 u-image lazyload zindex2\" src=\"").concat(data.images.low_resolution.url, "\"/>\n      <div class=\"instagram-hover u-absolute0 u-flexColumn\" style=\"z-index:3\">\n        <div class=\"u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20\">\n          <span style=\"padding-right:10px\"><i class=\"i-favorite\"></i> ").concat(data.likes.count, "</span>\n          <span style=\"padding-left:10px\"><i class=\"i-chat\"></i> ").concat(data.comments.count, "</span>\n        </div>\n      </div>\n    </a>\n  </div>");
+}; // Shuffle Array
+
+
+var shuffleInstagram = function shuffleInstagram(arr) {
+  return arr.map(function (a) {
+    return [Math.random(), a];
+  }).sort(function (a, b) {
+    return a[0] - b[0];
+  }).map(function (a) {
+    return a[1];
+  });
+}; // Display Instagram Images
+
+
+var displayInstagram = function displayInstagram(res, user) {
+  var shuffle = shuffleInstagram(res.data);
+  var sf = shuffle.slice(0, 6);
+  return sf.map(function (img) {
+    var images = templateInstagram(img);
+    $('.instagram').removeClass('u-hide');
+    $('.instagram-wrap').append(images);
+    $('.instagram-name').html(user);
+  });
+};
+
+var _default = function _default(url, user) {
+  fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (resource) {
+    return displayInstagram(resource, user);
+  }) // .then(() => lazyLoadImage().update())
+  .catch(function () {
+    return $('.instagram').remove();
+  });
+};
+
+exports.default = _default;
+
+},{}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.loadStyle = loadStyle;
+exports.loadScript = loadScript;
+
+function loadStyle(href) {
+  var linkElement = document.createElement('link');
+  linkElement.rel = 'stylesheet';
+  linkElement.href = href;
+  document.head.appendChild(linkElement);
+}
+
+function loadScript(src, callback) {
+  var scriptElement = document.createElement('script');
+  scriptElement.src = src;
+  scriptElement.defer = true;
+  callback && scriptElement.addEventListener('load', callback);
+  document.body.appendChild(scriptElement);
+}
+
+},{}],12:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default(name, number) {
+  $('.widget-twitter').removeClass('u-hide');
+  var twitterBlock = "<a class=\"twitter-timeline\"  href=\"https://twitter.com/".concat(name, "\" data-chrome=\"nofooter noborders noheader\" data-tweet-limit=\"").concat(number, "\">Tweets by ").concat(name, "</a><script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"); // eslint-disable-line
+
+  $('.widget-twitter').append(twitterBlock);
+};
+
+exports.default = _default;
+
+},{}],13:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.iframeVideo = exports.$postInner = exports.$body = void 0;
+// post Inner
+var $body = $('body');
+exports.$body = $body;
+var $postInner = $('.post-inner');
+/* Iframe SRC video */
+
+exports.$postInner = $postInner;
+var iframeVideo = ['iframe[src*="player.vimeo.com"]', 'iframe[src*="dailymotion.com"]', 'iframe[src*="youtube.com"]', 'iframe[src*="youtube-nocookie.com"]', 'iframe[src*="player.twitch.tv"]', 'iframe[src*="kickstarter.com"][src*="video.html"]'];
+exports.iframeVideo = iframeVideo;
+
+},{}],14:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+require("lazysizes");
+
+require("theia-sticky-sidebar");
+
+require("./mapache");
+
+var _Router = _interopRequireDefault(require("./util/Router"));
+
+var _common = _interopRequireDefault(require("./routes/common"));
+
+var _post = _interopRequireDefault(require("./routes/post"));
+
+var _video = _interopRequireDefault(require("./routes/video"));
+
+var _newsletter = _interopRequireDefault(require("./routes/newsletter"));
+
+// import external dependencies
+// Import everything from autoload
+// import './autoload/**/*';
+// Impor main Script
+// Pagination infinite scroll
+// import './app/pagination';
+// import local dependencies
+
+/** Populate Router instance with DOM routes */
+var routes = new _Router.default({
+  // All pages
+  common: _common.default,
+  // article
+  isArticle: _post.default,
+  // video post format
+  isVideo: _video.default,
+  // Newsletter page
+  isNewsletter: _newsletter.default // Audio post Format
+  // isAudio,
+
+}); // Load Events
+
+jQuery(document).ready(function () {
+  return routes.loadEvents();
+});
+
+},{"./mapache":15,"./routes/common":16,"./routes/newsletter":17,"./routes/post":18,"./routes/video":19,"./util/Router":20,"@babel/runtime/helpers/interopRequireDefault":3,"lazysizes":6,"theia-sticky-sidebar":7}],15:[function(require,module,exports){
+"use strict";
+
+// Impornt
+// import mapacheShare from './app/app.share';
+(function ($) {
+  // Varibles
+  var $win = $(window);
+  var $body = $('body'); // const $header = $('.header');
+
+  var intersectSels = ['.kg-width-full', '.kg-width-wide'];
+  var $shareBox = $('.share-inner');
+  var $rocket = $('.rocket');
+  var observe = [];
+  var didScroll = false;
+  var lastScrollTop = 0; // let lastScroll = 0;
+
+  var delta = 5;
+  $(intersectSels.join(',')).map(function () {
+    observe.push(this);
+  });
+  /**
+   * Dpcument Ready
+   */
+
+  $(document).ready(function () {
+    /* Menu open and close for mobile */
+    $('.menu--toggle').on('click', function (e) {
+      e.preventDefault();
+      $body.toggleClass('is-showNavMob').removeClass('is-search');
+    });
+    /* Share article in Social media */
+    // $('.mapache-share').bind('click', function (e) {
+    //   e.preventDefault();
+    //   const share = new mapacheShare($(this));
+    //   share.share();
+    // });
+
+    /* Toggle show more social media */
+
+    $('.js-toggle-social-media').on('click', function (e) {
+      e.preventDefault();
+      $body.toggleClass('is-showFollowMore');
+    });
+    /* Modal Open for susbscribe */
+
+    $('.js-toggle-modal').on('click', function (e) {
+      e.preventDefault();
+      $body.toggleClass('has-modal');
+    });
+    /* scroll link width click (ID)*/
+
+    $('.scrolltop').on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top - 60
+      }, 500, 'linear');
+    });
+    /* rocket to the moon (return TOP HOME) */
+
+    $rocket.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 250);
+    });
+  });
+  /* Intersect share and image */
+
+  var intersects = function intersects(el1, el2) {
+    var rect1 = el1.getBoundingClientRect();
+    var rect2 = el2.getBoundingClientRect();
+    return !(rect1.top > rect2.bottom || rect1.right < rect2.left || rect1.bottom < rect2.top || rect1.left > rect2.right);
+  };
+  /* the floating fade sharing */
+
+
+  function shareFadeHiden() {
+    if ($win.width() < 1000) {
+      return false;
+    }
+
+    var ele = $shareBox.get(0);
+    var isHidden = false;
+
+    for (var i in observe) {
+      if (intersects(ele, observe[i])) {
+        isHidden = true;
+        break;
+      }
+    }
+
+    isHidden ? $shareBox.addClass('is-hidden') : $shareBox.removeClass('is-hidden');
+  } // functions that are activated when scrolling
+
+
+  function hasScrolled() {
+    var st = $win.scrollTop(); // Make sure they scroll more than delta
+
+    if (Math.abs(lastScrollTop - st) <= delta) return; // Scroll down and Scroll up -> show and hide header
+    // if (lastScroll <= st) {
+    //   // Scroll Down
+    //   $body.addClass('has-header-up');
+    //   lastScroll = st;
+    // } else {
+    //   // Scroll UP
+    //   $body.removeClass('has-header-up');
+    //   lastScroll = st;
+    // }
+    // show background and transparency
+
+    if ($body.hasClass('has-cover')) {
+      if (st >= 100) {
+        $body.removeClass('is-transparency');
+      } else {
+        $body.addClass('is-transparency');
+      }
+    } // Show Rocket
+
+
+    st > 500 ? $rocket.addClass('to-top') : $rocket.removeClass('to-top'); // Share Fade
+
+    if ($body.hasClass('is-article-single')) {
+      if (observe.length) {
+        shareFadeHiden();
+      }
+    }
+
+    lastScrollTop = st;
+  } // Active Scroll
+
+
+  $win.on('scroll', function () {
+    return didScroll = true;
+  }); // Windowns on load
+
+  $win.on('load', function () {
+    setInterval(function () {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, 250);
+  });
+})(jQuery);
+
+},{}],16:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+
+var _app = _interopRequireDefault(require("../app/app.follow"));
+
+var _appFooter = _interopRequireDefault(require("../app/app.footer.links"));
+
+var _app2 = _interopRequireDefault(require("../app/app.twitter"));
+
+/* global homeBtn twitterFeed followSocialMedia footerLinks */
+// import lazyLoadImage from '../app/app.lazy-load';
+// Varibles
+var urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
+
+var _default = {
+  init: function init() {
+    // Change title HOME PAGE
+    if (typeof homeTitle !== 'undefined') $('#home-title').html(homeTitle); // eslint-disable-line
+    // change BTN ( Name - URL) in Home Page
+
+    if ((typeof homeBtn === "undefined" ? "undefined" : (0, _typeof2.default)(homeBtn)) === 'object' && homeBtn !== null) {
+      $('#home-button').attr('href', homeBtn.url).html(homeBtn.title);
+    } // Follow me
+
+
+    if ((typeof followSocialMedia === "undefined" ? "undefined" : (0, _typeof2.default)(followSocialMedia)) === 'object' && followSocialMedia !== null) {
+      (0, _app.default)(followSocialMedia, urlRegexp);
+    }
+    /* Footer Links */
+
+
+    if ((typeof footerLinks === "undefined" ? "undefined" : (0, _typeof2.default)(footerLinks)) === 'object' && footerLinks !== null) {
+      (0, _appFooter.default)(footerLinks, urlRegexp);
+    }
+    /* Lazy load for image */
+    // lazyLoadImage();
+
+  },
+  // end Init
+  finalize: function finalize() {
+    /* sicky sidebar */
+    $('.sidebar-sticky').theiaStickySidebar({
+      additionalMarginTop: 70,
+      minWidth: 970
+    }); // Search
+    // let searchScript = document.createElement('script');
+    // searchScript.src = `${siteUrl}/assets/scripts/search.js`;
+    // searchScript.defer = true;
+    // document.body.appendChild(searchScript);
+    // Twitter Widget
+
+    if ((typeof twitterFeed === "undefined" ? "undefined" : (0, _typeof2.default)(twitterFeed)) === 'object' && twitterFeed !== null) {
+      (0, _app2.default)(twitterFeed.name, twitterFeed.number);
+    }
+  } //end => Finalize
+
+};
+exports.default = _default;
+
+},{"../app/app.follow":8,"../app/app.footer.links":9,"../app/app.twitter":12,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/typeof":5}],17:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function mailchimpRegister($form) {
+  $.ajax({
+    type: $form.attr('method'),
+    url: $form.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
+    data: $form.serialize(),
+    cache: false,
+    dataType: 'jsonp',
+    contentType: 'application/json; charset=utf-8',
+    beforeSend: function beforeSend() {
+      return $('body').addClass('is-loading');
+    },
+    success: function success(data) {
+      if (data.result === 'success') {
+        $('.godo-ne-input').removeClass('error');
+        $('.godo-ne-success').removeClass('u-hide');
+        $form.addClass('u-hide');
+        $('.godo-ne-input').val('');
+      } else {
+        $('.godo-ne-input').addClass('error');
+      }
+    },
+    complete: function complete() {
+      return setTimeout(function () {
+        return $('body').removeClass('is-loading');
+      }, 700);
+    } // error: err => console.log(err),
+
+  });
+  return false;
+}
+
+var _default = {
+  init: function init() {
+    var $form = $('#godo-form');
+    $form.submit(function (e) {
+      e.preventDefault();
+      mailchimpRegister($form);
+    });
+  }
+};
+exports.default = _default;
+
+},{}],18:[function(require,module,exports){
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+
+var _app = require("../app/app.load-style-script");
+
+var variable = _interopRequireWildcard(require("../app/app.variables"));
+
+var _app3 = _interopRequireDefault(require("../app/app.instagram"));
+
+/* global instagramFeed siteUrl */
+// Add Styles and Scripts
+// Variables
+// import facebookShareCount from '../app/app.facebook-share-count';
+var _default = {
+  init: function init() {
+    // Video Responsice
+    // -----------------------------------------------------------------------------
+    var $allMedia = variable.$postInner.find(variable.iframeVideo.join(',')); // allMedia.map((key, value) => $(value).wrap('<aside class="video-responsive"></aside>'));
+
+    $allMedia.each(function () {
+      $(this).wrap('<aside class="video-responsive"></aside>').parent('.video-responsive');
+    });
+  },
+  finalize: function finalize() {
+    // gallery
+    // -----------------------------------------------------------------------------
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+      var container = image.closest('.kg-gallery-image');
+      var width = image.attributes.width.value;
+      var height = image.attributes.height.value;
+      var ratio = width / height;
+      container.style.flex = ratio + ' 1 0%';
+    });
+    variable.$postInner.find('img').each(function (i, item) {
+      var $this = $(this);
+
+      if (!$this.parents('a').length) {
+        $this.addClass('mapache-light-gallery');
+        $this.attr('data-src', item.src);
+
+        if ($this.next('figcaption').length) {
+          var figcaption = $this.next('figcaption').html();
+          $this.attr('data-sub-html', figcaption);
+        }
+      }
+    });
+    var allImgess = variable.$postInner.find('.mapache-light-gallery');
+
+    if (allImgess.length) {
+      (0, _app.loadStyle)('https://unpkg.com/lightgallery.js/dist/css/lightgallery.min.css');
+      (0, _app.loadScript)("".concat(siteUrl, "/assets/scripts/lightgallery.min.js"), function () {
+        variable.$postInner.each(function (i, item) {
+          return window.lightGallery(item, {
+            selector: '.mapache-light-gallery'
+          });
+        });
+      });
+      (0, _app.loadScript)("".concat(siteUrl, "/assets/scripts/lg-zoom.min.js")); // loadScript('https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js', () => {
+      //   variable.$postInner.each( (i, item) => window.lightGallery(item, { selector: '.mapache-light-gallery' }))
+      // });
+      // loadScript('https://unpkg.com/lg-zoom.js@1.0.1/dist/lg-zoom.min.js');
+    } // sticky share post in left
+    // -----------------------------------------------------------------------------
+
+
+    $('.sharePost').theiaStickySidebar({
+      additionalMarginTop: 120,
+      minWidth: 970
+    }); // Instagram Feed
+    // -----------------------------------------------------------------------------
+
+    if ((typeof instagramFeed === "undefined" ? "undefined" : (0, _typeof2.default)(instagramFeed)) === 'object' && instagramFeed !== null) {
+      var url = "https://api.instagram.com/v1/users/".concat(instagramFeed.userId, "/media/recent/?access_token=").concat(instagramFeed.token, "&count=10&callback=?");
+      var user = "<a href=\"https://www.instagram.com/".concat(instagramFeed.userName, "\" class=\"button button--large button--chromeless\" target=\"_blank\" rel=\"noopener noreferrer\"><i class=\"i-instagram\"></i> ").concat(instagramFeed.userName, "</a>");
+
+      if ($(window).width() > 768) {
+        (0, _app3.default)(url, user);
+      }
+    } // PrismJS code syntax
+    // -----------------------------------------------------------------------------
+
+
+    var $prismPre = variable.$postInner.find('code[class*="language-"]');
+
+    if ($prismPre.length) {
+      variable.$postInner.find('pre').addClass('line-numbers');
+      (0, _app.loadScript)("".concat(siteUrl, "/assets/scripts/prismjs.js"));
+    }
+  } // end finalize
+
+};
+exports.default = _default;
+
+},{"../app/app.instagram":10,"../app/app.load-style-script":11,"../app/app.variables":13,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"@babel/runtime/helpers/typeof":5}],19:[function(require,module,exports){
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var variable = _interopRequireWildcard(require("../app/app.variables"));
+
+var _app2 = require("../app/app.load-style-script");
+
+/* global youtubeChannelID */
+// Variables
+var _default = {
+  init: function init() {
+    var $win = $(window);
+    var $videoEmbed = $('.cc-video-embed'); //  Dnot scroll
+
+    var didScroll = false; // Video Post Format
+    // -----------------------------------------------------------------------------
+
+    var firstVideo = variable.$postInner.find(variable.iframeVideo.join(','))[0];
+    var $video = $(firstVideo); // if there are no videos, it returns
+
+    if (!$video.length) return;
+
+    if ($video.parents('.kg-embed-card').length) {
+      $video.parents('.kg-embed-card').appendTo($videoEmbed);
+    } else {
+      $video.parent().appendTo($videoEmbed);
+    } // Youtube subscribe
+    // -----------------------------------------------------------------------------
+
+
+    if (typeof youtubeChannelID !== 'undefined') {
+      var template = "<span class=\"u-paddingLeft15\"><div class=\"g-ytsubscribe\" data-channelid=\"".concat(youtubeChannelID, "\" data-layout=\"default\" data-count=\"default\"></div></span>");
+      $('.cc-video-subscribe').append(template);
+      (0, _app2.loadScript)('https://apis.google.com/js/platform.js');
+    } // Fixed video in te footer of page
+    // -----------------------------------------------------------------------------
+
+
+    function fixedVideo() {
+      var scrollTop = $win.scrollTop();
+      var elementOffset = $('.post').offset().top;
+
+      if (scrollTop > elementOffset) {
+        variable.$body.addClass('has-video-fixed');
+      } else {
+        variable.$body.removeClass('has-video-fixed');
+      }
+    } // Close video fixed
+    // -----------------------------------------------------------------------------
+
+
+    $('.cc-video-close').on('click', function () {
+      variable.$body.removeClass('has-video-fixed');
+      $win.off('scroll.video');
+    });
+
+    if ($win.width() > 1200) {
+      // Active Scroll
+      $win.on('scroll.video', function () {
+        return didScroll = true;
+      });
+      setInterval(function () {
+        if (didScroll) {
+          fixedVideo();
+          didScroll = false;
+        }
+      }, 500);
+    }
+  }
+};
+exports.default = _default;
+
+},{"../app/app.load-style-script":11,"../app/app.variables":13,"@babel/runtime/helpers/interopRequireWildcard":4}],20:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _camelCase = _interopRequireDefault(require("./camelCase"));
+
+/**
+ * DOM-based Routing
+ *
+ * Based on {@link http://goo.gl/EUTi53|Markup-based Unobtrusive Comprehensive DOM-ready Execution} by Paul Irish
+ *
+ * The routing fires all common scripts, followed by the page specific scripts.
+ * Add additional events for more control over timing e.g. a finalize event
+ */
+var Router =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a new Router
+   * @param {Object} routes
+   */
+  function Router(routes) {
+    (0, _classCallCheck2.default)(this, Router);
+    this.routes = routes;
+  }
+  /**
+   * Fire Router events
+   * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
+   * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
+   * @param {string} [arg] Any custom argument to be passed to the event.
+   */
+
+
+  (0, _createClass2.default)(Router, [{
+    key: "fire",
+    value: function fire(route) {
+      var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'init';
+      var arg = arguments.length > 2 ? arguments[2] : undefined;
+      var fire = route !== '' && this.routes[route] && typeof this.routes[route][event] === 'function';
+
+      if (fire) {
+        this.routes[route][event](arg);
+      }
+    }
+    /**
+     * Automatically load and fire Router events
+     *
+     * Events are fired in the following order:
+     *  * common init
+     *  * page-specific init
+     *  * page-specific finalize
+     *  * common finalize
+     */
+
+  }, {
+    key: "loadEvents",
+    value: function loadEvents() {
+      var _this = this;
+
+      // Fire common init JS
+      this.fire('common'); // Fire page-specific init JS, and then finalize JS
+
+      document.body.className.toLowerCase().replace(/-/g, '_').split(/\s+/).map(_camelCase.default).forEach(function (className) {
+        _this.fire(className);
+
+        _this.fire(className, 'finalize');
+      }); // Fire common finalize JS
+
+      this.fire('common', 'finalize');
+    }
+  }]);
+  return Router;
+}();
+
+var _default = Router;
+exports.default = _default;
+
+},{"./camelCase":21,"@babel/runtime/helpers/classCallCheck":1,"@babel/runtime/helpers/createClass":2,"@babel/runtime/helpers/interopRequireDefault":3}],21:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * the most terrible camelizer on the internet, guaranteed!
+ * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
+ * @return {string} String converted to camel-case, e.g., camelCaseIsHard
+ */
+var _default = function _default(str) {
+  return "".concat(str.charAt(0).toLowerCase()).concat(str.replace(/[\W_]/g, '|').split('|').map(function (part) {
+    return "".concat(part.charAt(0).toUpperCase()).concat(part.slice(1));
+  }).join('').slice(1));
+};
+
+exports.default = _default;
+
+},{}]},{},[14])
+
+//# sourceMappingURL=map/main.js.map
