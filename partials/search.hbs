@@ -7,12 +7,12 @@
             {{!-- search form --}}
             <form class="search-form u-sizeFullWidth u-flex u-flexCenter u-fontSizeBase">
                 <i class="i-search"></i>
-                <input id="search-field" class="u-sizeFullWidth" type="text" placeholder="{{t "Search"}}..." aria-label="Search box"/>
+                <input id="search-field" class="input--md u-sizeFullWidth" type="text" placeholder="{{t "Search"}}..." aria-label="Search box"/>
             </form>
             {{!-- show a message to the user if there is no post --}}
             <span class="js-search-message search-message u-block u-hide">{{t "No results found"}}</span>
             {{!-- Search results --}}
-            <div id="searchResults" class="search-results u-marginAuto u-sizeFullWidth"></div>
+            <div id="search-results" class="search-results u-marginAuto u-sizeFullWidth"></div>
         </div>
         {{!-- showing the function keys --}}
         <div class="search-nav-hints u-flex u-flexEnd u-hide-before-lg">

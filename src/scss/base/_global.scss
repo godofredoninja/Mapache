@@ -213,9 +213,39 @@ q {
 // 8. Input Textarean
 // -----------------------------------------------------------------------------
 
+textarea,
 input {
-  border: none;
-  outline: 0;
+  background: #fff;
+  border-radius: 3px;
+  // border: 1px solid #e5e5e5;
+  border: 0;
+  color: #303030;
+  display: block;
+  font-size: 1rem;
+  margin: 0;
+  outline: none;
+  padding: 0 10px;
+  position: relative;
+  transition: box-shadow .08s ease-in, color .08s ease-in;
+  width: 100%;
+  box-shadow: 0 0 0 1px rgba(50, 50, 93, .1), 0 2px 5px 0 rgba(50, 50, 93, .05), 0 1px 1px 0 rgba(0, 0, 0, .05);
+}
+
+/* stylelint-disable-next-line */
+textarea {
+  min-height: 160px;
+  padding: 15px 10px;
+}
+
+/* stylelint-disable-next-line */
+input {
+  height: $input-height-large;
+  line-height: $input-height-large;
+}
+
+.input--md {
+  height: $input-height;
+  line-height: $input-height;
 }
 
 // 9. table

@@ -3,11 +3,6 @@
 
 .search {
   @extend %modal;
-  // opacity: 0;
-  // transition: opacity .2s ease-out .1s, visibility 0s .4s;
-  // z-index: 100;
-  // visibility: hidden;
-  // background-color: rgba(0, 0, 0, 0.5);
 
   &-shader { @extend %modal-bg; }
 
@@ -16,13 +11,8 @@
 
     max-width: 700px;
     padding: 6vw 20px 20px;
-    // opacity: 0;
-    // transform: scale(.6);
-    // transition: transform .3s cubic-bezier(.06, .47, .38, .99), opacity .3s cubic-bezier(.06, .47, .38, .99);
     width: 100%;
     margin-bottom: 30px;
-    // overflow: hidden;
-    // margin-top: 6vw;
   }
 
   &-wrap {
@@ -48,23 +38,20 @@
   }
 
   &-form {
-    padding: 16px;
+    padding: 12px 16px;
     overflow: hidden;
 
     & > i { margin-right: 5px; color: #9baeb8 }
 
     input {
-      background: #fff;
-      border: none;
-
-      &:focus { outline: 0; }
+      box-shadow: none;
     }
   }
 
   // result
   &-results {
     overflow: auto;
-    max-height: calc(100vh - 23rem);
+    max-height: calc(100vh - 15rem);
     -webkit-overflow-scrolling: touch;
 
     a {
@@ -113,7 +100,7 @@
   top: 20px;
 }
 
-body.is-search {
+body.has-search {
   overflow: hidden;
 
   .search {
@@ -131,4 +118,5 @@ body.is-search {
 
 @media #{$md-and-down} {
   .search-inner { padding-top: 3.5rem }
+  .search-results { max-height: calc(100vh - 10rem) }
 }

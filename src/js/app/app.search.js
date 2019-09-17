@@ -1,39 +1,33 @@
-/* global GhostContentAPI */
+/* global GhostContentAPI siteUrl */
 
 /**
  * Thanks => https://github.com/HauntedThemes/ghost-search
  */
 
-// import fuzzysort from 'fuzzysort';
-const fuzzysort = require('fuzzysort');
+// import fuzzysort from 'fuzzysort'
+const fuzzysort = require('fuzzysort')
 
 class GhostSearch {
-  constructor(args) {
-
-    this.check = false;
+  constructor (args) {
+    this.check = false
 
     const defaults = {
-      url: '',
+      url: siteUrl,
       key: '',
       version: 'v2',
-      input: '#ghost-search-field',
-      results: '#ghost-search-results',
+      input: '#search-field',
+      results: '#search-results',
       button: '',
       defaultValue: '',
-      template: function (result) {
-
-        let siteurl = [location.protocol, '//', location.host].join('');
-        // return '<a href="' + siteurl + '/' + result.slug + '/">' + result.title + '</a>';
-        return `<a href="${siteurl}/${result.slug}/">${result.title}</a>`;
-      },
+      template: result => `<a href="${siteUrl}/${result.slug}/">${result.title}</a>`,
       trigger: 'focus',
       options: {
         keys: [
-          'title',
+          'title'
         ],
         limit: 10,
         threshold: -3500,
-        allowTypo: false,
+        allowTypo: false
       },
       api: {
         resource: 'posts',
@@ -44,120 +38,114 @@ class GhostSearch {
           include: '',
           order: '',
           formats: '',
-          page: '',
-        },
+          page: ''
+        }
       },
       on: {
         beforeDisplay: function () { },
         afterDisplay: function (results) { }, //eslint-disable-line
         beforeFetch: function () { },
         afterFetch: function (results) { }, //eslint-disable-line
-      },
+      }
     }
 
-    const merged = this.mergeDeep(defaults, args);
-    Object.assign(this, merged);
-    this.init();
-
+    const merged = this.mergeDeep(defaults, args)
+    Object.assign(this, merged)
+    this.init()
   }
 
-  mergeDeep(target, source) {
+  mergeDeep (target, source) {
     if ((target && typeof target === 'object' && !Array.isArray(target) && target !== null) && (source && typeof source === 'object' && !Array.isArray(source) && source !== null)) {
       Object.keys(source).forEach(key => {
         if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key]) && source[key] !== null) {
-          if (!target[key]) Object.assign(target, { [key]: {} });
-          this.mergeDeep(target[key], source[key]);
+          if (!target[key]) Object.assign(target, { [key]: {} })
+          this.mergeDeep(target[key], source[key])
         } else {
-          Object.assign(target, { [key]: source[key] });
+          Object.assign(target, { [key]: source[key] })
         }
-      });
+      })
     }
-    return target;
+    return target
   }
 
-  fetch() {
+  fetch () {
+    this.on.beforeFetch()
 
-    this.on.beforeFetch();
-
-    let ghostAPI = new GhostContentAPI({
+    const ghostAPI = new GhostContentAPI({
       url: this.url,
       key: this.key,
-      version: this.version,
-    });
+      version: this.version
+    })
 
-
-    let browse = {}
-    let parameters = this.api.parameters;
+    const browse = {}
+    const parameters = this.api.parameters
 
     for (var key in parameters) {
-      if (parameters[key] != '') {
+      if (parameters[key] !== '') {
         browse[key] = parameters[key]
       }
     }
 
-    // browse.limit = 'all';
+    // browse.limit = 'all'
 
     ghostAPI[this.api.resource]
       .browse(browse)
       .then((data) => {
-        this.search(data);
+        this.search(data)
       })
       .catch((err) => {
-        console.error(err);
-      });
+        console.error(err)
+      })
   }
 
-  createElementFromHTML(htmlString) {
-    var div = document.createElement('div');
-    div.innerHTML = htmlString.trim();
-    return div.firstChild;
+  createElementFromHTML (htmlString) {
+    var div = document.createElement('div')
+    div.innerHTML = htmlString.trim()
+    return div.firstChild
   }
 
-  displayResults(data) {
-
+  displayResults (data) {
     if (document.querySelectorAll(this.results)[0].firstChild !== null && document.querySelectorAll(this.results)[0].firstChild !== '') {
       while (document.querySelectorAll(this.results)[0].firstChild) {
-        document.querySelectorAll(this.results)[0].removeChild(document.querySelectorAll(this.results)[0].firstChild);
+        document.querySelectorAll(this.results)[0].removeChild(document.querySelectorAll(this.results)[0].firstChild)
       }
     }
 
-    let inputValue = document.querySelectorAll(this.input)[0].value;
-    if (this.defaultValue != '') {
-      inputValue = this.defaultValue;
+    let inputValue = document.querySelectorAll(this.input)[0].value
+    if (this.defaultValue !== '') {
+      inputValue = this.defaultValue
     }
     const results = fuzzysort.go(inputValue, data, {
       keys: this.options.keys,
       limit: this.options.limit,
       allowTypo: this.options.allowTypo,
-      threshold: this.options.threshold,
-    });
-    for (let key in results) {
+      threshold: this.options.threshold
+    })
+    for (const key in results) {
       if (key < results.length) {
-        document.querySelectorAll(this.results)[0].appendChild(this.createElementFromHTML(this.template(results[key].obj)));
+        document.querySelectorAll(this.results)[0].appendChild(this.createElementFromHTML(this.template(results[key].obj)))
       }
     }
 
     this.on.afterDisplay(results)
-    this.defaultValue = '';
-
+    this.defaultValue = ''
   }
 
-  search(data) {
+  search (data) {
+    this.on.afterFetch(data)
+    this.check = true
 
-    this.on.afterFetch(data);
-    this.check = true;
-
-    if (this.defaultValue != '') {
+    if (this.defaultValue !== '') {
       this.on.beforeDisplay()
       this.displayResults(data)
     }
 
-    if (this.button != '') {
-      let button = document.querySelectorAll(this.button)[0];
-      if (button.tagName == 'INPUT' && button.type == 'submit') {
+    if (this.button !== '') {
+      const button = document.querySelectorAll(this.button)[0]
+      if (button.tagName === 'INPUT' && button.type === 'submit') {
         button.closest('form').addEventListener('submit', e => {
           e.preventDefault()
-        });
+        })
       }
       button.addEventListener('click', e => {
         e.preventDefault()
@@ -170,53 +158,49 @@ class GhostSearch {
         this.displayResults(data)
       })
     }
-
   }
 
-  checkArgs() {
+  checkArgs () {
     if (!document.querySelectorAll(this.input).length) {
-      console.log('Input not found.');
-      return false;
+      console.log('Input not found.')
+      return false
     }
     if (!document.querySelectorAll(this.results).length) {
-      console.log('Results not found.');
-      return false;
+      console.log('Results not found.')
+      return false
     }
-    if (this.button != '') {
+    if (this.button !== '') {
       if (!document.querySelectorAll(this.button).length) {
-        console.log('Button not found.');
-        return false;
+        console.log('Button not found.')
+        return false
       }
     }
-    if (this.url == '') {
-      console.log('Content API Client Library url missing. Please set the url. Must not end in a trailing slash.');
-      return false;
+    if (this.url === '') {
+      console.log('Content API Client Library url missing. Please set the url. Must not end in a trailing slash.')
+      return false
     }
-    if (this.key == '') {
-      console.log('Content API Client Library key missing. Please set the key. Hex string copied from the "Integrations" screen in Ghost Admin.');
-      return false;
+    if (this.key === '') {
+      console.log('Content API Client Library key missing. Please set the key. Hex string copied from the "Integrations" screen in Ghost Admin.')
+      return false
     }
-    return true;
+    return true
   }
 
-  validate() {
-
+  validate () {
     if (!this.checkArgs()) {
-      return false;
+      return false
     }
 
-    return true;
-
+    return true
   }
 
-  init() {
-
+  init () {
     if (!this.validate()) {
-      return;
+      return
     }
 
-    if (this.defaultValue != '') {
-      document.querySelectorAll(this.input)[0].value = this.defaultValue;
+    if (this.defaultValue !== '') {
+      document.querySelectorAll(this.input)[0].value = this.defaultValue
       window.onload = () => {
         if (!this.check) {
           this.fetch()
@@ -224,23 +208,21 @@ class GhostSearch {
       }
     }
 
-    if (this.trigger == 'focus') {
+    if (this.trigger === 'focus') {
       document.querySelectorAll(this.input)[0].addEventListener('focus', () => {
         if (!this.check) {
           this.fetch()
         }
       })
-    } else if (this.trigger == 'load') {
+    } else if (this.trigger === 'load') {
       window.onload = () => {
         if (!this.check) {
           this.fetch()
         }
       }
     }
-
   }
-
 }
 
 /* Export Class */
-module.exports = GhostSearch;
+module.exports = GhostSearch

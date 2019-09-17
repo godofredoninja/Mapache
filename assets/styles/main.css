@@ -752,9 +752,38 @@ q::before, q::after {
   display: none;
 }
 
+textarea,
 input {
-  border: none;
-  outline: 0;
+  background: #fff;
+  border-radius: 3px;
+  border: 0;
+  color: #303030;
+  display: block;
+  font-size: 1rem;
+  margin: 0;
+  outline: none;
+  padding: 0 10px;
+  position: relative;
+  transition: box-shadow .08s ease-in, color .08s ease-in;
+  width: 100%;
+  box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.1), 0 2px 5px 0 rgba(50, 50, 93, 0.05), 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* stylelint-disable-next-line */
+textarea {
+  min-height: 160px;
+  padding: 15px 10px;
+}
+
+/* stylelint-disable-next-line */
+input {
+  height: 44px;
+  line-height: 44px;
+}
+
+.input--md {
+  height: 37px;
+  line-height: 37px;
 }
 
 table {
@@ -2511,7 +2540,7 @@ p {
 }
 
 .search-form {
-  padding: 16px;
+  padding: 12px 16px;
   overflow: hidden;
 }
 
@@ -2521,17 +2550,12 @@ p {
 }
 
 .search-form input {
-  background: #fff;
-  border: none;
-}
-
-.search-form input:focus {
-  outline: 0;
+  box-shadow: none;
 }
 
 .search-results {
   overflow: auto;
-  max-height: calc(100vh - 23rem);
+  max-height: calc(100vh - 15rem);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -2581,17 +2605,17 @@ p {
   top: 20px;
 }
 
-body.is-search {
+body.has-search {
   overflow: hidden;
 }
 
-body.is-search .search {
+body.has-search .search {
   opacity: 1;
   visibility: visible;
   transition: opacity .3s ease;
 }
 
-body.is-search .search-inner {
+body.has-search .search-inner {
   opacity: 1;
   transform: scale(1);
   transition: transform 0.8s cubic-bezier(0.26, 0.63, 0, 0.96);
@@ -2600,6 +2624,9 @@ body.is-search .search-inner {
 @media only screen and (max-width: 766px) {
   .search-inner {
     padding-top: 3.5rem;
+  }
+  .search-results {
+    max-height: calc(100vh - 10rem);
   }
 }
 

@@ -955,12 +955,12 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-/* global GhostContentAPI */
+/* global GhostContentAPI siteUrl */
 
 /**
  * Thanks => https://github.com/HauntedThemes/ghost-search
  */
-// import fuzzysort from 'fuzzysort';
+// import fuzzysort from 'fuzzysort'
 var fuzzysort = require('fuzzysort');
 
 var GhostSearch =
@@ -970,17 +970,15 @@ function () {
     (0, _classCallCheck2.default)(this, GhostSearch);
     this.check = false;
     var defaults = {
-      url: '',
+      url: siteUrl,
       key: '',
       version: 'v2',
-      input: '#ghost-search-field',
-      results: '#ghost-search-results',
+      input: '#search-field',
+      results: '#search-results',
       button: '',
       defaultValue: '',
       template: function template(result) {
-        var siteurl = [location.protocol, '//', location.host].join(''); // return '<a href="' + siteurl + '/' + result.slug + '/">' + result.title + '</a>';
-
-        return "<a href=\"".concat(siteurl, "/").concat(result.slug, "/\">").concat(result.title, "</a>");
+        return "<a href=\"".concat(siteUrl, "/").concat(result.slug, "/\">").concat(result.title, "</a>");
       },
       trigger: 'focus',
       options: {
@@ -1049,10 +1047,10 @@ function () {
       var parameters = this.api.parameters;
 
       for (var key in parameters) {
-        if (parameters[key] != '') {
+        if (parameters[key] !== '') {
           browse[key] = parameters[key];
         }
-      } // browse.limit = 'all';
+      } // browse.limit = 'all'
 
 
       ghostAPI[this.api.resource].browse(browse).then(function (data) {
@@ -1079,7 +1077,7 @@ function () {
 
       var inputValue = document.querySelectorAll(this.input)[0].value;
 
-      if (this.defaultValue != '') {
+      if (this.defaultValue !== '') {
         inputValue = this.defaultValue;
       }
 
@@ -1107,15 +1105,15 @@ function () {
       this.on.afterFetch(data);
       this.check = true;
 
-      if (this.defaultValue != '') {
+      if (this.defaultValue !== '') {
         this.on.beforeDisplay();
         this.displayResults(data);
       }
 
-      if (this.button != '') {
+      if (this.button !== '') {
         var button = document.querySelectorAll(this.button)[0];
 
-        if (button.tagName == 'INPUT' && button.type == 'submit') {
+        if (button.tagName === 'INPUT' && button.type === 'submit') {
           button.closest('form').addEventListener('submit', function (e) {
             e.preventDefault();
           });
@@ -1149,19 +1147,19 @@ function () {
         return false;
       }
 
-      if (this.button != '') {
+      if (this.button !== '') {
         if (!document.querySelectorAll(this.button).length) {
           console.log('Button not found.');
           return false;
         }
       }
 
-      if (this.url == '') {
+      if (this.url === '') {
         console.log('Content API Client Library url missing. Please set the url. Must not end in a trailing slash.');
         return false;
       }
 
-      if (this.key == '') {
+      if (this.key === '') {
         console.log('Content API Client Library key missing. Please set the key. Hex string copied from the "Integrations" screen in Ghost Admin.');
         return false;
       }
@@ -1186,7 +1184,7 @@ function () {
         return;
       }
 
-      if (this.defaultValue != '') {
+      if (this.defaultValue !== '') {
         document.querySelectorAll(this.input)[0].value = this.defaultValue;
 
         window.onload = function () {
@@ -1196,13 +1194,13 @@ function () {
         };
       }
 
-      if (this.trigger == 'focus') {
+      if (this.trigger === 'focus') {
         document.querySelectorAll(this.input)[0].addEventListener('focus', function () {
           if (!_this4.check) {
             _this4.fetch();
           }
         });
-      } else if (this.trigger == 'load') {
+      } else if (this.trigger === 'load') {
         window.onload = function () {
           if (!_this4.check) {
             _this4.fetch();
@@ -1226,101 +1224,105 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 var _app = _interopRequireDefault(require("./app/app.search"));
 
 /* global searchSettings */
-$(window).on('load', function () {
-  // Return if there is no configuration
-  if (typeof searchSettings === 'undefined') return;
-  var $body = $('body');
-  var $searchInput = $('#search-field');
-  var $searchResults = $('#searchResults');
-  var $searchMessage = $('.js-search-message');
+(function (window, document) {
+  var qs = document.querySelector.bind(document);
+  var qsa = document.querySelectorAll.bind(document);
+  var domBody = document.body;
+  var searchInput = qs('#search-field');
+  var searchResults = qs('#search-results');
+  var searchMessage = qs('.js-search-message');
   var searchResultsHeight = {
     outer: 0,
     scroll: 0
-  }; // Variable for search
+  }; // SHow icon search in header
+
+  qs('.js-search-open').classList.remove('u-hide'); // Variable for search
   // -----------------------------------------------------------------------------
 
   var mySearchSettings = {
-    input: '#search-field',
-    results: '#searchResults',
     on: {
       beforeFetch: function beforeFetch() {
-        return $body.addClass('is-loading');
+        return domBody.classList.add('is-loading');
       },
       afterFetch: function afterFetch() {
         return setTimeout(function () {
-          return $body.removeClass('is-loading');
+          domBody.classList.remove('is-loading');
         }, 4000);
       },
-      afterDisplay: function afterDisplay() {
+      afterDisplay: function afterDisplay(results) {
         searchResultActive();
         searchResultsHeight = {
-          outer: $searchResults.outerHeight(),
-          scroll: $searchResults.prop('scrollHeight')
-        };
+          outer: searchResults.offsetHeight,
+          scroll: searchResults.scrollHeight
+        }; // Show message if dont have results
+
+        if (results.total === 0 && searchInput.value !== '') {
+          searchMessage.classList.remove('u-hide');
+        } else {
+          searchMessage.classList.add('u-hide');
+        }
       }
     }
-  }; // concatenating the settings of the search engine with those of the user
+  }; // join user settings
 
   Object.assign(mySearchSettings, searchSettings); // when the Enter key is pressed
   // -----------------------------------------------------------------------------
 
   function enterKey() {
-    var $link = $searchResults.find('a.search-result--active').eq(0);
-    $link.length && $link[0].click();
+    var link = searchResults.querySelector('a.search-result--active');
+    link && link.click();
   } // Attending the active class to the search link
   // -----------------------------------------------------------------------------
 
 
   function searchResultActive(t, e) {
     t = t || 0;
-    e = e || 'up';
-    if (window.innerWidth < 768) return; // if there are no links detected
+    e = e || 'up'; // Dont use key functions
 
-    if (!$searchResults.find('a').length) {
-      // if there are no results and the input has no value
-      if ($searchInput.val().length) {
-        $searchMessage.removeClass('u-hide');
-      }
-
-      return;
-    }
-
-    $searchMessage.addClass('u-hide');
-    $searchResults.find('a.search-result--active').removeClass('search-result--active');
-    $searchResults.find('a').eq(t).addClass('search-result--active');
-    var n = $searchResults.find('a').eq(t).position().top;
+    if (window.innerWidth < 768) return;
+    var searchLInk = searchResults.querySelectorAll('a');
+    if (!searchLInk.length) return;
+    var searchLinkActive = searchResults.querySelector('a.search-result--active');
+    searchLinkActive && searchLinkActive.classList.remove('search-result--active');
+    searchLInk[t].classList.add('search-result--active');
+    var n = searchLInk[t].offsetTop;
     var o = 0;
-    'down' == e && n > searchResultsHeight.outer / 2 ? o = n - searchResultsHeight.outer / 2 : 'up' == e && (o = n < searchResultsHeight.scroll - searchResultsHeight.outer / 2 ? n - searchResultsHeight.outer / 2 : searchResultsHeight.scroll);
-    $searchResults.scrollTop(o);
-  } // Lear Input for write new letters
+    e === 'down' && n > searchResultsHeight.outer / 2 ? o = n - searchResultsHeight.outer / 2 : e === 'up' && (o = n < searchResultsHeight.scroll - searchResultsHeight.outer / 2 ? n - searchResultsHeight.outer / 2 : searchResultsHeight.scroll);
+    searchResults.scrollTo(0, o);
+  } // Clear Input for write new letters
   // -----------------------------------------------------------------------------
 
 
   function clearInput() {
-    $searchInput.focus();
-    $searchInput[0].setSelectionRange(0, $searchInput.val().length);
+    searchInput.focus();
+    searchInput.setSelectionRange(0, searchInput.value.length);
   } // Search close with Key
   // -----------------------------------------------------------------------------
 
 
   function searchClose() {
-    $body.removeClass('is-search');
-    $(document).off('keyup.search');
+    domBody.classList.remove('has-search');
+    document.removeEventListener('keyup', mySearchKey);
   } // Reacted to the up or down keys
   // -----------------------------------------------------------------------------
 
 
   function arrowKeyUpDown(keyNumber) {
-    var e = '';
-    var indexTheLink = $searchResults.find('.search-result--active').index(); // n
+    var e;
+    var indexTheLink = 0;
+    var resultActive = searchResults.querySelector('.search-result--active');
 
-    $searchInput.blur();
+    if (resultActive) {
+      indexTheLink = [].slice.call(resultActive.parentNode.children).indexOf(resultActive);
+    }
 
-    if (38 == keyNumber) {
+    searchInput.blur();
+
+    if (keyNumber === 38) {
       e = 'up';
 
       if (indexTheLink <= 0) {
-        $searchInput.focus();
+        searchInput.focus();
         indexTheLink = 0;
       } else {
         indexTheLink -= 1;
@@ -1328,8 +1330,8 @@ $(window).on('load', function () {
     } else {
       e = 'down';
 
-      if (indexTheLink >= $searchResults.find('a').length - 1) {
-        indexTheLink = $searchResults.find('a').length - 1;
+      if (indexTheLink >= searchResults.querySelectorAll('a').length - 1) {
+        indexTheLink = searchResults.querySelectorAll('a').length - 1;
       } else {
         indexTheLink = indexTheLink + 1;
       }
@@ -1340,46 +1342,54 @@ $(window).on('load', function () {
   // -----------------------------------------------------------------------------
 
 
-  function searchKey() {
-    $(document).on('keyup.search', function (e) {
-      e.preventDefault();
-      var keyNumber = e.keyCode;
-      /**
-        * 38 Top / Arriba
-        * 40 down / abajo
-        * 27 escape
-        * 13 enter
-        * 191 /
-        **/
-
-      if (27 == keyNumber) {
-        searchClose();
-      } else if (13 == keyNumber) {
-        $searchInput.blur();
-        enterKey();
-      } else if (38 == keyNumber || 40 == keyNumber) {
-        arrowKeyUpDown(keyNumber);
-      } else if (191 == keyNumber) {
-        clearInput();
-      } else {
-        return;
-      }
-    });
-  } // Toggle Modal for search Search
-  // -----------------------------------------------------------------------------
-
-
-  $('.js-search-open').on('click', function (e) {
+  function mySearchKey(e) {
     e.preventDefault();
-    $body.addClass('is-search');
-    $searchInput.focus();
-    window.innerWidth > 768 && searchKey();
-  });
-  $('.js-search-close').on('click', searchClose); // Search
+    var keyNumber = e.keyCode;
+    /**
+      * 38 => Top
+      * 40 => down
+      * 27 => escape
+      * 13 => enter
+      * 191 => /
+      **/
+
+    if (keyNumber === 27) {
+      searchClose();
+    } else if (keyNumber === 13) {
+      searchInput.blur();
+      enterKey();
+    } else if (keyNumber === 38 || keyNumber === 40) {
+      arrowKeyUpDown(keyNumber);
+    } else if (keyNumber === 191) {
+      clearInput();
+    }
+  } // Open Search
   // -----------------------------------------------------------------------------
+
+
+  qsa('.js-search-open').forEach(function (item) {
+    return item.addEventListener('click', function (e) {
+      e.preventDefault();
+      domBody.classList.add('has-search');
+      searchInput.focus();
+      window.innerWidth > 768 && document.addEventListener('keyup', mySearchKey);
+    });
+  }); // Close Search
+  // -----------------------------------------------------------------------------
+
+  qsa('.js-search-close').forEach(function (item) {
+    return item.addEventListener('click', function (e) {
+      e.preventDefault();
+      domBody.classList.remove('has-search');
+      document.removeEventListener('keyup', mySearchKey);
+    });
+  }); // Search
+  // -----------------------------------------------------------------------------
+
+  /* eslint-disable no-new */
 
   new _app.default(mySearchSettings);
-});
+})(window, document);
 
 },{"./app/app.search":9,"@babel/runtime/helpers/interopRequireDefault":4}]},{},[10])
 
