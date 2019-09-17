@@ -52,13 +52,13 @@
 
     {{!-- The main JavaScript --}}
     <script src="{{asset "scripts/main.js"}}" defer></script>
+
     {{!-- Content APi --}}
     <script src="https://unpkg.com/@tryghost/content-api@1.2.5/umd/content-api.min.js" defer></script>
     <script src="{{asset "scripts/search.js"}}" defer></script>
 
     {{#if pagination.pages}}
-        <script>var maxPages = parseInt('{{pagination.pages}}');</script>
-        <script src="{{asset "scripts/pagination.js"}}" defer></script>
+        <script src="{{asset "scripts/pagination.js"}}" async defer></script>
     {{/if}}
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. --}}

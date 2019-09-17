@@ -1,78 +1,100 @@
-/* global maxPages */
+((window, document) => {
+  // Next link Element
+  const nextElement = document.querySelector('link[rel=next]')
+  if (!nextElement) return
 
-(function(window, document) {
-  // Variables
-  const $buttonLoadMore = $('.load-more');
-  const $result = $('.story-feed');
-  // const $win = $(window);
+  // Post Feed element
+  const feedElement = document.querySelector('.story-feed')
+  if (!feedElement) return
 
-  let pathname = window.location.pathname;
-  let currentPage = 1;
-  // let lastScroll = 0;
+  const footer = document.querySelector('.footer')
 
-  // show button for load more
-  if (maxPages >= 2){
-    $buttonLoadMore.removeClass('u-hide');
-  }
+  const buffer = 300
 
-  function sanitizePathname(path) {
-    let paginationRegex = /(?:page\/)(\d)(?:\/)$/i;
+  let ticking = false
+  let loading = false
 
-    // remove hash params from path
-    path = path.replace(/#(.*)$/g, '').replace('////g', '/');
+  let lastScrollY = window.scrollY
+  let lastWindowHeight = window.innerHeight
+  let lastDocumentHeight = document.documentElement.scrollHeight
 
-    // remove pagination from the path and replace the current pages
-    // with the actual requested page. E. g. `/page/3/` indicates that
-    // the user actually requested page 3, so we should request page 4
-    // next, unless it's the last page already.
-    if (path.match(paginationRegex)) {
-      currentPage = parseInt(path.match(paginationRegex)[1]);
-
-      path = path.replace(paginationRegex, '');
+  function onPageLoad () {
+    if (this.status === 404) {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+      return
     }
 
-    return path;
-  }
+    // Add Loading bar
+    document.body.classList.add('is-loading')
 
-  function mapachePagination (e) {
-    e.preventDefault();
+    // append contents
+    const postElements = this.response.querySelector('.story-feed-content')
+    feedElement.appendChild(postElements)
 
-    // sanitize the pathname from possible pagination or hash params
-    pathname = sanitizePathname(pathname);
+    // push state
+    window.history.pushState(null, document.title, nextElement.href)
 
-    /**
-    * maxPages is defined in default.hbs and is the value
-    * of the amount of pagination pages.
-    * If we reached the last page or are past it,
-    * we return and disable the listeners.
-    */
-    if (currentPage >= maxPages) {
-      $(this).remove();
+    // Change Title
+    document.title = this.response.title
 
-      return;
+    // set next link
+    const resNextElement = this.response.querySelector('link[rel=next]')
+    if (resNextElement) {
+      nextElement.href = resNextElement.href
+    } else {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
     }
 
-    // next page
-    currentPage += 1;
+    // Remove Loanding bar
+    setTimeout(() => document.body.classList.remove('is-loading'), 4000)
 
-    // Load more
-    const nextPage = `${pathname}page/${currentPage}/`;
-
-    /* Fetch Page */
-    $.get(nextPage, (content) => {
-      const parse = document.createRange().createContextualFragment(content);
-      const posts = parse.querySelector('.story-feed-content');
-
-      $result[0].appendChild(posts);
-
-    }).fail( (xhr) => {
-      // 404 indicates we've run out of pages
-      if (xhr.status === 404) {
-        $(this).remove();
-      }
-    });
+    // sync status
+    lastDocumentHeight = document.documentElement.scrollHeight
+    ticking = false
+    loading = false
   }
 
-  //  Click Load More
-  $buttonLoadMore.on('click', mapachePagination);
-})(window, document);
+  function onUpdate () {
+    // Retur if already loading
+    if (loading) return
+
+    // return if not scroll to the bottom
+    if (lastScrollY + lastWindowHeight <= lastDocumentHeight - (buffer + footer.clientHeight)) {
+      ticking = false
+      return
+    }
+
+    loading = true
+
+    const xhr = new window.XMLHttpRequest()
+    xhr.responseType = 'document'
+
+    xhr.addEventListener('load', onPageLoad)
+
+    xhr.open('GET', nextElement.href)
+    xhr.send(null)
+  }
+
+  function requestTick () {
+    ticking || window.requestAnimationFrame(onUpdate)
+    ticking = true
+  }
+
+  function onScroll () {
+    lastScrollY = window.scrollY
+    requestTick()
+  }
+
+  function onResize () {
+    lastWindowHeight = window.innerHeight
+    lastDocumentHeight = document.documentElement.scrollHeight
+    requestTick()
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onResize)
+
+  requestTick()
+})(window, document)

@@ -1,15 +1,11 @@
 <div class="row">
-    <div class="col-left">
-        <div class="story-feed">
-            <div class="story-feed-content">
-                {{#foreach posts}}
-                    {{!-- Story - partials/story/story-list.hbs --}}
-                    {{> "story/story-list"}}
-                {{/foreach}}
-            </div>
+    <div class="col-left story-feed">
+        <div class="story-feed-content">
+            {{#foreach posts}}
+                {{!-- Story - partials/story/story-list.hbs --}}
+                {{> "story/story-list"}}
+            {{/foreach}}
         </div>
-        {{!-- Pagination --}}
-        {{"pagination"}}
     </div>
     {{!-- Sidebar - partials/sidebar.hbs --}}
     {{> "sidebar"}}

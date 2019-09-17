@@ -1241,7 +1241,7 @@ svg {
   white-space: nowrap !important;
 }
 
-.u-marginAuto {
+.u-marginAuto, .extreme-container {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1547,7 +1547,6 @@ p {
 
 .extreme-container {
   box-sizing: border-box;
-  margin: 0 auto;
   max-width: 1220px;
   padding-left: 10px;
   padding-right: 10px;
@@ -3111,10 +3110,6 @@ body.has-comments .post-comments {
   background: var(--composite-color);
   border-radius: 0;
   width: 100%;
-}
-
-.load-more {
-  max-width: 70% !important;
 }
 
 .hmCover {
