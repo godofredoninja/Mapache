@@ -14,26 +14,27 @@
     background-color: #131313;
   }
 
-  .follow > a {
-    background: #333;
-    border-radius: 50%;
-    color: inherit;
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
-    margin: 0 5px 8px;
-    text-align: center;
-    width: 40px;
-
-    &:hover {
-      background: transparent;
-      box-shadow: inset 0 0 0 2px #333;
-    }
-  }
-
   &-copy {
     padding: 3em 0;
     background-color: #000;
+  }
+}
+
+/* stylelint-disable-next-line */
+.footer-social-media > a {
+  background: #333;
+  border-radius: 50%;
+  color: inherit;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 5px 8px;
+  text-align: center;
+  width: 40px;
+
+  &:hover {
+    background: transparent;
+    box-shadow: inset 0 0 0 2px #333;
   }
 }
 

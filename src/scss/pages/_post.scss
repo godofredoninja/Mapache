@@ -122,11 +122,9 @@
   transition: all .4s;
   top: 30px;
 
-  /* stylelint-disable-next-line */
-  a {
+  .button {
     color: #fff;
     margin: 8px 0 0;
-    display: block;
   }
 
   .i-chat {

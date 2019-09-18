@@ -63,18 +63,12 @@
   }
 
   input {
-    background: #fff;
-    border: 1px solid #e5e5e5;
+    // background: #fff;
+    // border: 1px solid #e5e5e5;
     color: rgba(0, 0, 0, .54);
     height: 41px;
     outline: 0;
     padding: 0 16px;
-    width: 100%;
-  }
-
-  button {
-    background: var(--composite-color);
-    border-radius: 0;
     width: 100%;
   }
 }

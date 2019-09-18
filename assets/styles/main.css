@@ -766,7 +766,7 @@ input {
   position: relative;
   transition: box-shadow .08s ease-in, color .08s ease-in;
   width: 100%;
-  box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.1), 0 2px 5px 0 rgba(50, 50, 93, 0.05), 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px #d7d7d7;
 }
 
 /* stylelint-disable-next-line */
@@ -1947,7 +1947,13 @@ p {
   background-color: #131313;
 }
 
-.footer .follow > a {
+.footer-copy {
+  padding: 3em 0;
+  background-color: #000;
+}
+
+/* stylelint-disable-next-line */
+.footer-social-media > a {
   background: #333;
   border-radius: 50%;
   color: inherit;
@@ -1959,14 +1965,9 @@ p {
   width: 40px;
 }
 
-.footer .follow > a:hover {
+.footer-social-media > a:hover {
   background: transparent;
   box-shadow: inset 0 0 0 2px #333;
-}
-
-.footer-copy {
-  padding: 3em 0;
-  background-color: #000;
 }
 
 .footer-menu li {
@@ -2070,10 +2071,9 @@ p {
 }
 
 .button {
-  background: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.44);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  color: rgba(0, 0, 0, 0.68);
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -2087,9 +2087,14 @@ p {
   text-align: center;
   text-decoration: none;
   text-rendering: optimizeLegibility;
+  transition: .1s background-color, .1s border-color, .1s color, .1s fill;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button--large {
@@ -2108,53 +2113,63 @@ p {
 .button--dark:hover {
   background: #3a3c3c;
   border-color: #3a3c3c;
+  color: #fff;
 }
 
-.button--primary {
-  border-color: #00a034;
-  color: #00a034;
+.button--filled {
+  color: #fff;
+  background: #CC116E;
+  border-color: #CC116E;
+}
+
+.button--filled:hover {
+  background: #cc116ed6;
+  border-color: #cc116ed6;
+  color: #fff;
 }
 
 .button--circle {
-  background-image: none !important;
-  border-radius: 50%;
-  border: none;
-  color: #fff;
+  width: 36px;
   height: 36px;
+  border-radius: 50%;
   line-height: 36px;
   padding: 0;
-  text-decoration: none;
-  width: 36px;
-}
-
-.tag-button {
-  background: rgba(0, 0, 0, 0.05);
+  font-size: 18px;
   border: none;
-  color: rgba(0, 0, 0, 0.68);
-  font-weight: 500;
-  margin: 0 8px 8px 0;
 }
 
-.tag-button:hover {
-  background: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.68);
-}
-
-.button--dark-line {
+.button--line {
+  transition: color 0.3s ease, box-shadow 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   border: 1px solid #000;
+  background: #fff;
   color: #000;
+}
+
+.button--line:hover {
+  color: #fff;
+  box-shadow: inset 0 -50px 8px -4px #000;
+}
+
+.button--tag::before {
+  content: '#';
+}
+
+.buttonSet > .button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  vertical-align: middle;
+}
+
+.buttonSet > .button:last-child {
+  margin-right: 0;
+}
+
+.button--comment {
   display: block;
   font-weight: 500;
   margin: 50px auto 0;
   max-width: 300px;
   text-transform: uppercase;
-  transition: color 0.3s ease, box-shadow 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  width: 100%;
-}
-
-.button--dark-line:hover {
-  color: #fff;
-  box-shadow: inset 0 -50px 8px -4px #000;
 }
 
 .animated {
@@ -2970,18 +2985,6 @@ body.has-cover:not(.is-showNavMob).is-transparency .menu--toggle span {
   margin: 0 auto 30px;
 }
 
-.modal .form--input {
-  display: inline-block;
-  margin-bottom: 10px;
-  vertical-align: top;
-  height: 40px;
-  line-height: 40px;
-  background-color: transparent;
-  padding: 17px 6px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  width: 100%;
-}
-
 body.has-modal {
   overflow: hidden;
 }
@@ -3124,18 +3127,10 @@ body.has-comments .post-comments {
 }
 
 .witget-subscribe input {
-  background: #fff;
-  border: 1px solid #e5e5e5;
   color: rgba(0, 0, 0, 0.54);
   height: 41px;
   outline: 0;
   padding: 0 16px;
-  width: 100%;
-}
-
-.witget-subscribe button {
-  background: var(--composite-color);
-  border-radius: 0;
   width: 100%;
 }
 
@@ -3348,13 +3343,11 @@ body.has-comments .post-comments {
   position: absolute !important;
   transition: all .4s;
   top: 30px;
-  /* stylelint-disable-next-line */
 }
 
-.sharePost a {
+.sharePost .button {
   color: #fff;
   margin: 8px 0 0;
-  display: block;
 }
 
 .sharePost .i-chat {

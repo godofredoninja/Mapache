@@ -2,8 +2,10 @@
 {{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
 <div class="sidebar-items u-marginBottom30">
     <h3 class="sidebar-title u-fontSizeBase u-textColorDarker u-marginBottom20 u-fontWeightBold"><span class="u-paddingBottom10 u-inlineBlock">{{t "Tag Cloud"}}</span></h3>
-    {{#foreach tags}}
-        <a href="{{url absolute="true"}}" title="{{name}}" class="button tag-button">{{name}}</a>
-    {{/foreach}}
+    <div class="buttonSet">
+        {{#foreach tags}}
+            <a href="{{url absolute="true"}}" title="{{name}}" class="button tag-button button--tag button--line u-textCapitalize">{{name}}</a>
+        {{/foreach}}
+    </div>
 </div>
 {{/get}}

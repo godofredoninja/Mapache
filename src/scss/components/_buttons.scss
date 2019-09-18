@@ -1,46 +1,32 @@
 .button {
   @extend %primary-font;
   // font-family: $primary-font;
-  background: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(0, 0, 0, .15);
-  // border-radius: 4px;
-  box-sizing: border-box;
-  color: rgba(0, 0, 0, .44);
+  background: $button-color-background;
+  border: 1px solid transparent;
+  color: $button-color;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  height: 37px;
+  height: $button-height;
   letter-spacing: .02em;
-  line-height: 35px;
+  line-height: $button-height - 2;
   padding: 0 16px;
   position: relative;
   text-align: center;
   text-decoration: none;
   text-rendering: optimizeLegibility;
+  transition: .1s background-color, .1s border-color, .1s color, .1s fill;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
-  // &--chromeless {
-  //   border-radius: 0;
-  //   border-width: 0;
-  //   box-shadow: none;
-  //   color: rgba(0, 0, 0, .44);
-  //   height: auto;
-  //   line-height: inherit;
-  //   padding: 0;
-  //   text-align: left;
-  //   vertical-align: baseline;
-  //   white-space: normal;
+  &:focus { outline: none }
 
-  //   &:active,
-  //   &:hover,
-  //   &:focus {
-  //     border-width: 0;
-  //     color: rgba(0, 0, 0, .6);
-  //   }
+  // &:hover {
+  //   background: $button-hover-color-background;
+  //   color: $button-hover-color;
   // }
 
   &--large {
@@ -58,99 +44,64 @@
     &:hover {
       background: #3a3c3c;
       border-color: #3a3c3c;
+      color: #fff;
     }
   }
+
+  &--filled {
+    color: #fff;
+    background: $button-filled-background;
+    border-color: $button-filled-background;
+
+    &:hover {
+      background: $button-filled-hover-background;
+      border-color: $button-filled-hover-background;
+      color: #fff;
+    }
+  }
+
+  &--circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    line-height: 36px;
+    padding: 0;
+    font-size: 18px;
+    border: none;
+  }
+
+  &--line {
+    transition: color .3s ease, box-shadow .3s cubic-bezier(.455, .03, .515, .955);
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+
+    &:hover {
+      color: #fff;
+      box-shadow: inset 0 -50px 8px -4px #000;
+    }
+  }
+
+  // tag
+  &--tag::before { content: '#' }
 }
 
-// Primary
-.button--primary {
-  border-color: $primary-color;
-  color: $primary-color;
-}
+.buttonSet {
+  > .button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    vertical-align: middle;
 
-// .button--large.button--chromeless,
-// .button--large.button--link {
-//   padding: 0;
-// }
-
-// .buttonSet {
-//   > .button {
-//     margin-right: 8px;
-//     vertical-align: middle;
-//   }
-
-//   > .button:last-child {
-//     margin-right: 0;
-//   }
-
-//   .button--chromeless {
-//     height: 37px;
-//     line-height: 35px;
-//   }
-
-//   .button--large.button--chromeless,
-//   .button--large.button--link {
-//     height: 44px;
-//     line-height: 42px;
-//   }
-
-//   & > .button--chromeless:not(.button--circle) {
-//     margin-right: 0;
-//     padding-right: 8px;
-//   }
-
-//   & > .button--chromeless:last-child {
-//     padding-right: 0;
-//   }
-
-//   & > .button--chromeless + .button--chromeless:not(.button--circle) {
-//     margin-left: 0;
-//     padding-left: 8px;
-//   }
-// }
-
-.button--circle {
-  background-image: none !important;
-  border-radius: 50%;
-  border: none;
-  color: #fff;
-  height: 36px;
-  line-height: 36px;
-  padding: 0;
-  text-decoration: none;
-  width: 36px;
-}
-
-// Btn for tag cloud or category
-// ==========================================================================
-.tag-button {
-  background: rgba(0, 0, 0, .05);
-  border: none;
-  color: rgba(0, 0, 0, .68);
-  font-weight: 500;
-  margin: 0 8px 8px 0;
-
-  &:hover {
-    background: rgba(0, 0, 0, .1);
-    color: rgba(0, 0, 0, .68);
+    &:last-child { margin-right: 0 }
   }
 }
 
 // button dark line
 // ==========================================================================
-.button--dark-line {
-  border: 1px solid #000;
-  color: #000;
+.button--comment {
   display: block;
   font-weight: 500;
   margin: 50px auto 0;
   max-width: 300px;
   text-transform: uppercase;
-  transition: color .3s ease, box-shadow .3s cubic-bezier(.455, .03, .515, .955);
-  width: 100%;
-
-  &:hover {
-    color: #fff;
-    box-shadow: inset 0 -50px 8px -4px #000;
-  }
 }
