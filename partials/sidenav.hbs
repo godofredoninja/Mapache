@@ -8,6 +8,7 @@
         </nav>
 
         {{!-- Member Login --}}
+        {{#if @labs.members}}
         <nav class="sideNav-item u-fontSizeBase u-flex u-flexContentAround mp-member-login">
             {{#if @member}}
                 <a href="/account/" class="button button--dark u-fontSizeBase">{{t "Account"}}</a>
@@ -17,6 +18,7 @@
                 <a href="/signup/" class="button button--dark u-fontSizeBase">{{t "Sign up"}}</a>
             {{/if}}
         </nav>
+        {{/if}}
 
         {{!--follow box --}}
         <div class="sideNav-item sideNav-follow u-flex u-flexContentAround js-social-media">

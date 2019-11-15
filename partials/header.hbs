@@ -67,6 +67,7 @@
             </div></li>
 
             {{!-- Member Login --}}
+            {{#if @labs.members}}
             <li class="header-dropdown-menu mp-member-login u-hide-before-lg dropdown u-relative">
                 <div class="hla u-relative"><svg class="icon icon--m top2"><use xlink:href="#icon-user"></use></svg></div>
 
@@ -92,9 +93,10 @@
                     {{/if}}
                 </div>
             </li>
+            {{/if}}
 
             {{!-- Toggle Search --}}
-            <li><div class="hla js-search-open search-toggle u-relative"><svg class="icon icon--m top2"><use xlink:href="#icon-search"></use></svg></div></li>
+            <li class="js-search-open search-toggle u-relative u-hide"><div class="hla"><svg class="icon icon--m top2"><use xlink:href="#icon-search"></use></svg></div></li>
             {{!-- Toggle Menu Mobile --}}
             <li class="u-hide-after-lg" style="margin-right:-10px"><div class="hla menu-burger js-menu-toggle u-relative"><span></span><span></span><span></span></div></li>
         </ul>
