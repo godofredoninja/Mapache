@@ -1,0 +1,50 @@
+{{!-- Layout --}}
+{{!< default}}
+
+{{!-- Class for <body> --}}
+{{#contentFor "mapache_class_body"}}archive-author{{/contentFor}}
+
+{{!-- Page Header - partials/page/page-hero-header.hbs --}}
+{{> "page/page-hero-header"}}
+
+<div class="archive-author-inner u-container u-maxWidth1000 u-marginBottom40">
+    <div class="row">
+        {{#get "authors" limit="all"}}{{#foreach authors}}
+
+            <div class="col col-s12 s6 l4 u-flexColumnTop u-marginBottom40">
+                <article class="author-card u-relative u-flexColumnTop u-flex--1">
+                    {{!-- Avatar --}}
+                    <a href="{{url}}" class="author-card-avatar u-relative u-block">
+                        {{#if profile_image}}
+                            <img
+                                class="u-absolute0 u-image lazyload blur-up"
+                                src="{{img_url profile_image size="m"}}"
+                                srcset="{{img_url profile_image size="xxs"}}"
+                                data-srcset="{{img_url profile_image size="s"}} 300w,{{img_url profile_image size="m"}} 600w"
+                                alt="{{t "Hi I'm"}} {{name}}" />
+                        {{/if}}
+                    </a>
+
+                    <div class="u-flexColumnTop u-flex--1">
+                        <div class="u-flex--1">
+                            {{!-- Name --}}
+                            <h2 class="author-card-name u-marginTop20 u-fontSize22 u-marginBottom10"><a href="{{url}}" class="u-block">{{name}}</a></h2>
+                            {{!-- Website --}}
+                            {{#if website}}<a href="{{website}}" class="author-card-website u-fontSize15 u-block u-marginBottom10" target="_blank" rel="noopener noreferrer">{{website}}</a>{{/if}}
+                            {{!-- Biography --}}
+                            {{#if bio}}<p class="author-card-bio u-fontSizeSmall">{{bio}}</p>{{/if}}
+                        </div>
+
+                        {{!-- Buttons Social Media--}}
+                        <div class="author-card-media u-flex">
+                            {{#if facebook}}<a href="{{facebook_url}}" class="button button--line" title="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>{{/if}}
+                            {{#if twitter}}<a href="{{twitter_url}}" class="button button--line" title="{{twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>{{/if}}
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        {{/foreach}}{{/get}}
+
+    </div>
+</div>

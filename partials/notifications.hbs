@@ -1,0 +1,73 @@
+<div class="notification notification-subscribe">
+    <a class="notification-close u-absolute0" href="javascript:;"><svg class="icon icon--m u-absolute"><use xlink:href="#icon-close"></use></svg></a>
+    You've successfully subscribed to {{@site.title}}
+</div>
+
+<div class="notification notification-signup">
+    <a class="notification-close u-absolute0" href="javascript:;"><svg class="icon icon--m u-absolute"><use xlink:href="#icon-close"></use></svg></a>
+    Great! Next, complete checkout for full access to {{@site.title}}
+</div>
+
+<div class="notification notification-signin">
+    <a class="notification-close u-absolute0" href="javascript:;"><svg class="icon icon--m u-absolute"><use xlink:href="#icon-close"></use></svg></a>
+    Welcome back! You've successfully signed in
+</div>
+
+<div class="notification notification-checkout">
+    <a class="notification-close u-absolute0" href="javascript:;"><svg class="icon icon--m u-absolute"><use xlink:href="#icon-close"></use></svg></a>
+    Success! Your account is fully activated, you now have access to all content.
+</div>
+
+{{!-- Scripts for Members subscription --}}
+{{#contentFor "scripts"}}
+<script>
+    // Parse the URL parameter
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Give the parameter a variable name
+    var action = getParameterByName('action');
+    var stripe = getParameterByName('stripe');
+
+    function ready() {
+        var domBody = document.body;
+
+        if (action == 'subscribe') {
+            domBody.classList.add('subscribe-success');
+        }
+        if (action == 'signup') {
+            window.location = '{{@site.url}}/signup/?action=checkout';
+        }
+        if (action == 'checkout') {
+            domBody.classList.add('signup-success');
+        }
+        if (action == 'signin') {
+            domBody.classList.add('signin-success');
+        }
+        if (stripe == 'success') {
+            domBody.classList.add('checkout-success');
+        }
+
+        var notificationClose = document.querySelectorAll('.notification-close');
+
+        notificationClose.forEach(function(item){ item.addEventListener('click', function() {
+            this.parentNode.classList.add('closed');
+
+            var uri = window.location.toString();
+            if (uri.indexOf('?') > 0) {
+                var clean_uri = uri.substring(0, uri.indexOf('?'));
+                window.history.replaceState({}, document.title, clean_uri);
+            }
+        })});
+    }
+
+    window.addEventListener('load', ready, false);
+</script>
+{{/contentFor}}

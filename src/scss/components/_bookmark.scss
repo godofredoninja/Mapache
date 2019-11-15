@@ -1,0 +1,85 @@
+// Bookmark card
+// -----------------------------------------------------------------------------
+.kg-bookmark {
+  position: relative;
+
+  &-publisher,
+  &-card { position: relative; }
+
+  //
+  &-container {
+    @extend %primary-font;
+    @extend %flex;
+
+    background: var(--bookmark-bg);
+    border: 1px solid var(--bookmark-border-color);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 4px;
+    overflow: hidden;
+  }
+
+  &-content {
+    @extend .u-flexColumnTop;
+
+    flex-grow: 1;
+    flex-basis: 100%;
+    padding: 20px;
+  }
+
+  &-title {
+    color: var(--bookmark-color);
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.25rem;
+  }
+
+  &-description {
+    @extend %u-line-clamp-2;
+    //
+    margin-bottom: 8px;
+    color: var(--bookmark-color-des);
+    line-height: 1.4;
+    max-height: 4em;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  &-metadata {
+    @extend %flex;
+    @extend %flex-align-items-center;
+
+    font-size: 0.9375rem;
+    color: var(--bookmark-meta-color);
+  }
+
+  &-thumbnail {
+    flex-grow: 1;
+    min-width: 33%;
+    position: relative;
+    min-height: 150px;
+  }
+
+  &-thumbnail img {
+    @extend %u-absolute0;
+    @extend .u-image;
+  }
+
+  &-icon {
+    width: 22px;
+    height: 22px;
+    margin: 0 8px 0 0 !important;
+  }
+
+  &-author::after {
+    content: '•';
+    margin: 0 6px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
+@media #{$sm-and-down} {
+  .kg-bookmark {
+    &-container { flex-direction: column }
+    &-content { order: 1 }
+  }
+}

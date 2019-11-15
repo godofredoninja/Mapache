@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="col-left story-feed">
+    <div class="col col-left story-feed">
         <div class="story-feed-content">
-            {{#foreach posts}}
+            {{#foreach posts visibility="all"}}
                 {{!-- Story - partials/story/story-list.hbs --}}
                 {{> "story/story-list"}}
             {{/foreach}}

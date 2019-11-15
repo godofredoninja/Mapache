@@ -1,14 +1,14 @@
 # Mapache free theme for [Ghost](https://github.com/tryghost/ghost/)
 
-[![Ghost version](https://img.shields.io/badge/Ghost-2.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
+[![Ghost version](https://img.shields.io/badge/Ghost-3.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://www.paypal.me/godofredoninja)
 
-> Minimalist Material Design and Elegant theme.
+> Minimalist and Elegant theme.
 
 Hi. I created this theme for ghost especially for you.
 It is available for free so you can use on your site. If you have any suggestions to improve the theme,  you can send me a tweet [@GodoFredoNinja](https://goo.gl/y3aivK)
 
-## 🙏 Please, help me with a small donation [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4H53Q4RTPSFQW&source=url) or [PayPal](https://www.paypal.me/godofredoninja). It'll help motivate me to update the theme with many improvements
+## If you have a :heart: heart and value my work. :pray: Please, help me with a small donation [Here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4H53Q4RTPSFQW&source=url) or [PayPal](https://www.paypal.me/godofredoninja). It'll help motivate me to update the theme with many improvements
 
 [![donate](./donate.gif)](https://www.paypal.me/godofredoninja)
 
@@ -17,20 +17,17 @@ It is available for free so you can use on your site. If you have any suggestion
 ## Featured
 
 - Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
-- 404 error page (emoticons — last 6 articles)
-- Page subscribe
+- Light Mode / Dark Mode
+- 404 error page
 - Pagination Infinite Scroll
 - Instagram Feed in footer of Post
-- Optional menu at the footer of the page
+- Optional menu in the footer
 - [AMP](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost) Template (Accelerated Mobile Pages)
-- Follow on Social Media
+- Social Media
 - Related Articles (6 articles)
 - Different templates for the Home Page
 - Different templates for publishing posts
-- Page Newsletter (Mailchimp)
-- Page Podcast
-- Page Tag
-- 5 featured articles in the sidebar (Home - Tag - Author)
+- Page for (About Us - Podcast - Tag - Authors - Newsletter)
 - 5 lates articles in the sidebar (post)
 - Tag Cloud in the sidebar
 - Previous and next articles buttons
@@ -78,8 +75,10 @@ $ cd path/to/ghost && ghost restart --development
 
 #### Additional commands
 
-- `yarn lint` — Run (standard - stylelint) against your assets and build scripts and SCSS
-- `yarn test` — test
+- `yarn lint:js` — standard, Check for errors in the script
+- `yarn lint:scss` — stylelint, Check for errors in the styles
+- `yarn lint` — check error in script and styles
+- `yarn test` — Check the script errors and styles then check the theme if it is compatible with the latest version of Ghost
 
 ## Documentation
 
@@ -90,9 +89,7 @@ To continue with the configuration [Read](https://github.com/GodoFredoNinja/Mapa
 - [Hodor AMP](https://github.com/godofredoninja/Hodor-AMP-Ghost)
 - [Normalize](https://necolas.github.io/normalize.css/)
 - [Ghost Search](https://github.com/HauntedThemes/ghost-search)
-- [Fuzzysort](https://github.com/farzher/fuzzysort)
 - [Prismjs](http://prismjs.com/)
-- [Theia Sticky Sidebar](https://github.com/WeCodePixels/theia-sticky-sidebar)
 - [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js/)
 - [Lazysizes](https://github.com/aFarkas/lazysizes)
 - [Fonts](https://fonts.googleapis.com/css?family=Merriweather:300i,400,700|Roboto|Roboto+Mono:300i,400,500,700)
@@ -100,4 +97,4 @@ To continue with the configuration [Read](https://github.com/GodoFredoNinja/Mapa
 
 ## Copyright & License
 
-Copyright (c) 2017 GodoFredoNinja - Released under the [GPLv3](LICENSE).
+Copyright (c) 2017 - 2019 GodoFredoNinja - Released under the [GPLv3 license](LICENSE).

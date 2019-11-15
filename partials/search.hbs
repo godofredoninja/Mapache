@@ -1,12 +1,12 @@
 <div class="search u-fixed u-flexColumnTop u-flexCenter u-fixed u-absolute0">
     <div class="js-search-close search-shader u-absolute0 zindex1"></div>
-    <div class="js-search-close search-close zindex3 u-hide-after-lg button button--circle i-close"></div>
+    <div class="js-search-close search-close zindex3 u-hide-after-lg button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg></div>
 
     <div class="search-inner u-relative u-marginAuto zindex2">
         <div class="search-wrap">
             {{!-- search form --}}
             <form class="search-form u-sizeFullWidth u-flex u-flexCenter u-fontSizeBase">
-                <i class="i-search"></i>
+                <svg class="icon icon--search top2"><use xlink:href="#icon-search"></use></svg>
                 <input id="search-field" class="input--md u-sizeFullWidth" type="text" placeholder="{{t "Search"}}..." aria-label="Search box"/>
             </form>
             {{!-- show a message to the user if there is no post --}}

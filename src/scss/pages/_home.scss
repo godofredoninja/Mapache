@@ -1,55 +1,90 @@
-// Home Page - Story Cover
+// Story for home page top && Story for template fashion
 // -----------------------------------------------------------------------------
-.hmCover {
+.h-cover {
   padding: 4px;
+  min-height: 400px;
 
-  .st-cover {
+  &-items {
     padding: 4px;
+    overflow: hidden;
+    height: 350px;
+    width: 100%;
 
-    &.firts {
-      height: 400px;
-      .st-cover-title { font-size: 2rem }
-    }
+    &.firts { height: 500px }
+  }
+
+  &-inner { height: 100% }
+  &-img { transition: all .25s }
+
+  &-header {
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &-excerpt { color: #888; }
+}
+
+// Fashopn -> Post Box Featured
+.fashion-featured {
+  .h-cover-header {
+    background-color: var(--fashion-featured-bg);
+    right: 18%;
+    padding: 15px 20px 0 0
+  }
+
+  .h-cover-items { padding: 10px; }
+
+  .h-cover-title {
+    color: var(--post-title-color);
+    &:hover { opacity: .6; }
   }
 }
+
+// Story Featured Cover for travel post
+// -----------------------------------------------------------------------------
+
+.sf-cover {
+  min-height: calc(100vh - 100px);
+
+  &-title {
+    @extend %secundary-font;
+
+    line-height: 1.3;
+  }
+
+  .flow-meta { justify-content: center; }
+}
+
+// .bg-lines {
+//   position: absolute;
+//   top: 0;
+//   left: 50%;
+//   width: 100%;
+//   max-width: 1280px;
+//   height: 100%;
+//   transform: translateX(-50%);
+// }
+
+// .bg-line {
+//   position: absolute;
+//   top: 0;
+//   width: 1px;
+//   height: 100%;
+//   background-color: rgba(153, 153, 153, .25);
+
+//   &--1 { left: 0 }
+//   &--2 { left: calc(100% / 4 * 1) }
+//   &--3 { left: calc(100% / 4 * 2) }
+//   &--4 { left: calc(100% / 4 * 3) }
+//   &--5 { right: 0 }
+// }
 
 // Home Page Personal Cover page
 // -----------------------------------------------------------------------------
 .hm-cover {
   padding: 30px 0;
   min-height: 100vh;
-  background-color: #0d0f10;
-
-  &-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  &-des {
-    max-width: 600px;
-    font-size: 1.25rem;
-  }
-}
-
-.hm-subscribe {
-  background-color: transparent;
-  border-radius: 3px;
-  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, .5);
-  color: #fff;
-  display: block;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.2;
-  margin-top: 50px;
-  max-width: 300px;
-  padding: 15px 10px;
-  transition: all .3s;
-  width: 100%;
-
-  &:hover {
-    box-shadow: inset 0 0 0 2px #fff;
-  }
 }
 
 .hm-down {
@@ -74,29 +109,34 @@
 // Media Query
 // -----------------------------------------------------------------------------
 @media #{$md-and-up} {
-  .hmCover {
-    .st-cover { width: 50% }
-    .st-cover.firts { width: 100% }
+  // home featured story
+  .h-cover {
+    &-items { width: 50%; }
+    &-items.firts { width: 100%; }
   }
 }
 
 @media #{$lg-and-up} {
-  // Home Story-cover
-  .hmCover {
+  // home featured story
+  .h-cover {
     height: 60vh;
 
-    .st-cover {
+    &-items {
       height: 50%;
       width: 33.33333%;
+    }
 
-      &.firts {
-        height: 100%;
-        width: 66.66666%;
-        .st-cover-title { font-size: 3.2rem }
-      }
+    &-items.firts {
+      height: 100%;
+      width: 66.66666%;
     }
   }
 
-  // Home page
-  .hm-cover-title { font-size: 3.5rem }
+  .fashion-featured {
+    height: 80vh;
+    min-height: 600px;
+  }
+
+  // Story Grid
+  .home-story-grid .post-box-title { font-size: 18px }
 }

@@ -1,48 +1,53 @@
-// user id => 1397790551
-// token => 1397790551.1aa422d.37dca7d33ba34544941e111aa03e85c7
-// user nname => GodoFredoNinja
-// http://instagram.com/oauth/authorize/?client_id=YOURCLIENTIDHERE&redirect_uri=HTTP://YOURREDIRECTURLHERE.COM&response_type=token
+import fetchQuote from './app.fetch'
 
-// import lazyLoadImage from './app.lazy-load';
-
-/* Template for images */
-const templateInstagram = data => {
-  return `<div class="instagram-col col s6 m4 l2">
+const templateInstagram = data =>
+  `<div class="col s4 l2">
     <a href="${data.link}" class="instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block u-bgGray" target="_blank" rel="noopener noreferrer">
-      <img aria-label="Instagram image" class="u-absolute0 u-image lazyload zindex2" src="${data.images.low_resolution.url}"/>
-      <div class="instagram-hover u-absolute0 u-flexColumn" style="z-index:3">
-        <div class="u-textAlignCenter u-fontWeightBold u-textColorWhite u-fontSize20">
-          <span style="padding-right:10px"><i class="i-favorite"></i> ${data.likes.count}</span>
-          <span style="padding-left:10px"><i class="i-chat"></i> ${data.comments.count}</span>
-        </div>
+      <img class="u-absolute0 u-image blur-up lazyload" src="${data.images.low_resolution.url}" alt=""/>
+      <div class="instagram-hover u-absolute0 u-flexCenter u-flexContentCenter u-fontWeightBold u-textColorWhite u-fontSize20 zindex2">
+        <span style="padding-right:10px"><svg class="icon top2"><use xlink:href="#icon-favorite"></use></svg> ${data.likes.count}</span>
+        <span style="padding-left:10px"><svg class="icon top2"><use xlink:href="#icon-chat"></use></svg> ${data.comments.count}</span>
       </div>
     </a>
-  </div>`;
-}
+  </div>`
 
 // Shuffle Array
-const shuffleInstagram = arr => arr
+const shuffleArray = arr => arr
   .map(a => [Math.random(), a])
   .sort((a, b) => a[0] - b[0])
-  .map(a => a[1]);
+  .map(a => a[1])
 
-// Display Instagram Images
-const displayInstagram = (res, user) => {
-  const shuffle = shuffleInstagram(res.data);
-  const sf = shuffle.slice(0, 6);
+const displayInstagram = (res, user, instagramBox) => {
+  const shuffle = shuffleArray(res.data)
+  const sf = shuffle.slice(0, 6)
 
-  return sf.map(img => {
-    const images = templateInstagram(img);
-    $('.instagram').removeClass('u-hide');
-    $('.instagram-wrap').append(images);
-    $('.instagram-name').html(user);
-  });
+  const link = document.createElement('a')
+  link.classList = 'instagram-btn button button--large button--dark'
+  link.href = `https://www.instagram.com/${user}`
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  link.innerHTML = `<svg class="icon"><use xlink:href="#icon-instagram"></use></svg> ${user}`
+
+  const box = document.createElement('div')
+  box.classList = 'row no-gutters'
+
+  sf.map(img => {
+    const images = templateInstagram(img)
+    box.innerHTML += images
+  })
+
+  instagramBox.classList.remove('u-hide')
+  instagramBox.appendChild(box)
+  instagramBox.appendChild(link)
 }
 
-export default (url, user) => {
-  fetch(url)
-  .then(response => response.json())
-  .then(resource => displayInstagram(resource, user))
-  // .then(() => lazyLoadImage().update())
-  .catch( () => $('.instagram').remove());
+export default async (instagramFeed, instagramBox) => {
+  const url = `https://api.instagram.com/v1/users/${instagramFeed.userId}/media/recent/?access_token=${instagramFeed.token}&count=10&callback=?`
+
+  try {
+    const result = await fetchQuote(url)
+    displayInstagram(result, instagramFeed.userName, instagramBox)
+  } catch (err) {
+    instagramBox.remove()
+  }
 }

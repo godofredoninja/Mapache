@@ -1,0 +1,29 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_site_main"}}u-paddingBottom30 u-paddingTop30{{/contentFor}}
+
+{{!-- Content Emojis --}}
+<section class="page-error">
+    <div class="page-error-wrap u-marginAuto u-maxWidth1000 u-textAlignCenter">
+        <h1 id="emoji" class="page-error-title u-lineHeight1">404</h1>
+        <h2 class="u-fontSize36 u-marginBottom40">{{t "Oops... Page Not Found!"}}</h2>
+        <p class="u-marginBottom30 u-fontSize22 u-textColorNormal">{{t "The page you are looking for does not exist. It might have been moved or deleted."}}</p>
+        <a href="{{@site.url}}" class="button button--large button--dark">{{t "Go to home"}}</a>
+    </div>
+</section>
+
+{{!-- Articles style Card --}}
+{{#get "posts" limit="6" include="tags" as |recents| }}
+
+    <div class="extreme-container">
+        <div class="row">
+            {{#foreach recents visibility="all"}}
+                <div class="col col-s12 s6 l4">
+                    {{> "story/story-grid" class='u-fontSizeLarge u-fontWeightMedium'}}
+                </div>
+            {{/foreach}}
+        </div>
+    </div>
+
+{{/get}}

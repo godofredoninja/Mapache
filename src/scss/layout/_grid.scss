@@ -5,11 +5,13 @@
   box-sizing: border-box;
   // margin-left: auto;
   // margin-right: auto;
-  max-width: 1220px;
-  padding-left: 10px;
-  padding-right: 10px;
+  max-width: 1232px;
+  padding-left: $container-gutter-width;
+  padding-right: $container-gutter-width;
   width: 100%;
 }
+
+.post-fluid { max-width: 1650px }
 
 // @media #{$lg-and-up} {
 //   .content {
@@ -26,15 +28,14 @@
 //   }
 // }
 
-.col-left,
-.cc-video-left {
+.col-left {
   width: 100%;
-  flex: 1;
+  // flex: 1 !important;
   // flex-basis: 0;
   // flex-grow: 1;
   // max-width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
+  // padding-right: 10px;
+  // padding-left: 10px;
 }
 
 // @media #{$md-and-up} {
@@ -44,24 +45,24 @@
   .col-left, .author .title-line { max-width: calc(100% - 360px) }
   // .cc-video-left { max-width: calc(100% - 320px) }
   // .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
-  .cc-video-right { width: 320px; flex: 0 0 auto !important }
+  // .cc-video-right { width: 320px; flex: 0 0 auto !important }
   body.is-article .col-left { padding-right: 40px }
 }
 
 .col-right {
   @extend %flex;
-  @extend %flex-direction-column;
+  @extend %direction-column;
   // display: flex;
   // flex-direction: column;
-  padding-left: $container-gutter-width;
-  padding-right: $container-gutter-width;
-  width: 330px;
+  // padding-left: $container-gutter-width;
+  // padding-right: $container-gutter-width;
+  width: 332px;
   margin-left: auto;
 }
 
 .row {
   @extend %flex;
-  @extend %flex-direction-row;
+  @extend %direction-row;
   // display: flex;
   // flex-direction: row;
   flex-wrap: wrap;
@@ -76,6 +77,13 @@
     padding-right: $container-gutter-width;
 
     $i: 1;
+
+    @media #{$sm-and-down} {
+      &.col-s12 {
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+      }
+    }
 
     @while $i <= $num-cols {
       $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -118,6 +126,16 @@
 
         $i: $i + 1;
       }
+    }
+  }
+
+  &.no-gutters {
+    margin-left: 0;
+    margin-right: 0;
+
+    .col {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

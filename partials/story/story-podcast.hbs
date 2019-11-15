@@ -1,11 +1,12 @@
 <article class="col s12 m6 l12 u-flex">
-    <div class="spc-c u-relative u-marginBottom30">
+    <div class="spc-c u-relative u-marginBottom30 u-flex--1">
 
         {{#if feature_image}}
-        <figure class="spc-c-img u-bgCover u-relative">
-            <img class="u-absolute u-image u-block lazyload"
-                data-srcset="{{img_url feature_image size="xs"}} 100w,{{img_url feature_image size="s"}} 300w"
-                data-src="{{img_url feature_image size="s"}}"
+        <figure class="spc-c-img u-bgCover u-relative u-overflowHidden">
+            <img class="u-absolute u-image u-block blur-up lazyload"
+                src="{{img_url feature_image size="m"}}"
+                srcset="{{img_url feature_image size="xxs"}}"
+                data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
                 alt="{{title}}"
             />
         </figure>
@@ -13,10 +14,10 @@
 
         <div class="spc-c-body">
             {{> "helper/helper-story-meta"}}
-            <h2 class="spc-c-title u-marginBottom20 u-fontWeightMedium u-fontSize26 u-lineHeightTight"><a href="{{url}}" class="u-relative zindex3">{{title}}</a></h2>
+            <h2 class="spc-c-title u-marginBottom20 u-fontWeightMedium u-fontSize26 u-lineHeightTight u-textColorWhite"><a href="{{url}}" class="u-relative zindex3">{{title}}</a></h2>
             <p class="spc-c-excerpt u-marginBottom20 card-excerpt">{{excerpt}}</p>
             <a href="{{url}}" class="listen-btn button u-textUppercase u-fontSizeSmall u-relative zindex3">
-                <span class="listen-icon svg-icon">{{> "icons/icon-listen"}}</span>
+                {{> "icons/listen"}}
                 {{t "Listen"}}
             </a>
         </div>

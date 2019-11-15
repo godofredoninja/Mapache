@@ -1,0 +1,46 @@
+// Post Share
+// -----------------------------------------------------------------------------
+.post-share {
+  right: auto;
+  width: 40px;
+  transition: all .4s;
+  top: 30px;
+
+  .button {
+    color: #fff;
+    margin: 8px 0 0;
+  }
+
+  .i-chat {
+    background-color: #fff;
+    border: 2px solid #bbb;
+    color: #bbb;
+  }
+
+  .post-share-inner {
+    transition: visibility 0s linear 0s, opacity .3s 0s;
+
+    &.is-hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear .3s, opacity .3s 0s;
+    }
+  }
+}
+
+// Share Mobile
+// -----------------------------------------------------------------------------
+.post-share-mob {
+  top: auto;
+  background: var(--mobile-share-bg);
+  z-index: 5;
+
+  .button {
+    margin: 5px;
+    border-radius: 5px;
+    height: 28px;
+    line-height: 26px;
+  }
+}
+
+.share-margin .post-share { top: -50px }

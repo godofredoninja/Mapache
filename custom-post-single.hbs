@@ -1,29 +1,28 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article-single{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article is-article-single{{/contentFor}}
 
-{{!-- Ad --}}
-{{> "ad/ad-post-header"}}
+{{#post}}
+<article class="post">
 
-<div class="u-container u-maxWidth740 u-marginTop30">
-    {{!-- Title & Excerpt - partials/article/article-header.hbs --}}
-    {{> "article/article-header"}}
+    <header class="u-container u-maxWidth740 u-marginTop30">
+        {{!-- Article Header - partials/article/article-header.hbs --}}
+        {{> "article/article-header"}}
 
-    {{!-- Article Author - partials/article/article-author.hbs --}}
-    {{> "article/article-author"}}
-</div>
+        {{!-- Article Author - partials/article/article-author.hbs --}}
+        {{> "article/article-author"}}
+    </header>
 
-{{!-- Article Image - partials/helper/helper-article-image.hbs --}}
-{{#post}} {{> "helper/helper-article-image"}} {{/post}}
+    {{!-- Article Image - partials/helper/helper-article-image.hbs --}}
+    {{> "helper/helper-article-image"}}
 
-<section class="post u-maxWidth740 u-container u-marginAuto u-marginTop20 u-marginBottom40">
-    {{!-- Article Content - partials/article/article-body.hbs --}}
-    {{> "article/article-body"}}
-</section>
+    <div class="u-maxWidth740 u-marginAuto u-container u-marginTop20">
+        {{!-- Article Content - partials/article/article-body.hbs --}}
+        {{> "article/article-body"}}
+    </div>
+</article>
+{{/post}}
 
-{{!-- Comments partials/article/article-related.hbs --}}
+{{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
-
-{{!-- Instagram partials/widget/widget-instagram.hbs --}}
-{{> "widget/widget-instagram"}}

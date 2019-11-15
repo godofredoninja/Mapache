@@ -1,7 +1,7 @@
 // Navigation Mobile
 .sideNav {
   background-color: var(--header-bg-color);
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--sidenav-color);
   height: 100vh;
   padding: $header-height 20px;
   position: fixed !important;
@@ -10,42 +10,29 @@
   will-change: transform;
   z-index: 8;
 
-  &-menu a { padding: 10px 20px; }
+  &-menu a { padding: 10px 0; }
 
   &-wrap {
-    background: #eee;
+    background: var(--sidenav-bg);
     overflow: auto;
-    padding: 20px 0;
+    padding: 0 20px 20px;
     top: $header-height;
   }
 
-  &-section {
-    border-bottom: solid 1px #ddd;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
+  &-item {
+    border-bottom: 1px solid var(--sidenav-border-color);
+    padding: 20px 0 19px;
   }
 
   &-follow {
-    border-top: 1px solid #ddd;
-    margin: 15px 0;
-
-    a {
-      background-color: rgba(0, 0, 0, 0.84);
-      color: #fff;
-      display: inline-block;
-      height: 36px;
-      line-height: 20px;
-      margin: 0 5px 5px 0;
-      min-width: 36px;
-      padding: 8px;
-      text-align: center;
-      vertical-align: middle;
+    & > a {
+      padding: 0 5px;
+      display: block;
     }
 
-    // @each $social-name, $color in $social-colors {
-    //   .i-#{$social-name} {
-    //     @extend .bg-#{$social-name};
-    //   }
-    // }
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
   }
 }

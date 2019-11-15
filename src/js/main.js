@@ -1,23 +1,12 @@
 // import external dependencies
-import 'lazysizes';
-import 'theia-sticky-sidebar';
-
-// Import everything from autoload
-// import './autoload/**/*';
-
-// Impor main Script
-import './mapache';
-
-// Pagination infinite scroll
-// import './app/pagination';
+import 'lazysizes'
 
 // import local dependencies
-import Router from './util/Router';
-import common from './routes/common';
-import isArticle from './routes/post';
-import isVideo from './routes/video';
-import isNewsletter from './routes/newsletter';
-
+import Router from './util/Router'
+import common from './routes/common'
+import isArticle from './routes/post'
+import isArticleSingle from './routes/post-single'
+import isVideo from './routes/video'
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -30,12 +19,9 @@ const routes = new Router({
   // video post format
   isVideo,
 
-  // Newsletter page
-  isNewsletter,
-
-  // Audio post Format
-  // isAudio,
-});
+  // Article Single
+  isArticleSingle
+})
 
 // Load Events
-jQuery(document).ready(() => routes.loadEvents());
+window.addEventListener('load', routes.loadEvents(), false)

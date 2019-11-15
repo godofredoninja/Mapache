@@ -1,0 +1,64 @@
+{{!< ../default}}
+
+{{#if @member.paid}}
+    {{!-- Logged in, paying member: Redirect home --}}
+    <script>window.location = '{{@site.url}}';</script>
+{{else if @member}}
+
+{{!-- custom Styles For tag <body> --}}
+{{#contentFor "mapache_class_body"}}is-membership{{/contentFor}}
+
+<div class="checkout">
+    <div class="checkout-wrap u-maxWidth740 u-container">
+        <div class="row">
+
+            <div class="col s12">
+                <h1 class="checkout-title u-marginBottom30">Choose your subscription</h1>
+                <p class="checkout-des u-fontSize22">Unlock full access to {{@site.title}} and see the entire library of members-only content & updates</p>
+            </div>
+
+            <div class="col s12 m6 u-flex">
+                <div class="checkout-plan u-flexColumnTop u-flex--1">
+                    <header class="checkout-plan-header">
+                        <h3>Monthly</h3>
+                        <span>$</span><strong>{{@price.monthly}}</strong> / month
+                    </header>
+                    <div class="checkout-plan-content u-flexColumnTop u-flex--1">
+                        <ul>
+                            <li>Full access to all private posts</li>
+                            <li>Regular updates with new content</li>
+                            <li>Support independent publishing</li>
+                            <li>Simple, secure card payment</li>
+                        </ul>
+                        <a class="button button--large button--filled u-marginTop20" href="javascript:void(0)" data-members-plan="Monthly">Choose this plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6 u-flex">
+                <div class="checkout-plan u-flexColumnTop u-flex--1">
+                    <header class="checkout-plan-header">
+                        <h3>Yearly</h3>
+                        <span>$</span><strong>{{@price.yearly}}</strong> / year
+                    </header>
+                    <div class="checkout-plan-content u-flexColumnTop u-flex--1">
+                        <ul>
+                            <li>Full access to all private posts</li>
+                            <li>Regular updates with new content</li>
+                            <li>Support independent publishing</li>
+                            <li>Simple, secure card payment</li>
+                            <li>One easy payment instead of 12!</li>
+                        </ul>
+                        <a class="button button--large button--filled u-marginTop20" href="javascript:void(0)" data-members-plan="Yearly">Choose this plan</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{else}}
+    {{!-- Logged in, paying member: Redirect home --}}
+    <script>window.location = '{{@site.url}}/signup/';</script>
+{{/if}}

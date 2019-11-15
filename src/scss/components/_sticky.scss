@@ -1,0 +1,31 @@
+.sticky-parent {
+  @extend %flex;
+  @extend %direction-column;
+  @extend %justify-content-start;
+}
+
+.sticky-top-wrap {
+  @extend %flex;
+  @extend %direction-column;
+  @extend %justify-content-start;
+  @extend %flex--1;
+}
+
+.sticky-bottom-wrap {
+  @extend %flex;
+  @extend %direction-column;
+  @extend %justify-content-end;
+  @extend %flex--1;
+}
+
+.sticky-top-wrap .sticky {
+  position: sticky;
+  top: $header-height + 30;
+  bottom: 0;
+}
+
+.sticky-bottom-wrap .sticky {
+  position: sticky;
+  top: auto;
+  bottom: 30px;
+}

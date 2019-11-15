@@ -10,36 +10,6 @@
   * 9. table
   */
 
-:root {
-  --black: #000;
-  --white: #fff;
-  // Primary Color
-  --primary-color: #00a034;
-  --secondary-color: #2ad88d;
-  // Header
-  --header-color: #000;
-  --header-color-hover: #5f6368;
-  --header-menu-color: #000;
-  --header-menu-color-hover: #5f6368;
-  --header-bg-color: #fff;
-  --header-logo-color: #000;
-  --header-color-divider: #eae9e9;
-  // --header-color-divider: rgba(255, 255, 255, 0.3);
-  // Post
-  --post-color-link: #2ad88d;
-  // --story-cover-category-color: #0cda4f;
-  --story-cover-category-color: #fff;
-  --composite-color: #CC116E;
-  --media-type-color: #2ad88d;
-  // Footer Color
-  --footer-color-link: #2ad88d;
-  // Podcast
-  --podcast-button-color: #2ecc71;
-  // Newsletter
-  --newsletter-color: #07a131;
-  --newsletter-bg-color: #55d17e;
-}
-
 //Default styles
 *, *::before, *::after {
   box-sizing: border-box;
@@ -56,7 +26,8 @@ html {
 body {
   @extend %primary-font;
   // font-family: $primary-font;
-  color: $primary-text-color;
+  // color: $primary-text-color;
+  color: #212529;
   font-size: $font-size-base;
   font-style: normal;
   font-weight: 400;
@@ -83,14 +54,15 @@ a {
 
 blockquote {
   position: relative;
-  margin: 35px 0 20px;
-  padding: 30px 22px 0;
-  color: #252525;
+  margin: 20px 0 20px;
+  padding: 20px 20px 0;
+  color: var(--blockquote-color);
   font-size: 24px;
   line-height: 1.44;
   font-weight: 500;
   text-align: center;
-  font-family: Georgia, serif;
+  font-style: italic;
+  font-family: Georgia, Merriweather, serif;
 
   &::before {
     z-index: 0;
@@ -99,11 +71,11 @@ blockquote {
     left: 50%;
     transform: translateX(-50%) translateY(5px) rotate(1deg);
     color: var(--composite-color);
-    opacity: .2;
-    font-size: 132px;
+    opacity: .4;
+    font-size: 10rem;
     font-family: Georgia, Arial, sans-serif;
     font-style: normal;
-    line-height: .41;
+    line-height: .4;
     content: "\201c";
   }
 
@@ -122,7 +94,7 @@ figure { margin: 0 }
 figcaption {
   @extend %primary-font;
   // font-family: $primary-font;
-  color: rgba(0, 0, 0, .68);
+  color: var(--figcaption-color);
   display: block;
   font-feature-settings: "liga" on, "lnum" on;
   font-size: 0.9375rem;
@@ -145,7 +117,8 @@ figcaption {
 hr:not(.hr-list) {
   margin: 40px auto 10px;
   height: 1px;
-  background-color: #ddd;
+  background-color: var(--hr-bg);
+  // background-color: #ddd;
   border: 0;
   max-width: 100%;
 }
@@ -196,12 +169,11 @@ mark {
 }
 
 q {
-  color: rgba(0, 0, 0, .44);
+  color: var(--q-color);
   display: block;
   font-size: 28px;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -.014em;
   line-height: 1.48;
   padding-left: 50px;
   padding-top: 15px;
@@ -215,11 +187,11 @@ q {
 
 textarea,
 input {
-  background: #fff;
+  background: var(--input-bg-color);
   border-radius: 3px;
   // border: 1px solid #e5e5e5;
-  border: 0;
-  color: #303030;
+  // border: 0;
+  color: var(--input-color);
   display: block;
   font-size: 1rem;
   margin: 0;
@@ -228,7 +200,8 @@ input {
   position: relative;
   transition: box-shadow .08s ease-in, color .08s ease-in;
   width: 100%;
-  box-shadow: inset 0 0 0 1px #d7d7d7;
+  // box-shadow: inset 0 0 0 1px #d7d7d7;
+  border: 1px solid var(--input-border-color);
 }
 
 /* stylelint-disable-next-line */
@@ -286,9 +259,11 @@ table {
 // 10. Links
 // -----------------------------------------------------------------------------
 
-.link--accent { @extend %link--accent; }
-
-.link { @extend %link; }
+.link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
 
 .link--underline {
   &:active,
@@ -302,53 +277,22 @@ table {
 // 11. Main .main
 // -----------------------------------------------------------------------------
 
-.main { margin-bottom: 4em; min-height: 90vh }
+// .main { margin-bottom: 4em; min-height: 80vh }
 
-.main,
-.footer { transition: transform .5s ease; }
-
-// 12. warning success and Note
-// -----------------------------------------------------------------------------
-
-.warning {
-  background: #fbe9e7;
-  color: #d50000;
-  &::before { content: $i-warning; }
+.site-wrapper {
+  // display: flex;
+  // flex-direction: column;
+  min-height: 100vh;
 }
 
-.note {
-  background: #e1f5fe;
-  color: #0288d1;
-  &::before { content: $i-star; }
+.site-main {
+  flex-grow: 1;
+
+  &.pb4 { padding-bottom: 4rem }
 }
 
-.success {
-  background: #e0f2f1;
-  color: #00897b;
-  &::before { color: #00bfa5; content: $i-check; }
-}
-
-.warning, .note, .success {
-  display: block;
-  font-size: 18px !important;
-  line-height: 1.58 !important;
-  margin-top: 28px;
-  padding: 12px 24px 12px 60px;
-
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-
-  &::before {
-    @extend %fonts-icons;
-
-    float: left;
-    font-size: 24px;
-    margin-left: -36px;
-    margin-top: -5px;
-  }
-}
+// .main,
+// .footer { transition: transform .5s ease; }
 
 // 13. Social Media Color
 // -----------------------------------------------------------------------------
@@ -364,7 +308,7 @@ table {
 // 14. Back to Top
 // -----------------------------------------------------------------------------
 
-.rocket {
+.back-to-top {
   background: rgba(0, 0, 0, .3);
   border-right: 0;
   border: 2px solid #fff;
@@ -383,6 +327,11 @@ table {
   &:hover { background: rgba(0, 0, 0, .5); }
 
   &.to-top { transform: translate3d(0, 0, 0) }
+
+  .icon--arrow-up {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 svg {
@@ -390,27 +339,27 @@ svg {
   width: 100%;
 }
 
-.svgIcon {
-  display: inline-block;
-}
+// .svgIcon {
+//   display: inline-block;
+// }
 
-.svg-icon {
-  fill: currentColor;
-  display: inline-block;
-  line-height: 0;
-  overflow: hidden;
-  position: relative;
-  vertical-align: middle;
+// .svg-icon {
+//   fill: currentColor;
+//   display: inline-block;
+//   line-height: 0;
+//   overflow: hidden;
+//   position: relative;
+//   vertical-align: middle;
 
-  svg {
-    height: 100%;
-    width: 100%;
-    background: inherit;
-    fill: inherit;
-    pointer-events: none;
-    transform: translateX(0);
-  }
-}
+//   svg {
+//     height: 100%;
+//     width: 100%;
+//     background: inherit;
+//     fill: inherit;
+//     pointer-events: none;
+//     transform: translateX(0);
+//   }
+// }
 
 // 15. Loanding Bar
 // -----------------------------------------------------------------------------
@@ -435,23 +384,42 @@ svg {
 
 // 16. LazyLoad Image Imate
 // -----------------------------------------------------------------------------
-.lazyload,
-.lazyloading {
-  opacity: 0;
-}
-
-.lazyloaded {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-// .blur-up {
-//   .lazyload { filter: blur(5px) }
-//   .lazyloading { filter: blur(2px); transition: filter 200ms }
-//   .lazyloaded { filter: blur(0) }
+// .lazyload,
+// .lazyloading {
+//   opacity: 0;
+//   filter: blur(16px);
+//   transform: scale(1.1);
 // }
 
-// Video Responsive
-// ==========================================================================
+// .lazyloaded {
+//   opacity: 1;
+//   transition: opacity 300ms;
+// }
+
+.blur-up {
+  animation: fadeIn 3s ease-out;
+
+  // &.lazyloading,
+  // &.lazyload {
+  //   filter: blur(5px);
+  //   transition: filter 200ms;
+  //   // transform: scale(1.1);
+  // }
+
+  // &.lazyloaded {
+  //   filter: blur(0);
+  //   // transform: scale(1);
+  // }
+}
+
+// .blur-up {
+//   &.lazyload { filter: blur(16px) }
+//   &.lazyloading { filter: blur(8px); transition: filter 200ms; }
+//   &.lazyloaded { filter: none }
+// }
+
+// 17. Video Responsive
+// -----------------------------------------------------------------------------
 .video-responsive {
   display: block;
   height: 0;
@@ -482,52 +450,40 @@ svg {
   }
 }
 
-// .kg-embed-card .video-responsive { margin-top: 0 }
+// 18. notification for members
+// -----------------------------------------------------------------------------
 
-.kg-embed-card {
-  @extend %flex-AI-center;
-  @extend %flex-direction-column;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  min-width: 100%;
-  max-width: 100%;
+.notification {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9000;
+  padding: 20px 60px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  background: #98c22e;
+  transition: all .35s cubic-bezier(.19, 1, .22, 1) .5s;
+  transform: translateY(-175%);
+  visibility: hidden;
+
+  svg { right: 25px; top: 20px; }
 }
 
-// Gallery
-// ==========================================================================
-
-.kg-gallery {
-  &-container {
-    @extend %flex;
-    @extend %flex-direction-column;
-    // display: flex;
-    // flex-direction: column;
-    max-width: 100%;
-    width: 100%;
-  }
-
-  &-row {
-    @extend %flex;
-    @extend %flex-direction-row;
-    @extend %flex-justify-content-center;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-
-    &:not(:first-of-type) { margin: 0.75em 0 0 0 }
-  }
-
-  &-image {
-    img {
-      display: block;
-      margin: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &:not(:first-of-type) { margin: 0 0 0 0.75em }
-  }
+.checkout-success .notification-checkout,
+.signin-success .notification-signin,
+.signup-success .notification-signup,
+.subscribe-success .notification-subscribe {
+  visibility: visible;
+  transform: translateY(0);
 }
 
+.notification.closed {
+  visibility: hidden;
+  transition: all 1.35s cubic-bezier(.19, 1, .22, 1);
+  transform: translateY(-175%);
+}
+
+// Cursor pointer gallery
 .mapache-light-gallery { cursor: zoom-in }

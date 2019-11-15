@@ -1,6 +1,4 @@
-.button {
-  @extend %primary-font;
-  // font-family: $primary-font;
+%button {
   background: $button-color-background;
   border: 1px solid transparent;
   color: $button-color;
@@ -21,6 +19,12 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.button {
+  @extend %primary-font;
+  // font-family: $primary-font;
+  @extend %button;
 
   &:focus { outline: none }
 
@@ -29,8 +33,13 @@
   //   color: $button-hover-color;
   // }
 
+  .icon {
+    position: relative;
+    top: -1px
+  }
+
   &--large {
-    font-size: 15px;
+    font-size: 16px;
     height: 44px;
     line-height: 42px;
     padding: 0 18px;
@@ -39,6 +48,7 @@
   &--dark {
     background: #000;
     border-color: #000;
+    box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 16px;
     color: #fff;
 
     &:hover {
@@ -50,12 +60,12 @@
 
   &--filled {
     color: #fff;
-    background: $button-filled-background;
-    border-color: $button-filled-background;
+    background: var(--composite-color);
+    border-color: var(--composite-color);
 
     &:hover {
-      background: $button-filled-hover-background;
-      border-color: $button-filled-hover-background;
+      background: var(--composite-color-hover);
+      border-color: var(--composite-color-hover);
       color: #fff;
     }
   }
@@ -68,6 +78,13 @@
     padding: 0;
     font-size: 18px;
     border: none;
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &--line {

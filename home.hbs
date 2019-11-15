@@ -2,28 +2,26 @@
 {{!< default}}
 
 {{#contentFor "mapache_class_body"}}is-home{{/contentFor}}
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
 
 {{!-- Home Top Section --}}
-<div class="hmCover u-marginAuto u-marginBottom30 u-clear">
+<div class="h-cover home-banner u-marginAuto u-marginBottom30 u-clear">
 
-    {{#foreach posts from="1" to="3"}}
+    {{#foreach posts visibility="all" from="1" to="3"}}
         {{!-- Home Top Section -> 3 first Articles - partials/story/story-cover.hbs --}}
         {{> "story/story-cover" }}
     {{/foreach}}
 
 </div>
 
-{{!-- Ad --}}
-{{> "ad/ad-home-top"}}
-
 {{!-- Post Grid - 8 lates article --}}
 <section class="extreme-container home-story-grid">
     <div class="row u-marginBottom40">
 
-        {{#foreach posts from="4" to="11"}}
-            <div class="col s12 m6 l3">
+        {{#foreach posts visibility="all" from="4" to="11"}}
+            <div class="col col-s12 s6 m4 l3">
                 {{!-- Story Grid - partiasl/story/story-grid.hbs --}}
-                {{> "story/story-grid" }}
+                {{> "story/story-grid" class='u-fontSize20'}}
             </div>
         {{/foreach}}
 
@@ -33,10 +31,10 @@
 {{!-- Post List - 4 latest articles --}}
 <div class="extreme-container">
     <div class="row">
-        <div class="col-left story-feed">
+        <div class="col col-left story-feed">
             <div class="story-feed-content">
 
-                {{#foreach posts from="12" to="16"}}
+                {{#foreach posts visibility="all" from="12" to="16"}}
                     {{!-- Story List - partials/story/story-list.hbs --}}
                     {{> "story/story-list"}}
                 {{/foreach}}
@@ -47,6 +45,3 @@
         {{> "sidebar"}}
     </div>
 </div>
-
-{{!-- Ad --}}
-{{> "ad/ad-home-footer"}}

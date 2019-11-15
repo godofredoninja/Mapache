@@ -1,54 +1,157 @@
-/* global homeBtn twitterFeed followSocialMedia footerLinks */
+/* global twitterFeed  followSocialMedia footerLinks siteSearch localStorage */
 
-import mapacheFollow from '../app/app.follow';
-import mapacheFooterLinks from '../app/app.footer.links';
-// import lazyLoadImage from '../app/app.lazy-load';
-import mapacheTwitter from '../app/app.twitter';
+import socialMedia from '../app/app.social-media'
+import mapacheFooterLinks from '../app/app.footer.links'
+import { loadScript } from '../app/app.load-style-script'
 
-// Varibles
-const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/; // eslint-disable-line
+// querySelector and document.querySelectorAll
+import { qs, qsa } from '../app/app.variables'
 
 export default {
-  init() {
+  init () {
     // Change title HOME PAGE
-    if (typeof homeTitle !== 'undefined') $('#home-title').html(homeTitle); // eslint-disable-line
+    // -----------------------------------------------------------------------------
+    // if (typeof homeTitle !== 'undefined' && qs('#home-title')) {
+    //   qs('#home-title').textContent = homeTitle
+    // }
 
     // change BTN ( Name - URL) in Home Page
-    if (typeof homeBtn === 'object' && homeBtn !== null) {
-      $('#home-button').attr('href', homeBtn.url).html(homeBtn.title);
-    }
+    // -----------------------------------------------------------------------------
+    // const homeButtonBox = qs('#home-button')
+    // if (typeof homeBtn === 'object' && homeBtn !== null && homeButtonBox) {
+    //   homeButtonBox.href = homeBtn.url
+    //   homeButtonBox.textContent = homeBtn.title
+    // }
 
-    // Follow me
+    // Social Media
+    // -----------------------------------------------------------------------------
     if (typeof followSocialMedia === 'object' && followSocialMedia !== null) {
-      mapacheFollow(followSocialMedia, urlRegexp);
+      socialMedia(followSocialMedia)
     }
 
     /* Footer Links */
     if (typeof footerLinks === 'object' && footerLinks !== null) {
-      mapacheFooterLinks (footerLinks, urlRegexp);
+      mapacheFooterLinks(footerLinks)
     }
-
-    /* Lazy load for image */
-    // lazyLoadImage();
   }, // end Init
 
-  finalize() {
-    /* sicky sidebar */
-    $('.sidebar-sticky').theiaStickySidebar({
-      additionalMarginTop: 70,
-      minWidth: 970,
-    });
+  finalize () {
+    // Active Dark Mode
+    // -----------------------------------------------------------------------------
+    qsa('.js-dark-mode').forEach(item => item.addEventListener('click', el => {
+      el.preventDefault()
 
-    // Search
-    // let searchScript = document.createElement('script');
-    // searchScript.src = `${siteUrl}/assets/scripts/search.js`;
-    // searchScript.defer = true;
+      const dd = document.documentElement
+      const dataTheme = dd.getAttribute('data-theme')
 
-    // document.body.appendChild(searchScript);
+      if (dataTheme === 'light') {
+        dd.setAttribute('data-theme', 'dark')
+        localStorage.setItem('selected-theme', 'dark')
+      } else {
+        dd.setAttribute('data-theme', 'light')
+        localStorage.setItem('selected-theme', 'light')
+      }
+    }))
+
+    // Toggle Menu
+    // -----------------------------------------------------------------------------
+    qs('.js-menu-toggle').addEventListener('click', e => {
+      e.preventDefault()
+      document.body.classList.toggle('has-menu')
+    })
+
+    // Scroll Button Home Page
+    // -----------------------------------------------------------------------------
+    const homeButtonScroll = qs('.js-scrcoll-home')
+
+    if (homeButtonScroll) {
+      homeButtonScroll.addEventListener('click', e => {
+        e.preventDefault()
+
+        const homeCoverHeight = qs('#hm-cover').offsetHeight - 60
+
+        if (window) {
+          try {
+            // The New API.
+            window.scroll({
+              top: homeCoverHeight,
+              left: 0,
+              behavior: 'smooth'
+            })
+          } catch (error) {
+            // For older browsers.
+            window.scrollTo(0, homeCoverHeight)
+          }
+        }
+        //
+      })
+    }
+
+    // Scroll Back to top animate
+    // -----------------------------------------------------------------------------
+    qs('.js-back-to-top').addEventListener('click', e => {
+      e.preventDefault()
+
+      if (window) {
+        try {
+          // The New API.
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
+        } catch (error) {
+          // For older browsers.
+          window.scrollTo(0, 0)
+        }
+      }
+    })
 
     // Twitter Widget
-    if (typeof twitterFeed === 'object' && twitterFeed !== null) {
-      mapacheTwitter(twitterFeed.name, twitterFeed.number);
+    // -----------------------------------------------------------------------------
+    const twitterFeedBox = qs('.js-twitter-feed')
+    if (typeof twitterFeed !== 'undefined' && twitterFeedBox) {
+      twitterFeedBox.classList.remove('u-hide')
+
+      const twitterBox = document.createElement('div')
+      twitterBox.innerHTML = `<a class="twitter-timeline" data-height="500" href="https://twitter.com/${twitterFeed}">Tweets by ${twitterFeed}</a>`
+
+      twitterFeedBox.appendChild(twitterBox)
+
+      loadScript('https://platform.twitter.com/widgets.js')
     }
-  }, //end => Finalize
-};
+
+    // Load Search
+    // -----------------------------------------------------------------------------
+    if (typeof searchSettings !== 'undefined' && typeof siteSearch !== 'undefined') {
+      loadScript('https://unpkg.com/@tryghost/content-api@1.3.3/umd/content-api.min.js', () => {
+        loadScript(siteSearch)
+      })
+    }
+
+    // Scrolll
+    // -----------------------------------------------------------------------------
+    const backToTop = qs('.back-to-top')
+    const domBody = document.body
+    const hasCover = domBody.closest('.has-cover')
+
+    const mapacheScroll = () => {
+      const scrollY = window.scrollY
+
+      //  Show Button for <Back-To-Top>
+      if (backToTop && scrollY > 500) {
+        backToTop.classList.add('to-top')
+      } else {
+        backToTop.classList.remove('to-top')
+      }
+
+      // show background and transparency
+      // in header when page have cover image
+      if (hasCover) {
+        scrollY >= 60 ? domBody.classList.remove('is-transparency') : domBody.classList.add('is-transparency')
+      }
+    }
+
+    window.addEventListener('scroll', mapacheScroll)
+  }
+}

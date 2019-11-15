@@ -1,30 +1,34 @@
-<aside class="sharePost u-textAlignCenter u-hide-before-lg u-fontSizeBase">
-    <div class="share-inner">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-            aria-label="Share on Facebook"
-            class="button button--circle i-facebook bg-facebook"
-            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-        </a>
-        <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-            aria-label="Share on Twitter"
-            class="button button--circle i-twitter bg-twitter"
-            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-        </a>
-        <a href="https://www.reddit.com/submit?url={{url absolute="true"}}&amp;title={{encode title}}"
-            aria-label="Share on Reddit"
-            class="button button--circle i-reddit bg-reddit"
-            onclick="window.open(this.href, 'share-reddit', 'width=600,height=480');return false;">
-        </a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
-            aria-label="Share on Linkedin"
-            class="button button--circle i-linkedin bg-linkedin"
-            onclick="window.open(this.href, 'share-linkeding', 'width=600,height=480');return false;">
-        </a>
-        <a href="https://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
-            aria-label="Share on Pinterest"
-            class="button button--circle i-pinterest bg-pinterest"
-            onclick="window.open(this.href, 'share-pinterest', 'width=600,height=480');return false;">
-        </a>
-        <div class="js-toggle-comments u-pointer button button--circle i-chat u-hide post-comments-show" style="margin-top:8px"></div>
+<aside class="post-share sticky-parent u-absolute0 u-textAlignCenter u-hide-before-lg u-fontSizeBase">
+    <div class="sticky-top-wrap">
+        <div class="post-share-inner sticky">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                aria-label="Share on Facebook"
+                class="button button--circle js-share bg-facebook">
+                <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
+            </a>
+            <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                aria-label="Share on Twitter"
+                class="button button--circle js-share bg-twitter">
+                <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
+            </a>
+            <a href="https://www.reddit.com/submit?url={{url absolute="true"}}&amp;title={{encode title}}"
+                aria-label="Share on Reddit"
+                class="button button--circle js-share bg-reddit">
+                <svg class="icon"><use xlink:href="#icon-reddit"></use></svg>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
+                aria-label="Share on Linkedin"
+                class="button button--circle js-share bg-linkedin">
+                <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+            </a>
+            <a href="https://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
+                aria-label="Share on Pinterest"
+                class="button button--circle js-share bg-pinterest">
+                <svg class="icon"><use xlink:href="#icon-pinterest"></use></svg>
+            </a>
+            <div class="js-toggle-comments u-pointer i-chat button button--circle u-hide post-comments-show" style="margin-top:8px">
+                <svg class="icon"><use xlink:href="#icon-chat"></use></svg>
+            </div>
+        </div>
     </div>
 </aside>

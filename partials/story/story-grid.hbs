@@ -1,19 +1,31 @@
-<article class="story-grid u-flexColumnTop u-relative u-marginBottom30 {{#if featured}}featured{{/if}}">
-    <a href="{{url}}" class="story-grid-image u-relative u-overflowHidden u-bgGray image-hover">
-        {{!-- Image - partials/helper/helper-story-image.hbs --}}
-        {{> "helper/helper-story-image"}}
-        {{!-- Media Type - partials/helper/helper-media-type.hbs --}}
-        {{> "helper/helper-media-type"}}
-    </a>
+<article class="post-box u-relative u-overflowHidden u-marginBottom30">
+    {{!--  Featured Image --}}
+    <figure class="post-box-image u-relative u-marginBottom15 u-block u-bgGray u-overflowHidden">
+        {{#if feature_image}}
+            <a href="{{url}}" class="post-box-image-link image-hover">
+                <img class="u-absolute0 u-image u-block blur-up lazyload"
+                    src="{{img_url feature_image size="m"}}"
+                    srcset="{{img_url feature_image size="xxs"}}"
+                    data-srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w"
+                    data-sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+                    alt="{{title}}"
+                />
+            </a>
+        {{/if}}
+    </figure>
 
-    <div class="story-grid-body u-flexColumn u-marginTop20 u-relative">
+    <div class="post-box-body">
         {{!-- Category and Datetime partials/helper/helper-story-meta --}}
         {{> "helper/helper-story-meta"}}
-        {{!-- Title --}}
-        <h2 class="story-grid-title u-fontSize20 u-lineHeightTight u-marginBottom10"><a href="{{url}}">{{title}}</a></h2>
-        {{!-- excerpt --}}
-        {{!-- <div class="story-lower u-relative u-overflowHidden u-flexColumnTop u-hide-after-mdf">
-            <p class="story-excerpt">{{excerpt words="25"}}</p>
-        </div> --}}
+
+        <h2 class="post-box-title title-hover {{#if class}}{{class}}{{else}}u-fontSize26 u-fontWeightMedium{{/if}} u-marginBottom10 u-lineHeightTight">
+            <a href="{{url}}" class="u-block">{{title}}</a>
+        </h2>
+
+        {{#if myexcerpt}}
+        <div class="post-box-excerpt u-block u-fontSizeBase u-lineClamp2">{{excerpt words="25"}}</div>
+        {{/if}}
     </div>
 </article>

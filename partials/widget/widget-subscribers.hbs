@@ -1,15 +1,26 @@
-{{#if @labs.subscribers}}
+{{#if @labs.members}}
 <div class="sidebar-items witget-subscribe u-marginBottom30 u-textAlignCenter">
-    <h5 class="u-fontSizeBase u-textColorDarker u-marginBottom20 u-fontWeightBold">{{t "Newsletter"}}</h5>
-    <label class="u-fontSizeSmaller u-marginBottom20" for="sidebarSubscribeUsername">{{t "Get the latest posts delivered right to your inbox"}}</label>
+    <h5 class="u-fontSize20 u-textColorDarker u-marginBottom20">{{t "Newsletter"}}</h5>
+    <div class="u-fontSizeSmaller u-marginBottom20">{{t "Get the latest posts delivered right to your inbox"}}</div>
 
-    {{subscribe_form
-    form_class="witget-subscribe--form"
-    input_id="sidebarSubscribeUsername"
-    input_class="u-fontSizeSmaller u-block u-marginBottom10"
-    button_class="button button--filled i-send u-textUppercase u-sizeFullWidth"
-    placeholder=(t "Your email address")
-    autofocus=""
-    }}
+    <form class="witget-subscribe--form swf" data-members-form="subscribe">
+        <div class="form-group">
+            <input
+                class="subscribe-email u-fontSizeSmaller u-block u-marginBottom10"
+                data-members-email
+                placeholder="{{t "youremail@example.com"}}"
+                aria-label="{{t 'Your email address'}}"
+                aria-describedby="sidebar-subscribe-btn"
+                autocomplete="false"
+                required
+            />
+            <button id="sidebar-subscribe-btn" class="button primary button button--filled u-textUppercase u-sizeFullWidth" type="submit">
+                <span class="button-text"><svg class="icon"><use xlink:href="#icon-send"></use></svg> {{t "Subscribe"}}</span>
+                {{> "icons/loader"}}
+            </button>
+        </div>
+        <div class="message-success u-hide"><strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription"}}</div>
+        <div class="message-error u-hide">{{t "Please enter a valid email address!"}}</div>
+    </form>
 </div>
 {{/if}}

@@ -1,17 +1,20 @@
-<div class="row mob-share u-marginTop30 u-hide-after-lg">
-    <div class="col s6">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-            class="mob-share-btn i-facebook bg-facebook u-fontSize20"
-            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <span class="share-title">SHARE</span>
-        </a>
-    </div>
+<div class="post-share-mob u-hide-after-lg u-flex u-flexCenter u-flexContentCenter u-fixed u-absolute0">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+        class="bg-facebook button u-textColorWhite"
+        onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+        <svg class="icon icon--s"><use xlink:href="#icon-facebook"></use></svg> Share
+    </a>
 
-    <div class="col s6">
-        <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
-            class="mob-share-btn i-twitter bg-twitter u-fontSize20"
-            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <span class="share-title">TWEET</span>
-        </a>
-    </div>
+    <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+        class="bg-twitter button u-textColorWhite"
+        onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+        <svg class="icon icon--s"><use xlink:href="#icon-twitter"></use></svg> Tweet
+    </a>
+
+    <a href="whatsapp://send?text={{url absolute="true"}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-whatsapp button u-textColorWhite">
+        <svg class="icon icon--s"><use xlink:href="#icon-whatsapp"></use></svg> Send
+    </a>
 </div>

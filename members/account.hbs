@@ -1,0 +1,29 @@
+{{!< ../default}}
+
+{{#contentFor "mapache_class_site_main"}}site-account u-flexColumnCenter u-relative{{/contentFor}}
+
+{{#if @member.paid}}
+
+    {{!-- Logged in, paying member: Show account info --}}
+    <div class="account-box">
+        <h2 class="account-box-title u-fontSizeLarger u-marginBottom30">Nice, you're a subscriber!</h2>
+        <p class="u-fontSizeBase">Hey! <strong>{{@member.email}}</strong> has an active {{@site.title}} account with access to all areas. You're all set, but if you need any help, get in touch with us and we'd be happy to help.</p>
+    </div>
+
+{{else if @member}}
+
+    {{!-- Logged in, not paying: Link to checkout --}}
+    <div class="account-box">
+        <h1 class="account-box-title u-fontSizeLarger u-marginBottom30">Currently, you're not a subscriber</h1>
+        <p class="u-marginBottom30 u-fontSizeBase">Hey there! <strong>{{@member.email}}</strong> is subscribed to free updates from {{@site.title}}, but doesn't have a paid subscription to unlock full access.</p>
+        <div class="authbox-signup">
+            <a class="button button--large button--filled" href="{{@site.url}}/membership/">Subscribe now</a>
+        </div>
+    </div>
+
+{{else}}
+
+    {{!-- Not logged in: Redirect to signin --}}
+    <script>window.location = '/signin/';</script>
+
+{{/if}}

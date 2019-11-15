@@ -1,56 +1,20 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article-single share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article is-article-single share-margin has-cover is-transparency{{/contentFor}}
 
-<div class="cc-image u-overflowHidden u-relative u-boxShadowBottom">
+{{#post}}
+{{!-- Article Header Cover - partials/article/article-header-cover.hbs --}}
+{{> "article/article-header-cover"}}
 
-    {{#post}}
-
-    {{#if feature_image}}
-        <img class="u-absolute u-image u-block"
-            srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
-            src="{{img_url feature_image size="xl"}}"
-            alt="{{title}}"
-        />
-        {{!-- Gradient --}}
-        <div class="u-bgGradient u-absolute0 zindex2"></div>
-    {{/if}}
-
-    {{/post}}
-
-    <div class="cc-image-header u-absolute zindex2">
-        <div class="extreme-container">
-            {{#post}}
-            <div class="post-header">
-                {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom10"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
-                <h1 class="post-t u-fontSizeJumbo u-textShadow u-md-fontSizeLarger u-textColorWhite">{{title}}</h1>
-                {{#if custom_excerpt}}<p class="post-e u-fontSize20 u-paddingTop10 u-textColorNormal">{{custom_excerpt}}</p>{{/if}}
-            </div>
-            {{/post}}
-        </div>
-    </div>
-</div>
-
-{{!-- Ad --}}
-{{> "ad/ad-post-header"}}
-
-<article class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
-
+<div class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
     {{!-- Article Author - partials/article/article-author.hbs --}}
     {{> "article/article-author"}}
 
     {{!-- Article Content - partials/article/article-body.hbs --}}
     {{> "article/article-body"}}
+</div>
+{{/post}}
 
-</article>
-
-{{!-- Comments partials/article/article-related.hbs --}}
+{{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
-
-{{!-- Instagram partials/widget/widget-instagram.hbs --}}
-{{> "widget/widget-instagram"}}

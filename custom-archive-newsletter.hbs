@@ -5,16 +5,58 @@
 {{#contentFor "mapache_class_body"}}is-newsletter{{/contentFor}}
 
 {{#post}}
+{{!-- Background --}}
+<div class="page-hero-bg">
+    <img
+        class="u-absolute u-sizeFullWidth"
+        src="{{asset "images/crystal-mountain.png"}}"
+        srcset="{{asset "images/crystal-mountain.png"}}, {{asset "images/crystal-mountain@2x.png"}} 2x"
+        style="z-index: -1"
+    />
+</div>
 
-<article class="post ne">
-    <header class="ne-h u-container">
-        <div class="ne-inner u-maxWidth740 u-marginAuto u-relative u-flexColumn u-flexCenter u-textAlignCenter">
-            <h1 class="ne-t">{{title}}</h1>
-            {{#if custom_excerpt}}<p class="ne-e u-textColorNormal">{{custom_excerpt}}</p>{{/if}}
-        </div>
+<article class="ne page-hero-wrap">
+    <header class="page-hero-inner u-container u-maxWidth1000 u-textAlignCenter u-sizeFullWidth">
+        <h1 class="page-hero-name u-fontSizeJumbo u-fontWeightNormal u-md-fontSize36 u-fontWeightSemibold"><span class="ne-t u-relative">{{title}}</span></h1>
+        <div class="page-hero-content u-fontWeightThin u-fontSize28 u-md-fontSize22 u-maxWidth740 u-marginAuto">{{custom_excerpt}}</div>
     </header>
 
     <section class="ne-body u-relative u-container"><div class="post-inner u-maxWidth1000 u-marginAuto ">{{content}}</div></section>
 </article>
-
 {{/post}}
+
+{{#contentFor "scripts"}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    var $form = $('#godo-form');
+
+    $form.submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
+            data: $form.serialize(),
+            cache: false,
+            dataType: 'jsonp',
+            contentType: 'application/json; charset=utf-8',
+
+            success: function(data) {
+                if (data.result === 'success') {
+                    $('.godo-ne-input').removeClass('error');
+                    $('.godo-ne-success').removeClass('u-hide');
+                    $form.addClass('u-hide');
+                    $('.godo-ne-input').val('');
+                } else {
+                    $('.godo-ne-input').addClass('error');
+                }
+            }
+        });
+
+        return false;
+    });
+});
+</script>
+{{/contentFor}}

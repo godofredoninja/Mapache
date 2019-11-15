@@ -1,0 +1,22 @@
+<div class="cc-image u-bgDark u-overflowHidden u-boxShadowBottom u-relative u-flexColumn">
+    {{#if feature_image}}
+        <img class="u-absolute u-image u-block blur-up"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+            src="{{img_url feature_image size="xl"}}"
+            alt="{{title}}"
+        />
+        <div class="u-bgOpacity u-absolute0 zindex2"></div>
+    {{/if}}
+
+    <div class="extreme-container u-relative zindex3">
+        <div class="u-maxWidth740 ">
+            {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom15"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+            <h1 class="post-t u-fontSizeJumbo u-textShadow u-md-fontSizeLarger u-textColorWhite">{{title}}</h1>
+            {{#if custom_excerpt}}<p class="u-fontSize20 u-paddingTop15 u-textColorWhite">{{custom_excerpt}}</p>{{/if}}
+        </div>
+    </div>
+</div>

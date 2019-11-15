@@ -1,92 +1,105 @@
-/* global instagramFeed siteUrl */
+/* global instagramFeed sitePrismJs */
 
-// Add Styles and Scripts
-import { loadStyle, loadScript } from '../app/app.load-style-script';
+import { loadStyle, loadScript } from '../app/app.load-style-script'
+import instagram from '../app/app.instagram'
 
-// Variables
-import * as variable from '../app/app.variables';
-
-// import facebookShareCount from '../app/app.facebook-share-count';
-import mapacheInstagram from '../app/app.instagram';
+// querySelector and document.querySelectorAll
+import { qs, qsa, iframeVideo } from '../app/app.variables'
 
 export default {
-  init() {
-    // Video Responsice
+  init () {
+    // Video Responsive
     // -----------------------------------------------------------------------------
-    const $allMedia = variable.$postInner.find(variable.iframeVideo.join(','));
-    // allMedia.map((key, value) => $(value).wrap('<aside class="video-responsive"></aside>'));
-    $allMedia.each(function () {
-      $(this).wrap('<aside class="video-responsive"></aside>').parent('.video-responsive');
-    });
+    const arrIframe = qsa(iframeVideo.join(','))
+    if (arrIframe.length) {
+      arrIframe.forEach(el => {
+        const box = document.createElement('div')
+        box.className = 'video-responsive'
+        el.parentNode.insertBefore(box, el)
+        box.appendChild(el)
+      })
+    }
   },
-  finalize() {
-
+  finalize () {
     // gallery
     // -----------------------------------------------------------------------------
-    const images = document.querySelectorAll('.kg-gallery-image img');
+    const images = qsa('.kg-gallery-image img')
 
-    images.forEach(function (image) {
-      const container = image.closest('.kg-gallery-image');
-      const width = image.attributes.width.value;
-      const height = image.attributes.height.value;
-      const ratio = width / height;
-      container.style.flex = ratio + ' 1 0%';
-    });
+    images.forEach(image => {
+      const container = image.closest('.kg-gallery-image')
+      const width = image.attributes.width.value
+      const height = image.attributes.height.value
+      const ratio = width / height
+      container.style.flex = ratio + ' 1 0%'
+    })
 
-    variable.$postInner.find('img').each( function (i, item) {
-      const $this = $(this);
-
-      if (!$this.parents('a').length) {
-        $this.addClass('mapache-light-gallery');
-        $this.attr('data-src' , item.src);
-
-        if ($this.next('figcaption').length) {
-          const figcaption = $this.next('figcaption').html();
-          $this.attr('data-sub-html' , figcaption);
-        }
-      }
-    });
-
-    const allImgess = variable.$postInner.find('.mapache-light-gallery');
-
-    if (allImgess.length) {
-      loadStyle('https://unpkg.com/lightgallery.js/dist/css/lightgallery.min.css');
-
-      loadScript(`${siteUrl}/assets/scripts/lightgallery.min.js`, () => {
-        variable.$postInner.each( (i, item) => window.lightGallery(item, { selector: '.mapache-light-gallery' }))
-      });
-
-      loadScript(`${siteUrl}/assets/scripts/lg-zoom.min.js`);
-
-      // loadScript('https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js', () => {
-      //   variable.$postInner.each( (i, item) => window.lightGallery(item, { selector: '.mapache-light-gallery' }))
-      // });
-
-      // loadScript('https://unpkg.com/lg-zoom.js@1.0.1/dist/lg-zoom.min.js');
-    }
-
-    // sticky share post in left
+    // <img> Set Atribute (data-src - data-sub-html)
     // -----------------------------------------------------------------------------
-    $('.sharePost').theiaStickySidebar({
-      additionalMarginTop: 120,
-      minWidth: 970,
-    });
+    qsa('.js-post-content img').forEach(el => {
+      if (el.closest('a')) return
+
+      el.classList.add('mapache-light-gallery')
+      el.setAttribute('data-src', el.src)
+
+      const nextElement = el.nextSibling
+
+      if (nextElement !== null && nextElement.nodeName.toLowerCase() === 'figcaption') {
+        el.setAttribute('data-sub-html', nextElement.innerHTML)
+      }
+    })
+
+    // Lightgallery
+    // -----------------------------------------------------------------------------
+    const lightGallery = qsa('.mapache-light-gallery')
+
+    if (lightGallery.length) {
+      loadStyle('https://unpkg.com/lightgallery.js/dist/css/lightgallery.min.css')
+
+      loadScript('https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js', () => {
+        loadScript('https://unpkg.com/lg-zoom.js@1.0.1/dist/lg-zoom.min.js')
+
+        window.lightGallery(qs('.js-post-content'), { selector: '.mapache-light-gallery' })
+      })
+    }
 
     // Instagram Feed
     // -----------------------------------------------------------------------------
-    if (typeof instagramFeed === 'object' && instagramFeed !== null) {
-      const url = `https://api.instagram.com/v1/users/${instagramFeed.userId}/media/recent/?access_token=${instagramFeed.token}&count=10&callback=?`;
-      const user = `<a href="https://www.instagram.com/${instagramFeed.userName}" class="button button--large button--chromeless" target="_blank" rel="noopener noreferrer"><i class="i-instagram"></i> ${instagramFeed.userName}</a>`;
-
-      if( $(window).width() > 768 ){ mapacheInstagram(url, user) }
+    const instagramBox = qs('.js-instagram')
+    if (typeof instagramFeed === 'object' && instagramFeed !== null && instagramBox) {
+      instagram(instagramFeed, instagramBox)
     }
 
-    // PrismJS code syntax
+    // highlight prismjs
     // -----------------------------------------------------------------------------
-    const $prismPre = variable.$postInner.find('code[class*="language-"]');
-    if ($prismPre.length) {
-      variable.$postInner.find('pre').addClass('line-numbers');
-      loadScript(`${siteUrl}/assets/scripts/prismjs.js`);
+    if (qsa('code[class*="language-"]').length && typeof sitePrismJs !== 'undefined') {
+      // line-numbers
+      // qsa('code[class*="language-"]').forEach(item => item.classList.add('line-numbers'))
+
+      loadScript(sitePrismJs)
     }
-  }, // end finalize
-};
+
+    // Post Share
+    // -----------------------------------------------------------------------------
+    qsa('.js-share').forEach(item => item.addEventListener('click', e => {
+      const width = 640
+      const height = 400
+      const win = window
+      const doc = document
+
+      const dualScreenLeft = win.screenLeft !== undefined ? win.screenLeft : win.screenX
+      const dualScreenTop = win.screenTop !== undefined ? win.screenTop : win.screenY
+
+      const containerWidth = win.innerWidth ? win.innerWidth : doc.documentElement.clientWidth ? doc.documentElement.clientWidth : win.screen.width
+      const containerHeight = win.innerHeight ? win.innerHeight : doc.documentElement.clientHeight ? doc.documentElement.clientHeight : win.screen.height
+
+      const left = ((containerWidth / 2) - (width / 2)) + dualScreenLeft
+      const top = ((containerHeight / 2) - (height / 2)) + dualScreenTop
+      const newWindow = win.open(e.currentTarget.href, 'share-window', `scrollbars=yes, width=${width}, height=${height}, top=${top}, left=${left}`)
+
+      // Puts focus on the newWindow
+      win.focus && newWindow.focus()
+
+      e.preventDefault()
+    }))
+  } // end finalize
+}

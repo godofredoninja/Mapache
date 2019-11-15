@@ -1,0 +1,27 @@
+<article class="story-travel-content">
+
+    {{#if feature_image}}
+        <a class="story-travel-image-link u-relative u-block image-hover u-overflowHidden u-bgGray" href="{{url}}">
+            <img class="story-travel-image u-absolute0 u-image lazyload blur-up"
+                src="{{img_url feature_image size="m"}}"
+                srcset="{{img_url feature_image size="xxs"}}"
+                data-srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                data-sizes="(max-width: 1000px) 400px, 700px"
+                alt="{{title}}"
+            />
+        </a>
+    {{/if}}
+
+    <div class="story-travel-body">
+        {{!-- Category and Datetime partials/helper/helper-story-meta --}}
+        {{> "helper/helper-story-meta"}}
+
+        <h2 class="story-travel-title title-hover {{#has number="1, 7, 11"}}u-fontSizeLarger{{else}}u-fontSizeLarge{{/has}} u-md-fontSize22">
+            <a href="{{url}}" class="u-block">{{title}}</a>
+        </h2>
+    </div>
+
+</article>

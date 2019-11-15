@@ -3,31 +3,23 @@
 .hr-list {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.0785);
-  margin: 20px 0 0;
-  // &:first-child { margin-top: 5px }
+  margin: 40px 0 0;
 }
 
 .story-feed .story-feed-content:first-child .hr-list:first-child {
   margin-top: 5px;
 }
 
-// media type icon ( video - image )
-// -----------------------------------------------------------------------------
-.media-type {
-  // background-color: lighten($primary-color, 15%);
-  background-color: rgba(0, 0, 0, .7);
-  color: #fff;
-  height: 45px;
-  left: 15px;
-  top: 15px;
-  width: 45px;
-  opacity: .9;
-
-  // @extend .u-bgColor;
-  @extend .u-fontSizeLarger;
-  @extend .u-round;
-  @extend .u-flexCenter;
-  @extend .u-flexContentCenter;
+.separate {
+  background-color: currentColor;
+  display: inline-block;
+  height: 1px;
+  margin-left: .75em;
+  margin-right: .75em;
+  opacity: .75;
+  vertical-align: middle;
+  width: 1.75em;
+  // background: #707177;
 }
 
 // When the cursor is hover the story the image for a zoom animation
@@ -41,203 +33,201 @@
   &:hover img { transform: scale(1.03) }
 }
 
-// not image
-// .not-image {
-//   background: url('../images/not-image.png');
-//   background-repeat: repeat;
-// }
+//  Hover in title of story
+.title-hover {
+  color: var(--story-title-color);
+  &:hover { opacity: .6; }
+}
 
-// Meta for Story ( Category - Datetime )
+// Meta for Story ( Category - Datetime - more link - featured icon)
 // -----------------------------------------------------------------------------
 .flow-meta {
-  color: rgba(0, 0, 0, 0.54);
-  font-weight: 500;
-  margin-bottom: 6px;
+  color: var(--text--secondary__Color);
+  margin-bottom: 1em;
 
-  &-cat { color: rgba(0, 0, 0, 0.84); letter-spacing: .02em; padding: 4px 2px; }
-  .point { margin: 0 5px }
+  &-cat {
+    color: var(--story-color);
+    letter-spacing: .02em;
+    padding: 4px 2px;
+  }
+}
+
+.flow-meta-cat,
+.more-link {
+  transition: none .25s ease-in-out;
+  transition-property: background-size, color;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0 100%, 0 100%;
+  background-size: 0 1px, 100% 1px;
+  background-image: linear-gradient(to top, var(--story-color), var(--story-color)), linear-gradient(to top, var(--story-more-link-border), var(--story-more-link-border));
+
+  &:hover,
+  &:focus {
+    color: var(--story-color);
+    background-size: 100% 1px, 100% 1px;
+  }
+}
+
+// stylelint-disable-next-line
+.more-link {
+  @extend %secundary-font;
+
+  display: inline-block;
+  color: var(--story-more-link-color);
+  // background-image: linear-gradient(to top, rgba(97, 97, 101, .5) 0, rgba(97, 97, 101, .5) 0), linear-gradient(to top, rgba(28, 29, 33, .15) 0, rgba(28, 29, 33, .15) 0);
+  background-image: linear-gradient(to top, var(--story-more-link-color), var(--story-more-link-color)), linear-gradient(to top, var(--story-more-link-border), var(--story-more-link-border));
+  // font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+
+  &::after { content: '...' }
+
+  &:hover,
+  &:focus {
+    color: var(--story-more-link-color);
+  }
+}
+
+.u-meta-featured {
+  font-size: 12px;
+  letter-spacing: 0.025em;
+  padding: 3px 10px;
+  right: 10px;
+  top: 10px;
 }
 
 // Story Default list
 // -----------------------------------------------------------------------------
 
 .story {
-  &-image {
-    flex: 0 0  44% /*380px*/;
-    height: 235px;
-    margin-right: 30px;
+  &-image { flex: 0 0  45% }
+  &-footer { color: var(--story-footer-color) }
+  &-title { margin-bottom: .625em }
+
+  &-body {
+    min-height: 250px;
+    padding: 1rem 0 1rem 2rem;
   }
 
-  &-lower { flex-grow: 1 }
+  &-lower {
+    color: var(--story-content-color);
+    flex: 1 1 auto;
+    letter-spacing: .02em;
+    margin-bottom: 1.5em;
+  }
 
   &-excerpt {
     @extend %secundary-font;
     // font-family: $secundary-font;
-    color: rgba(0, 0, 0, 0.84);
+    // color: rgba(0, 0, 0, 0.84);
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.6;
+  }
+}
+
+// Travel -> Story For Travel
+// -----------------------------------------------------------------------------
+
+.story-travel {
+  margin-bottom: 3.5em;
+
+  .flow-meta { margin-bottom: 1.25em; }
+
+  &-image-link {
+    padding-top: 66.5%;
+    margin-bottom: 1.375em;
   }
 
-  h2 a:hover { opacity: .6 }
+  &-title {
+    @extend %secundary-font;
+
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
+
+// Home Banner -> for story cover in top home page
+// -----------------------------------------------------------------------------
+.home-banner {
+  .h-cover-header {
+    padding: 30px 3.846153846% 20px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, .6) 100%);
+  }
+
+  // .h-cover-img { opacity: .6 }
+  .h-cover-items:hover .h-cover-bg { opacity: .4 }
+}
+
+// stylelint-disable-next-line
+.h-cover-items, // story cover for home page
+.sf-cover { // story featured Cover for travel
+  .flow-meta { color: rgba(255, 255, 255, .85) }
+
+  .flow-meta-cat {
+    color: #fff;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, .5) 0, rgba(255, 255, 255, .5) 0), linear-gradient(to top, rgba(255, 255, 255, .35) 0, rgba(255, 255, 255, .35) 0);
+  }
+}
+
+// blog -> Story for Blog
+// -----------------------------------------------------------------------------
+
+.is-blog .story-feed {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.entry {
+  margin-bottom: 4rem;
+
+  &-bg { opacity: 0; }
+
+  &-image {
+    margin-bottom: 3rem;
+    padding-top: 60%;
+
+    &:hover .entry-bg { opacity: .2; }
+  }
 }
 
 // Story Grid
 // -----------------------------------------------------------------------------
 
-.story-grid {
-  &-image { height: 170px }
-  h2:hover { opacity: .6; }
-}
-
-.story-grid .media-type {
-  font-size: 24px;
-  height: 40px;
-  width: 40px;
-}
-
-@media #{$lg-and-up} {
-  .home-story-grid .story-grid-title { font-size: 18px }
-}
-
-// Story Cover -> .st-cover
-// -----------------------------------------------------------------------------
-
-.st-cover {
-  overflow: hidden;
-  height: 300px;
-  width: 100%;
-
-  &-inner { height: 100% }
-  &-img { transition: all .25s; }
-  .flow-meta-cat { color: var(--story-cover-category-color) }
-  .flow-meta { color: #fff }
-  .flow-meta span { color: hsla(0, 0%, 100%, .7) }
-
-  &-header {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 30px 3.846153846% 20px;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, .9) 100%);
+.post-box {
+  &-image {
+    padding-top: 66.66667%;
   }
 
-  &:hover img { opacity: .8 }
-}
-
-// Story Card
-// ==========================================================================
-
-.story--card {
-  .story {
-    margin-top: 0 !important;
-  }
-
-  /* stylelint-disable-next-line */
-  .story-image {
-    border: 1px solid rgba(0, 0, 0, .04);
-    box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
-    border-radius: 2px;
-    background-color: #fff !important;
-    transition: all 150ms ease-in-out;
-    overflow: hidden;
-    height: 200px !important;
-
-    .story-img-bg { margin: 10px }
-
-    &:hover {
-      box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1);
-
-      .story-img-bg { transform: none }
-    }
-  }
-
-  .story-lower { display: none !important }
-
-  .story-body {
-    padding: 15px 5px;
-    margin: 0 !important;
-
-    h2 {
-      -webkit-box-orient: vertical !important;
-      -webkit-line-clamp: 2 !important;
-      color: rgba(0, 0, 0, .9);
-      display: -webkit-box !important;
-      // line-height: 1.1 !important;
-      max-height: 2.4em !important;
-      overflow: hidden;
-      text-overflow: ellipsis !important;
-      margin: 0;
-    }
-  }
-}
-
-// Story Small
-// ==========================================================================
-
-.story-small {
-  h3 {
-    color: #fff;
-    max-height: 2.5em;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-  }
-
-  &-img {
-    height: 170px
-  }
-
-  /* stylelint-disable-next-line */
-  .media-type {
-    height: 34px;
-    width: 34px;
-  }
-}
-
-// All Story Hover
-// ==========================================================================
-
-.story--hover {
-  /* stylelint-disable-next-line */
-  .lazy-load-image, h2, h3 { transition: all .25s }
-
-  &:hover {
-    .lazy-load-image { opacity: .8 }
-    h3,h2 { opacity: .6 }
-  }
-}
-
-// Media query after medium
-// ==========================================================================
-
-@media #{$md-and-up} {
-  // story grid
-  .story--grid {
-    .story-lower {
-      max-height: 3em;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      display: -webkit-box;
-      line-height: 1.1;
-      text-overflow: ellipsis;
-    }
+  &-excerpt {
+    color: #7d7d7d;
+    max-height: 3.3em;
+    line-height: 1.6;
   }
 }
 
 // Media query before medium
-// ==========================================================================
+// -----------------------------------------------------------------------------
 @media #{$md-and-down} {
-  // Story Cover
-  .cover--firts .story-cover { height: 500px }
+  .hr-list { margin-bottom: 30px; }
 
   // story default list
   .story {
-    flex-direction: column;
     margin-top: 20px;
 
-    &-image { flex: 0 0 auto; margin-right: 0 }
-    &-body { margin-top: 10px }
+    &-image {
+      height: 235px;
+      display: block;
+    }
+
+    &-body { padding: 1rem 0 0 }
   }
+}
+
+@media #{$md-and-up} {
+  // travel -> story for template of travel
+  .story-travel-image-link { padding-top: 130% }
+  .story-travel-large .story-travel-image-link { padding-top: 61.614%; }
+
+  // blog -> Story for template of blog
+  .entry { margin-bottom: 6rem; }
 }

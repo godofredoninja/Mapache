@@ -1,0 +1,39 @@
+{{!< default}}
+
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+
+{{#post}}
+
+<div class="site-category u-relative u-textAlignCenter u-flexCenter u-marginBottom30 u-textColorWhite">
+    {{#if feature_image}}
+        <img class="u-absolute u-image u-block lazyload blur-up"
+            src="{{img_url feature_image size="l"}}"
+            srcset="{{img_url feature_image size="xxs"}}"
+            data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w, {{img_url feature_image size="xl"}} 2000w"
+            data-sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+            alt="{{title}}"
+        />
+        <div class="u-absolute0 zindex2 u-bgOpacity"></div>
+    {{else}}
+        <img class="u-absolute u-image zindex2 u-block blur-up" src="{{asset "images/tag-bg.svg"}}" alt="Background of Tag">
+    {{/if}}
+
+    <div class="site-category-body u-relative extreme-container zindex3 u-fontSize20 u-flexCenter u-block-before-lg">
+        <div class="site-category-header u-flex1">
+            <h1 class="site-category-title u-fontSizeJumbo u-md-fontSize36 u-textCapitalize u-textColorWhite">{{title}}</h1>
+            {{#if custom_excerpt}}<p class="site-category-description u-marginTop20 u-maxWidth740 u-marginAuto">{{custom_excerpt}}</p>{{/if}}
+        </div>
+        <div class="site-category-count u-flex0 u-marginTop30">
+            <div class="u-textAlignCenter u-inlineBlock">
+                <span class="site-category-post-count u-block u-fontSize40 u-md-fontSizeLarger u-fontWeightBold">{{../pagination.total}}</span> {{t "Articles"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/post}}
+
+<section class="extreme-container">
+    {{!-- lates post - partials/loop.hbs --}}
+    {{> "loop"}}
+</section>

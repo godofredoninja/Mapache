@@ -7,7 +7,7 @@
   const $body = $('body');
   // const $header = $('.header');
   const intersectSels = ['.kg-width-full', '.kg-width-wide'];
-  const $shareBox = $('.share-inner')
+  const $shareBox = $('.post-share-inner')
   const $rocket = $('.rocket');
 
   let observe = [];
@@ -27,7 +27,7 @@
     /* Menu open and close for mobile */
     $('.js-menu-toggle').on('click', (e) => {
       e.preventDefault();
-      $body.toggleClass('is-showNavMob').removeClass('is-search');
+      $body.toggleClass('has-menu').removeClass('is-search');
     });
 
     /* Share article in Social media */

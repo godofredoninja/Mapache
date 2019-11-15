@@ -1,71 +1,41 @@
-/* global youtubeChannelID */
-
-// Variables
-import * as variable from '../app/app.variables';
-
-import { loadScript } from '../app/app.load-style-script';
+import { qs, iframeVideo } from '../app/app.variables'
 
 export default {
-  init() {
-    const $win = $(window);
-    const $videoEmbed = $('.cc-video-embed');
-    //  Dnot scroll
-    let didScroll = false;
+  init () {
+    const firstVideo = qs('.js-post-content').querySelectorAll(iframeVideo.join(','))[0]
 
-    // Video Post Format
+    if (!firstVideo) return
+
+    const videoMedia = qs('.cc-video-embed')
+    const documentBoby = document.body
+
+    // Append Video in Top of Article
     // -----------------------------------------------------------------------------
-    const firstVideo = variable.$postInner.find(variable.iframeVideo.join(','))[0];
-    const $video = $(firstVideo);
-
-    // if there are no videos, it returns
-    if ( !$video.length ) return;
-
-    if ( $video.parents('.kg-embed-card').length ) {
-      $video.parents('.kg-embed-card').appendTo($videoEmbed)
+    if (firstVideo.closest('.kg-embed-card')) {
+      videoMedia.appendChild(firstVideo.closest('.kg-embed-card'))
     } else {
-      $video.parent().appendTo($videoEmbed)
+      videoMedia.appendChild(firstVideo.parentNode)
     }
 
-    // Youtube subscribe
+    // Video fixed
     // -----------------------------------------------------------------------------
-    if (typeof youtubeChannelID !== 'undefined') {
-      const template = `<span class="u-paddingLeft15"><div class="g-ytsubscribe" data-channelid="${youtubeChannelID}" data-layout="default" data-count="default"></div></span>`;
-
-      $('.cc-video-subscribe').append(template);
-      loadScript('https://apis.google.com/js/platform.js');
-    }
-
-    // Fixed video in te footer of page
-    // -----------------------------------------------------------------------------
-    function fixedVideo() {
-      const scrollTop = $win.scrollTop();
-      const elementOffset = $('.post').offset().top;
-
-      if (scrollTop > elementOffset){
-        variable.$body.addClass('has-video-fixed');
+    const videoMediaScroll = () => {
+      if (window.scrollY > (qs('.js-video-post').offsetTop) - 100) {
+        documentBoby.classList.add('has-video-fixed')
       } else {
-        variable.$body.removeClass('has-video-fixed');
+        documentBoby.classList.remove('has-video-fixed')
       }
+    }
+
+    if (documentBoby.clientWidth > 1200) {
+      window.addEventListener('scroll', videoMediaScroll)
     }
 
     // Close video fixed
     // -----------------------------------------------------------------------------
-    $('.cc-video-close').on('click', () => {
-      variable.$body.removeClass('has-video-fixed');
-      $win.off('scroll.video');
-    });
-
-    if( $win.width() > 1200 ) {
-      // Active Scroll
-      $win.on('scroll.video', () => didScroll = true );
-
-      setInterval(() => {
-        if (didScroll) {
-          fixedVideo();
-          didScroll = false;
-        }
-      }, 500);
-    }
-
-  },
+    qs('.cc-video-close').addEventListener('click', () => {
+      documentBoby.classList.remove('has-video-fixed')
+      window.removeEventListener('scroll', videoMediaScroll)
+    })
+  }
 }

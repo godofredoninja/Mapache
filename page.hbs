@@ -1,20 +1,20 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-page{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article is-page is-article-single{{/contentFor}}
 
 {{#post}}
 
 <article class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
     {{!-- Page Title --}}
-    <h1 class="post-title u-fontSize36 u-marginBottom30 u-md-fontSizeLarger">{{title}}</h1>
+    <h1 class="post-title u-marginBottom20">{{title}}</h1>
 
     {{!-- Post Image - partials/helper/helper-article-image.hbs --}}
     {{> "helper/helper-article-image"}}
 
     {{!-- Page Content --}}
     <div class="post-body">
-        <div class="post-inner">{{content}}</div>
+        <div class="post-inner js-post-content">{{content}}</div>
     </div>
 </article>
 

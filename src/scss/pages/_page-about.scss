@@ -1,0 +1,12 @@
+.about {
+  padding-bottom: 5vh;
+
+  &-header {
+    min-height: 55vh;
+
+    &-inner { padding-bottom: 3em }
+  }
+
+  &-title { font-size: 90px }
+  &-gradient { background: linear-gradient(135deg, rgba(16, 43, 123, 0.7), rgba(46, 204, 113, 0.7)) }
+}

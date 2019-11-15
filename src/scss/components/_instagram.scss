@@ -1,0 +1,27 @@
+// Instagram Fedd
+// -----------------------------------------------------------------------------
+
+.instagram {
+  &-hover {
+    background-color: rgba(0, 0, 0, .3);
+    opacity: 0;
+  }
+
+  &-img {
+    height: 264px;
+
+    &:hover > .instagram-hover { opacity: 1 }
+  }
+
+  &-btn {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    position: absolute;
+  }
+}
+
+@media #{$md-and-down} {
+  .instagram-img { height: 180px; }
+}

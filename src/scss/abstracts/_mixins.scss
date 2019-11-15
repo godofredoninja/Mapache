@@ -1,24 +1,3 @@
-%link {
-  color: inherit;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-%link--accent {
-  color: var(--primary-color);
-  text-decoration: none;
-  // &:hover { color: $primary-color-hover; }
-}
-
-%content-absolute-bottom {
-  bottom: 0;
-  left: 0;
-  margin: 30px;
-  max-width: 600px;
-  position: absolute;
-  z-index: 2;
-}
-
 %u-absolute0 {
   bottom: 0;
   left: 0;
@@ -35,20 +14,25 @@
   font-family: $secundary-font;
 }
 
-%u-text-color-darker {
-  color: rgba(0, 0, 0, .8) !important;
-  fill: rgba(0, 0, 0, .8) !important;
+%u-line-clamp-2 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 // Flex Box
 %flex { display: flex }
-%flex-align-items-center { align-items: center }
-%flex-direction-column { flex-direction: column }
-%flex-direction-row { flex-direction: row }
-%flex-direction-wrap { flex-direction: wrap }
-%flex-justify-content-center { justify-content: center }
+%flex--1 { flex: 1 }
+%align-items-center { align-items: center }
+%direction-column { flex-direction: column }
+%direction-row { flex-direction: row }
+%justify-content-center { justify-content: center }
+%justify-content-start { justify-content: flex-start }
+%justify-content-end { justify-content: flex-end }
 
-%flex-AI-center {
+%flex-align-items-center {
   display: flex;
   align-items: center;
 }
@@ -66,4 +50,21 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+//  Modal
+%modal {
+  opacity: 0;
+  transition: opacity .2s ease-out .1s, visibility 0s .4s;
+  z-index: 100;
+  visibility: hidden;
+}
+
+%modal-bg { background-color: rgba(0, 0, 0, .5) }
+
+%modal-inner {
+  opacity: 0;
+  transform: scale(.6);
+  transition: transform .3s cubic-bezier(.06, .47, .38, .99), opacity .3s cubic-bezier(.06, .47, .38, .99);
+  overflow: hidden;
 }

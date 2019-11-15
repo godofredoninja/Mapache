@@ -1,32 +1,41 @@
 {{!-- Layout --}}
 {{!< default}}
 
+{{!-- {{#contentFor "mapache_class_site_main"}}page-hero-wrap{{/contentFor}} --}}
+
+{{!-- Page Header - partials/page/page-hero-header.hbs --}}
+{{> "page/page-hero-header"}}
+
 <section class="topic u-container extreme-container u-paddingTop30">
-
 {{#get "tags" limit="18" include="count.posts" order="count.posts desc"}}
-
 <div class="row">
 
     {{#foreach tags}}
 
-    <div class="col s12 m6 l4 u-marginBottom30">
-        <div class="topic-items u-relative u-textColorWhite u-overflowHidden">
-            {{!-- Image - partials/helper/helper-story-image.hbs --}}
-            {{> "helper/helper-story-image"}}
+    <div class="col col-s12 s6 l4 u-marginBottom30">
+        <article class="topic-card u-relative u-textColorWhite u-flexCenter u-flexColumn u-overflowHidden u-bgGray">
+            {{#if feature_image}}
+                <img class="topic-img u-absolute0 u-image u-block lazyload blur-up"
+                    src="{{img_url feature_image size="l"}}"
+                    srcset="{{img_url feature_image size="xxs"}}"
+                    data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
+                    data-sizes="(max-width: 1000px) 600px, 1000px"
+                    alt="{{title}}"
+                />
+            {{/if}}
+            <div class="topic-bg u-bgOpacity u-absolute0 zindex2"></div>
 
-            <div class="topic-gradient u-absolute0"></div>
-            <h3 class="u-fontSize20 u-fontWeightMedium u-absolute zindex2 u-textShadow u-textCapitalize" style="bottom:30px;left:20px">
-                <a href="{{url}}">{{name}} <span class="u-fontSizeSmall">({{count.posts}})</span> </a>
-            </h3>
+            <div class="u-relative zindex2 u-textAlignCenter">
+                <h3 class="topic-title u-fontSizeLarger u-textUppercase u-fontWeightNormal u-md-fontSize22"><a href="{{url}}">{{name}}</a></h3>
+                <div class="u-fontSizeSmall u-block u-marginTop20">{{plural count.posts empty='post' singular='% post' plural='% posts'}}</div>
+            </div>
             {{!-- Link --}}
             <a href="{{url}}" aria-label="{{name}}" class="u-absolute0 zindex3"></a>
-        </div>
+        </article>
     </div>
 
     {{/foreach}}
 
 </div>
-
 {{/get}}
-
 </section>

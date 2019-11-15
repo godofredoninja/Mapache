@@ -1,20 +1,20 @@
-// post content
-// ==========================================================================
+// Post Content
+// -----------------------------------------------------------------------------
 
 .post {
+  margin-bottom: 4.5rem;
+
   // title
   &-title {
-    color: #111;
     line-height: 1.2;
     max-width: 1000px;
   }
 
   &-excerpt {
     @extend %secundary-font;
-    // font-family: $secundary-font;
-    color: #555;
-    font-weight: 300;
-    letter-spacing: -.012em;
+
+    // color: rgba(0, 0, 0, 0.6);
+    color: var(--post-excerpt-color);
     line-height: 1.6;
   }
 
@@ -25,18 +25,15 @@
     padding: 0 3px;
   }
 
-  &-image { margin-top: 30px }
-
-  // &-body-wrap { max-width: 700px }
+  &-img { width: 100% }
 }
 
-// Avatar
-// ==========================================================================
+// Author - Avatar
+// -----------------------------------------------------------------------------
+
 .avatar-image {
   display: inline-block;
   vertical-align: middle;
-
-  @extend .u-round;
 
   &--smaller {
     width: 50px;
@@ -44,28 +41,43 @@
   }
 }
 
-// post content Inner
-// ==========================================================================
+// Post Content Inner
+// -----------------------------------------------------------------------------
+
 .post-inner {
   @extend %secundary-font;
-  @extend %flex-AI-center;
-  @extend %flex-direction-column;
+  @extend %flex-align-items-center;
+  @extend %direction-column;
 
-  font-family: $secundary-font;
-  font-size: 1.125rem;
+  font-size: 18px;
   line-height: 1.7;
 
-  & > * {
-    margin-top: 25px;
+  & > *:not(a) {
+    margin: 1rem 0 1rem 0;
     min-width: 100%;
+
+    &:first-child {
+      margin-top: 2rem;
+    }
   }
 
-  a:not(.kg-bookmark-container) {
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .5);
+  p { margin: 1rem 0 1rem 0; }
+
+  a:not(.kg-bookmark-container):not(.button) {
+    // box-shadow: inset 0 -2px 0 currentColor;
+    color: var(--post-color-link);
     text-decoration: none;
     word-break: break-word;
+    // transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+    transition: color, border-color .2s linear;
+    border-bottom: 1px solid var(--post-link-border);
 
-    &:hover { color: #000 }
+    &:hover { border-bottom-color: var(--post-color-link) }
+  }
+
+  q,
+  blockquote {
+    margin: 2.5rem 0 2.5rem 0;
   }
 
   img {
@@ -76,18 +88,20 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-style: normal;
-    color: #111;
+    color: var(--post-title-color);
     line-height: 1.2;
-  }
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 
-  h2 { margin-top: 35px }
+    & + p { margin-top: 0 }
+  }
 
   ul,
   ol {
     counter-reset: post;
 
     li {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       margin-left: 30px;
 
       &::before {
@@ -102,7 +116,7 @@
 
   ul > li::before {
     content: "\2022";
-    font-family: Georgia, Arial, system-ui; // stylelint-disable-line
+    font-family: Georgia, Arial, system-ui;
     transform: scale(1.1);
   }
 
@@ -111,299 +125,102 @@
     counter-increment: post;
     padding-right: 12px;
   }
-}
+  // warning success and Note
+  // -----------------------------------------------------------------------------
 
-// Share Post
-// ==========================================================================
-.sharePost {
-  left: 0;
-  width: 40px;
-  position: absolute !important;
-  transition: all .4s;
-  top: 30px;
-
-  .button {
-    color: #fff;
-    margin: 8px 0 0;
+  .warning {
+    background: #fbe9e7;
+    color: #d50000;
   }
 
-  .i-chat {
-    background-color: #fff;
-    border: 2px solid #bbb;
-    color: #bbb;
+  .note {
+    background: #e1f5fe;
+    color: #0288d1;
   }
 
-  .share-inner {
-    transition: visibility 0s linear 0s, opacity .3s 0s;
+  .success {
+    background: #e0f2f1;
+    color: #00897b;
+  }
 
-    &.is-hidden {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s linear .3s, opacity .3s 0s;
+  .warning, .note, .success {
+    padding: 20px;
+    border-radius: 5px;
+
+    // stylelint-disable-next-line
+    a {
+      color: inherit !important;
+      border-color: inherit !important;
     }
   }
 }
 
-// Post mobile share
-/* stylelint-disable-next-line */
-.mob-share {
-  .mob-share-btn {
-    @extend %flex-AI-center;
-    // display: flex;
-    // align-items: center;
-    height: 40px;
-    color: #fff;
-    justify-content: center;
-    box-shadow: none !important;
-  }
+// Post Upgrade
+// -----------------------------------------------------------------------------
 
-  .share-title {
-    font-size: 14px;
-    margin-left: 10px
-  }
+.post-upgrade-cta {
+  background-color: #F6F1E4;
+  // box-shadow: rgba(0, 0, 0, 0.15) 0 2px 10px;
+  padding: 48px 56px;
+  text-align: center;
+  max-width: 600px;
+  min-width: auto !important;
+  margin: 4rem auto !important;
+
+  .button { width: 270px }
 }
 
-// Previus and next article
-// ==========================================================================
-/* stylelint-disable-next-line */
-.prev-next {
-  &-span {
-    color: var(--composite-color);
-    font-weight: 700;
-    font-size: 13px;
+.post-upgrade-title { margin: 0 }
 
-    i {
-      display: inline-flex;
-      transition: all 277ms cubic-bezier(0.16, 0.01, 0.77, 1)
-    }
-  }
+// Post Related
+// -----------------------------------------------------------------------------
 
-  &-title {
-    margin: 0 !important;
-    font-size: 16px;
-    height: 2em;
-    overflow: hidden;
-    line-height: 1 !important;
-    text-overflow: ellipsis !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 2 !important;
-    display: -webkit-box !important;
-  }
+.post-related {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #f8f8f8;
 
-  &-link:hover {
-    .arrow-right { animation: arrow-move-right 0.5s ease-in-out forwards }
-    .arrow-left { animation: arrow-move-left 0.5s ease-in-out forwards }
-  }
-}
-
-// Image post Format
-// ==========================================================================
-.cc-image {
-  height: 100vh;
-  background-color: #0d0f10;
-
-  &-header {
-    right: 0;
-    bottom: 10%;
-    left: 0;
-  }
-
-  .post-header { max-width: 800px }
-  // .post-title { line-height: 1.1 }
-  // .post-title, .post-excerpt {
-  //   color: #fff;
-  //   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  // &-title {
+  //   border-bottom: 1px solid rgba(0, 0, 0, .0785);
   // }
 }
 
-// Video post Format
-// ==========================================================================
+// Light Gallery
+// -----------------------------------------------------------------------------
 
-.cc-video {
-  background-color: rgb(18, 18, 18);
-  padding: ($header-height + 20px) 0 30px;
-
-  // .post-excerpt { color: #aaa; font-size: 1rem }
-  // .post-title { color: #fff; font-size: 2rem }
-  // .kg-embed-card, .video-responsive { margin-top: 0 }
-  // .title-line span { font-size: 14px }
-  &-subscribe {
-    background-color: rgb(18, 18, 18);
-    color: #fff;
-    line-height: 1;
-    padding: 0 10px;
-    z-index: 1;
-  }
-}
-
-// Gallery
-.lg-backdrop {
-  background-color: rgba(0, 0, 0, .8) !important;
-}
-
+.lg-backdrop { background-color: rgba(0, 0, 0, .8) !important }
 .lg-sub-html, .lg-toolbar { background-color: rgba(0, 0, 0, .1) !important }
 
-// change the design according to the classes of the body
-body {
-  &.is-article .main { margin-bottom: 0 }
-  &.share-margin .sharePost { top: -60px }
-  // &.show-category .post-primary-tag { display: block !important }
-  // &.has-cover .post-primary-tag { display: block !important }
-
-  &.is-article-single {
-    .post-body-wrap { margin-left: 0 !important }
-    .sharePost { left: -100px }
-    .kg-width-full .kg-image { max-width: 100vw }
-    .kg-width-wide .kg-image { max-width: 1200px }
-
-    .kg-gallery-container {
-      max-width: 1200px;
-      width: 100vw;
-    }
-  }
-
-  // Video
-  &.is-video {
-    // .header { background-color: rgb(35, 35, 35) }
-    // .header-left a, .nav ul li a { color: #fff; }
-    // .menu--toggle span { background-color: #fff }
-    // .post-primary-tag { display: block !important }
-    .story-small h3 { font-weight: 400 }
-  }
-}
+// Breakpoints Medium devices
+// -----------------------------------------------------------------------------
 
 @media #{$md-and-down} {
   .post-inner {
+    font-size: 17px;
+
     q {
-      font-size: 20px !important;
-      letter-spacing: -.008em !important;
-      line-height: 1.4 !important;
+      font-size: 22px;
+      line-height: 1.4;
     }
 
-    ol, ul, p {
-      font-size: 1rem;
-      // letter-spacing: -.004em;
-      // line-height: 1.58;
+    q,
+    blockquote {
+      margin: 1.75rem 0 1.75rem 0;
+      padding-left: 0;
     }
 
-    iframe { width: 100% !important; }
-  }
-
-  // Image post format
-  .cc-image {
-    max-height: 700px;
-  }
-
-  .cc-image-header { bottom: 24px }
-  // .cc-image .post-excerpt { font-size: 18px; }
-
-  // video post format
-  .cc-video {
-    padding-bottom: 20px;
-
-    &-embed {
-      margin-left: -16px;
-      margin-right: -15px;
-    }
-
-    &-cont { margin-bottom: 20px }
-
-    //.post-header { margin-top: 10px }
-  }
-  // Image
-  .kg-width-wide .kg-image { width: 100% !important }
-}
-
-// Bookmark card
-// -----------------------------------------------------------------------------
-.kg-bookmark {
-  //
-  &-container {
-    @extend %primary-font;
-    @extend %flex;
-
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 4px;
-    overflow: hidden;
-  }
-
-  &-content {
-    @extend .u-flexColumnTop;
-
-    flex-grow: 1;
-    flex-basis: 100%;
-    padding: 20px;
-  }
-
-  &-title {
-    font-weight: 600;
-    line-height: 1.2;
-    font-size: 1.25rem;
-  }
-
-  &-description {
-    // @extend .u-lineClamp2;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    //
-    margin-bottom: 8px;
-    color: rgba(0, 0, 0, .54);
-    line-height: 1.4;
-    max-height: 4em;
-    margin-top: 10px;
-    font-size: 1rem;
-  }
-
-  &-metadata {
-    @extend %flex;
-    @extend %flex-align-items-center;
-
-    font-size: 0.9375rem;
-    color: rgba(0, 0, 0, .84);
-  }
-
-  &-thumbnail {
-    flex-grow: 1;
-    min-width: 33%;
-    position: relative;
-    min-height: 150px;
-  }
-
-  &-thumbnail img {
-    @extend .u-absolute0;
-    @extend .u-image;
-  }
-
-  &-icon {
-    width: 22px;
-    height: 22px;
-    margin: 0 8px 0 0 !important;
-  }
-
-  &-author::after {
-    content: '•';
-    margin: 0 6px;
-    color: rgba(0, 0, 0, 0.54);
+    iframe { width: 100% !important }
   }
 }
 
-// @media #{$lg-and-down} {
-//   body.is-article {
-//     .col-left { max-width: 100% }
-//     // .sidebar { display: none; }
-//   }
-// }
-
-@media #{$md-and-up} {
-  // Image post Format
-  // .cc-image .post-title { font-size: 3.2rem }
-  .prev-next-link { margin: 0 !important }
-  .prev-next-right { text-align: right }
+@media #{$lg-and-down} {
+  .post-header,
+  .post-author,
+  .post-body {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto
+  }
 }
 
 @media #{$lg-and-up} {
@@ -412,50 +229,5 @@ body {
   body.is-video,
   body.is-image {
     .post-author { margin-left: 70px }
-    // .sharePost { top: -85px }
-  }
-}
-
-@media #{$xl-and-up} {
-  body.has-video-fixed {
-    .cc-video-embed {
-      bottom: 20px;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
-      height: 203px;
-      padding-bottom: 0;
-      position: fixed;
-      right: 20px;
-      width: 360px;
-      z-index: 8;
-    }
-
-    .cc-video-close {
-      background: #000;
-      border-radius: 50%;
-      color: #fff;
-      cursor: pointer;
-      display: block !important;
-      font-size: 14px;
-      height: 24px;
-      left: -10px;
-      line-height: 1;
-      padding-top: 5px;
-      position: absolute;
-      text-align: center;
-      top: -10px;
-      width: 24px;
-      z-index: 5;
-    }
-
-    .cc-video-cont { height: 465px; }
-
-    .cc-image-header { bottom: 20% }
-  }
-}
-
-@media #{$sm-and-down} {
-  .kg-bookmark {
-    &-container { flex-direction: column }
-    &-content { order: 1 }
   }
 }

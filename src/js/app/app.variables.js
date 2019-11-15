@@ -1,7 +1,7 @@
-// post Inner
+export const qs = document.querySelector.bind(document)
+export const qsa = document.querySelectorAll.bind(document)
 
-export const $body = $('body');
-export const $postInner = $('.post-inner');
+export const urlRegexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \+\.-]*)*\/?$/ //eslint-disable-line
 
 /* Iframe SRC video */
 export const iframeVideo = [
@@ -10,5 +10,5 @@ export const iframeVideo = [
   'iframe[src*="youtube.com"]',
   'iframe[src*="youtube-nocookie.com"]',
   'iframe[src*="player.twitch.tv"]',
-  'iframe[src*="kickstarter.com"][src*="video.html"]',
-];
+  'iframe[src*="kickstarter.com"][src*="video.html"]'
+]

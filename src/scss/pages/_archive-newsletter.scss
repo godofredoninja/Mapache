@@ -1,145 +1,96 @@
+// .is-newsletter {
+//   color: rgba(0, 42, 115, .02);
+// }
+
+// Newsletter Page
+// -----------------------------------------------------------------------------
+
 .ne {
-  &-inner {
-    padding: 9vw 0 30px;
-    min-height: 200px;
+  // color: rgb(41, 67, 75);
+
+  &-t::before {
+    background-color: #e0f6ec;
+    bottom: 5%;
+    content: "";
+    display: block;
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 105%;
+    z-index: -1;
   }
 
-  // title
-  &-t {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    font-size: 4rem;
-    color: var(--newsletter-color);
-
-    &::before {
-      display: block;
-      content: "";
-      position: absolute;
-      bottom: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 105%;
-      height: 20px;
-      background-color: var(--newsletter-bg-color);
-      opacity: .2;
-      z-index: -1;
-    }
-  }
-
-  // excerpt
-  &-e {
-    @extend %secundary-font;
-    // font-family: $secundary-font;
-    margin-top: 40px;
-    font-size: 1.625rem;
-  }
-
-  &-body {
-    ul li { margin-bottom: 8px; font-size: 1rem }
-
-    &::before,
-    &::after {
-      display: block;
-      content: "";
-      position: absolute;
-      left: 0;
-      transform: translateX(-50%) rotate(49deg);
-      height: 15vw;
-      background-color: var(--newsletter-bg-color);
-      opacity: .2;
-      bottom: 35vw;
-      width: 43%;
-    }
-
-    &::after {
-      bottom: 30vw;
-      width: 48%;
-    }
-  }
+  &-body ul li { font-size: 1rem }
 }
 
-// Godo Newsletter Form
+// Newsletter Form
+// -----------------------------------------------------------------------------
+
 .godo-ne {
   @extend %primary-font;
   // font-family: $primary-font;
   background: #fff;
-  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  border: solid 1px #e6e8eb;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .03), inset 0 4px 0 0 rgb(39, 193, 125);
   margin: 40px auto 30px;
   max-width: 600px;
+  min-width: auto !important;
   padding: 30px 50px 40px 50px;
   position: relative;
   width: 100%;
-  min-width: auto;
 
   &-form {
     width: 100%;
 
     label {
-      display: block;
-      margin: 0 0 15px 0;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      font-weight: 500;
       color: var(--newsletter-color);
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
     }
 
     small {
       display: block;
-      margin: 15px 0 0;
       font-size: 12px;
-      // font-weight: 400;
-      color: rgba(0, 0, 0, 0.7)
+      margin: 15px 0 0;
+      opacity: .8;
     }
 
     &-group {
-      @extend %flex-AI-center;
-      @extend %flex-justify-content-center;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
+      @extend %flex-align-items-center;
+      @extend %justify-content-center;
     }
   }
 
   &-input {
     @extend %primary-font;
-    // font-family: $primary-font;
-    border-radius: 3px;
-    border: 1px solid #dae2e7;
-    color: #55595c;
-    font-size: 0.9375rem;
-    height: 37px;
-    line-height: 1em;
+
     margin-right: 10px;
-    padding: 0 12px;
-    transition: border-color .15s linear;
-    user-select: text;
-    width: 100%;
 
-    &.error {
-      border-color: #e16767;
-    }
+    &.error { border-color: #e16767 }
   }
 
-  &-button {
-    background: rgba(0, 0, 0, .84);
-    border: 0;
-    color: #fff;
-    fill: #fff;
-    flex-shrink: 0;
-
-    &:hover { background: var(--newsletter-color); color: #fff }
-  }
+  // &-button {
+  //   @extend .button;
+  //   @extend .button--dark;
+  //   @extend .button--large;
+  // }
 
   &-success {
     text-align: center;
-    h3 { margin-top: 20px; font-size: 1.4rem; font-weight: 600 }
-    p { margin-top: 20px; font-size: 0.9375rem; font-style: italic }
+    h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; }
+    p { font-size: 15px; font-style: italic }
   }
 }
 
-// Godo Newsletter Quotes
+// Newsletter Quotes
+// -----------------------------------------------------------------------------
+
 .godo-n-q {
   @extend %flex;
   // display: flex;
@@ -157,6 +108,7 @@
     margin: 20px 0 0 0;
     opacity: 0.8;
     padding: 0;
+    color: inherit;
 
     &::before { display: none }
   }
@@ -174,16 +126,14 @@
     font-size: 1.4rem;
     font-weight: 500;
     margin: 10px 0 0 0;
+    color: currentColor;
   }
 
   &-i {
     @extend %primary-font;
-    @extend %flex-AI-center;
-    @extend %flex-direction-column;
-    // font-family: $primary-font;
-    // align-items: center;
-    // display: flex;
-    // flex-direction: column;
+    @extend %flex-align-items-center;
+    @extend %direction-column;
+
     flex: 1 1 300px;
     margin: 0 20px 40px;
     text-align: center;
@@ -205,6 +155,4 @@
   .godo-ne-input { margin: 0 0 10px }
   .godo-ne-form-group { flex-direction: column }
   .godo-ne-button { width: 100%; margin-bottom: 5px }
-  .ne-t { font-size: 3rem }
-  .ne-e { font-size: 1.2rem }
 }

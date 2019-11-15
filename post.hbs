@@ -1,12 +1,12 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{!-- Ad --}}
-{{> "ad/ad-post-header"}}
+{{#contentFor "mapache_class_body"}}is-article{{/contentFor}}
 
 <section class="post extreme-container u-marginTop30 u-marginBottom40">
     <div class="row">
-        <article class="col-left">
+        {{#post}}
+        <article class="col col-left">
             {{!-- Article Header - partials/article/article-header.hbs --}}
             {{> "article/article-header"}}
 
@@ -14,11 +14,12 @@
             {{> "article/article-author"}}
 
             {{!-- Article Image - partials/helper/helper-article-image.hbs --}}
-            {{#post}} {{> "helper/helper-article-image"}} {{/post}}
+            {{> "helper/helper-article-image"}}
 
             {{!-- Article Content - partials/article/article-body.hbs --}}
             {{> "article/article-body"}}
         </article>
+        {{/post}}
 
         {{!-- Sidebar - partials/sidebar.hbs --}}
         {{> "sidebar"}}
@@ -27,6 +28,3 @@
 
 {{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
-
-{{!-- Instagram - partials/widget/widget-instagram.hbs --}}
-{{> "widget/widget-instagram"}}

@@ -4,10 +4,10 @@
   "demo": "https://godofredo.ninja",
   "version": "3.1.0",
   "engines": {
-    "ghost": ">=2.0.0",
-    "ghost-api": "v2"
+    "ghost": ">=3.0.0",
+    "ghost-api": "v3"
   },
-  "license": "GPLv3",
+  "license": "gpl-3.0",
   "author": {
     "name": "GodoFredoNinja",
     "email": "hello@godofredo.ninja",
@@ -36,7 +36,7 @@
     "email": "hello@godofredo.ninja"
   },
   "config": {
-    "posts_per_page": 16,
+    "posts_per_page": 15,
     "image_sizes": {
       "xxs": {
         "width": 30
@@ -59,9 +59,7 @@
     }
   },
   "browserslist": [
-    "last 2 versions",
-    "android 4",
-    "opera 12"
+    "defaults"
   ],
   "scripts": {
     "lint:js": "standard src/js/**/*.js gulpfile.js",
@@ -87,7 +85,7 @@
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
     "del": "^5.1.0",
-    "gscan": "^2.7.0",
+    "gscan": "^3.1.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-header": "^2.0.9",
@@ -98,8 +96,10 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.0",
     "merge-stream": "^2.0.0",
@@ -115,7 +115,6 @@
     "lazysizes": "^5.1.0",
     "lightense-images": "^1.0.8",
     "normalize.css": "^8.0.1",
-    "prismjs": "^1.15.0",
-    "theia-sticky-sidebar": "^1.7.0"
+    "prismjs": "^1.15.0"
   }
 }

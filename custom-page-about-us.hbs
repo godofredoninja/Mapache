@@ -1,0 +1,39 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article is-about-us{{/contentFor}}
+
+{{#post}}
+
+<article class="about">
+
+    <header class="about-header u-relative u-bgDark u-textColorWhite u-flexColumnTop u-flexEnd">
+        {{#if feature_image}}
+            <img class="about-img u-image u-absolute0 blur-up"
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(max-width: 400px) 300px,(max-width: 730px) 600px, (max-width: 1600px) 100vw"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{title}}"
+            />
+            <div class="u-absolute0 about-gradient zindex2"></div>
+        {{/if}}
+
+        <div class="u-relative u-maxWidth1200 u-sizeFullWidth u-container zindex3">
+            <div class="about-header-inner u-maxWidth740 u-paddingTop20">
+                {{!-- Page Title --}}
+                <h1 class="about-title u-md-fontSize36 u-marginBottom20">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="about-excerpt u-fontSize20 u-marginTop20">{{custom_excerpt}}</p>{{/if}}
+            </div>
+        </div>
+    </header>
+
+    {{!-- Page Content --}}
+    <div class="post-body u-maxWidth1200 u-container u-paddingTop20 u-marginAuto">
+        <div class="post-inner js-post-content u-paddingTop20">{{content}}</div>
+    </div>
+</article>
+
+{{/post}}

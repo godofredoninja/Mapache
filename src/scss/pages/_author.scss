@@ -3,7 +3,7 @@
 
 .author {
   &-inner {
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     padding: 40px 5%;
     width: 90%;
   }
@@ -39,34 +39,26 @@
   }
 
   &-follow .button {
+    background-color: #fff;
     border: 1px solid #000;
     color: #000;
     margin-bottom: 10px;
+
+    &:hover {
+      border-color: transparent;
+      color: #fff;
+    }
   }
 
-  .fb:hover {
-    border-color: #3b5998;
-    background-color: #3b5998;
-    color: #fff;
-  }
-
-  .tw:hover {
-    border-color: #55acee;
-    background-color: #55acee;
-    color: #fff;
-  }
-
-  .rs:hover {
-    border-color: #e99804;
-    background-color: #e99804;
-    color: #fff;
-  }
+  .fb:hover { background-color: #3b5998 !important; }
+  .tw:hover { background-color: #55acee !important; }
+  .rs:hover { background-color: #e99804 !important; }
 
   .title-line {
-    &::before { background: rgba(0, 0, 0, 0.54) }
+    &::before { background: #444 }
   }
 
-  .u-oblique { background: #000 }
+  // .u-oblique { background: #000 }
 }
 
 @media #{$md-and-down} {

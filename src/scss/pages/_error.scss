@@ -1,22 +1,11 @@
 // Error Page 404
 // -----------------------------------------------------------------------------
 
-.errorPage {
-  font-family: 'Roboto Mono', monospace;
+.page-error {
+  &-title { font-size: 250px }
+  &-wrap { padding: 5vw 4vw }
+}
 
-  &-link {
-    left: -5px;
-    padding: 24px 60px;
-    top: -6px;
-  }
-
-  &-text {
-    margin-top: 60px;
-    white-space: pre-wrap;
-  }
-
-  &-wrap {
-    color: rgba(0, 0, 0, .4);
-    padding: 7vw 4vw;
-  }
+@media #{$md-and-down} {
+  .page-error-title { font-size: 180px }
 }

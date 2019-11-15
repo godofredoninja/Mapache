@@ -1,0 +1,18 @@
+{{!-- Layouts --}}
+{{!< default}}
+
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+
+{{!-- Post Grid - 8 lates article --}}
+<section class="extreme-container story-feed u-paddingTop30">
+    <div class="row story-feed-content">
+
+        {{#foreach posts visibility="all"}}
+            <div class="col s12 story-travel {{#has number="1, 7, 11"}}m8 story-travel-large{{else}}m4{{/has}}">
+                {{!-- Story Grid - partiasl/story/story-travel.hbs --}}
+                {{> "story/story-travel" }}
+            </div>
+        {{/foreach}}
+
+    </div>
+</section>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
+<html lang="{{@site.lang}}" data-theme="light">
 <head>
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
@@ -10,24 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{!-- Styles --}}
     <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
-    {{!-- All Styles Compress --}}
-    {{!-- <style>{{> "styles"}}</style> --}}
 
     {{!-- Fonts => Roboto && Merriweather --}}
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700,700i|Roboto:300,400,400i,500,500i,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700|Roboto:300,400,400i,500,500i,700&display=swap" rel="stylesheet">
 
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 </head>
-<body class="{{#is "post"}}is-article{{/is}} {{{block "mapache_class_body"}}}">
-    {{!-- Header Content --}}
-    {{>"header"}}
+<body class="{{{block "mapache_class_body"}}}">
 
-    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-    <main class="main u-relative">{{{body}}}</main>
+    <div class="site-wrapper u-flexColumnTop">
+        {{!-- Header --}}
+        {{> "header"}}
 
-    {{!-- Footer Content --}}
-    {{>"footer"}}
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        <main class="site-main {{{block "mapache_class_site_main"}}}">{{{body}}}</main>
+
+        {{!-- Instagram - partials/widget/widget-instagram.hbs --}}
+        {{#is "post"}}{{> "widget/widget-instagram"}}{{/is}}
+
+        {{!-- Footer Content --}}
+        {{>"footer"}}
+    </div>
 
     {{!-- Search box --}}
     {{>"search"}}
@@ -35,17 +39,24 @@
     {{!-- Loandig Bar --}}
     <div class="loadingBar"></div>
 
-    {{!-- Widget Modal Subscribe --}}
-    {{> "widget/widget-subscribe-modal"}}
-
     {{!-- Return home top page scroll --}}
-    <div class="rocket u-hide-before-md i-arrow-round-up u-flexCenter u-flexContentCenter u-fontSize40"></div>
+    <div class="back-to-top js-back-to-top u-hide-before-lg u-flexCenter u-flexContentCenter u-fontSize40">
+        <svg class="icon icon--arrow-up"><use xlink:href="#icon-arrow-round"></use></svg>
+    </div>
 
-    {{!-- Jquery --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{!-- Notifications for members --}}
+    {{#if @labs.members}} {{> "notifications"}} {{/if}}
 
     {{!-- Site URL --}}
-    <script>var siteUrl = '{{@site.url}}';</script>
+    <script>
+        var siteUrl = '{{@site.url}}';
+        var siteSearch = '{{asset "scripts/search.js"}}';
+        var sitePrismJs = '{{asset "scripts/prismjs.js"}}';
+        var sitePrismJscomponents = '/assets/scripts/components/';
+    </script>
+
+    {{!-- Icons --}}
+    {{> "icons/icons-symbol-defs"}}
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
@@ -53,15 +64,19 @@
     {{!-- The main JavaScript --}}
     <script src="{{asset "scripts/main.js"}}" defer></script>
 
-    {{!-- Content APi --}}
-    <script src="https://unpkg.com/@tryghost/content-api@1.2.5/umd/content-api.min.js" defer></script>
-    <script src="{{asset "scripts/search.js"}}" defer></script>
-
-    {{#if pagination.pages}}
-        <script src="{{asset "scripts/pagination.js"}}" async defer></script>
-    {{/if}}
+    {{#if pagination.pages}}<script src="{{asset "scripts/pagination.js"}}" async defer></script>{{/if}}
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. --}}
     {{{block "scripts"}}}
+
+    <script>
+        if (typeof(Storage) !== 'undefined') {
+            if (localStorage.getItem('selected-theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+    </script>
 </body>
 </html>

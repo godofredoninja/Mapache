@@ -1,34 +1,30 @@
-<div id="post-comments" class="post-comments post-comments-show u-hide">
-        {{!-- close Comments  --}}
-    <div class="post-comments-header u-fontSizeSmaller">
-        <span class="js-toggle-comments i-close"></span>
+<div id="post-comments" class="post-comments u-sizeFullWidth post-comments-show u-absolute0 u-fixed u-hide">
+    <div class="post-comments-header u-paddingLeft15 u-flexCenter">
+        <div class="js-toggle-comments button button--dark button--circle"><svg class="icon"><use xlink:href="#icon-close"></use></svg></div>
     </div>
 
     <div class="post-comments-wrap u-padding15">
-        <div class="mapache-disqus-loanding u-textAlignCenter u-marginTop30">{{t "Loading..."}}</div>
-        {{!-- Disqus Comments --}}
-        <div id="disqus_thread" class="mapache-disqus u-hide"></div>
-        {{!-- Comments section for facebook --}}
-        {{!-- <div class="fb-comments mapache-facebook u-hide" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div> --}}
+        <div class="js-disqus-loanding u-textAlignCenter u-marginTop30">{{t "Loading..."}}</div>
+        <div id="disqus_thread" class="js-disqus u-hide"></div>
     </div>
 </div>
 
-{{!-- Overlay --}}
-<div class="post-comments-overlay u-absolute0 js-toggle-comments"></div>
+<div class="post-comments-overlay u-absolute0 u-fixed js-toggle-comments"></div>
 
 {{#contentFor "scripts"}}
 <script>
-    (function(d, s, id) {
+    (function (d, s, id) {
         if (typeof disqusShortName === 'undefined') return;
-
-        $('.post-comments-show').removeClass('u-hide');
 
         var disqus_config = function () {
             this.page.url = '{{url absolute="true"}}';
             this.page.identifier = 'ghost-{{comment_id}}';
         };
 
-        /* Comments Count */
+        var commentShow = d.querySelectorAll('.post-comments-show');
+        commentShow.forEach(function(item){item.classList.remove('u-hide')});
+
+        // Disqus Comments Count
         var count = d.createElement(s);
         count.src = 'https://'+disqusShortName+'.disqus.com/count.js';
         count.id = 'dsq-count-scr';
@@ -37,15 +33,16 @@
         d.body.appendChild(count);
 
         // Toggle Comments
-        $('.js-toggle-comments').on('click', function (e) {
+        var toggleComments = d.querySelectorAll('.js-toggle-comments')
+        toggleComments.forEach(function(item) { item.addEventListener('click', function (e) {
             e.preventDefault();
-            $('body').toggleClass('has-comments').removeClass('is-showNavMob')
+            d.body.classList.toggle('has-comments');
 
             if (d.getElementById(id)) return;
 
             setTimeout(function(){
-                $('.mapache-disqus-loanding').remove();
-                $('.mapache-disqus').removeClass('u-hide');
+                d.querySelector('.js-disqus-loanding').remove();
+                d.querySelector('.js-disqus').classList.remove('u-hide');
             }, 2000);
 
             var js = d.createElement(s);
@@ -53,8 +50,9 @@
             js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
             js.async = true;
             js.defer = true;
-            d.body.appendChild(js)
-        });
+            js.setAttribute('data-timestamp', +new Date());
+            d.body.appendChild(js);
+        })})
     }(document, 'script', 'disqus-js'));
 </script>
 {{/contentFor}}

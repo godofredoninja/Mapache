@@ -1,0 +1,65 @@
+{{!-- Layouts --}}
+{{!< default}}
+
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+
+{{!-- Story Featured  Large --}}
+{{#get "posts" limit="1" filter="featured:true" include="tags" as |post_featured|}}
+{{#foreach post_featured}}
+
+<div class="sf-content-area u-bgDark u-relative u-marginBottom40">
+
+    <article class="sf-cover u-textColorWhite u-textAlignCenter u-flexColumnCenter u-flexContentCenter u-paddingTop30 u-paddingBottom30">
+
+        {{!-- <div class="bg-lines u-hide-before-md zindex3">
+            <div class="bg-line bg-line--1"></div>
+            <div class="bg-line bg-line--2"></div>
+            <div class="bg-line bg-line--3"></div>
+            <div class="bg-line bg-line--4"></div>
+            <div class="bg-line bg-line--5"></div>
+        </div> --}}
+
+        {{#if feature_image}}
+            <figure class="sf-cover-figure">
+                <a href="{{url}}">
+                    <img class="u-image u-absolute0 blur-up lazyload"
+                        src="{{img_url feature_image size="l"}}"
+                        srcset="{{img_url feature_image size="xxs"}}"
+                        data-srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w,
+                                {{img_url feature_image size="xl"}} 2000w"
+                        data-sizes="(max-width: 400px) 300px,(max-width: 730px) 600px, (max-width: 1600px) 100vw"
+                        alt="{{title}}"
+                    />
+                </a>
+            </figure>
+            <div class="topic-bg u-bgOpacity u-absolute0 zindex2"></div>
+        {{/if}}
+
+        <div class="sf-cover-body u-container u-maxWidth1000 u-relative zindex4">
+            {{!-- Category and Datetime partials/helper/helper-story-meta --}}
+            {{> "helper/helper-story-meta"}}
+
+            <h2 class="sf-cover-title u-fontSizeJumbo u-marginTop30 u-md-fontSize36"><a href="{{url}}">{{title}}</a></h2>
+        </div>
+
+    </article>
+</div>
+
+{{/foreach}}
+{{/get}}
+
+{{!-- Post Grid - 8 lates article --}}
+<section class="extreme-container story-feed u-paddingTop30">
+    <div class="row story-feed-content">
+
+        {{#foreach posts visibility="all"}}
+            <div class="col s12 story-travel {{#has number="1, 7, 11"}}m8 story-travel-large{{else}}m4{{/has}}">
+                {{!-- Story Grid - partiasl/story/story-travel.hbs --}}
+                {{> "story/story-travel" }}
+            </div>
+        {{/foreach}}
+
+    </div>
+</section>

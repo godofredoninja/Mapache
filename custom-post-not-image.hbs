@@ -1,29 +1,25 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{!-- Ad --}}
-{{> "ad/ad-post-header"}}
+{{#contentFor "mapache_class_body"}}is-article is-article-single{{/contentFor}}
 
-<section class="post extreme-container u-marginTop30 u-marginBottom40">
-    <div class="row">
-        <article class="col-left">
-            {{!-- Article Header - partials/article/article-header.hbs --}}
-            {{> "article/article-header"}}
+{{#post}}
+<article class="post">
 
-            {{!-- Article Author - partials/article/article-author.hbs --}}
-            {{> "article/article-author"}}
+    <header class="u-container u-maxWidth740 u-marginTop30">
+        {{!-- Article Header - partials/article/article-header.hbs --}}
+        {{> "article/article-header"}}
 
-            {{!-- Article Content - partials/article/article-body.hbs --}}
-            {{> "article/article-body"}}
-        </article>
+        {{!-- Article Author - partials/article/article-author.hbs --}}
+        {{> "article/article-author"}}
+    </header>
 
-        {{!-- Sidebar - partials/sidebar.hbs --}}
-        {{> "sidebar"}}
+    <div class="post u-maxWidth740 u-marginAuto u-container u-marginTop20 u-marginBottom40">
+        {{!-- Article Content - partials/article/article-body.hbs --}}
+        {{> "article/article-body"}}
     </div>
-</section>
+</article>
+{{/post}}
 
-{{!-- Comments partials/article/article-related.hbs --}}
+{{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
-
-{{!-- Instagram partials/widget/widget-instagram.hbs --}}
-{{> "widget/widget-instagram"}}

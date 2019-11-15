@@ -1,0 +1,22 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{!-- Class for <body> --}}
+{{#contentFor "mapache_class_body"}}is-contact{{/contentFor}}
+
+{{#contentFor "mapache_class_site_main"}}page-hero-wrap{{/contentFor}}
+
+{{#post}}
+
+<div class="u-container u-maxWidth1000 u-textAlignCenter u-sizeFullWidth u-relative zindex3">
+    <h1 class="page-hero-name u-fontSizeJumbo u-fontWeightNormal u-md-fontSize36">{{title}}</h1>
+</div>
+<div class="contact-content extreme-container u-relative">
+    <img src="{{asset "images/contact-stain.jpg"}}" class="u-absolute contact-stain u-hide-before-md" alt="contact stain">
+    <img src="{{asset "images/contact-icons.svg"}}" class="u-absolute contact-svg u-hide-before-md" alt="contact svg">
+    <div class="u-relative zindex3">
+        {{content}}
+    </div>
+</div>
+
+{{/post}}

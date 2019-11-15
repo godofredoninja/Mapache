@@ -1,44 +1,3 @@
-// Instagram Fedd
-// ==========================================================================
-.instagram {
-  &-hover {
-    background-color: rgba(0, 0, 0, .3);
-    // transition: opacity 1s ease-in-out;
-    opacity: 0;
-  }
-
-  &-img {
-    height: 264px;
-
-    &:hover > .instagram-hover { opacity: 1 }
-  }
-
-  &-name {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-
-    a {
-      background-color: #fff;
-      color: #000 !important;
-      font-size: 18px !important;
-      font-weight: 900 !important;
-      min-width: 200px;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-      text-align: center !important;
-    }
-  }
-
-  &-col {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  &-wrap { margin: 0 !important }
-}
-
 // Newsletter Sidebar
 // ==========================================================================
 .witget-subscribe {
@@ -60,15 +19,5 @@
     top: -5px;
     width: calc(100% + 10px);
     z-index: 1;
-  }
-
-  input {
-    // background: #fff;
-    // border: 1px solid #e5e5e5;
-    color: rgba(0, 0, 0, .54);
-    height: 41px;
-    outline: 0;
-    padding: 0 16px;
-    width: 100%;
   }
 }

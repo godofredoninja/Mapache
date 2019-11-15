@@ -8,7 +8,7 @@ export function loadStyle (href) {
 export function loadScript (src, callback) {
   var scriptElement = document.createElement('script')
   scriptElement.src = src
-  scriptElement.defer = true;
+  scriptElement.defer = true
   callback && scriptElement.addEventListener('load', callback)
   document.body.appendChild(scriptElement)
 }

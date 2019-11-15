@@ -16,7 +16,7 @@
   }
 
   &-wrap {
-    background-color: #fff;
+    background-color: var(--input-bg-color);
     border-radius: 5px;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, .09), 2px 32px 38px -20px rgba(0, 0, 0, .25);
     overflow: hidden;
@@ -24,14 +24,14 @@
 
   &-message {
     padding: 7px 8px;
-    color: #738a94;
+    color: var(--search-color-message);
     font-size: .9em;
     border-top: 1px solid rgba(231, 239, 243, .7);
   }
 
   &-close {
-    background: #fff;
-    color: #000;
+    // background: #fff;
+    // color: #000;
     position: absolute;
     right: 20px;
     top: 8px;
@@ -41,10 +41,15 @@
     padding: 12px 16px;
     overflow: hidden;
 
-    & > i { margin-right: 5px; color: #9baeb8 }
+    .icon--search {
+      margin-right: 5px;
+      color: var(--input-color);
+      opacity: .7;
+      // color: #9baeb8
+    }
 
     input {
-      box-shadow: none;
+      border-color: transparent;
     }
   }
 
@@ -56,13 +61,13 @@
 
     a {
       padding: 10px 20px;
-      background: rgba(0, 0, 0, .05);
-      color: rgba(0, 0, 0, .7);
+      background: var(--search-bg-link);
+      color: var(--search-color-link);
       text-decoration: none;
       display: block;
       transition: all 0.3s ease-in-out;
 
-      &:hover, &.search-result--active { background: #dedede }
+      &:hover, &.search-result--active { background: var(--search-bg-link-hover) }
     }
   }
 }
@@ -92,12 +97,6 @@
     line-height: 18px;
     text-align: center;
   }
-}
-
-.button-search--close {
-  position: absolute !important;
-  right: 50px;
-  top: 20px;
 }
 
 body.has-search {

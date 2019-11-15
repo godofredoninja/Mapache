@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{!-- Styles --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "styles/signup.css"}}"/>
+    {{!-- Fonts => Roboto --}}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700&display=swap" rel="stylesheet">
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+</head>
+<body class="is-signup">
+
+    {{#if @member.paid}}
+        {{!-- Logged in, paying member: Redirect home --}}
+        <script>window.location = '{{@site.url}}';</script>
+    {{else if @member}}
+        {{!-- Logged in, not paying: Check out --}}
+        <script>window.location = '{{@site.url}}/membership/';</script>
+    {{else}}
+
+        <div class="signup-viewport">
+            <div class="signup-content">
+
+                {{!-- Logo or name --}}
+                <div class="signup-header">
+                    {{#if @site.logo}}
+                        <a class="signup-site-logo" href="{{@site.url}}"><img src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}"/></a>
+                    {{else}}
+                        <a class="signup-site-title" href="{{@site.url}}">{{@site.title}}</a>
+                    {{/if}}
+                </div>
+
+                <h1 class="signup-title">{{t "Sign up"}}</h1>
+
+                {{!-- Not logged in: Sign up --}}
+                <form class="signup-form" data-members-form="signup">
+                    <div class="signup-box">
+                        <div class="signup-input-icon">
+                            {{> "icons/icon-email"}}
+                            <input data-members-email type="email" placeholder="{{t 'Type your email...'}}" required="true" autocomplete="false" />
+                        </div>
+                        <button class="button button--filled button--large" type="submit">
+                            <span class="button-text">{{t "Continue"}}</span>
+                            {{> "icons/loader"}}
+                        </button>
+                    </div>
+                    <div class="message-success u-hide"><strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription"}}</div>
+                    <div class="message-error u-hide">{{t "Please enter a valid email address!"}}</div>
+                </form>
+
+                {{!-- Logo or name --}}
+                <div class="signup-footer">
+                    {{t "Already have an account?"}} <a href="{{@site.url}}/signin/">{{t "Sign in"}}</a>
+                </div>
+            </div>
+        </div>
+
+    {{/if}}
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+</body>
+</html>

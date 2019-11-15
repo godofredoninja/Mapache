@@ -1,21 +1,9 @@
 // 1. Colors
-// ==========================================================================
-
-$primary-color: #00a034;
-// $primary-color: #00A034;
-$primary-color-hover: #00ab6b;
-
-// $primary-color: #33668c;
-// $primary-color-dark:   #1976d2;
+// -----------------------------------------------------------------------------
+$podcast-color-bg-dark: #110f16;
+$podcast-card-bg-dark: #18151f;
 
 $primary-text-color:   #222;
-
-// $primary-color-light:
-// $primary-color-text:
-// $accent-color:
-// $primary-text-color:
-// $secondary-text-color:
-// $divider-color:
 
 // social colors
 $social-colors: (
@@ -44,11 +32,10 @@ $social-colors: (
 );
 
 // 2. Fonts
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
 $primary-font:    'Roboto',Whitney SSm A,Whitney SSm B,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif; // font default page and titles
 $secundary-font:  'Merriweather',Mercury SSm A,Mercury SSm B,Georgia,serif; // font for content
-$code-font:       'Roboto Mono', Dank Mono, Fira Mono, monospace; // font for code and pre
 
 $font-size-base: 16px;
 
@@ -69,16 +56,16 @@ $button-filled-background: #CC116E;
 $button-filled-hover-background: #cc116ed6;
 
 // 3. Typography
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
 $font-size-root:  16px;
 
-$font-size-h1:    2rem;
-$font-size-h2:    1.875rem;
-$font-size-h3:    1.6rem;
-$font-size-h4:    1.4rem;
-$font-size-h5:    1.2rem;
-$font-size-h6:    1rem;
+$font-size-h1:    44px;
+$font-size-h2:    34px;
+$font-size-h3:    30px;
+$font-size-h4:    26px;
+$font-size-h5:    24px;
+$font-size-h6:    20px;
 
 $headings-font-family:     $primary-font;
 $headings-font-weight:     700;
@@ -86,7 +73,7 @@ $headings-line-height:     1.1;
 $headings-color:           inherit;
 
 // Container
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
 $container-sm:             576px;
 $container-md:             768px;
@@ -94,21 +81,30 @@ $container-lg:             970px;
 $container-xl:             1200px;
 
 // Header
-// ==========================================================================
-$header-color: #BBF1B9;
-$header-color-hover: #EEFFEA;
+// -----------------------------------------------------------------------------
 $header-height: 60px;
 
+// Footer
+// -----------------------------------------------------------------------------
+$footer-color: #9BA1A6;
+$footer-color-link: #9BA1A6;
+$footer-color-link-hover: #eee;
+$footer-bg-color: #111;
+
+$footer-color-subscribe: #ddd;
+$footer-color-input: #bbb;
+$footer-bg-input-color: #222;
+
 // 3. Media Query Ranges
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
 $num-cols: 12;
-$container-gutter-width: 12px;
+$container-gutter-width: 1rem;
 
 // 3. Media Query Ranges
-// ==========================================================================
+// -----------------------------------------------------------------------------
 
-$sm:            640px;
+$sm:            576px;
 $md:            766px;
 $lg:            1000px;
 $xl:            1230px;
@@ -121,16 +117,3 @@ $xl-and-up:     "only screen and (min-width : #{$xl})";
 $sm-and-down:   "only screen and (max-width : #{$sm})";
 $md-and-down:   "only screen and (max-width : #{$md})";
 $lg-and-down:   "only screen and (max-width : #{$lg})";
-
-// Code Color
-$code-bg-color:   #f7f7f7;
-$font-size-code:  16px;
-$code-color:      #c7254e;
-$pre-code-color:  #f8f8f2;
-
-// icons
-
-$i-code: "\f121";
-$i-warning: "\e002";
-$i-check: "\e86c";
-$i-star: "\e907";

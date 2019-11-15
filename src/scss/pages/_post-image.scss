@@ -1,0 +1,18 @@
+// Image Post Format
+// -----------------------------------------------------------------------------
+.cc-image {
+  height: 96vh;
+  min-height: 500px;
+
+  &::before {
+    background-image: linear-gradient(to top, transparent, rgba(0, 0, 0, .4));
+    content: '';
+    display: block;
+    height: 200px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+}

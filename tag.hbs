@@ -2,35 +2,40 @@
 
 {{!-- custom Styles For tag <body> --}}
 {{#contentFor "mapache_class_body"}}is-tag{{/contentFor}}
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
 
-{{!-- Ad --}}
-{{> "ad/ad-author-tag-top"}}
+{{#tag}}
 
-<section class="extreme-container">
-    {{#tag}}
-        <div class="tag u-relative u-textAlignCenter u-textAlignCenter u-flexCenter u-marginTop30 u-marginBottom30 {{#if feature_image}}u-textColorWhite u-textShadow has-image{{else}}u-textColorDarker{{/if}}">
-            {{#if feature_image}}
-                <img class="u-absolute u-image u-block lazyload"
-                    src="{{img_url feature_image size="m"}}"
-                    srcset="{{img_url feature_image size="xxs"}}"
-                    data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
-                    data-sizes="(max-width: 1000px) 400px, 700px"
-                    alt="{{title}}"
-                />
-                <div class="u-absolute0 zindex2" style="background:#000;opacity:.5"></div>
-            {{/if}}
+<div class="site-category u-relative u-textAlignCenter u-flexCenter u-marginBottom30 u-textColorWhite">
+    {{#if feature_image}}
+        <img class="u-absolute u-image u-block blur-up lazyload"
+            src="{{img_url feature_image size="l"}}"
+            srcset="{{img_url feature_image size="xxs"}}"
+            data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w, {{img_url feature_image size="xl"}} 2000w"
+            data-sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+            alt="{{title}}"
+        />
+        <div class="u-absolute0 zindex2 u-bgOpacity"></div>
+    {{else}}
+        <img class="u-absolute u-image zindex2 u-block blur-up" src="{{asset "images/tag-bg.svg"}}" alt="Background of Tag">
+    {{/if}}
 
-            <div class="tag-body u-relative u-container zindex3 u-fontSize20">
-                <h1 class="tag-title u-fontSize40 u-md-fontSizeLarger u-textCapitalize">{{name}}</h1>
-                <p class="u-marginTop20 u-fontSizeBase">Total {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}</p>
-                {{#if description}}<p class="tag-description u-marginTop20 u-maxWidth1000 u-marginAuto">{{description}}</p>{{/if}}
+    <div class="site-category-body u-relative extreme-container zindex3 u-fontSize20 u-flexCenter u-block-before-lg">
+        <div class="site-category-header u-flex1">
+            <h1 class="site-category-title u-fontSizeJumbo u-md-fontSize36 u-textCapitalize u-textColorWhite">{{name}}</h1>
+            {{#if description}}<p class="site-category-description u-marginTop20 u-maxWidth740 u-marginAuto">{{description}}</p>{{/if}}
+        </div>
+        <div class="site-category-count u-flex0 u-marginTop30">
+            <div class="u-textAlignCenter u-inlineBlock">
+                <span class="site-category-post-count u-block u-fontSize40 u-md-fontSizeLarger u-fontWeightBold">{{../pagination.total}}</span> {{t "Articles"}}
             </div>
         </div>
-    {{/tag}}
+    </div>
+</div>
 
-    {{!-- lates post --}}
+{{/tag}}
+
+<section class="extreme-container">
+    {{!-- lates post - partials/loop.hbs --}}
     {{> "loop"}}
 </section>
-
-{{!-- Ad --}}
-{{> "ad/ad-author-tag-footer"}}

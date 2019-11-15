@@ -1,16 +1,27 @@
 <aside class="sideNav u-absolute0 u-hide-after-lg">
     <div class="sideNav-wrap u-absolute0">
         {{!-- Menu --}}
-        <nav class="sideNav-menu">
+        <nav class="sideNav-item sideNav-menu u-fontSizeBase">
             <ul class="u-unstyled" role="menu">
                 {{navigation}}
             </ul>
         </nav>
 
+        {{!-- Member Login --}}
+        <nav class="sideNav-item u-fontSizeBase u-flex u-flexContentAround mp-member-login">
+            {{#if @member}}
+                <a href="/account/" class="button button--dark u-fontSizeBase">{{t "Account"}}</a>
+                <a href="#signout" class="button button--dark u-fontSizeBase" data-members-signout>{{t "Log out"}}</a>
+            {{else}}
+                <a href="/signin/" class="button button--dark u-fontSizeBase drop-border">{{t "Log in"}}</a>
+                <a href="/signup/" class="button button--dark u-fontSizeBase">{{t "Sign up"}}</a>
+            {{/if}}
+        </nav>
+
         {{!--follow box --}}
-        <div class="sideNav-follow js-social-media u-fontSize20 u-paddingTop20 u-paddingLeft20 u-paddingRight20">
-            {{#if @site.facebook}} <a title="Facebook {{@site.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer" class="i-facebook"></a>{{/if}}
-            {{#if @site.twitter}} <a title="Twitter {{@site.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer" class="i-twitter"></a>{{/if}}
+        <div class="sideNav-item sideNav-follow u-flex u-flexContentAround js-social-media">
+            {{#if @site.facebook}}<a title="Facebook {{@site.facebook}}" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-facebook"></use></svg></a>{{/if}}
+            {{#if @site.twitter}}<a title="Twitter {{@site.twitter}}" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-twitter"></use></svg></a>{{/if}}
         </div>
     </div>
 </aside>

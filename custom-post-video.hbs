@@ -1,63 +1,48 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-video share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article is-video share-margin has-cover is-transparency{{/contentFor}}
 
+{{#post}}
 <div class="cc-video u-overflowHidden u-relative">
-    <div class="extreme-container">
+    <div class="post-fluid u-container">
         <div class="row">
-            <div class="cc-video-left">
+            <div class="col s12 l8 cc-video-left">
                 <div class="cc-video-cont">
                     {{!-- Video Embed --}}
-                    <div class="cc-video-embed"><span class="cc-video-close i-close u-hide"></span></div>
-                </div>
-            </div>
-            <div class="col s12 cc-video-right">
-                {{#post}}
-                <div class="post-header">
-                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom10"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
-                    <h1 class="post-t u-fontSizeLarger u-md-fontSizeLarger u-lineHeightTight u-textColorWhite">{{title}}</h1>
-                    {{#if custom_excerpt}}<p class="post-e u-fontSizeSmall u-paddingTop10" style="color:#7d7d7d">{{custom_excerpt}}</p>{{/if}}
-                </div>
-                {{/post}}
-            </div>
-
-            {{!-- Yputube Subscribe --}}
-            <div class="col s12">
-                <div class="title-line u-flexCenter u-flexContentCenter u-marginBottom30 u-marginTop30">
-                    <div class="cc-video-subscribe u-flexCenter">
-                        <span class="u-textUppercase">{{t "More Videos"}}</span>
+                    <div class="cc-video-embed">
+                        <span class="cc-video-close button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg> </span>
                     </div>
                 </div>
             </div>
+            <div class="col s12 l4 cc-video-right">
+                <div class="cc-video-header">
+                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom15"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+                    <h1 class="cc-video-title u-md-fontSizeLarger u-fontSizeLarger u-lineHeightTight u-textColorWhite">{{title}}</h1>
+                    {{#if custom_excerpt}}<p class="cc-video-excerpt u-fontSizeBase u-paddingTop15">{{custom_excerpt}}</p>{{/if}}
+                </div>
+            </div>
         </div>
-
-        {{!-- Filter video with tag [hash-video] - partials/helper/helper-video-post-related.hbs --}}
-        {{> "helper/helper-video-post-related"}}
-
     </div>
 </div>
+{{/post}}
 
-{{!-- Ad --}}
-{{> "ad/ad-post-header"}}
-
-<section class="post extreme-container u-paddingTop30 u-marginBottom40">
+<section class="post js-video-post extreme-container u-marginTop30 u-marginBottom40">
     <div class="row">
-        <div class="col-left">
+        {{#post}}
+        <div class="col col-left">
             {{!-- Article Author - partials/article/article-author.hbs --}}
             {{> "article/article-author"}}
 
             {{!-- Article Content - partials/article/article-body.hbs --}}
             {{> "article/article-body"}}
         </div>
+        {{/post}}
 
         {{!-- Sidebar - partials/sidebar.hbs --}}
         {{> "sidebar"}}
     </div>
 </section>
 
-{{!-- Comments partials/article/article-related.hbs --}}
+{{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
-
-{{!-- Instagram partials/widget/widget-instagram.hbs --}}
-{{> "widget/widget-instagram"}}

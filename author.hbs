@@ -4,8 +4,9 @@
 
 {{!-- custom Styles For tag <body> --}}
 {{#contentFor "mapache_class_body"}}is-author{{/contentFor}}
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
 
-<section class="author extreme-container">
+<section class="author extreme-container u-marginBottom40">
     <div class="author-inner u-flex u-flexCenter">
         <div class="author-left">
             {{!-- Avatar --}}
@@ -23,15 +24,18 @@
 
             {{!-- Location - website - RSS --}}
             <div class="author-meta u-marginBottom15">
-                {{#if location}}<span><i class="i-location"></i> {{location}}</span>{{/if}}
-                {{#if website}}<span><a href="{{website}}" target="_blank"><i class="i-link"></i> {{website}}</a></span>{{/if}}
+                {{#if location}}<span> {{> "icons/map"}} {{location}}</span>{{/if}}
+                {{#if website}}<span><a href="{{website}}" target="_blank"><svg class="icon top2"><use xlink:href="#icon-link"></use></svg> {{website}}</a></span>{{/if}}
             </div>
 
             {{!-- Facebook and Twitter --}}
             <div class="author-follow buttonSet">
-                {{#if facebook}}<a class="button u-borderRadius2 u-fontSizeSmall fb" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="i-facebook"></i> Facebook</a>{{/if}}
-                {{#if twitter}}<a class="button u-borderRadius2 u-fontSizeSmall tw" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"><i class="i-twitter"></i> Twitter</a>{{/if}}
-                <a class="button u-borderRadius2 u-fontSizeSmall rs" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener noreferrer"><i class="i-rss"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</a>
+                {{#if facebook}}<a class="button u-borderRadius2 u-fontSizeSmall fb" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-facebook"></use></svg> Facebook</a>{{/if}}
+                {{#if twitter}}<a class="button u-borderRadius2 u-fontSizeSmall tw" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-twitter"></use></svg> Twitter</a>{{/if}}
+                <a class="button u-borderRadius2 u-fontSizeSmall rs" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon"><use xlink:href="#icon-rss"></use></svg>
+                    {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+                </a>
             </div>
         </div>
     </div>
@@ -44,14 +48,7 @@
 </section>
 
 {{/author}}
-
-{{!-- Ad --}}
-{{> "ad/ad-author-tag-top"}}
-
 <section class="extreme-container">
-{{!-- The tag below includes the post loop - partials/loop.hbs --}}
-{{>"loop"}}
+    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
+    {{>"loop"}}
 </section>
-
-{{!-- Ad --}}
-{{> "ad/ad-author-tag-footer"}}

@@ -14,6 +14,7 @@
 .pulse { animation-name: pulse; }
 // .slideInUp { animation-name: slideInUp }
 .slideOutDown { animation-name: slideOutDown }
+// .spin { animation-name: spin }
 
 // all keyframes Animates
 // bounceIn
@@ -65,10 +66,10 @@
 // }
 
 //  spin for pagination
-// @keyframes spin {
-//   from { transform: rotate(0deg); }
-//   to { transform: rotate(360deg); }
-// }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 // @keyframes tooltip {
 //   0% { opacity: 0; transform: translate(-50%, 6px); }
@@ -114,5 +115,22 @@
   to {
     visibility: hidden;
     transform: translate3d(0, 20%, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes dropdown-display {
+  0% {
+    opacity: 0;
+    transform: scale(.98) translateY(-.6em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
