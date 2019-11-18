@@ -1,0 +1,73 @@
+routes:
+  /signup/: members/signup
+  /signin/: members/signin
+  /account/: members/account
+  /membership/: members/membership
+
+  /personal/:
+    controller: channel
+    order: published_at desc
+    template: index
+
+  /category/:
+    controller: channel
+    filter: tag:[photograpy]
+    order: published_at desc
+    template: godo-template-category
+
+  /category-header/:
+    controller: channel
+    order: published_at desc
+    filter: tag:[photograpy]
+    data:
+      post: page.category-header
+    template: godo-template-category-header
+
+  /travel/:
+    controller: channel
+    order: published_at desc
+    filter: tag:[travel]
+    data:
+      post: page.demo-grid
+    template: godo-home-travel
+
+  /travel-featured/:
+    controller: channel
+    filter: tag:[travel]
+    order: published_at desc
+    template: godo-home-travel-featured
+
+  /blog/:
+    controller: channel
+    filter: tag:[hash-blog] # -> #blog internal tag
+    order: published_at desc
+    template: godo-home-blog
+    limit: 10
+
+  /fashion/:
+    controller: channel
+    filter: tag:[fashion]
+    order: published_at desc
+    template: godo-home-fashion-concept
+    limit: 12
+
+  /podcast/:
+    controller: channel
+    filter: tag:[hash-podcast] # -> #podcast internal tah
+    data:
+      post: page.podcast
+    limit: 10
+    template: godo-podcast
+
+collections:
+  /:
+    permalink: /{slug}/
+    template:
+      # - godo-home-blog
+      # - godo-home-travel
+      # - godo-home-travel-featured
+      # - godo-home-fashion-concept
+      - index
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

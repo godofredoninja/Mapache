@@ -477,7 +477,12 @@ __pycache__/
 .cache-loader
 yarn-error.log
 *.swp
-# *.zip
+*.zip
 yarn.lock
 
-
+# master
+.sass-lint.yml
+.eslintrc
+.stylelintrc.js
+.gulpfile.js
+src/
