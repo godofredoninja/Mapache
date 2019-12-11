@@ -49,32 +49,21 @@
     color: var(--story-color);
     letter-spacing: .02em;
     padding: 4px 2px;
+
+    &:hover { opacity: .6; }
   }
 }
 
-.flow-meta-cat,
 .more-link {
+  @extend %secundary-font;
+
   transition: none .25s ease-in-out;
   transition-property: background-size, color;
   background-repeat: no-repeat, no-repeat;
   background-position: 0 100%, 0 100%;
   background-size: 0 1px, 100% 1px;
-  background-image: linear-gradient(to top, var(--story-color), var(--story-color)), linear-gradient(to top, var(--story-more-link-border), var(--story-more-link-border));
-
-  &:hover,
-  &:focus {
-    color: var(--story-color);
-    background-size: 100% 1px, 100% 1px;
-  }
-}
-
-// stylelint-disable-next-line
-.more-link {
-  @extend %secundary-font;
-
   display: inline-block;
   color: var(--story-more-link-color);
-  // background-image: linear-gradient(to top, rgba(97, 97, 101, .5) 0, rgba(97, 97, 101, .5) 0), linear-gradient(to top, rgba(28, 29, 33, .15) 0, rgba(28, 29, 33, .15) 0);
   background-image: linear-gradient(to top, var(--story-more-link-color), var(--story-more-link-color)), linear-gradient(to top, var(--story-more-link-border), var(--story-more-link-border));
   // font-size: 15px;
   font-style: italic;
@@ -85,6 +74,7 @@
   &:hover,
   &:focus {
     color: var(--story-more-link-color);
+    background-size: 100% 1px, 100% 1px;
   }
 }
 
@@ -163,10 +153,7 @@
 .sf-cover { // story featured Cover for travel
   .flow-meta { color: rgba(255, 255, 255, .85) }
 
-  .flow-meta-cat {
-    color: #fff;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, .5) 0, rgba(255, 255, 255, .5) 0), linear-gradient(to top, rgba(255, 255, 255, .35) 0, rgba(255, 255, 255, .35) 0);
-  }
+  .flow-meta-cat { color: #fff }
 }
 
 // blog -> Story for Blog

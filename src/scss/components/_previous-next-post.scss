@@ -3,9 +3,10 @@
 
 .prev-next {
   &-span {
-    color: var(--composite-color);
-    font-weight: 500;
-    font-size: 13px;
+    color: #888;
+    // font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 5px;
 
     i {
       display: inline-block;
