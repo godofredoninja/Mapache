@@ -10,7 +10,10 @@
   will-change: transform;
   z-index: 8;
 
-  &-menu a { padding: 10px 0; }
+  &-menu a {
+    padding: 10px 0;
+    display: block;
+  }
 
   &-wrap {
     background: var(--sidenav-bg);

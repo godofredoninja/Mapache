@@ -1,6 +1,0 @@
-{{!-- Navigation template --}}
-{{#foreach navigation}}
-    <li itemprop="name" role="menuitem">
-        <a href="{{url absolute="true"}}" class="navigation-link u-block {{#if current}}active{{/if}}" {{^is "amp"}}itemprop="url"{{/is}}>{{label}}</a>
-    </li>
-{{/foreach}}

@@ -10,12 +10,8 @@
         </a>
 
         {{!-- Navigation --}}
-        <nav class="nav u-flex u-flex1 u-paddingLeft20 u-flexCenter u-hide-before-lg">
-            {{#if @site.navigation}}
-            <ul class="u-fontSizeSmaller u-unstyled u-flex1" itemscope itemtype="http://schema.org/SiteNavigationElement" role="menu">
-                {{navigation}}
-            </ul>
-            {{/if}}
+        <nav class="mainMenu u-flex u-flex1 u-paddingLeft20 u-flexCenter u-hide-before-lg">
+            {{#if @site.navigation}}{{navigation}}{{/if}}
         </nav>
 
         <ul class="header-left u-flex0 u-flex u-flexEnd u-unstyled">

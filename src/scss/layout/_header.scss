@@ -4,13 +4,14 @@
 .header {
   background-color: var(--header-bg-color);
   // box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
+  // box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
   height: $header-height;
   padding: 0 16px;
   position: sticky;
   top: 0;
   // transition: all 1s ease;
-  transition: all .5s ease-in-out;
+  // transition: all .5s ease-in-out;
+  border-bottom: 1px solid #eee;
   z-index: 10;
 
   &-logo {
@@ -24,15 +25,16 @@
 // Header Menu
 // -----------------------------------------------------------------------------
 
-.nav {
-  padding-top: 8px;
-  padding-bottom: 8px;
+.mainMenu {
+  // padding-top: 8px;
+  // padding-bottom: 8px;
   position: relative;
   overflow: hidden;
 
-  ul {
+  & > ul {
     @extend %flex;
-    // display: flex;
+
+    flex: 1;
     margin-right: 20px;
     overflow: hidden;
     white-space: nowrap;
@@ -41,9 +43,9 @@
 
 // stylelint-disable
 .header-left .hla,
-.nav ul li a {
+.mainMenu > ul li a {
   display: inline-block;
-  font-weight: 500;
+  // font-weight: 500;
   padding: 0 8px;
   text-align: center;
   text-transform: uppercase;
@@ -53,11 +55,15 @@
   cursor: pointer;
 }
 
-.nav ul > li > a {
-  color: var(--header-menu-color);
+.mainMenu > ul li {
+  a {
+    color: var(--header-menu-color);
+    font-size: 15px;
 
-  &.active,
-  &:hover {
+    &:hover { color: var(--header-menu-color-hover) }
+  }
+
+  &.nav-current a {
     color: var(--header-menu-color-hover);
   }
 }
