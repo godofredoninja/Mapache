@@ -414,8 +414,8 @@ body, figcaption, h1, h2, h3, h4, h5, h6, .button, .kg-bookmark-container, .godo
 }
 
 :root {
-  --composite-color: #CC116E;
-  --composite-color-hover: #cc116ed6;
+  --composite-color: #00469b;
+  --composite-color-hover: #487ec0;
   --header-color: #111;
   --header-color-hover: #555;
   --header-menu-color: #111;
@@ -2121,7 +2121,7 @@ p {
 }
 
 .sidebar-post-border {
-  border-left: 3px solid var(--composite-color);
+  border-left: 3px solid #CC116E;
   color: rgba(0, 0, 0, 0.2);
   padding: 0 10px;
   -webkit-text-fill-color: transparent;
@@ -3251,7 +3251,7 @@ body.has-comments .post-comments {
 
 .prev-next-span {
   color: var(--composite-color);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 13px;
 }
 

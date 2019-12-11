@@ -1,6 +1,6 @@
 :root {
-  --composite-color: #CC116E;
-  --composite-color-hover: #cc116ed6;
+  --composite-color: #00469b;
+  --composite-color-hover: #487ec0;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -509,7 +509,7 @@ body {
 }
 
 a {
-  color: #cc116e;
+  color: var(--composite-color);
   text-decoration: none;
   transition: all .5s ease;
 }
@@ -556,6 +556,7 @@ input {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 2rem;
+  color: #303030;
 }
 
 .signup-content {
