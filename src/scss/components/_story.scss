@@ -10,16 +10,22 @@
   margin-top: 5px;
 }
 
+// .separate {
+//   background-color: currentColor;
+//   display: inline-block;
+//   height: 1px;
+//   margin-left: .75em;
+//   margin-right: .75em;
+//   opacity: .75;
+//   vertical-align: middle;
+//   width: 1.75em;
+// }
+
 .separate {
-  background-color: currentColor;
-  display: inline-block;
-  height: 1px;
-  margin-left: .75em;
-  margin-right: .75em;
-  opacity: .75;
-  vertical-align: middle;
-  width: 1.75em;
-  // background: #707177;
+  margin-left: .4em;
+  margin-right: .4em;
+
+  &::before { content: '/'; }
 }
 
 // When the cursor is hover the story the image for a zoom animation
@@ -42,7 +48,7 @@
 // Meta for Story ( Category - Datetime - more link - featured icon)
 // -----------------------------------------------------------------------------
 .flow-meta {
-  color: var(--text--secondary__Color);
+  color: #888;
   margin-bottom: 1em;
 
   &-cat {

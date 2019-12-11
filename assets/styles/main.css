@@ -2688,14 +2688,12 @@ body.has-search .search-inner {
 }
 
 .separate {
-  background-color: currentColor;
-  display: inline-block;
-  height: 1px;
-  margin-left: .75em;
-  margin-right: .75em;
-  opacity: .75;
-  vertical-align: middle;
-  width: 1.75em;
+  margin-left: .4em;
+  margin-right: .4em;
+}
+
+.separate::before {
+  content: '/';
 }
 
 .image-hover img {
@@ -2716,7 +2714,7 @@ body.has-search .search-inner {
 }
 
 .flow-meta {
-  color: var(--text--secondary__Color);
+  color: #888;
   margin-bottom: 1em;
 }
 
