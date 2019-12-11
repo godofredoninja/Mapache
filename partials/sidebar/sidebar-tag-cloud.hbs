@@ -4,7 +4,7 @@
     <ul class="mp-category-list">
         {{#foreach tags}}
             <li class="u-relative">
-                <a href="{{url absolute="true"}}" title="{{name}}" class="mp-category-link u-relative u-flexCenter">
+                <a href="{{url absolute="true"}}" title="{{name}}" class="mp-category-link u-relative u-flexCenter u-fontWeightMedium">
                     {{#if feature_image}}
                     <img class="u-absolute0 u-image blur-up lazyload"
                         src="{{img_url feature_image size="m"}}"
@@ -18,7 +18,7 @@
                     <span class="u-bgGradient u-absolute0" style="z-index: -1"></span>
                     {{/if}}
 
-                    <span class="u-fontSizeBase u-textColorWhite u-fontWeightMedium u-flex0">{{name}}</span>
+                    <span class="u-fontSizeBase u-textColorWhite u-flex0">{{name}}</span>
                     <span class="bar u-flex1"></span>
                     <span class="mp-category-count u-round u-flex0 u-flexCenter u-flexContentCenter">{{count.posts}}</span>
                 </a>
