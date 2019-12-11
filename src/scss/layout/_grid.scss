@@ -46,7 +46,7 @@
   // .cc-video-left { max-width: calc(100% - 320px) }
   // .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
   // .cc-video-right { width: 320px; flex: 0 0 auto !important }
-  body.is-article .col-left { padding-right: 40px }
+  body.is-article .col-left { padding-right: 30px }
 }
 
 .col-right {
@@ -56,7 +56,7 @@
   // flex-direction: column;
   // padding-left: $container-gutter-width;
   // padding-right: $container-gutter-width;
-  width: 332px;
+  width: $sidebar-width + ($container-gutter-width * 2);
   margin-left: auto;
 }
 

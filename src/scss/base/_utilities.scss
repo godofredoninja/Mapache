@@ -49,10 +49,15 @@
 .u-hide { display: none !important }
 
 // Background
-.u-bgGradient { background: linear-gradient(to bottom, rgba(0, 0, 0, .3) 29%, rgba(0, 0, 0, .7) 81%) }
+// .u-bgGradient { background: linear-gradient(to bottom, rgba(0, 0, 0, .3) 29%, rgba(0, 0, 0, .7) 81%) }
 .u-bgDark { background-color: #110f16 }
 .u-backgroundWhite { background-color: #fafafa }
 .u-bgGray { background-color: #f0f0f0 }
+
+.u-bgGradient {
+  background: #391f69;
+  background-image: linear-gradient(91.1deg, #391f69 -2.3%, #732b9b 44.4%, #cc116e 103.4%);
+}
 
 .u-bgOpacity {
   background: #000;

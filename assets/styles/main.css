@@ -1156,10 +1156,6 @@ p {
   display: none !important;
 }
 
-.u-bgGradient {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 29%, rgba(0, 0, 0, 0.7) 81%);
-}
-
 .u-bgDark {
   background-color: #110f16;
 }
@@ -1170,6 +1166,11 @@ p {
 
 .u-bgGray {
   background-color: #f0f0f0;
+}
+
+.u-bgGradient {
+  background: #391f69;
+  background-image: linear-gradient(91.1deg, #391f69 -2.3%, #732b9b 44.4%, #cc116e 103.4%);
 }
 
 .u-bgOpacity {
@@ -1608,8 +1609,8 @@ p {
 .extreme-container {
   box-sizing: border-box;
   max-width: 1232px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
   width: 100%;
 }
 
@@ -1626,27 +1627,27 @@ p {
     max-width: calc(100% - 360px);
   }
   body.is-article .col-left {
-    padding-right: 40px;
+    padding-right: 30px;
   }
 }
 
 .col-right {
-  width: 332px;
+  width: 342px;
   margin-left: auto;
 }
 
 .row {
   flex-wrap: wrap;
   flex: 0 1 auto;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin-left: -16px;
+  margin-right: -16px;
 }
 
 .row .col {
   flex: 0 0 auto;
   box-sizing: border-box;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media only screen and (max-width: 576px) {
@@ -2143,6 +2144,51 @@ p {
 
 .sidebar-post:nth-child(3n+2) .sidebar-post-border {
   border-color: #26a8ed;
+}
+
+.mp-category-list li {
+  margin-bottom: 5px;
+}
+
+.mp-category-bg {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.mp-category-count {
+  background: #fff;
+  color: #111;
+  height: 35px;
+  width: 35px;
+}
+
+.mp-category-link {
+  min-height: 90px;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all ease 500ms;
+}
+
+.mp-category-link span {
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.mp-category-link img {
+  z-index: -2;
+}
+
+.mp-category-link .bar {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  margin: 0 25px;
+}
+
+.mp-category-link:hover {
+  transform: scale(1.05);
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .swf.error .message-error,
@@ -4086,13 +4132,8 @@ body.has-comments .post-comments {
   }
 }
 
-.site-category {
-  background: #391f69;
-  background-image: linear-gradient(91.1deg, #391f69 -2.3%, #732b9b 44.4%, #cc116e 103.4%);
-}
-
 .site-category-body {
-  padding: 3rem 1rem;
+  padding: 3rem 16px;
   min-height: 220px;
 }
 

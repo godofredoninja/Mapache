@@ -36,6 +36,50 @@
   &:nth-child(3n+2) { .sidebar-post-border { border-color: #26a8ed } }
 }
 
+// Sidebar Tags
+// -----------------------------------------------------------------------------
+
+.mp-category {
+  &-list li {
+    margin-bottom: 5px;
+  }
+
+  &-bg {
+    background: rgba(0, 0, 0, .5);
+    z-index: -1;
+  }
+
+  &-count {
+    background: #fff;
+    color: #111;
+    height: 35px;
+    width: 35px;
+  }
+
+  &-link {
+    min-height: 90px;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all ease 500ms;
+
+    span { white-space: nowrap; letter-spacing: 0.02em; text-transform: capitalize; }
+
+    img { z-index: -2 }
+
+    .bar {
+      border-bottom: 1px dashed rgba(255, 255, 255, .5);
+      margin: 0 25px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      will-change: transform;
+      transition: transform 0.35s cubic-bezier(.25, .46, .45, .94);
+    }
+  }
+}
+
 // Sidebar Widget Form
 // -----------------------------------------------------------------------------
 
