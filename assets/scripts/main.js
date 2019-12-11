@@ -1624,37 +1624,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
-var _app = require("./app.variables");
-
-var _default = function _default(links) {
-  var box = (0, _app.qs)('.js-footer-menu');
-  box.classList.remove('u-hide');
-  Object.entries(links).forEach(function (_ref) {
-    var _ref2 = (0, _slicedToArray2["default"])(_ref, 2),
-        name = _ref2[0],
-        url = _ref2[1];
-
-    if (name !== 'string' && !_app.urlRegexp.test(url)) return;
-    var link = document.createElement('li');
-    link.innerHTML = "<a href=\"".concat(url, "\" title=\"").concat(name, "\">").concat(name, "</a>");
-    box.appendChild(link);
-  });
-};
-
-exports["default"] = _default;
-
-},{"./app.variables":17,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/slicedToArray":7}],14:[function(require,module,exports){
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _app = _interopRequireDefault(require("./app.fetch"));
@@ -1726,7 +1695,7 @@ var _callee = function _callee(instagramFeed, instagramBox) {
 
 exports["default"] = _callee;
 
-},{"./app.fetch":12,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/regenerator":9}],15:[function(require,module,exports){
+},{"./app.fetch":12,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/regenerator":9}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1750,7 +1719,7 @@ function loadScript(src, callback) {
   document.body.appendChild(scriptElement);
 }
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -1791,7 +1760,7 @@ var _default = function _default(socialMedia) {
 
 exports["default"] = _default;
 
-},{"./app.variables":17,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/slicedToArray":7}],17:[function(require,module,exports){
+},{"./app.variables":16,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/slicedToArray":7}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1810,7 +1779,7 @@ exports.urlRegexp = urlRegexp;
 var iframeVideo = ['iframe[src*="player.vimeo.com"]', 'iframe[src*="dailymotion.com"]', 'iframe[src*="youtube.com"]', 'iframe[src*="youtube-nocookie.com"]', 'iframe[src*="player.twitch.tv"]', 'iframe[src*="kickstarter.com"][src*="video.html"]'];
 exports.iframeVideo = iframeVideo;
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -1844,7 +1813,7 @@ var routes = new _Router["default"]({
 
 window.addEventListener('load', routes.loadEvents(), false);
 
-},{"./routes/common":19,"./routes/post":21,"./routes/post-single":20,"./routes/video":22,"./util/Router":23,"@babel/runtime/helpers/interopRequireDefault":4,"lazysizes":10}],19:[function(require,module,exports){
+},{"./routes/common":18,"./routes/post":20,"./routes/post-single":19,"./routes/video":21,"./util/Router":22,"@babel/runtime/helpers/interopRequireDefault":4,"lazysizes":10}],18:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -1858,13 +1827,12 @@ var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
 
 var _app = _interopRequireDefault(require("../app/app.social-media"));
 
-var _appFooter = _interopRequireDefault(require("../app/app.footer.links"));
-
 var _app2 = require("../app/app.load-style-script");
 
 var _app3 = require("../app/app.variables");
 
-/* global twitterFeed  followSocialMedia footerLinks siteSearch localStorage */
+/* global twitterFeed  followSocialMedia siteSearch localStorage */
+// import mapacheFooterLinks from '../app/app.footer.links'
 var _default = {
   init: function init() {
     // Change title HOME PAGE
@@ -1885,11 +1853,10 @@ var _default = {
       (0, _app["default"])(followSocialMedia);
     }
     /* Footer Links */
+    // if (typeof footerLinks === 'object' && footerLinks !== null) {
+    //   mapacheFooterLinks(footerLinks)
+    // }
 
-
-    if ((typeof footerLinks === "undefined" ? "undefined" : (0, _typeof2["default"])(footerLinks)) === 'object' && footerLinks !== null) {
-      (0, _appFooter["default"])(footerLinks);
-    }
   },
   // end Init
   finalize: function finalize() {
@@ -2008,7 +1975,7 @@ var _default = {
 };
 exports["default"] = _default;
 
-},{"../app/app.footer.links":13,"../app/app.load-style-script":15,"../app/app.social-media":16,"../app/app.variables":17,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/typeof":8}],20:[function(require,module,exports){
+},{"../app/app.load-style-script":14,"../app/app.social-media":15,"../app/app.variables":16,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/typeof":8}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2053,7 +2020,7 @@ var _default = {
 };
 exports["default"] = _default;
 
-},{"../app/app.variables":17}],21:[function(require,module,exports){
+},{"../app/app.variables":16}],20:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -2166,7 +2133,7 @@ var _default = {
 };
 exports["default"] = _default;
 
-},{"../app/app.instagram":14,"../app/app.load-style-script":15,"../app/app.variables":17,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/typeof":8}],22:[function(require,module,exports){
+},{"../app/app.instagram":13,"../app/app.load-style-script":14,"../app/app.variables":16,"@babel/runtime/helpers/interopRequireDefault":4,"@babel/runtime/helpers/typeof":8}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2214,7 +2181,7 @@ var _default = {
 };
 exports["default"] = _default;
 
-},{"../app/app.variables":17}],23:[function(require,module,exports){
+},{"../app/app.variables":16}],22:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -2301,7 +2268,7 @@ function () {
 var _default = Router;
 exports["default"] = _default;
 
-},{"./camelCase":24,"@babel/runtime/helpers/classCallCheck":2,"@babel/runtime/helpers/createClass":3,"@babel/runtime/helpers/interopRequireDefault":4}],24:[function(require,module,exports){
+},{"./camelCase":23,"@babel/runtime/helpers/classCallCheck":2,"@babel/runtime/helpers/createClass":3,"@babel/runtime/helpers/interopRequireDefault":4}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2322,6 +2289,6 @@ var _default = function _default(str) {
 
 exports["default"] = _default;
 
-},{}]},{},[18])
+},{}]},{},[17])
 
 //# sourceMappingURL=map/main.js.map

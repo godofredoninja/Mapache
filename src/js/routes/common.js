@@ -1,7 +1,7 @@
-/* global twitterFeed  followSocialMedia footerLinks siteSearch localStorage */
+/* global twitterFeed  followSocialMedia siteSearch localStorage */
 
 import socialMedia from '../app/app.social-media'
-import mapacheFooterLinks from '../app/app.footer.links'
+// import mapacheFooterLinks from '../app/app.footer.links'
 import { loadScript } from '../app/app.load-style-script'
 
 // querySelector and document.querySelectorAll
@@ -30,9 +30,9 @@ export default {
     }
 
     /* Footer Links */
-    if (typeof footerLinks === 'object' && footerLinks !== null) {
-      mapacheFooterLinks(footerLinks)
-    }
+    // if (typeof footerLinks === 'object' && footerLinks !== null) {
+    //   mapacheFooterLinks(footerLinks)
+    // }
   }, // end Init
 
   finalize () {

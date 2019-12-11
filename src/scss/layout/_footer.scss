@@ -27,9 +27,11 @@
 // -----------------------------------------------------------------------------
 
 .footer-menu {
-  li {
-    display: inline-block;
-    margin-right: 1rem;
+  > ul {
+    li {
+      display: inline-block;
+      margin: 5px 1rem 5px 0;
+    }
   }
 }
 

@@ -2034,9 +2034,9 @@ p {
   color: red;
 }
 
-.footer-menu li {
+.footer-menu > ul li {
   display: inline-block;
-  margin-right: 1rem;
+  margin: 5px 1rem 5px 0;
 }
 
 /* stylelint-disable-next-line */
