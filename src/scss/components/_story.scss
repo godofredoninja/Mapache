@@ -177,7 +177,7 @@
 }
 
 .entry {
-  margin-bottom: 4rem;
+  // margin-bottom: 4rem;
 
   &-bg { opacity: 0; }
 
@@ -186,6 +186,11 @@
     padding-top: 60%;
 
     &:hover .entry-bg { opacity: .2; }
+  }
+
+  &-divider hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -228,5 +233,5 @@
   .story-travel-large .story-travel-image-link { padding-top: 61.614%; }
 
   // blog -> Story for template of blog
-  .entry { margin-bottom: 6rem; }
+  .entry-divider hr { margin-top: 3rem; margin-bottom: 3rem; }
 }
