@@ -4,7 +4,7 @@ const templateInstagram = data =>
   `<div class="col s4 l2">
     <a href="${data.link}" class="instagram-img u-relative u-overflowHidden u-sizeFullWidth u-block u-bgGray" target="_blank" rel="noopener noreferrer">
       <img class="u-absolute0 u-image blur-up lazyload" src="${data.images.low_resolution.url}" alt=""/>
-      <div class="instagram-hover u-absolute0 u-flexCenter u-flexContentCenter u-fontWeightBold u-textColorWhite u-fontSize20 zindex2">
+      <div class="instagram-hover u-absolute0 u-flexCenter justify-content-center u-fontWeightBold u-textColorWhite u-fontSize20 zindex2">
         <span style="padding-right:10px"><svg class="icon top2"><use xlink:href="#icon-favorite"></use></svg> ${data.likes.count}</span>
         <span style="padding-left:10px"><svg class="icon top2"><use xlink:href="#icon-chat"></use></svg> ${data.comments.count}</span>
       </div>

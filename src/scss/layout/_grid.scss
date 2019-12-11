@@ -42,7 +42,7 @@
 // }
 
 @media #{$lg-and-up} {
-  .col-left, .author .title-line { max-width: calc(100% - 360px) }
+  .col-left { max-width: calc(100% - 360px) }
   // .cc-video-left { max-width: calc(100% - 320px) }
   // .cc-video-right { flex-basis: 320px !important; max-width: 320px !important; }
   // .cc-video-right { width: 320px; flex: 0 0 auto !important }

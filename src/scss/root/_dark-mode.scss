@@ -107,20 +107,16 @@ html[data-theme="dark"] {
     background-color: #222;
     border-color: #444;
     color: #eee;
-
-    &::before {
-      box-shadow: none;
-      border-color: transparent;
-    }
   }
 
   // Page Author
   .author-bio { color: #eee; }
 
   // story
-  .hr-list { border-top-color: rgba(255, 255, 255, 0.07) }
+  .title-line::before,
+  .title-line::after { border-top-color: #444; }
 
-  .text-circle-line { border-bottom-color: #555; }
+  .hr-list { border-top-color: rgba(255, 255, 255, 0.07) }
 
   // search
   .search-message { border-color: #555; }
