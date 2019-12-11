@@ -14,6 +14,8 @@
   fill: rgba(0, 0, 0, .8);
 }
 
+.text-muted { color: $text-muted; }
+
 .text-success { color: var(--composite-color); }
 
 .text-circle-line {
@@ -54,7 +56,7 @@
 
 .u-bgOpacity {
   background: #000;
-  opacity: .6;
+  opacity: .5;
   transition: .4s;
 }
 

@@ -1116,6 +1116,10 @@ p {
   fill: rgba(0, 0, 0, 0.8);
 }
 
+.text-muted {
+  color: #888;
+}
+
 .text-success {
   color: var(--composite-color);
 }
@@ -1170,7 +1174,7 @@ p {
 
 .u-bgOpacity {
   background: #000;
-  opacity: .6;
+  opacity: .5;
   transition: .4s;
 }
 
@@ -2714,7 +2718,6 @@ body.has-search .search-inner {
 }
 
 .flow-meta {
-  color: #888;
   margin-bottom: 1em;
 }
 
@@ -3219,28 +3222,12 @@ body.has-comments .post-comments {
 
 .witget-subscribe {
   background: #fff;
-  border: 5px solid transparent;
-  padding: 28px 30px;
+  border: 1px solid #ddd;
+  padding: 25px;
   position: relative;
 }
 
-.witget-subscribe::before {
-  content: "";
-  border: 5px solid #f5f5f5;
-  box-shadow: inset 0 0 0 1px #d7d7d7;
-  box-sizing: border-box;
-  display: block;
-  height: calc(100% + 10px);
-  left: -5px;
-  pointer-events: none;
-  position: absolute;
-  top: -5px;
-  width: calc(100% + 10px);
-  z-index: 1;
-}
-
 .prev-next-span {
-  color: #888;
   font-size: 1rem;
   margin-bottom: 5px;
 }
@@ -3252,9 +3239,7 @@ body.has-comments .post-comments {
 
 .prev-next-title {
   margin: 0;
-  font-size: 16px;
-  height: 2em;
-  line-height: 1;
+  font-size: 18px;
 }
 
 .prev-next-link:hover .arrow-right {
@@ -3474,7 +3459,6 @@ body.has-comments .post-comments {
 }
 
 .post-excerpt {
-  color: var(--post-excerpt-color);
   line-height: 1.6;
 }
 

@@ -3,7 +3,7 @@
 
 .prev-next {
   &-span {
-    color: #888;
+    // color: #888;
     // font-weight: 500;
     font-size: 1rem;
     margin-bottom: 5px;
@@ -18,9 +18,7 @@
     @extend %u-line-clamp-2;
 
     margin: 0;
-    font-size: 16px;
-    height: 2em;
-    line-height: 1;
+    font-size: 18px;
   }
 
   &-link:hover {
