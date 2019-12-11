@@ -423,7 +423,7 @@ body, figcaption, h1, h2, h3, h4, h5, h6, .button, .kg-bookmark-container, .godo
   --header-bg-color: #fff;
   --header-logo-color: #000;
   --podcast-button-color: #2ecc71;
-  --newsletter-color: #07a131;
+  --newsletter-color: #00469b;
   --gray--500: #84858a;
   --gray--600: #707177;
   --gray--900: #2d2e34;
@@ -695,7 +695,7 @@ blockquote::before {
   margin: 0;
   left: 50%;
   transform: translateX(-50%) translateY(5px) rotate(1deg);
-  color: var(--composite-color);
+  color: #6a737d;
   opacity: .4;
   font-size: 10rem;
   font-family: Georgia, Arial, sans-serif;
@@ -4181,7 +4181,7 @@ body.has-comments .post-comments {
   background: #fff;
   border-radius: 4px;
   border: solid 1px #e6e8eb;
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.03), inset 0 4px 0 0 #27c17d;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.03), inset 0 4px 0 0 var(--newsletter-color);
   margin: 40px auto 30px;
   max-width: 600px;
   min-width: auto !important;
