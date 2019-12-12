@@ -220,17 +220,7 @@ It is not necessary to add all the icons. Only the icons you need.
 
 You can add an additional menu bar at the footer of the page
 
-:arrow_right: `Dashboard -> Code injection -> Site Footer`
-
-```html
-<script>
-var footerLinks = {
-  'Menu 1': 'YOUR_URL',
-  'Menu 2': 'YOUR_URL',
-  'Menu 3': 'YOUR_URL',
-};
-</script>
-```
+:arrow_right: `Dashboard -> Design -> Secondary Navigation`
 
 ### 3. Instagram
 
