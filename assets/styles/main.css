@@ -422,7 +422,6 @@ body, figcaption, h1, h2, h3, h4, h5, h6, .button, .kg-bookmark-container, .godo
   --header-menu-color-hover: #555;
   --header-bg-color: #fff;
   --header-logo-color: #000;
-  --podcast-button-color: #2ecc71;
   --newsletter-color: #00469b;
   --gray--500: #84858a;
   --gray--600: #707177;
@@ -1813,11 +1812,11 @@ p {
 
 .header {
   background-color: var(--header-bg-color);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
   height: 60px;
   padding: 0 16px;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #eee;
   z-index: 10;
 }
 
@@ -1845,6 +1844,7 @@ p {
 .header-left .hla,
 .mainMenu > ul li a {
   display: inline-block;
+  font-weight: 500;
   padding: 0 8px;
   text-align: center;
   text-transform: uppercase;

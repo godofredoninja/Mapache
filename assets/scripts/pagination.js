@@ -28,10 +28,10 @@
 
     var postElements = this.response.querySelector('.story-feed-content');
     feedElement.appendChild(postElements); // push state
-
-    window.history.pushState(null, document.title, nextElement.href); // Change Title
-
-    document.title = this.response.title; // set next link
+    // window.history.pushState(null, document.title, nextElement.href)
+    // Change Title
+    // document.title = this.response.title
+    // set next link
 
     var resNextElement = this.response.querySelector('link[rel=next]');
 
