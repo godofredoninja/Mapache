@@ -1,11 +1,11 @@
 <aside class="sideNav u-absolute0 u-hide-after-lg">
     <div class="sideNav-wrap u-absolute0">
         {{!-- Menu --}}
+        {{#if @site.navigation}}
         <nav class="sideNav-item sideNav-menu u-fontSizeBase">
-            <ul class="u-unstyled" role="menu">
-                {{navigation}}
-            </ul>
+            {{navigation}}
         </nav>
+        {{/if}}
 
         {{!-- Member Login --}}
         {{#if @labs.members}}

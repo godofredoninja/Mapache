@@ -1,9 +1,10 @@
+<hr>
 <div class="row u-marginTop30 prev-next">
     {{!-- Prev Post --}}
     <div class="col s12 m6">
         {{#prev_post}}
         <a href="{{url}}" class="prev-next-link u-block u-marginBottom20">
-            <div class="prev-next-span u-block"><span class="u-inlineBlock u-hide-before-md arrow-left"><svg class="icon icon--m top2 rotate270"><use xlink:href="#icon-arrow-round"></use></svg></span> {{t "Prev article"}}</div>
+            <div class="prev-next-span text-muted u-block"><span class="u-inlineBlock u-hide-before-md arrow-left"><svg class="icon icon--m top2 rotate270"><use xlink:href="#icon-arrow-round"></use></svg></span> {{t "Prev article"}}</div>
             <h5 class="prev-next-title u-fontWeightMedium">{{title}}</h5>
         </a>
         {{/prev_post}}
@@ -13,7 +14,7 @@
     <div class="col s12 m6">
         {{#next_post}}
         <a href="{{url}}" class="prev-next-link u-block u-marginBottom20 prev-next-right">
-            <div class="prev-next-span">{{t "Next article"}} <span class="u-inlineBlock u-hide-before-md arrow-right"><svg class="icon icon--m top2 rotate90"><use xlink:href="#icon-arrow-round"></use></svg></span></div>
+            <div class="prev-next-span text-muted">{{t "Next article"}} <span class="u-inlineBlock u-hide-before-md arrow-right"><svg class="icon icon--m top2 rotate90"><use xlink:href="#icon-arrow-round"></use></svg></span></div>
             <h5 class="prev-next-title u-fontWeightMedium">{{title}}</h5>
         </a>
         {{/next_post}}

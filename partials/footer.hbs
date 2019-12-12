@@ -41,9 +41,13 @@
             {{/if}}
 
             {{!-- Footer Menu --}}
+            {{#if @site.secondary_navigation}}
             <div class="col s12">
-                <ul class="footer-menu js-footer-menu u-fontSizeSmall u-marginBottom20 u-hide"></ul>
+                <nav class="footer-menu u-marginBottom30">
+                    {{navigation type="secondary"}}
+                </nav>
             </div>
+            {{/if}}
 
             {{!-- Copy Right --}}
             <div class="col s12 m7 l8">

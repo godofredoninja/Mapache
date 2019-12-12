@@ -1,4 +1,10 @@
-<div class="flow-meta u-fontSize13 u-flexCenter">
+<div class="flow-meta u-fontSize13 text-muted">
+    {{!-- 3 tags --}}
+    {{!-- {{#if tags}}{{#foreach tags limit="3"}}
+        <a href="{{url}}" class="flow-meta-cat u-lineHeight1 u-fontWeightMedium u-textUppercase u-relative zindex4">{{name}}</a>
+        <span class="separate"></span>
+    {{/foreach}}{{/if}} --}}
+
     {{!-- primary tag --}}
     {{#if primary_tag}}{{#primary_tag}}
         <a href="{{url}}" class="flow-meta-cat u-lineHeight1 u-fontWeightMedium u-textUppercase u-relative zindex4">{{name}}</a>
@@ -6,5 +12,5 @@
     {{/primary_tag}}{{/if}}
 
     {{!-- DateTime --}}
-    <span><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date published_at timeago="true"}}</time></span>
+    <span><time class="datetime u-textUppercase" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="D MMMM YYYY"}}</time></span>
 </div>

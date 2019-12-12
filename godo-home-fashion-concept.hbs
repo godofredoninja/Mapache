@@ -5,7 +5,7 @@
 {{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
 
 {{!-- Featured Post --}}
-<section class="post-fluid fashion-featured h-cover u-marginAuto u-marginBottom20 u-clear">
+<div class="post-fluid fashion-featured h-cover u-marginAuto u-marginBottom20 u-clear">
 
     {{#get "posts" limit="3" filter="featured:true" as |post_featured|}}
     {{#foreach post_featured}}
@@ -37,7 +37,7 @@
     {{/foreach}}
     {{/get}}
 
-</section>
+</div>
 
 {{!-- Latest Post --}}
 <section class="post-fluid u-container u-paddingTop30">

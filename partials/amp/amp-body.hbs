@@ -8,6 +8,8 @@
         {{!-- Excerpt --}}
         {{#if custom_excerpt}}<p class="article-excerpt">{{custom_excerpt}}</p>{{/if}}
 
+        <hr>
+
         <div class="article-meta">
             {{!-- Author Name --}}
             {{#primary_author}}<span class="author-name">{{t "By"}} <a href="{{url absolute="true"}}">{{name}}</a></span>{{/primary_author}}
@@ -28,7 +30,7 @@
     {{!-- featured image --}}
     {{#if feature_image}}
         <figure class="article-image u-block u-marginTop30">
-            <amp-img src="{{img_url feature_image size="m" absolute="true"}}" width="600" height="400" layout="responsive" alt="{{title}}"></amp-img>
+            <amp-img src="{{img_url feature_image size="m" absolute="true"}}" width="600" height="350" layout="responsive" alt="{{title}}"></amp-img>
         </figure>
     {{/if}}
 

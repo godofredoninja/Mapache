@@ -12,7 +12,7 @@ It is available for free so you can use on your site. If you have any suggestion
 
 [![donate](./donate.gif)](https://www.paypal.me/godofredoninja)
 
-If you still don't have a **Hosting for your Ghost**. You can use [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [reference link]((https://m.do.co/c/710a27a3b3de)) and you will get **50 dollars** to use in [Digital Ocean]((https://m.do.co/c/710a27a3b3de)). This way you will also be helping me.
+:arrow_right: If you still don't have a **Hosting for your Ghost**. Use [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [referral link]((https://m.do.co/c/710a27a3b3de)) and you will get free a **$50 credit** to use in [Digital Ocean]((https://m.do.co/c/710a27a3b3de)). This way you will also be helping me.
 
 ![mapache theme for ghost](./screenshot.png)
 
@@ -20,6 +20,8 @@ If you still don't have a **Hosting for your Ghost**. You can use [Digital Ocean
 
 - Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
 - Light Mode / Dark Mode
+- First navigation menu for the header of the page
+- Second navigation menu for the footer of the page
 - 404 error page
 - Pagination Infinite Scroll
 - Instagram Feed in footer of Post
@@ -611,6 +613,7 @@ routes:
     limit: 10
     template: godo-podcast
 ```
+
 - In an `HTML` block in your ghost editor add this code for your content.
 
 ```html

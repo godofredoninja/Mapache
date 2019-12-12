@@ -6,7 +6,7 @@
 {{!-- Page Header - partials/page/page-hero-header.hbs --}}
 {{> "page/page-hero-header"}}
 
-<section class="topic u-container extreme-container u-paddingTop30">
+<div class="topic u-container extreme-container u-paddingTop30">
 {{#get "tags" limit="18" include="count.posts" order="count.posts desc"}}
 <div class="row">
 
@@ -20,7 +20,7 @@
                     srcset="{{img_url feature_image size="xxs"}}"
                     data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
                     data-sizes="(max-width: 1000px) 600px, 1000px"
-                    alt="{{title}}"
+                    alt="{{name}}"
                 />
             {{/if}}
             <div class="topic-bg u-bgOpacity u-absolute0 zindex2"></div>
@@ -38,4 +38,4 @@
 
 </div>
 {{/get}}
-</section>
+</div>

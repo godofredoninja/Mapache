@@ -2,7 +2,7 @@
 {{!< default}}
 
 {{!-- Class for <body> --}}
-{{#contentFor "mapache_class_body"}}is-podcast has-cover is-transparency u-bgDark{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-podcast has-cover is-transparency{{/contentFor}}
 
 {{#post}}
 <section class="spc-header u-relative u-overflowHidden u-bgDark">
@@ -26,13 +26,13 @@
 </section>
 {{/post}}
 
-<section class="u-container">
-    <div class="story-feed u-maxWidth1000 u-marginAuto u-paddingTop30">
-        <div class="story-feed-content row">
+<div class="u-container">
+    <div class="story-feed u-maxWidth1000 u-marginAuto u-paddingTop30 u-paddingBottom30">
+        <div class="story-feed-content">
         {{#foreach posts visibility="all"}}
             {{!-- Sidebar - partials/sidebar/sidebar.hbs --}}
             {{>"story/story-podcast"}}
         {{/foreach}}
         </div>
     </div>
-</section>
+</div>
