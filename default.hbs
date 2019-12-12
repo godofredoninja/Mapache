@@ -17,6 +17,17 @@
 
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
+
+    <script>
+        if (typeof(Storage) !== 'undefined') {
+            var selectTheme = localStorage.getItem('selected-theme');
+            if (selectTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else if (selectTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+    </script>
 </head>
 <body class="{{{block "mapache_class_body"}}}">
 
@@ -63,21 +74,11 @@
     {{ghost_foot}}
 
     {{!-- The main JavaScript --}}
-    <script src="{{asset "scripts/main.js"}}" defer></script>
+    <script src="{{asset "scripts/main.js"}}"></script>
 
     {{#if pagination.pages}}<script src="{{asset "scripts/pagination.js"}}" async defer></script>{{/if}}
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. --}}
     {{{block "scripts"}}}
-
-    <script>
-        if (typeof(Storage) !== 'undefined') {
-            if (localStorage.getItem('selected-theme') === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark')
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        }
-    </script>
 </body>
 </html>
