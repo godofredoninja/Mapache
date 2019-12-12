@@ -1,4 +1,10 @@
-<div class="flow-meta u-fontSize13 u-flexCenter text-muted">
+<div class="flow-meta u-fontSize13 text-muted">
+    {{!-- 3 tags --}}
+    {{!-- {{#if tags}}{{#foreach tags limit="3"}}
+        <a href="{{url}}" class="flow-meta-cat u-lineHeight1 u-fontWeightMedium u-textUppercase u-relative zindex4">{{name}}</a>
+        <span class="separate"></span>
+    {{/foreach}}{{/if}} --}}
+
     {{!-- primary tag --}}
     {{#if primary_tag}}{{#primary_tag}}
         <a href="{{url}}" class="flow-meta-cat u-lineHeight1 u-fontWeightMedium u-textUppercase u-relative zindex4">{{name}}</a>
