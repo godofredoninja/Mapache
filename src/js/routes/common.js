@@ -124,7 +124,7 @@ export default {
     // Load Search
     // -----------------------------------------------------------------------------
     if (typeof searchSettings !== 'undefined' && typeof siteSearch !== 'undefined') {
-      loadScript('https://unpkg.com/@tryghost/content-api@1.3.3/umd/content-api.min.js', () => {
+      loadScript('https://unpkg.com/@tryghost/content-api@1.3.4/umd/content-api.min.js', () => {
         loadScript(siteSearch)
       })
     }

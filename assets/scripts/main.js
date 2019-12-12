@@ -1943,7 +1943,7 @@ var _default = {
 
 
     if (typeof searchSettings !== 'undefined' && typeof siteSearch !== 'undefined') {
-      (0, _app2.loadScript)('https://unpkg.com/@tryghost/content-api@1.3.3/umd/content-api.min.js', function () {
+      (0, _app2.loadScript)('https://unpkg.com/@tryghost/content-api@1.3.4/umd/content-api.min.js', function () {
         (0, _app2.loadScript)(siteSearch);
       });
     } // Scrolll

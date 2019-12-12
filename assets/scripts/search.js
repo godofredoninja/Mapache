@@ -970,15 +970,13 @@ function () {
     var defaults = {
       url: siteUrl,
       key: '',
-      version: 'v2',
+      version: 'v3',
       input: '#search-field',
       results: '#search-results',
-      button: '',
       defaultValue: '',
       template: function template(result) {
         return "<a href=\"".concat(siteUrl, "/").concat(result.slug, "/\">").concat(result.title, "</a>");
       },
-      trigger: 'focus',
       options: {
         keys: ['title'],
         limit: 10,
@@ -1000,10 +998,14 @@ function () {
       on: {
         beforeDisplay: function beforeDisplay() {},
         afterDisplay: function afterDisplay(results) {},
-        //eslint-disable-line
-        beforeFetch: function beforeFetch() {},
-        afterFetch: function afterFetch(results) {} //eslint-disable-line
-
+        beforeFetch: function beforeFetch() {
+          return document.body.classList.add('is-loading');
+        },
+        afterFetch: function afterFetch() {
+          return setTimeout(function () {
+            document.body.classList.remove('is-loading');
+          }, 4000);
+        }
       }
     };
     var merged = this.mergeDeep(defaults, args);
@@ -1048,8 +1050,7 @@ function () {
         if (parameters[key] !== '') {
           browse[key] = parameters[key];
         }
-      } // browse.limit = 'all'
-
+      }
 
       ghostAPI[this.api.resource].browse(browse).then(function (data) {
         _this2.search(data);
@@ -1108,29 +1109,11 @@ function () {
         this.displayResults(data);
       }
 
-      if (this.button !== '') {
-        var button = document.querySelectorAll(this.button)[0];
+      document.querySelectorAll(this.input)[0].addEventListener('keyup', function () {
+        _this3.on.beforeDisplay();
 
-        if (button.tagName === 'INPUT' && button.type === 'submit') {
-          button.closest('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-          });
-        }
-
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-
-          _this3.on.beforeDisplay();
-
-          _this3.displayResults(data);
-        });
-      } else {
-        document.querySelectorAll(this.input)[0].addEventListener('keyup', function () {
-          _this3.on.beforeDisplay();
-
-          _this3.displayResults(data);
-        });
-      }
+        _this3.displayResults(data);
+      });
     }
   }, {
     key: "checkArgs",
@@ -1145,15 +1128,8 @@ function () {
         return false;
       }
 
-      if (this.button !== '') {
-        if (!document.querySelectorAll(this.button).length) {
-          console.log('Button not found.');
-          return false;
-        }
-      }
-
       if (this.url === '') {
-        console.log('Content API Client Library url missing. Please set the url. Must not end in a trailing slash.');
+        console.log('Content API Client Library host missing. Please set the host. Must not end in a trailing slash.');
         return false;
       }
 
@@ -1192,19 +1168,11 @@ function () {
         };
       }
 
-      if (this.trigger === 'focus') {
-        document.querySelectorAll(this.input)[0].addEventListener('focus', function () {
-          if (!_this4.check) {
-            _this4.fetch();
-          }
-        });
-      } else if (this.trigger === 'load') {
-        window.onload = function () {
-          if (!_this4.check) {
-            _this4.fetch();
-          }
-        };
-      }
+      document.querySelectorAll(this.input)[0].addEventListener('focus', function () {
+        if (!_this4.check) {
+          _this4.fetch();
+        }
+      });
     }
   }]);
   return GhostSearch;
@@ -1239,14 +1207,8 @@ var _app = _interopRequireDefault(require("./app/app.search"));
 
   var mySearchSettings = {
     on: {
-      beforeFetch: function beforeFetch() {
-        return domBody.classList.add('is-loading');
-      },
-      afterFetch: function afterFetch() {
-        return setTimeout(function () {
-          domBody.classList.remove('is-loading');
-        }, 4000);
-      },
+      // beforeFetch: () => domBody.classList.add('is-loading'),
+      // afterFetch: () => setTimeout(() => { domBody.classList.remove('is-loading') }, 4000),
       afterDisplay: function afterDisplay(results) {
         searchResultActive();
         searchResultsHeight = {

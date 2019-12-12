@@ -23,8 +23,8 @@ import GhostSearch from './app/app.search'
   // -----------------------------------------------------------------------------
   const mySearchSettings = {
     on: {
-      beforeFetch: () => domBody.classList.add('is-loading'),
-      afterFetch: () => setTimeout(() => { domBody.classList.remove('is-loading') }, 4000),
+      // beforeFetch: () => domBody.classList.add('is-loading'),
+      // afterFetch: () => setTimeout(() => { domBody.classList.remove('is-loading') }, 4000),
       afterDisplay: results => {
         searchResultActive()
 
