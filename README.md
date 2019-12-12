@@ -18,12 +18,16 @@ It is available for free so you can use on your site. If you have any suggestion
 
 - Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
 - Light Mode / Dark Mode
+- First navigation menu for the header of the page
+- Second navigation menu for the footer of the page
 - 404 error page
 - Pagination Infinite Scroll
 - Instagram Feed in footer of Post
 - Optional menu in the footer
 - [AMP](https://github.com/godofredoninja/Hodor-AMP-Template-for-Ghost) Template (Accelerated Mobile Pages)
 - Social Media
+- Members / Subscription
+- Very fast search engine
 - Related Articles (6 articles)
 - Different templates for the Home Page
 - Different templates for publishing posts
@@ -34,6 +38,7 @@ It is available for free so you can use on your site. If you have any suggestion
 - Support for comments (Disqus)
 - Support for counter comments (Disqus)
 - Buttons to share the article (Facebook - Twitter - Reddit - Linkedin - Pinterest)
+- Beautiful gallery viewer
 - Sticky content in the sidebar
 - YouTube, Vimeo, kickstarter, dailymotion => Responsive
 - Lazy image loading for better performance only in backgrounds

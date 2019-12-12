@@ -477,7 +477,7 @@ __pycache__/
 .cache-loader
 yarn-error.log
 *.swp
-# *.zip
+*.zip
 yarn.lock
 
 
