@@ -18,7 +18,7 @@ It is available for free so you can use on your site. If you have any suggestion
 
 ## Featured
 
-- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr)
+- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr - pt)
 - Light Mode / Dark Mode
 - First navigation menu for the header of the page
 - Second navigation menu for the footer of the page
@@ -731,6 +731,8 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 - `ko` — Korean - By [SHGroup](https://github.com/sunghun7511)
 - `fr` — French - By [Letroll](https://github.com/letroll)
 - `pl` — Polish - By [kacperduras](https://github.com/kacperduras)
+- `pt` — Brazilian Portuguese - By *Renato Rattes*
+
 
 ![Publication Language for ghost](./documentation/language.jpg)
 
