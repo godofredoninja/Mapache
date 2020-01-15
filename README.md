@@ -732,6 +732,7 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 - `fr` — French - By [Letroll](https://github.com/letroll)
 - `pl` — Polish - By [kacperduras](https://github.com/kacperduras)
 - `pt` — Brazilian Portuguese - By *Renato Rattes*
+- `sr` — Serbian - By [Marjan Panić](https://github.com/neoartdoo)
 
 
 ![Publication Language for ghost](./documentation/language.jpg)
