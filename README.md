@@ -12,7 +12,7 @@ It is available for free so you can use on your site. If you have any suggestion
 
 [![donate](./donate.gif)](https://www.paypal.me/godofredoninja)
 
-:arrow_right: If you still don't have a **Hosting for your Ghost**. Use [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [referral link]((https://m.do.co/c/710a27a3b3de)) and you will get free a **$50 credit** to use in [Digital Ocean]((https://m.do.co/c/710a27a3b3de)). This way you will also be helping me.
+:arrow_right: If you still don't have a **Hosting for your Ghost**. Use [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [referral link]((https://m.do.co/c/710a27a3b3de)) and you will get free a **$100 in credit over 60 days** to use in [Digital Ocean]((https://m.do.co/c/710a27a3b3de)). This way you will also be helping me.
 
 ![mapache theme for ghost](./screenshot.png)
 
