@@ -7,7 +7,7 @@
         ✎ @GodoFredoNinja
         ✈ Lima - Perú
 -->
-<html lang="{{@site.lang}}" data-theme="light">
+<html lang="{{@site.locale}}" data-theme="light">
 <head>
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
@@ -64,7 +64,7 @@
     </div>
 
     {{!-- Notifications for members --}}
-    {{#if @labs.members}} {{> "notifications"}} {{/if}}
+    {{> "notifications"}}
 
     {{!-- Site URL --}}
     <script>

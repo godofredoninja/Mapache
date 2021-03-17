@@ -27,7 +27,6 @@
                     </div>
 
                     {{!-- Members --}}
-                    {{#if @labs.members}}
                     <div class="u-textAlignCenter u-marginBottom30">
                         <h5 class="u-fontSize26 u-fontWeightMedium u-marginBottom15">{{t "Subscribe to"}} {{@site.title}}</h5>
                         <div class="u-fontSize15 u-marginBottom20">{{t "Get the latest posts delivered right to your inbox"}}</div>
@@ -52,7 +51,6 @@
                             <div class="message-error u-hide">{{t "Please enter a valid email address!"}}</div>
                         </form>
                     </div>
-                    {{/if}}
                 </div>
             </li>
 
@@ -63,7 +61,6 @@
             </div></li>
 
             {{!-- Member Login --}}
-            {{#if @labs.members}}
             <li class="header-dropdown-menu mp-member-login u-hide-before-lg dropdown u-relative">
                 <div class="hla u-relative"><svg class="icon icon--m top2"><use xlink:href="#icon-user"></use></svg></div>
 
@@ -89,7 +86,6 @@
                     {{/if}}
                 </div>
             </li>
-            {{/if}}
 
             {{!-- Toggle Search --}}
             <li class="js-search-open search-toggle u-relative u-hide"><div class="hla"><svg class="icon icon--m top2"><use xlink:href="#icon-search"></use></svg></div></li>
