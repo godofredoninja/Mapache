@@ -1,6 +1,6 @@
 # Mapache free theme for [Ghost](https://github.com/tryghost/ghost/)
 
-[![Ghost version](https://img.shields.io/badge/Ghost-3.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
+[![Ghost version](https://img.shields.io/badge/Ghost-3.x_&_4.x-brightgreen.svg)](https://github.com/TryGhost/Ghost)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://www.paypal.me/godofredoninja)
 
 > Minimalist and Elegant theme.
@@ -18,7 +18,7 @@ It is available for free so you can use on your site. If you have any suggestion
 
 ## Featured
 
-- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - fr - pt)
+- Support for different [languages](http://themes.ghost.org/docs/i18n#section-how-to-add-any-language) (en - es - de - ko - pl - sr - tr - fr - pt - uk)
 - Light Mode / Dark Mode
 - First navigation menu for the header of the page
 - Second navigation menu for the footer of the page
@@ -730,7 +730,7 @@ To customize the AMP page [read here](https://github.com/godofredoninja/Hodor-AM
 - `de` — German - By [Frederik Niedernolte](https://github.com/MaluNoPeleke)
 - `ko` — Korean - By [SHGroup](https://github.com/sunghun7511)
 - `fr` — French - By [Letroll](https://github.com/letroll)
-- `pl` — Polish - By [kacperduras](https://github.com/kacperduras)
+- `pl` — Polish - By [kacperduras](https://github.com/kacperduras) & [RikoDEV](https://github.com/RikoDEV)
 - `pt` — Brazilian Portuguese - By *Renato Rattes*
 - `sr` — Serbian - By [Marjan Panić](https://github.com/neoartdoo)
 - `uk` — Ukrainian - By [Maksim](https://github.com/partizan007)
@@ -858,4 +858,4 @@ Take a look at the [Prismjs Supported Language List](http://prismjs.com/#languag
 
 ## Copyright & License
 
-Copyright (c) 2017 - 2019 GodoFredoNinja - Released under the [GPLv3 license](LICENSE).
+Copyright (c) 2017 - 2021 GodoFredoNinja - Released under the [GPLv3 license](LICENSE).
