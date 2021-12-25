@@ -1,23 +1,23 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-article-single{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-single-post{{/contentFor}}
 
 {{#post}}
-<article class="post">
+<article class="post my-10">
 
-    <header class="u-container u-maxWidth740 u-marginTop30">
+    <div class="container mx-auto max-w-3xl">
         {{!-- Article Header - partials/article/article-header.hbs --}}
         {{> "article/article-header"}}
 
-        {{!-- Article Author - partials/article/article-author.hbs --}}
-        {{> "article/article-author"}}
-    </header>
+        {{!-- Article Author - partials/components/author-meta.hbs --}}
+        {{> "components/author-meta"}}
+    </div>
 
-    {{!-- Article Image - partials/helper/helper-article-image.hbs --}}
-    {{> "helper/helper-article-image"}}
+    {{!-- Featured Image - partials/article/article-media.hbs --}}
+    {{> "article/article-media"}}
 
-    <div class="u-maxWidth740 u-marginAuto u-container u-marginTop20">
+    <div class="post container mx-auto max-w-3xl">
         {{!-- Article Content - partials/article/article-body.hbs --}}
         {{> "article/article-body"}}
     </div>

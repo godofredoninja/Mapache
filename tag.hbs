@@ -2,40 +2,33 @@
 
 {{!-- custom Styles For tag <body> --}}
 {{#contentFor "mapache_class_body"}}is-tag{{/contentFor}}
-{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
 
 {{#tag}}
 
-<div class="site-category u-bgGradient u-relative u-textAlignCenter u-flexCenter u-marginBottom30 u-textColorWhite">
-    {{#if feature_image}}
-        <img class="u-absolute u-image u-block blur-up lazyload"
-            src="{{img_url feature_image size="l"}}"
-            srcset="{{img_url feature_image size="xxs"}}"
-            data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w, {{img_url feature_image size="xl"}} 2000w"
-            data-sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
-            alt="{{title}}"
-        />
-        <div class="u-absolute0 zindex2 u-bgOpacity"></div>
-    {{else}}
-        <img class="u-absolute u-image zindex2 u-block blur-up" src="{{asset "images/tag-bg.svg"}}" alt="Background of Tag">
-    {{/if}}
+{{#if accent_color}}<style>.u-primaryGradient{background: linear-gradient(135deg, #222, {{accent_color}})}</style>{{/if}}
 
-    <div class="site-category-body u-relative extreme-container zindex3 u-fontSize20 u-flexCenter u-block-before-lg">
-        <div class="site-category-header u-flex1">
-            <h1 class="site-category-title u-fontSizeJumbo u-md-fontSize36 u-textCapitalize u-textColorWhite">{{name}}</h1>
-            {{#if description}}<p class="site-category-description u-marginTop20 u-maxWidth740 u-marginAuto">{{description}}</p>{{/if}}
+<div class="relative text-center mb-12 text-white flex items-center lg:text-left {{#unless feature_image}}u-primaryGradient{{else}}bg-dark{{/unless}}">
+    <div class="relative z-3 container text-xl lg:flex items-center mx-auto py-12">
+        <div class="flex-grow">
+            <h1 class="text-4xl lg:text-5xl capitalize">{{name}}</h1>
+            {{#if description}}<p class="mx-auto lg:ml-0 mt-5 max-w-2xl">{{description}}</p>{{/if}}
         </div>
-        <div class="site-category-count u-flex0 u-marginTop30">
-            <div class="u-textAlignCenter u-inlineBlock">
-                <span class="site-category-post-count u-block u-fontSize40 u-md-fontSizeLarger u-fontWeightBold">{{../pagination.total}}</span> {{t "Articles"}}
-            </div>
+        <div class="text-center leading-tight mt-8 lg:mt-0">
+            <span class="text-3xl lg:text-4xl font-semibold block">{{../pagination.total}}</span>
+            <span>{{t "Articles"}}</span>
         </div>
     </div>
+
+    {{#if feature_image}}
+        {{!-- Featured Media - partials/components/media-cover.hbs --}}
+        {{> "components/media-cover" background=feature_image alt_title=name}}
+        <div class="inset-0 absolute z-2 bg-cover-gradient"></div>
+    {{else}}
+        <img class="image-inset z-2" src="{{asset "images/tag-bg.svg"}}" alt="">
+    {{/if}}
 </div>
 
 {{/tag}}
 
-<section class="extreme-container">
-    {{!-- lates post - partials/loop.hbs --}}
-    {{> "loop"}}
-</section>
+{{!-- lates post - partials/loop.hbs --}}
+{{> "loop"}}

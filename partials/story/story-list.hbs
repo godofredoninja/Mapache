@@ -1,31 +1,21 @@
-{{!-- hr > line in top --}}
-<hr class="hr-list">
-
-<article class="story u-block-before-md u-flex u-relative">
-    <a href="{{url}}" class="story-image u-relative u-overflowHidden u-bgGray image-hover">
-        {{!-- Featured Image --}}
-        {{#if feature_image}}
-            <img class="story-img u-absolute0 u-image u-block lazyload blur-up"
-                src="{{img_url feature_image size="m"}}"
-                srcset="{{img_url feature_image size="xxs"}}"
-                data-srcset="{{img_url feature_image size="s"}} 300w,{{img_url feature_image size="m"}} 600w"
-                data-sizes="(max-width: 1000px) 400px, 600px"
-                alt="{{title}}"
-            />
-        {{else}}
-            <div class="u-absolute0 u-bgCover u-block" style="background-image:url({{asset "images/not-image.jpg"}})"></div>
-        {{/if}}
-
-        {{!-- Button if is featured --}}
-        {{#if featured}}<span class="u-meta-featured  u-oblique u-absolute"><svg class="icon icon--s top2"><use xlink:href="#icon-star"></use></svg> {{t "Featured"}}</span>{{/if}}
+<article class="js-story story flex flex-col relative mb-12 {{#unless feature_image}} flex flex-col justify-center p-8 bg-gray-100 rounded{{else}}md:flex-row{{/unless}}">
+    {{#if feature_image}}
+    <a href="{{url}}" class="img-hover flex-none relative overflow-hidden w-full min-h-14 rounded md:w-3/7 md:mr-8 bg-gray-100">
+        {{!-- Featured Image ./partials/components/featured-image.hbs --}}
+        {{> "components/featured-image"}}
     </a>
+    {{/if}}
 
-    <div class="story-body u-flexColumn u-relative">
-        {{!-- Category and Datetime partials/helper/helper-story-meta --}}
-        {{> "helper/helper-story-meta"}}
+    <div class="story-body relative flex flex-col mt-4 md:mt-0">
+        {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+        {{> "components/primary-tag"}}
 
-        <h2 class="story-title u-fontSize26 u-lineHeightTight title-hover"><a href="{{url}}" class="u-block">{{title}}</a></h2>
-        <div class="story-lower u-relative u-overflowHidden u-flexColumnTop"><a href="{{url}}" class="story-excerpt u-block">{{excerpt words="25"}}</a></div>
-        <footer class="story-footer u-fontSizeSmaller"><a href="{{url}}" class="more-link">{{t "Continue reading"}}</a></footer>
+        <h2 class="story-title text-26 leading-tight text-title mb-3 hover:text-primary"><a href="{{url}}" class="block">{{title}}</a></h2>
+        <div class="relative overflow-hidden flex flex-col flex-grow mb-6 text-gray-700">
+            <div class="lineClamp-3"><a href="{{url}}" class="block">{{excerpt words="25"}}</a></div>
+        </div>
+
+        {{!-- Article Author only Name - partials/components/author-meta.hbs --}}
+        {{> "components/author-meta" onlyName=true}}
     </div>
 </article>

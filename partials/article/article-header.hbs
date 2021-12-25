@@ -1,4 +1,7 @@
-<div class="post-header u-marginBottom20">
-    <h1 class="post-title u-fontSizeLargest u-md-fontSizeLarger">{{title}}</h1>
-    {{#if custom_excerpt}}<p class="post-excerpt u-fontSize20 u-marginTop20 text-muted">{{custom_excerpt}}</p>{{/if}}
-</div>
+<header class="post-header mb-6">
+    {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+    {{> "components/primary-tag"}}
+
+    <h1 class="post-title text-4xl md:text-42 text text-title">{{title}}</h1>
+    {{#if custom_excerpt}}<p class="post-excerpt text-xl mt-5 text-gray-500">{{custom_excerpt}}</p>{{/if}}
+</header>

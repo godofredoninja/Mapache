@@ -1,0 +1,83 @@
+// Post
+// --------------------------------------------------
+
+.post-body
+  @extend %flex-direction-column
+  // @extend %font-serif
+  // font-family: Helvetica, sans-serif
+
+  align-items: center
+  font-size: $font-size-post
+  line-height: 1.625
+
+  > *:not(a)
+    // margin: 1rem 0
+    min-width: 100%
+    margin: 0.75rem 0
+
+    &:first-child
+      margin-top: 2rem
+  // p
+  //   margin: 1rem 0
+
+  a:not(.button):not(.gh-post-upgrade-cta a):not(.kg-bookmark-container):not(.kg-btn):not(.kg-nft-card-container):not(.kg-product-card-button):not(.kg-file-card-container):not(.kg-card a)
+    color: var(--post-color-link)
+    text-decoration: var(--post-link-decoration)
+    word-break: break-word
+
+    &:hover
+      text-decoration: underline
+  q,
+  blockquote
+    margin: 2rem 0
+
+  // img
+  //   display: block
+    // margin-left: auto
+    // margin-right: auto
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    color: var(--title-color)
+    font-style: normal
+    line-height: 1.25
+    margin-bottom: 0.75rem
+    margin-top: 1rem
+
+    + p
+      margin-top: 0
+
+  ul,
+  ol
+    counter-reset: post
+    margin-left: .6rem
+    padding-left: 1.2rem
+
+    li
+      margin-bottom: 0.6rem
+
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+
+  // hr,
+  // ol,
+  // p,
+  // pre,
+  // ul
+  //   margin-bottom: 1.5rem
+
+.post-figcaption a
+  text-decoration: underline
+
+// Post share
+// --------------------------------------------------
+
++desktop-up
+  body.is-single-post .post-share
+    margin-left: -5rem

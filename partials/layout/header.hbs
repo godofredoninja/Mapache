@@ -1,0 +1,121 @@
+<header class="header w-full flex items-center h-16 top-0 px-4 shadow-sm z-50{{#match @custom.header "Sticky"}} sticky{{/match}}{{#match @custom.header "Scroll Hide"}} js-hide-header sticky transition-all duration-300 ease-out{{/match}}">
+    <div class="header-wrap relative flex items-center flex-auto justify-between">
+        {{!-- Page Logo and Name --}}
+        <a class="header-logo flex-none" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img class="w-logo {{#if @custom.logo_dark_mode}} logo-light{{/if}}" src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}"/>
+                {{#if @custom.logo_dark_mode}}<img class="w-logo logo-dark hidden" src="{{img_url @custom.logo_dark_mode size="s"}}" alt="{{@site.title}}"/>{{/if}}
+            {{else}}
+                <span class="text-28 font-bold leading-tight font-sans">{{@site.title}}</span>
+            {{/if}}
+        </a>
+
+        {{!-- Navigation --}}
+        {{#if @site.navigation}}
+            <nav class="mainMenu px-5 items-center hidden flex-grow lg:flex{{#match @custom.header_menu "Center"}} justify-center{{/match}}{{#match @custom.header_menu "Right"}} justify-end{{/match}}">
+                {{navigation}}
+            </nav>
+        {{/if}}
+
+        <ul class="header-left flex flex-none justify-end">
+            {{!-- Social Media --}}
+            <li class="dropdown is-right is-hoverable hidden relative lg:block">
+                <span class="hla h-16 flex items-center text-sm">{{t "Follow"}} <svg class="icon is-small is-stroke transform rotate-90" style="width:1rem;height:1rme"><use xlink:href="#icon-forward"></use></svg></span>
+
+                <div class="dropdown-menu max-w-sm w-96">
+                    <div class="dropdown-content p-6">
+                        {{!-- Social Media - ./partials/components/social-media.hbs --}}
+                        {{> "components/social-media" class="header-social-media mb-5"}}
+
+                        {{!-- Members --}}
+                        {{#if @custom.disable_member_subscriptions}}
+                        {{#unless @member}}
+                        <div class="mb-2">
+                            <h5 class="text-white text-2xl font-bold mb-2">{{t "Subscribe to"}} {{@site.title}}</h5>
+                            <div class="text-base mb-2 text-white text-opacity-60">{{t "Get the latest posts delivered right to your inbox"}}</div>
+
+                            <form class="members-dropdown" data-members-form="subscribe">
+                                <div class="flex">
+                                    <input
+                                        class="subscribe-email text-base flex-grow rounded-none text-white border-transparent"
+                                        style="background:#252525"
+                                        data-members-email
+                                        placeholder="{{t "youremail@example.com"}}"
+                                        aria-label="{{t "Your email address"}}"
+                                        aria-describedby="header-subscribe-btn"
+                                        autocomplete="off"
+                                        required
+                                    />
+                                    <button id="header-subscribe-btn" class="button is-primary flex-none rounded-none" type="submit">
+                                        <span class="button-text">{{t "Subscribe"}}</span>
+                                        <span class="hidden">{{> "icons/loader"}}</span>
+                                    </button>
+                                </div>
+                                <div class="message-success mt-5 p-2 rounded text-white bg-success hidden"><strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription"}}</div>
+                                <div class="message-error mt-5 p-2 rounded text-white bg-red-400 hidden">{{t "Please enter a valid email address!"}}</div>
+                            </form>
+                        </div>
+                        {{/unless}}
+                        {{/if}}
+                    </div>
+                </div>
+            </li>
+
+            {{!-- Active Mapache Dark --}}
+            <li class="js-dark-mode h-16 hla hidden lg:flex items-center cursor-pointer px-2">
+                <svg class="icon is-large icon--moon"><use xlink:href="#icon-moon"></use></svg>
+                <svg class="icon is-large icon--sunny hidden"><use xlink:href="#icon-sunny"></use></svg>
+            </li>
+
+            {{!-- This is a language drop-down --}}
+            {{!-- <li class="header-dropdown-menu dropdown is-right is-hoverable h-16 hidden lg:flex items-center cursor-pointer">
+                <span class="hla">{{> "icons/lang"}}</span>
+                <div class="dropdown-menu is-right whitespace-normal">
+                    <div class="dropdown-content p-5 text-white">
+                        <a href="{{@site.url}}" class="block py-2 hover:opacity-80">English</a>
+                        <a href="{{@site.url}}/de/" class="block py-2 hover:opacity-80">German</a>
+                    </div>
+                </div>
+            </li> --}}
+
+            {{!-- Member Login --}}
+            {{#if @custom.disable_member_subscriptions}}
+            <li class="header-dropdown-menu dropdown is-right is-hoverable h-16 hidden lg:flex items-center cursor-pointer">
+                <span class="hla"><svg class="icon is-large"><use xlink:href="#icon-user"></use></svg></span>
+
+                <div class="dropdown-menu is-right whitespace-normal">
+                    <div class="dropdown-content p-5 text-white">
+                        {{#if @member}}
+                            <a href="/account/" data-portal="account" class="flex items-center justify-between py-2 hover:opacity-80">
+                                <span>{{t "Account"}}</span>
+                                <svg class="icon is-stroke is-small"><use xlink:href="#icon-next"></use></svg>
+                            </a>
+                            <a href="#signout" class="flex items-center justify-between py-2 hover:opacity-80" data-members-signout>
+                                <span>{{t "Log out"}}</span>
+                                <svg class="icon is-stroke is-small"><use xlink:href="#icon-next"></use></svg>
+                            </a>
+                        {{else}}
+                            <a href="/signin/" data-portal="signin" class="flex items-center justify-between py-2 hover:opacity-80">
+                                <span>{{t "Log in"}}</span>
+                                <svg class="icon is-stroke is-small"><use xlink:href="#icon-next"></use></svg>
+                            </a>
+                            <a href="/signup/" data-portal="signup" class="flex items-center justify-between py-2 hover:opacity-80">
+                                <span>{{t "Sign up"}}</span>
+                                <svg class="icon is-stroke is-small"><use xlink:href="#icon-next"></use></svg>
+                            </a>
+                        {{/if}}
+
+                    </div>
+                </div>
+            </li>
+            {{/if}}
+
+            {{!-- Toggle Search --}}
+            <li class="js-toggle-search hla h-16 cursor-pointer flex items-center px-2"><svg class="icon is-large"><use xlink:href="#icon-search"></use></svg></li>
+            {{!-- Toggle Menu Mobile --}}
+            <li class="js-menu-open hla h-16 cursor-pointer flex items-center lg:hidden">
+                <svg class="icon is-large"><use xlink:href="#icon-menu"></use></svg>
+            </li>
+        </ul>
+    </div>
+</header>

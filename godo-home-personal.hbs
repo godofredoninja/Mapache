@@ -1,0 +1,56 @@
+{{!-- Layouts --}}
+{{!< default}}
+
+{{#contentFor "mapache_class_body"}}is-personal has-cover is-head-transparent{{/contentFor}}
+
+{{#post}}
+
+<article id="home-cover" class="cc-image godo-hero-cover bg-dark overflow-hidden relative flex flex-col justify-center min-h-lg h-screen">
+    <header class="container relative z-3 mx-auto py-12 text-center text-white">
+        {{#if custom_excerpt}}<div class="text-sm tracking-widest mb-8 uppercase">{{custom_excerpt}}</div>{{/if}}
+        <h1 class="text-5xl md:text-6xl">{{title}}</h1>
+        <div class="text-xl md:text-2xl mt-8 max-w-740 mx-auto leading-relaxed">{{content}}</div>
+    </header>
+
+    {{!-- Featured Media - partials/components/media-cover.hbs --}}
+    {{> "components/media-cover" background=feature_image has_gradient=true alt_title=title}}
+
+    <div class="js-scrcoll-home cursor-pointer animated slideOutDown infinite w-16 inset-0 top-auto z-3 mx-auto absolute mb-10 hidden md:block" style="color: hsla(0,0%,100%,.5)">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto fill-current" width="32" height="32" viewBox="0 0 32 32">
+            <path d="M15.976 2.656c-7.366 0-13.337 5.97-13.337 13.337s5.97 13.337 13.337 13.337 13.337-5.97 13.337-13.337-5.97-13.337-13.337-13.337zM15.976 28.262c-6.765 0-12.27-5.504-12.27-12.27s5.505-12.27 12.27-12.27 12.27 5.505 12.27 12.27c0 6.765-5.505 12.27-12.27 12.27z"></path>
+            <path d="M15.214 19.175l0.754 0.754 6.035-6.035-0.754-0.754-5.281 5.281-5.256-5.256-0.754 0.754 3.013 3.013z"></path>
+        </svg>
+    </div>
+</article>
+
+{{/post}}
+
+{{!-- lates post - partials/loop.hbs --}}
+{{> "loop"}}
+
+{{#contentFor "scripts"}}
+<script>
+    (function () {
+        var $button = document.querySelector('.js-scrcoll-home');
+
+        if (!$button) return;
+
+        $button.addEventListener('click', function (e) {
+            e.preventDefault();
+            var coverHeight = document.querySelector('#home-cover').offsetHeight - 64;
+
+            if (!window) return;
+
+            try {
+                window.scroll({
+                    top: coverHeight,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } catch (err) {
+                window.scrollTo(0, coverHeight);
+            }
+        });
+    })();
+</script>
+{{/contentFor}}

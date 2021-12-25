@@ -1,0 +1,117 @@
+// 1. Colors
+// --------------------------------------------------
+
+$primary-color: #0abe51;
+// $primary-color-darken: #21a75a;
+
+$dark-blue-500: #102b7b;
+
+$gray-90: #f9f9f9;
+$gray-100: #F3F4F6;
+$gray-150: #F0F2F5;
+$gray-200: #E5E7EB;
+$gray-300: #D1D5DB;
+$gray-400: #9CA3AF;
+$gray-500: #5f6368;
+$gray-600: #4B5563;
+$gray-700: #374151;
+$gray-800: #424242;
+$gray-900: #111827;
+
+$primary-text-color: $gray-800;
+$primary-text-color-title: $gray-900;
+
+// social colors
+// $social-colors: (
+//   facebook: #3b5998,
+//   twitter : #55acee,
+//   linkedin: #007bb6,
+//   whatsapp: #64d448
+// );
+
+$white: #fff;
+$black: #191919;
+$dark: #2f2f2f;
+$success: hsl(141, 53%, 53%);
+$warning: hsl(48, 100%, 67%);
+$danger: hsl(348, 86%, 61%);
+
+// Buttons Colors
+// background - color - color hover
+$colors: (
+  "white"     : ($white, $black, $gray-500),
+  "black"     : ($black, $white),
+  "light"     : (#f2f2f2, rgba(0, 0, 0, .7)),
+  // "primary"   : ($primary-color, $white),
+  // "dark-blue" : ($dark-blue-500, $white),
+  // "sucecess"  : ($success, $white),
+  // "warning"   : ($warning, rgba(0, 0, 0, .7)),
+  // "danger"    : ($danger, $white),
+  "transparent": (transparent, hsla(0, 0%, 100%, .7), $white)
+);
+
+// form
+$form-colors: (
+  "primary"   : ($primary-color, $white),
+  // "sucecess"  : ($success, $white),
+  // "warning"   : ($warning, rgba(0, 0, 0, .7)),
+  // "danger"    : ($danger, $white)
+);
+
+// 2. Fonts
+// --------------------------------------------------
+$font-sans: 'Public Sans', Whitney SSm A, Whitney SSm B, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+$font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+// 3. Typography
+// --------------------------------------------------
+
+$font-size-root: 16px;
+
+$size-normal: 1rem;
+
+$font-size-h1: 1.875rem;
+$font-size-h2: 1.75rem;
+$font-size-h3: 1.5rem;
+$font-size-h4: 1.375rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1.125rem;
+
+$headings-font-weight: 700;
+$headings-line-height: 1.125; //1.25
+$headings-color: $primary-text-color;
+
+// 4. Container
+// --------------------------------------------------
+
+$mobile: 40rem;
+$tablet: 48rem;
+$desktop: 64rem;
+$widescreen: 75rem;
+
+// 6. Grid
+// --------------------------------------------------
+$num-cols: 12;
+$gutter-width: 1rem;
+
+// 7. Header
+// --------------------------------------------------
+$header-height: 4rem;
+
+// Post
+// -----------------------------------------------------------------------------
+$font-size-post: 1.125rem;
+
+// Footer
+// -----------------------------------------------------------------------------
+$footer-bg-color: #0a0a0a;
+$footer-color: hsla(0, 0%, 100%, .6);
+$footer-color-input: #bbb;
+$footer-bg-input-color: rgba(97, 97, 97, 0.25);
+
+// Miscellaneous
+$radius: 4px;
+$radius-small: 2px;
+
+// Flags
+$rtl: false !default

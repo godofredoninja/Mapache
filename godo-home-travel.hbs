@@ -1,18 +1,71 @@
 {{!-- Layouts --}}
 {{!< default}}
 
-{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+{{!-- Story Featured  Large --}}
+{{#get "posts" limit="1" filter="featured:true" include="tags,authors" as |post_featured|}}
+{{#foreach post_featured}}
 
-{{!-- Post Grid - 8 lates article --}}
-<div class="extreme-container story-feed u-paddingTop30">
-    <div class="row story-feed-content">
+<div class="bg-dark relative mb-10">
+    <article class="text-white text-center flex flex-col items-center justify-center py-8" style="min-height:calc(100vh - 6rem)">
+        <div class="max-w-4xl mx-auto px-4 relative z-4">
+            {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+            <div class="flex justify-center">{{> "components/primary-tag" class="text-white"}}</div>
 
-        {{#foreach posts visibility="all"}}
-            <div class="col s12 story-travel {{#has number="1, 7, 11"}}m8 story-travel-large{{else}}m4{{/has}}">
-                {{!-- Story Grid - partiasl/story/story-travel.hbs --}}
-                {{> "story/story-travel" }}
+            <h2 class="text-4xl font-semibold md:text-6xl"><a href="{{url}}">{{title}}</a></h2>
+
+            <div class="text-sm text-white mt-4 opacity-80">
+                <span>{{t "By"}}</span>
+                <span class="text-white font-medium">{{#has author="count:>2"}}{{t "Multiple authors"}}{{else}}{{authors}}{{/has}}</span>
+                <span class="mx-1 bull"></span>
+                <time class="datetime capitalize" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
             </div>
-        {{/foreach}}
+        </div>
 
+        {{!-- Featured Media - partials/components/media-cover.hbs --}}
+        {{> "components/media-cover" background=feature_image has_gradient=true alt_title=title}}
+
+        <div class="bg-lines z-3">
+            <div class="bg-line bg-line--1"></div>
+            <div class="bg-line bg-line--2"></div>
+            <div class="bg-line bg-line--3"></div>
+            <div class="bg-line bg-line--4"></div>
+            <div class="bg-line bg-line--5"></div>
+        </div>
+    </article>
+</div>
+
+{{/foreach}}
+{{/get}}
+
+<div class="story-feed max-w-7xl mx-auto my-10 px-4">
+    <div class="js-post-feed grid gap-8 md:grid-cols-3">
+        {{#foreach posts visibility="all"}}
+
+        <article class="js-story story-travel mb-10{{#unless feature_image}} flex flex-col justify-center p-8 bg-gray-100 rounded{{/unless}}">
+            {{#if feature_image}}
+            <figure class="story-travel-image-link relative overflow-hidden bg-gray-100 mb-5 rounded shadow-lg img-hover">
+                {{!-- Featured Image ./partials/components/featured-image.hbs --}}
+                <a href="{{url}}">{{> "components/featured-image"}}</a>
+            </figure>
+            {{/if}}
+
+            <div class="story-travel-body mb-5">
+                {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+                {{> "components/primary-tag"}}
+
+                <h2 class="story-travel-title text-title font-semibold hover:text-primary text-2xl lg:text-26">
+                    <a href="{{url}}" class="block">{{title}}</a>
+                </h2>
+
+                {{#unless feature_image}}<p class="mt-5 text-lg">{{excerpt words="30"}}</p>{{/unless}}
+            </div>
+
+            {{!-- Article Author only Name - partials/components/author-meta.hbs --}}
+            {{> "components/author-meta" onlyName=true}}
+        </article>
+
+        {{/foreach}}
     </div>
+
+    {{pagination}}
 </div>

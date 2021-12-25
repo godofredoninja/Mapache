@@ -1,58 +1,31 @@
-<div id="post-comments" class="post-comments u-sizeFullWidth post-comments-show u-absolute0 u-fixed u-hide">
-    <div class="post-comments-header u-paddingLeft15 u-flexCenter">
-        <div class="js-toggle-comments button button--dark button--circle"><svg class="icon"><use xlink:href="#icon-close"></use></svg></div>
-    </div>
+{{#if @custom.comments_disqus_short_name}}
 
-    <div class="post-comments-wrap u-padding15">
-        <div class="js-disqus-loanding u-textAlignCenter u-marginTop30">{{t "Loading..."}}</div>
-        <div id="disqus_thread" class="js-disqus u-hide"></div>
-    </div>
+<div id="post-comments" class="post-comments js-post-comments w-full mt-12 border-t pt-12">
+    {{!-- Disqus Comments --}}
+    <div id="disqus_thread"></div>
 </div>
-
-<div class="post-comments-overlay u-absolute0 u-fixed js-toggle-comments"></div>
 
 {{#contentFor "scripts"}}
 <script>
     (function (d, s, id) {
-        if (typeof disqusShortName === 'undefined') return;
+        var $comments = document.querySelector('.js-post-comments');
+
+        if (!$comments) return;
 
         var disqus_config = function () {
             this.page.url = '{{url absolute="true"}}';
             this.page.identifier = 'ghost-{{comment_id}}';
         };
 
-        var commentShow = d.querySelectorAll('.post-comments-show');
-        commentShow.forEach(function(item){item.classList.remove('u-hide')});
-
-        // Disqus Comments Count
-        var count = d.createElement(s);
-        count.src = 'https://'+disqusShortName+'.disqus.com/count.js';
-        count.id = 'dsq-count-scr';
-        count.async = true;
-        count.defer = true;
-        d.body.appendChild(count);
-
-        // Toggle Comments
-        var toggleComments = d.querySelectorAll('.js-toggle-comments')
-        toggleComments.forEach(function(item) { item.addEventListener('click', function (e) {
-            e.preventDefault();
-            d.body.classList.toggle('has-comments');
-
-            if (d.getElementById(id)) return;
-
-            setTimeout(function(){
-                d.querySelector('.js-disqus-loanding').remove();
-                d.querySelector('.js-disqus').classList.remove('u-hide');
-            }, 2000);
-
-            var js = d.createElement(s);
+        var js = d.createElement(s);
             js.id = id;
-            js.src = 'https://'+disqusShortName+'.disqus.com/embed.js';
+            js.src = 'https://{{@custom.comments_disqus_short_name}}.disqus.com/embed.js';
             js.async = true;
             js.defer = true;
             js.setAttribute('data-timestamp', +new Date());
             d.body.appendChild(js);
-        })})
     }(document, 'script', 'disqus-js'));
 </script>
 {{/contentFor}}
+
+{{/if}}

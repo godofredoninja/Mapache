@@ -1,41 +1,38 @@
 {{!-- Layout --}}
 {{!< default}}
 
-{{!-- {{#contentFor "mapache_class_site_main"}}page-hero-wrap{{/contentFor}} --}}
-
-{{!-- Page Header - partials/page/page-hero-header.hbs --}}
-{{> "page/page-hero-header"}}
-
-<div class="topic u-container extreme-container u-paddingTop30">
-{{#get "tags" limit="18" include="count.posts" order="count.posts desc"}}
-<div class="row">
-
-    {{#foreach tags}}
-
-    <div class="col col-s12 s6 l4 u-marginBottom30">
-        <article class="topic-card u-relative u-textColorWhite u-flexCenter u-flexColumn u-overflowHidden u-bgGray">
-            {{#if feature_image}}
-                <img class="topic-img u-absolute0 u-image u-block lazyload blur-up"
-                    src="{{img_url feature_image size="l"}}"
-                    srcset="{{img_url feature_image size="xxs"}}"
-                    data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
-                    data-sizes="(max-width: 1000px) 600px, 1000px"
-                    alt="{{name}}"
-                />
-            {{/if}}
-            <div class="topic-bg u-bgOpacity u-absolute0 zindex2"></div>
-
-            <div class="u-relative zindex2 u-textAlignCenter">
-                <h3 class="topic-title u-fontSizeLarger u-textUppercase u-fontWeightNormal u-md-fontSize22"><a href="{{url}}">{{name}}</a></h3>
-                <div class="u-fontSizeSmall u-block u-marginTop20">{{plural count.posts empty='post' singular='% post' plural='% posts'}}</div>
-            </div>
-            {{!-- Link --}}
-            <a href="{{url}}" aria-label="{{name}}" class="u-absolute0 zindex3"></a>
-        </article>
-    </div>
-
-    {{/foreach}}
-
+{{#post}}
+<div class="max-w-5xl px-4 mx-auto py-8 text-center">
+    <h1 class="text-title lg:text-5xl mt-12 mb-10">{{title}}</h1>
+    <div class="font-normal mx-auto text-xl max-w-2xl">{{content}}</div>
 </div>
+{{/post}}
+
+<div class="topic container pt-8 mx-auto">
+    {{#get "tags" limit="18" filter="visibility:public"}}
+    <div class="grid gap-8 mb-10 md:grid-cols-2 lg:grid-cols-3">
+
+        {{#foreach tags}}
+
+        <article class="relative flex overflow-hidden h-52 rounded img-hover {{#if feature_image}}bg-dark{{else}}u-primaryGradient{{/if}}" {{#if accent_color}}style="background:{{accent_color}}"{{/if}}>
+            <a href="{{url}}" class="flex flex-grow items-center justify-center p-6 flex-col">
+                <div class="relative z-3 text-center text-white">
+                    <h2 class="topic-title uppercase text-22 font-semibold">{{name}}</h2>
+                </div>
+                {{#if feature_image}}
+                    <img class="image-inset absolute img-hover-here blur-up lazyload"
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
+                        data-sizes="auto"
+                        alt="{{name}}"
+                    />
+                    <div class="bg-dark bg-opacity-40 inset-0 absolute z-2"></div>
+                {{/if}}
+            </a>
+        </article>
+
+        {{/foreach}}
+
+    </div>
 {{/get}}
 </div>

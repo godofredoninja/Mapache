@@ -1,0 +1,42 @@
+{{#unless onlyName}}
+<div class="hh flex items-center relative z-4 flex-auto overflow-hidden{{#if class}} {{class}}{{/if}}">
+    <ul class="hh-author flex flex-wrap flex-none mr-3">
+        {{#foreach authors}}
+        <li class="hh-author-item realtive">
+            <a href="{{url}}" title="{{t "Go to the profile of"}} {{name}}" class="relative">
+                <img
+                    class="object-cover rounded-full avatar{{#is "post"}} is-44x44{{/is}}"
+                    src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/avatar.png"}}{{/if}}"
+                    alt="{{t "Go to the profile of "}} {{name}}"
+                    width="36"
+                    height="36"
+                />
+            </a>
+        </li>
+        {{/foreach}}
+    </ul>
+
+    <div class="hh-right flex-auto overflow-hidden text-sm">
+        <div class="noWrapWithEllipsis text-gray-500">
+            <time class="datetime capitalize" datetime="{{date format="YYYY-MM-DD"}}">{{t "Published"}} {{date format="D MMM YYYY"}}</time>
+            <span class="mx-1 bull"></span>
+            <span class="readingTime cursor-default" title="{{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% min read")}}">{{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        </div>
+
+        <div class="hh-author-name noWrapWithEllipsis font-medium text-gray-900">
+            <span class="text-gray-500">{{t "By"}} </span>
+            {{#has author="count:>2"}}{{t "Multiple authors"}}{{else}}{{authors}}{{/has}}
+        </div>
+    </div>
+</div>
+
+{{else}}
+
+<div class="text-sm text-gray-500">
+    <span>{{t "By"}}</span>
+    <span class="text-gray-900 font-medium hh-author-name">{{#has author="count:>2"}}{{t "Multiple authors"}}{{else}}{{authors}}{{/has}}</span>
+    <span class="mx-1 bull"></span>
+    <time class="datetime capitalize" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+</div>
+
+{{/unless}}

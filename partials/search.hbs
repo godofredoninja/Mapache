@@ -1,25 +1,17 @@
-<div class="search u-fixed u-flexColumnTop u-flexCenter u-fixed u-absolute0">
-    <div class="js-search-close search-shader u-absolute0 zindex1"></div>
-    <div class="js-search-close search-close zindex3 u-hide-after-lg button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg></div>
+<div class="js-search search w-full fixed z-20 top-0 left-0 mt-16 hidden">
+    <div class="">
+        <form class="px-4 flex items-center pt-5 pb-4 text-xl border-b">
+            <svg class="icon is-large flex-none mr-1"><use xlink:href="#icon-search"></use></svg>
 
-    <div class="search-inner u-relative u-marginAuto zindex2">
-        <div class="search-wrap">
-            {{!-- search form --}}
-            <form class="search-form u-sizeFullWidth u-flex u-flexCenter u-fontSizeBase">
-                <svg class="icon icon--search top2"><use xlink:href="#icon-search"></use></svg>
-                <input id="search-field" class="input--md u-sizeFullWidth" type="text" placeholder="{{t "Search"}}..." aria-label="Search box"/>
-            </form>
-            {{!-- show a message to the user if there is no post --}}
-            <span class="js-search-message search-message u-block u-hide">{{t "No results found"}}</span>
-            {{!-- Search results --}}
-            <div id="search-results" class="search-results u-marginAuto u-sizeFullWidth"></div>
+            <input id="search-bar" class="flex-grow border-none text-xl bg-transparent text-gray-900" type="text" placeholder="{{t "Search"}}">
+
+            <div class="js-toggle-search flex-none text-gray-400 ml-2 cursor-pointer"><svg class="icon is-small"><use xlink:href="#icon-close"></use></svg></div>
+        </form>
+
+        <div class="pt-6 pb-5">
+            <h5 class="js-search-suggestion uppercase px-4 text-xs tracking-wide font-light mb-3">{{t "Search suggestions"}}</h5>
+            <ul id="search-results"></ul>
         </div>
-        {{!-- showing the function keys --}}
-        <div class="search-nav-hints u-flex u-flexEnd u-hide-before-lg">
-            <div class="search-nav-hint"><span>↑</span> <span>↓</span> {{t "Navigate up/down"}}</div>
-            <div class="search-nav-hint"><span>Enter</span> {{t "Go to article"}}</div>
-            <div class="search-nav-hint"><span>/</span> {{t "Search new term"}}</div>
-            <div class="search-nav-hint"><span>Esc</span> {{t "Close search"}}</div>
-        </div>
+
     </div>
 </div>

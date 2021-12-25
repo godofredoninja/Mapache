@@ -1,15 +1,17 @@
-{{#get "posts" limit="5" filter="tags:[{{post.tags}}]+id:-{{post.id}}"}}
-    <div class="related u-container">
-        <div class="related-title">{{t "Related Articles"}}</div>
+{{#if primary_tag}}
+{{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{comment_id}}" limit="4" as |related_posts|}}
+{{#if related_posts}}
+    <div class="related container mt-8">
+        <div class="share-title block text-gray-500 text-sm mb-3">{{t "Related Articles"}}:</div>
 
-        {{#foreach posts}}
+        {{#foreach related_posts}}
         <div class="story">
-            <a href="{{url absolute="true"}}amp" class="story-link u-block u-relative">
-                <span class="story-border u-flexCenter u-absolute">{{@number}}</span>
-                <h3 class="story-title">{{title}}</h3>
+            <a href="{{url absolute="true"}}amp" class="story-link relative flex items-center mb-3">
+                <span class="story-link-icon felx items-center flex-none mr-3">{{@number}}</span>
+                <span class="story-link-text leading-snug">{{title}}</span>
             </a>
         </div>
         {{/foreach}}
 
     </div>
-{{/get}}
+{{/if}}{{/get}}{{/if}}

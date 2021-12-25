@@ -1,0 +1,48 @@
+<div class="post-authors my-10">
+    {{#foreach authors}}
+    <div class="flex flex-col md:flex-row items-center p-7 rounded bg-gray-90 {{#unless @first}}mt-5{{/unless}}">
+        <a href="{{url}}"  class="flex-none h-24 w-24 overflow-hidden relative rounded-full shadow-lg">
+            <img class="image-inset absolute blur-up lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{#if profile_image}}{{img_url profile_image size="s"}}{{else}}{{asset "images/avatar.png"}}{{/if}}"
+            alt="{{name}}"/>
+        </a>
+
+        <div class="mt-4 text-center md:ml-5 md:mt-0 md:text-left">
+            <h2 class="text-xl text-title"><a class="hover:text-primary" href="{{url}}">{{name}}</a></h2>
+            {{#if bio}}<p class="mt-2 lineClamp-2 text-gray-700">{{bio}}</p>{{/if}}
+            <div class="mt-2 text-title">
+                {{#if facebook}}
+                <a class="mr-2 hover:text-facebook"
+                    href="{{facebook_url}}"
+                    title="Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <svg class="icon is-small"><use xlink:href="#icon-facebook"></use></svg>
+                </a>
+                {{/if}}
+
+                {{#if twitter}}
+                <a class="mr-2 hover:text-twitter"
+                    href="{{twitter_url}}"
+                    title="{{twitter}}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <svg class="icon is-small"><use xlink:href="#icon-twitter"></use></svg>
+                </a>
+                {{/if}}
+
+                {{#if website}}
+                <a class="hover:text-gray-900"
+                    href="{{website}}"
+                    title="{{website}}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <svg class="icon is-small is-stroke"><use xlink:href="#icon-link"></use></svg>
+                </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/foreach}}
+</div>

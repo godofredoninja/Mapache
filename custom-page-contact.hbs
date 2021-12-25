@@ -4,19 +4,22 @@
 {{!-- Class for <body> --}}
 {{#contentFor "mapache_class_body"}}is-contact{{/contentFor}}
 
-{{#contentFor "mapache_class_site_main"}}page-hero-wrap{{/contentFor}}
-
 {{#post}}
+<article class="container mx-auto py-12 relative {{#if feature_image}} grid gap-16 lg:grid-cols-2 {{/if}}">
+        <div>
+            <header class="mx-auto max-w-2xl mb-10">
+                <h1 class="text-4xl text-title lg:text-5xl capitalize">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="text-xl mt-8 text-gray-600">{{custom_excerpt}}</p>{{/if}}
+            </header>
 
-<div class="u-container u-maxWidth1000 u-textAlignCenter u-sizeFullWidth u-relative zindex3">
-    <h1 class="page-hero-name u-fontSizeJumbo u-fontWeightNormal u-md-fontSize36">{{title}}</h1>
-</div>
-<div class="contact-content extreme-container u-relative">
-    <img src="{{asset "images/contact-stain.jpg"}}" class="u-absolute contact-stain u-hide-before-md" alt="contact stain">
-    <img src="{{asset "images/contact-icons.svg"}}" class="u-absolute contact-svg u-hide-before-md" alt="contact svg">
-    <div class="u-relative zindex3">
-        {{content}}
-    </div>
-</div>
+            {{content}}
+        </div>
 
+        {{!-- Featured Media - partials/components/media-cover.hbs --}}
+        {{#if feature_image}}
+        <figure class="relative mb-4 overflow-hidde rounded h-96 order-first lg:h-auto lg:order-none">
+            {{> "components/media-cover" background=feature_image alt_title=name}}
+        </figure>
+        {{/if}}
+</article>
 {{/post}}

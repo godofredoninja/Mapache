@@ -1,26 +1,24 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-image share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-image has-cover is-head-transparent{{/contentFor}}
 
+{{#post}}
 {{!-- Article Header Cover - partials/article/article-header-cover.hbs --}}
-{{#post}}{{> "article/article-header-cover"}}{{/post}}
+{{> "article/article-header-cover"}}
 
-<div class="post extreme-container u-marginTop30 u-marginBottom40">
-    <div class="row">
-        {{#post}}
-        <article class="col col-left">
-            {{!-- Article Author - partials/article/article-author.hbs --}}
-            {{> "article/article-author"}}
+<div class="extreme-container container mx-auto flex flex-col lg:flex-row my-10">
+    <article class="post min-w-0 flex-auto">
+        {{!-- Article Author - partials/components/author-meta.hbs --}}
+        {{> "components/author-meta" class="lg:ml-20"}}
 
-            {{!-- Article Content - partials/article/article-body.hbs --}}
-            {{> "article/article-body"}}
-        </article>
-        {{/post}}
+        {{!-- Article Content - partials/article/article-body.hbs --}}
+        {{> "article/article-body"}}
+    </article>
+{{/post}}
 
-        {{!-- Sidebar - partials/sidebar.hbs --}}
-        {{> "sidebar"}}
-    </div>
+    {{!-- Sidebar - partials/sidebar.hbs --}}
+    {{> "sidebar"}}
 </div>
 
 {{!-- Related Articles - partials/article/article-related.hbs --}}

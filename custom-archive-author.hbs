@@ -1,48 +1,43 @@
 {{!-- Layout --}}
 {{!< default}}
 
-{{!-- Class for <body> --}}
-{{#contentFor "mapache_class_body"}}archive-author{{/contentFor}}
+{{#post}}
+<div class="max-w-5xl px-4 mx-auto py-8 text-center">
+    <h1 class="text-title lg:text-5xl mt-12 mb-10">{{title}}</h1>
+    <div class="font-normal mx-auto text-xl max-w-2xl">{{content}}</div>
+</div>
+{{/post}}
 
-{{!-- Page Header - partials/page/page-hero-header.hbs --}}
-{{> "page/page-hero-header"}}
+<div class="archive-author-inner container mx-auto my-10">
+    <div class="grid gap-12 max-w-5xl mx-auto md:grid-cols-2 lg:grid-cols-3">
 
-<div class="archive-author-inner u-container u-maxWidth1000 u-marginBottom40">
-    <div class="row">
         {{#get "authors" limit="all"}}{{#foreach authors}}
 
-            <div class="col col-s12 s6 l4 u-flexColumnTop u-marginBottom40">
-                <article class="author-card u-relative u-flexColumnTop u-flex--1">
-                    {{!-- Avatar --}}
-                    <a href="{{url}}" class="author-card-avatar u-relative u-block">
-                        {{#if profile_image}}
-                            <img
-                                class="u-absolute0 u-image lazyload blur-up"
-                                src="{{img_url profile_image size="m"}}"
-                                srcset="{{img_url profile_image size="xxs"}}"
-                                data-srcset="{{img_url profile_image size="s"}} 300w,{{img_url profile_image size="m"}} 600w"
-                                alt="{{t "Hi I'm"}} {{name}}" />
-                        {{/if}}
-                    </a>
+        <article class="author-card relative flex flex-col">
+            <a href="{{url}}" class="author-card-avatar relative bg-gray-100 h-72">
+                {{#if profile_image}}
+                <img
+                    class="image-inset absolute rounded blur-up lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-srcset="{{img_url profile_image size="s"}} 300w,{{img_url profile_image size="m"}} 600w"
+                    data-sizes="auto"
+                    alt="{{t "Hi I'm"}} {{name}}" />
+                {{/if}}
+            </a>
 
-                    <div class="u-flexColumnTop u-flex--1">
-                        <div class="u-flex--1">
-                            {{!-- Name --}}
-                            <h2 class="author-card-name u-marginTop20 u-fontSize22 u-marginBottom10"><a href="{{url}}" class="u-block">{{name}}</a></h2>
-                            {{!-- Website --}}
-                            {{#if website}}<a href="{{website}}" class="author-card-website u-fontSize15 u-block u-marginBottom10" target="_blank" rel="noopener noreferrer">{{website}}</a>{{/if}}
-                            {{!-- Biography --}}
-                            {{#if bio}}<p class="author-card-bio u-fontSizeSmall">{{bio}}</p>{{/if}}
-                        </div>
+            <div class="flex flex-col justify-between flex-grow">
+                <div class="flex-grow">
+                    <h2 class="mt-5 text-26 mb-3 text-title"><a href="{{url}}" class="hover:text-gray-800">{{name}}</a></h2>
+                    {{#if website}}<a href="{{website}}" class="text-gray-500 text-base block mb-3 hover:text-gray-900" target="_blank" rel="noopener noreferrer">{{website}}</a>{{/if}}
+                    {{#if bio}}<p class="text-base lineClamp-3">{{bio}}</p>{{/if}}
+                </div>
 
-                        {{!-- Buttons Social Media--}}
-                        <div class="author-card-media u-flex">
-                            {{#if facebook}}<a href="{{facebook_url}}" class="button button--line" title="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>{{/if}}
-                            {{#if twitter}}<a href="{{twitter_url}}" class="button button--line" title="{{twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>{{/if}}
-                        </div>
-                    </div>
-                </article>
+                <div class="author-social-media flex mt-5">
+                    {{#if facebook}}<a href="{{facebook_url}}" class="button w-full is-black is-outlined rounded-none text-sm" title="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>{{/if}}
+                    {{#if twitter}}<a href="{{twitter_url}}" class="button w-full is-black is-outlined rounded-none text-sm" title="{{twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>{{/if}}
+                </div>
             </div>
+        </article>
 
         {{/foreach}}{{/get}}
 

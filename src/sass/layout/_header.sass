@@ -1,0 +1,155 @@
+// 1. Header
+// --------------------------------------------------
+
+.header
+  background: var(--header-bg)
+  &-logo
+    color: var(--header-logo-color)
+
+.mainMenu
+  > ul
+    display: flex
+    // flex: 1
+    // margin-right: 20px
+    overflow: hidden
+    white-space: nowrap
+
+// stylelint-disable
+.mainMenu > ul li a,
+.header-left .hla
+  font-weight: 500
+  padding: 0 0.5rem
+  text-align: center
+  text-transform: uppercase
+  line-height: 4rem
+  cursor: pointer
+
+
+.mainMenu > ul li
+  a
+    color: var(--header-color)
+    font-size: 0.875rem
+
+    &:hover
+      color: var(--header-color-hover)
+
+
+  &.nav-current a
+    color: var(--header-color-hover)
+    font-weight: 600
+
+
+
+.header-left .hla
+  color: var(--header-color)
+  &:hover
+    opacity: .8
+    // color: var(--header-color-hover)
+
+// Menu Bugger Button for show menu in mobile
+// --------------------------------------------------
+
+// .menu-burger
+//   height: 48px
+//   position: relative
+//   transition: transform .4s
+//   width: 48px
+
+//   span
+//     background-color: var(--header-color)
+//     display: block
+//     height: 2px
+//     left: 14px
+//     margin-top: -1px
+//     position: absolute
+//     top: 50%
+//     transition: .4s
+//     width: 20px
+
+//     &:first-child
+//       transform: translate(0, -6px)
+//     &:last-child
+//       transform: translate(0, 6px)
+
+// Social Media All
+// --------------------------------------------------
+
+.social-media a
+  background: transparent
+  font-size: 1.125rem
+  margin: 0.25rem
+
+// 2. menu Mobile
+// --------------------------------------------------
+
+.mobile-menu
+  transform: translateX(100%)
+  transition: .4s
+  will-change: transform
+
+  // &::before
+  //   content: ""
+  //   height: 100%
+  //   z-index: 2
+  //   background-color: rgba(0,0,0,.6)
+  //   //
+  //   position: fixed
+  //   top: 0
+  //   right: 0
+  //   width: 100%
+
+.mobile-nav li
+  padding: .5rem 0
+
+.mobile-social-media a
+  color: var(--text-title)
+
++desktop
+  .has-menu
+    overflow: hidden
+    .mobile-menu
+      transform: translateX(0)
+    .mobile-menu-bg
+      display: block
+
+/// members dropdown form
+// --------------------------------------------------
+
+.members-dropdown
+  &.invalid > .message-error,
+  &.error > .message-error
+    display: block
+  &.success > .message-success
+    display: block
+
+// Header has Transparent
+// --------------------------------------------------
+
+.has-cover
+  .header
+    // transition: all .4s ease
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out
+  .godo-hero-cover
+    // margin-top: -($header-height + 0.0625rem)
+    margin-top: -$header-height
+
+.is-head-transparent
+  .header
+    background-color: rgba(255, 255, 255, 0)
+    box-shadow: 0 1px 2px 0 rgba(253, 253, 253, .08%)
+    // text-shadow: rgba(0, 0, 0, .1) 0 1px 1px
+    --header-color: #fff
+
+    &-logo
+      color: #fff
+      // .mainMenu > ul li a,
+      // .header-left .hla,
+      //   color: #fff
+
+      // .header-right > .button.is-white
+      //   background-color: transparent
+      //   color: #fff
+  .logo-light
+    display: none
+  .logo-dark
+    display: block

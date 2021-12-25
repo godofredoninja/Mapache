@@ -1,20 +1,20 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-page is-article-single{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-article is-page is-single-post{{/contentFor}}
 
 {{#post}}
 
-<article class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
-    {{!-- Page Title --}}
-    <h1 class="post-title u-marginBottom20">{{title}}</h1>
+<article class="post container mx-auto my-8 lg:max-w-1000">
+    <h1 class="post-title text-4xl md:text-44 mb-5 text-title text-center mx-auto max-w-3xl">{{title}}</h1>
 
-    {{!-- Post Image - partials/helper/helper-article-image.hbs --}}
-    {{> "helper/helper-article-image"}}
+    {{!-- Featured Image - partials/article/article-media.hbs --}}
+    {{> "article/article-media"}}
 
-    {{!-- Page Content --}}
-    <div class="post-body">
-        <div class="post-inner js-post-content">{{content}}</div>
+    <div class="post-body-wrap relative lg:flex mx-auto max-w-3xl">
+        <div class="post-body min-w-0 js-post-content{{#match @custom.post_font "=" "font-serif"}} font-serif{{else}} font-sans{{/match}}{{#match @custom.post_font_size "=" "20px"}} text-xl{{else}} text-lg{{/match}}">
+            {{content}}
+        </div>
     </div>
 </article>
 

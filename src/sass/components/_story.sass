@@ -1,0 +1,32 @@
+// 1. Clases for Meta (Author - date - Read Time )
+// -----------------------------------------------------------------------------
+.hh
+  &-author
+    li:not(:first-child)
+      margin-left: -6px
+
+    &-name > a:hover
+      color: var(--gray-900)
+      text-decoration: underline
+
+// Story image Hover
+// --------------------------------------------------
+
+.img-hover-here.lazyloaded,
+.img-hover-here
+  transition-property: transform
+  transition-duration: .5s
+  transition-timing-function: cubic-bezier(0, 0, .2, 1)
+  transform: scale(1.03)
+
+.img-hover:hover .img-hover-here
+  transform: scale(1.01)
+
+// Story Travel
+// --------------------------------------------------
+.story-travel-image-link
+  padding-top: 61.614%
+
++tablet-up
+  .story-travel-image-link
+    padding-top: 100%

@@ -1,34 +1,52 @@
-<aside class="post-share sticky-parent u-absolute0 u-textAlignCenter u-hide-before-lg u-fontSizeBase">
-    <div class="sticky-top-wrap">
-        <div class="post-share-inner sticky">
+<aside class="post-share lg:w-20 flex-none py-9 lg:order-first">
+    <div class="js-share post-share-inner pt-9 sticky top-16 text-center">
+        <span class="uppercase text-xs tracking-wider mb-3 inline-block lg:hidden">{{t "Share this article"}}:</span>
+        <div class="buttons items-start justify-center lg:flex-col lg:justify-start">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Share on Facebook"
-                class="button button--circle js-share bg-facebook">
+                class="button is-circle text-xs is-black opacity-20 hover:opacity-40">
                 <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
             </a>
             <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Share on Twitter"
-                class="button button--circle js-share bg-twitter">
+                class="button is-circle text-xs is-black opacity-20 hover:opacity-40">
                 <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
             </a>
             <a href="https://www.reddit.com/submit?url={{url absolute="true"}}&amp;title={{encode title}}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Share on Reddit"
-                class="button button--circle js-share bg-reddit">
+                class="button is-circle text-xs is-black opacity-20 hover:opacity-40">
                 <svg class="icon"><use xlink:href="#icon-reddit"></use></svg>
             </a>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Share on Linkedin"
-                class="button button--circle js-share bg-linkedin">
+                class="button is-circle text-xs is-black opacity-20 hover:opacity-40">
                 <svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
             </a>
-            <a href="https://pinterest.com/pin/create/button/?url={{url absolute="true"}}"
+            <a href="https://pinterest.com/pin/create/button/?url={{encode url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Share on Pinterest"
-                class="button button--circle js-share bg-pinterest">
+                class="button is-circle text-xs is-black opacity-20 hover:opacity-40">
                 <svg class="icon"><use xlink:href="#icon-pinterest"></use></svg>
             </a>
-            <div class="js-toggle-comments u-pointer i-chat button button--circle u-hide post-comments-show" style="margin-top:8px">
+            <a href="whatsapp://send?text={{url absolute="true"}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on WhatSapp"
+                class="lg:hidden button is-circle text-xs is-black opacity-20 hover:opacity-40">
+                <svg class="icon"><use xlink:href="#icon-whatsapp"></use></svg>
+            </a>
+            {{!-- <div class="js-toggle-comments u-pointer i-chat button is-circle text-white bg">
                 <svg class="icon"><use xlink:href="#icon-chat"></use></svg>
-            </div>
+            </div> --}}
         </div>
     </div>
 </aside>

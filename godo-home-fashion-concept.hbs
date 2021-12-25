@@ -1,55 +1,61 @@
 {{!-- Layouts --}}
 {{!< default}}
 
-{{#contentFor "mapache_class_body"}}is-home-mode{{/contentFor}}
-{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
-
 {{!-- Featured Post --}}
-<div class="post-fluid fashion-featured h-cover u-marginAuto u-marginBottom20 u-clear">
+<div class="mx-auto p-4 grid gap-8 lg:grid-cols-5">
+{{#get "posts" include="tags" limit="3" filter="featured:true" as |post_featured|}}
 
-    {{#get "posts" limit="3" filter="featured:true" as |post_featured|}}
-    {{#foreach post_featured}}
+{{#foreach post_featured}}
+    <article class="story-fashion img-hover relative bg-gray-100{{#if @first}} h-96 firts md:col-span-2 lg:h-full lg:col-span-3 lg:row-span-4{{else}} lg:col-span-2 lg:row-span-2 h-72{{/if}}">
+        <div class="h-full relative overflow-hidden">
+            {{!-- Featured Image ./partials/components/featured-image.hbs --}}
+            {{#if feature_image}}<a href="{{url}}">{{> "components/featured-image"}}</a>{{/if}}
 
-        <article class="h-cover-items u-relative u-floatLeft {{#if @first}}firts{{/if}}">
-            <div class="h-cover-inner u-relative u-bgDark u-overflowHidden">
-                {{!-- Imagenes --}}
-                {{#if feature_image}}
-                    <a class="image-hover" href="{{url}}">
-                        <img class="h-cover-img u-absolute0 u-image u-block lazyload blur-up"
-                            src="{{img_url feature_image size="m"}}"
-                            srcset="{{img_url feature_image size="xxs"}}"
-                            data-srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image size="m"}} 600w, {{img_url feature_image size="l"}} 1000w"
-                            data-sizes="(max-width: 1000px) 400px, 700px"
-                            alt="{{title}}"
-                        />
-                    </a>
-                {{/if}}
+            <header class="absolute bg-blank z-3 bottom-0 pt-3 pr-3 left-0" style="right: 20%;">
+                {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+                {{> "components/primary-tag"}}
 
-                <header class="h-cover-header u-absolute zindex2">
-                    <h2 class="h-cover-title u-lineHeightTight u-fontWeightMedium {{#unless @first}}u-fontSizeLarge{{/unless}}">
-                        <a class="u-block" href="{{url}}">{{title}}</a>
-                    </h2>
-                    {{#if @first}}<p class="h-cover-excerpt u-paddingTop10 u-fontSizeBase u-hide-before-md">{{excerpt words="10"}}</p>{{/if}}
-                </header>
-            </div>
-        </article>
+                <h2 class="text-title hover:text-primary font-semibold text-2xl{{#if @first}} md:text-4xl{{/if}}">
+                    <a class="block" href="{{url}}">{{title}}</a>
+                </h2>
 
-    {{/foreach}}
-    {{/get}}
+                {{#if @first}}<p class="text-lg text-gray-500 hidden mt-4 lineClamp-2 lg:block">{{excerpt}}</p>{{/if}}
+            </header>
+        </div>
+    </article>
+{{/foreach}}
 
 </div>
+{{/get}}
 
 {{!-- Latest Post --}}
-<section class="post-fluid u-container u-paddingTop30">
-    <h4 class="u-marginTop30 u-marginBottom30 u-fontSize22">{{t "Latest Articles"}}</h4>
-    <div class="story-feed">
-        <div class="row story-feed-content">
-            {{!-- Story Grid - partiasl/story/story-grid.hbs --}}
-            {{#foreach posts visibility="all"}}
-                <div class="col col-s12 s6 l4">
-                    {{> "story/story-grid" myexcerpt='yes'}}
-                </div>
-            {{/foreach}}
-        </div>
+<div class="post-fluid px-4 py-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 js-post-feed">
+
+    {{#foreach posts visibility="all"}}
+        <article class="js-story relative mb-8{{#unless feature_image}} flex flex-col justify-center p-8 bg-gray-100 rounded{{/unless}}">
+                {{#if feature_image}}
+                <figure class="relative mb-4 overflow-hidden img-hover bg-gray-100" style="padding-bottom: 66.66667%;">
+                    {{!-- Featured Image ./partials/components/featured-image.hbs --}}
+                    <a href="{{url}}">{{> "components/featured-image"}}</a>
+                </figure>
+                {{/if}}
+
+            {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+            {{> "components/primary-tag"}}
+
+            <h2 class="text-title hover:text-primary mb-3 font-semibold text-26">
+                <a href="{{url}}" class="block">{{title}}</a>
+            </h2>
+
+            <p class="text-lg mb-4 text-gray-500{{#if feature_image}} lineClamp-2{{/if}}">{{excerpt words="25"}}</p>
+
+            {{!-- Article Author only Name - partials/components/author-meta.hbs --}}
+            {{> "components/author-meta" onlyName=true}}
+        </article>
+    {{/foreach}}
+
     </div>
-</section>
+
+    {{pagination}}
+</div>

@@ -1,0 +1,28 @@
+{{!< default}}
+
+<header class="archive-post-header">
+    <div class="px-4 py-12 mx-auto max-w-3xl text-center">
+        <h1 class="text-3xl md:text-5xl text-title">{{t "The full archive"}}</h1>
+        <div class="mt-5 text-lg text-gray-500">{{t "There are {total} posts in total" total=pagination.total}}</div>
+    </div>
+</header>
+
+<div class="container mx-auto pb-10">
+    <div class="archive-wrap max-w-3xl mx-auto">
+
+        {{#foreach posts}}
+        <div class="archive-post py-{{date format="YYYY"}}">
+            <div class="py text-primary border-b pb-1 mb-4 mt-6 text-2xl font-bold">{{date format="YYYY"}}</div>
+            <div class="py-4 flex">
+                <time class="datetime mr-1 text-gray-500 flex-none text-sm md:text-base capitalize" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="MMM YY"}} -</time>
+                <h2 class="archive-title text-lg md:text-xl font-bold text-title">
+                    <a href="{{url}}" class="hover:text-primary">{{title}}</a>
+                </h2>
+            </div>
+        </div>
+        {{/foreach}}
+
+    </div>
+</div>
+
+<style>.py-2013 + .py-2013 .py{display:none}.py-2014 + .py-2014 .py{display:none}.py-2015 + .py-2015 .py{display:none}.py-2016 + .py-2016 .py{display:none}.py-2017 + .py-2017 .py{display:none}.py-2018 + .py-2018 .py{display:none}.py-2019 + .py-2019 .py{display:none}.py-2020 + .py-2020 .py{display:none}.py-2021 + .py-2021 .py{display:none}.py-2022 + .py-2022 .py{display:none}.py-2023 + .py-2023 .py{display:none}.py-2024 + .py-2024 .py{display:none}.py-2025 + .py-2025 .py{display:none}</style>

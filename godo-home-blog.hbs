@@ -3,46 +3,47 @@
 
 {{#contentFor "mapache_class_body"}}is-blog{{/contentFor}}
 
-<div class="extreme-container story-feed">
-    <div class="u-maxWidth1000 u-marginAuto story-feed-content">
+<div class="max-w-4xl mx-auto my-10">
+    <div class="js-post-feed">
+        <div class="js-story">
 
-    {{#foreach posts}}
+            {{#foreach posts}}
 
-        <article class="entry u-relative u-overflowHidden">
-            <header class="entry-header u-marginAuto u-maxWidth740 u-marginBottom30">
-                {{!-- Category and Datetime partials/helper/helper-story-meta --}}
-                {{> "helper/helper-story-meta"}}
+            <article class="entry">
+                <header class="entry-header max-w-2xl mx-auto mb-8">
+                    {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+                    {{> "components/primary-tag"}}
 
-                <h2 class="entry-title u-fontSizeJumbo u-md-fontSize36 "><a href="{{url}}">{{title}}</a></h2>
-            </header>
+                    <h2 class="entry-title text-title hover:text-primary mb-5 text-4xl md:text-5xl"><a href="{{url}}" class="block">{{title}}</a></h2>
 
-            {{#if feature_image}}
-            <figure class="entry-image u-relative u-overflowHidden">
-                <a href="{{url}}" class="entry-image-link">
-                    <img class="u-absolute0 u-image u-block blur-up lazyload"
-                        src="{{img_url feature_image size="l"}}"
-                        srcset="{{img_url feature_image size="xxs"}}"
-                        data-srcset="{{img_url feature_image size="s"}} 300w,
-                                {{img_url feature_image size="m"}} 600w,
-                                {{img_url feature_image size="l"}} 1000w,
-                                {{img_url feature_image size="xl"}} 2000w"
-                        data-sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
-                        alt="{{title}}"
-                    />
-                    <div class="entry-bg u-absolute0 u-bgOpacity"></div>
-                </a>
-            </figure>
-            {{/if}}
+                    {{!-- Article Author - partials/components/author-meta.hbs --}}
+                    {{> "components/author-meta"}}
+                </header>
 
-            <div class="entry-body u-marginAuto u-maxWidth740">
-                <p class="story-excerpt u-block u-fontSizeBase u-paddingBottom30">{{excerpt words="60"}}</p>
-                <a href="{{url}}" class="more-link u-fontSizeSmall">{{t "Continue reading"}}</a>
-            </div>
-        </article>
+                {{#if feature_image}}
+                <figure class="entry-image relative mb-8 overflow-hidden rounded img-hover shadow-xl bg-gray-100" style="padding-top:50%">
+                    {{!-- Featured Image ./partials/components/featured-image.hbs --}}
+                    <a href="{{url}}">{{> "components/featured-image"}}</a>
+                </figure>
+                {{/if}}
 
-        <div class="entry-divider u-marginAuto u-maxWidth740"><hr></div>
+                <div class="entry-body max-w-2xl mx-auto">
+                    <p class="story-excerpt leading-relaxed mb-8{{#match @custom.post_font "=" "font-serif"}} font-serif{{else}} font-sans{{/match}}{{#match @custom.post_font_size "=" "20px"}} text-xl{{else}} text-lg{{/match}}">{{excerpt words="60"}}</p>
 
-    {{/foreach}}
+                    <a href="{{url}}" class="more-link button is-primary">
+                        <span>{{t "Continue reading"}}</span>
+                        <svg class="icon is-stroke is-small"><use xlink:href="#icon-next"></use></svg>
+                    </a>
+                </div>
+            </article>
 
+            <div class="entry-divider max-w-2xl mx-auto"><hr class="md:my-14"></div>
+
+            {{/foreach}}
+
+        </div>
     </div>
+
+    <div class="max-w-2xl mx-auto">{{pagination}}</div>
+
 </div>

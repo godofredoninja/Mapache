@@ -1,13 +1,17 @@
 {
-  "name": "mapache-godofredoninja",
+  "name": "mapache",
   "description": "mapache theme for ghost by @GodoFredoNinja",
   "demo": "https://godofredo.ninja",
-  "version": "3.1.3",
+  "version": "4.0.0",
   "engines": {
     "ghost": ">=4.0.0",
     "ghost-api": "v4"
   },
   "license": "gpl-3.0",
+  "screenshots": {
+    "desktop": "assets/images/screenshot-desktop.jpg",
+    "mobile": "assets/images/screenshot-mobile.jpg"
+  },
   "author": {
     "name": "GodoFredoNinja",
     "email": "hello@godofredo.ninja",
@@ -56,6 +60,156 @@
       "xl": {
         "width": 2000
       }
+    },
+    "card_assets": true,
+    "custom": {
+      "header": {
+        "type": "select",
+        "options": [
+          "Sticky",
+          "Scroll Hide",
+          "None"
+        ],
+        "default": "Sticky"
+      },
+      "header_menu": {
+        "type": "select",
+        "options": [
+          "Left",
+          "Center",
+          "Right"
+        ],
+        "default": "Left"
+      },
+      "header_has_color": {
+        "type": "boolean",
+        "default": false
+      },
+      "header_background": {
+        "type": "color",
+        "default": "#ffffff"
+      },
+      "header_text_color": {
+        "type": "color",
+        "default": "#424242"
+      },
+      "header_text_color_hover": {
+        "type": "color",
+        "default": "#a39a9a"
+      },
+      "color_scheme": {
+        "type": "select",
+        "options": [
+          "Light",
+          "Dark",
+          "Auto"
+        ],
+        "default": "Auto"
+      },
+      "logo_dark_mode": {
+        "type": "image"
+      },
+      "logo_width": {
+        "type": "text"
+      },
+      "disable_member_subscriptions": {
+        "type": "boolean",
+        "default": true
+      },
+      "sidebar_newsletter_background": {
+        "type": "color",
+        "default": "#485375"
+      },
+      "post_font": {
+        "type": "select",
+        "options": [
+          "font-sans",
+          "font-serif"
+        ],
+        "default": "font-sans",
+        "group": "post"
+      },
+      "post_font_size": {
+        "type": "select",
+        "options": [
+          "18px",
+          "20px"
+        ],
+        "default": "18px",
+        "group": "post"
+      },
+      "gallery": {
+        "type": "boolean",
+        "default": false,
+        "group": "post"
+      },
+      "comments_disqus_short_name": {
+        "type": "text",
+        "group": "post"
+      }
     }
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "cssnano": {
+    "preset": "advanced"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "prod": "cross-env NODE_ENV=production gulp production --production",
+    "dev": "gulp development",
+    "lint:js": "standard src/js/**/*.js gulpfile.js",
+    "lint:sass": "stylelint src/sass/**/*.sass",
+    "lint": "yarn lint:js && yarn lint:sass",
+    "test": "yarn lint && gscan .",
+    "test:ci": "gscan --fatal --verbose .",
+    "scan": "gscan ."
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/runtime": "^7.16.5",
+    "autoprefixer": "^10.4.0",
+    "babelify": "^10.0.0",
+    "beeper": "^2.1.0",
+    "browserify": "^17.0.0",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.14",
+    "cssnano-preset-advanced": "^5.1.9",
+    "del": "^6.0.0",
+    "gscan": "^4.20.0",
+    "gulp": "^4.0.2",
+    "gulp-header": "^2.0.9",
+    "gulp-if": "^3.0.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.1.0",
+    "merge-stream": "^2.0.0",
+    "postcss": "^8.4.5",
+    "postcss-discard-comments": "^5.0.1",
+    "pump": "^3.0.0",
+    "sass": "^1.45.1",
+    "standard": "^16.0.4",
+    "stylelint": "^14.2.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "flexsearch": "^0.6.32",
+    "fuzzysort": "^1.1.4",
+    "infinite-scroll": "^4.0.1",
+    "lazysizes": "^5.3.2",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.25.0",
+    "tailwindcss": "^2.2.17"
   }
 }

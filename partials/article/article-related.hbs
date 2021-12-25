@@ -1,20 +1,15 @@
 {{!-- Article related --}}
-{{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |post_related|}}
+{{#get "posts" limit="4" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |post_related|}}
 {{#if post_related}}
 
-<section class="post-related u-overflowHidden">
-    <div class="extreme-container">
-        <div class="row">
-            <div class="col s12">
-                <h2 class="post-related-title u-fontSizeBase title-line u-marginBottom40">{{t "Related Articles"}}</h2>
-            </div>
+<section class="post-related bg-gray-150 py-10">
+    <div class="container mx-auto">
+        <h2 class="post-related-title text-title text-26 mb-8">{{t "Related Articles"}}</h2>
 
-            {{#foreach post_related visibility="all"}}
-            <div class="col col-s12 s6 l4">
-                {{> "story/story-grid" class='u-fontSizeLarge u-fontWeightMedium'}}
-            </div>
-            {{/foreach}}
-
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {{#foreach post_related visibility="all"}}
+            {{> "story/story-grid" classTitle='text-xl'}}
+        {{/foreach}}
         </div>
     </div>
 </section>

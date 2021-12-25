@@ -1,0 +1,14 @@
+{{#if isSecondary}}
+    <div class="footer-menu py-10 font-medium">
+        <ul class="nav">
+            {{#foreach navigation}}<li class="p-2 md:inline-block"><a href="{{url absolute="true"}}">{{label}}</a></li>{{/foreach}}
+        </ul>
+    </div>
+
+{{else}}
+    <ul class="nav">
+        {{#foreach navigation}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+    </ul>
+{{/if}}

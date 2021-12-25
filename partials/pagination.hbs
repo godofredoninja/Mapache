@@ -1,0 +1,10 @@
+<nav class="pagination hidden">
+    {{#if next}}<a class="older-posts" href="{{page_url next}}"></a>{{/if}}
+</nav>
+
+<button class="button is-outlined load-more-btn w-full h-12 mt-8 hidden">
+    <span class="label">{{t "Load More"}}</span>
+    {{> icons/loader}}
+</button>
+
+{{#contentFor "mapache_class_body"}}{{#if next}} paged-next{{/if}}{{/contentFor}}

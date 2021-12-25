@@ -1,0 +1,15 @@
+<footer class="footer py-14">
+    <div class="container mx-auto text-center">
+        {{!-- Social Media - ./partials/components/social-media.hbs --}}
+        {{> "components/social-media" class="footer-social-media"}}
+
+        {{!-- Secondary Navigation --}}
+        {{#if @site.secondary_navigation}}{{navigation type="secondary"}}{{/if}}
+
+        {{!-- Copyright  --}}
+        <div class="text-sm mt-5 opacity-80">
+            <span class="block mb-2">Copyright {{date format="YYYY"}}, {{@site.title}}. All Rights Reserved.</span>
+            <span>Design with  <svg class="icon is-small text-red-500 animated infinite pulse"><use xlink:href="#icon-heart"></use></svg> by <a href="https://godofredo.ninja" title="Developer FullStack.">@GodoFredoNinja</a></span>
+        </div>
+    </div>
+</footer>

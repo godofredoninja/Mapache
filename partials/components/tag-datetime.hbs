@@ -1,0 +1,8 @@
+<div class="flow-meta mb-4{{#if class}} {{class}}{{else}} text-gray-500 text-sm{{/if}}">
+    {{#if primary_tag}}{{#primary_tag}}
+        <a href="{{url}}" class="flow-meta-cat leading-none font-medium uppercase relative tracking-wide z-3">{{name}}</a>
+        <span class="mx-1">·</span>
+    {{/primary_tag}}{{/if}}
+
+    {{#unless undated}}<time class="datetime uppercase" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="D MMMM YYYY"}}</time>{{/unless}}
+</div>

@@ -1,48 +1,96 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-video share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-video has-cover is-head-transparent{{/contentFor}}
 
 {{#post}}
-<div class="cc-video u-overflowHidden u-relative">
-    <div class="post-fluid u-container">
-        <div class="row">
-            <div class="col s12 l8 cc-video-left">
-                <div class="cc-video-cont">
-                    {{!-- Video Embed --}}
-                    <div class="cc-video-embed">
-                        <span class="cc-video-close button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg> </span>
-                    </div>
+
+<div class="cc-video godo-hero-cover bg-dark pt-16 relative">
+    <div class="py-10 flex flex-col lg:flex-row mx-auto lg:px-4">
+        <div class="flex-grow lg:mr-8">
+            <div class="cc-video-cont h-0" style="padding: 0 0 56.25%">
+                <div class="cc-video-embed">
+                    <span class="js-video-close absolute button is-black is-circle -right-3 -top-3 z-3 hidden">
+                        <svg class="icon is-x-small"><use xlink:href="#icon-close"></use></svg>
+                    </span>
                 </div>
             </div>
-            <div class="col s12 l4 cc-video-right">
-                <div class="cc-video-header">
-                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom15"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
-                    <h1 class="cc-video-title u-md-fontSizeLarger u-fontSizeLarger u-lineHeightTight u-textColorWhite">{{title}}</h1>
-                    {{#if custom_excerpt}}<p class="cc-video-excerpt u-fontSizeBase u-paddingTop15">{{custom_excerpt}}</p>{{/if}}
-                </div>
+        </div>
+        <div class="cc-video-right lg:w-1/3">
+            <div class="cc-video-header px-4 pt-8 lg:p-0">
+                {{!-- Category and Datetime partials/components/primary-tag.hbs --}}
+                {{> "components/primary-tag" class="text-white"}}
+
+                <h1 class="cc-video-title text-white text-4xl xl:text-5xl">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="text-white text-opacity-60 text-xl xl:text-2xl mt-5">{{custom_excerpt}}</p>{{/if}}
             </div>
         </div>
     </div>
 </div>
+
+<div class="container js-video-post mx-auto flex flex-col lg:flex-row my-10">
+    <article class="post min-w-0 flex-auto">
+        {{!-- Article Author - partials/components/author-meta.hbs --}}
+        {{> "components/author-meta" class="lg:ml-20"}}
+
+        {{!-- Article Content - partials/article/article-body.hbs --}}
+        {{> "article/article-body"}}
+    </article>
 {{/post}}
 
-<div class="post js-video-post extreme-container u-marginTop30 u-marginBottom40">
-    <div class="row">
-        {{#post}}
-        <div class="col col-left">
-            {{!-- Article Author - partials/article/article-author.hbs --}}
-            {{> "article/article-author"}}
-
-            {{!-- Article Content - partials/article/article-body.hbs --}}
-            {{> "article/article-body"}}
-        </div>
-        {{/post}}
-
-        {{!-- Sidebar - partials/sidebar.hbs --}}
-        {{> "sidebar"}}
-    </div>
+    {{!-- Sidebar - partials/sidebar.hbs --}}
+    {{> "sidebar"}}
 </div>
 
 {{!-- Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
+
+{{#contentFor "scripts"}}<script>
+(function () {
+    var selectors = [
+        'iframe[src*="player.vimeo.com"]',
+        'iframe[src*="dailymotion.com"]',
+        'iframe[src*="youtube.com"]',
+        'iframe[src*="youtube-nocookie.com"]',
+        'iframe[src*="player.twitch.tv"]',
+        'iframe[src*="kickstarter.com"][src*="video.html"]'
+    ];
+
+    var $firstVideo = document.querySelector('.js-post-content').querySelectorAll(selectors.join(','))[0];
+
+    if (!$firstVideo) return;
+
+    var $videoMedia = document.querySelector('.cc-video-embed');
+    var $jsVideoClose = document.querySelector('.js-video-close');
+
+    /* Append Video in Top of Article */
+    if ($firstVideo.closest('.kg-embed-card')) {
+        $videoMedia.appendChild($firstVideo.closest('.kg-embed-card'));
+    } else {
+        $videoMedia.appendChild($firstVideo.parentNode);
+    }
+
+    /* Video fixed */
+    function videoMediaScroll() {
+        if (window.scrollY > document.querySelector('.js-video-post').offsetTop - 100) {
+            document.body.classList.add('has-video-fixed');
+            $jsVideoClose.classList.remove('hidden');
+        } else {
+            document.body.classList.remove('has-video-fixed');
+            $jsVideoClose.classList.add('hidden');
+        }
+    }
+
+    if (document.body.clientWidth > 1200) {
+        window.addEventListener('scroll', videoMediaScroll);
+    }
+
+    /*  Close video fixed */
+    $jsVideoClose.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.body.classList.remove('has-video-fixed');
+        this.classList.add('hidden');
+        window.removeEventListener('scroll', videoMediaScroll);
+    });
+})();
+</script>{{/contentFor}}

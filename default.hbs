@@ -7,7 +7,7 @@
         ✎ @GodoFredoNinja
         ✈ Lima - Perú
 -->
-<html lang="{{@site.locale}}" data-theme="light">
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark"{{/match}}>
 <head>
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
@@ -16,63 +16,71 @@
     <title>{{meta_title}}</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{!-- Fonts => Roboto && Merriweather --}}
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet" type="text/css"/></noscript>
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet" type="text/css"/></noscript>
+
+    <script>
+    {{#match @custom.color_scheme "Auto"}}
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.querySelector('html').classList.add('dark');
+        } else {
+            document.querySelector('html').classList.remove('dark');
+        }
+    {{else}}
+        if (localStorage.theme === 'dark') {
+            document.querySelector('html').classList.add('dark');
+        } else if (localStorage.theme === 'light') {
+            document.querySelector('html').classList.remove('dark');
+        }
+    {{/match}}
+    </script>
+
+    {{!-- Fonts -> Public Sans=400,500,600,700 --}}
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <noscript><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
     {{!-- Styles --}}
     <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
 
+    <style>
+        :root {
+            {{#if @custom.header_has_color}}
+            --header-logo-color: #fff;
+            --header-bg: {{@custom.header_background}};
+            --header-color: {{@custom.header_text_color}};
+            --header-color-hover: {{@custom.header_text_color_hover}};
+            {{/if}}
+            --logo-width: {{#if @custom.logo_width}}{{@custom.logo_width}}{{else}}11.25rem{{/if}};
+        }
+    </style>
+
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
-
-    <script>
-        if (typeof(Storage) !== 'undefined') {
-            var selectTheme = localStorage.getItem('selected-theme');
-            if (selectTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark')
-            } else if (selectTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        }
-    </script>
 </head>
 <body class="{{{block "mapache_class_body"}}}">
 
-    <div class="site-wrapper u-flexColumnTop">
-        {{!-- Header --}}
-        {{> "header"}}
+    <div class="site-wrapper flex flex-col justify-start min-h-screen">
+        {{!-- Header - partials/layout/header.hbs --}}
+        {{> "layout/header"}}
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-        <main class="site-main {{{block "mapache_class_site_main"}}}">{{{body}}}</main>
+        <main class="site-main">{{{body}}}</main>
 
-        {{!-- Instagram - partials/widget/widget-instagram.hbs --}}
-        {{#is "post"}}{{> "widget/widget-instagram"}}{{/is}}
+        {{!-- Footer - partials/layout/footer.hbs --}}
+        {{> "layout/footer"}}
 
-        {{!-- Footer Content --}}
-        {{>"footer"}}
+        {{!-- Mobile Menu - partials/layout/footer.hbs --}}
+        {{> "layout/mobile-menu"}}
     </div>
 
-    {{!-- Search box --}}
+    {{!-- Search - partials/search.hbs --}}
     {{>"search"}}
-
-    {{!-- Loandig Bar --}}
-    <div class="loadingBar"></div>
-
-    {{!-- Return home top page scroll --}}
-    <div class="back-to-top js-back-to-top u-hide-before-lg u-flexCenter justify-content-center u-fontSize40">
-        <svg class="icon icon--arrow-up"><use xlink:href="#icon-arrow-round"></use></svg>
-    </div>
-
-    {{!-- Notifications for members --}}
-    {{> "notifications"}}
 
     {{!-- Site URL --}}
     <script>
         var siteUrl = '{{@site.url}}';
         var siteSearch = '{{asset "scripts/search.js"}}';
-        var sitePrismJs = '{{asset "scripts/prismjs.js"}}';
-        var sitePrismJscomponents = '/assets/scripts/components/';
+        var prismJs = '{{asset "scripts/prismjs.js"}}';
+        var prismJsComponents = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/';
+        var mapacheGallery = {{@custom.gallery}};
     </script>
 
     {{!-- Icons --}}
@@ -82,7 +90,7 @@
     {{ghost_foot}}
 
     {{!-- The main JavaScript --}}
-    <script src="{{asset "scripts/main.js"}}"></script>
+    <script src="{{#is "post, page"}}{{asset "scripts/post.js"}}{{else}}{{asset "scripts/main.js"}}{{/is}}"></script>
 
     {{#if pagination.pages}}<script src="{{asset "scripts/pagination.js"}}" async defer></script>{{/if}}
 

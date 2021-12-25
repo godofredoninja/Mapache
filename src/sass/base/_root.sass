@@ -1,0 +1,137 @@
+// html:not(.dark) {
+//     --header-logo-color:#fff;
+//     --header-bg: var(--ghost-accent-color);
+//     --header-color: rgba(255, 255, 255, 0.8);
+//     --header-color-hover: #fff;
+// }
+
+\:root
+  --ghost-accent-color: #{$primary-color}
+  // global
+  --bg: #fff
+  --body-color: #{$primary-text-color}
+  --blank: #fff
+
+  // Header
+  --header-logo-color: #{$gray-900}
+  --header-color: #{$primary-text-color}
+  --header-bg: #fff
+  --header-color-hover: var(--ghost-accent-color)
+
+  // post
+  --title-color: #{$gray-900}
+  --post-color-link: var(--ghost-accent-color)
+  --post-link-decoration: none
+
+  // Search
+  --search-bg: #fff
+  --search-link-hover: #eee
+
+  --color-primary: var(--ghost-accent-color)
+
+  // Gray
+  --gray-90: #{$gray-90}
+  --gray-100: #{$gray-100}
+  --gray-150: #{$gray-150}
+  --gray-200: #{$gray-200}
+  --gray-300: #{$gray-300}
+  --gray-400: #{$gray-400}
+  --gray-500: #{$gray-500}
+  --gray-600: #{$gray-600}
+  --gray-700: #{$gray-700}
+  --gray-800: #{$gray-800}
+  --gray-900: #{$gray-900}
+
+  // DropDown
+  --dropdown-bg: #000
+
+html.dark
+  // global
+  --bg: #222
+  --blank: #222
+  --body-color: #ccc
+
+  // header
+  --header-logo-color: #fff
+  --header-bg: #222
+  --header-color: #eee
+  --header-color-hover: #888
+
+  // post
+  --title-color: #eee
+  --post-color-link: #fff
+  --post-link-decoration: underline
+
+  // Search
+  --search-bg: #333
+  --search-link-hover: #444
+
+  // gray
+  --gray-90: #292929
+  --gray-100: #1f1f1f
+  --gray-150: #222
+  --gray-200: #444
+  --gray-500: #919191
+  --gray-600: #aaa
+  --gray-700: #8F8F8F
+  --gray-900: #ccc
+
+  .header-logo
+    color: #fff
+  .logo-light
+    display: none
+  .logo-dark
+    display: block
+
+  .icon--moon
+    display: none
+  .icon--sunny
+    display: block
+
+  // post
+  .post-share a
+    opacity: 1
+    &:hover
+      opacity: .6
+
+  // table
+  table tr:nth-child(2n)
+    background: transparent
+
+  table th,
+  table td
+    border-color: rgba(255, 255, 255, 0.2)
+
+  // buttos
+  .button.is-black.is-outlined
+    color: #eee
+    border-color: #eee
+
+    &:hover
+      filter: invert(100%)
+
+  // Load more btn
+  .button.is-outlined
+    color: #eee
+    border: 1px solid #888
+    background-color: #222
+    &:hover
+      border-color: #444
+      background-color: #444
+      color: #eee
+
+  // form
+  input:not(.not-dark),
+  textarea:not(.not-dark)
+    background: #333
+    border-color: #333
+    color: #fff
+
+  // pre code
+  \:not(pre) > code
+    background: #101010
+    color: #ccc
+
+  pre
+    color: #ccc
+    background: #101010

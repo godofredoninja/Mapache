@@ -1,33 +1,39 @@
-{{!-- hr > line in top --}}
-<hr class="hr-list">
+{{!-- <hr class="hr-list my-0"> --}}
+<article class="js-story flex flex-col md:flex-row relative bg-blank rounded-xl p-5 shadow-lg" style="box-shadow: 0 0 35px 0px rgb(22 12 96 / 9%)">
+    {{#if feature_image}}
+    <figure class="flex-none relative overflow-hidden md:pr-4 md:w-1/2">
+        <span class="absolute top-0 right-0 mt-3 mr-5 z-2 text-white bg-dark bg-opacity-40 rounded-2xl px-3 leading-tight">
+            <time class="datetime uppercase text-xs" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+        </span>
 
-<article class="story u-block-before-md u-flex u-relative">
-    <a href="{{url}}" class="story-image u-relative u-overflowHidden u-bgGray image-hover">
-        {{!-- Featured Image --}}
-        {{#if feature_image}}
-            <img class="story-img u-absolute0 u-image u-block lazyload blur-up"
-                src="{{img_url feature_image size="m"}}"
-                srcset="{{img_url feature_image size="xxs"}}"
-                data-srcset="{{img_url feature_image size="s"}} 300w,{{img_url feature_image size="m"}} 600w"
-                data-sizes="(max-width: 1000px) 400px, 600px"
-                alt="{{title}}"
-            />
-        {{else}}
-            <div class="u-absolute0 u-bgCover u-block" style="background-image:url({{asset "images/not-image.jpg"}})"></div>
+        <img class="object-cover blur-up h-56 w-full lg:h-full rounded-xl blur-up lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="{{img_url feature_image size="xs"}} 100w,{{img_url feature_image size="s"}} 300w,{{img_url feature_image size="m"}} 600w"
+            data-sizes="auto"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            width="330"
+            height="310"
+        />
+
+        <a class="absolute bottom-0 left-0 ml-4 mb-4 h-12 w-12 bg-white text-black rounded-full flex justify-center items-center hover:text-white hover:bg-primary" href="{{url}}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon is-small" viewBox="0 0 512 512"><path d="M133 440a35.37 35.37 0 01-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37 7.46-27.53 19.46-34.33a35.13 35.13 0 0135.77.45l247.85 148.36a36 36 0 010 61l-247.89 148.4A35.5 35.5 0 01133 440z"/></svg>
+        </a>
+    </figure>
+    {{/if}}
+
+    <div class="relative flex flex-col mt-4 md:mt-0 md:pl-4">
+        {{#if primary_tag}}
+        <div class="text-xs mb-3 flex items-center text-primary tracking-wide">
+            {{> "icons/headset"}}
+            <a href="{{primary_tag.url}}" class="uppercase font-semibold inline-block ml-1">{{primary_tag.name}}</a>
+        </div>
         {{/if}}
-    </a>
 
-    <div class="story-body u-flexColumn u-relative">
-        {{!-- Category and Datetime partials/helper/helper-story-meta --}}
-        {{> "helper/helper-story-meta"}}
+        <h2 class="text-22 leading-tight text-title mb-3 lineClamp-2 hover:text-primary"><a href="{{url}}" class="block">{{title}}</a></h2>
+        <div class="relative overflow-hidden flex flex-col flex-grow mb-5 text-gray-600">
+            <div class="lineClamp-3 text-base">{{excerpt words="25"}}</div>
+        </div>
 
-        <h2 class="story-title u-fontSize26 u-lineHeightTight title-hover"><a href="{{url}}" class="u-block">{{title}}</a></h2>
-        <div class="story-lower u-relative u-overflowHidden u-flexColumnTop"><a href="{{url}}" class="story-excerpt u-block">{{excerpt words="25"}}</a></div>
-        <footer class="story-footer u-fontSizeSmaller">
-            <a href="{{url}}" class="button button--filled u-textUppercase u-fontSizeSmall u-relative zindex3">
-                {{> "icons/listen"}}
-                {{t "Listen"}}
-            </a>
-        </footer>
+        <a href="{{url}}" class="uppercase text-xs text-gray-500 hover:text-primary font-semibold inline-block">{{t "View Episode"}} ></a>
     </div>
 </article>

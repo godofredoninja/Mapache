@@ -1,0 +1,19 @@
+.bg-lines
+  position: absolute
+  top: 0
+  left: 50%
+  width: 100%
+  max-width: 1280px
+  height: 100%
+  transform: translateX(-50%)
+
+.bg-line
+  position: absolute
+  top: 0
+  width: 1px
+  height: 100%
+  background-color: rgba(153, 153, 153, .25)
+
+@for $i from 1 through 5
+  .bg-line--#{$i}
+    left: calc(100% / 4 * #{$i - 1})

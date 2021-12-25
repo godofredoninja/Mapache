@@ -3,18 +3,25 @@
 
 {{#contentFor "mapache_class_body"}}is-article{{/contentFor}}
 
-<div class="post extreme-container u-marginTop30 u-marginBottom40">
-    <div class="row">
+<div class="container mx-auto flex flex-col lg:flex-row my-10">
         {{#post}}
-        <article class="col col-left">
-            {{!-- Article Header - partials/article/article-header.hbs --}}
-            {{> "article/article-header"}}
+        <article class="post min-w-0 flex-auto">
+            {{#unless feature_image}}
+                <div class="lg:pl-20">
+                {{!-- Article Header - partials/article/article-header.hbs --}}
+                {{> "article/article-header"}}
+                {{!-- Article Author - partials/components/author-meta.hbs --}}
+                {{> "components/author-meta"}}
+                </div>
+            {{else}}
+                {{!-- Article Header - partials/article/article-header.hbs --}}
+                {{> "article/article-header"}}
+                {{!-- Article Author - partials/components/author-meta.hbs --}}
+                {{> "components/author-meta"}}
+            {{/unless}}
 
-            {{!-- Article Author - partials/article/article-author.hbs --}}
-            {{> "article/article-author"}}
-
-            {{!-- Article Image - partials/helper/helper-article-image.hbs --}}
-            {{> "helper/helper-article-image"}}
+            {{!-- Featured Image - partials/article/article-media.hbs --}}
+            {{> "article/article-media"}}
 
             {{!-- Article Content - partials/article/article-body.hbs --}}
             {{> "article/article-body"}}
@@ -23,7 +30,6 @@
 
         {{!-- Sidebar - partials/sidebar.hbs --}}
         {{> "sidebar"}}
-    </div>
 </div>
 
 {{!-- Related Articles - partials/article/article-related.hbs --}}

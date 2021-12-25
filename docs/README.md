@@ -1,0 +1,79 @@
+# General Features
+
+- Mapache Settings
+  - [Social Media](./custom-theme-settings.md#social-media)
+  - [Search](./custom-theme-settings.md#search)
+  - [Multi-Language](./custom-theme-settings.md#multi-language)
+- Site wide
+  - [Header](./custom-theme-settings.md#header)
+    - Sticky (Default)
+    - Hides when scrolling
+    - None - Static
+  - [Header Menu](./custom-theme-settings.md#header-menu)
+    - Left (Default)
+    - Center
+    - Right
+  - [Header background color](./custom-theme-settings.md#header-background-color)
+  - Color Scheme
+    - Auto (default)
+    - Dark Mode
+    - Light Mode
+  - [Publication logo](./custom-theme-settings.md#publication-logo)
+    - Logo Dark Mode
+    - Logo Size - 180px (Default)
+  - [Membership](./custom-theme-settings.md#membership)
+    - Disable Membership
+    - Sidebar newsletter background
+- Post
+  - [Post Font](./custom-theme-settings.md#post-font)
+    - font-sans (default)
+    - font-serif
+  - [Post size](./custom-theme-settings.md#post-font-size)
+    - 18px (default)
+    - 20px
+  - [Beautiful gallery viewer](./custom-theme-settings.md#gallery)
+    - Disable (default)
+  - [Disqus Comments](./custom-theme-settings.md#comments)
+- [Different Languages](./languages.md)
+- Home Page
+  - [Default](./home.md#default)
+  - [Personal](./home.md#personal)
+  - [Blog](./home.md#medium)
+  - [Travel](./home.md#travel)
+  - [Fashion](./home.md#fashion)
+- Post Format
+  - [Post Default](./post-format.md#post-default)
+  - [Post Full Header](./post-format.md#post-full-header)
+  - [Post Image](./post-format.md#post-image)
+  - [Post Image Single](./post-format.md#post-image-single)
+  - [Post Video](./post-format.md#post-video)
+  - [Post Single](./post-format.md#post-single)
+- Pages
+  - [Podcasts](./podcast-page.md)
+  - [Contact](contact-page.md)
+  - 404
+- Archive
+  - [Full Archive](./arhive-page.md)
+  - [Authors](./authors-and-tags-page.md#authors-page)
+  - [Tags](./authors-and-tags-page.md#tags-page)
+- Post and Page
+  - [Prism supported all syntax](https://prismjs.com/index.html#supported-languages)
+  - Video Responsive
+    - Video
+    - YouTube
+    - Vimeo
+    - kickstarter
+    - Dailymotion
+- Post Content
+  - Related Articles
+  - Social share buttons support for posts
+  - Previous and next Post
+- Sidebar
+  - 4 featured articles on the home page
+  - 4 lates articles
+  - Tag Cloud
+  - Widget Newsletter
+- Secondary navigation in the footer
+- Pagination (Button load more)
+- Lazy Loading for images
+- [AMP](https://github.com/godofredoninja/Hodor-AMP-Ghost) Template

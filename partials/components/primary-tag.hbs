@@ -1,0 +1,6 @@
+{{#if primary_tag}}
+<div class="text-xs mb-3 flex items-center">
+    <span class="w-2 h-2 rounded-full bg-primary inline-block mr-2" {{#if primary_tag.accent_color}}style="background-color:{{primary_tag.accent_color}}"{{/if}}></span>
+    <a href="{{primary_tag.url}}" class="uppercase tracking-wide relative z-3 {{#if class}}{{class}}{{else}}text-gray-500{{/if}}">{{primary_tag.name}}</a>
+</div>
+{{/if}}

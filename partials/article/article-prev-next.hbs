@@ -1,21 +1,42 @@
-<hr>
-<div class="row u-marginTop30 prev-next">
+<div class="flex prev-next mb-8">
     {{!-- Prev Post --}}
-    <div class="col s12 m6">
+    <div class="w-1/2 pr-4">
         {{#prev_post}}
-        <a href="{{url}}" class="prev-next-link u-block u-marginBottom20">
-            <div class="prev-next-span text-muted u-block"><span class="u-inlineBlock u-hide-before-md arrow-left"><svg class="icon icon--m top2 rotate270"><use xlink:href="#icon-arrow-round"></use></svg></span> {{t "Prev article"}}</div>
-            <h5 class="prev-next-title u-fontWeightMedium">{{title}}</h5>
+        <a href="{{url}}" class="prev-next-link flex items-center">
+            {{#if feature_image}}
+            <img class="hidden h-16 w-16 flex-none object-cover rounded-full blur-up lazyload mr-4 md:block"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="{{img_url feature_image size="s"}}"
+                height="64"
+                width="64"
+                alt="{{title}}">
+            {{/if}}
+
+            <div class="prev-next-span">
+                <span class="block text-sm mb-1 text-gray-500">{{t "Prev article"}}</span>
+                <h3 class="prev-next-title text-title text-base hover:text-primary leading-tight lineClamp-2 md:text-lg">{{title}}</h3>
+            </div>
         </a>
         {{/prev_post}}
     </div>
 
     {{!-- Next Post --}}
-    <div class="col s12 m6">
+    <div class="w-1/2 pl-4">
         {{#next_post}}
-        <a href="{{url}}" class="prev-next-link u-block u-marginBottom20 prev-next-right">
-            <div class="prev-next-span text-muted">{{t "Next article"}} <span class="u-inlineBlock u-hide-before-md arrow-right"><svg class="icon icon--m top2 rotate90"><use xlink:href="#icon-arrow-round"></use></svg></span></div>
-            <h5 class="prev-next-title u-fontWeightMedium">{{title}}</h5>
+        <a href="{{url}}" class="prev-next-right flex items-center justify-end">
+            <div class="text-right">
+                <span class="block text-sm mb-1 text-gray-500">{{t "Next article"}}</span>
+                <h3 class="prev-next-title text-title text-base hover:text-primary leading-tight lineClamp-2 flex-grow md:text-lg">{{title}}</h3>
+            </div>
+
+            {{#if feature_image}}
+            <img class="hidden h-16 w-16 flex-none object-cover rounded-full blur-up lazyload ml-4 md:block"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="{{img_url feature_image size="s"}}"
+                height="64"
+                width="64"
+                alt="{{title}}">
+            {{/if}}
         </a>
         {{/next_post}}
     </div>

@@ -1,13 +1,26 @@
-<div class="sidebar-items u-marginBottom30 u-flexColumn">
-    <h3 class="sidebar-title u-textColorDarker title-line">{{widgetTitle}}</h3>
+<div class="mb-10">
+    <h3 class="uppercase mb-5 border-b pb-2 font-bold text-sm">{{widgetTitle}}</h3>
 
     {{#foreach widgetPosts}}
-    <div class="sidebar-post u-relative">
-        <a href="{{url absolute="true"}}" class="u-flex">
-            <span class="u-flex0 sidebar-post-border u-flexCenter u-fontSize36 u-fontWeightSemibold">{{@number}}</span>
-            <h3 class="u-flex1 u-fontSize15 u-fontWeightMedium u-lineHeightTight u-flexCenter">{{title}}</h3>
+    <div class="sidebar-post {{#unless @last}}mb-4{{/unless}}">
+        <a href="{{url absolute="true"}}" class="flex items-center">
+            {{#if feature_image}}
+            <figure class="h-20 w-28 relative mr-4 flex-none bg-gray-100 rounded overflow-hidden img-hover">
+                <img class="image-inset absolute img-hover-here blur-up lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="{{img_url feature_image size="s"}}"
+                    width="112"
+                    height="80"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                />
+            </figure>
+            {{/if}}
+
+            <div class="py-2">
+                <h3 class="text-base text-title lineClamp-2 leading-tight hover:text-primary">{{title}}</h3>
+                <div class="text-sm text-gray-500 mt-1"><time class="datetime" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="D MMMM YYYY"}}</time></div>
+            </div>
         </a>
     </div>
     {{/foreach}}
-
 </div>

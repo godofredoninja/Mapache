@@ -1,15 +1,15 @@
 {{!-- Layout --}}
 {{!< default }}
 
-{{#contentFor "mapache_class_body"}}is-article is-article-single share-margin has-cover is-transparency{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-single-post has-cover is-head-transparent{{/contentFor}}
 
 {{#post}}
 {{!-- Article Header Cover - partials/article/article-header-cover.hbs --}}
 {{> "article/article-header-cover"}}
 
-<div class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
-    {{!-- Article Author - partials/article/article-author.hbs --}}
-    {{> "article/article-author"}}
+<div class="post container mx-auto max-w-3xl my-8">
+    {{!-- Article Author - partials/components/author-meta.hbs --}}
+    {{> "components/author-meta"}}
 
     {{!-- Article Content - partials/article/article-body.hbs --}}
     {{> "article/article-body"}}

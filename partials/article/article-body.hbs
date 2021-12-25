@@ -1,54 +1,24 @@
-{{#if access}}
-{{!-- if the user has access to this post, show it to them --}}
+<div class="post-body-wrap relative lg:flex">
+    <div id="post-body" class="post-body min-w-0 js-post-content{{#match @custom.post_font "=" "font-serif"}} font-serif{{else}} font-sans{{/match}}{{#match @custom.post_font_size "=" "20px"}} text-xl{{else}} text-lg{{/match}}">
+        {{content}}
 
-<div class="post-body u-relative">
-    {{!-- Share Sticky - partials/article/article-share.hbs --}}
-    {{> "article/article-share"}}
-
-    <div class="post-body-wrap">
-        {{!-- Content of Post --}}
-        <div class="post-inner js-post-content">{{content}}</div>
-
-        {{!-- Article Tags --}}
-        {{#if tags}}<div class="post-tags u-marginTop30 buttonSet">
-            {{#foreach tags}}<a href="{{url}}" title="{{name}}" class="button button--tag button--line u-textCapitalize">{{name}}</a>{{/foreach}}
+        {{#if tags}}<div class="post-tags my-8 buttons justify-center lg:justify-start">
+            {{#foreach tags}}<a href="{{url}}" title="{{name}}" class="button is-black is-outlined is-small uppercase">{{name}}</a>{{/foreach}}
         </div>{{/if}}
 
-        {{!-- Prev and Next Post - partials/article/article-prev-next.hbs --}}
-        {{> "article/article-prev-next"}}
-
-        {{!-- Comments partials/article/article-share-mobile.hbs --}}
-        {{> "article/article-share-mobile"}}
-
-        <hr class="post-footer-hr">
-
-        {{!-- Button for Toggle Comments --}}
-        <div class="button button--large button--dark button--comment post-comments-show js-toggle-comments u-hide">
-            <span class="disqus-comment-count" data-disqus-url="{{url absolute="true"}}">0 {{t "Comments"}}</span>
-        </div>
     </div>
+
+    {{!-- Share Sticky - partials/article/article-share.hbs --}}
+    {{> "article/article-share"}}
 </div>
 
-{{!-- Comments partials/article/article-comments.hbs --}}
-{{> "article/article-comments"}}
+<div class="post-footer mt-8">
+    {{!-- Authors - partials/article/article-authors.hbs --}}
+    {{> "article/article-authors"}}
 
-{{else}}
-{{!-- if the user does not have access, show them an upgrade CTA --}}
+    {{!-- Prev and Next Post - partials/article/article-prev-next.hbs --}}
+    {{> "article/article-prev-next"}}
 
-<div class="post-body u-relative">
-    <div class="post-inner js-post-content">
-        <p>{{{t "You don't have access to this post on <strong>{sitetitle}</strong> at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access." sitetitle=@site.title}}}</p>
-        <aside class="post-upgrade-cta u-sizeFullWidth">
-            <div class="post-upgrade-cta-content">
-                {{#if @member}}
-                    <h2 class="post-upgrade-title u-fontSize28">{{t "This post is for paying subscribers only"}}</h2>
-                {{else}}
-                    <h2 class="post-upgrade-title u-fontSize28">{{t "This post is for subscribers only"}}</h2>
-                {{/if}}
-                <a class="button button--large button--dark u-block u-marginTop30 u-marginAuto" href="/signup/">{{t "Subscribe now"}}</a>
-                <p><small>{{t "Already have an account?"}} <a href="/signin/">{{t "Sign in"}}</a></small></p>
-            </div>
-        </aside>
-    </div>
+    {{!-- Comments - partials/article/article-comments.hbs --}}
+    {{> "article/article-comments"}}
 </div>
-{{/if}}

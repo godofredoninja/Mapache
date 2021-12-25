@@ -1,0 +1,31 @@
+$icon-dimensions: 1.5rem
+$icon-dimensions-x-small: 1rem
+$icon-dimensions-medium: 1.25rem
+$icon-dimensions-large: 1.625rem
+
+.icon
+  // align-items: center
+  // display: inline-flex
+  // justify-content: center
+  display: inline-block
+  fill: currentColor
+  height: $icon-dimensions
+  stroke-width: 0
+  // stroke: currentColor
+  vertical-align: middle
+  width: $icon-dimensions
+
+  &.is-stroke
+    fill: none
+    stroke: currentColor
+
+  &.is-x-small
+    height: $icon-dimensions-x-small
+    width: $icon-dimensions-x-small
+  &.is-small
+    height: $icon-dimensions-medium
+    width: $icon-dimensions-medium
+  &.is-large
+    height: $icon-dimensions-large
+    width: $icon-dimensions-large
+

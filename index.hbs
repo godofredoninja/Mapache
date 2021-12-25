@@ -1,14 +1,50 @@
+{{!-- Layouts --}}
 {{!< default}}
 
-{{!-- custom Styles For tag <body> --}}
-{{#contentFor "mapache_class_body"}}is-frontpage {{^is "paged"}}has-cover is-transparency{{/is}}{{/contentFor}}
-{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+{{#contentFor "mapache_class_body"}}is-home{{/contentFor}}
 
-{{^is "paged"}}
-    {{!-- Cover - partials/home/home-personal-cover.hbs --}}
-    {{> "home/home-personal-cover"}}
-{{/is}}
-
-<div id="main-content" class="extreme-container u-marginTop20">
+{{#is "paged"}}
+    {{!-- lates post - partials/loop.hbs --}}
     {{> "loop"}}
+{{else}}
+
+{{!-- Home Top Section --}}
+<div class="h-cover home-banner mx-auto mb-10 p-2 grid gap-2 lg:grid-cols-5">
+    {{#foreach posts visibility="all" from="1" to="3"}}
+        {{!-- Home Top Section -> 3 first Articles - partials/story/story-cover.hbs --}}
+        {{> "story/story-cover" }}
+    {{/foreach}}
 </div>
+
+{{!-- Post Grid - 8 lates article --}}
+<div class="container mx-auto mb-16">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+
+        {{!-- Story Grid - partiasl/story/story-grid.hbs --}}
+        {{#foreach posts visibility="all" from="4" to="11"}}
+            {{> "story/story-grid" classTitle='text-xl'}}
+        {{/foreach}}
+
+    </div>
+</div>
+
+{{!-- Post List - 4 latest articles --}}
+<div class="container mx-auto my-10">
+    <div class="flex flex-col flex-wrap lg:flex-row">
+        <div class="flex-1">
+            <div class="js-post-feed">
+                {{!-- Story List - partials/story/story-list.hbs --}}
+                {{#foreach posts visibility="all" from="12" to="16"}}
+                    {{> "story/story-list"}}
+                {{/foreach}}
+            </div>
+
+            {{pagination}}
+        </div>
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </div>
+</div>
+
+{{/is}}

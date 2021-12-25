@@ -3,28 +3,29 @@
 
 {{#contentFor "mapache_class_body"}}is-article{{/contentFor}}
 
-<section class="post extreme-container u-marginTop30 u-marginBottom40">
-    <article class="row">
-        {{#post}}
-        <header class="col s12">
-            {{!-- Article Header - partials/article/article-header.hbs --}}
-            {{> "article/article-header"}}
+{{#post}}
 
-            {{!-- Article Author - partials/article/article-author.hbs --}}
-            {{> "article/article-author"}}
-        </header>
-        <div class="col col-left">
-            {{!-- Post Image - partials/helper/helper-article-image.hbs --}}
-            {{> "helper/helper-article-image"}}
+<section class="post container mx-auto my-10">
+    <div class="col s12 flex-none w-full">
+        {{!-- Article Header - partials/article/article-header.hbs --}}
+        {{> "article/article-header"}}
+
+        {{!-- Article Author - partials/components/author-meta.hbs --}}
+        {{> "components/author-meta"}}
+    </div>
+    <div class="flex flex-col lg:flex-row">
+        <div class="min-w-0 flex-auto">
+            {{!-- Featured Image - partials/article/article-media.hbs --}}
+            {{> "article/article-media"}}
 
             {{!-- Article Content - partials/article/article-body.hbs --}}
             {{> "article/article-body"}}
         </div>
-        {{/post}}
+{{/post}}
 
         {{!-- Sidebar - partials/sidebar.hbs --}}
         {{> "sidebar"}}
-    </article>
+    </div>
 </section>
 
 {{!-- Comments partials/article/article-related.hbs --}}
