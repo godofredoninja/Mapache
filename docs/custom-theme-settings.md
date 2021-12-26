@@ -214,7 +214,7 @@ It is not necessary to add all the icons. Only the icons you need.
 
 Mapache comes by default with buttons for changing the language
 
-Edit the following file. `./partials/layout/heder.hbs`
+Edit the following file. `./partials/layout/header.hbs`
 
 ```hbs
 {{!-- This is a language drop-down --}}
