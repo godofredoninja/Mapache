@@ -41,9 +41,11 @@ export default () => {
     document.head.insertBefore(link, document.head.childNodes[document.head.childNodes.length - 1].nextSibling)
   }
 
-  loadCSS('https://unpkg.com/lightgallery@2.1.8/css/lightgallery.css')
+  loadCSS('https://unpkg.com/lightgallery.js/dist/css/lightgallery.min.css')
 
-  loadScript('https://unpkg.com/lightgallery@2.1.8/lightgallery.min.js', () => {
+  loadScript('https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js', () => {
+    loadScript('https://unpkg.com/lg-zoom.js@1.0.1/dist/lg-zoom.min.js')
+
     window.lightGallery($postBody, {
       speed: 500,
       selector: '.mapache-light-gallery'
