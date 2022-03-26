@@ -88,6 +88,7 @@
   - `sr` — Serbian - By [Marjan Panić](https://github.com/neoartdoo)
   - `uk` — Ukrainian - By [Maksim](https://github.com/partizan007)
   - `tr` — :tr: Turkish by [@tolgaaaltas](https://github.com/tolgaaaltas)
+  - `nl` — Dutch - By [@sovereignhodler](https://github.com/sovereignhodler)
 - Home Page
   - [Default](./docs/home.md#default)
   - [Personal](./docs/home.md#personal)
