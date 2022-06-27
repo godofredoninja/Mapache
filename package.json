@@ -2,10 +2,9 @@
   "name": "mapache",
   "description": "mapache theme for ghost by @GodoFredoNinja",
   "demo": "https://godofredo.ninja",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "engines": {
-    "ghost": ">=4.0.0",
-    "ghost-api": "v4"
+    "ghost": ">=5.0.0"
   },
   "license": "gpl-3.0",
   "screenshots": {
