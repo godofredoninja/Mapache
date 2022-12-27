@@ -145,6 +145,10 @@
       "comments_disqus_short_name": {
         "type": "text",
         "group": "post"
+      },
+      "comments_isso_fqdn": {
+        "type": "text",
+        "group": "post"
       }
     }
   },

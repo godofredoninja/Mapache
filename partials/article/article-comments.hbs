@@ -28,4 +28,24 @@
 </script>
 {{/contentFor}}
 
+{{else if @custom.comments_isso_fqdn}}
+
+{{#contentFor "scripts"}}
+    <script data-isso="https://{{@custom.comments_isso_fqdn}}"
+            data-isso-gravatar="false"
+            data-isso-avatar="true"
+            data-isso-reply-notifications="false"
+            data-isso-vote="false"
+            data-isso-vote-levels="1,2,3,4,5"
+            data-isso-require-author="true"
+            data-isso-lang="{{@site.lang}}"
+        src="https://{{@custom.comments_isso_fqdn}}/js/embed.min.js">
+    </script>
+{{/contentFor}}
+
+<div id="post-comments" class="post-comments js-post-comments w-full mt-12 border-t pt-12">
+    {{!-- Isso Comments --}}
+    <section id="isso-thread"></section>
+</div>
+
 {{/if}}
